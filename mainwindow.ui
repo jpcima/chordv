@@ -34,7 +34,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
-         <widget class="QWidget" name="widgetLyricsMode" native="true"/>
+         <widget class="LyricsConfig" name="widgetLyricsMode" native="true"/>
         </item>
        </layout>
       </widget>
@@ -44,7 +44,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <widget class="QWidget" name="widgetChordMode" native="true"/>
+         <widget class="ChordConfig" name="widgetChordMode" native="true"/>
         </item>
        </layout>
       </widget>
@@ -54,7 +54,7 @@
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QWidget" name="widgetTextMode" native="true"/>
+         <widget class="TextConfig" name="widgetTextMode" native="true"/>
         </item>
        </layout>
       </widget>
@@ -107,6 +107,26 @@
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>LyricsConfig</class>
+   <extends>QWidget</extends>
+   <header>lyricsconfig.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ChordConfig</class>
+   <extends>QWidget</extends>
+   <header>chordconfig.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TextConfig</class>
+   <extends>QWidget</extends>
+   <header>textconfig.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

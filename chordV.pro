@@ -15,11 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     util.cpp \
-    formconfig.cpp
+    formconfig.cpp \
+    lyricsconfig.cpp \
+    chordconfig.cpp \
+    textconfig.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
-    formconfig.h
+    formconfig.h \
+    lyricsconfig.h \
+    chordconfig.h \
+    textconfig.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui

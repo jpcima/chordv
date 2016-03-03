@@ -1,11 +1,12 @@
 #ifndef LYRICSCONFIG_H
 #define LYRICSCONFIG_H
 
-
-class LyricsConfig : public formconfig
+#include "formconfig.h"
+class LyricsConfig : public FormConfig
 {
+   Q_OBJECT
 public:
-    LyricsConfig();
+    LyricsConfig(QWidget *parent=0);
 };
 
 #endif // LYRICSCONFIG_H

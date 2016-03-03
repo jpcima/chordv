@@ -1,6 +1,6 @@
 #include "lyricsconfig.h"
 
-LyricsConfig::LyricsConfig()
+LyricsConfig::LyricsConfig(QWidget *parent):FormConfig(parent)
 {
 
 }

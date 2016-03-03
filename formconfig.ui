@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1292</width>
-    <height>874</height>
+    <height>1031</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,12 +25,12 @@
         <x>0</x>
         <y>0</y>
         <width>1254</width>
-        <height>836</height>
+        <height>993</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_19">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_49">
+        <layout class="QHBoxLayout" name="MainLayout">
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_17">
            <item>
@@ -146,6 +146,49 @@
                   </item>
                   <item>
                    <widget class="QComboBox" name="comboBoxChordDiagramHorizontalSize">
+                    <item>
+                     <property name="text">
+                      <string>pt</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>inche</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>px</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>mm</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>cm</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_28">
+                  <item>
+                   <widget class="QLabel" name="labelBoxTocVerticalSpacing">
+                    <property name="text">
+                     <string>Toc vertical spacing</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QSpinBox" name="spinBoxBoxChordDiagramHorizontalSize_2"/>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxTocVerticalSpacing">
                     <item>
                      <property name="text">
                       <string>pt</string>

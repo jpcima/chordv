@@ -3,11 +3,13 @@
 
 #include <QMainWindow>
 #include <QObject>
+#include "formconfig.h"
 
 class ChordConfig : public FormConfig
 {
+  Q_OBJECT
 public:
-    ChordConfig();
+    ChordConfig(QWidget *parent = 0);
 };
 
 #endif // CHORDCONFIG_H

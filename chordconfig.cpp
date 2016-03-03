@@ -1,6 +1,6 @@
 #include "chordconfig.h"
 
-ChordConfig::ChordConfig()
+ChordConfig::ChordConfig(QWidget *parent):FormConfig(parent)
 {
-
+   disableWidgets(QRegExp("ChordDiagramHorizontalSize$"));
 }
