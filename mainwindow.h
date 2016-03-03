@@ -18,6 +18,10 @@ public:
 private slots:
     void newProject(bool);
     void openProject(bool);
+    void setChordMode(int i);
+    void setLyricsMode(int i);
+    void setTextMode(int i);
+
 private:
     Ui::MainWindow *ui;
 };
