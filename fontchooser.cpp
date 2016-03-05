@@ -10,7 +10,6 @@ FontChooser::FontChooser(QWidget *parent) :
 {
     ui->setupUi(this);
     connect (ui->buttonBox,SIGNAL(accepted()),this,SLOT(setFont()));
-    //ui->widget->setFont();
 }
 
 void FontChooser::setFont(QFont font, QColor textcolor, QColor backgroundcolor)
@@ -28,5 +27,5 @@ FontChooser::~FontChooser()
 
 void FontChooser::setFont()
 {
-    emit ( ui->widget->font, ui->toolButtonFontColor->getColor(),ui->toolButtonBackgroundColor->getColor());
+    emit SelectFont(ui->widget->font(),ui->toolButtonFontColor->getColor(),ui->toolButtonBackgroundColor->getColor());
 }
