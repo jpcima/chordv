@@ -15,6 +15,7 @@ class FormConfig : public QWidget
 public:
     explicit FormConfig(QWidget *parent = 0);
     ~FormConfig();
+    void setValue(QString var, QVariant value);
 protected:
     void disableWidgets(QRegExp value);
 private:

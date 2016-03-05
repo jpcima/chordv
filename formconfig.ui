@@ -135,17 +135,17 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_15">
                   <item>
-                   <widget class="QLabel" name="labelBoxChordDiagramHorizontalSize">
+                   <widget class="QLabel" name="labelChordDiagramHSize">
                     <property name="text">
                      <string>Chord diagram horizontal size</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSpinBox" name="spinBoxBoxChordDiagramHorizontalSize"/>
+                   <widget class="QSpinBox" name="spinBoxChordDiagramHSize"/>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxChordDiagramHorizontalSize">
+                   <widget class="QComboBox" name="comboBoxChordDiagramHSize">
                     <item>
                      <property name="text">
                       <string>pt</string>
@@ -629,17 +629,17 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_16">
                   <item>
-                   <widget class="QLabel" name="labelBoxHorinzontalMargin">
+                   <widget class="QLabel" name="labelMarginHorizontal">
                     <property name="text">
                      <string>Horizontal Margin</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSpinBox" name="spinBoxBoxHorinzontalMargin"/>
+                   <widget class="QSpinBox" name="spinBoxMarginHorizontal"/>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxHorinzontalMargin">
+                   <widget class="QComboBox" name="comboBoxMarginHorizontal">
                     <item>
                      <property name="text">
                       <string>pt</string>
@@ -672,17 +672,17 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_17">
                   <item>
-                   <widget class="QLabel" name="labelBoxVerticalMargin">
+                   <widget class="QLabel" name="labelMarginVertical">
                     <property name="text">
                      <string>Vertical Margin</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSpinBox" name="spinBoxBoxVerticalMargin"/>
+                   <widget class="QSpinBox" name="spinBoxMarginVertical"/>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxVerticalMargin">
+                   <widget class="QComboBox" name="comboBoxMarginVertical">
                     <item>
                      <property name="text">
                       <string>pt</string>
@@ -729,14 +729,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>FontButton</class>
-   <extends>QToolButton</extends>
-   <header>fontbutton.h</header>
-  </customwidget>
-  <customwidget>
    <class>ColorButton</class>
    <extends>QToolButton</extends>
    <header>colorbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>FontButton</class>
+   <extends>QToolButton</extends>
+   <header>fontbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

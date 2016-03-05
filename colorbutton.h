@@ -14,6 +14,8 @@ private:
     QColor m_color;
 private slots:
     void setColor(bool);
+signals:
+    void ColorChanged(QColor color);
 };
 
 #endif // COLORBUTTON_H

@@ -8,5 +8,6 @@ ColorButton::ColorButton(QWidget *parent):QToolButton(parent)
 void ColorButton::setColor(bool)
 {
    m_color=QColorDialog::getColor(m_color,this);
+   emit ColorChanged(m_color);
 }
 

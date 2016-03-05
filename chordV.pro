@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     fontchooser.cpp \
     fontbutton.cpp \
     fontdialog.cpp \
-    colorbutton.cpp
+    colorbutton.cpp \
+    lineedittest.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     fontchooser.h \
     fontbutton.h \
     fontdialog.h \
-    colorbutton.h
+    colorbutton.h \
+    lineedittest.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

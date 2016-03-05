@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 
 #include <QDebug>
+#include <QFileDialog>
+#include <QSettings>
+#include <QFileInfo>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -9,12 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect (ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
-    connect (ui->actionOpn_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
+    connect (ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect (ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
     connect (ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
     connect (ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int)));
-
   }
 
 void MainWindow::setChordMode( int i)
@@ -45,7 +47,30 @@ void MainWindow::newProject( bool)
 void MainWindow::openProject ( bool)
 
 {
+   QSettings s;
+   QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),s.value("LastOpenedDirectory").toString(),"*.conf");
+   if ( !filename.isEmpty())
+   {
+               QFileInfo fi(filename);
+               s.setValue("LastOpenedDirectory",fi.absolutePath());
+   }
 
+   QSettings p(filename,QSettings::IniFormat,this);
+   ui->lineEditInputFile->setText(p.value("File").toString());
+   ui->lineEditCreatorName->setText(p.value("Creator").toString());
+   p.beginGroup("LyricsBook");
+   ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
+   foreach ( QString key, p.allKeys())
+   {
+      ui->widgetLyricsMode->setValue(key,p.value(key));
+   }
+   p.endGroup();
+   p.beginGroup("ChordBook");
+   ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
+   p.endGroup();
+   p.beginGroup("TextBook");
+   ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
+   p.endGroup();
 }
 
 
