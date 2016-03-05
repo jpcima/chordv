@@ -1,22 +1,16 @@
-#ifndef DIALOG_H
-#define DIALOG_H
+#ifndef FONTDIALOG_H
+#define FONTDIALOG_H
 
-#include <QDialog>
+#include <QFontDialog>
 
-namespace Ui {
-class Dialog;
-}
 
-class Dialog : public QDialog
+class FontDialog : public QFontDialog
 {
     Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = 0);
-    ~Dialog();
-
-private:
-    Ui::Dialog *ui;
+    explicit FontDialog(QWidget *parent = 0);
+    ~FontDialog();
 };
 
-#endif // DIALOG_H
+#endif // FONTDIALOG_H

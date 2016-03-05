@@ -95,14 +95,14 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_4">
                     <item>
-                     <widget class="QToolButton" name="toolButtonCoverBackgroundColor">
+                     <widget class="ColorButton" name="toolButtonCoverBackgroundColor">
                       <property name="text">
                        <string>...</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QToolButton" name="toolButtonCoverTextColor">
+                     <widget class="ColorButton" name="toolButtonCoverTextColor">
                       <property name="text">
                        <string>...</string>
                       </property>
@@ -354,7 +354,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QToolButton" name="toolButtonTitleFont">
+                   <widget class="FontButton" name="toolButtonTitleFont">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -379,7 +379,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QToolButton" name="toolButtonSubtitleFont">
+                   <widget class="FontButton" name="toolButtonSubtitleFont">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -404,7 +404,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QToolButton" name="toolButtonTocFont">
+                   <widget class="FontButton" name="toolButtonTocFont">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -429,7 +429,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QToolButton" name="toolButtonNormalFont">
+                   <widget class="FontButton" name="toolButtonNormalFont">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -454,7 +454,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QToolButton" name="toolButtonChordFont">
+                   <widget class="FontButton" name="toolButtonChordFont">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -479,7 +479,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QToolButton" name="toolButtonPageNumberFont">
+                   <widget class="FontButton" name="toolButtonPageNumberFont">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -727,6 +727,18 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FontButton</class>
+   <extends>QToolButton</extends>
+   <header>fontbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ColorButton</class>
+   <extends>QToolButton</extends>
+   <header>colorbutton.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

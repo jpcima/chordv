@@ -1,11 +1,19 @@
-#ifndef COLOBUTTON_H
-#define COLOBUTTON_H
+#ifndef COLORBUTTON_H
+#define COLORBUTTON_H
 
+#include <QToolButton>
 
-class coloButton : public QToolButton
+class ColorButton : public QToolButton
 {
+    Q_OBJECT
 public:
-    coloButton();
+    ColorButton(QWidget *parent=0);
+    QColor getColor(){ return m_color;}
+    void setColor(QColor color){ m_color=color;}
+private:
+    QColor m_color;
+private slots:
+    void setColor(bool);
 };
 
-#endif // COLOBUTTON_H
+#endif // COLORBUTTON_H

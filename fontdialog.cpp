@@ -1,14 +1,12 @@
-#include "dialog.h"
-#include "ui_dialog.h"
+#include "fontdialog.h"
 
-Dialog::Dialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Dialog)
+FontDialog::FontDialog(QWidget *parent) :
+    QFontDialog(parent)
 {
-    ui->setupUi(this);
+    setWindowFlags(Qt::Widget);
+    setOptions(QFontDialog::NoButtons |QFontDialog::DontUseNativeDialog);
 }
 
-Dialog::~Dialog()
+FontDialog::~FontDialog()
 {
-    delete ui;
 }

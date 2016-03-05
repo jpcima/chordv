@@ -179,7 +179,7 @@
       </widget>
       <widget class="QWidget" name="Editor">
        <attribute name="title">
-        <string>Page</string>
+        <string>Editor</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>

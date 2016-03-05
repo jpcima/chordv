@@ -18,14 +18,23 @@ SOURCES += main.cpp\
     formconfig.cpp \
     lyricsconfig.cpp \
     chordconfig.cpp \
-    textconfig.cpp
+    textconfig.cpp \
+    fontchooser.cpp \
+    fontbutton.cpp \
+    fontdialog.cpp \
+    colorbutton.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
     formconfig.h \
     lyricsconfig.h \
     chordconfig.h \
-    textconfig.h
+    textconfig.h \
+    fontchooser.h \
+    fontbutton.h \
+    fontdialog.h \
+    colorbutton.h
 
 FORMS    += mainwindow.ui \
-    formconfig.ui
+    formconfig.ui \
+    fontchooser.ui
