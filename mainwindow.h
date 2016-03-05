@@ -26,6 +26,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     EditorHighlighter *m_editorhighlight;
+private slots:
+    void Log(QString message);
 };
 
 #endif // MAINWINDOW_H

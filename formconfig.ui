@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1292</width>
-    <height>1031</height>
+    <width>783</width>
+    <height>567</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1254</width>
-        <height>993</height>
+        <width>763</width>
+        <height>547</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -178,14 +178,14 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_28">
                   <item>
-                   <widget class="QLabel" name="labelBoxTocVerticalSpacing">
+                   <widget class="QLabel" name="labelTocVerticalSpacing">
                     <property name="text">
                      <string>Toc vertical spacing</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QSpinBox" name="spinBoxBoxChordDiagramHorizontalSize_2"/>
+                   <widget class="QSpinBox" name="spinBoxTocVerticalSpacing"/>
                   </item>
                   <item>
                    <widget class="QComboBox" name="comboBoxTocVerticalSpacing">

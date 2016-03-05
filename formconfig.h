@@ -21,6 +21,10 @@ protected:
 private:
     Ui::FormConfig *ui;
     QWidget *m_parent;
+signals:
+    void sendLog (QString message);
+private slots:
+    void setCover(int);
 };
 
 #endif // FORMCONFIG_H

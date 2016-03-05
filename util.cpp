@@ -35,7 +35,7 @@ void Util::initConfigFile( QString projectName)
     s.setValue("ChordBook/TitleBackgroundColor","#9A5D5D");
     s.setValue("ChordBook/RefrainColor","#346034");
     s.setValue("ChordBook/ChorusColor","#7B5757");
-    s.setValue("ChordBook/NormalColor",'black');
+    s.setValue("ChordBook/NormalColor","black");
     s.setValue("ChordBook/TocSizeFont","18pt");
     s.setValue("ChordBook/TocVerticalSpacing","12mm");
     s.setValue("ChordBook/TocCols","2");

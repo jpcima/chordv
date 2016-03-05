@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
     connect (ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
     connect (ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int)));
+   // connect (ui->LyricsMode,SIGNAL(),this,SLOT(Log(QString)));
   }
 
 void MainWindow::setChordMode( int i)
@@ -28,6 +29,11 @@ void MainWindow::setChordMode( int i)
 void MainWindow::setTextMode(int i)
 {
     ui->tabWidget->setTabEnabled(3,i!=0);
+}
+
+void MainWindow::Log(QString message)
+{
+    ui->log->Error(message);
 }
 
 void MainWindow::setLyricsMode(int i)
@@ -83,9 +89,17 @@ void MainWindow::openProject ( bool)
    p.endGroup();
    p.beginGroup("ChordBook");
    ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
+   foreach ( QString key, p.allKeys())
+   {
+      ui->widgetChordMode->setValue(key,p.value(key));
+   }
    p.endGroup();
    p.beginGroup("TextBook");
    ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
+   foreach ( QString key, p.allKeys())
+   {
+      ui->widgetTextMode->setValue(key,p.value(key));
+   }
    p.endGroup();
 }
 

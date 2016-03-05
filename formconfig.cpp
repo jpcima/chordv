@@ -12,6 +12,7 @@ FormConfig::FormConfig(QWidget *parent) :
     ui->setupUi(this);
     m_parent=parent;
     //connect(ui->toolButtonCoverBackgroundColor,SIGNAL(ColorChanged(QColor),)
+    connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
 }
 
 FormConfig::~FormConfig()
@@ -35,13 +36,35 @@ void FormConfig::disableWidgets(QRegExp value)
         w->setVisible(false);
 }
 
+
+void FormConfig::setCover(int val)
+{
+
+    ui->labelCoverBackgroundColor->setEnabled(val);
+    ui->labelCoverImage->setEnabled(val);
+    ui->labelCoverTextColor->setEnabled(val);
+    ui->toolButtonCoverBackgroundColor->setEnabled(val);
+    ui->toolButtonCoverImage->setEnabled(val);
+    ui->toolButtonCoverTextColor->setEnabled(val);
+    ui->lineEditCoverBackgroundColor->setEnabled(val);
+    ui->lineEditCoverTextColor->setEnabled(val);
+}
+
 void FormConfig::setValue(QString var, QVariant value)
 {
     if ( var.contains("Font"))
     {
 
     }
-    else if ( var.endsWith("Size") || var.startsWith("Margin"))
+    else if ( var.endsWith("Color"))
+    {
+
+    }
+    else if ( var==QString("Cover") )
+    {
+         ui->checkBoxCover->setChecked(value.toInt()==1);
+    }
+    else if ( var.endsWith("Size") || var.startsWith("Margin") || var.endsWith("Spacing"))
     {
         QRegExp exp("^([0-9]+)([a-zA-Z]+)");
         if ( value.toString().contains(exp))
@@ -61,6 +84,6 @@ void FormConfig::setValue(QString var, QVariant value)
         }
         else  qDebug()<<"ERROR "<<var<<value;
     }
-   else
-    qDebug()<<var<<value;
+   else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
+
 }
