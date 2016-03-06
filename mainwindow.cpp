@@ -12,13 +12,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect (ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
-    connect (ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
+    connect(ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
+    connect(ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
+    connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
+    connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
-    connect (ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
-    connect (ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
-    connect (ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int)));
-   // connect (ui->LyricsMode,SIGNAL(),this,SLOT(Log(QString)));
+    connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
+    connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
+    connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int)));
   }
 
 void MainWindow::setChordMode( int i)
@@ -64,6 +65,7 @@ void MainWindow::openProject ( bool)
 
    QSettings p(filename,QSettings::IniFormat,this);
    QString inputfile=fi.absolutePath()+QString("/")+p.value("File").toString();
+   m_currentproject=inputfile;
    ui->lineEditInputFile->setText(inputfile);
 
    QFile file(inputfile);
@@ -104,3 +106,25 @@ void MainWindow::openProject ( bool)
 }
 
 
+void MainWindow::Save(bool)
+{
+    if ( m_currentproject.isEmpty())
+        SaveAs(true);
+    QSettings sf(m_currentproject,QSettings::IniFormat,this);
+    sf.clear();
+    sf.setValue("General/Creator",ui->lineEditCreatorName->text());
+    sf.setValue("General/File",ui->lineEditInputFile->text());
+    sf.setValue("General/ChordLang",ui->comboBoxChordLanguage->currentText());
+    if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,"ChordBook");
+    if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,"LyricsBook");
+    if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,"TextBook");
+
+}
+
+
+void MainWindow::SaveAs(bool)
+{
+    QSettings s;
+    m_currentproject=QFileDialog::getSaveFileName(this,tr("Save project as"),s.value("LastOpenedDirectory").toString(),tr("Save as (*.conf)"));
+    if (!m_currentproject.isEmpty() )   Save(true);
+}

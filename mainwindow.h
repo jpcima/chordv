@@ -16,18 +16,19 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private:
+    Ui::MainWindow *ui;
+    EditorHighlighter *m_editorhighlight;
+    QString m_currentproject;
 private slots:
     void newProject(bool);
     void openProject(bool);
     void setChordMode(int i);
     void setLyricsMode(int i);
     void setTextMode(int i);
-
-private:
-    Ui::MainWindow *ui;
-    EditorHighlighter *m_editorhighlight;
-private slots:
     void Log(QString message);
+    void Save(bool);
+    void SaveAs(bool);
 };
 
 #endif // MAINWINDOW_H

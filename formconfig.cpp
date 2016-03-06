@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QRegExp>
 #include <QLineEdit>
+#include <QSettings>
 
 FormConfig::FormConfig(QWidget *parent) :
     QWidget(parent),
@@ -89,3 +90,44 @@ void FormConfig::setValue(QString var, QVariant value)
    else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
 
 }
+
+void FormConfig::Save(QString filename, QString section)
+{
+    QSettings sf(filename,QSettings::IniFormat,this);
+    foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
+    {
+        if ( ! w->isVisible() ) continue;
+        QRegExp tb("^toolButton");
+        QRegExp f("Font$");
+        QString name=w->objectName().replace(tb,"").replace(f,"");
+        sf.setValue(QString("%1/%2FamilyFont").arg(section).arg(name),w->getFont().family());
+        sf.setValue(QString("%1/%2SizeFont").arg(section).arg(name),w->getFont().pointSize());
+        sf.setValue(QString("%1/%2WeightFont").arg(section).arg(name),w->getFont().weight());
+        sf.setValue(QString("%1/%2ItalicFont").arg(section).arg(name),w->getFont().italic());
+        sf.setValue(QString("%1/%2BackgroundFont").arg(section).arg(name),w->getBackgroundColor().name());
+        sf.setValue(QString("%1/%2ColorFont").arg(section).arg(name),w->getBackgroundColor().name());
+    }
+    foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
+    {
+         if ( ! w->isVisible() ) continue;
+         QRegExp tb("^toolButton");
+         QString name=w->objectName().replace(tb,"");
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->isChecked()?"1":"0");
+    }
+    foreach (QComboBox *w ,m_parent->findChildren<QComboBox*>())
+    {
+         if ( ! w->isVisible() ) continue;
+         QRegExp tb("^comboBox");
+         QString name=w->objectName().replace(tb,"");
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->currentText());
+    }
+    foreach (QLineEdit *w ,m_parent->findChildren<QLineEdit*>())
+    {
+         if ( ! w->isVisible() ) continue;
+         QRegExp tb("^lineEdit");
+         QString name=w->objectName().replace(tb,"");
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->text());
+    }
+
+}
+
