@@ -40,25 +40,27 @@ void FormConfig::disableWidgets(QRegExp value)
 void FormConfig::setCover(int val)
 {
 
-    ui->labelCoverBackgroundColor->setEnabled(val);
     ui->labelCoverImage->setEnabled(val);
-    ui->labelCoverTextColor->setEnabled(val);
-    ui->toolButtonCoverBackgroundColor->setEnabled(val);
     ui->toolButtonCoverImage->setEnabled(val);
-    ui->toolButtonCoverTextColor->setEnabled(val);
-    ui->lineEditCoverBackgroundColor->setEnabled(val);
-    ui->lineEditCoverTextColor->setEnabled(val);
 }
 
 void FormConfig::setValue(QString var, QVariant value)
 {
-    if ( var.contains("Font"))
+    if ( var.endsWith("Font"))
     {
-
-    }
-    else if ( var.endsWith("Color"))
-    {
-
+        QString toolButton=var;
+        if ( var.contains("Family")) { toolButton.replace("Family","");
+            foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))  w->setFamily(value.toString()); }
+         else if ( var.contains("Background"))  { toolButton.replace("Background","");
+            foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))  w->setBackgroundColor(QColor(value.toString()));   }
+        else if ( var.contains("Color")) { toolButton.replace("Color","");
+            foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))  w->setColor(QColor(value.toString()));}
+        else if ( var.contains("Size")) { toolButton.replace("Size","");
+             foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))w->setPointsize(value.toInt());}
+        else if ( var.contains("Weight")) {toolButton.replace("Weight","");
+             foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton)) w->setWeight(value.toInt());}
+        else if ( var.contains("Italic")) {toolButton.replace("Italic","");
+           foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))w->setItalic(value.toBool());}
     }
     else if ( var==QString("Cover") )
     {

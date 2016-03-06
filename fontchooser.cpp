@@ -14,9 +14,10 @@ FontChooser::FontChooser(QWidget *parent) :
 
 void FontChooser::setFont(QFont font, QColor textcolor, QColor backgroundcolor)
 {
-    ui->widget->setFont(font);
+    ui->widget->setCurrentFont(font);
     ui->toolButtonBackgroundColor->setColor(backgroundcolor);
     ui->toolButtonFontColor->setColor(textcolor);
+    qDebug()<<font.family();
 }
 
 FontChooser::~FontChooser()
