@@ -110,12 +110,14 @@ void MainWindow::Save(bool)
 {
     if ( m_currentproject.isEmpty())
         SaveAs(true);
-    QSettings sf(m_currentproject,QSettings::IniFormat,this);
+    QSettings sf(m_currentproject,QSettings::IniFormat);
     sf.clear();
     sf.setValue("General/Creator",ui->lineEditCreatorName->text());
     sf.setValue("General/File",ui->lineEditInputFile->text());
     sf.setValue("General/ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.sync();
     if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,"ChordBook");
+    qDebug()<<"ixi";
     if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,"LyricsBook");
     if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,"TextBook");
 

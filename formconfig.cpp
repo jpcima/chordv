@@ -5,6 +5,7 @@
 #include <QRegExp>
 #include <QLineEdit>
 #include <QSettings>
+#include "colorbutton.h"
 
 FormConfig::FormConfig(QWidget *parent) :
     QWidget(parent),
@@ -87,13 +88,18 @@ void FormConfig::setValue(QString var, QVariant value)
         }
         else  qDebug()<<"ERROR "<<var<<value;
     }
+    else if ( var.endsWith("Image"))
+    {
+
+    }
    else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
 
 }
 
 void FormConfig::Save(QString filename, QString section)
 {
-    QSettings sf(filename,QSettings::IniFormat,this);
+    qDebug()<<section;
+    QSettings sf(filename,QSettings::IniFormat);
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
     {
         if ( ! w->isVisible() ) continue;
@@ -106,6 +112,22 @@ void FormConfig::Save(QString filename, QString section)
         sf.setValue(QString("%1/%2ItalicFont").arg(section).arg(name),w->getFont().italic());
         sf.setValue(QString("%1/%2BackgroundFont").arg(section).arg(name),w->getBackgroundColor().name());
         sf.setValue(QString("%1/%2ColorFont").arg(section).arg(name),w->getBackgroundColor().name());
+    }
+    foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>())
+    {
+        if ( ! w->isVisible() ) continue;
+        QRegExp tb("^toolButton");
+        QRegExp c("Color$");
+        QString name=w->objectName().replace(tb,"").replace(c,"");
+        sf.setValue(QString("%1/%2Color").arg(section).arg(name),w->getColor().name());
+    }
+    foreach (ImageButton *w ,m_parent->findChildren<ImageButton*>())
+    {
+        if ( ! w->isVisible() ) continue;
+        QRegExp tb("^toolButton");
+        QRegExp i("Image$");
+        QString name=w->objectName().replace(tb,"").replace(i,"");
+        sf.setValue(QString("%1/%2Color").arg(section).arg(name),w->getImage());
     }
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
     {
@@ -128,6 +150,6 @@ void FormConfig::Save(QString filename, QString section)
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->text());
     }
-
+    sf.sync();
 }
 

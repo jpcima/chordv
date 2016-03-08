@@ -680,14 +680,14 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelCoverImageView">
+                       <widget class="QLabel" name="labelCoverViewImage">
                         <property name="text">
                          <string/>
                         </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QToolButton" name="toolButtonCoverImage">
+                       <widget class="ImageButton" name="toolButtonCoverImage">
                         <property name="text">
                          <string>...</string>
                         </property>
@@ -745,6 +745,11 @@
    <class>FontButton</class>
    <extends>QToolButton</extends>
    <header>fontbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ImageButton</class>
+   <extends>QToolButton</extends>
+   <header>imagebutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
