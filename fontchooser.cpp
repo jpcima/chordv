@@ -17,7 +17,6 @@ void FontChooser::setFont(QFont font, QColor textcolor, QColor backgroundcolor)
     ui->widget->setCurrentFont(font);
     ui->toolButtonBackgroundColor->setColor(backgroundcolor);
     ui->toolButtonFontColor->setColor(textcolor);
-    qDebug()<<font.family();
 }
 
 FontChooser::~FontChooser()
@@ -28,5 +27,6 @@ FontChooser::~FontChooser()
 
 void FontChooser::setFont()
 {
-    emit SelectFont(ui->widget->font(),ui->toolButtonFontColor->getColor(),ui->toolButtonBackgroundColor->getColor());
+    setFont(ui->widget->currentFont(),ui->toolButtonFontColor->getColor(),ui->toolButtonBackgroundColor->getColor());
+    emit SelectFont(ui->widget->currentFont(),ui->toolButtonFontColor->getColor(),ui->toolButtonBackgroundColor->getColor());
 }

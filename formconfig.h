@@ -24,8 +24,11 @@ private:
     QWidget *m_parent;
 signals:
     void sendLog (QString message);
+
 private slots:
     void setCover(int);
+
+    void displayFont(QFont font, QColor text, QColor background);
 };
 
 #endif // FORMCONFIG_H

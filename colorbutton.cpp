@@ -9,5 +9,7 @@ void ColorButton::setColor(bool)
 {
    m_color=QColorDialog::getColor(m_color,this);
    emit ColorChanged(m_color);
+   this->setStyleSheet(QString("QToolButton { background-color: %1}").arg(m_color.name()));
+
 }
 

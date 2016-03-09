@@ -26,7 +26,8 @@ SOURCES += main.cpp\
     lineedittest.cpp \
     logmessages.cpp \
     editorhighlighter.cpp \
-    imagebutton.cpp
+    imagebutton.cpp \
+    examplelabel.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -41,7 +42,8 @@ HEADERS  += mainwindow.h \
     lineedittest.h \
     logmessages.h \
     editorhighlighter.h \
-    imagebutton.h
+    imagebutton.h \
+    examplelabel.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

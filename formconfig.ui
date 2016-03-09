@@ -485,7 +485,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelCoverFontExample">
+                       <widget class="ExampleLabel" name="labelCoverFontExample">
                         <property name="text">
                          <string>Example</string>
                         </property>
@@ -510,7 +510,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelTitleFontExample">
+                       <widget class="ExampleLabel" name="labelTitleFontExample">
                         <property name="text">
                          <string>Example</string>
                         </property>
@@ -535,7 +535,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelSubtitleFontExample">
+                       <widget class="ExampleLabel" name="labelSubtitleFontExample">
                         <property name="text">
                          <string>Example</string>
                         </property>
@@ -560,7 +560,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelTocFontExample">
+                       <widget class="ExampleLabel" name="labelTocFontExample">
                         <property name="text">
                          <string>Example</string>
                         </property>
@@ -585,7 +585,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelNormalFontExample">
+                       <widget class="ExampleLabel" name="labelNormalFontExample">
                         <property name="text">
                          <string>Example</string>
                         </property>
@@ -610,7 +610,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelChordFontExample">
+                       <widget class="ExampleLabel" name="labelChordFontExample">
                         <property name="text">
                          <string>Example</string>
                         </property>
@@ -635,7 +635,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QLabel" name="labelPageNumberFontExample">
+                       <widget class="ExampleLabel" name="labelPageNumberFontExample">
                         <property name="text">
                          <string>Example</string>
                         </property>
@@ -750,6 +750,11 @@
    <class>ImageButton</class>
    <extends>QToolButton</extends>
    <header>imagebutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ExampleLabel</class>
+   <extends>QLabel</extends>
+   <header>examplelabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

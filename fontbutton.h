@@ -18,6 +18,8 @@ public:
     QFont getFont() { return m_font;}
     QColor getBackgroundColor () { return m_backgroundcolor;}
     QColor getTextColor () { return m_textcolor;}
+public slots:
+    void SelectedFont(QFont font, QColor text, QColor background);
 
 private:
     QColor m_textcolor;
@@ -25,7 +27,9 @@ private:
     QFont m_font;
 private slots:
     void setFont(bool );
-    void SelectedFont(QFont font, QColor text, QColor background);
+
+signals:
+    void sendSelectedFont(QFont font, QColor text, QColor background);
 };
 
 #endif // FONTBUTTON_H

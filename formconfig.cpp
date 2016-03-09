@@ -6,6 +6,8 @@
 #include <QLineEdit>
 #include <QSettings>
 #include "colorbutton.h"
+#include "examplelabel.h"
+
 
 FormConfig::FormConfig(QWidget *parent) :
     QWidget(parent),
@@ -13,8 +15,9 @@ FormConfig::FormConfig(QWidget *parent) :
 {
     ui->setupUi(this);
     m_parent=parent;
-    //connect(ui->toolButtonCoverBackgroundColor,SIGNAL(ColorChanged(QColor),)
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
+    foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
+        connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
 }
 
 FormConfig::~FormConfig()
@@ -45,6 +48,8 @@ void FormConfig::setCover(int val)
     ui->labelCoverImage->setEnabled(val);
     ui->toolButtonCoverImage->setEnabled(val);
 }
+
+
 
 void FormConfig::setValue(QString var, QVariant value)
 {
@@ -153,3 +158,13 @@ void FormConfig::Save(QString filename, QString section)
     sf.sync();
 }
 
+
+
+void FormConfig::displayFont ( QFont font, QColor text, QColor background)
+{
+    QString name=sender()->objectName().replace("toolButton","");
+    name=QString("label%1Example").arg(name);
+    foreach (ExampleLabel *w ,m_parent->findChildren<ExampleLabel*>(name))
+    w->setColor(font,text,background);
+
+}
