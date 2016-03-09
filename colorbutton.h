@@ -9,7 +9,7 @@ class ColorButton : public QToolButton
 public:
     ColorButton(QWidget *parent=0);
     QColor getColor(){ return m_color;}
-    void setColor(QColor color){ m_color=color;}
+     void setColor(QColor color);
 private:
     QColor m_color;
 private slots:
