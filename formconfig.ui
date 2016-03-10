@@ -55,33 +55,25 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QSpinBox" name="spinBoxBoxHorinzontalMargin_2"/>
+                       <widget class="QDoubleSpinBox" name="doubleSpinBoxBoxPageWidth">
+                        <property name="decimals">
+                         <number>1</number>
+                        </property>
+                        <property name="maximum">
+                         <double>2000.000000000000000</double>
+                        </property>
+                       </widget>
                       </item>
                       <item>
                        <widget class="QComboBox" name="comboBoxPageWidth">
                         <item>
                          <property name="text">
-                          <string>pt</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>inche</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>px</string>
+                          <string>in</string>
                          </property>
                         </item>
                         <item>
                          <property name="text">
                           <string>mm</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>cm</string>
                          </property>
                         </item>
                        </widget>
@@ -91,40 +83,32 @@
                     <item>
                      <layout class="QHBoxLayout" name="horizontalLayout_20">
                       <item>
-                       <widget class="QLabel" name="labelPageWidth_2">
+                       <widget class="QLabel" name="labelPageHeight">
                         <property name="text">
                          <string>Page heigth</string>
                         </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QSpinBox" name="spinBoxBoxHorinzontalMargin_3"/>
+                       <widget class="QDoubleSpinBox" name="doubleSpinBoxBoxPageHeight">
+                        <property name="decimals">
+                         <number>1</number>
+                        </property>
+                        <property name="maximum">
+                         <double>2000.000000000000000</double>
+                        </property>
+                       </widget>
                       </item>
                       <item>
-                       <widget class="QComboBox" name="comboBoxPageWidth_2">
+                       <widget class="QComboBox" name="comboBoxPageHeith">
                         <item>
                          <property name="text">
-                          <string>pt</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>inche</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>px</string>
+                          <string>in</string>
                          </property>
                         </item>
                         <item>
                          <property name="text">
                           <string>mm</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>cm</string>
                          </property>
                         </item>
                        </widget>
@@ -141,33 +125,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QComboBox" name="comboBoxPageDimension">
-                        <item>
-                         <property name="text">
-                          <string>A4</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>A3</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>A5</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>A6</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>Legal</string>
-                         </property>
-                        </item>
-                       </widget>
+                       <widget class="PageSize" name="comboBoxMediaBox"/>
                       </item>
                      </layout>
                     </item>
@@ -192,7 +150,7 @@
                         </item>
                         <item>
                          <property name="text">
-                          <string>inche</string>
+                          <string>in</string>
                          </property>
                         </item>
                         <item>
@@ -235,7 +193,7 @@
                         </item>
                         <item>
                          <property name="text">
-                          <string>inche</string>
+                          <string>in</string>
                          </property>
                         </item>
                         <item>
@@ -286,27 +244,12 @@
                        <widget class="QComboBox" name="comboBoxChordDiagramHSize">
                         <item>
                          <property name="text">
-                          <string>pt</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>inche</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>px</string>
+                          <string>in</string>
                          </property>
                         </item>
                         <item>
                          <property name="text">
                           <string>mm</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>cm</string>
                          </property>
                         </item>
                        </widget>
@@ -329,27 +272,12 @@
                        <widget class="QComboBox" name="comboBoxTocVerticalSpacing">
                         <item>
                          <property name="text">
-                          <string>pt</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>inche</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>px</string>
+                          <string>in</string>
                          </property>
                         </item>
                         <item>
                          <property name="text">
                           <string>mm</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>cm</string>
                          </property>
                         </item>
                        </widget>
@@ -359,14 +287,14 @@
                     <item>
                      <layout class="QHBoxLayout" name="horizontalLayout_24">
                       <item>
-                       <widget class="QLabel" name="labelChordLang_2">
+                       <widget class="QLabel" name="labelChordTocColumnNumber">
                         <property name="text">
                          <string>Toc column number</string>
                         </property>
                        </widget>
                       </item>
                       <item>
-                       <widget class="QComboBox" name="comboBoxChordLang_2">
+                       <widget class="QComboBox" name="comboBoxTocColumnNUmber">
                         <item>
                          <property name="text">
                           <string>1</string>
@@ -755,6 +683,11 @@
    <class>ExampleLabel</class>
    <extends>QLabel</extends>
    <header>examplelabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>PageSize</class>
+   <extends>QComboBox</extends>
+   <header>pagesize.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

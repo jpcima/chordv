@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     logmessages.cpp \
     editorhighlighter.cpp \
     imagebutton.cpp \
-    examplelabel.cpp
+    examplelabel.cpp \
+    pagesize.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -43,7 +44,8 @@ HEADERS  += mainwindow.h \
     logmessages.h \
     editorhighlighter.h \
     imagebutton.h \
-    examplelabel.h
+    examplelabel.h \
+    pagesize.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

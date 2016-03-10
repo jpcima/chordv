@@ -25,3 +25,11 @@ void FontButton::SelectedFont(QFont font, QColor text, QColor background)
     if (! m_backgroundcolor.isValid()) m_backgroundcolor=QColor("white");
     emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);
 }
+
+
+void  FontButton::setFamily( QString family) {m_font.setFamily(family); emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
+void  FontButton::setColor ( QColor color) {m_textcolor=color; emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
+void  FontButton::setBackgroundColor ( QColor color ) { m_backgroundcolor=color;emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
+void  FontButton::setWeight(int i) { m_font.setWeight(i); emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
+void  FontButton::setItalic(bool b) { m_font.setItalic(b) ;emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
+void  FontButton::setPointsize ( int size) {m_font.setPointSize(size);emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}

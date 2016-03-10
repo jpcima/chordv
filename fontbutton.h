@@ -9,15 +9,15 @@ class FontButton : public QToolButton
     Q_OBJECT
 public:
     FontButton(QWidget *parent);
-    void setFamily( QString family) {m_font.setFamily(family);}
-    void setColor ( QColor color) {m_textcolor=color;}
-    void setBackgroundColor ( QColor color ) { m_backgroundcolor=color;}
-    void setWeight(int i) { m_font.setWeight(i); }
-    void setItalic(bool b) { m_font.setItalic(b) ;}
-    void setPointsize ( int size) {m_font.setPointSize(size);}
+    void setFamily( QString family) ;
+    void setColor ( QColor color) ;
+    void setBackgroundColor ( QColor color ) ;
+    void setWeight(int i) ;
+    void setItalic(bool b);
+    void setPointsize ( int size);
     QFont getFont() { return m_font;}
-    QColor getBackgroundColor () { return m_backgroundcolor;}
-    QColor getTextColor () { return m_textcolor;}
+    QColor getBackgroundColor (){return m_backgroundcolor;  }
+    QColor getTextColor (){return m_textcolor;}
 public slots:
     void SelectedFont(QFont font, QColor text, QColor background);
 

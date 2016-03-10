@@ -18,11 +18,20 @@ FormConfig::FormConfig(QWidget *parent) :
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
         connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
+    connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
 }
 
 FormConfig::~FormConfig()
 {
     delete ui;
+}
+
+void FormConfig::SizeChanged(QString value)
+{
+    ui->doubleSpinBoxBoxPageHeight->setValue(ui->comboBoxMediaBox->getHeight());
+    ui->doubleSpinBoxBoxPageWidth->setValue(ui->comboBoxMediaBox->getWidth()) ;
+    ui->comboBoxPageHeith->setCurrentText(ui->comboBoxMediaBox->getUnit());
+    ui->comboBoxPageWidth->setCurrentText(ui->comboBoxMediaBox->getUnit());
 }
 
 void FormConfig::disableWidgets(QRegExp value)
@@ -95,6 +104,16 @@ void FormConfig::setValue(QString var, QVariant value)
     }
     else if ( var.endsWith("Image"))
     {
+
+    }
+    else if ( var.endsWith("MediaBox"))
+    {
+        qDebug()<<"ici";
+        foreach (PageSize *w ,m_parent->findChildren<PageSize*>(QString("comboBoxMediaBox")))
+        {
+            qDebug()<<value.toString();
+            w->setCurrentText(value.toString());
+        }
 
     }
    else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));

@@ -27,8 +27,8 @@ signals:
 
 private slots:
     void setCover(int);
-
     void displayFont(QFont font, QColor text, QColor background);
+    void SizeChanged(QString value);
 };
 
 #endif // FORMCONFIG_H
