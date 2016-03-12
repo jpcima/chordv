@@ -2,15 +2,30 @@
 #include <QFileDialog>
 #include <QSettings>
 
+#include <QDebug>
 
 ImageButton::ImageButton(QWidget *parent):QToolButton(parent)
 {
- connect (this,SIGNAL(clicked(bool)),this,SLOT(setImage(bool)));
+    connect (this,SIGNAL(clicked(bool)),this,SLOT(SetImage(bool)));
 }
 
-void ImageButton::setImage(bool)
+void ImageButton::SetImage(bool)
 {
     QSettings s;
-    m_image=QFileDialog::getOpenFileName(this,tr("Choose an Image file"),s.value("LastOpenedDirectory").toString(),tr("Image(*.jpg *.png)"));
-    if ( ! m_image.isEmpty())  emit ImageSelelected(m_image);
+
+    QString image=QFileDialog::getOpenFileName(this,tr("Choose an Image file"),s.value("LastOpenedDirectory").toString(),tr("Image(*.jpg *.png)"));
+    QRegExp exp(QString("^%1").arg(s.value("DirCurrentProject").toString()));
+    m_image=image.replace(exp,"");
+    if ( ! image.isEmpty())  emit ImageSelelected(m_image);
+}
+
+QString ImageButton::getImage()
+{
+    return m_image;
+}
+
+void ImageButton::setImage(QString image)
+{
+   m_image=image;
+   emit ImageSelelected(image);
 }

@@ -19,6 +19,7 @@ FormConfig::FormConfig(QWidget *parent) :
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
         connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
     connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
+    connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
 }
 
 FormConfig::~FormConfig()
@@ -105,24 +106,24 @@ void FormConfig::setValue(QString var, QVariant value)
     else if ( var.endsWith("Image"))
     {
 
+        foreach (ImageButton *w ,m_parent->findChildren<ImageButton*>(QString("toolButton")+var))
+            w->setImage(value.toString());
+
     }
     else if ( var.endsWith("MediaBox"))
     {
-        qDebug()<<"ici";
         foreach (PageSize *w ,m_parent->findChildren<PageSize*>(QString("comboBoxMediaBox")))
         {
-            qDebug()<<value.toString();
             w->setCurrentText(value.toString());
         }
 
     }
-   else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
+  // else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
 
 }
 
 void FormConfig::Save(QString filename, QString section)
 {
-    qDebug()<<section;
     QSettings sf(filename,QSettings::IniFormat);
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
     {
@@ -186,4 +187,13 @@ void FormConfig::displayFont ( QFont font, QColor text, QColor background)
     foreach (ExampleLabel *w ,m_parent->findChildren<ExampleLabel*>(name))
     w->setColor(font,text,background);
 
+}
+
+
+void FormConfig::displayThumb(QString image)
+{
+    QSettings s;
+    QPixmap pix(QString("%1/%2").arg(s.value("DirCurrentProject").toString()).arg(image));
+    QPixmap p=pix.scaledToWidth(150);
+    ui->labelCoverViewImage->setPixmap(p);
 }

@@ -22,7 +22,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>2</number>
        </property>
        <property name="tabBarAutoHide">
         <bool>true</bool>
@@ -212,7 +212,6 @@
     </property>
     <addaction name="actionNew_Project"/>
     <addaction name="actionOpen_Project"/>
-    <addaction name="actionLast_project"/>
     <addaction name="actionSave_Current_as_Defaut"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
@@ -263,11 +262,6 @@
     <string>&amp;Save Current as Defaut</string>
    </property>
   </action>
-  <action name="actionLast_project">
-   <property name="text">
-    <string>&amp;Last project</string>
-   </property>
-  </action>
   <action name="actionSave">
    <property name="text">
     <string>Sa&amp;ve</string>
@@ -286,6 +280,16 @@
   <action name="actionAbout">
    <property name="text">
     <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionLast_Project">
+   <property name="text">
+    <string>Last Project</string>
+   </property>
+  </action>
+  <action name="actionLast_Poject">
+   <property name="text">
+    <string>&amp;Last Projects</string>
    </property>
   </action>
  </widget>

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMenu>
 #include "editorhighlighter.h"
 
 namespace Ui {
@@ -20,6 +21,9 @@ private:
     Ui::MainWindow *ui;
     EditorHighlighter *m_editorhighlight;
     QString m_currentproject;
+    QMenu *m_lastmenu;
+
+    void setMenuLastProject();
 private slots:
     void newProject(bool);
     void openProject(bool);

@@ -29,6 +29,7 @@ private slots:
     void setCover(int);
     void displayFont(QFont font, QColor text, QColor background);
     void SizeChanged(QString value);
+    void displayThumb(QString image);
 };
 
 #endif // FORMCONFIG_H

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+ #include "util.h"
 
 
 #include <QDebug>
@@ -12,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    m_lastmenu= new QMenu(tr("Last Projects"));
+    ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
+    setMenuLastProject();
     connect(ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
     connect(ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
@@ -19,8 +23,20 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
     connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
-    connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int)));
+    connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int))); 
   }
+
+
+void MainWindow::setMenuLastProject()
+{
+    m_lastmenu->clear();
+    foreach ( QString l, Util::LastProjects())
+    {
+        QAction *a= new QAction(l,this);
+        m_lastmenu->addAction(a);
+    }
+
+}
 
 void MainWindow::setChordMode( int i)
 {
@@ -63,11 +79,11 @@ void MainWindow::openProject ( bool)
                s.setValue("LastOpenedDirectory",fi.absolutePath());
    }
 
-   QSettings p(filename,QSettings::IniFormat,this);
+   QSettings p(filename,QSettings::IniFormat);
    QString inputfile=fi.absolutePath()+QString("/")+p.value("File").toString();
-   m_currentproject=inputfile;
+   QDir dir(fi.dir());
+   s.setValue("DirCurrentProject",dir.absolutePath());
    ui->lineEditInputFile->setText(inputfile);
-
    QFile file(inputfile);
    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(inputfile)));
    else
@@ -84,14 +100,16 @@ void MainWindow::openProject ( bool)
    ui->lineEditCreatorName->setText(p.value("Creator").toString());
    p.beginGroup("LyricsBook");
    ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
-   foreach ( QString key, p.allKeys())
+   QStringList list1=p.allKeys();
+   foreach ( QString key, list1)
    {
-      ui->widgetLyricsMode->setValue(key,p.value(key));
+         ui->widgetLyricsMode->setValue(key,p.value(key));
    }
    p.endGroup();
    p.beginGroup("ChordBook");
    ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
-   foreach ( QString key, p.allKeys())
+   QStringList list2=p.allKeys();
+   foreach ( QString key, list2)
    {
       ui->widgetChordMode->setValue(key,p.value(key));
    }
@@ -103,6 +121,9 @@ void MainWindow::openProject ( bool)
       ui->widgetTextMode->setValue(key,p.value(key));
    }
    p.endGroup();
+   Util::MemorizeProject(inputfile);
+   setMenuLastProject();
+
 }
 
 
@@ -117,7 +138,6 @@ void MainWindow::Save(bool)
     sf.setValue("General/ChordLang",ui->comboBoxChordLanguage->currentText());
     sf.sync();
     if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,"ChordBook");
-    qDebug()<<"ixi";
     if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,"LyricsBook");
     if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,"TextBook");
 

@@ -1,13 +1,14 @@
 #ifndef UTIL_H
 #define UTIL_H
 
-#include <QString>
+#include <QStringList>
 
 class Util
 {
 public:
     Util();
-    void static initConfigFile(QString projectName);
+    static QStringList LastProjects();
+    static void MemorizeProject( QString filename);
 };
 
 #endif // UTIL_H
