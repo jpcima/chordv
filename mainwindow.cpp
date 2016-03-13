@@ -33,7 +33,6 @@ void MainWindow::setMenuLastProject()
     m_lastmenu->clear();
     foreach ( QString l, Util::LastProjects())
     {
-        qDebug()<<"ok"<<l;
         QAction *a= new QAction(l,this);
         m_lastmenu->addAction(a);
     }
@@ -71,7 +70,21 @@ MainWindow::~MainWindow()
 
 void MainWindow::newProject( bool)
 {
+ InitProject();
+}
 
+
+void MainWindow::InitProject()
+{
+    ui->textEdit->clear();
+    ui->lineEditCreatorName->clear();
+    ui->lineEditInputFile->clear();
+    ui->checkBoxChordMode->setChecked(true);
+    ui->checkBoxLyricsMode->setChecked(true);
+    ui->checkBoxTextMode->setChecked(true);
+    ui->widgetLyricsMode->Init();
+    ui->widgetTextMode->Init();
+    ui->widgetChordMode->Init();
 }
 
 void MainWindow::openProject(QString filename)

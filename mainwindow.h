@@ -24,6 +24,7 @@ private:
     QMenu *m_lastmenu;
 
     void setMenuLastProject();
+    void InitProject();
 private slots:
     void newProject(bool);
     void openProject(bool);

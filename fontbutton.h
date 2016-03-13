@@ -15,6 +15,7 @@ public:
     void setWeight(int i) ;
     void setItalic(bool b);
     void setPointsize ( int size);
+    void setFont(QFont font);
     QFont getFont() { return m_font;}
     QColor getBackgroundColor (){return m_backgroundcolor;  }
     QColor getTextColor (){return m_textcolor;}

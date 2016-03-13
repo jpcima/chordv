@@ -33,3 +33,4 @@ void  FontButton::setBackgroundColor ( QColor color ) { m_backgroundcolor=color;
 void  FontButton::setWeight(int i) { m_font.setWeight(i); emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
 void  FontButton::setItalic(bool b) { m_font.setItalic(b) ;emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
 void  FontButton::setPointsize ( int size) {m_font.setPointSize(size);emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
+void  FontButton::setFont ( QFont font) {m_font=font;emit sendSelectedFont(m_font,m_textcolor,m_backgroundcolor);}
