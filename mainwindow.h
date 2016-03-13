@@ -33,6 +33,8 @@ private slots:
     void Log(QString message);
     void Save(bool);
     void SaveAs(bool);
+    void LastProjectOpen(QAction *action);
+    void openProject(QString filename);
 };
 
 #endif // MAINWINDOW_H

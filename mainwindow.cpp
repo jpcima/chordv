@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     m_lastmenu= new QMenu(tr("Last Projects"));
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
+    connect(m_lastmenu,SIGNAL(triggered(QAction*)),this,SLOT(LastProjectOpen(QAction*)));
     setMenuLastProject();
     connect(ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
     connect(ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
@@ -32,10 +33,15 @@ void MainWindow::setMenuLastProject()
     m_lastmenu->clear();
     foreach ( QString l, Util::LastProjects())
     {
+        qDebug()<<"ok"<<l;
         QAction *a= new QAction(l,this);
         m_lastmenu->addAction(a);
     }
+}
 
+void MainWindow::LastProjectOpen(QAction *action )
+{
+    openProject(action->text());
 }
 
 void MainWindow::setChordMode( int i)
@@ -68,60 +74,63 @@ void MainWindow::newProject( bool)
 
 }
 
+void MainWindow::openProject(QString filename)
+{
+    QFileInfo fi(filename);
+    QSettings s;
+    if ( !filename.isEmpty())
+                s.setValue("LastOpenedDirectory",fi.absolutePath());
+    QSettings p(filename,QSettings::IniFormat);
+    QString inputfile=fi.absolutePath()+QString("/")+p.value("File").toString();
+    QDir dir(fi.dir());
+    s.setValue("DirCurrentProject",dir.absolutePath());
+    ui->lineEditInputFile->setText(inputfile);
+    QFile file(inputfile);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(inputfile)));
+    else
+    {
+        QTextStream in(&file);
+        ui->textEdit->clear();
+        ui->textEdit->append(in.readAll());
+        QTextCursor textCursor = ui->textEdit->textCursor();
+        textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
+        ui->textEdit->setTextCursor(textCursor);
+        m_editorhighlight = new EditorHighlighter(ui->textEdit->document());
+        m_editorhighlight->highlightBlock(ui->textEdit->document()->toPlainText());
+    }
+    ui->lineEditCreatorName->setText(p.value("Creator").toString());
+    p.beginGroup("LyricsBook");
+    ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
+    QStringList list1=p.allKeys();
+    foreach ( QString key, list1)
+    {
+          ui->widgetLyricsMode->setValue(key,p.value(key));
+    }
+    p.endGroup();
+    p.beginGroup("ChordBook");
+    ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
+    QStringList list2=p.allKeys();
+    foreach ( QString key, list2)
+    {
+       ui->widgetChordMode->setValue(key,p.value(key));
+    }
+    p.endGroup();
+    p.beginGroup("TextBook");
+    ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
+    foreach ( QString key, p.allKeys())
+    {
+       ui->widgetTextMode->setValue(key,p.value(key));
+    }
+    p.endGroup();
+}
+
 void MainWindow::openProject ( bool)
 
 {
    QSettings s;
    QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),s.value("LastOpenedDirectory").toString(),"*.conf");
-   QFileInfo fi(filename);
-   if ( !filename.isEmpty())
-   {
-               s.setValue("LastOpenedDirectory",fi.absolutePath());
-   }
-
-   QSettings p(filename,QSettings::IniFormat);
-   QString inputfile=fi.absolutePath()+QString("/")+p.value("File").toString();
-   QDir dir(fi.dir());
-   s.setValue("DirCurrentProject",dir.absolutePath());
-   ui->lineEditInputFile->setText(inputfile);
-   QFile file(inputfile);
-   if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(inputfile)));
-   else
-   {
-       QTextStream in(&file);
-       ui->textEdit->clear();
-       ui->textEdit->append(in.readAll());
-       QTextCursor textCursor = ui->textEdit->textCursor();
-       textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
-       ui->textEdit->setTextCursor(textCursor);
-       m_editorhighlight = new EditorHighlighter(ui->textEdit->document());
-       m_editorhighlight->highlightBlock(ui->textEdit->document()->toPlainText());
-   }
-   ui->lineEditCreatorName->setText(p.value("Creator").toString());
-   p.beginGroup("LyricsBook");
-   ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
-   QStringList list1=p.allKeys();
-   foreach ( QString key, list1)
-   {
-         ui->widgetLyricsMode->setValue(key,p.value(key));
-   }
-   p.endGroup();
-   p.beginGroup("ChordBook");
-   ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
-   QStringList list2=p.allKeys();
-   foreach ( QString key, list2)
-   {
-      ui->widgetChordMode->setValue(key,p.value(key));
-   }
-   p.endGroup();
-   p.beginGroup("TextBook");
-   ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
-   foreach ( QString key, p.allKeys())
-   {
-      ui->widgetTextMode->setValue(key,p.value(key));
-   }
-   p.endGroup();
-   Util::MemorizeProject(inputfile);
+   openProject(filename);
+   Util::MemorizeProject(filename);
    setMenuLastProject();
 
 }

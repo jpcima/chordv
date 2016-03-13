@@ -10,7 +10,7 @@ QStringList Util::LastProjects()
 {
     QStringList l;
     QSettings s;
-    for ( int i; i<10; i++)
+    for ( int i=0; i<10; i++)
     {   QString val=s.value(QString("LastProjects/f%1").arg(i+1)).toString();
         if (val.isEmpty()) break;
         else l <<val;
