@@ -36,6 +36,7 @@ private slots:
     void SaveAs(bool);
     void LastProjectOpen(QAction *action);
     void openProject(QString filename);
+    void ProducePDF();
 };
 
 #endif // MAINWINDOW_H

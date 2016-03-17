@@ -221,6 +221,7 @@
     <property name="title">
      <string>Too&amp;ls</string>
     </property>
+    <addaction name="actionProduce_PDF_files"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -290,6 +291,11 @@
   <action name="actionLast_Poject">
    <property name="text">
     <string>&amp;Last Projects</string>
+   </property>
+  </action>
+  <action name="actionProduce_PDF_files">
+   <property name="text">
+    <string>Produce PDF files</string>
    </property>
   </action>
  </widget>

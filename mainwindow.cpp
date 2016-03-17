@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
+    connect(ui->actionProduce_PDF_files,SIGNAL(triggered(bool)),this,SLOT(ProducePDF()));
     connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
     connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
     connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int))); 
@@ -171,4 +172,11 @@ void MainWindow::SaveAs(bool)
     QSettings s;
     m_currentproject=QFileDialog::getSaveFileName(this,tr("Save project as"),s.value("LastOpenedDirectory").toString(),tr("Save as (*.conf)"));
     if (!m_currentproject.isEmpty() )   Save(true);
+}
+
+
+void MainWindow::ProducePDF()
+{
+    Save(true);
+
 }
