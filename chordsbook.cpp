@@ -1,6 +1,6 @@
 #include "chordsbook.h"
 
-ChordsBook::ChordsBook()
+ChordsBook::ChordsBook( QString text, QString dir): Processor(text,dir)
 {
 
 }

@@ -22,7 +22,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>2</number>
+        <number>0</number>
        </property>
        <property name="tabBarAutoHide">
         <bool>true</bool>
@@ -117,6 +117,16 @@
                  </property>
                 </widget>
                </item>
+               <item>
+                <widget class="QCheckBox" name="checkBoxMemoryMode">
+                 <property name="text">
+                  <string>Memory mode book</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
               </layout>
              </item>
              <item>
@@ -157,7 +167,18 @@
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="LyricsConfig" name="widgetLyricsMode" native="true"/>
+          <widget class="LyricsConfig" name="widgetLyricsMode" native="true">
+           <widget class="QWidget" name="widget" native="true">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>40</y>
+              <width>120</width>
+              <height>80</height>
+             </rect>
+            </property>
+           </widget>
+          </widget>
          </item>
         </layout>
        </widget>
@@ -178,6 +199,16 @@
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="TextConfig" name="widgetTextMode" native="true"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="tab">
+        <attribute name="title">
+         <string>Memory mode</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="MemoryConfig" name="widget_3" native="true"/>
          </item>
         </layout>
        </widget>
@@ -295,7 +326,7 @@
   </action>
   <action name="actionProduce_PDF_files">
    <property name="text">
-    <string>Produce PDF files</string>
+    <string>&amp;Produce PDF files</string>
    </property>
   </action>
  </widget>
@@ -323,6 +354,12 @@
    <class>LogMessages</class>
    <extends>QTextEdit</extends>
    <header>logmessages.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MemoryConfig</class>
+   <extends>QWidget</extends>
+   <header>memoryconfig.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

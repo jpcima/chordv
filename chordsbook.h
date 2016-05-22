@@ -1,12 +1,12 @@
 #ifndef CHORDSBOOK_H
 #define CHORDSBOOK_H
 
-#include "abstbook.h"
+#include "processor.h"
 
-class ChordsBook : public AbstBook
+class ChordsBook : public Processor
 {
 public:
-    ChordsBook();
+    ChordsBook(QString text, QString dir);
 
 };
 

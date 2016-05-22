@@ -31,12 +31,15 @@ private slots:
     void setChordMode(int i);
     void setLyricsMode(int i);
     void setTextMode(int i);
+    void setMemoryMode(int i);
     void Log(QString message);
     void Save(bool);
     void SaveAs(bool);
     void LastProjectOpen(QAction *action);
     void openProject(QString filename);
     void ProducePDF();
+    void About();
+
 };
 
 #endif // MAINWINDOW_H

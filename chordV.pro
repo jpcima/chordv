@@ -30,10 +30,11 @@ SOURCES += main.cpp\
     examplelabel.cpp \
     pagesize.cpp \
     processor.cpp \
-    abstbook.cpp \
     chordsbook.cpp \
     lyricsbook.cpp \
-    textbook.cpp
+    textbook.cpp \
+    dialogabout.cpp \
+    memoryconfig.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -52,18 +53,18 @@ HEADERS  += mainwindow.h \
     examplelabel.h \
     pagesize.h \
     processor.h \
-    abstbook.h \
     chordsbook.h \
     lyricsbook.h \
-    textbook.h
+    textbook.h \
+    dialogabout.h \
+    memoryconfig.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
-    fontchooser.ui
+    fontchooser.ui \
+    dialogabout.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../usr/lib/release/ -lpodofo
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../usr/lib/debug/ -lpodofo
-else:unix: LIBS += -L$$PWD/../../../../../usr/lib/ -lpodofo
 
-INCLUDEPATH += $$PWD/../../../../../usr/include
-DEPENDPATH += $$PWD/../../../../../usr/include
+LIBS += -L/usr/lib/ -lpodofo
+INCLUDEPATH += /usr/include
+DEPENDPATH += /usr/include

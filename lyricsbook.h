@@ -1,12 +1,12 @@
 #ifndef LYRICSBOOK_H
 #define LYRICSBOOK_H
 
-#include "abstbook.h"
+#include "processor.h"
 
-class LyricsBook : public AbstBook
+class LyricsBook : public Processor
 {
 public:
-    LyricsBook();
+    LyricsBook(QString text, QString dir);
 
 };
 

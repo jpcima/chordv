@@ -136,7 +136,7 @@ void FormConfig::Init()
     ui->comboBoxMediaBox->setCurrentText("A4");
     ui->comboBoxTocColumnNUmber->setCurrentIndex(0);
     ui->comboBoxTocVerticalSpacing->setCurrentText("cm");
-    ui->lineEditOutputFileName->clear();
+    ui->lineEditOutFile->clear();
     ui->spinBoxChordDiagramHSize->setValue(2);
     ui->spinBoxMarginHorizontal->setValue(5);
     ui->spinBoxMarginVertical->setValue(5);

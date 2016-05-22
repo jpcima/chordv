@@ -1,7 +1,8 @@
 #include "textbook.h"
 
-TextBook::TextBook()
+
+
+TextBook::TextBook(QString text, QString file):Processor(text,file)
 {
 
 }
-

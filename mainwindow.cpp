@@ -1,12 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
- #include "util.h"
-
+#include "dialogabout.h"
+#include "util.h"
+#include "textbook.h"
+#include "lyricsbook.h"
+#include "chordsbook.h"
 
 #include <QDebug>
 #include <QFileDialog>
 #include <QSettings>
 #include <QFileInfo>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -26,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
     connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
     connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int))); 
+    connect(ui->checkBoxMemoryMode,SIGNAL(stateChanged(int)),this,SLOT(setMemoryMode(int)));
+    connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
   }
 
 
@@ -52,6 +58,11 @@ void MainWindow::setChordMode( int i)
 void MainWindow::setTextMode(int i)
 {
     ui->tabWidget->setTabEnabled(3,i!=0);
+}
+
+void MainWindow::setMemoryMode(int i)
+{
+    ui->tabWidget->setTabEnabled(4,i!=0);
 }
 
 void MainWindow::Log(QString message)
@@ -83,6 +94,7 @@ void MainWindow::InitProject()
     ui->checkBoxChordMode->setChecked(true);
     ui->checkBoxLyricsMode->setChecked(true);
     ui->checkBoxTextMode->setChecked(true);
+    ui->checkBoxMemoryMode->setChecked(true);
     ui->widgetLyricsMode->Init();
     ui->widgetTextMode->Init();
     ui->widgetChordMode->Init();
@@ -163,7 +175,6 @@ void MainWindow::Save(bool)
     if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,"ChordBook");
     if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,"LyricsBook");
     if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,"TextBook");
-
 }
 
 
@@ -177,6 +188,15 @@ void MainWindow::SaveAs(bool)
 
 void MainWindow::ProducePDF()
 {
-    Save(true);
+ //   Save(true);
+    if ( ui->checkBoxTextMode->isChecked()) TextBook Go(ui->textEdit->document()->toPlainText(),ui->lineEditInputFile->text());
 
+
+}
+
+
+void MainWindow::About()
+{
+  DialogAbout *d = new DialogAbout(this) ;
+  d->exec();
 }
