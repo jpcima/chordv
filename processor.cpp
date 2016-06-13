@@ -12,7 +12,8 @@ using namespace PoDoFo;
 Processor::Processor(QString text, QString file)
 {
 
-    m_allocation=false;
+    m_documentAllocation=false;
+    m_pageAllocation=false;
     m_tocindex=-1;
     QFileInfo fi(file);
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
@@ -21,7 +22,7 @@ Processor::Processor(QString text, QString file)
 
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
     m_dimension = new PdfRect(PageSize());
-    m_allocation=true;
+    m_documentAllocation=true;
 
     QRegExp NewSongREX("^ *{(new_song|ns) *} *$");
     QRegExp CompressREX("^ *{compress} *} *$");
@@ -95,6 +96,7 @@ Processor::Processor(QString text, QString file)
                   displayTocTitle();
 //            }
               if ( first == false ) doChords();
+              m_pageAllocation=true;
               m_page = m_document->CreatePage(*m_dimension);
               if ( m_page )  { PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
                   qDebug()<<"error";
@@ -173,12 +175,15 @@ save();
 
 Processor::~Processor()
 {
-    if ( m_allocation )
+    if ( m_documentAllocation )
     {
       delete m_document;
       delete m_dimension;
-      delete m_painter;
+      if (m_pageAllocation) delete m_painter;
     }
+
+    m_documentAllocation=false;
+    m_pageAllocation=false;
 }
 
 
@@ -308,8 +313,8 @@ void Processor::setColBreak()
 
 void Processor::save()
 {
-    m_painter->FinishPage();
-    m_document->Close();
+    if ( m_pageAllocation)  m_painter->FinishPage();
+    if ( m_documentAllocation) m_document->Close();
 }
 
 void Processor::open()

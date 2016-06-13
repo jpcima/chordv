@@ -96,7 +96,8 @@ private:
     PoDoFo::PdfPainter *m_painter;
     PoDoFo::PdfRect *m_dimension;
 
-    bool m_allocation;
+    bool m_documentAllocation;
+    bool m_pageAllocation;
 
     QStringList m_tocpages;
     int m_tocindex;

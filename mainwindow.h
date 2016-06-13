@@ -25,6 +25,7 @@ private:
 
     void setMenuLastProject();
     void InitProject();
+    void openFile(QString filename);
 private slots:
     void newProject(bool);
     void openProject(bool);
@@ -39,7 +40,7 @@ private slots:
     void openProject(QString filename);
     void ProducePDF();
     void About();
-
+    void SetInputFile();
 };
 
 #endif // MAINWINDOW_H
