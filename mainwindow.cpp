@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->tabWidget->setCurrentIndex(0);
     m_lastmenu= new QMenu(tr("Last Projects"));
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
     connect(m_lastmenu,SIGNAL(triggered(QAction*)),this,SLOT(LastProjectOpen(QAction*)));
@@ -38,7 +39,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::SetInputFile()
 {
-    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),".",tr("cho3 file(*.cho3)"));
+    QSettings s;
+    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),s.value("DirCurrentProject").toString(),tr("cho3 file(*.cho3)"));
     ui->lineEditInputFile->setText(file);
     openFile(file);
 }

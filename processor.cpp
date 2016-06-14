@@ -17,7 +17,6 @@ Processor::Processor(QString text, QString file)
     m_tocindex=-1;
     QFileInfo fi(file);
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
-    qDebug()<<m_file;
     if (m_file.isEmpty()) return;
 
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
@@ -26,16 +25,20 @@ Processor::Processor(QString text, QString file)
 
     QRegExp NewSongREX("^ *{(new_song|ns) *} *$");
     QRegExp CompressREX("^ *{compress} *} *$");
-    QRegExp ColumnsREX("*{(col|columns): *([^}]*)");
-    QRegExp ColumnBreakREX("^ *{(column_break|colb) *");
-    QRegExp CoverTitleREX(" *{(covertitle|ct): *([^}]*)");
-    QRegExp CoverSubTitleREX("^ *{(coversubtitle|cs): *([^}]*)");
+    QRegExp ColumnsREX("*{(col|columns): *([^}]*) *}");
+    QRegExp ColumnBreakREX("^ *{(column_break|colb) *}");
+    QRegExp CoverTitleREX("^ *\\{ *(?:covertitle|ct): *([^}]+)\\}");
+    QRegExp CoverSubTitleREX("{(coversubtitle|cs): *([^}]+)}");
     QRegExp SubTitleREX("^ *{(subtitle|st): *([^}]*)");
     QRegExp TitleREX("^ *{(title|t): *([^}]*)");
     QRegExp SocREX("^ *{(soc|start_of_chorus)}");
     QRegExp EocREX("^ *{(eoc|end_of_chorus)}");
     QRegExp RefrainREX("^Refrain *: *$");
     QRegExp ChordRex("\\[[^]]+\\]");
+
+qDebug()<<CoverTitleREX;
+qDebug()<<CoverTitleREX.isValid();
+qDebug()<<CoverTitleREX.errorString();
 
     m_compress=false;
     m_socmode=false;
@@ -49,13 +52,19 @@ Processor::Processor(QString text, QString file)
     foreach ( QString line, text.split(QRegExp("\n")) )
     {
 
-        if ( line.contains(NewSongREX) )  {}
-        else if ( line.contains(CompressREX) )    { setCompress(true); }
-        else if ( line.contains(ColumnsREX) )     { setColNumber(ColumnsREX.cap(2).toInt()); }
-        else if ( line.contains(ColumnBreakREX) ) { setColBreak();}
+        if ( line.contains(NewSongREX) )
+            {}
+        else if ( line.contains(CompressREX) )
+            { setCompress(true); }
+        else if ( line.contains(ColumnsREX) )
+            { setColNumber(ColumnsREX.cap(2).toInt()); }
+        else if ( line.contains(ColumnBreakREX) )
+            { setColBreak();}
         //breakCol($pdflyrics,$pagelyrics,\$lyricsline,\$lyricscol,$vspacing,0,$vmargin,$hmargin);
-        else if ( line.contains(CoverTitleREX) ) {  setCoverTitle(CoverTitleREX.cap(2)); }
-        else if ( line.contains(CoverSubTitleREX) ) {  setCoverSubtitle(CoverSubTitleREX.cap(2)); }
+        else if ( line.contains(CoverTitleREX) )
+            {  setCoverTitle(CoverTitleREX.cap(1)); }
+        else if ( line.contains(CoverSubTitleREX) )
+            {  setCoverSubtitle(CoverSubTitleREX.cap(2)); }
         else if ( line.contains(SubTitleREX) )
         {
             QString subtitle=SubTitleREX.cap(2);
