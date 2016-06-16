@@ -55,7 +55,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBoxPageWidth">
+               <widget class="QComboBox" name="comboBoxPageWidthUnit">
                 <item>
                  <property name="text">
                   <string>in</string>
@@ -90,7 +90,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBoxPageHeith">
+               <widget class="QComboBox" name="comboBoxPageHeithUnit">
                 <item>
                  <property name="text">
                   <string>in</string>
@@ -132,7 +132,7 @@
                <widget class="QSpinBox" name="spinBoxMarginHorizontal"/>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBoxMarginHorizontal">
+               <widget class="QComboBox" name="comboBoxMarginHorizontalUnit">
                 <item>
                  <property name="text">
                   <string>pt</string>
@@ -175,7 +175,7 @@
                <widget class="QSpinBox" name="spinBoxMarginVertical"/>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBoxMarginVertical">
+               <widget class="QComboBox" name="comboBoxMarginVerticalUnit">
                 <item>
                  <property name="text">
                   <string>pt</string>
@@ -485,7 +485,7 @@
                <widget class="QSpinBox" name="spinBoxChordDiagramHSize"/>
               </item>
               <item>
-               <widget class="QComboBox" name="comboBoxChordDiagramHSize">
+               <widget class="QComboBox" name="comboBoxChordDiagramHSizeUnit">
                 <item>
                  <property name="text">
                   <string>in</string>
@@ -601,7 +601,7 @@
             <widget class="QSpinBox" name="spinBoxTocVerticalSpacing"/>
            </item>
            <item>
-            <widget class="QComboBox" name="comboBoxTocVerticalSpacing">
+            <widget class="QComboBox" name="comboBoxTocVerticalSpacingUnit">
              <item>
               <property name="text">
                <string>in</string>

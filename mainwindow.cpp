@@ -192,6 +192,7 @@ void MainWindow::Save(bool)
     if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,"ChordBook");
     if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,"LyricsBook");
     if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,"TextBook");
+    if ( ui->checkBoxMemoryMode->isChecked()) ui->widgetMemoryMode->Save(m_currentproject,"MemoryMode");
 }
 
 

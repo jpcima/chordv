@@ -30,7 +30,7 @@ public:
     void setRefrain( bool refrain);
 
     QString keepChords(QString line);
-    void newPage();
+    virtual void newPage();
     // virtual pure section
     virtual void displayPageSubtitle( QString subtitle )  ;
     virtual void displayLyrics(QString line);
@@ -48,6 +48,13 @@ public:
     virtual void makePageNumber();
     virtual PoDoFo::PdfRect PageSize(double left=0, double bottom=0, double width=210, double height=297);
     void includeInfo(QString author="", QString title="",QString subtitle="",QString date=QDate::currentDate().toString("dd/MM/aaaa"));
+    virtual int calcColumn();
+    virtual int calcLine();
+    virtual void FollowingLine();
+    ///
+    /// \brief m_category category in config file  (file.conf) Chordbook,LyricsBook,MemoryMode,TextBook
+    ///
+    virtual QString Category();
 
 private:
     ///
@@ -101,6 +108,17 @@ private:
 
     QStringList m_tocpages;
     int m_tocindex;
+
+    ///
+    /// \brief m_line current line printed
+    ///
+    int m_line;
+    ///
+    /// \brief m_column current column printed
+    ///
+    int m_column;
+
+
 
 
 };

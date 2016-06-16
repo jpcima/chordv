@@ -22,7 +22,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>5</number>
+        <number>0</number>
        </property>
        <property name="tabBarAutoHide">
         <bool>true</bool>
@@ -239,13 +239,13 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="tab">
+       <widget class="QWidget" name="MemoryMode">
         <attribute name="title">
          <string>Memory mode</string>
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="MemoryConfig" name="widget_3" native="true"/>
+          <widget class="MemoryConfig" name="widgetMemoryMode" native="true"/>
          </item>
         </layout>
        </widget>

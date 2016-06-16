@@ -32,8 +32,8 @@ void FormConfig::SizeChanged(QString value)
 {
     ui->doubleSpinBoxBoxPageHeight->setValue(ui->comboBoxMediaBox->getHeight());
     ui->doubleSpinBoxBoxPageWidth->setValue(ui->comboBoxMediaBox->getWidth()) ;
-    ui->comboBoxPageHeith->setCurrentText(ui->comboBoxMediaBox->getUnit());
-    ui->comboBoxPageWidth->setCurrentText(ui->comboBoxMediaBox->getUnit());
+    ui->comboBoxPageHeithUnit->setCurrentText(ui->comboBoxMediaBox->getUnit());
+    ui->comboBoxPageWidthUnit->setCurrentText(ui->comboBoxMediaBox->getUnit());
 }
 
 void FormConfig::disableWidgets(QRegExp value)
@@ -128,14 +128,14 @@ void FormConfig::Init()
     ui->checkBoxCover->setChecked(false);
     ui->checkBoxFullScreenMode->setChecked(false);
     ui->checkBoxTitleInUppercase->setChecked(false);
-    ui->comboBoxChordDiagramHSize->setCurrentText("cm");
+    ui->comboBoxChordDiagramHSizeUnit->setCurrentText("cm");
     ui->comboBoxChordInText->setCurrentIndex(0);
     ui->comboBoxChordLang->setCurrentIndex(0);
-    ui->comboBoxMarginHorizontal->setCurrentText("cm");
-    ui->comboBoxMarginVertical->setCurrentText("cm");
+    ui->comboBoxMarginHorizontalUnit->setCurrentText("cm");
+    ui->comboBoxMarginVerticalUnit->setCurrentText("cm");
     ui->comboBoxMediaBox->setCurrentText("A4");
     ui->comboBoxTocColumnNUmber->setCurrentIndex(0);
-    ui->comboBoxTocVerticalSpacing->setCurrentText("cm");
+    ui->comboBoxTocVerticalSpacingUnit->setCurrentText("cm");
     ui->lineEditOutFile->clear();
     ui->spinBoxChordDiagramHSize->setValue(2);
     ui->spinBoxMarginHorizontal->setValue(5);
@@ -174,7 +174,7 @@ void FormConfig::Save(QString filename, QString section)
     QSettings sf(filename,QSettings::IniFormat);
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
     {
-        if ( ! w->isVisible() ) continue;
+        if ( ! w->isEnabled() ) continue;
         QRegExp tb("^toolButton");
         QRegExp f("Font$");
         QString name=w->objectName().replace(tb,"").replace(f,"");
@@ -185,9 +185,9 @@ void FormConfig::Save(QString filename, QString section)
         sf.setValue(QString("%1/%2BackgroundFont").arg(section).arg(name),w->getBackgroundColor().name());
         sf.setValue(QString("%1/%2ColorFont").arg(section).arg(name),w->getBackgroundColor().name());
     }
-    foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>())
+    foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>() )
     {
-        if ( ! w->isVisible() ) continue;
+        if ( ! w->isEnabled() ) continue;
         QRegExp tb("^toolButton");
         QRegExp c("Color$");
         QString name=w->objectName().replace(tb,"").replace(c,"");
@@ -195,7 +195,7 @@ void FormConfig::Save(QString filename, QString section)
     }
     foreach (ImageButton *w ,m_parent->findChildren<ImageButton*>())
     {
-        if ( ! w->isVisible() ) continue;
+        if ( ! w->isEnabled() ) continue;
         QRegExp tb("^toolButton");
         QRegExp i("Image$");
         QString name=w->objectName().replace(tb,"").replace(i,"");
@@ -203,25 +203,40 @@ void FormConfig::Save(QString filename, QString section)
     }
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
     {
-         if ( ! w->isVisible() ) continue;
+         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^toolButton");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->isChecked()?"1":"0");
     }
     foreach (QComboBox *w ,m_parent->findChildren<QComboBox*>())
     {
-         if ( ! w->isVisible() ) continue;
+         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^comboBox");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->currentText());
     }
     foreach (QLineEdit *w ,m_parent->findChildren<QLineEdit*>())
     {
-         if ( ! w->isVisible() ) continue;
+         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^lineEdit");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->text());
     }
+    foreach (QSpinBox *w ,m_parent->findChildren<QSpinBox*>())
+    {
+         if ( ! w->isEnabled() ) continue;
+         QRegExp tb("^spinBox");
+         QString name=w->objectName().replace(tb,"");
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->value());
+    }
+    foreach (QDoubleSpinBox *w ,m_parent->findChildren<QDoubleSpinBox*>())
+    {
+         if ( ! w->isEnabled() ) continue;
+         QRegExp tb("^doubleSpinBox");
+         QString name=w->objectName().replace(tb,"");
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->value());
+    }
+
     sf.sync();
 }
 

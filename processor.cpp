@@ -15,6 +15,8 @@ Processor::Processor(QString text, QString file)
     m_documentAllocation=false;
     m_pageAllocation=false;
     m_tocindex=-1;
+    m_line=0;
+    m_column=0;
     QFileInfo fi(file);
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
     if (m_file.isEmpty()) return;
@@ -23,22 +25,18 @@ Processor::Processor(QString text, QString file)
     m_dimension = new PdfRect(PageSize());
     m_documentAllocation=true;
 
-    QRegExp NewSongREX("^ *{(new_song|ns) *} *$");
-    QRegExp CompressREX("^ *{compress} *} *$");
-    QRegExp ColumnsREX("*{(col|columns): *([^}]*) *}");
-    QRegExp ColumnBreakREX("^ *{(column_break|colb) *}");
-    QRegExp CoverTitleREX("^ *\\{ *(?:covertitle|ct): *([^}]+)\\}");
-    QRegExp CoverSubTitleREX("{(coversubtitle|cs): *([^}]+)}");
-    QRegExp SubTitleREX("^ *{(subtitle|st): *([^}]*)");
-    QRegExp TitleREX("^ *{(title|t): *([^}]*)");
-    QRegExp SocREX("^ *{(soc|start_of_chorus)}");
-    QRegExp EocREX("^ *{(eoc|end_of_chorus)}");
+    QRegExp NewSongREX("^ *\\{(new_song|ns) *\\} *$");
+    QRegExp CompressREX("^ *\\{compress\\} * *$");
+    QRegExp ColumnsREX("^ *\\{(?:col|columns): *([^}]*) *\\}");
+    QRegExp ColumnBreakREX("^ *\\{(column_break|colb) *\\}");
+    QRegExp CoverTitleREX("^ *\\{*(?:covertitle|ct): *([^}]+)\\}");
+    QRegExp CoverSubTitleREX("^ *\\{(?:coversubtitle|cs): *([^}]+)\\}");
+    QRegExp SubTitleREX("^ *\\{(?:subtitle|st): *([^}])\\}");
+    QRegExp TitleREX("^ *\\{(?:title|t): *([^}]*)\\}");
+    QRegExp SocREX("^ *\\{(?:soc|start_of_chorus)\\}");
+    QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}");
     QRegExp RefrainREX("^Refrain *: *$");
     QRegExp ChordRex("\\[[^]]+\\]");
-
-qDebug()<<CoverTitleREX;
-qDebug()<<CoverTitleREX.isValid();
-qDebug()<<CoverTitleREX.errorString();
 
     m_compress=false;
     m_socmode=false;
@@ -57,17 +55,17 @@ qDebug()<<CoverTitleREX.errorString();
         else if ( line.contains(CompressREX) )
             { setCompress(true); }
         else if ( line.contains(ColumnsREX) )
-            { setColNumber(ColumnsREX.cap(2).toInt()); }
+            { setColNumber(ColumnsREX.cap(1).toInt()); }
         else if ( line.contains(ColumnBreakREX) )
             { setColBreak();}
         //breakCol($pdflyrics,$pagelyrics,\$lyricsline,\$lyricscol,$vspacing,0,$vmargin,$hmargin);
         else if ( line.contains(CoverTitleREX) )
             {  setCoverTitle(CoverTitleREX.cap(1)); }
         else if ( line.contains(CoverSubTitleREX) )
-            {  setCoverSubtitle(CoverSubTitleREX.cap(2)); }
+            {  setCoverSubtitle(CoverSubTitleREX.cap(1)); }
         else if ( line.contains(SubTitleREX) )
         {
-            QString subtitle=SubTitleREX.cap(2);
+            QString subtitle=SubTitleREX.cap(1);
             setSubTitle(subtitle);
             displayPageSubtitle(subtitle) ;
             //my ($llx,$lly,$urx,$ury)=$pagelyrics->get_mediabox();
@@ -75,7 +73,7 @@ qDebug()<<CoverTitleREX.errorString();
         }
         else if ( line.contains(TitleREX) )
         {
-            setTitle(TitleREX.cap(2));
+              setTitle(TitleREX.cap(1));
 //            $subtitley=1;
               printChordsForSong();
 
@@ -91,7 +89,7 @@ qDebug()<<CoverTitleREX.errorString();
             {
                  Cover(getCoverTitle(),getCoverSubtitle());
                  setCoverMade(true);
-                 newPage();
+                ;
 //                my ($llx, $lly, $urx, $ury) = $TocsChords[0]->get_mediabox;
 //                $MaxLine=$lyricsline=($ury-$lly)*190/210;
 //                $InfoChords{"InitialLine"}=($ury-$lly)*46/50;
@@ -105,23 +103,7 @@ qDebug()<<CoverTitleREX.errorString();
                   displayTocTitle();
 //            }
               if ( first == false ) doChords();
-              m_pageAllocation=true;
-              m_page = m_document->CreatePage(*m_dimension);
-              if ( m_page )  { PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
-                  qDebug()<<"error";
-              }
-              m_painter=new PdfPainter();
-              m_painter->SetPage(m_page);
-
-              PdfFont* pFont;
-              pFont = m_document->CreateFont( "Arial" );
-              if( !pFont )
-                 {
-                     PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
-                 }
-              pFont->SetFontSize( 18.0 );
-              m_painter->SetFont( pFont );
-              m_painter->DrawText( 56.69, m_page->GetPageSize().GetHeight() - 56.69, "Hello World!" );
+              newPage();
 
 
 
@@ -223,6 +205,16 @@ void Processor::includeInfo(QString author, QString title,QString subtitle,QStri
    m_document->GetInfo()->SetKeywords( PdfString(date.toStdString()));
 }
 
+int Processor::calcColumn()
+{
+
+}
+
+int Processor::calcLine()
+{
+
+}
+
 void Processor::setCoverSubtitle(QString coversubtitle)
 {
     m_coversubtitle=coversubtitle;
@@ -273,6 +265,22 @@ QString Processor::keepChords(QString line)
 void Processor::newPage()
 {
 
+    m_pageAllocation=true;
+    m_page = m_document->CreatePage(*m_dimension);
+    if ( ! m_page )  { PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
+        qDebug()<<"error page not well created";
+    }
+    m_painter=new PdfPainter();
+    m_painter->SetPage(m_page);
+
+    PdfFont* pFont;
+    pFont = m_document->CreateFont( "Arial" );
+    if( !pFont )
+       {
+           PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
+       }
+    pFont->SetFontSize( 18.0 );
+    m_painter->SetFont( pFont );
 }
 
 void Processor::displayPageSubtitle(QString subtitle)
@@ -282,6 +290,7 @@ void Processor::displayPageSubtitle(QString subtitle)
 
 void Processor::displayLyrics(QString line)
 {
+    //m_painter->DrawText( 56.69, m_page->GetPageSize().GetHeight() - 56.69,line.toLocal8Bit() );
 
 }
 
@@ -353,3 +362,12 @@ PdfRect Processor::PageSize( double left, double bottom, double width, double he
     return size;
 }
 
+void Processor::FollowingLine()
+{
+
+}
+
+QString Processor::Category()
+{
+    return QString("TextBook");
+}
