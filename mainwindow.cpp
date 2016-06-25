@@ -136,34 +136,28 @@ void MainWindow::openFile( QString filename)
 
 void MainWindow::openProject(QString filename)
 {
-    openFile(filename);
     QSettings p(filename,QSettings::IniFormat);
+    ui->lineEditInputFile->setText(p.value("General/File").toString());
+    ui->lineEditCreatorName->setText(p.value("General/Creator").toString());
+    ui->comboBoxChordLanguage->setCurrentText(p.value("General/ChordLang").toString());
 
-    ui->lineEditInputFile->setText(filename);
-
-    ui->lineEditCreatorName->setText(p.value("Creator").toString());
     p.beginGroup("LyricsBook");
     ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
     QStringList list1=p.allKeys();
-    foreach ( QString key, list1)
-    {
-          ui->widgetLyricsMode->setValue(key,p.value(key));
-    }
+    foreach ( QString key, list1)  ui->widgetLyricsMode->setValue(key,p.value(key));
     p.endGroup();
     p.beginGroup("ChordBook");
     ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
     QStringList list2=p.allKeys();
-    foreach ( QString key, list2)
-    {
-       ui->widgetChordMode->setValue(key,p.value(key));
-    }
+    foreach ( QString key, list2)  ui->widgetChordMode->setValue(key,p.value(key));
     p.endGroup();
     p.beginGroup("TextBook");
     ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
-    foreach ( QString key, p.allKeys())
-    {
-       ui->widgetTextMode->setValue(key,p.value(key));
-    }
+    foreach ( QString key, p.allKeys()) ui->widgetTextMode->setValue(key,p.value(key));
+    p.endGroup();
+    p.beginGroup("MemoryMode");
+    ui->checkBoxMemoryMode->setChecked(p.allKeys().count()!=0);
+    foreach ( QString key, p.allKeys()) ui->widgetMemoryMode->setValue(key,p.value(key));
     p.endGroup();
 }
 

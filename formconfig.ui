@@ -36,6 +36,9 @@
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_9">
             <item>
+             <widget class="SpinBoxUnit" name="spuPageWidth" native="true"/>
+            </item>
+            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_19">
               <item>
                <widget class="QLabel" name="labelPageWidth">
@@ -45,7 +48,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="doubleSpinBoxBoxPageWidth">
+               <widget class="QDoubleSpinBox" name="doubleSpinBoxPageWidth">
                 <property name="decimals">
                  <number>1</number>
                 </property>
@@ -80,7 +83,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="doubleSpinBoxBoxPageHeight">
+               <widget class="QDoubleSpinBox" name="doubleSpinBoxPageHeight">
                 <property name="decimals">
                  <number>1</number>
                 </property>
@@ -129,7 +132,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBoxMarginHorizontal"/>
+               <widget class="QDoubleSpinBox" name="doubleSpinBoxMarginHorizontal"/>
               </item>
               <item>
                <widget class="QComboBox" name="comboBoxMarginHorizontalUnit">
@@ -172,7 +175,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBoxMarginVertical"/>
+               <widget class="QDoubleSpinBox" name="doubleSpinBoxMarginVertical"/>
               </item>
               <item>
                <widget class="QComboBox" name="comboBoxMarginVerticalUnit">
@@ -482,7 +485,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="spinBoxChordDiagramHSize"/>
+               <widget class="QDoubleSpinBox" name="doubleSpinBoxChordDiagramHSize"/>
               </item>
               <item>
                <widget class="QComboBox" name="comboBoxChordDiagramHSizeUnit">
@@ -598,7 +601,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QSpinBox" name="spinBoxTocVerticalSpacing"/>
+            <widget class="QDoubleSpinBox" name="doubleSpinBoxTocVerticalSpacing"/>
            </item>
            <item>
             <widget class="QComboBox" name="comboBoxTocVerticalSpacingUnit">
@@ -653,6 +656,12 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>SpinBoxUnit</class>
+   <extends>QWidget</extends>
+   <header>spinboxunit.h</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>FontButton</class>
    <extends>QToolButton</extends>

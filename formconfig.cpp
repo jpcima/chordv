@@ -30,8 +30,8 @@ FormConfig::~FormConfig()
 
 void FormConfig::SizeChanged(QString value)
 {
-    ui->doubleSpinBoxBoxPageHeight->setValue(ui->comboBoxMediaBox->getHeight());
-    ui->doubleSpinBoxBoxPageWidth->setValue(ui->comboBoxMediaBox->getWidth()) ;
+    ui->doubleSpinBoxPageHeight->setValue(ui->comboBoxMediaBox->getHeight());
+    ui->doubleSpinBoxPageWidth->setValue(ui->comboBoxMediaBox->getWidth()) ;
     ui->comboBoxPageHeithUnit->setCurrentText(ui->comboBoxMediaBox->getUnit());
     ui->comboBoxPageWidthUnit->setCurrentText(ui->comboBoxMediaBox->getUnit());
 }
@@ -50,6 +50,7 @@ void FormConfig::disableWidgets(QRegExp value)
         w->setVisible(false);
     foreach (QComboBox *w ,m_parent->findChildren<QComboBox*>(value))
         w->setVisible(false);
+
 }
 
 
@@ -64,6 +65,7 @@ void FormConfig::setCover(int val)
 
 void FormConfig::setValue(QString var, QVariant value)
 {
+    QRegExp spu ("^spu(.*)") ;
     if ( var.endsWith("Font"))
     {
         QString toolButton=var;
@@ -84,25 +86,19 @@ void FormConfig::setValue(QString var, QVariant value)
     {
          ui->checkBoxCover->setChecked(value.toInt()==1);
     }
-    else if ( var.endsWith("Size") || var.startsWith("Margin") || var.endsWith("Spacing"))
+    else if ( var.endsWith("Unit") && var.startsWith("comboBox") )
     {
-        QRegExp exp("^([0-9]+)([a-zA-Z]+)");
-        if ( value.toString().contains(exp))
-        {
-           int val=exp.cap(1).toInt();
-           QString unit=exp.cap(2);
+            foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentText(value.toString());
+    }
+    else if ( var.startsWith("spinBox"))
+    {
+           foreach (QSpinBox *w ,m_parent->findChildren<QSpinBox*>(var)) w->setValue(value.toInt());
 
-           foreach (QSpinBox *w ,m_parent->findChildren<QSpinBox*>(QString("spinBox")+var))
-           {
-               w->setValue(val);
-           }
-           foreach (QComboBox *w ,m_parent->findChildren<QComboBox*>(QString("comboBox")+var))
-           {
-               w->setCurrentText(unit);
-           }
+    }
+    else if ( var.startsWith("doubleSpinBox") )
+    {
+           foreach (QDoubleSpinBox *w ,m_parent->findChildren<QDoubleSpinBox*>(var)) w->setValue(value.toDouble());
 
-        }
-        else  qDebug()<<"ERROR "<<var<<value;
     }
     else if ( var.endsWith("Image"))
     {
@@ -119,7 +115,8 @@ void FormConfig::setValue(QString var, QVariant value)
         }
 
     }
-  // else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
+
+   // else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
 
 }
 
@@ -137,10 +134,10 @@ void FormConfig::Init()
     ui->comboBoxTocColumnNUmber->setCurrentIndex(0);
     ui->comboBoxTocVerticalSpacingUnit->setCurrentText("cm");
     ui->lineEditOutFile->clear();
-    ui->spinBoxChordDiagramHSize->setValue(2);
-    ui->spinBoxMarginHorizontal->setValue(5);
-    ui->spinBoxMarginVertical->setValue(5);
-    ui->spinBoxTocVerticalSpacing->setValue(1);
+    ui->doubleSpinBoxChordDiagramHSize->setValue(2);
+    ui->doubleSpinBoxMarginHorizontal->setValue(5);
+    ui->doubleSpinBoxMarginVertical->setValue(5);
+    ui->doubleSpinBoxTocVerticalSpacing->setValue(1);
     ui->toolButtonChordFont->setFont(QFont());
     ui->toolButtonCoverFont->setFont(QFont());
     ui->toolButtonNormalFont->setFont(QFont());

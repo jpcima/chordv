@@ -34,7 +34,8 @@ SOURCES += main.cpp\
     lyricsbook.cpp \
     textbook.cpp \
     dialogabout.cpp \
-    memoryconfig.cpp
+    memoryconfig.cpp \
+    spinboxunit.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -57,7 +58,8 @@ HEADERS  += mainwindow.h \
     lyricsbook.h \
     textbook.h \
     dialogabout.h \
-    memoryconfig.h
+    memoryconfig.h \
+    spinboxunit.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
