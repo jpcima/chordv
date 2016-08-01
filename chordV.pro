@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = chordIII
+TARGET = chordV
 TEMPLATE = app
 
 
@@ -61,9 +61,3 @@ FORMS    += mainwindow.ui \
     formconfig.ui \
     fontchooser.ui
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../usr/lib/release/ -lpodofo
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../usr/lib/debug/ -lpodofo
-else:unix: LIBS += -L$$PWD/../../../../../usr/lib/ -lpodofo
-
-INCLUDEPATH += $$PWD/../../../../../usr/include
-DEPENDPATH += $$PWD/../../../../../usr/include
