@@ -30,10 +30,12 @@ SOURCES += main.cpp\
     examplelabel.cpp \
     pagesize.cpp \
     processor.cpp \
-    abstbook.cpp \
     chordsbook.cpp \
     lyricsbook.cpp \
-    textbook.cpp
+    textbook.cpp \
+    dialogabout.cpp \
+    memoryconfig.cpp \
+    spinboxunit.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -52,12 +54,22 @@ HEADERS  += mainwindow.h \
     examplelabel.h \
     pagesize.h \
     processor.h \
-    abstbook.h \
     chordsbook.h \
     lyricsbook.h \
-    textbook.h
+    textbook.h \
+    dialogabout.h \
+    memoryconfig.h \
+    spinboxunit.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
-    fontchooser.ui
+    fontchooser.ui \
+    dialogabout.ui
 
+LIBS += -L/usr/lib/ -lpodofo
+INCLUDEPATH += /usr/include
+DEPENDPATH += /usr/include
+
+DISTFILES += \
+    Docs/Todo.md \
+    Docs/Compilation.md

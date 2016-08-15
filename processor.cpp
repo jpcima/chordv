@@ -1,56 +1,81 @@
 #include "processor.h"
 
 
+
 #include <QRegExp>
 #include <QDebug>
+#include <QFileInfo>
 
-Processor::Processor(QString text, AbstBook *b)
+using namespace PoDoFo;
+
+
+Processor::Processor(QString text, QString file)
 {
-    QRegExp NewSongREX("^ *{(new_song|ns) *} *$");
-    QRegExp CompressREX("^ *{compress} *} *$");
-    QRegExp ColumnsREX("*{(col|columns): *([^}]*)");
-    QRegExp ColumnBreakREX("^ *{(column_break|colb) *");
-    QRegExp CoverTitleREX(" *{(covertitle|ct): *([^}]*)");
-    QRegExp CoverSubTitleREX("^ *{(coversubtitle|cs): *([^}]*)");
-    QRegExp SubTitleREX("^ *{(subtitle|st): *([^}]*)");
-    QRegExp TitleREX("^ *{(title|t): *([^}]*)");
-    QRegExp SocREX("^ *{(soc|start_of_chorus)}");
-    QRegExp EocREX("^ *{(eoc|end_of_chorus)}");
+
+    m_documentAllocation=false;
+    m_pageAllocation=false;
+    m_tocindex=-1;
+    m_line=0;
+    m_column=0;
+    QFileInfo fi(file);
+    m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
+    if (m_file.isEmpty()) return;
+
+    m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
+    m_dimension = new PdfRect(PageSize());
+    m_documentAllocation=true;
+
+    QRegExp NewSongREX("^ *\\{(new_song|ns) *\\} *$");
+    QRegExp CompressREX("^ *\\{compress\\} * *$");
+    QRegExp ColumnsREX("^ *\\{(?:col|columns): *([^}]*) *\\}");
+    QRegExp ColumnBreakREX("^ *\\{(column_break|colb) *\\}");
+    QRegExp CoverTitleREX("^ *\\{*(?:covertitle|ct): *([^}]+)\\}");
+    QRegExp CoverSubTitleREX("^ *\\{(?:coversubtitle|cs): *([^}]+)\\}");
+    QRegExp SubTitleREX("^ *\\{(?:subtitle|st): *([^}])\\}");
+    QRegExp TitleREX("^ *\\{(?:title|t): *([^}]*)\\}");
+    QRegExp SocREX("^ *\\{(?:soc|start_of_chorus)\\}");
+    QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}");
     QRegExp RefrainREX("^Refrain *: *$");
     QRegExp ChordRex("\\[[^]]+\\]");
+
+    m_compress=false;
+    m_socmode=false;
+    m_refrain=false;
 
     QStringList Buf;
 
     bool first=true;
-    b->setCoverMade(false);
+    setCoverMade(false);
 
     foreach ( QString line, text.split(QRegExp("\n")) )
     {
 
-        if ( line.contains(NewSongREX) )  {}
-        else if ( line.contains(CompressREX) )    { b->setCompress(true); }
-        else if ( line.contains(ColumnsREX) )     { b->setColNumber(ColumnsREX.cap(2).toInt()); }
-        else if ( line.contains(ColumnBreakREX) ) { //b->breakCol($pdflyrics,$pagelyrics,\$lyricsline,\$lyricscol,$vspacing,0,$vmargin,$hmargin);
-        }
-        else if ( line.contains(CoverTitleREX) ) {  b->setCoverTitle(CoverTitleREX.cap(2)); }
-        else if ( line.contains(CoverSubTitleREX) ) {  b->setCoverSubtitle(CoverSubTitleREX.cap(2)); }
+        if ( line.contains(NewSongREX) )
+            {}
+        else if ( line.contains(CompressREX) )
+            { setCompress(true); }
+        else if ( line.contains(ColumnsREX) )
+            { setColNumber(ColumnsREX.cap(1).toInt()); }
+        else if ( line.contains(ColumnBreakREX) )
+            { setColBreak();}
+        //breakCol($pdflyrics,$pagelyrics,\$lyricsline,\$lyricscol,$vspacing,0,$vmargin,$hmargin);
+        else if ( line.contains(CoverTitleREX) )
+            {  setCoverTitle(CoverTitleREX.cap(1)); }
+        else if ( line.contains(CoverSubTitleREX) )
+            {  setCoverSubtitle(CoverSubTitleREX.cap(1)); }
         else if ( line.contains(SubTitleREX) )
         {
-            QString subtitle=SubTitleREX.cap(2);
-            b->setSubTitle(subtitle);
-            b->displayPageSubtitle(subtitle) ;
+            QString subtitle=SubTitleREX.cap(1);
+            setSubTitle(subtitle);
+            displayPageSubtitle(subtitle) ;
             //my ($llx,$lly,$urx,$ury)=$pagelyrics->get_mediabox();
             //$vmargin=$ury-$ury*(19/20-1/70*$subtitley);
         }
         else if ( line.contains(TitleREX) )
         {
-            b->setTitle(TitleREX.cap(2));
+              setTitle(TitleREX.cap(1));
 //            $subtitley=1;
-//            $colnumber=1;
-//            $tocpage++;
-//            $TocPages[$tocpage]=1;
-//            &printChordsForSong();
-//            %ChordsForSong = ();
+              printChordsForSong();
 
 //            if ( $AnnotationAuth!~/^$/ )
 //            {
@@ -60,12 +85,11 @@ Processor::Processor(QString text, AbstBook *b)
 //              $ant->text($AnnotationAuth);
 //              $AnnotationAuth="";
 //            }
-            if ( ! b->getCoverMade()  )
+            if ( ! getCoverMade()  )
             {
-                 b->Cover(b->getCoverTitle(),b->getCoverSubtitle());
-                 b->setCoverMade(true);
-//                $TocsChords[0]= $pdfchords->page();
-//                $TocsLyrics[0]= $pdflyrics->page();
+                 Cover(getCoverTitle(),getCoverSubtitle());
+                 setCoverMade(true);
+                ;
 //                my ($llx, $lly, $urx, $ury) = $TocsChords[0]->get_mediabox;
 //                $MaxLine=$lyricsline=($ury-$lly)*190/210;
 //                $InfoChords{"InitialLine"}=($ury-$lly)*46/50;
@@ -76,80 +100,274 @@ Processor::Processor(QString text, AbstBook *b)
 //                $InfoLyrics{"InitialCol"}=Util::convert($Config->{LyricsBook}->{MarginHorizontal});
 //                $InfoChords{"c"}=$InfoChords{"InitialCol"};
 //                $InfoLyrics{"c"}=$InfoLyrics{"InitialCol"};
-//                &DisplayPageTitle($pdfchords,$TocsChords[0],"ChordBook",__("Table of content")) ;
-//                &DisplayPageTitle($pdflyrics,$TocsLyrics[0],"LyricsBook",__("Table of content")) ;
+                  displayTocTitle();
 //            }
-              if ( first == false ) b->doChords();
-//            $pagechords=$pdfchords->page();
-//            $pagelyrics=$pdflyrics->page();
-//            my ($llx,$lly,$urx,$ury)=$pagelyrics->get_mediabox;
+              if ( first == false ) doChords();
+              newPage();
+
+
+
+
 //            $MaxLine=$lyricsline=($ury-$lly)*190/210;
 //            $lyricscol=$llx+Util::convert(${Config}->{LyricsBook}->{MarginHorizontal});
               first=false;
               Buf.clear();
 //            $CurrentColor=$Config->{ChordBook}->{NormalColor};
 //            $vmargin=Util::convert($Config->{"LyricsBook"}->{MarginVertical});
-//            &DisplayPageTitle($pdfchords,$pagechords,"ChordBook",$title);
-//            &DisplayPageTitle($pdflyrics,$pagelyrics,"LyricsBook",$title);
+              displayPageTitle();
 //            $vmargin=$ury-$ury*192/200;
-//            AddToc($TocsChords[scalar(@TocsChords)-1],$pdfchords,$title,"ChordBook",\%InfoChords,\@TocsChords);
-//            AddToc($TocsLyrics[scalar(@TocsLyrics)-1],$pdflyrics,$title,"LyricsBook",\%InfoLyrics,\@TocsLyrics);
-              b->setCompress(false);
+              addTitleToc();
+              setCompress(false);
 
         }
         else if ( line.contains(SocREX) )
         {
             Buf<<QObject::tr("Chorus");
-            b->setSocMode(true);
+            setSocMode(true);
         }
         else if ( line.contains(EocREX) )
         {
             Buf<<QObject::tr("Endchorus");
-            b->setSocMode(false);
+            setSocMode(false);
         }
         else if ( line.contains(RefrainREX) )
         {
-            b->setRefrain(true);
+            setRefrain(true);
             Buf<<QObject::tr("Refrain");
         }
         else if   ( line.contains(ChordRex) )
         {
 
-              b->displayLyrics(line);
-              line=b->keepChords(line);
+              displayLyrics(line);
+              line=keepChords(line);
 
               QStringList s=line.split("|");
               Buf<<s;
         }
         else if ( first  )
         {
-           b->displayLyrics(line);
+           displayLyrics(line);
         }
     }
 
 }
 
 
-b->doChords();
-b->printChordsForSong();
+doChords();
+printChordsForSong();
 
-//my $out1=$Config->{ChordBook}->{OutFile};
-//$pdfchords->saveas($out1);
-//$pdfchords=PDF::API2->open($out1);
-//$startoc=$pdfchords->openpage(&firstpage("ChordBook"));
-//&DisplayFooters($pdfchords,"ChordBook");
-//&AddLinksInToc($pdfchords,"ChordBook",\%InfoChords,\@TocsChords);
-//&MakePageNumbers($pdfchords,"ChordBook");
-//$pdfchords->saveas($out1);
+save();
+open();
+addFooter();
+addLinkInToc();
+makePageNumber();
+save();
+}
+
+Processor::~Processor()
+{
+    if ( m_documentAllocation )
+    {
+      delete m_document;
+      delete m_dimension;
+      if (m_pageAllocation) delete m_painter;
+    }
+
+    m_documentAllocation=false;
+    m_pageAllocation=false;
+}
 
 
-//my $out2=$Config->{LyricsBook}->{OutFile};
-//$pdflyrics->saveas($out2);
-//$pdflyrics=PDF::API2->open($out2);
-//$startoc=$pdflyrics->openpage(&firstpage("LyricsBook"));
-//&DisplayFooters($pdflyrics,"LyricsBook");
-//&AddLinksInToc($pdflyrics,"LyricsBook",\%InfoLyrics,\@TocsLyrics);
-//&MakePageNumbers($pdflyrics,"LyricsBook");
-//$pdflyrics->saveas($out2);
 
+void Processor::setCompress(bool compress)
+{
+    m_compress=compress;
+}
+
+void Processor::setColNumber(int colnumber)
+{
+    m_colnumber=colnumber;
+}
+
+void Processor::setCoverTitle(QString covertitle)
+{
+    m_covertitle=covertitle;
+    includeInfo();
+}
+
+
+void Processor::includeInfo(QString author, QString title,QString subtitle,QString date)
+{
+   m_document->GetInfo()->SetCreator ( PdfString("Chord V") );
+   m_document->GetInfo()->SetAuthor  ( PdfString(author.toStdString()) );
+   m_document->GetInfo()->SetTitle   ( PdfString(title.toStdString()) );
+   m_document->GetInfo()->SetSubject ( PdfString(subtitle.toStdString()) );
+   m_document->GetInfo()->SetKeywords( PdfString(date.toStdString()));
+}
+
+int Processor::calcColumn()
+{
+
+}
+
+int Processor::calcLine()
+{
+
+}
+
+void Processor::setCoverSubtitle(QString coversubtitle)
+{
+    m_coversubtitle=coversubtitle;
+}
+
+void Processor::setSubTitle(QString subtitle)
+{
+    m_subtitle=subtitle;
+}
+
+void Processor::setTitle(QString title)
+{
+    m_title=title;
+    m_tocindex++;
+    m_tocpages<<title;
+    m_colnumber=1;
+}
+
+void Processor::setSocMode(bool socmode)
+{
+    m_socmode=socmode;
+}
+
+void Processor::setRefrain(bool refrain)
+{
+    m_refrain=refrain;
+}
+
+
+QString Processor::keepChords(QString line)
+{
+   // suppress before first []
+   line.replace(QRegExp("^[^[]*"),"") ;
+   // suppress end  after last  []
+   line.replace(QRegExp("[^]]*$"),"");
+   // suppress after all []
+   line.replace(QRegExp("\\[([^]]+)\\][^[]+"),"\\1");
+   // suppress (V)
+    line.replace(QRegExp("\\(([^)]*)\\)"),"");
+    // line=&Translate(line);
+   line.replace("][","|");
+   line.replace("]","");
+   line.replace("[","");
+   return line;
+}
+
+
+void Processor::newPage()
+{
+
+    m_pageAllocation=true;
+    m_page = m_document->CreatePage(*m_dimension);
+    if ( ! m_page )  { PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
+        qDebug()<<"error page not well created";
+    }
+    m_painter=new PdfPainter();
+    m_painter->SetPage(m_page);
+
+    PdfFont* pFont;
+    pFont = m_document->CreateFont( "Arial" );
+    if( !pFont )
+       {
+           PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
+       }
+    pFont->SetFontSize( 18.0 );
+    m_painter->SetFont( pFont );
+}
+
+void Processor::displayPageSubtitle(QString subtitle)
+{
+
+}
+
+void Processor::displayLyrics(QString line)
+{
+    //m_painter->DrawText( 56.69, m_page->GetPageSize().GetHeight() - 56.69,line.toLocal8Bit() );
+
+}
+
+void Processor::Cover(QString title, QString subtitle)
+{
+
+}
+
+void Processor::doChords()
+{
+
+}
+
+void Processor::printChordsForSong()
+{
+
+}
+
+void Processor::displayPageTitle()
+{
+
+}
+
+void Processor::displayTocTitle()
+{
+
+}
+
+void Processor::addTitleToc()
+{
+
+}
+
+void Processor::setColBreak()
+{
+
+}
+
+void Processor::save()
+{
+    if ( m_pageAllocation)  m_painter->FinishPage();
+    if ( m_documentAllocation) m_document->Close();
+}
+
+void Processor::open()
+{
+
+}
+
+void Processor::addFooter()
+{
+
+}
+
+void Processor::addLinkInToc()
+{
+
+}
+
+void Processor::makePageNumber()
+{
+
+}
+
+PdfRect Processor::PageSize( double left, double bottom, double width, double height )
+{
+    PdfRect size(left,bottom,width,height);
+    qDebug()<<left<<bottom<<width<<height;
+    return size;
+}
+
+void Processor::FollowingLine()
+{
+
+}
+
+QString Processor::Category()
+{
+    return QString("TextBook");
 }

@@ -1,18 +1,23 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
- #include "util.h"
-
+#include "dialogabout.h"
+#include "util.h"
+#include "textbook.h"
+#include "lyricsbook.h"
+#include "chordsbook.h"
 
 #include <QDebug>
 #include <QFileDialog>
 #include <QSettings>
 #include <QFileInfo>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->tabWidget->setCurrentIndex(0);
     m_lastmenu= new QMenu(tr("Last Projects"));
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
     connect(m_lastmenu,SIGNAL(triggered(QAction*)),this,SLOT(LastProjectOpen(QAction*)));
@@ -23,11 +28,22 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->actionProduce_PDF_files,SIGNAL(triggered(bool)),this,SLOT(ProducePDF()));
+    connect(ui->pushButtonPrintPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
+    connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
     connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
     connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
     connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int))); 
+    connect(ui->checkBoxMemoryMode,SIGNAL(stateChanged(int)),this,SLOT(setMemoryMode(int)));
+    connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
   }
 
+void MainWindow::SetInputFile()
+{
+    QSettings s;
+    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),s.value("DirCurrentProject").toString(),tr("cho3 file(*.cho3)"));
+    ui->lineEditInputFile->setText(file);
+    openFile(file);
+}
 
 void MainWindow::setMenuLastProject()
 {
@@ -54,6 +70,11 @@ void MainWindow::setTextMode(int i)
     ui->tabWidget->setTabEnabled(3,i!=0);
 }
 
+void MainWindow::setMemoryMode(int i)
+{
+    ui->tabWidget->setTabEnabled(4,i!=0);
+}
+
 void MainWindow::Log(QString message)
 {
     ui->log->Error(message);
@@ -77,64 +98,66 @@ void MainWindow::newProject( bool)
 
 void MainWindow::InitProject()
 {
-    ui->textEdit->clear();
+    ui->textEditCho3File->clear();
     ui->lineEditCreatorName->clear();
     ui->lineEditInputFile->clear();
     ui->checkBoxChordMode->setChecked(true);
     ui->checkBoxLyricsMode->setChecked(true);
     ui->checkBoxTextMode->setChecked(true);
+    ui->checkBoxMemoryMode->setChecked(true);
     ui->widgetLyricsMode->Init();
     ui->widgetTextMode->Init();
     ui->widgetChordMode->Init();
 }
 
-void MainWindow::openProject(QString filename)
+
+
+void MainWindow::openFile( QString filename)
 {
     QFileInfo fi(filename);
     QSettings s;
-    if ( !filename.isEmpty())
-                s.setValue("LastOpenedDirectory",fi.absolutePath());
-    QSettings p(filename,QSettings::IniFormat);
-    QString inputfile=fi.absolutePath()+QString("/")+p.value("File").toString();
+    if ( !filename.isEmpty())   s.setValue("LastOpenedDirectory",fi.absolutePath());
     QDir dir(fi.dir());
     s.setValue("DirCurrentProject",dir.absolutePath());
-    ui->lineEditInputFile->setText(inputfile);
-    QFile file(inputfile);
-    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(inputfile)));
+    QFile file(filename);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(filename)));
     else
     {
         QTextStream in(&file);
-        ui->textEdit->clear();
-        ui->textEdit->append(in.readAll());
-        QTextCursor textCursor = ui->textEdit->textCursor();
+        ui->textEditCho3File->clear();
+        ui->textEditCho3File->append(in.readAll());
+        QTextCursor textCursor = ui->textEditCho3File->textCursor();
         textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
-        ui->textEdit->setTextCursor(textCursor);
-        m_editorhighlight = new EditorHighlighter(ui->textEdit->document());
-        m_editorhighlight->highlightBlock(ui->textEdit->document()->toPlainText());
+        ui->textEditCho3File->setTextCursor(textCursor);
+        m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
+        m_editorhighlight->highlightBlock(ui->textEditCho3File->document()->toPlainText());
     }
-    ui->lineEditCreatorName->setText(p.value("Creator").toString());
+}
+
+void MainWindow::openProject(QString filename)
+{
+    QSettings p(filename,QSettings::IniFormat);
+    ui->lineEditInputFile->setText(p.value("General/File").toString());
+    ui->lineEditCreatorName->setText(p.value("General/Creator").toString());
+    ui->comboBoxChordLanguage->setCurrentText(p.value("General/ChordLang").toString());
+
     p.beginGroup("LyricsBook");
     ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
     QStringList list1=p.allKeys();
-    foreach ( QString key, list1)
-    {
-          ui->widgetLyricsMode->setValue(key,p.value(key));
-    }
+    foreach ( QString key, list1)  ui->widgetLyricsMode->setValue(key,p.value(key));
     p.endGroup();
     p.beginGroup("ChordBook");
     ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
     QStringList list2=p.allKeys();
-    foreach ( QString key, list2)
-    {
-       ui->widgetChordMode->setValue(key,p.value(key));
-    }
+    foreach ( QString key, list2)  ui->widgetChordMode->setValue(key,p.value(key));
     p.endGroup();
     p.beginGroup("TextBook");
     ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
-    foreach ( QString key, p.allKeys())
-    {
-       ui->widgetTextMode->setValue(key,p.value(key));
-    }
+    foreach ( QString key, p.allKeys()) ui->widgetTextMode->setValue(key,p.value(key));
+    p.endGroup();
+    p.beginGroup("MemoryMode");
+    ui->checkBoxMemoryMode->setChecked(p.allKeys().count()!=0);
+    foreach ( QString key, p.allKeys()) ui->widgetMemoryMode->setValue(key,p.value(key));
     p.endGroup();
 }
 
@@ -163,7 +186,7 @@ void MainWindow::Save(bool)
     if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,"ChordBook");
     if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,"LyricsBook");
     if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,"TextBook");
-
+    if ( ui->checkBoxMemoryMode->isChecked()) ui->widgetMemoryMode->Save(m_currentproject,"MemoryMode");
 }
 
 
@@ -177,6 +200,15 @@ void MainWindow::SaveAs(bool)
 
 void MainWindow::ProducePDF()
 {
-    Save(true);
+ //   Save(true);
+    if ( ui->checkBoxTextMode->isChecked()) TextBook Go(ui->textEditCho3File->document()->toPlainText(),ui->lineEditInputFile->text());
 
+
+}
+
+
+void MainWindow::About()
+{
+  DialogAbout *d = new DialogAbout(this) ;
+  d->exec();
 }

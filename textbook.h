@@ -1,12 +1,12 @@
 #ifndef TEXTBOOK_H
 #define TEXTBOOK_H
 
-#include "abstbook.h"
+#include "processor.h"
 
-class TextBook : public AbstBook
+class TextBook : public Processor
 {
 public:
-    TextBook();
+    TextBook(QString text, QString dirfile);
 };
 
 #endif // TEXTBOOK_H
