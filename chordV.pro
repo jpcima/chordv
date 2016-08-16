@@ -35,7 +35,9 @@ SOURCES += main.cpp\
     textbook.cpp \
     dialogabout.cpp \
     memoryconfig.cpp \
-    spinboxunit.cpp
+    spinboxunit.cpp \
+    dialogconfiguration.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -59,12 +61,15 @@ HEADERS  += mainwindow.h \
     textbook.h \
     dialogabout.h \
     memoryconfig.h \
-    spinboxunit.h
+    spinboxunit.h \
+    dialogconfiguration.h \
+    settings.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
     fontchooser.ui \
-    dialogabout.ui
+    dialogabout.ui \
+    dialogconfiguration.ui
 
 LIBS += -L/usr/lib/ -lpodofo
 INCLUDEPATH += /usr/include

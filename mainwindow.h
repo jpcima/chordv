@@ -41,6 +41,8 @@ private slots:
     void ProducePDF();
     void About();
     void SetInputFile();
+    void Configuration();
+
 };
 
 #endif // MAINWINDOW_H

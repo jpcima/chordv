@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "dialogabout.h"
+#include "dialogconfiguration.h"
 #include "util.h"
 #include "textbook.h"
 #include "lyricsbook.h"
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->actionProduce_PDF_files,SIGNAL(triggered(bool)),this,SLOT(ProducePDF()));
+    connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
     connect(ui->pushButtonPrintPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
     connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
@@ -211,4 +213,11 @@ void MainWindow::About()
 {
   DialogAbout *d = new DialogAbout(this) ;
   d->exec();
+}
+
+
+void MainWindow::Configuration()
+{
+    DialogConfiguration dial(this);
+    dial.exec();
 }

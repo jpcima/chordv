@@ -18,6 +18,7 @@ public:
     void setValue(QString var, QVariant value);
     void Init();
     void Save(QString filename,QString section);
+    void InitDefaut(QString classe);
 protected:
     void disableWidgets(QRegExp value);
 private:

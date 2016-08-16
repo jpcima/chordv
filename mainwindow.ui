@@ -22,7 +22,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>4</number>
+        <number>1</number>
        </property>
        <property name="tabBarAutoHide">
         <bool>true</bool>
@@ -204,18 +204,7 @@
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
-          <widget class="LyricsConfig" name="widgetLyricsMode" native="true">
-           <widget class="QWidget" name="widget" native="true">
-            <property name="geometry">
-             <rect>
-              <x>180</x>
-              <y>40</y>
-              <width>120</width>
-              <height>80</height>
-             </rect>
-            </property>
-           </widget>
-          </widget>
+          <widget class="LyricsConfig" name="widgetLyricsMode" native="true"/>
          </item>
         </layout>
        </widget>
@@ -290,6 +279,7 @@
      <string>Too&amp;ls</string>
     </property>
     <addaction name="actionProduce_PDF_files"/>
+    <addaction name="actionPreferences"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -364,6 +354,11 @@
   <action name="actionProduce_PDF_files">
    <property name="text">
     <string>&amp;Produce PDF files</string>
+   </property>
+  </action>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences</string>
    </property>
   </action>
  </widget>

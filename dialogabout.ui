@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>338</width>
-    <height>165</height>
+    <width>487</width>
+    <height>337</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,7 +21,9 @@
        <property name="plainText">
         <string>Developper : Gilles Maire 
 GPL V3 
-Version 0.1.1</string>
+Version 0.1.1
+Source code at SourceForge project ChordV
+Site : http://www.gillesmaire.com</string>
        </property>
       </widget>
      </item>
