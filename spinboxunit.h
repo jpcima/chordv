@@ -6,6 +6,7 @@
 #include <QComboBox>
 #include <QDoubleSpinBox>
 #include <QLabel>
+#include <QSpacerItem>
 
 class SpinBoxUnit : public QWidget
 {
@@ -14,12 +15,10 @@ class SpinBoxUnit : public QWidget
 public:
     enum unit { mm,cm,in};
     explicit SpinBoxUnit(QWidget *parent = 0);
-    void init(QString label,double val, unit u=mm);
+    void init(double val, unit u=mm);
     void setValueMM(double val);
     void setValueCM(double val);
     void setValueIN(double val);
-    void setValue(QString val);
-    void setLabel(QString label);
     void setUnit( unit u);
     void setUnit (int i);
     double getValueCM();
@@ -27,13 +26,14 @@ public:
     double getValueIN();
 private slots:
     void adjustValue( int value);
+public slots:
     void setValue(double val);
 private:
     double m_value;
     QHBoxLayout *m_layout;
     QDoubleSpinBox *m_doublespinbox;
     QComboBox *m_cbunit;
-    QLabel *m_label;
+    QSpacerItem *m_spacer;
     unit m_unit;
     double convert(int value, unit u);
     int unit2int(unit u);

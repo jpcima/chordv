@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>760</width>
-    <height>533</height>
+    <height>626</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4">
+  <layout class="QVBoxLayout" name="verticalLayout_6">
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="tabPosition">
@@ -26,20 +26,17 @@
       <attribute name="title">
        <string>Page</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_8">
+      <layout class="QHBoxLayout" name="horizontalLayout_26">
        <item>
         <widget class="QGroupBox" name="groupBox_4">
          <property name="title">
           <string>PageSize</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
+         <layout class="QHBoxLayout" name="horizontalLayout_20">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
+           <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
-             <widget class="SpinBoxUnit" name="spuPageWidth" native="true"/>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_19">
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
               <item>
                <widget class="QLabel" name="labelPageWidth">
                 <property name="text">
@@ -48,33 +45,12 @@
                </widget>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="doubleSpinBoxPageWidth">
-                <property name="decimals">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <double>2000.000000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="comboBoxPageWidthUnit">
-                <item>
-                 <property name="text">
-                  <string>in</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>mm</string>
-                 </property>
-                </item>
-               </widget>
+               <widget class="SpinBoxUnit" name="spuPageWidth" native="true"/>
               </item>
              </layout>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_20">
+             <layout class="QHBoxLayout" name="horizontalLayout_19">
               <item>
                <widget class="QLabel" name="labelPageHeight">
                 <property name="text">
@@ -83,28 +59,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="doubleSpinBoxPageHeight">
-                <property name="decimals">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <double>2000.000000000000000</double>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QComboBox" name="comboBoxPageHeithUnit">
-                <item>
-                 <property name="text">
-                  <string>in</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>mm</string>
-                 </property>
-                </item>
-               </widget>
+               <widget class="SpinBoxUnit" name="spuPageHeight" native="true"/>
               </item>
              </layout>
             </item>
@@ -120,6 +75,19 @@
               <item>
                <widget class="PageSize" name="comboBoxMediaBox"/>
               </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
              </layout>
             </item>
             <item>
@@ -132,36 +100,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="doubleSpinBoxMarginHorizontal"/>
-              </item>
-              <item>
-               <widget class="QComboBox" name="comboBoxMarginHorizontalUnit">
-                <item>
-                 <property name="text">
-                  <string>pt</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>in</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>px</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>mm</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>cm</string>
-                 </property>
-                </item>
-               </widget>
+               <widget class="SpinBoxUnit" name="spuHorizontalMargin" native="true"/>
               </item>
              </layout>
             </item>
@@ -175,36 +114,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="doubleSpinBoxMarginVertical"/>
-              </item>
-              <item>
-               <widget class="QComboBox" name="comboBoxMarginVerticalUnit">
-                <item>
-                 <property name="text">
-                  <string>pt</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>in</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>px</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>mm</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>cm</string>
-                 </property>
-                </item>
-               </widget>
+               <widget class="SpinBoxUnit" name="spuVerticalMargin" native="true"/>
               </item>
              </layout>
             </item>
@@ -485,21 +395,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QDoubleSpinBox" name="doubleSpinBoxChordDiagramHSize"/>
-              </item>
-              <item>
-               <widget class="QComboBox" name="comboBoxChordDiagramHSizeUnit">
-                <item>
-                 <property name="text">
-                  <string>in</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>mm</string>
-                 </property>
-                </item>
-               </widget>
+               <widget class="SpinBoxUnit" name="spuChordHorizontalSize" native="true"/>
               </item>
              </layout>
             </item>
@@ -601,21 +497,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QDoubleSpinBox" name="doubleSpinBoxTocVerticalSpacing"/>
-           </item>
-           <item>
-            <widget class="QComboBox" name="comboBoxTocVerticalSpacingUnit">
-             <item>
-              <property name="text">
-               <string>in</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>mm</string>
-              </property>
-             </item>
-            </widget>
+            <widget class="SpinBoxUnit" name="spuTocVerticalSpacing" native="true"/>
            </item>
           </layout>
          </item>

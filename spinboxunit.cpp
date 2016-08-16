@@ -3,54 +3,35 @@
 
 SpinBoxUnit::SpinBoxUnit(QWidget *parent) : QWidget(parent)
 {
-   m_layout=new QHBoxLayout(parent);
-   m_doublespinbox = new QDoubleSpinBox();
-   m_cbunit=new QComboBox();
-   m_label=new QLabel();
+   m_layout=new QHBoxLayout(this);
+   m_doublespinbox = new QDoubleSpinBox(this);
+   m_cbunit=new QComboBox(this);
    m_cbunit->addItem(tr("mm"));
    m_cbunit->addItem(tr("cm"));
    m_cbunit->addItem(tr("in"));
-   m_layout->addWidget(m_label);
    m_layout->addWidget(m_doublespinbox);
    m_layout->addWidget(m_cbunit);
-   m_cbunit->setMaximumWidth(60);
+   m_spacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+   m_layout->addSpacerItem(m_spacer);
+   m_cbunit->setMaximumWidth(80);
    m_doublespinbox->setMaximumWidth(120);
-   m_doublespinbox->setMaximum(600);
    m_value=0;
    m_unit=mm;
+   this->setLayout(m_layout);
    connect (m_doublespinbox,SIGNAL(valueChanged(double)),this,SLOT(setValue(double)));
 
 }
 
-void SpinBoxUnit::init(QString label, double val, SpinBoxUnit::unit u)
+void SpinBoxUnit::init( double val, SpinBoxUnit::unit u)
 {
     m_unit=u;
-    m_value=val;
-    m_label->setText(label);
     adjustValue();
 }
 
-void SpinBoxUnit::setValue( QString val)
-{
-    QRegExp exp("^(.\d+)([a-z]*)$");
-    QString unit;
-    double value;
-    if ( val.contains(exp))
-    {
-        value=exp.cap(1).toDouble();
-        unit=exp.cap(2);
-    }
-    else
-    {
-        value=0;
-        unit="mm" ;
-    }
 
-}
 
 void SpinBoxUnit::setValue(double val)
-{
-    if ( m_unit == mm ) setValueMM(val);
+{   if ( m_unit = mm ) setValueMM(val);
     else if ( m_unit == cm ) setValueCM(val);
     else if ( m_unit == in ) setValueIN(val);
 }
@@ -72,11 +53,6 @@ void SpinBoxUnit::setValueIN(double val)
 {
     m_value=val*10.0*2.54;
     adjustValue();
-}
-
-void SpinBoxUnit::setLabel(QString label)
-{
-    m_label->setText(label);
 }
 
 double SpinBoxUnit::getValueCM()

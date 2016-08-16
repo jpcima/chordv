@@ -18,7 +18,7 @@ FormConfig::FormConfig(QWidget *parent) :
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
         connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
-    connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
+//connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
     connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
     Init();
 }
@@ -28,13 +28,6 @@ FormConfig::~FormConfig()
     delete ui;
 }
 
-void FormConfig::SizeChanged(QString value)
-{
-    ui->doubleSpinBoxPageHeight->setValue(ui->comboBoxMediaBox->getHeight());
-    ui->doubleSpinBoxPageWidth->setValue(ui->comboBoxMediaBox->getWidth()) ;
-    ui->comboBoxPageHeithUnit->setCurrentText(ui->comboBoxMediaBox->getUnit());
-    ui->comboBoxPageWidthUnit->setCurrentText(ui->comboBoxMediaBox->getUnit());
-}
 
 void FormConfig::disableWidgets(QRegExp value)
 {
@@ -130,19 +123,15 @@ void FormConfig::Init()
     ui->checkBoxCover->setChecked(false);
     ui->checkBoxFullScreenMode->setChecked(false);
     ui->checkBoxTitleInUppercase->setChecked(false);
-    ui->comboBoxChordDiagramHSizeUnit->setCurrentText("cm");
     ui->comboBoxChordInText->setCurrentIndex(0);
     ui->comboBoxChordLang->setCurrentIndex(0);
-    ui->comboBoxMarginHorizontalUnit->setCurrentText("cm");
-    ui->comboBoxMarginVerticalUnit->setCurrentText("cm");
     ui->comboBoxMediaBox->setCurrentText("A4");
     ui->comboBoxTocColumnNUmber->setCurrentIndex(0);
-    ui->comboBoxTocVerticalSpacingUnit->setCurrentText("cm");
     ui->lineEditOutFile->clear();
-    ui->doubleSpinBoxChordDiagramHSize->setValue(2);
-    ui->doubleSpinBoxMarginHorizontal->setValue(5);
-    ui->doubleSpinBoxMarginVertical->setValue(5);
-    ui->doubleSpinBoxTocVerticalSpacing->setValue(1);
+    ui->spuChordHorizontalSize->setValue(2);
+    ui->spuHorizontalMargin->setValue(5);
+    ui->spuVerticalMargin->setValue(5);
+    ui->spuTocVerticalSpacing->setValue(1);
     ui->toolButtonChordFont->setFont(QFont());
     ui->toolButtonCoverFont->setFont(QFont());
     ui->toolButtonNormalFont->setFont(QFont());
