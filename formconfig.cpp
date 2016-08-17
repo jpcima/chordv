@@ -164,13 +164,14 @@ void FormConfig::InitDefaut(QString classe)
     ui->checkBoxTitleInUppercase->setChecked(s.value(QString("%1/TitleInUppercase").arg(classe),false).toBool());
     ui->comboBoxChordInText->setCurrentIndex(s.value(QString("%1/ChordInText").arg(classe),0).toInt());
     ui->comboBoxChordLang->setCurrentText(s.value(QString("%1/ChordLang").arg(classe),"English").toString());
-    ui->comboBoxMediaBox->setCurrentText(s.value(QString("%1/MediaBox").arg(classe),"A4").toString());
     ui->comboBoxTocColumnNUmber->setCurrentIndex(s.value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
     ui->lineEditOutFile->setText(s.value(QString("%1/OutFile").arg(classe),"out").toString());
     ui->spuChordHorizontalSize->setValue(s.value(QString("%1/ChordHorizontalSize").arg(classe),2).toInt());
     ui->spuHorizontalMargin->setValue(s.value(QString("%1/HorizontalMargin").arg(classe),2).toInt());
     ui->spuVerticalMargin->setValue(s.value(QString("%1/VerticalMargin").arg(classe),5).toInt());
     ui->spuTocVerticalSpacing->setValue(s.value(QString("%1/VerticalSpacing").arg(classe),1).toInt());
+    ui->spuPageHeight->setValue(s.value(QString("%1/PageHeight").arg(classe),1).toInt());
+    ui->spuPageWidth->setValue(s.value(QString("%1/PageWidth").arg(classe),1).toInt());
     QFont f;
     f.fromString(s.value(QString("%1/ChordFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonChordFont->setFont(f);

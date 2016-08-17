@@ -19,7 +19,6 @@ SpinBoxUnit::SpinBoxUnit(QWidget *parent) : QWidget(parent)
    m_unit=mm;
    this->setLayout(m_layout);
    connect (m_doublespinbox,SIGNAL(valueChanged(double)),this,SLOT(setValue(double)));
-
 }
 
 void SpinBoxUnit::init( double val, SpinBoxUnit::unit u)
