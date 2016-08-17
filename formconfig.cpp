@@ -18,7 +18,7 @@ FormConfig::FormConfig(QWidget *parent) :
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
         connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
-//connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
+    //connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
     connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
     Init();
 }
@@ -82,10 +82,10 @@ void FormConfig::setValue(QString var, QVariant value)
     {
          ui->checkBoxCover->setChecked(value.toInt()==1);
     }
-    else if ( var.endsWith("Unit") && var.startsWith("comboBox") )
-    {
-            foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentText(value.toString());
-    }
+//    else if ( var.endsWith("Unit") && var.startsWith("comboBox") )
+//    {
+//            foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentText(value.toString());
+//    }
     else if ( var.startsWith("spinBox"))
     {
            foreach (QSpinBox *w ,m_parent->findChildren<QSpinBox*>(var)) w->setValue(value.toInt());

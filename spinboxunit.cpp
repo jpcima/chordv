@@ -5,6 +5,8 @@ SpinBoxUnit::SpinBoxUnit(QWidget *parent) : QWidget(parent)
 {
    m_layout=new QHBoxLayout(this);
    m_doublespinbox = new QDoubleSpinBox(this);
+   m_doublespinbox->setMaximum(999);
+   m_doublespinbox->setMinimum(0);
    m_cbunit=new QComboBox(this);
    m_cbunit->addItem(tr("mm"));
    m_cbunit->addItem(tr("cm"));
@@ -18,7 +20,8 @@ SpinBoxUnit::SpinBoxUnit(QWidget *parent) : QWidget(parent)
    m_value=0;
    m_unit=mm;
    this->setLayout(m_layout);
-   connect (m_doublespinbox,SIGNAL(valueChanged(double)),this,SLOT(setValue(double)));
+   //connect (m_doublespinbox,SIGNAL(valueChanged(double)),this,SLOT(setValue(double)));
+   connect (m_cbunit,SIGNAL(currentIndexChanged(int)),this,SLOT(adjustValue(int)));
 }
 
 void SpinBoxUnit::init( double val, SpinBoxUnit::unit u)
@@ -119,11 +122,11 @@ void SpinBoxUnit::setUnit(int u)
 void SpinBoxUnit::adjustValue(int unit)
 {
     m_doublespinbox->disconnect();
-    if (unit == 0 ) m_unit=mm;
-    else if ( unit == 1  ) m_unit=cm;
-    else m_unit=in;
+    m_unit=int2unit(unit);
     m_doublespinbox->setValue(convert(m_value,m_unit));
     connect (m_doublespinbox,SIGNAL(valueChanged(double)),this,SLOT(setValue(double)));
+
+
 }
 
 

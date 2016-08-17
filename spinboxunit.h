@@ -29,12 +29,12 @@ private slots:
 public slots:
     void setValue(double val);
 private:
-    double m_value;
+    double m_value; // always in millimeters
+    unit m_unit;
     QHBoxLayout *m_layout;
     QDoubleSpinBox *m_doublespinbox;
     QComboBox *m_cbunit;
     QSpacerItem *m_spacer;
-    unit m_unit;
     double convert(int value, unit u);
     int unit2int(unit u);
     unit string2unit( QString i);
