@@ -19,6 +19,7 @@ public:
     double getValueInUnit();
     QString getUnit();
     SpinBoxUnit::unit string2unit(QString i);
+    void setValue(QString valunit);
 public slots:
      void setValue(double val, unit u=mm);
 private slots:

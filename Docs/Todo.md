@@ -1,5 +1,5 @@
-- Mecanism between Dimension and Height and Width : 1h
+- Mecanism between Dimension and Height and Width with landscape: 1h
 - Translation : 1h
-- Check spu : 20 mn
+- Save  spinbow as 12mm
 
 
