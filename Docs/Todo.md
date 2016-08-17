@@ -1,4 +1,5 @@
 - Mecanism between Dimension and Height and Width : 1h
 - Translation : 1h
-- don't save dimension but height an width  : 10 mn
 - Check spu : 20 mn
+- Bug tout noir dans une dimension
+

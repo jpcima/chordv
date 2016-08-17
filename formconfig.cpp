@@ -66,19 +66,17 @@ void FormConfig::setValue(QString var, QVariant value)
     }
     if ( var.endsWith("Font"))
     {
-        QString toolButton=var;
-        if ( var.contains("Family")) { toolButton.replace("Family","");
-            foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))  w->setFamily(value.toString()); }
-         else if ( var.contains("Background"))  { toolButton.replace("Background","");
-            foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))  w->setBackgroundColor(QColor(value.toString()));   }
-        else if ( var.contains("Color")) { toolButton.replace("Color","");
-            foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))  w->setColor(QColor(value.toString()));}
-        else if ( var.contains("Size")) { toolButton.replace("Size","");
-             foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))w->setPointsize(value.toInt());}
-        else if ( var.contains("Weight")) {toolButton.replace("Weight","");
-             foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton)) w->setWeight(value.toInt());}
-        else if ( var.contains("Italic")) {toolButton.replace("Italic","");
-           foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+toolButton))w->setItalic(value.toBool());}
+        QFont f;
+        f.fromString(value.toString());
+        foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+var))  w->setFont(f);
+    }
+    else if ( var.endsWith("FontColor"))
+    {
+        foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+var))  w->setColor(QColor(value.toString()));
+    }
+    else if ( var.endsWith("FontBackgroundColor"))
+    {
+        foreach (FontButton *w ,m_parent->findChildren<FontButton*>(QString("toolButton")+var))  w->setBackgroundColor(QColor(value.toString()));
     }
     else if ( var==QString("Cover") )
     {
@@ -200,7 +198,7 @@ void FormConfig::InitDefaut(QString classe)
     ui->toolButtonSubtitleFont->setBackgroundColor(QColor(s.value(QString("%1/SubtitleFontBackgoundColor").arg(classe),"white").toString()));
     ui->toolButtonTitleFont->setBackgroundColor(QColor(s.value(QString("%1/TitleFontBackgoundColor").arg(classe),"white").toString()));
     ui->toolButtonTocFont->setBackgroundColor(QColor(s.value(QString("%1/TocFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s.value(QString("%1/PageNumberFontBackgoundColor").arg(classe),"black").toString()));
+    ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s.value(QString("%1/PageNumberFontBackgoundColor").arg(classe),"white").toString()));
     ui->toolButtonCoverImage->setImage(s.value(QString("%1/CoverImage").arg(classe),"").toString());
 }
 
@@ -214,12 +212,9 @@ void FormConfig::Save(QString filename, QString section)
         QRegExp tb("^toolButton");
         QRegExp f("Font$");
         QString name=w->objectName().replace(tb,"").replace(f,"");
-        sf.setValue(QString("%1/%2FamilyFont").arg(section).arg(name),w->getFont().family());
-        sf.setValue(QString("%1/%2SizeFont").arg(section).arg(name),w->getFont().pointSize());
-        sf.setValue(QString("%1/%2WeightFont").arg(section).arg(name),w->getFont().weight());
-        sf.setValue(QString("%1/%2ItalicFont").arg(section).arg(name),w->getFont().italic());
-        sf.setValue(QString("%1/%2BackgroundFont").arg(section).arg(name),w->getBackgroundColor().name());
-        sf.setValue(QString("%1/%2ColorFont").arg(section).arg(name),w->getBackgroundColor().name());
+        sf.setValue(QString("%1/%2Font").arg(section).arg(name),w->getFont().toString());
+        sf.setValue(QString("%1/%2FontBackgroundColor").arg(section).arg(name),w->getBackgroundColor().name());
+        sf.setValue(QString("%1/%2FontColor").arg(section).arg(name),w->getBackgroundColor().name());
     }
     foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>() )
     {
