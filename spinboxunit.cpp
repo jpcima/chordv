@@ -109,6 +109,17 @@ SpinBoxUnit::unit SpinBoxUnit::string2unit(QString i)
 
 }
 
+void SpinBoxUnit::setValue(QString valunit)
+{
+    QString unit=QString("(%1|%2[%3)").tr("mm").tr("cm").tr("in");
+    QRegExp reg(QString("([0-9.,]+)(%1)").arg(unit));
+    if ( valunit.contains(reg) )
+    {
+        double val=reg.cap(1).toDouble();
+        setValue(val);
+    }
+}
+
 
 
 
