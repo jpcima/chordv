@@ -15,20 +15,23 @@ class SpinBoxUnit : public QWidget
 public:
     enum unit { mm,cm,in};
     explicit SpinBoxUnit(QWidget *parent = 0);
-    void init(double val, unit u=mm);
-    void setValueMM(double val);
-    void setValueCM(double val);
-    void setValueIN(double val);
-    void setUnit( unit u);
-    void setUnit (int i);
-    double getValueCM();
-    double getValueMM();
-    double getValueIN();
-private slots:
-    void adjustValue( int value);
+    double getValue() ;
+    double getValueInUnit();
+    QString getUnit();
+    SpinBoxUnit::unit string2unit(QString i);
 public slots:
-    void setValue(double val);
+     void setValue(double val, unit u=mm);
+private slots:
+    void changeUnit( int value);
+
 private:
+    double toMM(double value, unit u);
+    double fromMM(double value);
+    void Disconnect();
+    void Connect();
+    int unit2int(unit u);
+     unit int2unit (int i);
+
     double m_value; // always in millimeters
     unit m_unit;
     QHBoxLayout *m_layout;
@@ -36,10 +39,11 @@ private:
     QComboBox *m_cbunit;
     QSpacerItem *m_spacer;
     double convert(int value, unit u);
-    int unit2int(unit u);
-    unit string2unit( QString i);
-    unit int2unit (int i);
-    void adjustValue();
+
+
+
+
+
 };
 
 #endif // SPINBOXUNIT_H
