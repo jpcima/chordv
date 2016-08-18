@@ -35,6 +35,7 @@ private slots:
     void displayThumb(QString image);
     void SizeChanged(QString size);
     void SizeChanged(bool);
+    void FindSize(double);
 };
 
 #endif // FORMCONFIG_H

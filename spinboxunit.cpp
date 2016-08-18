@@ -57,7 +57,6 @@ void SpinBoxUnit::Connect()
     connect (m_doublespinbox,SIGNAL(valueChanged(double)),this,SLOT(setValue(double)));
 }
 
-
 void SpinBoxUnit::setValue( double val, SpinBoxUnit::unit u)
 {
     m_unit=u;
@@ -66,6 +65,7 @@ void SpinBoxUnit::setValue( double val, SpinBoxUnit::unit u)
     m_cbunit->setCurrentIndex(unit2int(u));
     m_doublespinbox->setValue(val);
     Connect();
+    emit valueChanged(m_value);
 }
 
 void SpinBoxUnit::changeUnit(int value)

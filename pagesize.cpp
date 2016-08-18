@@ -30,9 +30,10 @@ PageSize::PageSize(QWidget *parent) : QComboBox(parent)
     m_sizes.insert("B8","88x62 mm");
     m_sizes.insert("B9","62x44 mm");
     m_sizes.insert("B10","44x31 mm");
-    m_sizes.insert("Other","");
+    m_sizes.insert(tr("Custom"),"x");
     this->insertItems(0,m_sizes.keys());
 }
+
 
 QString PageSize::getUnit()
 {
@@ -71,7 +72,19 @@ void PageSize::setCurrentText(const QString &text)
         getVals(text,w,h,u);
        }
 
+}
 
+void PageSize::setCurrentTextByValue( QString value)
+{
+   foreach (QString k,  m_sizes.keys())
+   {
+       if ( m_sizes[k] == value )
+       {
+           setCurrentText(k);
+           return ;
+       }
+
+   }
 }
 
 void PageSize::getVals(double &w, double &h, QString &u)
@@ -93,6 +106,27 @@ void PageSize::getVals(QString text,double &w, double &h, QString &u)
     else
     {
         u=QString("");
-        h=w=0;
+        h=w=-1;
+    }
+}
+
+QString PageSize::findSize(double w,double h , bool &landscape )
+{
+    QString value1=QString("%1x%2 mm").arg(w).arg(h);
+    QString value2=QString("%1x%2 mm").arg(h).arg(w);
+    if (m_sizes.values().indexOf(value1) != -1 )
+    {
+        landscape=false;
+        return m_sizes.values().at(m_sizes.values().indexOf(value1));
+    }
+    else if (m_sizes.values().indexOf(value2) != -1 )
+    {
+      landscape=true;
+      return m_sizes.values().at(m_sizes.values().indexOf(value2));
+    }
+    else
+    {
+        landscape=false;
+        return "x";
     }
 }

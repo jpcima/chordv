@@ -21,6 +21,9 @@ FormConfig::FormConfig(QWidget *parent) :
     connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
     connect(ui->checkBoxLandscape,SIGNAL(clicked(bool)),this,SLOT(SizeChanged(bool)));
     connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
+    connect(ui->spuPageHeight,SIGNAL(valueChanged(double)),this,SLOT(FindSize(double)));
+    connect(ui->spuPageWidth,SIGNAL(valueChanged(double)),this,SLOT(FindSize(double)));
+
 }
 
 void FormConfig::SizeChanged(bool)
@@ -48,6 +51,18 @@ void FormConfig::Calculate()
     ui->spuPageWidth->setValue(width,ui->spuPageWidth->string2unit(unit));
 }
 
+void FormConfig::FindSize(double)
+{
+    bool landscape;
+    QString val=ui->comboBoxMediaBox->findSize(ui->spuPageWidth->getValue(),ui->spuPageHeight->getValue(),landscape);
+    qDebug()<<"trouve"<<val<<landscape;
+    ui->comboBoxMediaBox->disconnect();
+    ui->checkBoxLandscape->disconnect();
+    ui->comboBoxMediaBox->setCurrentTextByValue(val);
+    ui->checkBoxLandscape->setChecked(landscape);
+    connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
+    connect(ui->checkBoxLandscape,SIGNAL(clicked(bool)),this,SLOT(SizeChanged(bool)));
+}
 
 FormConfig::~FormConfig()
 {

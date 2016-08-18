@@ -27,7 +27,6 @@ public slots:
      void setValue(double val, unit u=mm);
 private slots:
     void changeUnit( int value);
-
 private:
     double toMM(double value, unit u);
     double fromMM(double value);
@@ -43,7 +42,8 @@ private:
     QSpacerItem *m_spacer;
     double convert(int value, unit u);
 
-
+signals:
+    void valueChanged(double);
 
 
 
