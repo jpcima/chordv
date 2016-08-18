@@ -76,7 +76,7 @@
                <widget class="PageSize" name="comboBoxMediaBox"/>
               </item>
               <item>
-               <widget class="QCheckBox" name="checkBox">
+               <widget class="QCheckBox" name="checkBoxLandscape">
                 <property name="text">
                  <string>Landscape</string>
                 </property>

@@ -25,14 +25,16 @@ private:
     Ui::FormConfig *ui;
     QWidget *m_parent;
     QString classe2String(Classes name);
+    void Calculate();
 signals:
     void sendLog (QString message);
 
 private slots:
     void setCover(int);
     void displayFont(QFont font, QColor text, QColor background);
-    //void SizeChanged(QString value);
     void displayThumb(QString image);
+    void SizeChanged(QString size);
+    void SizeChanged(bool);
 };
 
 #endif // FORMCONFIG_H

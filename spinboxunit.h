@@ -21,6 +21,8 @@ public:
     SpinBoxUnit::unit string2unit(QString i);
     void setValue(QString valunit);
     QString value();
+    unit int2unit (int i);
+
 public slots:
      void setValue(double val, unit u=mm);
 private slots:
@@ -32,7 +34,6 @@ private:
     void Disconnect();
     void Connect();
     int unit2int(unit u);
-     unit int2unit (int i);
 
     double m_value; // always in millimeters
     unit m_unit;

@@ -18,9 +18,36 @@ FormConfig::FormConfig(QWidget *parent) :
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
         connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
-    //connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
+    connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
+    connect(ui->checkBoxLandscape,SIGNAL(clicked(bool)),this,SLOT(SizeChanged(bool)));
     connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
 }
+
+void FormConfig::SizeChanged(bool)
+{
+    Calculate();
+}
+
+void FormConfig::SizeChanged(QString)
+{
+    Calculate();
+}
+
+void FormConfig::Calculate()
+{
+    double height=ui->comboBoxMediaBox->getHeight();
+    double width=ui->comboBoxMediaBox->getWidth();
+    QString unit=ui->comboBoxMediaBox->getUnit();
+     if ( ui->checkBoxLandscape->isChecked() )
+     {
+         double l=width;
+         width=height;
+         height=l;
+     }
+    ui->spuPageHeight->setValue(height,ui->spuPageHeight->string2unit(unit));
+    ui->spuPageWidth->setValue(width,ui->spuPageWidth->string2unit(unit));
+}
+
 
 FormConfig::~FormConfig()
 {
