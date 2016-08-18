@@ -115,43 +115,6 @@ void FormConfig::setValue(QString var, QVariant value)
 
 }
 
-void FormConfig::Init()
-{
-    ui->checkBoxCover->setChecked(false);
-    ui->checkBoxFullScreenMode->setChecked(false);
-    ui->checkBoxTitleInUppercase->setChecked(false);
-    ui->comboBoxChordInText->setCurrentIndex(0);
-    ui->comboBoxChordLang->setCurrentIndex(0);
-    ui->comboBoxMediaBox->setCurrentText("A4");
-    ui->comboBoxTocColumnNUmber->setCurrentIndex(0);
-    ui->lineEditOutFile->clear();
-    ui->spuChordHorizontalSize->setValue("2mm");
-    ui->spuHorizontalMargin->setValue("5mm");
-    ui->spuVerticalMargin->setValue("5mm");
-    ui->spuTocVerticalSpacing->setValue("1mm");
-    ui->toolButtonChordFont->setFont(QFont());
-    ui->toolButtonCoverFont->setFont(QFont());
-    ui->toolButtonNormalFont->setFont(QFont());
-    ui->toolButtonSubtitleFont->setFont(QFont());
-    ui->toolButtonTitleFont->setFont(QFont());
-    ui->toolButtonTocFont->setFont(QFont());
-    ui->toolButtonPageNumberFont->setFont(QFont());
-    ui->toolButtonChordFont->setColor(QColor("black"));
-    ui->toolButtonCoverFont->setColor(QColor("black"));
-    ui->toolButtonNormalFont->setColor(QColor("black"));
-    ui->toolButtonSubtitleFont->setColor(QColor("black"));
-    ui->toolButtonTitleFont->setColor(QColor("black"));
-    ui->toolButtonPageNumberFont->setColor(QColor("black"));
-    ui->toolButtonTocFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonChordFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonCoverFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonNormalFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonSubtitleFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonTitleFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonTocFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonPageNumberFont->setBackgroundColor(QColor("white"));
-    ui->toolButtonCoverImage->setImage("");
-}
 
 void FormConfig::InitDefault(Classes c)
 {
