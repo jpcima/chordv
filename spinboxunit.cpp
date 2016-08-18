@@ -23,6 +23,11 @@ SpinBoxUnit::SpinBoxUnit(QWidget *parent) : QWidget(parent)
    Connect();
 }
 
+QString SpinBoxUnit::value()
+{
+    return (QString("%1%2").arg(m_value).arg(unit2int(m_unit)));
+}
+
 double SpinBoxUnit::getValue()
 {
     return m_value;
@@ -67,7 +72,6 @@ void SpinBoxUnit::changeUnit(int value)
 {
     Disconnect();
     m_unit=int2unit(value);
-    double v=fromMM(m_value);
     m_doublespinbox->setValue(fromMM(m_value));
     Connect();
 }
@@ -111,7 +115,7 @@ SpinBoxUnit::unit SpinBoxUnit::string2unit(QString i)
 
 void SpinBoxUnit::setValue(QString valunit)
 {
-    QString unit=QString("(%1|%2[%3)").tr("mm").tr("cm").tr("in");
+    QString unit=QString("(%1|%2[%3)").arg(QObject::tr("cm")).arg(QObject::tr("cm")).arg(QObject::tr("in"));
     QRegExp reg(QString("([0-9.,]+)(%1)").arg(unit));
     if ( valunit.contains(reg) )
     {

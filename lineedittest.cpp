@@ -16,13 +16,13 @@ void LineEditTest::SetFont(QFont font)
    this->setFont(font);
 }
 
-void LineEditTest::SetTextColor(QColor color)
+void LineEditTest::SetTextColor(QColor )
 {
 
 }
 
 
-void LineEditTest::SetBackgroundColor(QColor color)
+void LineEditTest::SetBackgroundColor(QColor)
 {
 
 }

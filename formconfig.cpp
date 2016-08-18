@@ -37,7 +37,7 @@ void FormConfig::disableWidgets(QRegExp value)
         w->setVisible(false);
     foreach (QToolButton *w ,m_parent->findChildren<QToolButton*>(value))
         w->setVisible(false);
-    foreach (QSpinBox *w ,m_parent->findChildren<QSpinBox*>(value))
+    foreach (SpinBoxUnit *w ,m_parent->findChildren<SpinBoxUnit*>(value))
         w->setVisible(false);
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>(value))
         w->setVisible(false);
@@ -61,7 +61,7 @@ void FormConfig::setValue(QString var, QVariant value)
     QRegExp spu ("^spu(.*)") ;
     if ( var.contains(spu))
     {
-        foreach (SpinBoxUnit *w , m_parent->findChildren<SpinBoxUnit*>(var)) w->setValue(value.toDouble());
+        foreach (SpinBoxUnit *w , m_parent->findChildren<SpinBoxUnit*>(var)) w->setValue(value.toString());
 
     }
     if ( var.endsWith("Font"))
@@ -126,10 +126,10 @@ void FormConfig::Init()
     ui->comboBoxMediaBox->setCurrentText("A4");
     ui->comboBoxTocColumnNUmber->setCurrentIndex(0);
     ui->lineEditOutFile->clear();
-    ui->spuChordHorizontalSize->setValue(2);
-    ui->spuHorizontalMargin->setValue(5);
-    ui->spuVerticalMargin->setValue(5);
-    ui->spuTocVerticalSpacing->setValue(1);
+    ui->spuChordHorizontalSize->setValue("2mm");
+    ui->spuHorizontalMargin->setValue("5mm");
+    ui->spuVerticalMargin->setValue("5mm");
+    ui->spuTocVerticalSpacing->setValue("1mm");
     ui->toolButtonChordFont->setFont(QFont());
     ui->toolButtonCoverFont->setFont(QFont());
     ui->toolButtonNormalFont->setFont(QFont());
@@ -164,12 +164,12 @@ void FormConfig::InitDefaut(QString classe)
     ui->comboBoxChordLang->setCurrentText(s.value(QString("%1/ChordLang").arg(classe),"English").toString());
     ui->comboBoxTocColumnNUmber->setCurrentIndex(s.value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
     ui->lineEditOutFile->setText(s.value(QString("%1/OutFile").arg(classe),"out").toString());
-    ui->spuChordHorizontalSize->setValue(s.value(QString("%1/ChordHorizontalSize").arg(classe),2).toInt());
-    ui->spuHorizontalMargin->setValue(s.value(QString("%1/HorizontalMargin").arg(classe),2).toInt());
-    ui->spuVerticalMargin->setValue(s.value(QString("%1/VerticalMargin").arg(classe),5).toInt());
-    ui->spuTocVerticalSpacing->setValue(s.value(QString("%1/VerticalSpacing").arg(classe),1).toInt());
-    ui->spuPageHeight->setValue(s.value(QString("%1/PageHeight").arg(classe),1).toInt());
-    ui->spuPageWidth->setValue(s.value(QString("%1/PageWidth").arg(classe),1).toInt());
+    ui->spuChordHorizontalSize->setValue(s.value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
+    ui->spuHorizontalMargin->setValue(s.value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
+    ui->spuVerticalMargin->setValue(s.value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
+    ui->spuTocVerticalSpacing->setValue(s.value(QString("%1/VerticalSpacing").arg(classe),"1mm").toInt());
+    ui->spuPageHeight->setValue(s.value(QString("%1/PageHeight").arg(classe),"297mm").toString());
+    ui->spuPageWidth->setValue(s.value(QString("%1/PageWidth").arg(classe),"210mm").toString());
     QFont f;
     f.fromString(s.value(QString("%1/ChordFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonChordFont->setFont(f);
@@ -253,10 +253,10 @@ void FormConfig::Save(QString filename, QString section)
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->text());
     }
-    foreach (QSpinBox *w ,m_parent->findChildren<QSpinBox*>())
+    foreach (SpinBoxUnit *w ,m_parent->findChildren<SpinBoxUnit*>())
     {
          if ( ! w->isEnabled() ) continue;
-         QRegExp tb("^spinBox");
+         QRegExp tb("^spu");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->value());
     }

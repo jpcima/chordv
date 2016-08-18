@@ -207,12 +207,12 @@ void Processor::includeInfo(QString author, QString title,QString subtitle,QStri
 
 int Processor::calcColumn()
 {
-
+  return 1 ;
 }
 
 int Processor::calcLine()
 {
-
+ return 1 ;
 }
 
 void Processor::setCoverSubtitle(QString coversubtitle)
@@ -283,12 +283,12 @@ void Processor::newPage()
     m_painter->SetFont( pFont );
 }
 
-void Processor::displayPageSubtitle(QString subtitle)
+void Processor::displayPageSubtitle(QString )
 {
 
 }
 
-void Processor::displayLyrics(QString line)
+void Processor::displayLyrics(QString )
 {
     //m_painter->DrawText( 56.69, m_page->GetPageSize().GetHeight() - 56.69,line.toLocal8Bit() );
 
@@ -296,7 +296,8 @@ void Processor::displayLyrics(QString line)
 
 void Processor::Cover(QString title, QString subtitle)
 {
-
+ Q_UNUSED(title)
+ Q_UNUSED(subtitle)
 }
 
 void Processor::doChords()
