@@ -75,6 +75,8 @@ LIBS += -L/usr/lib/ -lpodofo
 INCLUDEPATH += /usr/include
 DEPENDPATH += /usr/include
 
+TRANSLATIONS=chordV_fr_FR.ts
+
 DISTFILES += \
     Docs/Todo.md \
     Docs/Compilation.md
