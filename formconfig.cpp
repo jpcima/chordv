@@ -55,7 +55,6 @@ void FormConfig::FindSize(double)
 {
     bool landscape;
     QString val=ui->comboBoxMediaBox->findSize(ui->spuPageWidth->getValue(),ui->spuPageHeight->getValue(),landscape);
-    qDebug()<<"trouve"<<val<<landscape;
     ui->comboBoxMediaBox->disconnect();
     ui->checkBoxLandscape->disconnect();
     ui->comboBoxMediaBox->setCurrentTextByValue(val);
@@ -171,7 +170,6 @@ void FormConfig::InitDefault(Classes c)
     ui->lineEditOutFile->setText(s.value(QString("%1/OutFile").arg(classe),"out").toString());
     ui->spuChordHorizontalSize->setValue(s.value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s.value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
-    qDebug()<<ui->spuHorizontalMargin->value()<<s.value(QString("%1/HorizontalMargin").arg(classe),"23mm");
     ui->spuVerticalMargin->setValue(s.value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
     ui->spuTocVerticalSpacing->setValue(s.value(QString("%1/VerticalSpacing").arg(classe),"1mm").toInt());
     ui->spuPageHeight->setValue(s.value(QString("%1/PageHeight").arg(classe),"297mm").toString());
