@@ -43,6 +43,7 @@ private slots:
     void SetInputFile();
     void Configuration();
 
+    void openChoFile(bool);
 };
 
 #endif // MAINWINDOW_H

@@ -269,6 +269,7 @@
     </property>
     <addaction name="actionNew_Project"/>
     <addaction name="actionOpen_Project"/>
+    <addaction name="actionOpen_Song_File"/>
     <addaction name="actionSave_Current_as_Defaut"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
@@ -359,6 +360,11 @@
   <action name="actionPreferences">
    <property name="text">
     <string>Preferences</string>
+   </property>
+  </action>
+  <action name="actionOpen_Song_File">
+   <property name="text">
+    <string>Open Song File</string>
    </property>
   </action>
  </widget>

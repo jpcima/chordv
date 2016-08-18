@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent) :
     setMenuLastProject();
     connect(ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
     connect(ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
+    connect(ui->actionOpen_Song_File,SIGNAL(triggered(bool)),this,SLOT(openChoFile(bool)));
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
@@ -38,6 +39,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->checkBoxMemoryMode,SIGNAL(stateChanged(int)),this,SLOT(setMemoryMode(int)));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
   }
+
+void MainWindow::openChoFile(bool)
+{
+   QSettings s;
+   QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),s.value("DirCurrentProject").toString(),tr("cho3 file(*.cho3)"));
+   ui->lineEditInputFile->setText(file);
+   openFile(file);
+
+}
 
 void MainWindow::SetInputFile()
 {
