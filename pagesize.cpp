@@ -6,9 +6,9 @@
 PageSize::PageSize(QWidget *parent) : QComboBox(parent)
 {
     m_sizes.insert("A4","210x297 mm");
-    m_sizes.insert("US Letter","8.5x11 in");
-    m_sizes.insert("US Legal","8.5x14 in");
-    m_sizes.insert("US Executive","7.2x10.5 in");
+    m_sizes.insert("US Letter","33.46x43.31 mm");
+    m_sizes.insert("US Legal","33.46x55.12 mm");
+    m_sizes.insert("US Executive","28.35x41.34 mm");
     m_sizes.insert("A0","841x1189 mm");
     m_sizes.insert("A1","594x841 mm");
     m_sizes.insert("A2","420x594 mm");
@@ -81,16 +81,12 @@ void PageSize::getVals(double &w, double &h, QString &u)
 
 void PageSize::getVals(QString text,double &w, double &h, QString &u)
 {
-    QRegExp exp("(\\d{1,4})((\\.\\d){0,1})x(\\d{1,4})((\\.\\d){0,1}) ([a-z]{2})");
+    QRegExp exp("([0-9.,]+)x([0-9.,]+) *([a-z]{2})");
     if ( text.contains(exp))
     {
         QString weight=exp.cap(1);
-        if (!exp.cap(3).isEmpty())
-            weight+=exp.cap(3);
-        QString height=exp.cap(4);
-        if (!exp.cap(6).isEmpty())
-            height+=exp.cap(6);
-        u=exp.cap(7);
+        QString height=exp.cap(2);
+        u=exp.cap(3);
         w=weight.toDouble();
         h=height.toDouble();
     }
