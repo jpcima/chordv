@@ -13,17 +13,19 @@ class FormConfig : public QWidget
     Q_OBJECT
 
 public:
+    enum Classes { Chord,Lyrics,Memory,Text};
     explicit FormConfig(QWidget *parent = 0);
     ~FormConfig();
     void setValue(QString var, QVariant value);
     void Init();
     void Save(QString filename,QString section);
-    void InitDefaut(QString classe);
+    void InitDefault(Classes classe);
 protected:
     void disableWidgets(QRegExp value);
 private:
     Ui::FormConfig *ui;
     QWidget *m_parent;
+    QString classe2String(Classes name);
 signals:
     void sendLog (QString message);
 

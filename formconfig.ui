@@ -68,12 +68,19 @@
               <item>
                <widget class="QLabel" name="labelPageDimension">
                 <property name="text">
-                 <string>Dimension</string>
+                 <string>Page</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="PageSize" name="comboBoxMediaBox"/>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBox">
+                <property name="text">
+                 <string>Landscape</string>
+                </property>
+               </widget>
               </item>
               <item>
                <spacer name="horizontalSpacer">

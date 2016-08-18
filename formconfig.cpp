@@ -20,7 +20,6 @@ FormConfig::FormConfig(QWidget *parent) :
         connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
     //connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
     connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
-    Init();
 }
 
 FormConfig::~FormConfig()
@@ -154,8 +153,9 @@ void FormConfig::Init()
     ui->toolButtonCoverImage->setImage("");
 }
 
-void FormConfig::InitDefaut(QString classe)
+void FormConfig::InitDefault(Classes c)
 {
+    QString classe=classe2String(c);
     Settings s;
     ui->checkBoxCover->setChecked(s.value(QString("%1/Cover").arg(classe),true).toBool());
     ui->checkBoxFullScreenMode->setChecked(s.value(QString("%1/FullScreenMode").arg(classe),false).toBool());
@@ -166,6 +166,7 @@ void FormConfig::InitDefaut(QString classe)
     ui->lineEditOutFile->setText(s.value(QString("%1/OutFile").arg(classe),"out").toString());
     ui->spuChordHorizontalSize->setValue(s.value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s.value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
+    qDebug()<<ui->spuHorizontalMargin->value()<<s.value(QString("%1/HorizontalMargin").arg(classe),"23mm");
     ui->spuVerticalMargin->setValue(s.value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
     ui->spuTocVerticalSpacing->setValue(s.value(QString("%1/VerticalSpacing").arg(classe),"1mm").toInt());
     ui->spuPageHeight->setValue(s.value(QString("%1/PageHeight").arg(classe),"297mm").toString());
@@ -290,4 +291,12 @@ void FormConfig::displayThumb(QString image)
     QPixmap pix(QString("%1/%2").arg(s.value("DirCurrentProject").toString()).arg(image));
     QPixmap p=pix.scaledToWidth(150);
     ui->labelCoverViewImage->setPixmap(p);
+}
+
+QString FormConfig::classe2String(Classes name)
+{
+    if ( name == Memory ) return "Memory";
+    if ( name == Text ) return "Text";
+    if ( name == Lyrics) return "Lyrics";
+    else  return "Chord";
 }

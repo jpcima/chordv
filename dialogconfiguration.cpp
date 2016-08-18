@@ -27,10 +27,6 @@ void DialogConfiguration::InitSettings()
     ui->comboBoxInterfaceLanguage->setCurrentText(s.value("InterfaceLanguage","English").toString());
     ui->comboBoxUnit->setCurrentText(s.value("Unit","mm").toString());
     ui->lineEditCreatoName->setText(s.value("CreatorName","").toString());
-    ui->chordChonfig->InitDefaut("Chord");
-    ui->lyricsConfig->InitDefaut("Lyrics");
-    ui->memoryConfig->InitDefaut("Memory");
-    ui->textConfig->InitDefaut("Text");
 }
 
 void DialogConfiguration::Save()

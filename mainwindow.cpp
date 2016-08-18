@@ -107,9 +107,6 @@ void MainWindow::InitProject()
     ui->checkBoxLyricsMode->setChecked(true);
     ui->checkBoxTextMode->setChecked(true);
     ui->checkBoxMemoryMode->setChecked(true);
-    ui->widgetLyricsMode->Init();
-    ui->widgetTextMode->Init();
-    ui->widgetChordMode->Init();
 }
 
 

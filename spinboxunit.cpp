@@ -115,7 +115,7 @@ SpinBoxUnit::unit SpinBoxUnit::string2unit(QString i)
 
 void SpinBoxUnit::setValue(QString valunit)
 {
-    QString unit=QString("(%1|%2[%3)").arg(QObject::tr("cm")).arg(QObject::tr("cm")).arg(QObject::tr("in"));
+    QString unit=QString("(%1|%2|%3)").arg(QObject::tr("cm")).arg(QObject::tr("mm")).arg(QObject::tr("in"));
     QRegExp reg(QString("([0-9.,]+)(%1)").arg(unit));
     if ( valunit.contains(reg) )
     {
