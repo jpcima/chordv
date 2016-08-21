@@ -19,6 +19,7 @@ public:
     void setValue(QString var, QVariant value);
     void Save(QString filename,QString section);
     void InitDefault(Classes classe);
+    Ui::FormConfig *getUi() { return ui;}
 protected:
     void disableWidgets(QRegExp value);
 private:

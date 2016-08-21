@@ -30,14 +30,12 @@ SOURCES += main.cpp\
     examplelabel.cpp \
     pagesize.cpp \
     processor.cpp \
-    chordsbook.cpp \
-    lyricsbook.cpp \
-    textbook.cpp \
     dialogabout.cpp \
     memoryconfig.cpp \
     spinboxunit.cpp \
     dialogconfiguration.cpp \
-    settings.cpp
+    settings.cpp \
+    processortext.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -56,14 +54,12 @@ HEADERS  += mainwindow.h \
     examplelabel.h \
     pagesize.h \
     processor.h \
-    chordsbook.h \
-    lyricsbook.h \
-    textbook.h \
     dialogabout.h \
     memoryconfig.h \
     spinboxunit.h \
     dialogconfiguration.h \
-    settings.h
+    settings.h \
+    processortext.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
@@ -71,9 +67,10 @@ FORMS    += mainwindow.ui \
     dialogabout.ui \
     dialogconfiguration.ui
 
-LIBS += -L/usr/lib/ -lpodofo
-INCLUDEPATH += /usr/include
-DEPENDPATH += /usr/include
+LIBS += -L../podofo-code/podofo/tags/podofo-build/src -lpodofo -lz -lfreetype -lfontconfig -lidn -ljpeg -lcrypto -lssl
+INCLUDEPATH += ../podofo-code/podofo/tags/RELEASE_0_9_4/src/doc
+DEPENDPATH += ../podofo-code/podofo/tags/RELEASE_0_9_4/src/doc
+
 
 TRANSLATIONS=chordV_fr_FR.ts
 

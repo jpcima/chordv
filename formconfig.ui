@@ -54,7 +54,7 @@
               <item>
                <widget class="QLabel" name="labelPageHeight">
                 <property name="text">
-                 <string>Page heigth</string>
+                 <string>Page height</string>
                 </property>
                </widget>
               </item>
@@ -337,7 +337,7 @@
          <property name="title">
           <string>Cover</string>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <layout class="QVBoxLayout" name="verticalLayout_7">
           <item>
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
@@ -346,6 +346,36 @@
                <string>Cover</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <item>
+               <widget class="QLabel" name="labelTitlePosition">
+                <property name="text">
+                 <string>Title position from top</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBoxTitlePosition">
+                <item>
+                 <property name="text">
+                  <string>1/3</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>1/2</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>2/3</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout">

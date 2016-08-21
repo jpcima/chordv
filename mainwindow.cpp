@@ -3,9 +3,7 @@
 #include "dialogabout.h"
 #include "dialogconfiguration.h"
 #include "util.h"
-#include "textbook.h"
-#include "lyricsbook.h"
-#include "chordsbook.h"
+#include "processortext.h"
 
 #include <QDebug>
 #include <QFileDialog>
@@ -209,10 +207,10 @@ void MainWindow::SaveAs(bool)
 
 void MainWindow::ProducePDF()
 {
- //   Save(true);
-    if ( ui->checkBoxTextMode->isChecked()) TextBook Go(ui->textEditCho3File->document()->toPlainText(),ui->lineEditInputFile->text());
-
-
+ //Save(true);
+  if (ui->checkBoxTextMode->isChecked())
+      ProcessorText Go(ui->textEditCho3File->document()->toPlainText(),
+                  ui->lineEditInputFile->text(),ui->widgetTextMode->getUi());
 }
 
 

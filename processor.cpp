@@ -1,17 +1,16 @@
 #include "processor.h"
-
-
-
+#include "ui_formconfig.h"
 #include <QRegExp>
 #include <QDebug>
 #include <QFileInfo>
 
+
 using namespace PoDoFo;
 
 
-Processor::Processor(QString text, QString file)
+Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
 {
-
+    m_uiconfig=ui;
     m_documentAllocation=false;
     m_pageAllocation=false;
     m_tocindex=-1;
@@ -20,7 +19,6 @@ Processor::Processor(QString text, QString file)
     QFileInfo fi(file);
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
     if (m_file.isEmpty()) return;
-
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
     m_dimension = new PdfRect(PageSize());
     m_documentAllocation=true;
@@ -49,7 +47,6 @@ Processor::Processor(QString text, QString file)
 
     foreach ( QString line, text.split(QRegExp("\n")) )
     {
-
         if ( line.contains(NewSongREX) )
             {}
         else if ( line.contains(CompressREX) )
@@ -296,8 +293,77 @@ void Processor::displayLyrics(QString )
 
 void Processor::Cover(QString title, QString subtitle)
 {
- Q_UNUSED(title)
- Q_UNUSED(subtitle)
+
+   //     my ($pdf,$page,$type,$title,$subtitle,$note)= @_;
+        QString image=m_uiconfig->toolButtonCoverImage->getImage();
+        QFont font=m_uiconfig->toolButtonCoverFont->getFont();
+        QString fontcolor=m_uiconfig->toolButtonCoverFont->getTextColor().name();
+        QString backgroundcolor=m_uiconfig->toolButtonCoverFont->getBackgroundColor().name();
+
+        m_page= m_document->CreatePage(*m_dimension);
+
+//        my ($llx, $lly, $urx, $ury) = $page->get_mediabox;
+//        my $graph=$page->gfx();
+//        $graph->rect($llx, $lly, $urx, $ury);
+//        $graph->fillcolor($backgroundcolor);
+//        $graph->fill();
+//        if ( length $image != 0 )
+//        {
+//           my $info=image_info($image);
+//           my $type=image_type($image);
+//           my ($l,$h)=dim($info);
+//           my $t=$type->{file_type} ;
+//           my $img;
+//           if ( $t =~/^PNG$/ ) { $img = $pdf->image_png($image);}
+//           elsif ( $t =~/^JPG$/ ) {$img= $pdf->image-jpg($image);}
+//           elsif ( $t =~/^GIF$/ ) {$img= $pdf->image-gif($image);}
+//           my $L=0;
+//           my $H=0;
+//           if ( $l > ($urx - $llx)*7/10 ) { $L= ($urx - $llx)*7/10;}
+//           if ( $h > ($ury - $lly)*2/5 ) { $H=($ury - $lly)*2/5;}
+//           my $scale;
+//           if ( $H == 0 and $L == 0 ) {$scale=1;}
+//           else { $scale=$H > $L ? $H/$h : $L/$l;}
+
+//          # print "scale=$scale  l=$l h=$h H=$H L=$L\n";
+//           my $x=($urx - $llx - $l * $scale)/2;
+//           my $y=($ury - $lly - $h * $scale)*1/4;
+//           $graph->image($img,$x,$y,$scale);
+//        }
+//        my $font=Util::setFont($pdf,$fontname,"CoverFont");
+
+          m_painter=new PdfPainter;
+          m_painter->SetPage(m_page);
+          qDebug()<<m_uiconfig->toolButtonCoverFont->font().family().toLatin1();
+          PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonCoverFont->font().family().toLatin1());
+          pfont->SetFontSize(font.pointSize());
+          qDebug()<<font;
+          qDebug()<<font.pointSize();
+          m_painter->SetFont(pfont);
+          QColor c(m_uiconfig->toolButtonCoverFont->getTextColor());
+          qDebug()<<c<<c.red()<<c.red()/1000.0;
+          m_painter->SetColor(c.red()/1000.0,c.green()/1000.0,c.blue()/1000.0);
+          PdfString string(title.toLatin1());
+          m_painter->DrawText(10,287,string);
+          m_painter->FinishPage();
+//        $text->font($font,($ury-$lly)/16);
+//        my $s=Util::utf2iso($title);
+//        $text->fillcolor($fontcolor);
+//        my $width = $text->advancewidth($s);
+//        $text->translate(($urx+$llx)*15/16-$width,($ury+$lly)*14/16);
+//        $text->text($s);
+//        $text->font($font,($ury-$lly)/55);
+//        $s=Util::utf2iso($subtitle);
+//        $text->fillcolor($fontcolor);
+//        $width = $text->advancewidth($s);
+//        $text->translate(($urx+$llx)*15/16-$width,($ury+$lly)*13/16);
+//        $text->text($s);
+//        $text->font($font,($ury-$lly)/45);
+//        $s=Util::utf2iso($note);
+//        $text->fillcolor($fontcolor);
+//        $width = $text->advancewidth($s);
+//        $text->translate(($urx+$llx)/2-$width/2,($ury+$lly)*1/16);
+//        $text->text($s);
 }
 
 void Processor::doChords()
@@ -359,7 +425,6 @@ void Processor::makePageNumber()
 PdfRect Processor::PageSize( double left, double bottom, double width, double height )
 {
     PdfRect size(left,bottom,width,height);
-    qDebug()<<left<<bottom<<width<<height;
     return size;
 }
 

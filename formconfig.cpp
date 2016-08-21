@@ -92,6 +92,7 @@ void FormConfig::setCover(int val)
 
     ui->labelCoverImage->setEnabled(val);
     ui->toolButtonCoverImage->setEnabled(val);
+    ui->comboBoxTitlePosition->setEnabled(val);
 }
 
 
@@ -122,10 +123,10 @@ void FormConfig::setValue(QString var, QVariant value)
     {
          ui->checkBoxCover->setChecked(value.toInt()==1);
     }
-//    else if ( var.endsWith("Unit") && var.startsWith("comboBox") )
-//    {
-//            foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentText(value.toString());
-//    }
+  else if ( var.startsWith("comboBox") )
+    {
+            foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentText(value.toString());
+    }
     else if ( var.startsWith("spinBox"))
     {
            foreach (QSpinBox *w ,m_parent->findChildren<QSpinBox*>(var)) w->setValue(value.toInt());
@@ -167,6 +168,7 @@ void FormConfig::InitDefault(Classes c)
     ui->comboBoxChordInText->setCurrentIndex(s.value(QString("%1/ChordInText").arg(classe),0).toInt());
     ui->comboBoxChordLang->setCurrentText(s.value(QString("%1/ChordLang").arg(classe),"English").toString());
     ui->comboBoxTocColumnNUmber->setCurrentIndex(s.value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
+    ui->comboBoxTitlePosition->setCurrentText(s.value(QString("%1/TitlePosition").arg(classe),"1/3").toString());
     ui->lineEditOutFile->setText(s.value(QString("%1/OutFile").arg(classe),"out").toString());
     ui->spuChordHorizontalSize->setValue(s.value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s.value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
@@ -239,7 +241,7 @@ void FormConfig::Save(QString filename, QString section)
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
     {
          if ( ! w->isEnabled() ) continue;
-         QRegExp tb("^toolButton");
+         QRegExp tb("^checkBox");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->isChecked()?"1":"0");
     }

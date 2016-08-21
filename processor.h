@@ -2,7 +2,7 @@
 #define PROCESSOR_H
 
 #include "pagesize.h"
-
+#include "formconfig.h"
 #include <QString>
 #include <QStringList>
 #include <podofo/podofo.h>
@@ -10,10 +10,8 @@
 
 class Processor
 {
-
 public:
-    ///  Text is the song text
-    Processor(QString text,QString dir);
+    Processor(QString SongText,QString dir, Ui::FormConfig *ui  );
     ~Processor();
     void process();
     void setCompress(bool compress);
@@ -97,6 +95,7 @@ private:
     /// \brief m_file dir where product the output file
     ///
     QString m_file;
+    Ui::FormConfig *m_uiconfig;
 
     PoDoFo::PdfStreamedDocument *m_document;
     PoDoFo::PdfPage* m_page;

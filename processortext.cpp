@@ -1,6 +1,6 @@
 #include "processortext.h"
 
-ProcessorText::ProcessorText()
+ProcessorText::ProcessorText(QString SongText, QString dir, Ui::FormConfig *ui):Processor(SongText,dir,ui)
 {
 
 }

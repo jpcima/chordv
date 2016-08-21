@@ -31,6 +31,13 @@ void DialogConfiguration::InitSettings()
 
 void DialogConfiguration::Save()
 {
-
-
+   QSettings s;
+   s.setValue("InterfaceLanguage",ui->comboBoxInterfaceLanguage->currentText());
+   s.setValue("Unit",ui->comboBoxUnit->currentText());
+   s.setValue("CreatorName",ui->lineEditCreatoName->text());
+   ui->memoryConfig->Save(s.fileName(),"Memory");
+   ui->chordConfig->Save(s.fileName(),"Chord");
+   ui->textConfig->Save(s.fileName(),"Text");
+   ui->lyricsConfig->Save(s.fileName(),"Lyrics");
+   close();
 }
