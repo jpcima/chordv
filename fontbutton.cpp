@@ -18,7 +18,7 @@ void FontButton::setFont(bool)
 
 void FontButton::SelectedFont(QFont font, QColor text, QColor background)
 {
-    m_font=font;
+    m_font=(font);
     m_textcolor=text;
     m_backgroundcolor=background;
     if (! m_textcolor.isValid()) m_textcolor=QColor("black");

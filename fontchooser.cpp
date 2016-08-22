@@ -17,6 +17,7 @@ void FontChooser::setFont(QFont font, QColor textcolor, QColor backgroundcolor)
     ui->widget->setCurrentFont(font);
     ui->toolButtonBackgroundColor->setColor(backgroundcolor);
     ui->toolButtonFontColor->setColor(textcolor);
+    emit SelectFont(font,textcolor,backgroundcolor);
 }
 
 FontChooser::~FontChooser()

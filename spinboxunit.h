@@ -22,7 +22,7 @@ public:
     void setValue(QString valunit);
     QString value();
     unit int2unit (int i);
-
+    double getPdfU();
 public slots:
      void setValue(double val, unit u=mm);
 private slots:
@@ -33,7 +33,6 @@ private:
     void Disconnect();
     void Connect();
     int unit2int(unit u);
-
     double m_value; // always in millimeters
     unit m_unit;
     QHBoxLayout *m_layout;

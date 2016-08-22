@@ -124,7 +124,12 @@ void SpinBoxUnit::setValue(QString valunit)
     }
 }
 
+double SpinBoxUnit::getPdfU()
+{
+    qDebug()<<m_value<<m_value*72.0/25.4;
 
+    return(m_value*72.0/25.4);
+}
 
 
 

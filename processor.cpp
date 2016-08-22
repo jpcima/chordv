@@ -296,7 +296,7 @@ void Processor::Cover(QString title, QString subtitle)
 
    //     my ($pdf,$page,$type,$title,$subtitle,$note)= @_;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
-        QFont font=m_uiconfig->toolButtonCoverFont->getFont();
+        QFont font(m_uiconfig->toolButtonCoverFont->font());
         QString fontcolor=m_uiconfig->toolButtonCoverFont->getTextColor().name();
         QString backgroundcolor=m_uiconfig->toolButtonCoverFont->getBackgroundColor().name();
 
@@ -334,17 +334,19 @@ void Processor::Cover(QString title, QString subtitle)
 
           m_painter=new PdfPainter;
           m_painter->SetPage(m_page);
-          qDebug()<<m_uiconfig->toolButtonCoverFont->font().family().toLatin1();
-          PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonCoverFont->font().family().toLatin1());
+          PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
           pfont->SetFontSize(font.pointSize());
-          qDebug()<<font;
-          qDebug()<<font.pointSize();
+          //pfont->SetBold(font.bold());
+          pfont->SetUnderlined(font.underline());
+          pfont->SetStrikeOut(font.strikeOut());
+          //pfont->SetItalic(font.italic());
           m_painter->SetFont(pfont);
           QColor c(m_uiconfig->toolButtonCoverFont->getTextColor());
-          qDebug()<<c<<c.red()<<c.red()/1000.0;
+          qDebug()<<c;
           m_painter->SetColor(c.red()/1000.0,c.green()/1000.0,c.blue()/1000.0);
           PdfString string(title.toLatin1());
-          m_painter->DrawText(10,287,string);
+          int width=pfont->GetFontMetrics()->StringWidth(string);
+          m_painter->DrawText((m_uiconfig->spuPageWidth->getPdfU()-width)/2,TitlePosition(),string);
           m_painter->FinishPage();
 //        $text->font($font,($ury-$lly)/16);
 //        my $s=Util::utf2iso($title);
@@ -424,7 +426,7 @@ void Processor::makePageNumber()
 
 PdfRect Processor::PageSize( double left, double bottom, double width, double height )
 {
-    PdfRect size(left,bottom,width,height);
+    PdfRect size(mm(left),mm(bottom),mm(width),mm(height));
     return size;
 }
 
@@ -436,4 +438,20 @@ void Processor::FollowingLine()
 QString Processor::Category()
 {
     return QString("TextBook");
+}
+
+
+double Processor::mm(int value)
+{
+    return (value*72/25.4);
+}
+
+
+double Processor::TitlePosition()
+{
+    double factor;
+    if ( m_uiconfig->comboBoxTitlePosition->currentIndex()==0) factor=2/3.0;
+    else if ( m_uiconfig->comboBoxTitlePosition->currentIndex()==1) factor=1/2.0;
+    else factor=1/3.0;
+    return m_uiconfig->spuPageHeight->getPdfU()*factor;
 }

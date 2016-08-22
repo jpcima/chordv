@@ -52,8 +52,8 @@ public:
     ///
     /// \brief m_category category in config file  (file.conf) Chordbook,LyricsBook,MemoryMode,TextBook
     ///
-    virtual QString Category();
-
+    virtual QString Category();    
+    double mm(int value);
 private:
     ///
     /// \brief m_compress allow to compress lines to fill a page
@@ -120,6 +120,7 @@ private:
 
 
 
+    double TitlePosition();
 };
 
 #endif // PROCESSOR_H
