@@ -67,9 +67,9 @@ FORMS    += mainwindow.ui \
     dialogabout.ui \
     dialogconfiguration.ui
 
-LIBS += -L../podofo-code/podofo/tags/podofo-build/src -lpodofo -lz -lfreetype -lfontconfig -lidn -ljpeg -lcrypto -lssl
-INCLUDEPATH += ../podofo-code/podofo/tags/RELEASE_0_9_4/src/doc
-DEPENDPATH += ../podofo-code/podofo/tags/RELEASE_0_9_4/src/doc
+LIBS += -L/usr/local/lib -lpodofo -lz -lfreetype -lfontconfig -lidn -ljpeg -lcrypto -lssl
+INCLUDEPATH += /usr/local/include
+DEPENDPATH += /usr/local/include
 
 
 TRANSLATIONS=chordV_fr_FR.ts
