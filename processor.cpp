@@ -296,10 +296,9 @@ void Processor::Cover(QString title, QString subtitle)
 
    //     my ($pdf,$page,$type,$title,$subtitle,$note)= @_;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
-        QFont font(m_uiconfig->toolButtonCoverFont->font());
-        QString fontcolor=m_uiconfig->toolButtonCoverFont->getTextColor().name();
-        QString backgroundcolor=m_uiconfig->toolButtonCoverFont->getBackgroundColor().name();
-
+        QFont font(m_uiconfig->toolButtonCoverFont->getFont());
+        QColor  fontcolor=QColor(m_uiconfig->toolButtonCoverFont->getTextColor().name());
+        QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor().name());
         m_page= m_document->CreatePage(*m_dimension);
 
 //        my ($llx, $lly, $urx, $ury) = $page->get_mediabox;
@@ -335,19 +334,16 @@ void Processor::Cover(QString title, QString subtitle)
           m_painter=new PdfPainter;
           m_painter->SetPage(m_page);
           PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
+          qDebug()<<"fontsize"<<font.pointSize();
           pfont->SetFontSize(font.pointSize());
-          //pfont->SetBold(font.bold());
           pfont->SetUnderlined(font.underline());
           pfont->SetStrikeOut(font.strikeOut());
-          //pfont->SetItalic(font.italic());
           m_painter->SetFont(pfont);
-          QColor c(m_uiconfig->toolButtonCoverFont->getTextColor());
-          qDebug()<<c;
-          m_painter->SetColor(c.red()/1000.0,c.green()/1000.0,c.blue()/1000.0);
+          m_painter->SetColor(red(fontcolor),green(fontcolor),blue(fontcolor));
           PdfString string(title.toLatin1());
           int width=pfont->GetFontMetrics()->StringWidth(string);
-
-          m_painter->DrawText((m_uiconfig->spuPageWidth->getPdfU()-width)/2,TitlePosition(),string);
+         if ( ! title.isEmpty())
+              m_painter->DrawText((m_uiconfig->spuPageWidth->getPdfU()-width)/2,TitlePosition(),string);
           m_painter->FinishPage();
 //        $text->font($font,($ury-$lly)/16);
 //        my $s=Util::utf2iso($title);
@@ -446,6 +442,23 @@ double Processor::mm(int value)
 {
     return (value*72/25.4);
 }
+
+
+double Processor::red( QColor color )
+{
+    return color.red()/255.0;
+}
+
+double Processor::green( QColor color )
+{
+    return color.green()/255.0;
+}
+
+double Processor::blue( QColor color )
+{
+    return color.blue()/255.0;
+}
+
 
 
 double Processor::TitlePosition()

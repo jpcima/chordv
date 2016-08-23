@@ -121,6 +121,9 @@ private:
 
 
     double TitlePosition();
+    double red(QColor value);
+    double green(QColor value);
+    double blue(QColor value);
 };
 
 #endif // PROCESSOR_H
