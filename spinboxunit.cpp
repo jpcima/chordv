@@ -23,9 +23,14 @@ SpinBoxUnit::SpinBoxUnit(QWidget *parent) : QWidget(parent)
    Connect();
 }
 
+QString SpinBoxUnit::valueunit()
+{
+    return QString("%1%2").arg(m_value).arg(unit2String(m_unit));
+}
+
 QString SpinBoxUnit::value()
 {
-    return (QString("%1%2").arg(m_value).arg(unit2int(m_unit)));
+    return (QString("%1").arg(m_value));
 }
 
 double SpinBoxUnit::getValue()
@@ -61,6 +66,8 @@ void SpinBoxUnit::setValue( double val, SpinBoxUnit::unit u)
 {
     m_unit=u;
     m_value=toMM(val,u);
+    qDebug()<<m_value;
+
     Disconnect();
     m_cbunit->setCurrentIndex(unit2int(u));
     m_doublespinbox->setValue(val);
@@ -113,6 +120,13 @@ SpinBoxUnit::unit SpinBoxUnit::string2unit(QString i)
 
 }
 
+QString SpinBoxUnit::unit2String( unit u)
+{
+    if ( u == mm ) return tr("mm");
+    else if ( u == cm  ) return tr("cm");
+    else return tr("in");
+}
+
 void SpinBoxUnit::setValue(QString valunit)
 {
     QString unit=QString("(%1|%2|%3)").arg(QObject::tr("cm")).arg(QObject::tr("mm")).arg(QObject::tr("in"));
@@ -126,7 +140,7 @@ void SpinBoxUnit::setValue(QString valunit)
 
 double SpinBoxUnit::getPdfU()
 {
-    qDebug()<<m_value<<m_value*72.0/25.4;
+    qDebug()<<"pdfu"<<m_value<<m_value*72.0/25.4;
 
     return(m_value*72.0/25.4);
 }

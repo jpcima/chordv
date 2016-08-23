@@ -346,6 +346,7 @@ void Processor::Cover(QString title, QString subtitle)
           m_painter->SetColor(c.red()/1000.0,c.green()/1000.0,c.blue()/1000.0);
           PdfString string(title.toLatin1());
           int width=pfont->GetFontMetrics()->StringWidth(string);
+
           m_painter->DrawText((m_uiconfig->spuPageWidth->getPdfU()-width)/2,TitlePosition(),string);
           m_painter->FinishPage();
 //        $text->font($font,($ury-$lly)/16);

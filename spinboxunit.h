@@ -23,6 +23,7 @@ public:
     QString value();
     unit int2unit (int i);
     double getPdfU();
+    QString valueunit();
 public slots:
      void setValue(double val, unit u=mm);
 private slots:
@@ -41,6 +42,7 @@ private:
     QSpacerItem *m_spacer;
     double convert(int value, unit u);
 
+    QString unit2String(unit u);
 signals:
     void valueChanged(double);
 
