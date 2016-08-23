@@ -18,7 +18,6 @@ void LineEditTest::SetFont(QFont font)
 
 void LineEditTest::SetTextColor(QColor )
 {
-
 }
 
 
