@@ -301,6 +301,7 @@ void Processor::Cover(QString title, QString subtitle)
         QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor().name());
         m_page= m_document->CreatePage(*m_dimension);
 
+
 //        my ($llx, $lly, $urx, $ury) = $page->get_mediabox;
 //        my $graph=$page->gfx();
 //        $graph->rect($llx, $lly, $urx, $ury);
@@ -333,6 +334,10 @@ void Processor::Cover(QString title, QString subtitle)
 
           m_painter=new PdfPainter;
           m_painter->SetPage(m_page);
+
+          m_painter->SetColor(red(backgroundcolor),green(backgroundcolor),blue(backgroundcolor));
+          m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
+          m_painter->Fill(true);
           PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
           qDebug()<<"fontsize"<<font.pointSize();
           pfont->SetFontSize(font.pointSize());
@@ -340,10 +345,18 @@ void Processor::Cover(QString title, QString subtitle)
           pfont->SetStrikeOut(font.strikeOut());
           m_painter->SetFont(pfont);
           m_painter->SetColor(red(fontcolor),green(fontcolor),blue(fontcolor));
-          PdfString string(title.toLatin1());
-          int width=pfont->GetFontMetrics()->StringWidth(string);
+          PdfString stringtitle(title.toLatin1());
+          double widthtitle=pfont->GetFontMetrics()->StringWidth(stringtitle);
+          double posx=(m_uiconfig->spuPageWidth->getPdfU()-widthtitle)/2;
+          double posy=TitlePosition();
          if ( ! title.isEmpty())
-              m_painter->DrawText((m_uiconfig->spuPageWidth->getPdfU()-width)/2,TitlePosition(),string);
+              m_painter->DrawText(posx,posy,stringtitle);
+          pfont->SetFontSize(font.pointSize()*8/10);
+          PdfString stringsubtitle(subtitle.toLatin1());
+          double widthsubtitle=pfont->GetFontMetrics()->StringWidth(stringsubtitle);
+          posx=posx+widthtitle-widthsubtitle;
+          if ( ! subtitle.isEmpty())
+              m_painter->DrawText(posx,posy-1.5*font.pointSize(),stringsubtitle);
           m_painter->FinishPage();
 //        $text->font($font,($ury-$lly)/16);
 //        my $s=Util::utf2iso($title);
