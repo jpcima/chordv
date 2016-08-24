@@ -66,7 +66,6 @@ void SpinBoxUnit::setValue( double val, SpinBoxUnit::unit u)
 {
     m_unit=u;
     m_value=toMM(val,u);
-    qDebug()<<m_value;
 
     Disconnect();
     m_cbunit->setCurrentIndex(unit2int(u));
@@ -140,8 +139,6 @@ void SpinBoxUnit::setValue(QString valunit)
 
 double SpinBoxUnit::getPdfU()
 {
-    qDebug()<<"pdfu"<<m_value<<m_value*72.0/25.4;
-
     return(m_value*72.0/25.4);
 }
 
