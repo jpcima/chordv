@@ -93,6 +93,7 @@ void FormConfig::setCover(int val)
     ui->labelCoverImage->setEnabled(val);
     ui->toolButtonCoverImage->setEnabled(val);
     ui->comboBoxTitlePosition->setEnabled(val);
+    ui->toolButtonSuppressCoverImage->setEnabled(val);
 }
 
 
@@ -219,7 +220,7 @@ void FormConfig::Save(QString filename, QString section)
         QRegExp f("Font$");
         QString name=w->objectName().replace(tb,"").replace(f,"");
         sf.setValue(QString("%1/%2Font").arg(section).arg(name),w->getFont().toString());
-        sf.setValue(QString("%1/%2FontBackgroundColor").arg(section).arg(name),w->getBackgroundColor().name());
+        sf.setValue(QString("%1/%2FontBackgroundColor").arg(section).arg(name),w->getTextColor().name());
         sf.setValue(QString("%1/%2FontColor").arg(section).arg(name),w->getBackgroundColor().name());
     }
     foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>() )
@@ -280,8 +281,7 @@ void FormConfig::Save(QString filename, QString section)
 
 
 void FormConfig::displayFont ( QFont font, QColor text, QColor background)
-{
-    QString name=sender()->objectName().replace("toolButton","");
+{    QString name=sender()->objectName().replace("toolButton","");
     name=QString("label%1Example").arg(name);
     foreach (ExampleLabel *w ,m_parent->findChildren<ExampleLabel*>(name))
     w->setColor(font,text,background);

@@ -335,6 +335,7 @@ void Processor::Cover(QString title, QString subtitle)
 
           m_painter=new PdfPainter;
           m_painter->SetPage(m_page);
+          m_painter->Fill(true);
 
           QString imagefile=m_uiconfig->toolButtonCoverImage->getImage();
           if (! imagefile.isEmpty())
@@ -347,14 +348,13 @@ void Processor::Cover(QString title, QString subtitle)
             qDebug()<<imagex<<imagey;
 
             PdfImage *pdfi = new PdfImage(m_document);
-
             pdfi->LoadFromFile(imagefile.toLatin1());
+            qDebug()<<pdfi->GetHeight()<<pdfi->GetWidth();
             double scale=1.0;
-            m_painter->DrawImage(0,0,pdfi,scale);
+            m_painter->DrawImage(100,100,pdfi);
           }
           m_painter->SetColor(red(backgroundcolor),green(backgroundcolor),blue(backgroundcolor));
           m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
-          m_painter->Fill(true);
           PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
           qDebug()<<"fontsize"<<font.pointSize();
           pfont->SetFontSize(font.pointSize());
