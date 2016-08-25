@@ -23,7 +23,7 @@ FormConfig::FormConfig(QWidget *parent) :
     connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
     connect(ui->spuPageHeight,SIGNAL(valueChanged(double)),this,SLOT(FindSize(double)));
     connect(ui->spuPageWidth,SIGNAL(valueChanged(double)),this,SLOT(FindSize(double)));
-
+    connect(ui->toolButtonSuppressCoverImage,SIGNAL(clicked(bool)),this,SLOT(deleteCoverImage(bool)));
 }
 
 void FormConfig::SizeChanged(bool)
@@ -236,7 +236,7 @@ void FormConfig::Save(QString filename, QString section)
         QRegExp tb("^toolButton");
         QRegExp i("Image$");
         QString name=w->objectName().replace(tb,"").replace(i,"");
-        sf.setValue(QString("%1/%2Color").arg(section).arg(name),w->getImage());
+        sf.setValue(QString("%1/%2Image").arg(section).arg(name),w->getImage());
     }
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
     {
@@ -296,6 +296,13 @@ void FormConfig::displayThumb(QString image)
     QPixmap pix(QString("%1/%2").arg(s.value("DirCurrentProject").toString()).arg(image));
     QPixmap p=pix.scaledToWidth(150);
     ui->labelCoverViewImage->setPixmap(p);
+}
+
+
+void FormConfig::deleteCoverImage(bool)
+{
+    ui->labelCoverViewImage->setPixmap(QPixmap());
+    ui->toolButtonCoverImage->setImage("");
 }
 
 QString FormConfig::classe2String(Classes name)

@@ -37,6 +37,7 @@ private slots:
     void SizeChanged(QString size);
     void SizeChanged(bool);
     void FindSize(double);
+    void deleteCoverImage(bool);
 };
 
 #endif // FORMCONFIG_H

@@ -124,6 +124,7 @@ private:
     double red(QColor value);
     double green(QColor value);
     double blue(QColor value);
+    double ImagePosition();
 };
 
 #endif // PROCESSOR_H

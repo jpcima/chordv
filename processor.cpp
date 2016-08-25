@@ -302,6 +302,7 @@ void Processor::Cover(QString title, QString subtitle)
         m_page= m_document->CreatePage(*m_dimension);
 
 
+
 //        my ($llx, $lly, $urx, $ury) = $page->get_mediabox;
 //        my $graph=$page->gfx();
 //        $graph->rect($llx, $lly, $urx, $ury);
@@ -335,6 +336,22 @@ void Processor::Cover(QString title, QString subtitle)
           m_painter=new PdfPainter;
           m_painter->SetPage(m_page);
 
+          QString imagefile=m_uiconfig->toolButtonCoverImage->getImage();
+          if (! imagefile.isEmpty())
+          {
+            QPixmap pix(imagefile);
+            double maxh=m_uiconfig->spuPageHeight->getPdfU()/4.0;
+            double maxw=m_uiconfig->spuPageWidth->getPdfU()*0.75;
+            double imagex=pix.size().height();
+            double imagey=pix.size().width();
+            qDebug()<<imagex<<imagey;
+
+            PdfImage *pdfi = new PdfImage(m_document);
+
+            pdfi->LoadFromFile(imagefile.toLatin1());
+            double scale=1.0;
+            m_painter->DrawImage(0,0,pdfi,scale);
+          }
           m_painter->SetColor(red(backgroundcolor),green(backgroundcolor),blue(backgroundcolor));
           m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
           m_painter->Fill(true);
@@ -358,24 +375,6 @@ void Processor::Cover(QString title, QString subtitle)
           if ( ! subtitle.isEmpty())
               m_painter->DrawText(posx,posy-1.5*font.pointSize(),stringsubtitle);
           m_painter->FinishPage();
-//        $text->font($font,($ury-$lly)/16);
-//        my $s=Util::utf2iso($title);
-//        $text->fillcolor($fontcolor);
-//        my $width = $text->advancewidth($s);
-//        $text->translate(($urx+$llx)*15/16-$width,($ury+$lly)*14/16);
-//        $text->text($s);
-//        $text->font($font,($ury-$lly)/55);
-//        $s=Util::utf2iso($subtitle);
-//        $text->fillcolor($fontcolor);
-//        $width = $text->advancewidth($s);
-//        $text->translate(($urx+$llx)*15/16-$width,($ury+$lly)*13/16);
-//        $text->text($s);
-//        $text->font($font,($ury-$lly)/45);
-//        $s=Util::utf2iso($note);
-//        $text->fillcolor($fontcolor);
-//        $width = $text->advancewidth($s);
-//        $text->translate(($urx+$llx)/2-$width/2,($ury+$lly)*1/16);
-//        $text->text($s);
 }
 
 void Processor::doChords()
@@ -480,5 +479,14 @@ double Processor::TitlePosition()
     if ( m_uiconfig->comboBoxTitlePosition->currentIndex()==0) factor=2/3.0;
     else if ( m_uiconfig->comboBoxTitlePosition->currentIndex()==1) factor=1/2.0;
     else factor=1/3.0;
+    return m_uiconfig->spuPageHeight->getPdfU()*factor;
+}
+
+double Processor::ImagePosition()
+{
+    double factor;
+    if ( m_uiconfig->comboBoxTitlePosition->currentIndex()==0) factor=1/3.0;
+    else if ( m_uiconfig->comboBoxTitlePosition->currentIndex()==1) factor=3/4.0;
+    else factor=2/3.0;
     return m_uiconfig->spuPageHeight->getPdfU()*factor;
 }

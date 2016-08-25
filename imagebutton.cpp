@@ -21,7 +21,8 @@ void ImageButton::SetImage(bool)
 
 QString ImageButton::getImage()
 {
-    return m_image;
+    QSettings s;
+    return s.value("DirCurrentProject").toString()+m_image;
 }
 
 void ImageButton::setImage(QString image)

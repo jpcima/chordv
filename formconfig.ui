@@ -394,6 +394,13 @@
                </widget>
               </item>
               <item>
+               <widget class="QToolButton" name="toolButtonSuppressCoverImage">
+                <property name="text">
+                 <string> - </string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="ImageButton" name="toolButtonCoverImage">
                 <property name="text">
                  <string>...</string>
