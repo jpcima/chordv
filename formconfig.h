@@ -17,14 +17,17 @@ public:
     explicit FormConfig(QWidget *parent = 0);
     ~FormConfig();
     void setValue(QString var, QVariant value);
-    void Save(QString filename,QString section);
+    void Save(QString filename,Classes section);
     void InitDefault(Classes classe);
     Ui::FormConfig *getUi() { return ui;}
+    void SetConfigFromFile(QString FileName);
+    void SetConfigFromInit();
 protected:
     void disableWidgets(QRegExp value);
 private:
     Ui::FormConfig *ui;
     QWidget *m_parent;
+    QString m_configFileName;
     QString classe2String(Classes name);
     void Calculate();
 signals:

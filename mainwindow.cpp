@@ -148,24 +148,32 @@ void MainWindow::openProject(QString filename)
     ui->lineEditCreatorName->setText(p.value("General/Creator").toString());
     ui->comboBoxChordLanguage->setCurrentText(p.value("General/ChordLang").toString());
 
-    p.beginGroup("LyricsBook");
-    ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
-    QStringList list1=p.allKeys();
-    foreach ( QString key, list1)  ui->widgetLyricsMode->setValue(key,p.value(key));
-    p.endGroup();
-    p.beginGroup("ChordBook");
-    ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
-    QStringList list2=p.allKeys();
-    foreach ( QString key, list2)  ui->widgetChordMode->setValue(key,p.value(key));
-    p.endGroup();
-    p.beginGroup("TextBook");
-    ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
-    foreach ( QString key, p.allKeys()) ui->widgetTextMode->setValue(key,p.value(key));
-    p.endGroup();
-    p.beginGroup("MemoryMode");
-    ui->checkBoxMemoryMode->setChecked(p.allKeys().count()!=0);
-    foreach ( QString key, p.allKeys()) ui->widgetMemoryMode->setValue(key,p.value(key));
-    p.endGroup();
+    ui->widgetChordMode->SetConfigFromFile(filename);
+    ui->widgetChordMode->InitDefault(FormConfig::Chord);
+    ui->widgetLyricsMode->SetConfigFromFile(filename);
+    ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
+    ui->widgetMemoryMode->SetConfigFromFile(filename);
+    ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
+    ui->widgetTextMode->SetConfigFromFile(filename);
+    ui->widgetTextMode->InitDefault(FormConfig::Text);
+//    p.beginGroup("LyricsBook");
+//    ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
+//    QStringList list1=p.mallKeys();
+//    foreach ( QString key, list1)  ui->widgetLyricsMode->setValue(key,p.value(key));
+//    p.endGroup();
+//    p.beginGroup("ChordBook");
+//    ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
+//    QStringList list2=p.allKeys();
+//    foreach ( QString key, list2)  ui->widgetChordMode->setValue(key,p.value(key));
+//    p.endGroup();
+//    p.beginGroup("TextBook");
+//    ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
+//    foreach ( QString key, p.allKeys()) ui->widgetTextMode->setValue(key,p.value(key));
+//    p.endGroup();
+//    p.beginGroup("MemoryMode");
+//    ui->checkBoxMemoryMode->setChecked(p.allKeys().count()!=0);
+//    foreach ( QString key, p.allKeys()) ui->widgetMemoryMode->setValue(key,p.value(key));
+//    p.endGroup();
 }
 
 void MainWindow::openProject ( bool)
@@ -190,10 +198,10 @@ void MainWindow::Save(bool)
     sf.setValue("General/File",ui->lineEditInputFile->text());
     sf.setValue("General/ChordLang",ui->comboBoxChordLanguage->currentText());
     sf.sync();
-    if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,"ChordBook");
-    if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,"LyricsBook");
-    if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,"TextBook");
-    if ( ui->checkBoxMemoryMode->isChecked()) ui->widgetMemoryMode->Save(m_currentproject,"MemoryMode");
+    if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,FormConfig::Chord);
+    if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,FormConfig::Lyrics);
+    if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,FormConfig::Text);
+    if ( ui->checkBoxMemoryMode->isChecked()) ui->widgetMemoryMode->Save(m_currentproject,FormConfig::Memory);
 }
 
 

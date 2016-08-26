@@ -14,6 +14,7 @@ FormConfig::FormConfig(QWidget *parent) :
     ui(new Ui::FormConfig)
 {
     ui->setupUi(this);
+    SetConfigFromInit();
     m_parent=parent;
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
@@ -161,58 +162,74 @@ void FormConfig::setValue(QString var, QVariant value)
 
 void FormConfig::InitDefault(Classes c)
 {
+
     QString classe=classe2String(c);
-    Settings s;
-    ui->checkBoxCover->setChecked(s.value(QString("%1/Cover").arg(classe),true).toBool());
-    ui->checkBoxFullScreenMode->setChecked(s.value(QString("%1/FullScreenMode").arg(classe),false).toBool());
-    ui->checkBoxTitleInUppercase->setChecked(s.value(QString("%1/TitleInUppercase").arg(classe),false).toBool());
-    ui->comboBoxChordInText->setCurrentIndex(s.value(QString("%1/ChordInText").arg(classe),0).toInt());
-    ui->comboBoxChordLang->setCurrentText(s.value(QString("%1/ChordLang").arg(classe),"English").toString());
-    ui->comboBoxTocColumnNUmber->setCurrentIndex(s.value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
-    ui->comboBoxTitlePosition->setCurrentText(s.value(QString("%1/TitlePosition").arg(classe),"1/3").toString());
-    ui->lineEditOutFile->setText(s.value(QString("%1/OutFile").arg(classe),"out").toString());
-    ui->spuChordHorizontalSize->setValue(s.value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
-    ui->spuHorizontalMargin->setValue(s.value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
-    ui->spuVerticalMargin->setValue(s.value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
-    ui->spuTocVerticalSpacing->setValue(s.value(QString("%1/VerticalSpacing").arg(classe),"1mm").toInt());
-    ui->spuPageHeight->setValue(s.value(QString("%1/PageHeight").arg(classe),"297mm").toString());
-    ui->spuPageWidth->setValue(s.value(QString("%1/PageWidth").arg(classe),"210mm").toString());
+    Settings *s;
+    if( m_configFileName.isEmpty()) s = new Settings() ;
+    else s= new Settings(m_configFileName);
+    ui->checkBoxCover->setChecked(s->value(QString("%1/Cover").arg(classe),true).toBool());
+    ui->checkBoxFullScreenMode->setChecked(s->value(QString("%1/FullScreenMode").arg(classe),false).toBool());
+    ui->checkBoxTitleInUppercase->setChecked(s->value(QString("%1/TitleInUppercase").arg(classe),false).toBool());
+    ui->comboBoxChordInText->setCurrentIndex(s->value(QString("%1/ChordInText").arg(classe),0).toInt());
+    ui->comboBoxChordLang->setCurrentText(s->value(QString("%1/ChordLang").arg(classe),"English").toString());
+    ui->comboBoxTocColumnNUmber->setCurrentIndex(s->value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
+    ui->comboBoxTitlePosition->setCurrentText(s->value(QString("%1/TitlePosition").arg(classe),"1/3").toString());
+    ui->lineEditOutFile->setText(s->value(QString("%1/OutFile").arg(classe),"out").toString());
+    ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
+    ui->spuHorizontalMargin->setValue(s->value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
+    ui->spuVerticalMargin->setValue(s->value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
+    ui->spuTocVerticalSpacing->setValue(s->value(QString("%1/VerticalSpacing").arg(classe),"1mm").toInt());
+    ui->spuPageHeight->setValue(s->value(QString("%1/PageHeight").arg(classe),"297mm").toString());
+    ui->spuPageWidth->setValue(s->value(QString("%1/PageWidth").arg(classe),"210mm").toString());
     QFont f;
-    f.fromString(s.value(QString("%1/ChordFont").arg(classe),QFont().toString()).toString());
+    f.fromString(s->value(QString("%1/ChordFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonChordFont->setFont(f);
-    f.fromString(s.value(QString("%1/CoverFont").arg(classe),QFont().toString()).toString());
+    f.fromString(s->value(QString("%1/CoverFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonCoverFont->setFont(f);
-    f.fromString(s.value(QString("%1/NormalFont").arg(classe),QFont().toString()).toString());
+    f.fromString(s->value(QString("%1/NormalFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonNormalFont->setFont(f);
-    f.fromString(s.value(QString("%1/SubtitleFont").arg(classe),QFont().toString()).toString());
+    f.fromString(s->value(QString("%1/SubtitleFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonSubtitleFont->setFont(f);
-    f.fromString(s.value(QString("%1/TitleFont").arg(classe),QFont().toString()).toString());
+    f.fromString(s->value(QString("%1/TitleFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonTitleFont->setFont(f);
-    f.fromString(s.value(QString("%1/TocFont").arg(classe),QFont().toString()).toString());
+    f.fromString(s->value(QString("%1/TocFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonTocFont->setFont(f);
-    f.fromString(s.value(QString("%1/PageNumberFont").arg(classe),QFont().toString()).toString());
+    f.fromString(s->value(QString("%1/PageNumberFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonPageNumberFont->setFont(f);
-    ui->toolButtonChordFont->setColor(QColor(s.value(QString("%1/ChordFontColor").arg(classe),"black").toString()));
-    ui->toolButtonCoverFont->setColor(QColor(s.value(QString("%1/CoverFontColor").arg(classe),"black").toString()));
-    ui->toolButtonNormalFont->setColor(QColor(s.value(QString("%1/NormalFontColor").arg(classe),"black").toString()));
-    ui->toolButtonSubtitleFont->setColor(QColor(s.value(QString("%1/SubtitleFontColor").arg(classe),"black").toString()));
-    ui->toolButtonTitleFont->setColor(QColor(s.value(QString("%1/TitleFontColor").arg(classe),"black").toString()));
-    ui->toolButtonPageNumberFont->setColor(QColor(s.value(QString("%1/PageNumberFontColor").arg(classe),"black").toString()));
-    ui->toolButtonTocFont->setBackgroundColor(QColor(s.value(QString("%1/TocFontColor").arg(classe),"black").toString()));
-    ui->toolButtonChordFont->setBackgroundColor(QColor(s.value(QString("%1/ChordFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonCoverFont->setBackgroundColor(QColor(s.value(QString("%1/CoverFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonNormalFont->setBackgroundColor(QColor(s.value(QString("%1/NormalFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonSubtitleFont->setBackgroundColor(QColor(s.value(QString("%1/SubtitleFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonTitleFont->setBackgroundColor(QColor(s.value(QString("%1/TitleFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonTocFont->setBackgroundColor(QColor(s.value(QString("%1/TocFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s.value(QString("%1/PageNumberFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonCoverImage->setImage(s.value(QString("%1/CoverImage").arg(classe),"").toString());
+    ui->toolButtonChordFont->setColor(QColor(s->value(QString("%1/ChordFontColor").arg(classe),"black").toString()));
+    ui->toolButtonCoverFont->setColor(QColor(s->value(QString("%1/CoverFontColor").arg(classe),"black").toString()));
+    ui->toolButtonNormalFont->setColor(QColor(s->value(QString("%1/NormalFontColor").arg(classe),"black").toString()));
+    ui->toolButtonSubtitleFont->setColor(QColor(s->value(QString("%1/SubtitleFontColor").arg(classe),"black").toString()));
+    ui->toolButtonTitleFont->setColor(QColor(s->value(QString("%1/TitleFontColor").arg(classe),"black").toString()));
+    ui->toolButtonPageNumberFont->setColor(QColor(s->value(QString("%1/PageNumberFontColor").arg(classe),"black").toString()));
+    ui->toolButtonTocFont->setBackgroundColor(QColor(s->value(QString("%1/TocFontColor").arg(classe),"black").toString()));
+    ui->toolButtonChordFont->setBackgroundColor(QColor(s->value(QString("%1/ChordFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonCoverFont->setBackgroundColor(QColor(s->value(QString("%1/CoverFontBackgroundColor").arg(classe),"white").toString()));
+    ui->toolButtonNormalFont->setBackgroundColor(QColor(s->value(QString("%1/NormalFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonSubtitleFont->setBackgroundColor(QColor(s->value(QString("%1/SubtitleFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonTitleFont->setBackgroundColor(QColor(s->value(QString("%1/TitleFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonTocFont->setBackgroundColor(QColor(s->value(QString("%1/TocFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s->value(QString("%1/PageNumberFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonCoverImage->setImage(s->value(QString("%1/CoverImage").arg(classe),"").toString());
+    delete s;
+}
+
+void FormConfig::SetConfigFromFile(QString FileName)
+{
+    m_configFileName=FileName;
+}
+
+void FormConfig::SetConfigFromInit()
+{
+    m_configFileName="";
 }
 
 
-void FormConfig::Save(QString filename, QString section)
+void FormConfig::Save(QString filename, Classes classe)
 {
+    QString section=classe2String(classe);
     QSettings sf(filename,QSettings::IniFormat);
+
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
     {
         if ( ! w->isEnabled() ) continue;
@@ -291,11 +308,15 @@ void FormConfig::displayFont ( QFont font, QColor text, QColor background)
 
 void FormConfig::displayThumb(QString image)
 {
-    QSettings s;
+
+    QSettings *s;
+    if ( m_configFileName.isEmpty() ) s= new QSettings;
+    else s= new QSettings(m_configFileName);
     if (image.isEmpty()){ ui->labelCoverViewImage->setPixmap(QPixmap());return;}
-    QPixmap pix(QString("%1/%2").arg(s.value("DirCurrentProject").toString()).arg(image));
+    QPixmap pix(QString("%1/%2").arg(s->value("DirCurrentProject").toString()).arg(image));
     QPixmap p=pix.scaledToWidth(150);
     ui->labelCoverViewImage->setPixmap(p);
+    delete s;
 }
 
 

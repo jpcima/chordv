@@ -8,6 +8,7 @@ class Settings : public QSettings
 {
 public:
     Settings();
+    Settings(QString filename);
     QVariant value(QString key, QVariant defaut);
 };
 
