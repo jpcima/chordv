@@ -270,7 +270,6 @@
     <addaction name="actionNew_Project"/>
     <addaction name="actionOpen_Project"/>
     <addaction name="actionOpen_Song_File"/>
-    <addaction name="actionSave_Current_as_Defaut"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
     <addaction name="actionQuit"/>
@@ -281,6 +280,8 @@
     </property>
     <addaction name="actionProduce_PDF_files"/>
     <addaction name="actionPreferences"/>
+    <addaction name="actionSave_Current_as_Defaut"/>
+    <addaction name="actionReset_Preference_as_origine"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -365,6 +366,11 @@
   <action name="actionOpen_Song_File">
    <property name="text">
     <string>Open Song File</string>
+   </property>
+  </action>
+  <action name="actionReset_Preference_as_origine">
+   <property name="text">
+    <string>Reset Preference as origine</string>
    </property>
   </action>
  </widget>

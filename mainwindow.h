@@ -26,6 +26,7 @@ private:
     void setMenuLastProject();
     void InitProject();
     void openFile(QString filename);
+    void Save(QString filename);
 private slots:
     void newProject(bool);
     void openProject(bool);
@@ -44,6 +45,8 @@ private slots:
     void Configuration();
 
     void openChoFile(bool);
+    void PreferencesAsOrigine();
+    void CurrentAsDefault();
 };
 
 #endif // MAINWINDOW_H

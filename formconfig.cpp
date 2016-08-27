@@ -202,14 +202,14 @@ void FormConfig::InitDefault(Classes c)
     ui->toolButtonSubtitleFont->setColor(QColor(s->value(QString("%1/SubtitleFontColor").arg(classe),"black").toString()));
     ui->toolButtonTitleFont->setColor(QColor(s->value(QString("%1/TitleFontColor").arg(classe),"black").toString()));
     ui->toolButtonPageNumberFont->setColor(QColor(s->value(QString("%1/PageNumberFontColor").arg(classe),"black").toString()));
-    ui->toolButtonTocFont->setBackgroundColor(QColor(s->value(QString("%1/TocFontColor").arg(classe),"black").toString()));
-    ui->toolButtonChordFont->setBackgroundColor(QColor(s->value(QString("%1/ChordFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonTocFont->setColor(QColor(s->value(QString("%1/TocFontColor").arg(classe),"black").toString()));
+    ui->toolButtonChordFont->setBackgroundColor(QColor(s->value(QString("%1/ChordFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonCoverFont->setBackgroundColor(QColor(s->value(QString("%1/CoverFontBackgroundColor").arg(classe),"white").toString()));
-    ui->toolButtonNormalFont->setBackgroundColor(QColor(s->value(QString("%1/NormalFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonSubtitleFont->setBackgroundColor(QColor(s->value(QString("%1/SubtitleFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonTitleFont->setBackgroundColor(QColor(s->value(QString("%1/TitleFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonTocFont->setBackgroundColor(QColor(s->value(QString("%1/TocFontBackgoundColor").arg(classe),"white").toString()));
-    ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s->value(QString("%1/PageNumberFontBackgoundColor").arg(classe),"white").toString()));
+    ui->toolButtonNormalFont->setBackgroundColor(QColor(s->value(QString("%1/NormalFontBackgroundColor").arg(classe),"white").toString()));
+    ui->toolButtonSubtitleFont->setBackgroundColor(QColor(s->value(QString("%1/SubtitleFontBackgroundColor").arg(classe),"white").toString()));
+    ui->toolButtonTitleFont->setBackgroundColor(QColor(s->value(QString("%1/TitleFontBackgroundColor").arg(classe),"white").toString()));
+    ui->toolButtonTocFont->setBackgroundColor(QColor(s->value(QString("%1/TocFontBackgroundColor").arg(classe),"white").toString()));
+    ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s->value(QString("%1/PageNumberFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonCoverImage->setImage(s->value(QString("%1/CoverImage").arg(classe),"").toString());
     delete s;
 }
@@ -237,8 +237,8 @@ void FormConfig::Save(QString filename, Classes classe)
         QRegExp f("Font$");
         QString name=w->objectName().replace(tb,"").replace(f,"");
         sf.setValue(QString("%1/%2Font").arg(section).arg(name),w->getFont().toString());
-        sf.setValue(QString("%1/%2FontBackgroundColor").arg(section).arg(name),w->getTextColor().name());
-        sf.setValue(QString("%1/%2FontColor").arg(section).arg(name),w->getBackgroundColor().name());
+        sf.setValue(QString("%1/%2FontColor").arg(section).arg(name),w->getTextColor().name());
+        sf.setValue(QString("%1/%2FontBackgroundColor").arg(section).arg(name),w->getBackgroundColor().name());
     }
     foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>() )
     {

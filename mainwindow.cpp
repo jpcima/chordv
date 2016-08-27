@@ -29,6 +29,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->actionProduce_PDF_files,SIGNAL(triggered(bool)),this,SLOT(ProducePDF()));
     connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
+    connect(ui->actionReset_Preference_as_origine,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
+    connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
     connect(ui->pushButtonPrintPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
     connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
@@ -37,6 +39,25 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->checkBoxMemoryMode,SIGNAL(stateChanged(int)),this,SLOT(setMemoryMode(int)));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
   }
+
+void MainWindow::PreferencesAsOrigine()
+{
+    QSettings s;
+    QFile file(s.fileName());
+    file.remove();
+    ui->widgetChordMode->InitDefault(FormConfig::Chord);
+    ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
+    ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
+    ui->widgetTextMode->InitDefault(FormConfig::Text);
+    // TODO restore global elem.
+
+}
+
+void MainWindow::CurrentAsDefault()
+{
+    QSettings s;
+    Save(s.fileName());
+}
 
 void MainWindow::openChoFile(bool)
 {
@@ -185,6 +206,22 @@ void MainWindow::openProject ( bool)
    Util::MemorizeProject(filename);
    setMenuLastProject();
 
+}
+
+
+
+void MainWindow::Save(QString filename)
+{
+    QSettings sf(filename,QSettings::IniFormat);
+    sf.clear();
+    sf.setValue("General/Creator",ui->lineEditCreatorName->text());
+    sf.setValue("General/File",ui->lineEditInputFile->text());
+    sf.setValue("General/ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.sync();
+    if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(filename,FormConfig::Chord);
+    if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
+    if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(filename,FormConfig::Text);
+    if ( ui->checkBoxMemoryMode->isChecked()) ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
 }
 
 
