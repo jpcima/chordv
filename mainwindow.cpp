@@ -4,6 +4,7 @@
 #include "dialogconfiguration.h"
 #include "util.h"
 #include "processortext.h"
+#include "settings.h"
 
 #include <QDebug>
 #include <QFileDialog>
@@ -21,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
     connect(m_lastmenu,SIGNAL(triggered(QAction*)),this,SLOT(LastProjectOpen(QAction*)));
     setMenuLastProject();
+    InitProject();
     connect(ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
     connect(ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
     connect(ui->actionOpen_Song_File,SIGNAL(triggered(bool)),this,SLOT(openChoFile(bool)));
@@ -44,6 +46,7 @@ void MainWindow::PreferencesAsOrigine()
 {
     QSettings s;
     QFile file(s.fileName());
+
     file.remove();
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
     ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
@@ -129,15 +132,16 @@ void MainWindow::newProject( bool)
 
 void MainWindow::InitProject()
 {
-    ui->textEditCho3File->clear();
-    ui->lineEditCreatorName->clear();
-    ui->lineEditInputFile->clear();
-    ui->checkBoxChordMode->setChecked(true);
-    ui->checkBoxLyricsMode->setChecked(true);
-    ui->checkBoxTextMode->setChecked(true);
-    ui->checkBoxMemoryMode->setChecked(true);
+    Settings s;
+    qDebug()<<s.value("%General/File","")<<s.fileName();
+    ui->lineEditCreatorName->setText(s.value("Creator","").toString());
+    ui->lineEditInputFile->setText(s.value("File","").toString());
+    ui->checkBoxChordMode->setChecked(s.value("Chord","1").toBool());
+    ui->checkBoxLyricsMode->setChecked(s.value("Lyrics","1").toBool());
+    ui->checkBoxTextMode->setChecked(s.value("Text","1").toBool());
+    ui->checkBoxMemoryMode->setChecked(s.value("Memory","1").toBool());
+    openFile(ui->lineEditInputFile->text());
 }
-
 
 
 void MainWindow::openFile( QString filename)
@@ -177,24 +181,6 @@ void MainWindow::openProject(QString filename)
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
-//    p.beginGroup("LyricsBook");
-//    ui->checkBoxLyricsMode->setChecked(p.allKeys().count()!=0);
-//    QStringList list1=p.mallKeys();
-//    foreach ( QString key, list1)  ui->widgetLyricsMode->setValue(key,p.value(key));
-//    p.endGroup();
-//    p.beginGroup("ChordBook");
-//    ui->checkBoxChordMode->setChecked(p.allKeys().count()!=0);
-//    QStringList list2=p.allKeys();
-//    foreach ( QString key, list2)  ui->widgetChordMode->setValue(key,p.value(key));
-//    p.endGroup();
-//    p.beginGroup("TextBook");
-//    ui->checkBoxTextMode->setChecked(p.allKeys().count()!=0);
-//    foreach ( QString key, p.allKeys()) ui->widgetTextMode->setValue(key,p.value(key));
-//    p.endGroup();
-//    p.beginGroup("MemoryMode");
-//    ui->checkBoxMemoryMode->setChecked(p.allKeys().count()!=0);
-//    foreach ( QString key, p.allKeys()) ui->widgetMemoryMode->setValue(key,p.value(key));
-//    p.endGroup();
 }
 
 void MainWindow::openProject ( bool)
