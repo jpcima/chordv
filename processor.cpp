@@ -296,11 +296,13 @@ void Processor::Cover(QString title, QString subtitle)
 
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
         QFont font(m_uiconfig->toolButtonCoverFont->getFont());
-        QColor  fontcolor=QColor(m_uiconfig->toolButtonCoverFont->getTextColor().name());
-        QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor().name());
+        QColor  fontcolor=QColor(m_uiconfig->toolButtonCoverFont->getTextColor());
+        QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor());
         m_page= m_document->CreatePage(*m_dimension);
         m_painter=new PdfPainter;
         m_painter->SetPage(m_page);
+        m_painter->SetColor(backgroundcolor.redF(),backgroundcolor.greenF(),backgroundcolor.blueF());
+        m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
         m_painter->Fill(true);
         if (! image.isEmpty())
           {
@@ -315,21 +317,16 @@ void Processor::Cover(QString title, QString subtitle)
             double scale=scale1>scale2?scale1:scale2;
             PdfImage *pdfi = new PdfImage(m_document);
             pdfi->SetImageChromaKeyMask(0,0,0);
-            //pdfi->LoadFromPng(imagefile.toLatin1());
             pdfi->LoadFromFile(image.toLatin1());
             m_painter->DrawImage(100,100,pdfi,scale);
           }
-        qDebug()<<red(backgroundcolor)<<green(backgroundcolor)<<blue(backgroundcolor);
-           m_painter->SetColor(0,0,0);
-          m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
-          ///m_painter->SetColor(red(backgroundcolor),green(backgroundcolor),blue(backgroundcolor));
 
           PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
           pfont->SetFontSize(font.pointSize());
           pfont->SetUnderlined(font.underline());
           pfont->SetStrikeOut(font.strikeOut());
           m_painter->SetFont(pfont);
-          m_painter->SetColor(red(fontcolor),green(fontcolor),blue(fontcolor));
+          m_painter->SetColor(fontcolor.redF(),fontcolor.greenF(),fontcolor.blueF());
           PdfString stringtitle(title.toLatin1());
           double widthtitle=pfont->GetFontMetrics()->StringWidth(stringtitle);
           double posx=(m_uiconfig->spuPageWidth->getPdfU()-widthtitle)/2;
@@ -421,22 +418,6 @@ QString Processor::Category()
 double Processor::mm(int value)
 {
     return (value*72/25.4);
-}
-
-
-double Processor::red( QColor color )
-{
-    return color.red()/255.0;
-}
-
-double Processor::green( QColor color )
-{
-    return color.green()/255.0;
-}
-
-double Processor::blue( QColor color )
-{
-    return color.blue()/255.0;
 }
 
 

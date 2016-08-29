@@ -121,9 +121,6 @@ private:
 
 
     double TitlePosition();
-    double red(QColor value);
-    double green(QColor value);
-    double blue(QColor value);
     double ImagePosition();
 };
 
