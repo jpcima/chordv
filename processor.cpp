@@ -294,69 +294,37 @@ void Processor::displayLyrics(QString )
 void Processor::Cover(QString title, QString subtitle)
 {
 
-   //     my ($pdf,$page,$type,$title,$subtitle,$note)= @_;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
         QFont font(m_uiconfig->toolButtonCoverFont->getFont());
         QColor  fontcolor=QColor(m_uiconfig->toolButtonCoverFont->getTextColor().name());
         QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor().name());
         m_page= m_document->CreatePage(*m_dimension);
-
-
-
-//        my ($llx, $lly, $urx, $ury) = $page->get_mediabox;
-//        my $graph=$page->gfx();
-//        $graph->rect($llx, $lly, $urx, $ury);
-//        $graph->fillcolor($backgroundcolor);
-//        $graph->fill();
-//        if ( length $image != 0 )
-//        {
-//           my $info=image_info($image);
-//           my $type=image_type($image);
-//           my ($l,$h)=dim($info);
-//           my $t=$type->{file_type} ;
-//           my $img;
-//           if ( $t =~/^PNG$/ ) { $img = $pdf->image_png($image);}
-//           elsif ( $t =~/^JPG$/ ) {$img= $pdf->image-jpg($image);}
-//           elsif ( $t =~/^GIF$/ ) {$img= $pdf->image-gif($image);}
-//           my $L=0;
-//           my $H=0;
-//           if ( $l > ($urx - $llx)*7/10 ) { $L= ($urx - $llx)*7/10;}
-//           if ( $h > ($ury - $lly)*2/5 ) { $H=($ury - $lly)*2/5;}
-//           my $scale;
-//           if ( $H == 0 and $L == 0 ) {$scale=1;}
-//           else { $scale=$H > $L ? $H/$h : $L/$l;}
-
-//          # print "scale=$scale  l=$l h=$h H=$H L=$L\n";
-//           my $x=($urx - $llx - $l * $scale)/2;
-//           my $y=($ury - $lly - $h * $scale)*1/4;
-//           $graph->image($img,$x,$y,$scale);
-//        }
-//        my $font=Util::setFont($pdf,$fontname,"CoverFont");
-
-          m_painter=new PdfPainter;
-          m_painter->SetPage(m_page);
-          m_painter->Fill(true);
-
-          QString imagefile=m_uiconfig->toolButtonCoverImage->getImage();
-          if (! imagefile.isEmpty())
+        m_painter=new PdfPainter;
+        m_painter->SetPage(m_page);
+        m_painter->Fill(true);
+        if (! image.isEmpty())
           {
-            QPixmap pix(imagefile);
+            QPixmap pix(image);
             double maxh=m_uiconfig->spuPageHeight->getPdfU()/4.0;
             double maxw=m_uiconfig->spuPageWidth->getPdfU()*0.75;
-            double imagex=pix.size().height();
-            double imagey=pix.size().width();
-            qDebug()<<imagex<<imagey;
-
+            double imageh=pix.size().height();
+            double imagew=pix.size().width();
+            double scale1,scale2;
+            scale1=maxh/imageh;
+            scale2=maxw/imagew;
+            double scale=scale1>scale2?scale1:scale2;
             PdfImage *pdfi = new PdfImage(m_document);
-            pdfi->LoadFromFile(imagefile.toLatin1());
-            qDebug()<<pdfi->GetHeight()<<pdfi->GetWidth();
-            double scale=1.0;
-            m_painter->DrawImage(100,100,pdfi);
+            pdfi->SetImageChromaKeyMask(0,0,0);
+            //pdfi->LoadFromPng(imagefile.toLatin1());
+            pdfi->LoadFromFile(image.toLatin1());
+            m_painter->DrawImage(100,100,pdfi,scale);
           }
-          m_painter->SetColor(red(backgroundcolor),green(backgroundcolor),blue(backgroundcolor));
+        qDebug()<<red(backgroundcolor)<<green(backgroundcolor)<<blue(backgroundcolor);
+           m_painter->SetColor(0,0,0);
           m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
+          ///m_painter->SetColor(red(backgroundcolor),green(backgroundcolor),blue(backgroundcolor));
+
           PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
-          qDebug()<<"fontsize"<<font.pointSize();
           pfont->SetFontSize(font.pointSize());
           pfont->SetUnderlined(font.underline());
           pfont->SetStrikeOut(font.strikeOut());

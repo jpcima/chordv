@@ -22,13 +22,14 @@ public:
     Ui::FormConfig *getUi() { return ui;}
     void SetConfigFromFile(QString FileName);
     void SetConfigFromInit();
+    QString classe2String(Classes name);
 protected:
     void disableWidgets(QRegExp value);
 private:
     Ui::FormConfig *ui;
     QWidget *m_parent;
     QString m_configFileName;
-    QString classe2String(Classes name);
+
     void Calculate();
 signals:
     void sendLog (QString message);

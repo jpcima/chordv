@@ -200,9 +200,14 @@ void MainWindow::Save(QString filename)
 {
     QSettings sf(filename,QSettings::IniFormat);
     sf.clear();
-    sf.setValue("General/Creator",ui->lineEditCreatorName->text());
-    sf.setValue("General/File",ui->lineEditInputFile->text());
-    sf.setValue("General/ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.setValue("Creator",ui->lineEditCreatorName->text());
+    sf.setValue("File",ui->lineEditInputFile->text());
+    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
+    sf.setValue("Chord",ui->checkBoxChordMode->isChecked());
+    sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
+    sf.setValue("Text",ui->checkBoxTextMode->isChecked());
     sf.sync();
     if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(filename,FormConfig::Chord);
     if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
@@ -217,9 +222,13 @@ void MainWindow::Save(bool)
         SaveAs(true);
     QSettings sf(m_currentproject,QSettings::IniFormat);
     sf.clear();
-    sf.setValue("General/Creator",ui->lineEditCreatorName->text());
-    sf.setValue("General/File",ui->lineEditInputFile->text());
-    sf.setValue("General/ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.setValue("Creator",ui->lineEditCreatorName->text());
+    sf.setValue("File",ui->lineEditInputFile->text());
+    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
+    sf.setValue("Chord",ui->checkBoxChordMode->isChecked());
+    sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
+    sf.setValue("Text",ui->checkBoxTextMode->isChecked());
     sf.sync();
     if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,FormConfig::Chord);
     if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,FormConfig::Lyrics);
