@@ -231,10 +231,12 @@ void Processor::setTitle(QString title)
     m_colnumber=1;
     m_page= m_document->CreatePage(*m_dimension);
     m_painter=new PdfPainter;
+    m_painter->SetPage(m_page);
     double x=m_uiconfig->spuPageWidth->getPdfU()/2;
     double y=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2;
     QFont font(m_uiconfig->toolButtonTitleFont->getFont());
-    PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
+    PdfFont *pfont;
+    pfont=m_document->CreateFont(font.family().toLatin1());
     m_painter->SetFont(pfont);
     pfont->SetFontSize(font.pointSize());
     pfont->SetUnderlined(font.underline());
@@ -321,6 +323,7 @@ void Processor::Cover(QString title, QString subtitle)
         m_painter->SetColor(backgroundcolor.redF(),backgroundcolor.greenF(),backgroundcolor.blueF());
         m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
         m_painter->Fill(true);
+        qDebug()<<"image"<<image;
         if (! image.isEmpty())
           {
             QPixmap pix(image);
