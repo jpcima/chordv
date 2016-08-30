@@ -70,7 +70,8 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
         }
         else if ( line.contains(TitleREX) )
         {
-              setTitle(TitleREX.cap(1));
+              QString title=TitleREX.cap(1);
+              setTitle(title);
 //            $subtitley=1;
               printChordsForSong();
 
@@ -228,6 +229,22 @@ void Processor::setTitle(QString title)
     m_tocindex++;
     m_tocpages<<title;
     m_colnumber=1;
+    m_page= m_document->CreatePage(*m_dimension);
+    m_painter=new PdfPainter;
+    double x=m_uiconfig->spuPageWidth->getPdfU()/2;
+    double y=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2;
+    QFont font(m_uiconfig->toolButtonTitleFont->getFont());
+    PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
+    m_painter->SetFont(pfont);
+    pfont->SetFontSize(font.pointSize());
+    pfont->SetUnderlined(font.underline());
+    pfont->SetStrikeOut(font.strikeOut());
+    m_painter->SetFont(pfont);
+    QColor fontcolor=m_uiconfig->toolButtonTitleFont->getTextColor();
+    m_painter->SetColor(fontcolor.redF(),fontcolor.greenF(),fontcolor.blueF());
+    Text(title,x,y,m_uiconfig->toolButtonTitleFont,center);
+
+
 }
 
 void Processor::setSocMode(bool socmode)
@@ -331,6 +348,7 @@ void Processor::Cover(QString title, QString subtitle)
           double widthtitle=pfont->GetFontMetrics()->StringWidth(stringtitle);
           double posx=(m_uiconfig->spuPageWidth->getPdfU()-widthtitle)/2;
           double posy=TitlePosition();
+         Text(title,posx,posy,m_uiconfig->toolButtonCoverFont);
          if ( ! title.isEmpty())
               m_painter->DrawText(posx,posy,stringtitle);
           pfont->SetFontSize(font.pointSize()*8/10);
@@ -438,4 +456,23 @@ double Processor::ImagePosition()
     else if ( m_uiconfig->comboBoxTitlePosition->currentIndex()==1) factor=3/4.0;
     else factor=2/3.0;
     return m_uiconfig->spuPageHeight->getPdfU()*factor;
+}
+
+
+void Processor::Text( QString text, double x, double y, FontButton *fb ,Align align)
+{
+    PdfFont *pfont=m_document->CreateFont(fb->getFont().family().toLatin1());
+    PdfString str(text.toLatin1());
+    double widthtext=pfont->GetFontMetrics()->StringWidth(str);
+    pfont->SetFontSize(fb->getFont().pointSize());
+    pfont->SetUnderlined(fb->getFont().underline());
+    pfont->SetStrikeOut(fb->getFont().strikeOut());
+    m_painter->SetFont(pfont);
+    m_painter->SetColor(fb->getTextColor().redF(),fb->getTextColor().greenF(),fb->getTextColor().blueF());
+    if (! text.isEmpty())
+    {
+        if ( align == right )  x-=widthtext;
+        else x-=widthtext/2;
+        m_painter->DrawText(x,y,str);
+    }
 }

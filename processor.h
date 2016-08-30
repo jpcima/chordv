@@ -3,14 +3,18 @@
 
 #include "pagesize.h"
 #include "formconfig.h"
+#include "fontbutton.h"
+
 #include <QString>
 #include <QStringList>
 #include <podofo/podofo.h>
 #include <QDate>
 
+
 class Processor
 {
 public:
+    enum Align {left,center,right};
     Processor(QString SongText,QString dir, Ui::FormConfig *ui  );
     ~Processor();
     void process();
@@ -122,6 +126,7 @@ private:
 
     double TitlePosition();
     double ImagePosition();
+    void Text(QString text, double x, double y, FontButton *fb, Align align=left);
 };
 
 #endif // PROCESSOR_H
