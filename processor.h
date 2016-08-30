@@ -126,7 +126,17 @@ private:
 
     double TitlePosition();
     double ImagePosition();
-    void Text(QString text, double x, double y, FontButton *fb, Align align=left);
+    ///
+    /// \brief Text
+    /// \param text
+    /// \param x : if left it is the start of print, if center it is the center point, it left it is end of print
+    /// \param y : the y point
+    /// \param fb : ButtonFont containing informations about Font, color etc...
+    /// \param align : Processor::left Processor::center or Processor::right
+    /// \param scale : 1 no scale >1 will grow the default font <1 decrease the default font
+    /// \return return the x position of the end of text
+
+    double Text(QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);
 };
 
 #endif // PROCESSOR_H

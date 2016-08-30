@@ -232,21 +232,9 @@ void Processor::setTitle(QString title)
     m_page= m_document->CreatePage(*m_dimension);
     m_painter=new PdfPainter;
     m_painter->SetPage(m_page);
-    double x=m_uiconfig->spuPageWidth->getPdfU()/2;
-    double y=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2;
-    QFont font(m_uiconfig->toolButtonTitleFont->getFont());
-    PdfFont *pfont;
-    pfont=m_document->CreateFont(font.family().toLatin1());
-    m_painter->SetFont(pfont);
-    pfont->SetFontSize(font.pointSize());
-    pfont->SetUnderlined(font.underline());
-    pfont->SetStrikeOut(font.strikeOut());
-    m_painter->SetFont(pfont);
-    QColor fontcolor=m_uiconfig->toolButtonTitleFont->getTextColor();
-    m_painter->SetColor(fontcolor.redF(),fontcolor.greenF(),fontcolor.blueF());
-    Text(title,x,y,m_uiconfig->toolButtonTitleFont,center);
-
-
+    Text(title,m_uiconfig->spuPageWidth->getPdfU()/2,
+               m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2,
+               m_uiconfig->toolButtonTitleFont,center);
 }
 
 void Processor::setSocMode(bool socmode)
@@ -323,7 +311,6 @@ void Processor::Cover(QString title, QString subtitle)
         m_painter->SetColor(backgroundcolor.redF(),backgroundcolor.greenF(),backgroundcolor.blueF());
         m_painter->Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
         m_painter->Fill(true);
-        qDebug()<<"image"<<image;
         if (! image.isEmpty())
           {
             QPixmap pix(image);
@@ -341,25 +328,10 @@ void Processor::Cover(QString title, QString subtitle)
             m_painter->DrawImage(100,100,pdfi,scale);
           }
 
-          PdfFont *pfont=m_document->CreateFont(font.family().toLatin1());
-          pfont->SetFontSize(font.pointSize());
-          pfont->SetUnderlined(font.underline());
-          pfont->SetStrikeOut(font.strikeOut());
-          m_painter->SetFont(pfont);
-          m_painter->SetColor(fontcolor.redF(),fontcolor.greenF(),fontcolor.blueF());
-          PdfString stringtitle(title.toLatin1());
-          double widthtitle=pfont->GetFontMetrics()->StringWidth(stringtitle);
-          double posx=(m_uiconfig->spuPageWidth->getPdfU()-widthtitle)/2;
+          double posx=m_uiconfig->spuPageWidth->getPdfU()/2;
           double posy=TitlePosition();
-         Text(title,posx,posy,m_uiconfig->toolButtonCoverFont);
-         if ( ! title.isEmpty())
-              m_painter->DrawText(posx,posy,stringtitle);
-          pfont->SetFontSize(font.pointSize()*8/10);
-          PdfString stringsubtitle(subtitle.toLatin1());
-          double widthsubtitle=pfont->GetFontMetrics()->StringWidth(stringsubtitle);
-          posx=posx+widthtitle-widthsubtitle;
-          if ( ! subtitle.isEmpty())
-              m_painter->DrawText(posx,posy-1.5*font.pointSize(),stringsubtitle);
+          double x2=Text(title,posx,posy,m_uiconfig->toolButtonCoverFont,center);
+          Text(subtitle,x2,posy-1.8*font.pointSize(),m_uiconfig->toolButtonCoverFont,left,0.8);
           m_painter->FinishPage();
 }
 
@@ -462,20 +434,24 @@ double Processor::ImagePosition()
 }
 
 
-void Processor::Text( QString text, double x, double y, FontButton *fb ,Align align)
+double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align align, double scale)
 {
+    double end=0;
     PdfFont *pfont=m_document->CreateFont(fb->getFont().family().toLatin1());
     PdfString str(text.toLatin1());
-    double widthtext=pfont->GetFontMetrics()->StringWidth(str);
-    pfont->SetFontSize(fb->getFont().pointSize());
+    pfont->SetFontSize(fb->getFont().pointSize()*scale);
     pfont->SetUnderlined(fb->getFont().underline());
     pfont->SetStrikeOut(fb->getFont().strikeOut());
     m_painter->SetFont(pfont);
+    double widthtext=pfont->GetFontMetrics()->StringWidth2(str);
     m_painter->SetColor(fb->getTextColor().redF(),fb->getTextColor().greenF(),fb->getTextColor().blueF());
     if (! text.isEmpty())
     {
-        if ( align == right )  x-=widthtext;
-        else x-=widthtext/2;
+        if ( align == right )  x-=widthtext*scale;
+        else if ( align == center ) x-=widthtext*scale/2;
+        else if (align == left ) ;
+        end=x+widthtext;
         m_painter->DrawText(x,y,str);
     }
+    return end;
 }
