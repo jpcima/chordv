@@ -14,8 +14,8 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_documentAllocation=false;
     m_pageAllocation=false;
     m_tocindex=-1;
-    m_line=0;
-    m_column=0;
+    m_line=50;
+    m_column=50;
     QFileInfo fi(file);
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
     if (m_file.isEmpty()) return;
@@ -40,26 +40,33 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_socmode=false;
     m_refrain=false;
 
-    QStringList Buf;
-
-    bool first=true;
     setCoverMade(false);
 
     foreach ( QString line, text.split(QRegExp("\n")) )
     {
         if ( line.contains(NewSongREX) )
-            {}
+        { }
         else if ( line.contains(CompressREX) )
-            { setCompress(true); }
+        {
+            setCompress(true);
+        }
         else if ( line.contains(ColumnsREX) )
-            { setColNumber(ColumnsREX.cap(1).toInt()); }
+        {
+            setColNumber(ColumnsREX.cap(1).toInt());
+        }
         else if ( line.contains(ColumnBreakREX) )
-            { setColBreak();}
+        {
+            setColBreak();
+        }
         //breakCol($pdflyrics,$pagelyrics,\$lyricsline,\$lyricscol,$vspacing,0,$vmargin,$hmargin);
         else if ( line.contains(CoverTitleREX) )
-            {  setCoverTitle(CoverTitleREX.cap(1)); }
+        {
+            setCoverTitle(CoverTitleREX.cap(1));
+        }
         else if ( line.contains(CoverSubTitleREX) )
-            {  setCoverSubtitle(CoverSubTitleREX.cap(1)); }
+        {
+            setCoverSubtitle(CoverSubTitleREX.cap(1));
+        }
         else if ( line.contains(SubTitleREX) )
         {
             QString subtitle=SubTitleREX.cap(1);
@@ -71,9 +78,6 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
         else if ( line.contains(TitleREX) )
         {
               QString title=TitleREX.cap(1);
-              setTitle(title);
-//            $subtitley=1;
-              printChordsForSong();
 
 //            if ( $AnnotationAuth!~/^$/ )
 //            {
@@ -87,72 +91,53 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
             {
                  Cover(getCoverTitle(),getCoverSubtitle());
                  setCoverMade(true);
-                ;
-//                my ($llx, $lly, $urx, $ury) = $TocsChords[0]->get_mediabox;
-//                $MaxLine=$lyricsline=($ury-$lly)*190/210;
-//                $InfoChords{"InitialLine"}=($ury-$lly)*46/50;
-//                $InfoLyrics{"InitialLine"}=($ury-$lly)*46/50;
-//                $InfoChords{"l"}=$InfoChords{"InitialLine"};
-//                $InfoLyrics{"l"}=$InfoLyrics{"InitialLine"};
-//                $InfoChords{"InitialCol"}=Util::convert($Config->{ChordBook}->{MarginHorizontal});
-//                $InfoLyrics{"InitialCol"}=Util::convert($Config->{LyricsBook}->{MarginHorizontal});
-//                $InfoChords{"c"}=$InfoChords{"InitialCol"};
-//                $InfoLyrics{"c"}=$InfoLyrics{"InitialCol"};
-                  displayTocTitle();
-//            }
-              if ( first == false ) doChords();
-              newPage();
+                 displayTocTitle(); // A virer
+            }
 
-
-
+            displayChordsForSong();
+            displayLyrics();
+            displayTitle(title);
 
 //            $MaxLine=$lyricsline=($ury-$lly)*190/210;
 //            $lyricscol=$llx+Util::convert(${Config}->{LyricsBook}->{MarginHorizontal});
-              first=false;
-              Buf.clear();
+              m_BufLyrics.clear();
 //            $CurrentColor=$Config->{ChordBook}->{NormalColor};
 //            $vmargin=Util::convert($Config->{"LyricsBook"}->{MarginVertical});
               displayPageTitle();
 //            $vmargin=$ury-$ury*192/200;
               addTitleToc();
               setCompress(false);
-
         }
         else if ( line.contains(SocREX) )
         {
-            Buf<<QObject::tr("Chorus");
+            m_BufLyrics<<QObject::tr("Chorus");
             setSocMode(true);
         }
         else if ( line.contains(EocREX) )
         {
-            Buf<<QObject::tr("Endchorus");
+            m_BufLyrics<<QObject::tr("Endchorus");
             setSocMode(false);
         }
         else if ( line.contains(RefrainREX) )
         {
             setRefrain(true);
-            Buf<<QObject::tr("Refrain");
+            m_BufLyrics<<QObject::tr("Refrain");
         }
         else if   ( line.contains(ChordRex) )
         {
 
-              displayLyrics(line);
-              line=keepChords(line);
+              m_BufLyrics<<line;
 
-              QStringList s=line.split("|");
-              Buf<<s;
         }
-        else if ( first  )
+        else
         {
-           displayLyrics(line);
+             m_BufLyrics<<line;
         }
     }
 
-}
-
-
 doChords();
-printChordsForSong();
+displayChordsForSong();
+displayLyrics();
 
 save();
 open();
@@ -174,8 +159,6 @@ Processor::~Processor()
     m_documentAllocation=false;
     m_pageAllocation=false;
 }
-
-
 
 void Processor::setCompress(bool compress)
 {
@@ -223,15 +206,14 @@ void Processor::setSubTitle(QString subtitle)
     m_subtitle=subtitle;
 }
 
-void Processor::setTitle(QString title)
+void Processor::displayTitle(QString title)
 {
+    newPage();
     m_title=title;
+    qDebug()<<title;
     m_tocindex++;
     m_tocpages<<title;
     m_colnumber=1;
-    m_page= m_document->CreatePage(*m_dimension);
-    m_painter=new PdfPainter;
-    m_painter->SetPage(m_page);
     Text(title,m_uiconfig->spuPageWidth->getPdfU()/2,
                m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2,
                m_uiconfig->toolButtonTitleFont,center);
@@ -268,42 +250,42 @@ QString Processor::keepChords(QString line)
 
 void Processor::newPage()
 {
-
-    m_pageAllocation=true;
+    if ( m_pageAllocation) m_painter->FinishPage();
     m_page = m_document->CreatePage(*m_dimension);
-    if ( ! m_page )  { PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
-        qDebug()<<"error page not well created";
-    }
     m_painter=new PdfPainter();
     m_painter->SetPage(m_page);
-
-    PdfFont* pFont;
-    pFont = m_document->CreateFont( "Arial" );
-    if( !pFont )
-       {
-           PODOFO_RAISE_ERROR( ePdfError_InvalidHandle );
-       }
-    pFont->SetFontSize( 18.0 );
-    m_painter->SetFont( pFont );
-}
+    m_line=m_uiconfig->spuPageHeight->getPdfU()-100;
+    m_column=50;
+ }
 
 void Processor::displayPageSubtitle(QString )
 {
 
 }
 
-void Processor::displayLyrics(QString )
+void Processor::displayLyrics()
 {
-    //m_painter->DrawText( 56.69, m_page->GetPageSize().GetHeight() - 56.69,line.toLocal8Bit() );
 
+    foreach (QString text,m_BufLyrics)
+    {
+        if ( ! text.isEmpty() )
+        {
+            text.replace(QRegExp("\\[[^]]+\\]"),"") ;
+            Text(text,m_column,m_line,m_uiconfig->toolButtonNormalFont);
+        }
+        qDebug()<<text;
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF();
+    }
 }
 
 void Processor::Cover(QString title, QString subtitle)
 {
 
+    qDebug()<<"Cover";
+        m_pageAllocation=true;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
         QFont font(m_uiconfig->toolButtonCoverFont->getFont());
-        QColor  fontcolor=QColor(m_uiconfig->toolButtonCoverFont->getTextColor());
+        QColor fontcolor=QColor(m_uiconfig->toolButtonCoverFont->getTextColor());
         QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor());
         m_page= m_document->CreatePage(*m_dimension);
         m_painter=new PdfPainter;
@@ -331,8 +313,7 @@ void Processor::Cover(QString title, QString subtitle)
           double posx=m_uiconfig->spuPageWidth->getPdfU()/2;
           double posy=TitlePosition();
           double x2=Text(title,posx,posy,m_uiconfig->toolButtonCoverFont,center);
-          Text(subtitle,x2,posy-1.8*font.pointSize(),m_uiconfig->toolButtonCoverFont,left,0.8);
-          m_painter->FinishPage();
+          Text(subtitle,x2,posy-0.8*font.pointSize(),m_uiconfig->toolButtonCoverFont,right,0.8);
 }
 
 void Processor::doChords()
@@ -340,7 +321,7 @@ void Processor::doChords()
 
 }
 
-void Processor::printChordsForSong()
+void Processor::displayChordsForSong()
 {
 
 }
@@ -443,8 +424,9 @@ double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align
     pfont->SetUnderlined(fb->getFont().underline());
     pfont->SetStrikeOut(fb->getFont().strikeOut());
     m_painter->SetFont(pfont);
-    double widthtext=pfont->GetFontMetrics()->StringWidth2(str);
+    double widthtext=pfont->GetFontMetrics()->StringWidth(str);
     m_painter->SetColor(fb->getTextColor().redF(),fb->getTextColor().greenF(),fb->getTextColor().blueF());
+    m_painter->Fill(true);
     if (! text.isEmpty())
     {
         if ( align == right )  x-=widthtext*scale;

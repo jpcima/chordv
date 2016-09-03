@@ -27,18 +27,20 @@ public:
     void setCoverSubtitle(QString coversubtitle);
     QString getCoverSubtitle(){return m_coversubtitle;}
     void setSubTitle(QString covertitle);
-    void setTitle(QString title );
+
     void setSocMode(bool socmode);
     void setRefrain( bool refrain);
 
     QString keepChords(QString line);
+
+    // virtual e section
     virtual void newPage();
-    // virtual pure section
+    virtual void displayTitle(QString title );
     virtual void displayPageSubtitle( QString subtitle )  ;
-    virtual void displayLyrics(QString line);
+    virtual void displayLyrics();
     virtual void Cover(QString title, QString subtitle);
     virtual void doChords();
-    virtual void printChordsForSong();
+    virtual void displayChordsForSong();
     virtual void displayPageTitle();
     virtual void displayTocTitle();
     virtual void addTitleToc();
@@ -121,7 +123,14 @@ private:
     ///
     int m_column;
 
-
+    ///
+    /// \brief m_BufLyrics buffer with lyrics
+    ///
+    QStringList m_BufLyrics;
+    ///
+    /// \brief m_BufChords buffer with chords
+    ///
+    QStringList m_BufChords;
 
 
     double TitlePosition();
