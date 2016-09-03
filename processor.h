@@ -26,8 +26,6 @@ public:
     QString getCoverTitle(){return m_covertitle;}
     void setCoverSubtitle(QString coversubtitle);
     QString getCoverSubtitle(){return m_coversubtitle;}
-    void setSubTitle(QString covertitle);
-
     void setSocMode(bool socmode);
     void setRefrain( bool refrain);
 
@@ -55,6 +53,7 @@ public:
     virtual int calcColumn();
     virtual int calcLine();
     virtual void FollowingLine();
+    virtual void includeChorus(QString text);
     ///
     /// \brief m_category category in config file  (file.conf) Chordbook,LyricsBook,MemoryMode,TextBook
     ///
@@ -101,6 +100,8 @@ private:
     /// \brief m_file dir where product the output file
     ///
     QString m_file;
+
+    bool m_firstline;
     Ui::FormConfig *m_uiconfig;
 
     PoDoFo::PdfStreamedDocument *m_document;
@@ -132,7 +133,6 @@ private:
     ///
     QStringList m_BufChords;
 
-
     double TitlePosition();
     double ImagePosition();
     ///
@@ -146,6 +146,7 @@ private:
     /// \return return the x position of the end of text
 
     double Text(QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);
+
 };
 
 #endif // PROCESSOR_H

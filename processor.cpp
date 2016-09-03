@@ -14,8 +14,9 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_documentAllocation=false;
     m_pageAllocation=false;
     m_tocindex=-1;
-    m_line=50;
-    m_column=50;
+    qDebug()<<m_uiconfig->spuPageHeight->getPdfU()<<m_uiconfig->spuVerticalMargin->getPdfU();
+    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
+    m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
     QFileInfo fi(file);
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
     if (m_file.isEmpty()) return;
@@ -23,18 +24,18 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_dimension = new PdfRect(PageSize());
     m_documentAllocation=true;
 
-    QRegExp NewSongREX("^ *\\{(new_song|ns) *\\} *$");
-    QRegExp CompressREX("^ *\\{compress\\} * *$");
-    QRegExp ColumnsREX("^ *\\{(?:col|columns): *([^}]*) *\\}");
-    QRegExp ColumnBreakREX("^ *\\{(column_break|colb) *\\}");
-    QRegExp CoverTitleREX("^ *\\{*(?:covertitle|ct): *([^}]+)\\}");
-    QRegExp CoverSubTitleREX("^ *\\{(?:coversubtitle|cs): *([^}]+)\\}");
-    QRegExp SubTitleREX("^ *\\{(?:subtitle|st): *([^}])\\}");
-    QRegExp TitleREX("^ *\\{(?:title|t): *([^}]*)\\}");
-    QRegExp SocREX("^ *\\{(?:soc|start_of_chorus)\\}");
-    QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}");
-    QRegExp RefrainREX("^Refrain *: *$");
-    QRegExp ChordRex("\\[[^]]+\\]");
+    QRegExp NewSongREX("^ *\\{(new_song|ns) *\\} *$",Qt::CaseInsensitive);
+    QRegExp CompressREX("^ *\\{compress\\} * *$",Qt::CaseInsensitive);
+    QRegExp ColumnsREX("^ *\\{(?:col|columns): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp ColumnBreakREX("^ *\\{(column_break|colb) *\\}",Qt::CaseInsensitive);
+    QRegExp CoverTitleREX("^ *\\{*(?:covertitle|ct): *([^}]+)\\}",Qt::CaseInsensitive);
+    QRegExp CoverSubTitleREX("^ *\\{(?:coversubtitle|cs): *([^}]+)\\}",Qt::CaseInsensitive);
+    QRegExp SubTitleREX("^ *\\{(?:subtitle|st): *([^}]+)\\}",Qt::CaseInsensitive);
+    QRegExp TitleREX("^ *\\{(?:title|t): *([^}]*)\\}",Qt::CaseInsensitive);
+    QRegExp SocREX("^ *\\{(?:soc|start_of_chorus)\\}",Qt::CaseInsensitive);
+    QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}",Qt::CaseInsensitive);
+    QRegExp RefrainREX("^Refrain *: *$",Qt::CaseInsensitive);
+    QRegExp ChordRex("\\[[^]]+\\]",Qt::CaseInsensitive);
 
     m_compress=false;
     m_socmode=false;
@@ -58,7 +59,6 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
         {
             setColBreak();
         }
-        //breakCol($pdflyrics,$pagelyrics,\$lyricsline,\$lyricscol,$vspacing,0,$vmargin,$hmargin);
         else if ( line.contains(CoverTitleREX) )
         {
             setCoverTitle(CoverTitleREX.cap(1));
@@ -69,11 +69,8 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
         }
         else if ( line.contains(SubTitleREX) )
         {
-            QString subtitle=SubTitleREX.cap(1);
-            setSubTitle(subtitle);
-            displayPageSubtitle(subtitle) ;
-            //my ($llx,$lly,$urx,$ury)=$pagelyrics->get_mediabox();
-            //$vmargin=$ury-$ury*(19/20-1/70*$subtitley);
+            qDebug()<<"oui";
+            displayPageSubtitle(SubTitleREX.cap(1) ) ;
         }
         else if ( line.contains(TitleREX) )
         {
@@ -110,12 +107,12 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
         }
         else if ( line.contains(SocREX) )
         {
-            m_BufLyrics<<QObject::tr("Chorus");
             setSocMode(true);
+            includeChorus(QObject::tr("Chorus"));
         }
         else if ( line.contains(EocREX) )
         {
-            m_BufLyrics<<QObject::tr("Endchorus");
+            includeChorus(QObject::tr("Endchorus"));
             setSocMode(false);
         }
         else if ( line.contains(RefrainREX) )
@@ -126,12 +123,14 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
         else if   ( line.contains(ChordRex) )
         {
 
-              m_BufLyrics<<line;
+             if ( m_socmode ) includeChorus(line);
+             else m_BufLyrics<<line;
 
         }
         else
         {
-             m_BufLyrics<<line;
+            if ( m_socmode ) includeChorus(line);
+            else m_BufLyrics<<line;
         }
     }
 
@@ -201,22 +200,34 @@ void Processor::setCoverSubtitle(QString coversubtitle)
     m_coversubtitle=coversubtitle;
 }
 
-void Processor::setSubTitle(QString subtitle)
+
+void Processor::includeChorus( QString text)
 {
-    m_subtitle=subtitle;
+
 }
 
 void Processor::displayTitle(QString title)
 {
     newPage();
     m_title=title;
-    qDebug()<<title;
     m_tocindex++;
     m_tocpages<<title;
     m_colnumber=1;
+    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     Text(title,m_uiconfig->spuPageWidth->getPdfU()/2,
-               m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2,
+               m_line,
                m_uiconfig->toolButtonTitleFont,center);
+    m_firstline=true;
+}
+
+
+void Processor::displayPageSubtitle(QString subtitle)
+{
+  m_subtitle=subtitle;
+  m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSizeF()*1.2;
+  Text(subtitle,m_uiconfig->spuPageWidth->getPdfU()/2,
+             m_line,
+             m_uiconfig->toolButtonSubtitleFont,center);
 }
 
 void Processor::setSocMode(bool socmode)
@@ -258,14 +269,14 @@ void Processor::newPage()
     m_column=50;
  }
 
-void Processor::displayPageSubtitle(QString )
-{
-
-}
 
 void Processor::displayLyrics()
 {
-
+    if ( m_firstline )
+    {
+        m_firstline=false;
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*3;
+    }
     foreach (QString text,m_BufLyrics)
     {
         if ( ! text.isEmpty() )
@@ -273,15 +284,12 @@ void Processor::displayLyrics()
             text.replace(QRegExp("\\[[^]]+\\]"),"") ;
             Text(text,m_column,m_line,m_uiconfig->toolButtonNormalFont);
         }
-        qDebug()<<text;
-        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF();
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
     }
 }
 
 void Processor::Cover(QString title, QString subtitle)
 {
-
-    qDebug()<<"Cover";
         m_pageAllocation=true;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
         QFont font(m_uiconfig->toolButtonCoverFont->getFont());
@@ -313,7 +321,13 @@ void Processor::Cover(QString title, QString subtitle)
           double posx=m_uiconfig->spuPageWidth->getPdfU()/2;
           double posy=TitlePosition();
           double x2=Text(title,posx,posy,m_uiconfig->toolButtonCoverFont,center);
-          Text(subtitle,x2,posy-0.8*font.pointSize(),m_uiconfig->toolButtonCoverFont,right,0.8);
+          PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonCoverFont->getFont().family().toLatin1());
+          PdfString str(subtitle.toLatin1());
+          pfont->SetFontSize(m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5);
+          pfont->SetUnderlined(m_uiconfig->toolButtonCoverFont->getFont().underline());
+          pfont->SetStrikeOut(m_uiconfig->toolButtonCoverFont->getFont().strikeOut());
+          double widthtext=pfont->GetFontMetrics()->StringWidth(subtitle.toLatin1());
+          Text(subtitle,x2-widthtext/2,posy-m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5,m_uiconfig->toolButtonCoverFont,right,0.5);
 }
 
 void Processor::doChords()
