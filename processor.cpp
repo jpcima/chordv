@@ -241,6 +241,7 @@ void Processor::setRefrain(bool refrain)
 }
 
 
+
 QString Processor::keepChords(QString line)
 {
    // suppress before first []
@@ -276,6 +277,7 @@ void Processor::displayLyrics()
     {
         m_firstline=false;
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*3;
+        m_initialhposition=m_line;
     }
     foreach (QString text,m_BufLyrics)
     {
@@ -284,8 +286,34 @@ void Processor::displayLyrics()
             text.replace(QRegExp("\\[[^]]+\\]"),"") ;
             Text(text,m_column,m_line,m_uiconfig->toolButtonNormalFont);
         }
-        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
+        NextLine();
     }
+}
+
+void Processor::NextLine()
+{
+    if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
+    else if ( currentColumn() < m_colnumber )
+      {
+        m_column = nextColumn( currentColumn() ) ;
+        m_line=m_initialhposition;
+      }
+    else
+        newPage();
+}
+
+
+int Processor::currentColumn()
+{
+  int c=1;
+  while (c * m_uiconfig->spuPageWidth->getPdfU()/m_colnumber < m_column ) c++;
+  return c-1;
+}
+
+int Processor::nextColumn( int colnumber)
+{
+    return ( m_uiconfig->spuPageWidth->getPdfU()*(colnumber+1)/m_colnumber +m_uiconfig->spuHorizontalMargin->getPdfU());
 }
 
 void Processor::Cover(QString title, QString subtitle)

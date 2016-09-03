@@ -102,6 +102,9 @@ private:
     QString m_file;
 
     bool m_firstline;
+
+
+    double m_initialhposition;
     Ui::FormConfig *m_uiconfig;
 
     PoDoFo::PdfStreamedDocument *m_document;
@@ -147,6 +150,9 @@ private:
 
     double Text(QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);
 
+    virtual void NextLine();
+    virtual int currentColumn();
+    virtual int nextColumn( int current);
 };
 
 #endif // PROCESSOR_H
