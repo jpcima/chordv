@@ -266,8 +266,8 @@ void Processor::newPage()
     m_page = m_document->CreatePage(*m_dimension);
     m_painter=new PdfPainter();
     m_painter->SetPage(m_page);
-    m_line=m_uiconfig->spuPageHeight->getPdfU()-100;
-    m_column=50;
+    m_line=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU();
+    m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
  }
 
 
