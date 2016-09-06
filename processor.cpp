@@ -14,7 +14,6 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_documentAllocation=false;
     m_pageAllocation=false;
     m_tocindex=-1;
-    qDebug()<<m_uiconfig->spuPageHeight->getPdfU()<<m_uiconfig->spuVerticalMargin->getPdfU();
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
     QFileInfo fi(file);
@@ -356,6 +355,7 @@ void Processor::Cover(QString title, QString subtitle)
           pfont->SetStrikeOut(m_uiconfig->toolButtonCoverFont->getFont().strikeOut());
           double widthtext=pfont->GetFontMetrics()->StringWidth(subtitle.toLatin1());
           Text(subtitle,x2-widthtext/2,posy-m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5,m_uiconfig->toolButtonCoverFont,right,0.5);
+          m_painter->FinishPage();
 }
 
 void Processor::doChords()
@@ -391,7 +391,7 @@ void Processor::setColBreak()
 void Processor::save()
 {
     if ( m_pageAllocation)  m_painter->FinishPage();
-    if ( m_documentAllocation) m_document->Close();
+    //if ( m_documentAllocation) m_document->Close();
 }
 
 void Processor::open()
@@ -407,6 +407,65 @@ void Processor::addFooter()
 void Processor::addLinkInToc()
 {
 
+    int nbpage=m_document->GetPageCount();
+    int cover= m_covermade ?1:0;
+    int j=0;
+    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
+    PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
+    m_painter=new PdfPainter;
+    m_painter->SetPage(toc);
+
+    Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
+    m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
+    foreach ( QString title, m_tocpages)
+        {
+
+         LineToc(title,12,m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),m_uiconfig->spuHorizontalMargin->getPdfU(),m_line,m_uiconfig->toolButtonTocFont);
+         m_line-=m_uiconfig->toolButtonTocFont->getFont().pointSizeF()*1.2;
+         //PdfAnnotation *ant=toc->CreateAnnotation(ePdfAnnotation_Link,);
+//            #!!!
+//            if ($Config->{$type}->{TocCol} eq 2 )
+//            {
+//              $ant->rect($info->{"c"},$info->{"l"}-$info->{"vs"}/2,$info->{"c"}+80/mm,$info->{"l"}+$info->{"vs"}/2);
+//              $ant->link($p);
+//            }
+//            else
+//            {
+//                if ( $TocPages[$nbpage]>1  && $nbpage  ne scalar(@TocPages)-1 ) {$TocPages[$nbpage]--; next; }
+//                elsif ( $nbpage < scalar(@TocPages) )
+//                {
+//                  my $text=$toc->text();
+//                  $text->font(Util::setFont($pdf,$Config->{$type}->{TocFont},"TocFont"),Util::convert($Config->{$type}->{TocSizeFont}));
+//                  my $width2=$text->advancewidth("100");
+//                  $text->translate( $urx- $Config->{$type}->{MarginHorizontal} - 4* $width2   ,$info->{"l"}) ;
+//                  $text->fillcolor($Config->{$type}->{NormalColor});
+//                  $text->text($i);
+//                  $ant->rect($info->{"c"},$info->{"l"}-$info->{"vs"}/2,$info->{"c"}+$urx,$info->{"l"}+$info->{"vs"}/2);
+//                  $ant->link($p);
+//                  $nbpage++;
+//                }
+//            }
+//            if ( $info->{"l"} > 34/mm )
+//            {
+//                $info->{"l"}-=$info->{"vs"}
+//            }
+//            elsif ( ($Config->{$type}->{TocCol} eq 2 ) && ($info->{"c"} < 105/mm) )
+//            {
+//                $info->{"l"}=$info->{"InitialLine"};
+//                $info->{"c"}=$info->{"InitialCol"}+100/mm;
+//            }
+//            else
+//            {
+//                $info->{"l"}=$info->{"InitialLine"};
+//                $info->{"c"}=$info->{"InitialCol" };
+//                $numtoc++;
+//                $toc=$pdf->openpage($numtoc);
+//            }
+
+//        }
+    }
+    m_painter->FinishPage();
+      if ( m_documentAllocation) m_document->Close();
 }
 
 void Processor::makePageNumber()
@@ -478,4 +537,31 @@ double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align
         m_painter->DrawText(x,y,str);
     }
     return end;
+}
+
+void Processor::LineToc(QString text, int page , double width, double x, double y, FontButton *fb)
+{
+    text.replace(QRegExp("^ "),"").append(" ");
+    PdfFont *pfont=m_document->CreateFont(fb->getFont().family().toLatin1());
+    pfont->SetFontSize(fb->getFont().pointSize());
+    pfont->SetUnderlined(fb->getFont().underline());
+    pfont->SetStrikeOut(fb->getFont().strikeOut());
+    m_painter->SetFont(pfont);
+    QString point(" ");
+    bool odd=true;
+    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2%3").arg(text,point).arg(page).toLatin1())> width)
+    {
+        text.chop(1);
+    }
+    //text=QString("%1%2%3").arg(text,point).arg(page);
+    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2%3").arg(text,point).arg(page).toLatin1())<= width)
+    {
+        odd=odd?false:true;
+        if ( odd ) point+=" ";
+        else point+=".";
+    }
+    text=QString("%1%2%3").arg(text,point).arg(page);
+    m_painter->SetColor(fb->getTextColor().redF(),fb->getTextColor().greenF(),fb->getTextColor().blueF());
+    m_painter->Fill(true);
+    m_painter->DrawText(x,y,PdfString(text.toLatin1()));
 }
