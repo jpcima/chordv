@@ -115,8 +115,8 @@ private:
     bool m_documentAllocation;
     bool m_pageAllocation;
 
-    QStringList m_tocpages;
-    int m_tocindex;
+    QMap <QString,int> m_tocpages;
+
 
     ///
     /// \brief m_line current line printed

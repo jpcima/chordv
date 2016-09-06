@@ -13,7 +13,6 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_uiconfig=ui;
     m_documentAllocation=false;
     m_pageAllocation=false;
-    m_tocindex=-1;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
     QFileInfo fi(file);
@@ -209,8 +208,7 @@ void Processor::displayTitle(QString title)
 {
     newPage();
     m_title=title;
-    m_tocindex++;
-    m_tocpages<<title;
+    m_tocpages[title]=1;
     m_colnumber=1;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     Text(title,m_uiconfig->spuPageWidth->getPdfU()/2,
@@ -299,7 +297,10 @@ void Processor::NextLine()
         m_line=m_initialhposition;
       }
     else
+    {
+        m_tocpages[m_tocpages.keys().last()]++;
         newPage();
+    }
 }
 
 
@@ -417,7 +418,7 @@ void Processor::addLinkInToc()
 
     Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
-    foreach ( QString title, m_tocpages)
+    foreach ( QString title, m_tocpages.keys())
         {
 
          LineToc(title,12,m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),m_uiconfig->spuHorizontalMargin->getPdfU(),m_line,m_uiconfig->toolButtonTocFont);
@@ -541,7 +542,8 @@ double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align
 
 void Processor::LineToc(QString text, int page , double width, double x, double y, FontButton *fb)
 {
-    text.replace(QRegExp("^ "),"").append(" ");
+    QRegExp space("^ +");
+    text.replace(space,"").append(" ");
     PdfFont *pfont=m_document->CreateFont(fb->getFont().family().toLatin1());
     pfont->SetFontSize(fb->getFont().pointSize());
     pfont->SetUnderlined(fb->getFont().underline());
