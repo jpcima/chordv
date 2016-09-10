@@ -2,12 +2,13 @@
 Bug
 -----
 
-- Save project as chop
 - Can't see png file in cover selection
 - when change unit change spu return to mm
-- Save all in cho5 even if text is only one selected
 - Check fonts bold
 - When copy to default bug in generation
+- Last project doesn't work
+- Last  directory doesn't work
+- When read a chop file the unchecked are not disabled
 
 Planned feature ported from perl
 --------------------------------
@@ -16,6 +17,7 @@ Planned feature ported from perl
 - Pages number
 - Chords
 - Special Annotation in chord
+
 
 
 Planned features

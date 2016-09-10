@@ -22,6 +22,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
     connect(m_lastmenu,SIGNAL(triggered(QAction*)),this,SLOT(LastProjectOpen(QAction*)));
     setMenuLastProject();
+    connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
+    connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
+    connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int)));
+    connect(ui->checkBoxMemoryMode,SIGNAL(stateChanged(int)),this,SLOT(setMemoryMode(int)));
     InitProject();
     connect(ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
     connect(ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
@@ -35,10 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
     connect(ui->pushButtonPrintPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
-    connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
-    connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
-    connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int))); 
-    connect(ui->checkBoxMemoryMode,SIGNAL(stateChanged(int)),this,SLOT(setMemoryMode(int)));
+
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
   }
 
@@ -133,7 +134,6 @@ void MainWindow::newProject( bool)
 void MainWindow::InitProject()
 {
     Settings s;
-    qDebug()<<s.value("%General/File","")<<s.fileName();
     ui->lineEditCreatorName->setText(s.value("Creator","").toString());
     ui->lineEditInputFile->setText(s.value("File","").toString());
     ui->checkBoxChordMode->setChecked(s.value("Chord","1").toBool());
@@ -181,6 +181,10 @@ void MainWindow::openProject(QString filename)
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
+
+
+
+
 }
 
 void MainWindow::openProject ( bool)
