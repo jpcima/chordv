@@ -20,8 +20,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tabWidget->setCurrentIndex(0);
     m_lastmenu= new QMenu(tr("Last Projects"));
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
-    connect(m_lastmenu,SIGNAL(triggered(QAction*)),this,SLOT(LastProjectOpen(QAction*)));
     setMenuLastProject();
+    connect(m_lastmenu,SIGNAL(triggered(QAction*)),this,SLOT(LastProjectOpen(QAction*)));
     connect(ui->checkBoxChordMode,SIGNAL(stateChanged(int)),this,SLOT(setChordMode(int)));
     connect(ui->checkBoxLyricsMode,SIGNAL(stateChanged(int)),this,SLOT(setLyricsMode(int)));
     connect(ui->checkBoxTextMode,SIGNAL(stateChanged(int)),this,SLOT(setTextMode(int)));
@@ -82,9 +82,11 @@ void MainWindow::SetInputFile()
 
 void MainWindow::setMenuLastProject()
 {
+        qDebug()<<"actionDEBUT";
     m_lastmenu->clear();
     foreach ( QString l, Util::LastProjects())
     {
+        qDebug()<<"action"<<l;
         QAction *a= new QAction(l,this);
         m_lastmenu->addAction(a);
     }

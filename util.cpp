@@ -2,7 +2,7 @@
 #include <QSettings>
 #include <QFileInfo>
 #include <QDir>
-
+#include <QDebug>
 Util::Util()
 {
 
@@ -15,13 +15,14 @@ QStringList Util::LastProjects()
     for ( int i=0; i<10; i++)
     {   QString val=s.value(QString("LastProjects/f%1").arg(i+1)).toString();
         if (val.isEmpty()) break;
-        else l <<val;
+        l <<val;
     }
-    return l;
+   return l;
 }
 
 void Util::MemorizeProject(QString filename)
 {
+    if (filename.isEmpty()) return;
     QSettings s;
     s.beginGroup("LastProjects");
     foreach ( QString l, s.allKeys())
