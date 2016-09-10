@@ -4,7 +4,7 @@ Bug
 
 - when change unit change spu return to mm
 - Check fonts bold
-- When copy to default bug in generation
+
 
 
 Planned feature ported from perl

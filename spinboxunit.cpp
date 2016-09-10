@@ -64,13 +64,12 @@ void SpinBoxUnit::Connect()
 
 void SpinBoxUnit::setValue( double val, SpinBoxUnit::unit u)
 {
-    m_unit=u;
-    m_value=toMM(val,u);
 
     Disconnect();
-    m_cbunit->setCurrentIndex(unit2int(u));
-    m_doublespinbox->setValue(val);
+    m_doublespinbox->QDoubleSpinBox::setValue(val);
     Connect();
+    m_unit=u;
+    m_value=toMM(val,u);
     emit valueChanged(m_value);
 }
 
