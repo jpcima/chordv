@@ -9,6 +9,8 @@ public:
     Util();
     static QStringList LastProjects();
     static void MemorizeProject( QString filename);
+    static QString getLastDirectory();
+    static void setLastDirectory(QString filename);
 };
 
 #endif // UTIL_H

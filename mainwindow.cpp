@@ -65,9 +65,9 @@ void MainWindow::CurrentAsDefault()
 
 void MainWindow::openChoFile(bool)
 {
-   QSettings s;
-   QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),s.value("DirCurrentProject").toString(),tr("cho3 file(*.cho3)"));
+   QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),Util::getLastDirectory(),tr("cho3 file(*.cho3)"));
    ui->lineEditInputFile->setText(file);
+   Util::setLastDirectory(file);
    openFile(file);
 
 }
@@ -75,7 +75,7 @@ void MainWindow::openChoFile(bool)
 void MainWindow::SetInputFile()
 {
     QSettings s;
-    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),s.value("DirCurrentProject").toString(),tr("cho3 file(*.cho3)"));
+    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),Util::getLastDirectory(),tr("cho3 file(*.cho3)"));
     ui->lineEditInputFile->setText(file);
     openFile(file);
 }
@@ -146,11 +146,6 @@ void MainWindow::InitProject()
 
 void MainWindow::openFile( QString filename)
 {
-    QFileInfo fi(filename);
-    QSettings s;
-    if ( !filename.isEmpty())   s.setValue("LastOpenedDirectory",fi.absolutePath());
-    QDir dir(fi.dir());
-    s.setValue("DirCurrentProject",dir.absolutePath());
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(filename)));
     else
@@ -169,10 +164,9 @@ void MainWindow::openFile( QString filename)
 void MainWindow::openProject(QString filename)
 {
     QSettings p(filename,QSettings::IniFormat);
-    ui->lineEditInputFile->setText(p.value("General/File").toString());
-    ui->lineEditCreatorName->setText(p.value("General/Creator").toString());
-    ui->comboBoxChordLanguage->setCurrentText(p.value("General/ChordLang").toString());
-
+    ui->lineEditInputFile->setText(p.value("File").toString());
+    ui->lineEditCreatorName->setText(p.value("Creator").toString());
+    ui->comboBoxChordLanguage->setCurrentText(p.value("ChordLang").toString());
     ui->widgetChordMode->SetConfigFromFile(filename);
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
     ui->widgetLyricsMode->SetConfigFromFile(filename);
@@ -181,18 +175,15 @@ void MainWindow::openProject(QString filename)
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
-
-
-
-
 }
 
 void MainWindow::openProject ( bool)
 
 {
    QSettings s;
-   QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),s.value("LastOpenedDirectory").toString(),"*.chop");
+   QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),Util::getLastDirectory(),"*.chop");
    openProject(filename);
+   Util::setLastDirectory(filename);
    Util::MemorizeProject(filename);
    setMenuLastProject();
 
@@ -223,6 +214,7 @@ void MainWindow::Save(QString filename)
 
 void MainWindow::Save(bool)
 {
+    QSettings s;
     if ( m_currentproject.isEmpty())
         SaveAs(true);
     if ( ! m_currentproject.endsWith(".chop")) m_currentproject+=".chop";
@@ -246,9 +238,13 @@ void MainWindow::Save(bool)
 void MainWindow::SaveAs(bool)
 {
     QSettings s;
-    m_currentproject=QFileDialog::getSaveFileName(this,tr("Save project as"),s.value("LastOpenedDirectory").toString(),tr("Save as (*.chop)"));
-    if (!m_currentproject.isEmpty() )   Save(true);
+    m_currentproject=QFileDialog::getSaveFileName(this,tr("Save project as"),Util::getLastDirectory(),tr("Save as (*.chop)"));
 
+    if (!m_currentproject.isEmpty() )
+    {
+        Save(true);
+        Util::setLastDirectory(m_currentproject);
+    }
 }
 
 

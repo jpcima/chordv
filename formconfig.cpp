@@ -314,7 +314,7 @@ void FormConfig::displayThumb(QString image)
     if ( m_configFileName.isEmpty() ) s= new QSettings;
     else s= new QSettings(m_configFileName);
     if (image.isEmpty()){ ui->labelCoverViewImage->setPixmap(QPixmap());return;}
-    QPixmap pix(QString("%1/%2").arg(s->value("DirCurrentProject").toString()).arg(image));
+    QPixmap pix(QString("%2").arg(image));
     QPixmap p=pix.scaledToWidth(150);
     ui->labelCoverViewImage->setPixmap(p);
     delete s;

@@ -1,5 +1,7 @@
 #include "util.h"
 #include <QSettings>
+#include <QFileInfo>
+#include <QDir>
 
 Util::Util()
 {
@@ -34,3 +36,19 @@ void Util::MemorizeProject(QString filename)
     }
 }
 
+
+QString  Util::getLastDirectory()
+{
+    QSettings s;
+    return(s.value("LastOpenedDirectory").toString());
+}
+
+void Util::setLastDirectory(QString filename)
+{
+    if (filename.isEmpty()) return;
+    QSettings s;
+    QFileInfo fi(filename);
+    QString  dir=fi.absoluteDir().absolutePath();
+    s.setValue("LastOpenedDirectory",dir);
+
+}

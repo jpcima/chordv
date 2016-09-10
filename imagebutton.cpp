@@ -1,4 +1,5 @@
 #include "imagebutton.h"
+#include "util.h"
 #include <QFileDialog>
 #include <QSettings>
 
@@ -12,18 +13,15 @@ ImageButton::ImageButton(QWidget *parent):QToolButton(parent)
 void ImageButton::SetImage(bool)
 {
     QSettings s;
-
-    QString image=QFileDialog::getOpenFileName(this,tr("Choose an Image file"),s.value("LastOpenedDirectory").toString(),tr("Image(*.jpg *.png)"));
-    QRegExp exp(QString("^%1").arg(s.value("DirCurrentProject").toString()));
-    m_image=image.replace(exp,"");
-    if ( ! image.isEmpty())  emit ImageSelelected(m_image);
+    m_image=QFileDialog::getOpenFileName(this,tr("Choose an Image file"),Util::getLastDirectory(),tr("Image(*.jpg *.png)"));
+    if ( ! m_image.isEmpty())  emit ImageSelelected(m_image);
 }
 
 QString ImageButton::getImage()
 {
     QSettings s;
     if ( m_image.isEmpty()) return "";
-    else return s.value("DirCurrentProject").toString()+m_image;
+    else return m_image;
 }
 
 void ImageButton::setImage(QString image)

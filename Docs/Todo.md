@@ -8,7 +8,6 @@ Bug
 - When copy to default bug in generation
 - Last project doesn't work
 - Last  directory doesn't work
-- When read a chop file the unchecked are not disabled
 
 Planned feature ported from perl
 --------------------------------
