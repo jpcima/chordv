@@ -82,11 +82,9 @@ void MainWindow::SetInputFile()
 
 void MainWindow::setMenuLastProject()
 {
-        qDebug()<<"actionDEBUT";
     m_lastmenu->clear();
     foreach ( QString l, Util::LastProjects())
     {
-        qDebug()<<"action"<<l;
         QAction *a= new QAction(l,this);
         m_lastmenu->addAction(a);
     }
@@ -165,6 +163,7 @@ void MainWindow::openFile( QString filename)
 
 void MainWindow::openProject(QString filename)
 {
+    m_currentproject=filename;
     QSettings p(filename,QSettings::IniFormat);
     ui->lineEditInputFile->setText(p.value("File").toString());
     ui->lineEditCreatorName->setText(p.value("Creator").toString());
