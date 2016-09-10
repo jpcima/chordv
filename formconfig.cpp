@@ -175,7 +175,7 @@ void FormConfig::InitDefault(Classes c)
     ui->comboBoxTocColumnNumber->setCurrentIndex(s->value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
     ui->comboBoxTocSpaceCharacter->setCurrentIndex(s->value(QString("%1/TocSpaceCharacter").arg(classe),0).toInt());
     ui->comboBoxTitlePosition->setCurrentText(s->value(QString("%1/TitlePosition").arg(classe),"1/3").toString());
-    ui->lineEditOutFile->setText(s->value(QString("%1/OutFile").arg(classe),"out").toString());
+    ui->lineEditOutFile->setText(s->value(QString("%1/OutFile").arg(classe),classe.toString());
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s->value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
     ui->spuVerticalMargin->setValue(s->value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
@@ -329,8 +329,8 @@ void FormConfig::deleteCoverImage(bool)
 
 QString FormConfig::classe2String(Classes name)
 {
-    if ( name == Memory ) return "Memory";
-    if ( name == Text ) return "Text";
-    if ( name == Lyrics) return "Lyrics";
-    else  return "Chord";
+    if ( name == Memory ) return QObject::tr("Memory");
+    if ( name == Text ) return QObject::tr("Text");
+    if ( name == Lyrics) return QObject::tr("Lyrics");
+    else  return QObject::tr("Chord");
 }

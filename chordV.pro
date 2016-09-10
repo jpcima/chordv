@@ -76,4 +76,6 @@ TRANSLATIONS=chordV_fr_FR.ts
 
 DISTFILES += \
     Docs/Todo.md \
-    Docs/Compilation.md
+    Docs/Compilation.md \
+    Example/deuxdisques.png \
+    Example/Chansons.cho3

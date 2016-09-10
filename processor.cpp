@@ -392,7 +392,7 @@ void Processor::setColBreak()
 void Processor::save()
 {
     if ( m_pageAllocation)  m_painter->FinishPage();
-    //if ( m_documentAllocation) m_document->Close();
+    if ( m_documentAllocation) m_document->Close();
 }
 
 void Processor::open()
