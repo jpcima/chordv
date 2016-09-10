@@ -146,6 +146,7 @@ void MainWindow::InitProject()
 
 void MainWindow::openFile( QString filename)
 {
+    m_currentproject=filename;
     QFile file(filename);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(filename)));
     else
@@ -194,7 +195,7 @@ void MainWindow::openProject ( bool)
 
 void MainWindow::Save(QString filename)
 {
-    if ( ! filename.endsWith(".chop")) filename+=".chop";
+    if ( ! filename.endsWith(".chop") && !filename.endsWith(".conf")) filename+=".chop";
     QSettings sf(filename,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
