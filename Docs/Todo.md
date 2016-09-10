@@ -2,7 +2,6 @@
 Bug
 -----
 
-- Put anothing than out as file name ( Text TextandChord Memo Chord)
 - Save project as chop
 - Can't see png file in cover selection
 - when change unit change spu return to mm

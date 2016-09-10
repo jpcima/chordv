@@ -187,7 +187,7 @@ void MainWindow::openProject ( bool)
 
 {
    QSettings s;
-   QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),s.value("LastOpenedDirectory").toString(),"*.conf");
+   QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),s.value("LastOpenedDirectory").toString(),"*.chop");
    openProject(filename);
    Util::MemorizeProject(filename);
    setMenuLastProject();
@@ -198,6 +198,7 @@ void MainWindow::openProject ( bool)
 
 void MainWindow::Save(QString filename)
 {
+    if ( ! filename.endsWith(".chop")) filename+=".chop";
     QSettings sf(filename,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
@@ -209,10 +210,10 @@ void MainWindow::Save(QString filename)
     sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
     sf.setValue("Text",ui->checkBoxTextMode->isChecked());
     sf.sync();
-    if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(filename,FormConfig::Chord);
-    if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
-    if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(filename,FormConfig::Text);
-    if ( ui->checkBoxMemoryMode->isChecked()) ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
+    ui->widgetChordMode->Save(filename,FormConfig::Chord);
+    ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
+    ui->widgetTextMode->Save(filename,FormConfig::Text);
+    ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
 }
 
 
@@ -220,6 +221,7 @@ void MainWindow::Save(bool)
 {
     if ( m_currentproject.isEmpty())
         SaveAs(true);
+    if ( ! m_currentproject.endsWith(".chop")) m_currentproject+=".chop";
     QSettings sf(m_currentproject,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
@@ -230,18 +232,19 @@ void MainWindow::Save(bool)
     sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
     sf.setValue("Text",ui->checkBoxTextMode->isChecked());
     sf.sync();
-    if ( ui->checkBoxChordMode->isChecked()) ui->widgetChordMode->Save(m_currentproject,FormConfig::Chord);
-    if ( ui->checkBoxLyricsMode->isChecked()) ui->widgetLyricsMode->Save(m_currentproject,FormConfig::Lyrics);
-    if ( ui->checkBoxTextMode->isChecked()) ui->widgetTextMode->Save(m_currentproject,FormConfig::Text);
-    if ( ui->checkBoxMemoryMode->isChecked()) ui->widgetMemoryMode->Save(m_currentproject,FormConfig::Memory);
+    ui->widgetChordMode->Save(m_currentproject,FormConfig::Chord);
+    ui->widgetLyricsMode->Save(m_currentproject,FormConfig::Lyrics);
+    ui->widgetTextMode->Save(m_currentproject,FormConfig::Text);
+    ui->widgetMemoryMode->Save(m_currentproject,FormConfig::Memory);
 }
 
 
 void MainWindow::SaveAs(bool)
 {
     QSettings s;
-    m_currentproject=QFileDialog::getSaveFileName(this,tr("Save project as"),s.value("LastOpenedDirectory").toString(),tr("Save as (*.conf)"));
+    m_currentproject=QFileDialog::getSaveFileName(this,tr("Save project as"),s.value("LastOpenedDirectory").toString(),tr("Save as (*.chop)"));
     if (!m_currentproject.isEmpty() )   Save(true);
+
 }
 
 
