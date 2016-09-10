@@ -153,7 +153,7 @@ private:
     virtual void NextLine();
     virtual int currentColumn();
     virtual int nextColumn( int current);
-    virtual void  LineToc(QString text, int page, double width, double x, double y, FontButton *fb);
+    virtual void  LineToc(QString text, double width, double x, double y, FontButton *fb);
 };
 
 #endif // PROCESSOR_H

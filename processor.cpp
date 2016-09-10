@@ -408,21 +408,29 @@ void Processor::addFooter()
 void Processor::addLinkInToc()
 {
 
-    int nbpage=m_document->GetPageCount();
-    int cover= m_covermade ?1:0;
-    int j=0;
-    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
-    PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
-    m_painter=new PdfPainter;
-    m_painter->SetPage(toc);
+//    int nbpage=m_document->GetPageCount();
+//    int cover= m_covermade ?1:0;
+//    int j=0;
+//    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
+//    PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
+//    m_painter=new PdfPainter;
+//    m_painter->SetPage(toc);
 
-    Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
-    m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
-    foreach ( QString title, m_tocpages.keys())
-        {
+//    Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
+//    m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
+//    foreach ( QString title, m_tocpages.keys())
+//        {
 
-         LineToc(title,12,m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),m_uiconfig->spuHorizontalMargin->getPdfU(),m_line,m_uiconfig->toolButtonTocFont);
-         m_line-=m_uiconfig->toolButtonTocFont->getFont().pointSizeF()*1.2;
+//         LineToc(title,m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),m_uiconfig->spuHorizontalMargin->getPdfU(),m_line,m_uiconfig->toolButtonTocFont);
+//         //if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
+//             m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
+
+//         else
+//         {
+//             m_tocpages[m_tocpages.keys().last()]++;
+//             newPage();
+//         }
+
          //PdfAnnotation *ant=toc->CreateAnnotation(ePdfAnnotation_Link,);
 //            #!!!
 //            if ($Config->{$type}->{TocCol} eq 2 )
@@ -464,9 +472,9 @@ void Processor::addLinkInToc()
 //            }
 
 //        }
-    }
-    m_painter->FinishPage();
-      if ( m_documentAllocation) m_document->Close();
+//    }
+//    m_painter->FinishPage();
+//      if ( m_documentAllocation) m_document->Close();
 }
 
 void Processor::makePageNumber()
@@ -540,7 +548,7 @@ double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align
     return end;
 }
 
-void Processor::LineToc(QString text, int page , double width, double x, double y, FontButton *fb)
+void Processor::LineToc(QString text, double width, double x, double y, FontButton *fb)
 {
     QRegExp space("^ +");
     text.replace(space,"").append(" ");
@@ -551,18 +559,22 @@ void Processor::LineToc(QString text, int page , double width, double x, double 
     m_painter->SetFont(pfont);
     QString point(" ");
     bool odd=true;
-    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2%3").arg(text,point).arg(page).toLatin1())> width)
+    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2    ").arg(text,point).toLatin1())> width)
     {
         text.chop(1);
     }
     //text=QString("%1%2%3").arg(text,point).arg(page);
-    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2%3").arg(text,point).arg(page).toLatin1())<= width)
+    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2    ").arg(text,point).toLatin1())<= width)
     {
         odd=odd?false:true;
-        if ( odd ) point+=" ";
-        else point+=".";
+        QString c;
+        if ( m_uiconfig->comboBoxTocSpaceCharacter->currentIndex()==0 ) c=".";
+        else if ( m_uiconfig->comboBoxTocSpaceCharacter->currentIndex()==1 ) c="-";
+        else c=" ";
+        if ( odd ) point+=c;
+        else point+=" ";
     }
-    text=QString("%1%2%3").arg(text,point).arg(page);
+    text=QString("%1%2    ").arg(text,point);
     m_painter->SetColor(fb->getTextColor().redF(),fb->getTextColor().greenF(),fb->getTextColor().blueF());
     m_painter->Fill(true);
     m_painter->DrawText(x,y,PdfString(text.toLatin1()));

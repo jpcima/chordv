@@ -172,7 +172,8 @@ void FormConfig::InitDefault(Classes c)
     ui->checkBoxTitleInUppercase->setChecked(s->value(QString("%1/TitleInUppercase").arg(classe),false).toBool());
     ui->comboBoxChordInText->setCurrentIndex(s->value(QString("%1/ChordInText").arg(classe),0).toInt());
     ui->comboBoxChordLang->setCurrentText(s->value(QString("%1/ChordLang").arg(classe),"English").toString());
-    ui->comboBoxTocColumnNUmber->setCurrentIndex(s->value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
+    ui->comboBoxTocColumnNumber->setCurrentIndex(s->value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
+    ui->comboBoxTocSpaceCharacter->setCurrentIndex(s->value(QString("%1/TocSpaceCharacter").arg(classe),0).toInt());
     ui->comboBoxTitlePosition->setCurrentText(s->value(QString("%1/TitlePosition").arg(classe),"1/3").toString());
     ui->lineEditOutFile->setText(s->value(QString("%1/OutFile").arg(classe),"out").toString());
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
