@@ -67,17 +67,28 @@ void SpinBoxUnit::setValue( double val, SpinBoxUnit::unit u)
 
     Disconnect();
     m_doublespinbox->QDoubleSpinBox::setValue(val);
+    m_cbunit->setCurrentIndex(unit2int(u));
     Connect();
     m_unit=u;
     m_value=toMM(val,u);
+
     emit valueChanged(m_value);
 }
 
-void SpinBoxUnit::changeUnit(int value)
+void SpinBoxUnit::setValue( double val)
 {
     Disconnect();
-    m_unit=int2unit(value);
-    m_doublespinbox->setValue(fromMM(m_value));
+    m_doublespinbox->QDoubleSpinBox::setValue(val);
+    Connect();
+    m_value=toMM(val,m_unit);
+    emit valueChanged(m_value);
+}
+
+void SpinBoxUnit::changeUnit(int unit)
+{
+    Disconnect();
+    m_unit=int2unit(unit);
+    m_doublespinbox->setValue(mUnit2unit());
     Connect();
 }
 
@@ -86,6 +97,13 @@ double SpinBoxUnit::toMM(double value, unit u)
     if ( u == mm ) return value;
     else if  ( u == cm ) return value*10.0;
     else  return value*10.0/2.54;
+}
+
+double SpinBoxUnit::mUnit2unit()
+{
+    if ( m_unit == mm ) return m_value;
+    else if  ( m_unit == cm ) return m_value/10.0;
+    else  return m_value*2.54/10.0;
 }
 
 
@@ -127,12 +145,15 @@ QString SpinBoxUnit::unit2String( unit u)
 
 void SpinBoxUnit::setValue(QString valunit)
 {
+    SpinBoxUnit::unit u;
     QString unit=QString("(%1|%2|%3)").arg(QObject::tr("cm")).arg(QObject::tr("mm")).arg(QObject::tr("in"));
     QRegExp reg(QString("([0-9.,]+)(%1)").arg(unit));
     if ( valunit.contains(reg) )
     {
         double val=reg.cap(1).toDouble();
-        setValue(val);
+
+        u=string2unit(reg.cap(2));
+        setValue(val,u);
     }
 }
 

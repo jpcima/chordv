@@ -179,7 +179,7 @@ void FormConfig::InitDefault(Classes c)
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s->value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
     ui->spuVerticalMargin->setValue(s->value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
-    ui->spuTocVerticalSpacing->setValue(s->value(QString("%1/VerticalSpacing").arg(classe),"1mm").toInt());
+    ui->spuTocVerticalSpacing->setValue(s->value(QString("%1/VerticalSpacing").arg(classe),"1mm").toString());
     ui->spuPageHeight->setValue(s->value(QString("%1/PageHeight").arg(classe),"297mm").toString());
     ui->spuPageWidth->setValue(s->value(QString("%1/PageWidth").arg(classe),"210mm").toString());
     QFont f;
@@ -283,7 +283,7 @@ void FormConfig::Save(QString filename, Classes classe)
          if ( ! w->isEnabled() ) continue;
          QRegExp tb("^spu");
          QString name=w->objectName().replace(tb,"");
-         sf.setValue(QString("%1/%2").arg(section).arg(name),w->valueunit());
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->valueunit()+w->getUnit());
     }
     foreach (QDoubleSpinBox *w ,m_parent->findChildren<QDoubleSpinBox*>())
     {

@@ -18,14 +18,15 @@ public:
     double getValue() ;
     double getValueInUnit();
     QString getUnit();
-    SpinBoxUnit::unit string2unit(QString i);
+    unit string2unit(QString i);
     void setValue(QString valunit);
     QString value();
     unit int2unit (int i);
     double getPdfU();
     QString valueunit();
 public slots:
-     void setValue(double val, unit u=mm);
+     void setValue(double val, unit u);
+     void setValue(double val);
 private slots:
     void changeUnit( int value);
 private:
@@ -41,8 +42,8 @@ private:
     QComboBox *m_cbunit;
     QSpacerItem *m_spacer;
     double convert(int value, unit u);
-
     QString unit2String(unit u);
+    double mUnit2unit();
 signals:
     void valueChanged(double);
 
