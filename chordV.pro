@@ -78,4 +78,5 @@ DISTFILES += \
     Docs/Todo.md \
     Docs/Compilation.md \
     Example/deuxdisques.png \
-    Example/Chansons.cho3
+    Example/Chansons.cho3 \
+    Example/Chansons.chop

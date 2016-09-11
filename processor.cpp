@@ -67,7 +67,6 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
         }
         else if ( line.contains(SubTitleREX) )
         {
-            qDebug()<<"oui";
             displayPageSubtitle(SubTitleREX.cap(1) ) ;
         }
         else if ( line.contains(TitleREX) )
@@ -136,8 +135,8 @@ doChords();
 displayChordsForSong();
 displayLyrics();
 
-save();
-open();
+//save();
+//open();
 addFooter();
 addLinkInToc();
 makePageNumber();
@@ -207,8 +206,8 @@ void Processor::includeChorus( QString text)
 void Processor::displayTitle(QString title)
 {
     newPage();
-    m_title=title;
-    m_tocpages[title]=1;
+    m_title=title.replace(QRegExp("^ +"),"");
+    m_tocpages[m_title]=1;
     m_colnumber=1;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     Text(title,m_uiconfig->spuPageWidth->getPdfU()/2,
@@ -317,7 +316,9 @@ int Processor::nextColumn( int colnumber)
 }
 
 void Processor::Cover(QString title, QString subtitle)
+
 {
+
         m_pageAllocation=true;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
         QFont font(m_uiconfig->toolButtonCoverFont->getFont());
@@ -405,11 +406,19 @@ void Processor::addFooter()
 
 }
 
+int Processor::TocColSize()
+{
+    if ( m_uiconfig->comboBoxTocColumnNumber->currentIndex() == 0 ) return m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU()  ;
+    else if ( m_uiconfig->comboBoxTocColumnNumber->currentIndex() == 1 )  return m_uiconfig->spuPageWidth->getPdfU()/2-2*m_uiconfig->spuHorizontalMargin->getPdfU() ;
+    else return m_uiconfig->spuPageWidth->getPdfU()/3-2*m_uiconfig->spuHorizontalMargin->getPdfU() ;
+}
+
 void Processor::addLinkInToc()
 {
-
+    if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0) return;
     int nbpage=m_document->GetPageCount();
     int cover= m_covermade ?1:0;
+    int pagenumber=1;
     int j=0;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
@@ -418,15 +427,25 @@ void Processor::addLinkInToc()
 
     Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
+    int lineinit=m_line;
+    int colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
+    int currentcol=0;
     foreach ( QString title, m_tocpages.keys())
         {
-
-         LineToc(title,m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),m_uiconfig->spuHorizontalMargin->getPdfU(),m_line,m_uiconfig->toolButtonTocFont);
+         LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber);
+         pagenumber+=m_tocpages[title];
          if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
              m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
-
+         else if ( m_uiconfig->comboBoxTocColumnNumber->currentIndex() > currentcol  )
+         {
+             currentcol=1;
+             m_line=lineinit;
+             colinit=colinit+TocColSize();
+         }
          else
          {
+             m_line=lineinit;
+             colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
              m_tocpages[m_tocpages.keys().last()]++;
              newPage();
          }
@@ -548,7 +567,7 @@ double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align
     return end;
 }
 
-void Processor::LineToc(QString text, double width, double x, double y, FontButton *fb)
+void Processor::LineToc(QString text, double width, double x, double y, FontButton *fb, int pagenumber)
 {
     QRegExp space("^ +");
     text.replace(space,"").append(" ");
@@ -578,4 +597,5 @@ void Processor::LineToc(QString text, double width, double x, double y, FontButt
     m_painter->SetColor(fb->getTextColor().redF(),fb->getTextColor().greenF(),fb->getTextColor().blueF());
     m_painter->Fill(true);
     m_painter->DrawText(x,y,PdfString(text.toLatin1()));
+    Text(QString("%1").arg(pagenumber),x+width+fb->getFont().pointSize(),y,fb,right);
 }

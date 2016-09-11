@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>760</width>
-    <height>626</height>
+    <width>619</width>
+    <height>586</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <enum>QTabWidget::West</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -391,103 +391,224 @@
       <attribute name="title">
        <string>Cover</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_11">
+      <layout class="QVBoxLayout" name="verticalLayout_16">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_24">
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
          <item>
-          <widget class="QGroupBox" name="groupBox">
-           <property name="title">
-            <string>Cover</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout">
+          <layout class="QVBoxLayout" name="verticalLayout_15">
+           <item>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>Cover</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_11">
               <item>
-               <widget class="QCheckBox" name="checkBoxCover">
-                <property name="text">
-                 <string>Cover</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_11">
+               <layout class="QVBoxLayout" name="verticalLayout">
                 <item>
-                 <widget class="QLabel" name="labelTitlePosition">
+                 <widget class="QCheckBox" name="checkBoxCover">
                   <property name="text">
-                   <string>Title position from top</string>
+                   <string>Cover</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBoxTitlePosition">
+                 <layout class="QHBoxLayout" name="horizontalLayout_11">
                   <item>
-                   <property name="text">
-                    <string>1/3</string>
-                   </property>
+                   <widget class="QLabel" name="labelTitlePosition">
+                    <property name="text">
+                     <string>Title position from top</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>1/2</string>
-                   </property>
+                   <widget class="QComboBox" name="comboBoxTitlePosition">
+                    <item>
+                     <property name="text">
+                      <string>1/3</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>1/2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>2/3</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout">
+                  <item>
+                   <widget class="QLabel" name="labelCoverImage">
+                    <property name="text">
+                     <string> Image</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>2/3</string>
-                   </property>
+                   <widget class="QLabel" name="labelCoverViewImage">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
                   </item>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="QLabel" name="labelCoverImage">
-                  <property name="text">
-                   <string> Image</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="labelCoverViewImage">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QToolButton" name="toolButtonSuppressCoverImage">
-                  <property name="text">
-                   <string> - </string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="ImageButton" name="toolButtonCoverImage">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
-                 </widget>
+                  <item>
+                   <widget class="QToolButton" name="toolButtonSuppressCoverImage">
+                    <property name="text">
+                     <string> - </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="ImageButton" name="toolButtonCoverImage">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </item>
              </layout>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_5">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>447</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="title">
+              <string>Toc</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_5">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_24">
+                  <item>
+                   <widget class="QLabel" name="labelTocVerticalSpacing">
+                    <property name="text">
+                     <string>Toc vertical spacing</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="SpinBoxUnit" name="spuTocVerticalSpacing" native="true"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_31">
+                  <item>
+                   <widget class="QLabel" name="labelTocColumn">
+                    <property name="text">
+                     <string>Toc column number</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxTocColumnNumber">
+                    <item>
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_32">
+                  <item>
+                   <widget class="QLabel" name="labelTocSpaceCharacter">
+                    <property name="text">
+                     <string>Space character</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxTocSpaceCharacter">
+                    <item>
+                     <property name="text">
+                      <string>. . . .</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>- - - -</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_12">
+                  <item>
+                   <widget class="QLabel" name="label">
+                    <property name="text">
+                     <string>Position </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxTocPosition">
+                    <item>
+                     <property name="text">
+                      <string>No</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>At begining</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>At end</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </item>
          <item>
           <spacer name="horizontalSpacer_6">
@@ -618,93 +739,6 @@
         <layout class="QHBoxLayout" name="horizontalLayout_28">
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <widget class="QGroupBox" name="groupBox_5">
-             <property name="title">
-              <string>Toc</string>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_27">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_5">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_12">
-                  <item>
-                   <widget class="QLabel" name="labelTocVerticalSpacing">
-                    <property name="text">
-                     <string>Toc vertical spacing</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="SpinBoxUnit" name="spuTocVerticalSpacing" native="true"/>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_13">
-                  <item>
-                   <widget class="QLabel" name="labelTocColumn">
-                    <property name="text">
-                     <string>Toc column number</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBoxTocColumnNumber">
-                    <item>
-                     <property name="text">
-                      <string>1</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>2</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_25">
-                  <item>
-                   <widget class="QLabel" name="labelTocSpaceCharacter">
-                    <property name="text">
-                     <string>Space character</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBoxTocSpaceCharacter">
-                    <item>
-                     <property name="text">
-                      <string>. . . .</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>- - - -</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_9">
              <item>

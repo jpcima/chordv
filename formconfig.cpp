@@ -174,6 +174,7 @@ void FormConfig::InitDefault(Classes c)
     ui->comboBoxChordLang->setCurrentText(s->value(QString("%1/ChordLang").arg(classe),"English").toString());
     ui->comboBoxTocColumnNumber->setCurrentIndex(s->value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
     ui->comboBoxTocSpaceCharacter->setCurrentIndex(s->value(QString("%1/TocSpaceCharacter").arg(classe),0).toInt());
+    ui->comboBoxTocPosition->setCurrentIndex(s->value(QString("%1/TocPosition").arg(classe),1).toInt());
     ui->comboBoxTitlePosition->setCurrentText(s->value(QString("%1/TitlePosition").arg(classe),"1/3").toString());
     ui->lineEditOutFile->setText(s->value(QString("%1/OutFile").arg(classe),classe).toString());
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
