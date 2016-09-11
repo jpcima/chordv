@@ -22,7 +22,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <property name="tabBarAutoHide">
         <bool>true</bool>
@@ -260,7 +260,7 @@
      <x>0</x>
      <y>0</y>
      <width>1101</width>
-     <height>45</height>
+     <height>27</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -327,6 +327,9 @@
    <property name="text">
     <string>Sa&amp;ve</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionSave_As">
    <property name="text">
@@ -360,17 +363,17 @@
   </action>
   <action name="actionPreferences">
    <property name="text">
-    <string>Preferences</string>
+    <string>Pr&amp;eferences</string>
    </property>
   </action>
   <action name="actionOpen_Song_File">
    <property name="text">
-    <string>Open Song File</string>
+    <string>Open &amp;Song File</string>
    </property>
   </action>
   <action name="actionReset_Preference_as_origine">
    <property name="text">
-    <string>Reset Preference as origine</string>
+    <string>&amp;Reset Preference as origine</string>
    </property>
   </action>
  </widget>
@@ -395,15 +398,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>LogMessages</class>
-   <extends>QTextEdit</extends>
-   <header>logmessages.h</header>
-  </customwidget>
-  <customwidget>
    <class>MemoryConfig</class>
    <extends>QWidget</extends>
    <header>memoryconfig.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LogMessages</class>
+   <extends>QTextEdit</extends>
+   <header>logmessages.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -408,28 +408,28 @@ void Processor::addFooter()
 void Processor::addLinkInToc()
 {
 
-//    int nbpage=m_document->GetPageCount();
-//    int cover= m_covermade ?1:0;
-//    int j=0;
-//    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
-//    PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
-//    m_painter=new PdfPainter;
-//    m_painter->SetPage(toc);
+    int nbpage=m_document->GetPageCount();
+    int cover= m_covermade ?1:0;
+    int j=0;
+    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
+    PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
+    m_painter=new PdfPainter;
+    m_painter->SetPage(toc);
 
-//    Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
-//    m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
-//    foreach ( QString title, m_tocpages.keys())
-//        {
+    Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
+    m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
+    foreach ( QString title, m_tocpages.keys())
+        {
 
-//         LineToc(title,m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),m_uiconfig->spuHorizontalMargin->getPdfU(),m_line,m_uiconfig->toolButtonTocFont);
-//         //if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
-//             m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
+         LineToc(title,m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),m_uiconfig->spuHorizontalMargin->getPdfU(),m_line,m_uiconfig->toolButtonTocFont);
+         if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
+             m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
 
-//         else
-//         {
-//             m_tocpages[m_tocpages.keys().last()]++;
-//             newPage();
-//         }
+         else
+         {
+             m_tocpages[m_tocpages.keys().last()]++;
+             newPage();
+         }
 
          //PdfAnnotation *ant=toc->CreateAnnotation(ePdfAnnotation_Link,);
 //            #!!!
@@ -472,9 +472,9 @@ void Processor::addLinkInToc()
 //            }
 
 //        }
-//    }
-//    m_painter->FinishPage();
-//      if ( m_documentAllocation) m_document->Close();
+    }
+    m_painter->FinishPage();
+      if ( m_documentAllocation) m_document->Close();
 }
 
 void Processor::makePageNumber()
