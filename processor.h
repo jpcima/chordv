@@ -40,8 +40,6 @@ public:
     virtual void doChords();
     virtual void displayChordsForSong();
     virtual void displayPageTitle();
-    virtual void displayTocTitle();
-    virtual void addTitleToc();
     virtual void setColBreak();
     virtual void save();
     virtual void open();

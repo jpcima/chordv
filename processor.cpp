@@ -85,7 +85,6 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
             {
                  Cover(getCoverTitle(),getCoverSubtitle());
                  setCoverMade(true);
-                 displayTocTitle(); // A virer
             }
 
             displayChordsForSong();
@@ -99,7 +98,6 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
 //            $vmargin=Util::convert($Config->{"LyricsBook"}->{MarginVertical});
               displayPageTitle();
 //            $vmargin=$ury-$ury*192/200;
-              addTitleToc();
               setCompress(false);
         }
         else if ( line.contains(SocREX) )
@@ -375,15 +373,6 @@ void Processor::displayPageTitle()
 
 }
 
-void Processor::displayTocTitle()
-{
-
-}
-
-void Processor::addTitleToc()
-{
-
-}
 
 void Processor::setColBreak()
 {
@@ -424,6 +413,11 @@ void Processor::addLinkInToc()
     PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
     m_painter=new PdfPainter;
     m_painter->SetPage(toc);
+    bool ok;
+    double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentText().toDouble(&ok);
+    if ( !ok ) verticalspacing=1;
+    qDebug()<<"verticalspacing"<<verticalspacing;
+    verticalspacing*=1.2;
 
     Text(QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
@@ -432,10 +426,11 @@ void Processor::addLinkInToc()
     int currentcol=0;
     foreach ( QString title, m_tocpages.keys())
         {
+
          LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber);
          pagenumber+=m_tocpages[title];
-         if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
-             m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
+         if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*verticalspacing > m_uiconfig->spuVerticalMargin->getPdfU())
+             m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*verticalspacing;
          else if ( m_uiconfig->comboBoxTocColumnNumber->currentIndex() > currentcol  )
          {
              currentcol=1;

@@ -180,7 +180,7 @@ void FormConfig::InitDefault(Classes c)
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s->value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
     ui->spuVerticalMargin->setValue(s->value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
-    ui->spuTocVerticalSpacing->setValue(s->value(QString("%1/VerticalSpacing").arg(classe),"1mm").toString());
+    ui->comboBoxTocVerticalSpacing->setCurrentText(s->value(QString("%1/TocVerticalSpacing").arg(classe),"1").toString());
     ui->spuPageHeight->setValue(s->value(QString("%1/PageHeight").arg(classe),"297mm").toString());
     ui->spuPageWidth->setValue(s->value(QString("%1/PageWidth").arg(classe),"210mm").toString());
     QFont f;

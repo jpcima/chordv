@@ -496,7 +496,38 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="SpinBoxUnit" name="spuTocVerticalSpacing" native="true"/>
+                   <widget class="QComboBox" name="comboBoxTocVerticalSpacing">
+                    <item>
+                     <property name="text">
+                      <string>0.9</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>1.5</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>2.5</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
+                   </widget>
                   </item>
                  </layout>
                 </item>
