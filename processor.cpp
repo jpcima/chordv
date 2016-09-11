@@ -196,7 +196,7 @@ void Processor::setCoverSubtitle(QString coversubtitle)
 }
 
 
-void Processor::includeChorus( QString text)
+void Processor::includeChorus( QString )
 {
 
 }
@@ -319,8 +319,6 @@ void Processor::Cover(QString title, QString subtitle)
 
         m_pageAllocation=true;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
-        QFont font(m_uiconfig->toolButtonCoverFont->getFont());
-        QColor fontcolor=QColor(m_uiconfig->toolButtonCoverFont->getTextColor());
         QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor());
         m_page= m_document->CreatePage(*m_dimension);
         m_painter=new PdfPainter;
@@ -405,10 +403,8 @@ int Processor::TocColSize()
 void Processor::addLinkInToc()
 {
     if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0) return;
-    int nbpage=m_document->GetPageCount();
     int cover= m_covermade ?1:0;
     int pagenumber=1;
-    int j=0;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
     m_painter=new PdfPainter;
@@ -555,7 +551,6 @@ double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align
     {
         if ( align == right )  x-=widthtext*scale;
         else if ( align == center ) x-=widthtext*scale/2;
-        else if (align == left ) ;
         end=x+widthtext;
         m_painter->DrawText(x,y,str);
     }
