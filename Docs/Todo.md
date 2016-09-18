@@ -1,10 +1,14 @@
 
 Bug
------
+----
 
 - when change unit change spu return to mm
 - Check fonts bold
 
+Strange
+-------
+
+- Unit in page size passed fro 20 mm to 200 .. When and how ?
 
 
 Planned feature ported from perl

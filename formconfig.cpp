@@ -18,7 +18,7 @@ FormConfig::FormConfig(QWidget *parent) :
     m_parent=parent;
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
-        connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
+    connect (w,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),this,SLOT(displayFont(QFont,QColor,QColor)));
     connect(ui->comboBoxMediaBox,SIGNAL(currentTextChanged(QString)),this,SLOT(SizeChanged(QString)));
     connect(ui->checkBoxLandscape,SIGNAL(clicked(bool)),this,SLOT(SizeChanged(bool)));
     connect(ui->toolButtonCoverImage,SIGNAL(ImageSelelected(QString)),this,SLOT(displayThumb(QString)));
@@ -127,7 +127,15 @@ void FormConfig::setValue(QString var, QVariant value)
     }
   else if ( var.startsWith("comboBox") )
     {
+            bool ok ;
+            int index=value.toInt(&ok);
+            qDebug()<<index;
+            if ( ok )
+            foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentIndex(index);
+            else
             foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentText(value.toString());
+
+
     }
     else if ( var.startsWith("spinBox"))
     {
@@ -171,16 +179,19 @@ void FormConfig::InitDefault(Classes c)
     ui->checkBoxFullScreenMode->setChecked(s->value(QString("%1/FullScreenMode").arg(classe),false).toBool());
     ui->checkBoxTitleInUppercase->setChecked(s->value(QString("%1/TitleInUppercase").arg(classe),false).toBool());
     ui->comboBoxChordInText->setCurrentIndex(s->value(QString("%1/ChordInText").arg(classe),0).toInt());
-    ui->comboBoxChordLang->setCurrentText(s->value(QString("%1/ChordLang").arg(classe),"English").toString());
+    ui->comboBoxChordLang->setCurrentIndex(s->value(QString("%1/ChordLang").arg(classe),"0").toInt());
     ui->comboBoxTocColumnNumber->setCurrentIndex(s->value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
     ui->comboBoxTocSpaceCharacter->setCurrentIndex(s->value(QString("%1/TocSpaceCharacter").arg(classe),0).toInt());
     ui->comboBoxTocPosition->setCurrentIndex(s->value(QString("%1/TocPosition").arg(classe),1).toInt());
-    ui->comboBoxTitlePosition->setCurrentText(s->value(QString("%1/TitlePosition").arg(classe),"1/3").toString());
+    ui->comboBoxTitlePosition->setCurrentIndex(s->value(QString("%1/TitlePosition").arg(classe),"0").toInt());
+    ui->comboBoxDuplex->setCurrentIndex(s->value(QString("%1/Duplex").arg(classe),0).toInt());
+    ui->comboBoxPageNumber->setCurrentIndex(s->value(QString("%1/PageNumber").arg(classe),1).toInt());
+    ui->comboBoxTocVerticalSpacing->setCurrentIndex(s->value(QString("%1/TocVerticalSpacing").arg(classe),1).toInt());
     ui->lineEditOutFile->setText(s->value(QString("%1/OutFile").arg(classe),classe).toString());
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s->value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
     ui->spuVerticalMargin->setValue(s->value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
-    ui->comboBoxTocVerticalSpacing->setCurrentText(s->value(QString("%1/TocVerticalSpacing").arg(classe),"1").toString());
+
     ui->spuPageHeight->setValue(s->value(QString("%1/PageHeight").arg(classe),"297mm").toString());
     ui->spuPageWidth->setValue(s->value(QString("%1/PageWidth").arg(classe),"210mm").toString());
     QFont f;
@@ -270,7 +281,7 @@ void FormConfig::Save(QString filename, Classes classe)
          if ( ! w->isEnabled() ) continue;
          QRegExp tb("^comboBox");
          QString name=w->objectName().replace(tb,"");
-         sf.setValue(QString("%1/%2").arg(section).arg(name),w->currentText());
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->currentIndex());
     }
     foreach (QLineEdit *w ,m_parent->findChildren<QLineEdit*>())
     {

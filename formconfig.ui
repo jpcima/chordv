@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>619</width>
-    <height>586</height>
+    <width>635</width>
+    <height>472</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,24 +17,24 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="tabPosition">
-      <enum>QTabWidget::West</enum>
+      <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Page</string>
+       <string>Document</string>
       </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_26">
+      <layout class="QVBoxLayout" name="verticalLayout_10">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_20">
-         <item>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
           <widget class="QGroupBox" name="groupBox_4">
            <property name="title">
             <string>PageSize</string>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_9">
+           <layout class="QHBoxLayout" name="horizontalLayout_20">
             <item>
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
@@ -84,117 +84,39 @@
                   </property>
                  </widget>
                 </item>
-                <item>
-                 <spacer name="horizontalSpacer">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>40</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_16">
-                <item>
-                 <widget class="QLabel" name="labelMarginHorizontal">
-                  <property name="text">
-                   <string>Horizontal Margin</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="SpinBoxUnit" name="spuHorizontalMargin" native="true"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_17">
-                <item>
-                 <widget class="QLabel" name="labelMarginVertical">
-                  <property name="text">
-                   <string>Vertical Margin</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="SpinBoxUnit" name="spuVerticalMargin" native="true"/>
-                </item>
                </layout>
               </item>
              </layout>
             </item>
-            <item>
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>408</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
            </layout>
           </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_2">
-      <attribute name="title">
-       <string>Fonts</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_10">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QGroupBox" name="groupBox_2">
+         <item row="0" column="1">
+          <widget class="QGroupBox" name="groupBox_8">
            <property name="title">
-            <string>Fonts</string>
+            <string>Miscellaneous</string>
            </property>
-           <layout class="QVBoxLayout" name="verticalLayout_13">
+           <layout class="QHBoxLayout" name="horizontalLayout_33">
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
+             <layout class="QVBoxLayout" name="verticalLayout_18">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
                 <item>
-                 <widget class="QLabel" name="labelCoverFont">
+                 <widget class="QLabel" name="labelNormalFont">
                   <property name="text">
-                   <string>Cover Font</string>
+                   <string>Default Font</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="ExampleLabel" name="labelCoverFontExample">
+                 <widget class="ExampleLabel" name="labelNormalFontExample">
                   <property name="text">
                    <string>Example</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="FontButton" name="toolButtonCoverFont">
+                 <widget class="FontButton" name="toolButtonNormalFont">
                   <property name="text">
                    <string>...</string>
                   </property>
@@ -253,76 +175,69 @@
                </layout>
               </item>
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <layout class="QHBoxLayout" name="horizontalLayout_27">
                 <item>
-                 <widget class="QLabel" name="labelTocFont">
+                 <widget class="QLabel" name="labelDuplex">
                   <property name="text">
-                   <string>Toc Font</string>
+                   <string>Duplex</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="ExampleLabel" name="labelTocFontExample">
-                  <property name="text">
-                   <string>Example</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="FontButton" name="toolButtonTocFont">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_6">
-                <item>
-                 <widget class="QLabel" name="labelNormalFont">
-                  <property name="text">
-                   <string>Normal Font</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="ExampleLabel" name="labelNormalFontExample">
-                  <property name="text">
-                   <string>Example</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="FontButton" name="toolButtonNormalFont">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
+                 <widget class="QComboBox" name="comboBoxDuplex">
+                  <item>
+                   <property name="text">
+                    <string>Simplex</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Duplex</string>
+                   </property>
+                  </item>
                  </widget>
                 </item>
                </layout>
               </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QGroupBox" name="groupBox_7">
+           <property name="title">
+            <string>Page number</string>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_30">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_17">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <layout class="QHBoxLayout" name="horizontalLayout_26">
                 <item>
-                 <widget class="QLabel" name="labelChordFont">
+                 <widget class="QLabel" name="labelPageNumber">
                   <property name="text">
-                   <string>Chord Font</string>
+                   <string>Page number</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="ExampleLabel" name="labelChordFontExample">
-                  <property name="text">
-                   <string>Example</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="FontButton" name="toolButtonChordFont">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
+                 <widget class="QComboBox" name="comboBoxPageNumber">
+                  <item>
+                   <property name="text">
+                    <string>No</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Center</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Outside</string>
+                   </property>
+                  </item>
                  </widget>
                 </item>
                </layout>
@@ -354,34 +269,49 @@
               </item>
              </layout>
             </item>
-            <item>
-             <spacer name="verticalSpacer_3">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>312</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
            </layout>
           </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+         <item row="1" column="1">
+          <widget class="QGroupBox" name="groupBox_5">
+           <property name="title">
+            <string>Margin</string>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
+           <layout class="QHBoxLayout" name="horizontalLayout_25">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_16">
+                <item>
+                 <widget class="QLabel" name="labelMarginHorizontal">
+                  <property name="text">
+                   <string>Horizontal </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="SpinBoxUnit" name="spuHorizontalMargin" native="true"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_17">
+                <item>
+                 <widget class="QLabel" name="labelMarginVertical">
+                  <property name="text">
+                   <string>Vertical</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="SpinBoxUnit" name="spuVerticalMargin" native="true"/>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
          </item>
         </layout>
        </item>
@@ -389,283 +319,119 @@
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="title">
-       <string>Cover</string>
+       <string>Content</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_16">
+      <layout class="QVBoxLayout" name="verticalLayout_13">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_13">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_15">
-           <item>
-            <widget class="QGroupBox" name="groupBox">
-             <property name="title">
-              <string>Cover</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_11">
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="groupBox">
+           <property name="title">
+            <string>Cover</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_11">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout">
+               <widget class="QCheckBox" name="checkBoxCover">
+                <property name="text">
+                 <string>Cover</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
                 <item>
-                 <widget class="QCheckBox" name="checkBoxCover">
+                 <widget class="QLabel" name="labelCoverFont">
                   <property name="text">
-                   <string>Cover</string>
+                   <string>Cover Font</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_11">
-                  <item>
-                   <widget class="QLabel" name="labelTitlePosition">
-                    <property name="text">
-                     <string>Title position from top</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBoxTitlePosition">
-                    <item>
-                     <property name="text">
-                      <string>1/3</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>1/2</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>2/3</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="ExampleLabel" name="labelCoverFontExample">
+                  <property name="text">
+                   <string>Example</string>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout">
-                  <item>
-                   <widget class="QLabel" name="labelCoverImage">
-                    <property name="text">
-                     <string> Image</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="labelCoverViewImage">
-                    <property name="text">
-                     <string/>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QToolButton" name="toolButtonSuppressCoverImage">
-                    <property name="text">
-                     <string> - </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="ImageButton" name="toolButtonCoverImage">
-                    <property name="text">
-                     <string>...</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="FontButton" name="toolButtonCoverFont">
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="groupBox_6">
-             <property name="title">
-              <string>Toc</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_7">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_5">
+               <layout class="QHBoxLayout" name="horizontalLayout_11">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_24">
-                  <item>
-                   <widget class="QLabel" name="labelTocVerticalSpacing">
-                    <property name="text">
-                     <string>Toc vertical spacing</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBoxTocVerticalSpacing">
-                    <item>
-                     <property name="text">
-                      <string>0.9</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>1</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>1.5</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>2</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>2.5</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="QLabel" name="labelTitlePosition">
+                  <property name="text">
+                   <string>Title position from top</string>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_31">
+                 <widget class="QComboBox" name="comboBoxTitlePosition">
                   <item>
-                   <widget class="QLabel" name="labelTocColumn">
-                    <property name="text">
-                     <string>Toc column number</string>
-                    </property>
-                   </widget>
+                   <property name="text">
+                    <string>1/3</string>
+                   </property>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxTocColumnNumber">
-                    <item>
-                     <property name="text">
-                      <string>1</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>2</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3</string>
-                     </property>
-                    </item>
-                   </widget>
+                   <property name="text">
+                    <string>1/2</string>
+                   </property>
                   </item>
-                 </layout>
+                  <item>
+                   <property name="text">
+                    <string>2/3</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QLabel" name="labelCoverImage">
+                  <property name="text">
+                   <string> Image</string>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_32">
-                  <item>
-                   <widget class="QLabel" name="labelTocSpaceCharacter">
-                    <property name="text">
-                     <string>Space character</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBoxTocSpaceCharacter">
-                    <item>
-                     <property name="text">
-                      <string>. . . .</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>- - - -</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string/>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="QLabel" name="labelCoverViewImage">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_12">
-                  <item>
-                   <widget class="QLabel" name="label">
-                    <property name="text">
-                     <string>Position </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBoxTocPosition">
-                    <item>
-                     <property name="text">
-                      <string>No</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>At begining</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>At end</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
+                 <widget class="QToolButton" name="toolButtonSuppressCoverImage">
+                  <property name="text">
+                   <string> - </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="ImageButton" name="toolButtonCoverImage">
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
              </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_6">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
+            </item>
+           </layout>
+          </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer_6">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_4">
-      <attribute name="title">
-       <string>Chord</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_12">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_8">
-         <item>
+         <item row="0" column="1" rowspan="2">
           <widget class="QGroupBox" name="groupBox_3">
            <property name="title">
             <string>Chord</string>
@@ -684,6 +450,35 @@
                 </item>
                 <item>
                  <widget class="SpinBoxUnit" name="spuChordHorizontalSize" native="true"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_12">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_8">
+                  <item>
+                   <widget class="QLabel" name="labelChordFont">
+                    <property name="text">
+                     <string>Chord Font</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="ExampleLabel" name="labelChordFontExample">
+                    <property name="text">
+                     <string>Example</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="FontButton" name="toolButtonChordFont">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </item>
@@ -728,103 +523,222 @@
               </item>
              </layout>
             </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="1" column="0" rowspan="2">
+          <widget class="QGroupBox" name="groupBox_6">
+           <property name="title">
+            <string>Toc</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <spacer name="verticalSpacer_4">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>448</height>
-               </size>
-              </property>
-             </spacer>
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_24">
+                <item>
+                 <widget class="QLabel" name="labelTocVerticalSpacing">
+                  <property name="text">
+                   <string>Toc vertical spacing</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBoxTocVerticalSpacing">
+                  <item>
+                   <property name="text">
+                    <string>0.9</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>3</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_31">
+                <item>
+                 <widget class="QLabel" name="labelTocColumn">
+                  <property name="text">
+                   <string>Toc column number</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBoxTocColumnNumber">
+                  <item>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>3</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_36">
+                <item>
+                 <widget class="QLabel" name="labelTocFont">
+                  <property name="text">
+                   <string>Toc Font</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="ExampleLabel" name="labelTocFontExample">
+                  <property name="text">
+                   <string>Example</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="FontButton" name="toolButtonTocFont">
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_32">
+                <item>
+                 <widget class="QLabel" name="labelTocSpaceCharacter">
+                  <property name="text">
+                   <string>Space character</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBoxTocSpaceCharacter">
+                  <item>
+                   <property name="text">
+                    <string>. . . .</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>- - - -</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_12">
+                <item>
+                 <widget class="QLabel" name="label">
+                  <property name="text">
+                   <string>Position </string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBoxTocPosition">
+                  <item>
+                   <property name="text">
+                    <string>No</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>At begining</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>At end</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
             </item>
            </layout>
           </widget>
          </item>
-         <item>
-          <spacer name="horizontalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+         <item row="2" column="1">
+          <widget class="QGroupBox" name="groupBox_2">
+           <property name="title">
+            <string>Miscellaneous</string>
            </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="tab_5">
-      <attribute name="title">
-       <string>Miscellaneous</string>
-      </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_29">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_28">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_9">
-             <item>
-              <widget class="QLabel" name="labelOutputFileName">
-               <property name="text">
-                <string>Output file name</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEditOutFile"/>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="checkBoxFullScreenMode">
-             <property name="text">
-              <string>Open in full screen mode</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="checkBoxTitleInUppercase">
-             <property name="text">
-              <string>Title in uppercase</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <widget class="QLabel" name="labelOutputFileName">
+                  <property name="text">
+                   <string>Output file name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditOutFile"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxFullScreenMode">
+                <property name="text">
+                 <string>Open in full screen mode</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="checkBoxTitleInUppercase">
+                <property name="text">
+                 <string>Title in uppercase</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
          </item>
         </layout>
        </item>
