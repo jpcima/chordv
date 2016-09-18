@@ -8,6 +8,7 @@ class LogMessages : public QTextEdit
 public:
     LogMessages(QWidget *parent);
     void Error ( QString message );
+    void Info (QString message);
 };
 
 #endif // LOGMESSAGES_H

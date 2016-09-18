@@ -15,3 +15,8 @@ void LogMessages::Error(QString message)
     this->append(message);
 }
 
+
+void LogMessages::Info(QString message)
+{
+    this->append(message);
+}

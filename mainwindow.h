@@ -47,6 +47,7 @@ private slots:
     void openChoFile(bool);
     void PreferencesAsOrigine();
     void CurrentAsDefault();
+    void Info(QString info);
 };
 
 #endif // MAINWINDOW_H

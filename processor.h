@@ -11,11 +11,14 @@
 #include <QDate>
 
 
-class Processor
+class Processor : public QObject
+
 {
+    Q_OBJECT
 public:
     enum Align {left,center,right};
     Processor(QString SongText,QString dir, Ui::FormConfig *ui  );
+    void run();
     ~Processor();
     void process();
     void setCompress(bool compress);
@@ -101,6 +104,7 @@ private:
 
     bool m_firstline;
 
+    QString m_text;
 
     double m_initialhposition;
     Ui::FormConfig *m_uiconfig;
@@ -153,6 +157,8 @@ private:
     virtual int nextColumn( int current);
     virtual void  LineToc(QString text, double width, double x, double y, FontButton *fb, int pagenumber);
     int TocColSize();
+signals:
+    void PDFMade( QString file);
 };
 
 #endif // PROCESSOR_H

@@ -5,6 +5,7 @@
 #include "util.h"
 #include "processortext.h"
 #include "settings.h"
+#include "logmessages.h"
 
 #include <QDebug>
 #include <QFileDialog>
@@ -254,8 +255,19 @@ void MainWindow::ProducePDF()
 {
  //Save(true);
   if (ui->checkBoxTextMode->isChecked())
-      ProcessorText Go(ui->textEditCho3File->document()->toPlainText(),
+  {
+      ProcessorText *p;
+      p= new ProcessorText(ui->textEditCho3File->document()->toPlainText(),
                   ui->lineEditInputFile->text(),ui->widgetTextMode->getUi());
+      connect(p,SIGNAL(PDFMade(QString)),this, SLOT(Info(QString)));
+      p->run() ;
+      p->deleteLater();
+  }
+}
+
+void MainWindow::Info(QString info)
+{
+    ui->log->Info(info);
 }
 
 

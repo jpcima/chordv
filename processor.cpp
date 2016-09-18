@@ -21,6 +21,15 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
     m_dimension = new PdfRect(PageSize());
     m_documentAllocation=true;
+    m_compress=false;
+    m_socmode=false;
+    m_refrain=false;
+    m_text=text;
+}
+
+
+void Processor::run()
+{
 
     QRegExp NewSongREX("^ *\\{(new_song|ns) *\\} *$",Qt::CaseInsensitive);
     QRegExp CompressREX("^ *\\{compress\\} * *$",Qt::CaseInsensitive);
@@ -35,13 +44,10 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     QRegExp RefrainREX("^Refrain *: *$",Qt::CaseInsensitive);
     QRegExp ChordRex("\\[[^]]+\\]",Qt::CaseInsensitive);
 
-    m_compress=false;
-    m_socmode=false;
-    m_refrain=false;
 
     setCoverMade(false);
 
-    foreach ( QString line, text.split(QRegExp("\n")) )
+    foreach ( QString line, m_text.split(QRegExp("\n")) )
     {
         if ( line.contains(NewSongREX) )
         { }
@@ -139,6 +145,7 @@ addFooter();
 addLinkInToc();
 makePageNumber();
 save();
+emit PDFMade(tr("Conversion done for %1").arg(m_file));
 }
 
 Processor::~Processor()
@@ -295,7 +302,8 @@ void Processor::NextLine()
       }
     else
     {
-        m_tocpages[m_tocpages.keys().last()]++;
+        if (m_tocpages.count() != 0)
+            m_tocpages[m_tocpages.keys().last()]++;
         newPage();
     }
 }
@@ -551,6 +559,7 @@ double  Processor::Text( QString text, double x, double y, FontButton *fb ,Align
     {
         if ( align == right )  x-=widthtext*scale;
         else if ( align == center ) x-=widthtext*scale/2;
+        else if (align == left ) ;
         end=x+widthtext;
         m_painter->DrawText(x,y,str);
     }
