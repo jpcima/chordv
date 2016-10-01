@@ -149,6 +149,9 @@ private:
     ///
     QList <PoDoFo::PdfObject *> m_TocPages;
 
+
+    int m_nbrealpages;
+
     double TitlePosition();
     double ImagePosition();
     ///
@@ -171,6 +174,7 @@ private:
     int TocColSize();
     void savemem();
     void openExistingFile();
+    int NbPagesInToc( int nbNormalPages);
 signals:
     void PDFMade( QString file);
 protected:

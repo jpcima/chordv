@@ -27,6 +27,7 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_socmode=false;
     m_refrain=false;
     m_text=text;
+    m_nbrealpages=0;
 }
 
 
@@ -93,11 +94,13 @@ void Processor::run()
             {
                  Cover(getCoverTitle(),getCoverSubtitle());
                  setCoverMade(true);
+                 m_nbrealpages=0;
             }
 
             displayChordsForSong();
             displayLyrics();
             displayTitle(title);
+            m_nbrealpages++;
 
 //            $MaxLine=$lyricsline=($ury-$lly)*190/210;
 //            $lyricscol=$llx+Util::convert(${Config}->{LyricsBook}->{MarginHorizontal});
@@ -433,13 +436,33 @@ void Processor::addLinkInToc()
 
 }
 
+
+int Processor::NbPagesInToc(int nbpages)
+{
+    double heightneed=nbpages*(m_uiconfig->comboBoxTocVerticalSpacing->currentText().toDouble()+1)
+            *m_uiconfig->toolButtonTocFont->getFont().pointSizeF()/m_uiconfig->comboBoxTocColumnNumber->currentText().toInt();
+    double nbpagesneed=heightneed/(m_uiconfig->spuPageHeight->getPdfU() - m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4
+                        - 2*m_uiconfig->spuVerticalMargin->getPdfU() );
+    int nb=nbpagesneed+1;
+    return nb;
+}
+
 void Processor::addToc()
 {
     if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0) return;
-    int cover= m_covermade ?1:0;
-    int pagenumber=1;
+    int pagenumber=0;
+    PdfPage *toc;
+    int position;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
-    PdfPage *toc=m_document->InsertPage(*m_dimension,cover);
+    if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1 )
+    {
+         position= m_covermade ?1:0;
+         toc=m_document->InsertPage(*m_dimension,position);
+    }
+    else
+    {
+        toc=m_document->CreatePage(*m_dimension);
+    }
     m_TocPages<<toc->GetContents();
     pagenumber++;
     m_painter.SetPage(toc);
@@ -449,23 +472,23 @@ void Processor::addToc()
     verticalspacing*=1.2;
 
     Text(m_document,QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
-    m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4;
+    m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4 ;
     int lineinit=m_line;
     int colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
     int currentcol=0;
     int titlenumber=0;
     foreach ( QString title, m_tocpages.keys())
         {
-
-         PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber);
+         int nbpagesintoc=NbPagesInToc(m_nbrealpages);
+         PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber+nbpagesintoc);
          PdfAnnotation *a=toc->CreateAnnotation(ePdfAnnotation_Link,rect);
-         a->SetContents(tr("Go to page %1").arg(pagenumber).toStdString().c_str());
+         a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc).toStdString().c_str());
          PdfDestination dest(m_document->GetPage(pagenumber));
          a->SetDestination(dest);
          a->SetFlags( ePdfAnnotationFlags_Hidden);
          pagenumber+=m_tocpages[title];
-         if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*verticalspacing > m_uiconfig->spuVerticalMargin->getPdfU())
-             m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*verticalspacing;
+         if ( m_line - m_uiconfig->toolButtonTocFont->getFont().pointSizeF()*verticalspacing > m_uiconfig->spuVerticalMargin->getPdfU())
+             m_line-=m_uiconfig->toolButtonTocFont->getFont().pointSizeF()*verticalspacing;
          else if ( m_uiconfig->comboBoxTocColumnNumber->currentIndex() > currentcol  )
          {
              currentcol=1;
@@ -477,51 +500,21 @@ void Processor::addToc()
              m_line=lineinit;
              colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
              m_tocpages[m_tocpages.keys().last()]++;
-             newPage();
-             m_TocPages<<m_page->GetContents();
+             if ( m_pageAllocation)  m_painter.FinishPage();
+             if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1 )
+             {
+                  position++;
+                  toc=m_document->InsertPage(*m_dimension,position);
+             }
+             else
+             {
+                 toc=m_document->CreatePage(*m_dimension);
+             }
+             m_painter.SetPage(toc);
+             m_line=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU();
+             m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
+             m_TocPages<<toc->GetContents();
          }
-
-
-//            #!!!
-//            if ($Config->{$type}->{TocCol} eq 2 )
-//            {
-//              $ant->rect($info->{"c"},$info->{"l"}-$info->{"vs"}/2,$info->{"c"}+80/mm,$info->{"l"}+$info->{"vs"}/2);
-//              $ant->link($p);
-//            }
-//            else
-//            {
-//                if ( $TocPages[$nbpage]>1  && $nbpage  ne scalar(@TocPages)-1 ) {$TocPages[$nbpage]--; next; }
-//                elsif ( $nbpage < scalar(@TocPages) )
-//                {
-//                  my $text=$toc->text();
-//                  $text->font(Util::setFont($pdf,$Config->{$type}->{TocFont},"TocFont"),Util::convert($Config->{$type}->{TocSizeFont}));
-//                  my $width2=$text->advancewidth("100");
-//                  $text->translate( $urx- $Config->{$type}->{MarginHorizontal} - 4* $width2   ,$info->{"l"}) ;
-//                  $text->fillcolor($Config->{$type}->{NormalColor});
-//                  $text->text($i);
-//                  $ant->rect($info->{"c"},$info->{"l"}-$info->{"vs"}/2,$info->{"c"}+$urx,$info->{"l"}+$info->{"vs"}/2);
-//                  $ant->link($p);
-//                  $nbpage++;
-//                }
-//            }
-//            if ( $info->{"l"} > 34/mm )
-//            {
-//                $info->{"l"}-=$info->{"vs"}
-//            }
-//            elsif ( ($Config->{$type}->{TocCol} eq 2 ) && ($info->{"c"} < 105/mm) )
-//            {
-//                $info->{"l"}=$info->{"InitialLine"};
-//                $info->{"c"}=$info->{"InitialCol"}+100/mm;
-//            }
-//            else
-//            {
-//                $info->{"l"}=$info->{"InitialLine"};
-//                $info->{"c"}=$info->{"InitialCol" };
-//                $numtoc++;
-//                $toc=$pdf->openpage($numtoc);
-//            }
-
-//        }
          titlenumber++;
     }
     m_painter.FinishPage();
@@ -545,13 +538,27 @@ void Processor::makePageNumber()
             pattern="- %1 -";
         else pattern=QString("%%1/%1").arg(totalpage);
         QString page=QString(pattern).arg(nbpage);
+
         nbpage++;
         int x;
+        int y;
         if (  m_uiconfig->spuHorizontalMargin->getPdfU() < m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3 )
-            x= m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3;
-        else x =  m_uiconfig->spuHorizontalMargin->getPdfU()-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3 ;
-        if  ( pagetype == Const::Center ) Text(m_mdocument,page,m_uiconfig->spuPageWidth->getPdfU()/2,x,m_uiconfig->toolButtonPageNumberFont,center);
-        else Text(m_mdocument,page,m_uiconfig->spuPageWidth->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU(),x, m_uiconfig->toolButtonPageNumberFont,left);
+            y= m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3;
+        else y =  m_uiconfig->spuHorizontalMargin->getPdfU()-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3 ;
+        if ( pagetype == Const::Center)
+            x = m_uiconfig->spuPageWidth->getPdfU()/2;
+        else
+            x =m_uiconfig->spuPageWidth->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU();
+        if  ( pagetype == Const::Center ) Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
+        else Text(m_mdocument,page,x,y, m_uiconfig->toolButtonPageNumberFont,left);
+        double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
+        PdfRect rect(x,y,widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
+        PdfAnnotation *a=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect);
+        a->SetContents(tr("Go to table of content").toStdString().c_str());
+        PdfDestination dest(m_document->GetPage(1));
+        a->SetDestination(dest);
+        a->SetFlags( ePdfAnnotationFlags_Hidden);
+
         m_painter.FinishPage();
     }
 }
