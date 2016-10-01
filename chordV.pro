@@ -59,7 +59,8 @@ HEADERS  += mainwindow.h \
     spinboxunit.h \
     dialogconfiguration.h \
     settings.h \
-    processortext.h
+    processortext.h \
+    const.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

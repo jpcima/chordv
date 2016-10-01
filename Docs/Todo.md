@@ -4,6 +4,7 @@ Bug
 
 - when change unit change spu return to mm
 - Check fonts bold
+- Add file extention
 
 Strange
 -------

@@ -178,6 +178,7 @@ void FormConfig::InitDefault(Classes c)
     ui->checkBoxCover->setChecked(s->value(QString("%1/Cover").arg(classe),true).toBool());
     ui->checkBoxFullScreenMode->setChecked(s->value(QString("%1/FullScreenMode").arg(classe),false).toBool());
     ui->checkBoxTitleInUppercase->setChecked(s->value(QString("%1/TitleInUppercase").arg(classe),false).toBool());
+
     ui->comboBoxChordInText->setCurrentIndex(s->value(QString("%1/ChordInText").arg(classe),0).toInt());
     ui->comboBoxChordLang->setCurrentIndex(s->value(QString("%1/ChordLang").arg(classe),"0").toInt());
     ui->comboBoxTocColumnNumber->setCurrentIndex(s->value(QString("%1/TocColumnNumber").arg(classe),0).toInt());
@@ -187,6 +188,8 @@ void FormConfig::InitDefault(Classes c)
     ui->comboBoxDuplex->setCurrentIndex(s->value(QString("%1/Duplex").arg(classe),0).toInt());
     ui->comboBoxPageNumber->setCurrentIndex(s->value(QString("%1/PageNumber").arg(classe),1).toInt());
     ui->comboBoxTocVerticalSpacing->setCurrentIndex(s->value(QString("%1/TocVerticalSpacing").arg(classe),1).toInt());
+    ui->comboBoxPageNumberStyle->setCurrentIndex(s->value(QString("%1/PageNumberStyle").arg(classe),1).toInt());
+
     ui->lineEditOutFile->setText(s->value(QString("%1/OutFile").arg(classe),classe).toString());
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s->value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
