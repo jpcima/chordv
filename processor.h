@@ -117,7 +117,14 @@ private:
     bool m_documentAllocation;
     bool m_pageAllocation;
 
+    ///
+    /// \brief m_tocpages number of pages per song ( sorted in stupid alphabetic order)
+    ///
     QMap <QString,int> m_tocpages;
+    ///
+    /// \brief m_toc list of song in incremental order
+    ///
+    QStringList m_toc;
 
 
     ///
@@ -170,6 +177,17 @@ private:
     virtual void NextLine();
     virtual int currentColumn();
     virtual int nextColumn( int current);
+
+    ///
+    /// \brief LineToc print each line in toc
+    /// \param text : text to print
+    /// \param width : width limited to print
+    /// \param x : x point to print
+    /// \param y :  y point to print
+    /// \param fb : font button where to find font to print
+    /// \param pagenumber : the page number
+    /// \return a rectangle of region. Used by annotation link in toc
+    ///
     virtual PoDoFo::PdfRect LineToc(QString text, double width, double x, double y, FontButton *fb, int pagenumber);
     int TocColSize();
     void savemem();

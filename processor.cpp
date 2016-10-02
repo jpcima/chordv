@@ -217,6 +217,7 @@ void Processor::displayTitle(QString title)
     m_NormalPages<<m_page->GetContents();
     m_title=title.replace(QRegExp("^ +"),"");
     m_tocpages[m_title]=1;
+    m_toc<<m_title;
     m_colnumber=1;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     Text(m_document,title,m_uiconfig->spuPageWidth->getPdfU()/2,
@@ -405,12 +406,9 @@ void Processor::save()
 void Processor::savemem()
 {
        int i= m_mdocument->GetPageCount();
-       qDebug()<<m_file;
        QFile  file(m_file);
        file.remove();
        m_mdocument->Write(m_file.toStdString().c_str());
-
-        //delete m_mdocument;
 }
 
 void Processor::openExistingFile()
@@ -458,13 +456,13 @@ void Processor::addToc()
     {
          position= m_covermade ?1:0;
          toc=m_document->InsertPage(*m_dimension,position);
+         pagenumber++;
     }
     else
     {
         toc=m_document->CreatePage(*m_dimension);
     }
     m_TocPages<<toc->GetContents();
-    pagenumber++;
     m_painter.SetPage(toc);
     bool ok;
     double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentText().toDouble(&ok);
@@ -477,13 +475,17 @@ void Processor::addToc()
     int colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
     int currentcol=0;
     int titlenumber=0;
-    foreach ( QString title, m_tocpages.keys())
+    int nbpagesintoc=m_covermade?1:0;
+
+    if (  m_uiconfig->comboBoxTocPosition->currentIndex()==1) nbpagesintoc=NbPagesInToc(m_nbrealpages);
+
+    int compensate=1;
+    foreach ( QString title, m_toc)
         {
-         int nbpagesintoc=NbPagesInToc(m_nbrealpages);
          PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber+nbpagesintoc);
          PdfAnnotation *a=toc->CreateAnnotation(ePdfAnnotation_Link,rect);
          a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc).toStdString().c_str());
-         PdfDestination dest(m_document->GetPage(pagenumber));
+         PdfDestination dest(m_document->GetPage(pagenumber+compensate));
          a->SetDestination(dest);
          a->SetFlags( ePdfAnnotationFlags_Hidden);
          pagenumber+=m_tocpages[title];
@@ -505,6 +507,7 @@ void Processor::addToc()
              {
                   position++;
                   toc=m_document->InsertPage(*m_dimension,position);
+                  compensate++;
              }
              else
              {
@@ -552,7 +555,7 @@ void Processor::makePageNumber()
         if  ( pagetype == Const::Center ) Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
         else Text(m_mdocument,page,x,y, m_uiconfig->toolButtonPageNumberFont,left);
         double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
-        PdfRect rect(x,y,widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
+        PdfRect rect(x-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF(),y,widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
         PdfAnnotation *a=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect);
         a->SetContents(tr("Go to table of content").toStdString().c_str());
         PdfDestination dest(m_document->GetPage(1));
@@ -644,7 +647,6 @@ PdfRect Processor::LineToc(QString text, double width, double x, double y, FontB
     {
         text.chop(1);
     }
-    //text=QString("%1%2%3").arg(text,point).arg(page);
     while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2    ").arg(text,point).toLatin1())<= width)
     {
         odd=odd?false:true;
