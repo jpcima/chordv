@@ -90,7 +90,7 @@ void Processor::run()
 //              $ant->text($AnnotationAuth);
 //              $AnnotationAuth="";
 //            }
-            if ( ! getCoverMade()  )
+            if ( ! getCoverMade()  && m_uiconfig->checkBoxCover->isChecked())
             {
                  Cover(getCoverTitle(),getCoverSubtitle());
                  setCoverMade(true);
@@ -475,7 +475,7 @@ void Processor::addToc()
     int colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
     int currentcol=0;
     int titlenumber=0;
-    int nbpagesintoc=m_covermade?1:0;
+    int nbpagesintoc=1;
 
     if (  m_uiconfig->comboBoxTocPosition->currentIndex()==1) nbpagesintoc=NbPagesInToc(m_nbrealpages);
 

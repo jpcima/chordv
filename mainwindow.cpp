@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include <QSettings>
 #include <QFileInfo>
+#include <QTranslator>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -169,7 +170,7 @@ void MainWindow::openProject(QString filename)
     QSettings p(filename,QSettings::IniFormat);
     ui->lineEditInputFile->setText(p.value("File").toString());
     ui->lineEditCreatorName->setText(p.value("Creator").toString());
-    ui->comboBoxChordLanguage->setCurrentText(p.value("ChordLang").toString());
+    ui->comboBoxChordLanguage->setCurrentIndex(p.value("ChordLang").toInt());
     ui->widgetChordMode->SetConfigFromFile(filename);
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
     ui->widgetLyricsMode->SetConfigFromFile(filename);
@@ -201,8 +202,7 @@ void MainWindow::Save(QString filename)
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
     sf.setValue("File",ui->lineEditInputFile->text());
-    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentText());
-    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentText());
+    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("Chord",ui->checkBoxChordMode->isChecked());
     sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
@@ -280,6 +280,17 @@ void MainWindow::About()
 
 void MainWindow::Configuration()
 {
-    DialogConfiguration dial(this);
-    dial.exec();
+    DialogConfiguration * dial = new DialogConfiguration(this);
+    connect ( dial,SIGNAL(LanguageChanged(int)),this,SLOT(ChangeLanguage(int)));
+    dial->exec();
+    delete dial;
+}
+
+void MainWindow::ChangeLanguage(int)
+{
+    ui->retranslateUi(this);
+    ui->widgetChordMode->Retranslate();
+    ui->widgetLyricsMode->Retranslate();
+    ui->widgetMemoryMode->Retranslate();
+    ui->widgetTextMode->Retranslate();
 }

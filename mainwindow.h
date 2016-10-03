@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMenu>
 #include "editorhighlighter.h"
+#include <QTranslator>
 
 namespace Ui {
 class MainWindow;
@@ -16,17 +17,19 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+    void setTranstator(QTranslator *tr) { m_translator= tr;}
 private:
     Ui::MainWindow *ui;
     EditorHighlighter *m_editorhighlight;
     QString m_currentproject;
     QMenu *m_lastmenu;
-
+    QTranslator *m_translator;
     void setMenuLastProject();
     void InitProject();
     void openFile(QString filename);
     void Save(QString filename);
+public slots:
+    void ChangeLanguage(int );
 private slots:
     void newProject(bool);
     void openProject(bool);
@@ -48,6 +51,7 @@ private slots:
     void PreferencesAsOrigine();
     void CurrentAsDefault();
     void Info(QString info);
+
 };
 
 #endif // MAINWINDOW_H

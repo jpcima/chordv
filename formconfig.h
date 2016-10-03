@@ -23,6 +23,7 @@ public:
     void SetConfigFromFile(QString FileName);
     void SetConfigFromInit();
     QString classe2String(Classes name);
+    void Retranslate();
 protected:
     void disableWidgets(QRegExp value);
 private:

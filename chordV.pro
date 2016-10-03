@@ -81,3 +81,6 @@ DISTFILES += \
     Example/deuxdisques.png \
     Example/Chansons.cho3 \
     Example/Chansons.chop
+
+RESOURCES += \
+    resources.qrc

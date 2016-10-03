@@ -2,9 +2,18 @@
 Bug
 ----
 
-- when change unit change spu return to mm
+- All option lost sometime . When ?
 - Check fonts bold
 - Add file extention
+
+
+Translation in french
+---------------------
+
+- Aide (H)
+- Preference => Sauvcegarder
+
+
 
 Strange
 -------
@@ -14,9 +23,6 @@ Strange
 
 Planned feature ported from perl
 --------------------------------
-
-- Annotation in tocs
-- Pages number
 - Chords
 - Special Annotation in chord
 
@@ -24,8 +30,7 @@ Planned feature ported from perl
 
 Planned features
 ------------------
-
+- Make a test classes
 - Put a button  copy like other for each tab
-- Translation in french
 - Launch PDF reader
 

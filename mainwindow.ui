@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Chord V</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/Image/Images/icon.png</normaloff>:/Image/Images/icon.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout_6">
     <item>
@@ -409,6 +413,8 @@
    <header>logmessages.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

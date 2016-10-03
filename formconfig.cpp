@@ -349,3 +349,9 @@ QString FormConfig::classe2String(Classes name)
     if ( name == Lyrics) return QObject::tr("Lyrics");
     else  return QObject::tr("Chord");
 }
+
+
+void FormConfig::Retranslate()
+{
+    ui->retranslateUi(this);
+}

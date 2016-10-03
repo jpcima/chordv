@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/Lang">
+        <file>chordV_fr_FR.qm</file>
+    </qresource>
+    <qresource prefix="/Image">
+        <file>Images/icon.png</file>
+    </qresource>
+</RCC>

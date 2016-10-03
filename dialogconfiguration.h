@@ -17,9 +17,14 @@ public:
     void InitSettings();
 private slots:
     void Save();
+    void SelectLanguage(int i);
 private:
     Ui::DialogConfiguration *ui;
     QWidget *m_parent;
+    void Connect();
+    void Retranslate(int i);
+signals:
+    void LanguageChanged(int i);
 };
 
 #endif // DIALOGCONFIGURATION_H
