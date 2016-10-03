@@ -7,13 +7,6 @@ Bug
 - Add file extention
 
 
-Translation in french
----------------------
-
-- Aide (H)
-- Preference => Sauvcegarder
-
-
 
 Strange
 -------

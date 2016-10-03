@@ -21,7 +21,8 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
     if (m_file.isEmpty()) return;
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
-    m_dimension = new PdfRect(PageSize());
+    qDebug()<<m_uiconfig->spuPageWidth->getPdfU()<<m_uiconfig->spuPageHeight->getPdfU();
+    m_dimension = new PdfRect(PageSize(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU()));
     m_documentAllocation=true;
     m_compress=false;
     m_socmode=false;
@@ -568,7 +569,7 @@ void Processor::makePageNumber()
 
 PdfRect Processor::PageSize( double left, double bottom, double width, double height )
 {
-    PdfRect size(mm(left),mm(bottom),mm(width),mm(height));
+    PdfRect size(left,bottom,width,height);
     return size;
 }
 

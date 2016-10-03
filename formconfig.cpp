@@ -344,10 +344,10 @@ void FormConfig::deleteCoverImage(bool)
 
 QString FormConfig::classe2String(Classes name)
 {
-    if ( name == Memory ) return QObject::tr("Memory");
-    if ( name == Text ) return QObject::tr("Text");
-    if ( name == Lyrics) return QObject::tr("Lyrics");
-    else  return QObject::tr("Chord");
+    if ( name == Memory ) return "Memory";
+    if ( name == Text ) return "Text";
+    if ( name == Lyrics) return "Lyrics";
+    else  return "Chord";
 }
 
 
