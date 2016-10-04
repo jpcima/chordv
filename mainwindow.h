@@ -27,7 +27,22 @@ private:
     void setMenuLastProject();
     void InitProject();
     void openFile(QString filename);
+    ///
+    /// \brief Save : save the current project in a file name
+    /// \param filename
+    ///
     void Save(QString filename);
+    ///
+    /// \brief getFileInArg allows  to retrieve the name of file to open if chordV is called
+    /// with a filename argument
+    /// \return return the first file in arguments of main, no starting with -
+    ///
+    QString  getFileInArg();
+    ///
+    /// \brief testMode test if chordV is called with -t or --test argument
+    /// \return true if there is -t or --test argument false else
+    ///
+    bool testMode();
 public slots:
     void ChangeLanguage(int );
 private slots:

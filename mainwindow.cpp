@@ -41,9 +41,29 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
     connect(ui->pushButtonPrintPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
-
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
+    QString file=getFileInArg();
+    if ( ! file.isEmpty() ) OpenFile(file);
+    if ( testMode()) ProducePDF();
   }
+
+ QString MainWindow::getFileInArg()
+{
+    foreach ( QString arg, qApp->arguments() )
+    {
+        if ( ! arg.startsWith("-")) return arg;
+    }
+    return ("");
+}
+
+bool MainWindow::testMode()
+{
+    foreach ( QString arg, qApp->arguments() )
+    {
+        if (  arg== "-t" || arg =="--test" ) return true;
+    }
+    return false;
+}
 
 void MainWindow::PreferencesAsOrigine()
 {
