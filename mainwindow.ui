@@ -35,11 +35,11 @@
         <attribute name="title">
          <string>General</string>
         </attribute>
-        <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <layout class="QHBoxLayout" name="horizontalLayout_5">
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_5">
                <item>
@@ -141,6 +141,20 @@
                   <bool>true</bool>
                  </property>
                 </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QLabel" name="labelWatermark">
+                   <property name="text">
+                    <string>Watermark</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEditWatermark"/>
+                 </item>
+                </layout>
                </item>
               </layout>
              </item>

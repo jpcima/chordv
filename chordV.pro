@@ -76,11 +76,14 @@ DEPENDPATH += /usr/local/include
 TRANSLATIONS=chordV_fr_FR.ts
 
 DISTFILES += \
-    Docs/Todo.md \
-    Docs/Compilation.md \
     Example/deuxdisques.png \
     Example/Chansons.cho3 \
-    Example/Chansons.chop
+    Example/Chansons.chop \
+    Docs/Documentation_en.txt \
+    Docs/Documentation_fr.txt \
+    Docs/Compilation.txt \
+    Docs/Todo.txt \
+    Docs/html/Makefile
 
 RESOURCES += \
     resources.qrc

@@ -271,7 +271,7 @@ void Processor::newPage()
 {
     if ( m_pageAllocation)
     {
-        m_painter.FinishPage();
+        FinishPage(&m_painter);
     }
     m_page = m_document->CreatePage(*m_dimension);
     m_painter.SetPage(m_page);
@@ -368,7 +368,7 @@ void Processor::Cover(QString title, QString subtitle)
           pfont->SetStrikeOut(m_uiconfig->toolButtonCoverFont->getFont().strikeOut());
           double widthtext=pfont->GetFontMetrics()->StringWidth(subtitle.toLatin1());
           Text(m_document,subtitle,x2-widthtext/2,posy-m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5,m_uiconfig->toolButtonCoverFont,right,0.5);
-          m_painter.FinishPage();
+          FinishPage(&m_painter);
 }
 
 void Processor::doChords()
@@ -503,7 +503,7 @@ void Processor::addToc()
              m_line=lineinit;
              colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
              m_tocpages[m_tocpages.keys().last()]++;
-             if ( m_pageAllocation)  m_painter.FinishPage();
+             if ( m_pageAllocation)  FinishPage(&m_painter);
              if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1 )
              {
                   position++;
@@ -521,7 +521,7 @@ void Processor::addToc()
          }
          titlenumber++;
     }
-    m_painter.FinishPage();
+    FinishPage(&m_painter);
 }
 
 void Processor::makePageNumber()
@@ -563,7 +563,7 @@ void Processor::makePageNumber()
         a->SetDestination(dest);
         a->SetFlags( ePdfAnnotationFlags_Hidden);
 
-        m_painter.FinishPage();
+        FinishPage(&m_painter);
     }
 }
 
@@ -665,4 +665,16 @@ PdfRect Processor::LineToc(QString text, double width, double x, double y, FontB
     PdfRect rect(x,y,x+width+fb->getFont().pointSizeF(),fb->getFont().pointSizeF());
     Text(m_document,QString("%1").arg(pagenumber),x+width+fb->getFont().pointSize(),y,fb,right);
     return rect;
+}
+
+
+void Processor::FinishPage(PdfPainter *painter)
+{
+    painter->FinishPage();
+}
+
+void Processor::Watermark( QString text)
+{
+    if (text.isEmpty()) return;
+
 }

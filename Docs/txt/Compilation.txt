@@ -40,7 +40,7 @@ cmake ../podofo
 make
 su
 make install
-~~~~
+~~~
 
 ### add in pro file
 

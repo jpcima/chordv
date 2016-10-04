@@ -5,7 +5,8 @@ Bug
 - All option lost sometime . When ?
 - Check fonts bold
 - Add file extention
-
+- mmmm in saved file
+- save all tab even if not actived
 
 
 Strange

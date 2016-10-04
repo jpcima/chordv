@@ -193,6 +193,16 @@ private:
     void savemem();
     void openExistingFile();
     int NbPagesInToc( int nbNormalPages);
+    ///
+    /// \brief FinishPage replace painter.FinishPage, usefull to add watermark
+    /// \param painter painter on the current page
+    ///
+    void FinishPage(PoDoFo::PdfPainter *painter);
+    ///
+    /// \brief Watermark print the text in watermark on the current m_painter
+    /// \param text text to print in watermark
+    ///
+    void Watermark(QString text);
 signals:
     void PDFMade( QString file);
 protected:

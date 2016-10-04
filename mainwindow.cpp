@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     QString file=getFileInArg();
-    if ( ! file.isEmpty() ) OpenFile(file);
+    if ( ! file.isEmpty() ) openProject(file);
     if ( testMode()) ProducePDF();
   }
 
