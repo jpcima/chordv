@@ -676,7 +676,12 @@ void Processor::FinishPage(PdfPainter *painter)
     if ( ! watermark.isEmpty() )
     {
         painter->Save();
+
         PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonTitleFont->getFont().family().toLatin1());
+
+        PdfExtGState state(m_document);
+        state.SetFillOpacity(0.4);
+        painter->SetExtGState(&state);
         PdfString str(watermark.toLatin1());
         double lenght=sqrt(qPow(m_uiconfig->spuPageHeight->getPdfU(),2)+qPow(m_uiconfig->spuPageWidth->getPdfU(),2));
         while (pfont->GetFontMetrics()->StringWidth(str) < lenght )
