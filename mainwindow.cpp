@@ -175,10 +175,10 @@ void MainWindow::InitProject()
     Settings s;
     ui->lineEditCreatorName->setText(s.value("Creator","").toString());
     ui->lineEditInputFile->setText(s.value("File","").toString());
-    ui->checkBoxChordMode->setChecked(s.value("Chord","1").toBool());
-    ui->checkBoxLyricsMode->setChecked(s.value("Lyrics","1").toBool());
-    ui->checkBoxTextMode->setChecked(s.value("Text","1").toBool());
-    ui->checkBoxMemoryMode->setChecked(s.value("Memory","1").toBool());
+    ui->checkBoxChordMode->setChecked(s.value("Chord",true).toBool());
+    ui->checkBoxLyricsMode->setChecked(s.value("Lyrics",true).toBool());
+    ui->checkBoxTextMode->setChecked(s.value("Text",true).toBool());
+    ui->checkBoxMemoryMode->setChecked(s.value("Memory",true).toBool());
     openFile(ui->lineEditInputFile->text());
 }
 
@@ -208,6 +208,10 @@ void MainWindow::openProject(QString filename)
     ui->lineEditInputFile->setText(p.value("File").toString());
     ui->lineEditCreatorName->setText(p.value("Creator").toString());
     ui->comboBoxChordLanguage->setCurrentIndex(p.value("ChordLang").toInt());
+    ui->checkBoxChordMode->setChecked(p.value("ChordMode").toBool());
+    ui->checkBoxLyricsMode->setChecked(p.value("LyricsMode").toBool());
+    ui->checkBoxMemoryMode->setChecked(p.value("MemoryMode").toBool());
+    ui->checkBoxTextMode->setChecked(p.value("TextMode").toBool());
     ui->widgetChordMode->SetConfigFromFile(filename);
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
     ui->widgetLyricsMode->SetConfigFromFile(filename);
@@ -241,8 +245,6 @@ void MainWindow::Save(QString filename)
     sf.setValue("File",ui->lineEditInputFile->text());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
-    sf.setValue("Chord",ui->checkBoxChordMode->isChecked());
-    sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
     sf.setValue("Text",ui->checkBoxTextMode->isChecked());
     sf.sync();
     ui->widgetChordMode->Save(filename,FormConfig::Chord);
@@ -267,6 +269,10 @@ void MainWindow::Save(bool)
     sf.setValue("Chord",ui->checkBoxChordMode->isChecked());
     sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
     sf.setValue("Text",ui->checkBoxTextMode->isChecked());
+    sf.setValue("ChordMode",ui->checkBoxChordMode->isChecked());
+    sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
+    sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
+    sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
     sf.sync();
     ui->widgetChordMode->Save(m_currentproject,FormConfig::Chord);
     ui->widgetLyricsMode->Save(m_currentproject,FormConfig::Lyrics);

@@ -248,7 +248,6 @@ void FormConfig::Save(QString filename, Classes classe)
 
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
     {
-        if ( ! w->isEnabled() ) continue;
         QRegExp tb("^toolButton");
         QRegExp f("Font$");
         QString name=w->objectName().replace(tb,"").replace(f,"");
@@ -258,7 +257,6 @@ void FormConfig::Save(QString filename, Classes classe)
     }
     foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>() )
     {
-        if ( ! w->isEnabled() ) continue;
         QRegExp tb("^toolButton");
         QRegExp c("Color$");
         QString name=w->objectName().replace(tb,"").replace(c,"");
@@ -266,7 +264,6 @@ void FormConfig::Save(QString filename, Classes classe)
     }
     foreach (ImageButton *w ,m_parent->findChildren<ImageButton*>())
     {
-        if ( ! w->isEnabled() ) continue;
         QRegExp tb("^toolButton");
         QRegExp i("Image$");
         QString name=w->objectName().replace(tb,"").replace(i,"");
@@ -274,35 +271,30 @@ void FormConfig::Save(QString filename, Classes classe)
     }
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
     {
-         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^checkBox");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->isChecked()?"1":"0");
     }
     foreach (QComboBox *w ,m_parent->findChildren<QComboBox*>())
     {
-         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^comboBox");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->currentIndex());
     }
     foreach (QLineEdit *w ,m_parent->findChildren<QLineEdit*>())
     {
-         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^lineEdit");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->text());
     }
     foreach (SpinBoxUnit *w ,m_parent->findChildren<SpinBoxUnit*>())
     {
-         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^spu");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->valueunit()+w->getUnit());
     }
     foreach (QDoubleSpinBox *w ,m_parent->findChildren<QDoubleSpinBox*>())
     {
-         if ( ! w->isEnabled() ) continue;
          QRegExp tb("^doubleSpinBox");
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->value());
