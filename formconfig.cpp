@@ -291,7 +291,7 @@ void FormConfig::Save(QString filename, Classes classe)
     {
          QRegExp tb("^spu");
          QString name=w->objectName().replace(tb,"");
-         sf.setValue(QString("%1/%2").arg(section).arg(name),w->valueunit()+w->getUnit());
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->valueunit());
     }
     foreach (QDoubleSpinBox *w ,m_parent->findChildren<QDoubleSpinBox*>())
     {

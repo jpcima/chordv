@@ -5,7 +5,7 @@ Bug
 - All option lost sometime . When ?
 - Check fonts bold
 - Add file extention
-- mmmm in saved file
+
 
 
 Strange
