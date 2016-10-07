@@ -242,7 +242,7 @@ void MainWindow::Save(QString filename)
     QSettings sf(filename,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
-    sf.setValue("File",ui->lineEditInputFile->text());
+    sf.setValue("File",getRelativeFilename(ui->lineEditInputFile->text()),filename);
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("Text",ui->checkBoxTextMode->isChecked());
@@ -253,17 +253,30 @@ void MainWindow::Save(QString filename)
     ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
 }
 
+QString MainWindow::getRelativeFilename( QString chofilename, QString chopfilename )
+{
+    QDir dir (chofilename);
+    QString d=dir.relativeFilePath(chopfilename);
+    QFileInfo fi(chofilename);
+    QString basename= fi.baseName();
+    return QString("%1/%2").arg(d,basename);
+
+}
 
 void MainWindow::Save(bool)
 {
     QSettings s;
     if ( m_currentproject.isEmpty())
         SaveAs(true);
-    if ( ! m_currentproject.endsWith(".chop")) m_currentproject+=".chop";
+    if ( ! m_currentproject.endsWith(".chop"))
+    {
+        m_currentproject.replace(QRegExp(".cho3$"),"");
+        m_currentproject+=".chop";
+    }
     QSettings sf(m_currentproject,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
-    sf.setValue("File",ui->lineEditInputFile->text());
+    sf.setValue("File",getRelativeFilename(ui->lineEditInputFile->text(),m_currentproject));
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentText());
     sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("Chord",ui->checkBoxChordMode->isChecked());

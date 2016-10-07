@@ -43,6 +43,7 @@ private:
     /// \return true if there is -t or --test argument false else
     ///
     bool testMode();
+    QString getRelativeFilename(QString chofilename, QString chopfilename);
 public slots:
     void ChangeLanguage(int );
 private slots:
