@@ -4,6 +4,7 @@
 #include "pagesize.h"
 #include "formconfig.h"
 #include "fontbutton.h"
+#include "mainwindow.h"
 
 #include <QString>
 #include <QStringList>
@@ -18,7 +19,7 @@ class Processor : public QObject
     Q_OBJECT
 public:
     enum Align {left,center,right};
-    Processor(QString SongText,QString dir, Ui::FormConfig *ui  );
+    Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
     void run();
     ~Processor();
     void process();
@@ -106,7 +107,14 @@ private:
     QString m_text;
 
     double m_initialhposition;
+    ///
+    /// \brief m_uiconfig a pointer on type of processor include widget
+    ///
     Ui::FormConfig *m_uiconfig;
+    ///
+    /// \brief m_uimainwindow a pointer on mainwindow to get all the common informations
+    ///
+    Ui::MainWindow *m_uimainwindow;
 
     PoDoFo::PdfStreamedDocument *m_document;
     PoDoFo::PdfMemDocument *m_mdocument;
@@ -198,11 +206,6 @@ private:
     /// \param painter painter on the current page
     ///
     void FinishPage(PoDoFo::PdfPainter *painter);
-    ///
-    /// \brief Watermark print the text in watermark on the current m_painter
-    /// \param text text to print in watermark
-    ///
-    void Watermark(QString text);
 signals:
     void PDFMade( QString file);
 protected:

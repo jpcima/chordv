@@ -1,0 +1,6 @@
+ChordV Documentation
+--------------------
+
+- link:Compilation.html[Docs en English for developpers]
+- link:Documentation_en.html[Users documentation in English]
+- link:Documentation_fr.html[Documentation utilisateur en français]

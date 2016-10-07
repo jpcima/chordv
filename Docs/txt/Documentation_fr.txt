@@ -1,0 +1,39 @@
+Chord documentation V utilisateur
+=================================
+:toc:
+:homepage: http://www.gillesmaire.com
+
+Introduction
+------------
+
+- ChordV permet de produire différents types de fichiers PDF pour une chansons
+   - ** Texte: ** dans ce mode, les paroles seules apparaissent, sans aucune représentation d'accord
+   - ** Lyrics: ** dans ce mode, le texte et les accords sont affichés.
+   - ** Accords: ** dans ce mode, les accords ne sont affichés. Il est utile pour les musiciens d'accompagnement.
+   - ** Mémoire: ** dans ce mode, seul le début du texte sont affichés
+- ChordV utilise un langage de balises très efficace et simple:
+
+[Source,html]
+----
+{title:Let it be}
+
+{subtitle: Lyrics ansd music :  Paul McCartney, John Lennon}
+{Subtitle: Apple Label}
+{columns:1 }
+When I  [C] find myself in  [G]  times of trouble
+Am Mother  [G] Mary  [F]  comes to me
+[C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]
+And  [C] in my hour of  [G]  darkness
+She is  [Am] standing  [G] right in   [F]  front of me
+[C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]
+----
+
+
+
+
+Le mode batch et le mode graphique
+----------------------------------
+
+- Sans aucun argument chordV est lancé avec une interface graphique
+- Avec l'argument -t chordV ne lance pas l'interface graphique et produira les  PDF pour la configuration par défaut
+- Vous pouvez également lancer chordV avec un argument fichier.chop  pour l'ouvrir automatiquement au démarrage.

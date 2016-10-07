@@ -43,13 +43,30 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     QString file=getFileInArg();
-    if ( ! file.isEmpty() ) openProject(file);
-    if ( testMode()) ProducePDF();
+    if ( ! file.isEmpty() )
+    {
+        QFileInfo fi(file) ;
+        if ( ! fi.exists())
+        {
+            qInfo()<<tr("%1 does'nt exit. Bye !") ;
+            exit(1);
+        }
+        openProject(file);
+    }
+    if ( testMode())
+    {
+        ProducePDF();
+        exit(0);
+    }
+
   }
 
  QString MainWindow::getFileInArg()
 {
-    foreach ( QString arg, qApp->arguments() )
+    QStringList list=qApp->arguments();
+    if ( list.empty()) return ("");
+    list.removeFirst();
+    foreach ( QString arg,list )
     {
         if ( ! arg.startsWith("-")) return arg;
     }
@@ -277,8 +294,7 @@ void MainWindow::ProducePDF()
   if (ui->checkBoxTextMode->isChecked())
   {
       ProcessorText *p;
-      p= new ProcessorText(ui->textEditCho3File->document()->toPlainText(),
-                  ui->lineEditInputFile->text(),ui->widgetTextMode->getUi());
+      p= new ProcessorText(ui,ui->widgetTextMode->getUi());
       connect(p,SIGNAL(PDFMade(QString)),this, SLOT(Info(QString)));
       p->run() ;
       p->deleteLater();

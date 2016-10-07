@@ -2,11 +2,11 @@
 #define PROCESSORTEXT_H
 
 #include "processor.h"
-
+#include "mainwindow.h"
 class ProcessorText : public Processor
 {
 public:
-    ProcessorText(QString SontText, QString dir,Ui::FormConfig *ui);
+    ProcessorText(Ui::MainWindow *ui1,Ui::FormConfig *ui2);
 };
 
 #endif // PROCESSORTEXT_H

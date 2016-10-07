@@ -19,8 +19,13 @@ int main(int argc, char *argv[])
         a.installTranslator(tr);
     }
     MainWindow w;
+    bool hide=false;
+    foreach ( QString arg, qApp->arguments() )
+    {
+        if (  arg== "-t" || arg =="--test" ) hide =true;
+    }
     w.setTranstator(tr);
-    w.show();
-
+    if ( hide ) w.hide();
+    else w.show();
     return a.exec();
 }

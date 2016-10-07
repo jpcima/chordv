@@ -3,7 +3,7 @@
 
 #include <QDebug>
 
-ProcessorText::ProcessorText(QString SongText, QString dir, Ui::FormConfig *ui):Processor(SongText,dir,ui)
+ProcessorText::ProcessorText(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Processor(ui1,ui2)
 {
 }
 

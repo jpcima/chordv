@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title></title>
+<title>Chord documentation V utilisateur</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -727,20 +727,98 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install();
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
 <body class="article">
 <div id="header">
+<h1>Chord documentation V utilisateur</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
 </div>
 <div id="content">
+<div class="sect1">
+<h2 id="_introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+ChordV permet de produire différents types de fichiers PDF pour une chansons
+</p>
+</li>
+<li>
+<p>
+<strong> Texte: </strong> dans ce mode, les paroles seules apparaissent, sans aucune représentation d&#8217;accord
+</p>
+</li>
+<li>
+<p>
+<strong> Lyrics: </strong> dans ce mode, le texte et les accords sont affichés.
+</p>
+</li>
+<li>
+<p>
+<strong> Accords: </strong> dans ce mode, les accords ne sont affichés. Il est utile pour les musiciens d&#8217;accompagnement.
+</p>
+</li>
+<li>
+<p>
+<strong> Mémoire: </strong> dans ce mode, seul le début du texte sont affichés
+</p>
+</li>
+<li>
+<p>
+ChordV utilise un langage de balises très efficace et simple:
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>{title:Let it be}
+
+{subtitle: Lyrics ansd music :  Paul McCartney, John Lennon}
+{Subtitle: Apple Label}
+{columns:1 }
+When I  [C] find myself in  [G]  times of trouble
+Am Mother  [G] Mary  [F]  comes to me
+[C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]
+And  [C] in my hour of  [G]  darkness
+She is  [Am] standing  [G] right in   [F]  front of me
+[C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_le_mode_batch_et_le_mode_graphique">Le mode batch et le mode graphique</h2>
+<div class="sectionbody">
+<div class="ulist"><ul>
+<li>
+<p>
+Sans aucun argument chordV est lancé avec une interface graphique
+</p>
+</li>
+<li>
+<p>
+Avec l&#8217;argument -t chordV ne lance pas l&#8217;interface graphique et produira les  PDF pour la configuration par défaut
+</p>
+</li>
+<li>
+<p>
+Vous pouvez lancer chordV avec un argument fichier.chop  pour l&#8217;ouvrir automatiquement au démarrage.
+</p>
+</li>
+</ul></div>
+</div>
+</div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2016-10-04 15:28:25 CEST
+ 2016-10-05 10:20:12 CEST
 </div>
 </div>
 </body>

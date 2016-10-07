@@ -1,19 +1,23 @@
 #include "processor.h"
 #include "ui_formconfig.h"
+#include "ui_mainwindow.h"
 #include "const.h"
 
 #include <QRegExp>
 #include <QDebug>
 #include <QFileInfo>
+#include <QtMath>
 
 
 using namespace PoDoFo;
 
 
-Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
+Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
 {
-    m_uiconfig=ui;
+    m_uiconfig=ui2;
+    m_uimainwindow=ui1;
     m_documentAllocation=false;
+    QString file=m_uimainwindow->lineEditInputFile->text();
     m_pageAllocation=false;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
@@ -21,13 +25,12 @@ Processor::Processor(QString text, QString file, Ui::FormConfig *ui)
     m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
     if (m_file.isEmpty()) return;
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
-    qDebug()<<m_uiconfig->spuPageWidth->getPdfU()<<m_uiconfig->spuPageHeight->getPdfU();
     m_dimension = new PdfRect(PageSize(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU()));
     m_documentAllocation=true;
     m_compress=false;
     m_socmode=false;
     m_refrain=false;
-    m_text=text;
+    m_text=m_uimainwindow->textEditCho3File->document()->toPlainText();
     m_nbrealpages=0;
 }
 
@@ -368,7 +371,6 @@ void Processor::Cover(QString title, QString subtitle)
           pfont->SetStrikeOut(m_uiconfig->toolButtonCoverFont->getFont().strikeOut());
           double widthtext=pfont->GetFontMetrics()->StringWidth(subtitle.toLatin1());
           Text(m_document,subtitle,x2-widthtext/2,posy-m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5,m_uiconfig->toolButtonCoverFont,right,0.5);
-          FinishPage(&m_painter);
 }
 
 void Processor::doChords()
@@ -406,7 +408,7 @@ void Processor::save()
 
 void Processor::savemem()
 {
-       int i= m_mdocument->GetPageCount();
+       //int i= m_mdocument->GetPageCount();
        QFile  file(m_file);
        file.remove();
        m_mdocument->Write(m_file.toStdString().c_str());
@@ -670,11 +672,27 @@ PdfRect Processor::LineToc(QString text, double width, double x, double y, FontB
 
 void Processor::FinishPage(PdfPainter *painter)
 {
+    QString watermark=m_uimainwindow->lineEditWatermark->text();
+    if ( ! watermark.isEmpty() )
+    {
+        painter->DrawText(100,100,PdfString(watermark.toLatin1().toStdString()));
+        painter->Save();
+        PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonTitleFont->getFont().family().toLatin1());
+        PdfString str(watermark.toLatin1());
+        double widthtext=pfont->GetFontMetrics()->StringWidth(str);
+        double scale=m_uiconfig->spuPageWidth->getPdfU()/widthtext;
+        painter->SetFont(pfont);
+        painter->SetColor(0.70,0.70,0.70);
+        painter->Fill(true);
+        double x=m_uiconfig->spuPageHeight->getPdfU()/10;
+        double y=m_uiconfig->spuPageWidth->getPdfU()/10;
+        double angle=qAtan(m_uiconfig->spuPageHeight->getPdfU()/m_uiconfig->spuPageWidth->getPdfU());
+        double sinA=sin(angle);
+        double cosA=cos(angle);
+        painter->SetTransformationMatrix(cosA,sinA,-sinA,cosA,sinA*x,cosA*x);
+        painter->DrawText(x,y,PdfString(watermark.toLatin1().toStdString()));
+        painter->Restore();
+    }
     painter->FinishPage();
 }
 
-void Processor::Watermark( QString text)
-{
-    if (text.isEmpty()) return;
-
-}
