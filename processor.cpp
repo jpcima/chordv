@@ -17,7 +17,7 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_uiconfig=ui2;
     m_uimainwindow=ui1;
     m_documentAllocation=false;
-    QString file=m_uimainwindow->lineEditInputFile->text();
+    QString file=m_uimainwindow->labelNameDirProject->text()+"/"+m_uimainwindow->lineEditInputFile->text();
     m_pageAllocation=false;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
@@ -457,6 +457,7 @@ void Processor::addToc()
     if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1 )
     {
          position= m_covermade ?1:0;
+         if ( position == 0 ) return;
          toc=m_document->InsertPage(*m_dimension,position);
          pagenumber++;
     }
@@ -531,6 +532,7 @@ void Processor::makePageNumber()
     if (pagetype == Const::No )  return ;
     int firstpage=getCoverMade() ? 2:1;
     int totalpage=m_mdocument->GetPageCount()-firstpage+1;
+    if (totalpage<=0) return;
     int nbpage=1;
     for ( int p=firstpage-1; p<=totalpage ; p++)
     {

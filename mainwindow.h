@@ -22,11 +22,12 @@ private:
     Ui::MainWindow *ui;
     EditorHighlighter *m_editorhighlight;
     QString m_currentproject;
+    QString m_currentdirproject;
     QMenu *m_lastmenu;
     QTranslator *m_translator;
     void setMenuLastProject();
     void InitProject();
-    void openFile(QString filename);
+    void openchoFile(QString filename);
     ///
     /// \brief Save : save the current project in a file name
     /// \param filename
@@ -62,7 +63,7 @@ private slots:
     void About();
     void SetInputFile();
     void Configuration();
-
+    void openChoFile(QString filename);
     void openChoFile(bool);
     void PreferencesAsOrigine();
     void CurrentAsDefault();

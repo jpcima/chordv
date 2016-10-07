@@ -107,7 +107,7 @@ void MainWindow::openChoFile(bool)
    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),Util::getLastDirectory(),tr("cho3 file(*.cho3)"));
    ui->lineEditInputFile->setText(file);
    Util::setLastDirectory(file);
-   openFile(file);
+   openChoFile(file);
 
 }
 
@@ -116,7 +116,7 @@ void MainWindow::SetInputFile()
     QSettings s;
     QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),Util::getLastDirectory(),tr("cho3 file(*.cho3)"));
     ui->lineEditInputFile->setText(file);
-    openFile(file);
+    openChoFile(file);
 }
 
 void MainWindow::setMenuLastProject()
@@ -179,19 +179,26 @@ void MainWindow::InitProject()
     ui->checkBoxLyricsMode->setChecked(s.value("Lyrics",true).toBool());
     ui->checkBoxTextMode->setChecked(s.value("Text",true).toBool());
     ui->checkBoxMemoryMode->setChecked(s.value("Memory",true).toBool());
-    openFile(ui->lineEditInputFile->text());
+
+    QString dir=s.value("LastOpenedDirectory","").toString();
+    ui->labelNameDirProject->setText(dir);
+    ui->labelNameProjectName->setText(ui->lineEditInputFile->text().replace(QRegExp(".cho3$"),""));
+    openChoFile(dir+"/"+ui->lineEditInputFile->text());
 }
 
 
-void MainWindow::openFile( QString filename)
+
+void MainWindow::openChoFile( QString filename)
 {
-    m_currentproject=filename;
+    filename=m_currentdirproject+"/"+filename;
     QFile file(filename);
+    ui->textEditCho3File->clear();
+    ui->pushButtonPrintPDF->setDisabled(true);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(filename)));
     else
     {
+        ui->pushButtonPrintPDF->setDisabled(false);
         QTextStream in(&file);
-        ui->textEditCho3File->clear();
         ui->textEditCho3File->append(in.readAll());
         QTextCursor textCursor = ui->textEditCho3File->textCursor();
         textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
@@ -204,6 +211,10 @@ void MainWindow::openFile( QString filename)
 void MainWindow::openProject(QString filename)
 {
     m_currentproject=filename;
+    QFileInfo fi(filename);
+    m_currentdirproject=fi.absolutePath();
+    ui->labelNameProjectName->setText(fi.baseName());
+    ui->labelNameDirProject->setText(m_currentdirproject);
     QSettings p(filename,QSettings::IniFormat);
     ui->lineEditInputFile->setText(p.value("File").toString());
     ui->lineEditCreatorName->setText(p.value("Creator").toString());
@@ -220,6 +231,7 @@ void MainWindow::openProject(QString filename)
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
+    openChoFile(ui->lineEditInputFile->text());
 }
 
 void MainWindow::openProject ( bool)
@@ -231,7 +243,6 @@ void MainWindow::openProject ( bool)
    Util::setLastDirectory(filename);
    Util::MemorizeProject(filename);
    setMenuLastProject();
-
 }
 
 
