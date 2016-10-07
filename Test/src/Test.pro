@@ -8,7 +8,8 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    test.cpp
+    test.cpp \
+    application.cpp
 
 DESTDIR = ../bin
 OBJECTS_DIR = build/obj
@@ -17,4 +18,5 @@ RCC_DIR = build/rcc
 UI_DIR = build/ui
 
 HEADERS += \
-    test.h
+    test.h \
+    application.h
