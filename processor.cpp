@@ -417,7 +417,6 @@ void Processor::savemem()
 void Processor::openExistingFile()
 {
     m_mdocument = new PdfMemDocument(m_file.toStdString().c_str());
-    int i=m_mdocument->GetPageCount();
 }
 
 void Processor::addFooter()
@@ -628,7 +627,7 @@ double  Processor::Text( PdfDocument *doc, QString text, double x, double y, Fon
     {
         if ( align == right )  x-=widthtext*scale;
         else if ( align == center ) x-=widthtext*scale/2;
-        else if (align == left ) ;
+        else if (align == left ) {};
         end=x+widthtext;
         m_painter.DrawText(x,y,str);
     }
@@ -673,24 +672,25 @@ PdfRect Processor::LineToc(QString text, double width, double x, double y, FontB
 void Processor::FinishPage(PdfPainter *painter)
 {
     QString watermark=m_uimainwindow->lineEditWatermark->text();
+    watermark=QString("          %1          ").arg(watermark);
     if ( ! watermark.isEmpty() )
     {
-        painter->DrawText(100,100,PdfString(watermark.toLatin1().toStdString()));
         painter->Save();
         PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonTitleFont->getFont().family().toLatin1());
         PdfString str(watermark.toLatin1());
-        double widthtext=pfont->GetFontMetrics()->StringWidth(str);
-        double scale=m_uiconfig->spuPageWidth->getPdfU()/widthtext;
+        double lenght=sqrt(qPow(m_uiconfig->spuPageHeight->getPdfU(),2)+qPow(m_uiconfig->spuPageWidth->getPdfU(),2));
+        while (pfont->GetFontMetrics()->StringWidth(str) < lenght )
+        {
+            pfont->SetFontSize(pfont->GetFontSize()+1);
+        }
         painter->SetFont(pfont);
-        painter->SetColor(0.70,0.70,0.70);
+        painter->SetColor(0.90,0.90,0.90);
         painter->Fill(true);
-        double x=m_uiconfig->spuPageHeight->getPdfU()/10;
-        double y=m_uiconfig->spuPageWidth->getPdfU()/10;
         double angle=qAtan(m_uiconfig->spuPageHeight->getPdfU()/m_uiconfig->spuPageWidth->getPdfU());
         double sinA=sin(angle);
         double cosA=cos(angle);
-        painter->SetTransformationMatrix(cosA,sinA,-sinA,cosA,sinA*x,cosA*x);
-        painter->DrawText(x,y,PdfString(watermark.toLatin1().toStdString()));
+        painter->SetTransformationMatrix(cosA,sinA,-sinA,cosA,0,0);
+        painter->DrawText(0,0,PdfString(watermark.toLatin1().toStdString()));
         painter->Restore();
     }
     painter->FinishPage();
