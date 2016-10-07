@@ -242,7 +242,7 @@ void MainWindow::Save(QString filename)
     QSettings sf(filename,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
-    sf.setValue("File",getRelativeFilename(ui->lineEditInputFile->text()),filename);
+    sf.setValue("File",getRelativeFilename(ui->lineEditInputFile->text(),filename));
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("Text",ui->checkBoxTextMode->isChecked());
@@ -255,11 +255,10 @@ void MainWindow::Save(QString filename)
 
 QString MainWindow::getRelativeFilename( QString chofilename, QString chopfilename )
 {
-    QDir dir (chofilename);
-    QString d=dir.relativeFilePath(chopfilename);
-    QFileInfo fi(chofilename);
-    QString basename= fi.baseName();
-    return QString("%1/%2").arg(d,basename);
+    QFileInfo fi(chopfilename);
+    QDir dir (fi.absoluteDir());
+    QString d=dir.relativeFilePath(chofilename);
+    return d;
 
 }
 
