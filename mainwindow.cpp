@@ -180,7 +180,14 @@ void MainWindow::InitProject()
     ui->checkBoxLyricsMode->setChecked(s.value("Lyrics",true).toBool());
     ui->checkBoxTextMode->setChecked(s.value("Text",true).toBool());
     ui->checkBoxMemoryMode->setChecked(s.value("Memory",true).toBool());
-    m_currentdirproject=s.value("LastOpenedDirectory","").toString();
+    QString file=getFileInArg();
+    if ( file.isEmpty())
+        m_currentdirproject=s.value("LastOpenedDirectory","").toString();
+    else
+    {
+        QFileInfo fi(file);
+        m_currentdirproject= fi.absolutePath();
+    }
     m_currentproject=ui->lineEditInputFile->text().replace(QRegExp(".cho3$"),"");
     ui->labelNameDirProject->setText(m_currentdirproject);
     ui->labelNameProjectName->setText(m_currentproject);
@@ -233,7 +240,7 @@ void MainWindow::openProject(QString filename)
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
-    openChoFile(ui->lineEditInputFile->text());
+    openChoFile(m_currentdirproject+"/"+ui->lineEditInputFile->text());
 }
 
 void MainWindow::openProject ( bool)

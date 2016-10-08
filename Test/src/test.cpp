@@ -8,10 +8,10 @@
 Test::Test(QString testname, QString condition, Application *a): QObject()
 {
     m_testname=testname;
-    m_testname.replace(QRegExp("\\s"),"_");
+    m_testname.replace(" ","_");
     m_starttime=QDateTime::currentDateTime();
     QString inifile=QString("%1/test.chop").arg(a->getBindir());
-    QString runfile=QString("%1/run_%2.chop").arg(a->getBindir(),testname);
+    QString runfile=QString("%1/run_%2.chop").arg(a->getBindir(),m_testname);
     QFileInfo fi(inifile);
     if (  ! fi.exists())
     {
