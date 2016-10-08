@@ -7,6 +7,7 @@
 #include <QProcess>
 #include <QString>
 #include <QEventLoop>
+#include <QDateTime>
 
 class Test : public QObject
 {
@@ -20,7 +21,8 @@ private slots:
 private:
     QProcess *m_launch;
     QEventLoop *m_loop;
-
+    QString m_testname;
+    QDateTime m_starttime;
 };
 
 #endif // TEST_H

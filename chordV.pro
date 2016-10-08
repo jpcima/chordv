@@ -84,7 +84,8 @@ DISTFILES += \
 	Docs/txt/Compilation.txt \
 	Docs/txt/Todo.txt \
 	Docs/txt/Makefile \
-    Docs/txt/index.txt
+    Docs/txt/index.txt \
+    Test/data/Makefile
 
 RESOURCES += \
     resources.qrc

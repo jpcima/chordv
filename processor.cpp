@@ -17,12 +17,10 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_uiconfig=ui2;
     m_uimainwindow=ui1;
     m_documentAllocation=false;
-    QString file=m_uimainwindow->labelNameDirProject->text()+"/"+m_uimainwindow->lineEditInputFile->text();
+    m_file=m_uimainwindow->labelNameDirProject->text()+"/"+m_uimainwindow->labelNameProjectName->text()+".pdf";
     m_pageAllocation=false;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
-    QFileInfo fi(file);
-    m_file=file.replace(QRegExp("."+fi.completeSuffix()+"$"),".pdf");
     if (m_file.isEmpty()) return;
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
     m_dimension = new PdfRect(PageSize(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU()));

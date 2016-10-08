@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
-    connect(ui->actionProduce_PDF_files,SIGNAL(triggered(bool)),this,SLOT(ProducePDF()));
+    //connect(ui->pushButtonPrintPDF_3,SIGNAL(triggered(bool)),this,SLOT(ProducePDF()));
     connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
     connect(ui->actionReset_Preference_as_origine,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
@@ -175,22 +175,22 @@ void MainWindow::InitProject()
     Settings s;
     ui->lineEditCreatorName->setText(s.value("Creator","").toString());
     ui->lineEditInputFile->setText(s.value("File","").toString());
+    ui->lineEditWatermark->setText(s.value("Watermark","").toString());
     ui->checkBoxChordMode->setChecked(s.value("Chord",true).toBool());
     ui->checkBoxLyricsMode->setChecked(s.value("Lyrics",true).toBool());
     ui->checkBoxTextMode->setChecked(s.value("Text",true).toBool());
     ui->checkBoxMemoryMode->setChecked(s.value("Memory",true).toBool());
-
-    QString dir=s.value("LastOpenedDirectory","").toString();
-    ui->labelNameDirProject->setText(dir);
-    ui->labelNameProjectName->setText(ui->lineEditInputFile->text().replace(QRegExp(".cho3$"),""));
-    openChoFile(dir+"/"+ui->lineEditInputFile->text());
+    m_currentdirproject=s.value("LastOpenedDirectory","").toString();
+    m_currentproject=ui->lineEditInputFile->text().replace(QRegExp(".cho3$"),"");
+    ui->labelNameDirProject->setText(m_currentdirproject);
+    ui->labelNameProjectName->setText(m_currentproject);
+    openChoFile(m_currentdirproject+"/"+ui->lineEditInputFile->text());
 }
 
 
 
 void MainWindow::openChoFile( QString filename)
 {
-    filename=m_currentdirproject+"/"+filename;
     QFile file(filename);
     ui->textEditCho3File->clear();
     ui->pushButtonPrintPDF->setDisabled(true);
@@ -210,15 +210,17 @@ void MainWindow::openChoFile( QString filename)
 
 void MainWindow::openProject(QString filename)
 {
-    m_currentproject=filename;
+
     QFileInfo fi(filename);
+    m_currentproject=fi.baseName();
     m_currentdirproject=fi.absolutePath();
-    ui->labelNameProjectName->setText(fi.baseName());
+    ui->labelNameProjectName->setText(m_currentproject);
     ui->labelNameDirProject->setText(m_currentdirproject);
     QSettings p(filename,QSettings::IniFormat);
     ui->lineEditInputFile->setText(p.value("File").toString());
     ui->lineEditCreatorName->setText(p.value("Creator").toString());
     ui->comboBoxChordLanguage->setCurrentIndex(p.value("ChordLang").toInt());
+    ui->lineEditWatermark->setText(p.value("Watermark").toString());
     ui->checkBoxChordMode->setChecked(p.value("ChordMode").toBool());
     ui->checkBoxLyricsMode->setChecked(p.value("LyricsMode").toBool());
     ui->checkBoxMemoryMode->setChecked(p.value("MemoryMode").toBool());
@@ -278,12 +280,9 @@ void MainWindow::Save(bool)
     QSettings s;
     if ( m_currentproject.isEmpty())
         SaveAs(true);
-    if ( ! m_currentproject.endsWith(".chop"))
-    {
-        m_currentproject.replace(QRegExp(".cho3$"),"");
-        m_currentproject+=".chop";
-    }
-    QSettings sf(m_currentproject,QSettings::IniFormat);
+    else m_currentproject+=".chop";
+
+    QSettings sf(m_currentdirproject + "/"+m_currentproject,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
     sf.setValue("File",getRelativeFilename(ui->lineEditInputFile->text(),m_currentproject));
@@ -297,10 +296,10 @@ void MainWindow::Save(bool)
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
     sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
     sf.sync();
-    ui->widgetChordMode->Save(m_currentproject,FormConfig::Chord);
-    ui->widgetLyricsMode->Save(m_currentproject,FormConfig::Lyrics);
-    ui->widgetTextMode->Save(m_currentproject,FormConfig::Text);
-    ui->widgetMemoryMode->Save(m_currentproject,FormConfig::Memory);
+    ui->widgetChordMode->Save(m_currentdirproject + "/"+m_currentproject,FormConfig::Chord);
+    ui->widgetLyricsMode->Save(m_currentdirproject + "/"+m_currentproject,FormConfig::Lyrics);
+    ui->widgetTextMode->Save(m_currentdirproject + "/"+m_currentproject,FormConfig::Text);
+    ui->widgetMemoryMode->Save(m_currentdirproject + "/"+m_currentproject,FormConfig::Memory);
 }
 
 

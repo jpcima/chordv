@@ -7,8 +7,11 @@
 
 Test::Test(QString testname, QString condition, Application *a): QObject()
 {
-    QString inifile=a->getBindir()+"/test.chop";
-    QString runfile=a->getBindir()+"/run.chop";
+    m_testname=testname;
+    m_testname.replace(QRegExp("\\s"),"_");
+    m_starttime=QDateTime::currentDateTime();
+    QString inifile=QString("%1/test.chop").arg(a->getBindir());
+    QString runfile=QString("%1/run_%2.chop").arg(a->getBindir(),testname);
     QFileInfo fi(inifile);
     if (  ! fi.exists())
     {
@@ -27,7 +30,6 @@ Test::Test(QString testname, QString condition, Application *a): QObject()
         s.setValue(conds.at(0),conds.at(1));
     }
 
-
     m_launch = new QProcess;
     connect (m_launch,SIGNAL(finished(int)),this,SLOT(CheckPDF(int)));
     connect (m_launch,SIGNAL(started()),this,SLOT(Started()));
@@ -44,7 +46,9 @@ Test::~Test()
 
 void Test::CheckPDF(int)
 {
-       qDebug()<<"finished";
+       qint64 delta=m_starttime.msecsTo(QDateTime::currentDateTime());
+       QTime time(0,0,0,delta);
+       qInfo()<<QString("%1 done [%2]").arg(m_testname).arg(time.toString("mm:ss:zzz"));
        m_loop->exit(0);
 }
 
@@ -52,5 +56,4 @@ void Test::CheckPDF(int)
 
 void Test::Started()
 {
-       qDebug()<<"started";
 }
