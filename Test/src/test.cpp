@@ -3,12 +3,12 @@
 #include <QSettings>
 #include <QFileInfo>
 #include <QDebug>
-#include <QProcess>
 
-Test::Test(QString testname, QString condition, Application *a)
+
+Test::Test(QString testname, QString condition, Application *a): QObject()
 {
-    QString inifile=a->getBindir()+"/test.ini";
-    QString runfile=a->getBindir()+"/run.ini";
+    QString inifile=a->getBindir()+"/test.chop";
+    QString runfile=a->getBindir()+"/run.chop";
     QFileInfo fi(inifile);
     if (  ! fi.exists())
     {
@@ -26,6 +26,31 @@ Test::Test(QString testname, QString condition, Application *a)
         QStringList conds=cond.split('=');
         s.setValue(conds.at(0),conds.at(1));
     }
-    QProcess launch;
-    launch.start("../bin/test",QStringList()<<"-t"<<runfile);
+
+
+    m_launch = new QProcess;
+    connect (m_launch,SIGNAL(finished(int)),this,SLOT(CheckPDF(int)));
+    connect (m_launch,SIGNAL(started()),this,SLOT(Started()));
+    m_launch->start(a->getExec(),QStringList()<<"-t"<<runfile);
+    m_loop = new QEventLoop;
+    m_loop->exec();
+}
+
+Test::~Test()
+{
+    delete m_launch;
+    delete m_loop;
+}
+
+void Test::CheckPDF(int)
+{
+       qDebug()<<"finished";
+       m_loop->exit(0);
+}
+
+
+
+void Test::Started()
+{
+       qDebug()<<"started";
 }
