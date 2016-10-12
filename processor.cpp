@@ -151,7 +151,7 @@ openExistingFile();
 addFooter();
 makePageNumber();
 savemem();
-emit PDFMade(tr("Conversion done for %1").arg(m_file));
+emit PDFMade(tr("Conversion done for : %1").arg(m_file));
 }
 
 Processor::~Processor()
@@ -450,18 +450,23 @@ void Processor::addToc()
     if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0) return;
     int pagenumber=0;
     PdfPage *toc;
-    int position;
+    int position=0;
+    int compensate=1;
+    int correction;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
+
     if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1 )
     {
          position= m_covermade ?1:0;
-         if ( position == 0 ) return;
+         //if ( position == 0 ) return;
          toc=m_document->InsertPage(*m_dimension,position);
          pagenumber++;
+         correction=1;
     }
     else
     {
         toc=m_document->CreatePage(*m_dimension);
+        correction=0;
     }
     m_TocPages<<toc->GetContents();
     m_painter.SetPage(toc);
@@ -480,13 +485,12 @@ void Processor::addToc()
 
     if (  m_uiconfig->comboBoxTocPosition->currentIndex()==1) nbpagesintoc=NbPagesInToc(m_nbrealpages);
 
-    int compensate=1;
     foreach ( QString title, m_toc)
         {
-         PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber+nbpagesintoc);
+         PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber+nbpagesintoc-1);
          PdfAnnotation *a=toc->CreateAnnotation(ePdfAnnotation_Link,rect);
-         a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc).toStdString().c_str());
-         PdfDestination dest(m_document->GetPage(pagenumber+compensate));
+         a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc-2).toStdString().c_str());
+         PdfDestination dest(m_document->GetPage(pagenumber+nbpagesintoc-correction-1));
          a->SetDestination(dest);
          a->SetFlags( ePdfAnnotationFlags_Hidden);
          pagenumber+=m_tocpages[title];

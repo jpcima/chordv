@@ -48,6 +48,9 @@ public:
     virtual void setColBreak();
     virtual void save();
     virtual void addFooter();
+    ///
+    /// \brief makePageNumber display page number on each page
+    ///
     virtual void makePageNumber();
     virtual PoDoFo::PdfRect PageSize(double left=0, double bottom=0, double width=210, double height=297);
     void includeInfo(QString author="", QString title="",QString subtitle="",QString date=QDate::currentDate().toString("dd/MM/aaaa"));
@@ -116,13 +119,34 @@ private:
     ///
     Ui::MainWindow *m_uimainwindow;
 
+    ///
+    /// \brief m_document pointer on document open in creation mode
+    ///
     PoDoFo::PdfStreamedDocument *m_document;
+    ///
+    /// \brief m_mdocument pointer on document open in addition mode
+    ///
     PoDoFo::PdfMemDocument *m_mdocument;
+    ///
+    /// \brief m_page pointer on PdfPage
+    ///
     PoDoFo::PdfPage* m_page;
+    ///
+    /// \brief m_painter pointer on PdfPainter
+    ///
     PoDoFo::PdfPainter m_painter;
+    ///
+    /// \brief m_dimension pointer current dimention
+    ///
     PoDoFo::PdfRect *m_dimension;
 
+    ///
+    /// \brief m_documentAllocation m_document received a new ( delete to be done )
+    ///
     bool m_documentAllocation;
+    ///
+    /// \brief m_pageAllocation m_page recevived a new ( delete to be done )
+    ///
     bool m_pageAllocation;
 
     ///
@@ -134,13 +158,13 @@ private:
     ///
     QStringList m_toc;
 
-
     ///
-    /// \brief m_line current line printed
+    /// \brief m_line y  current line printed
     ///
     int m_line;
+
     ///
-    /// \brief m_column current column printed
+    /// \brief m_column x current column printed
     ///
     int m_column;
 
@@ -197,9 +221,14 @@ private:
     /// \return a rectangle of region. Used by annotation link in toc
     ///
     virtual PoDoFo::PdfRect LineToc(QString text, double width, double x, double y, FontButton *fb, int pagenumber);
+
     int TocColSize();
     void savemem();
     void openExistingFile();
+    ///
+    /// \brief NbPagesInToc return the number in toc
+    /// \return
+    ///
     int NbPagesInToc( int nbNormalPages);
     ///
     /// \brief FinishPage replace painter.FinishPage, usefull to add watermark
@@ -209,7 +238,13 @@ private:
 signals:
     void PDFMade( QString file);
 protected:
+    ///
+    /// \brief addToc add toc
+    ///
     virtual void addToc();
+    ///
+    /// \brief addLinkInToc add link in toc
+    ///
     virtual void addLinkInToc();
 };
 

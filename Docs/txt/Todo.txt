@@ -2,16 +2,17 @@
 Bug
 ----
 
-- All option lost sometime . When ?
 - Check fonts bold
-- Add file extention
-
+- Add file extention Text, Chord, Memory etc..
+- When toc is at end clic on toc go to page 1
+- When toc is at begining page number start +1
+- Toc end : first page0 in Toc .
+- Toc end : click on page in page must go on Toc no on first page
 
 
 Strange
 -------
 
-- Unit in page size passed fro 20 mm to 200 .. When and how ?
 
 
 Planned feature ported from perl
