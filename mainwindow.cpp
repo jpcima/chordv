@@ -307,10 +307,10 @@ void MainWindow::Save(bool)
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
     sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
     sf.sync();
-    ui->widgetChordMode->Save(m_currentprojectdir + "/"+m_currentprojectname,FormConfig::Chord);
-    ui->widgetLyricsMode->Save(m_currentprojectdir + "/"+m_currentprojectname,FormConfig::Lyrics);
-    ui->widgetTextMode->Save(m_currentprojectdir + "/"+m_currentprojectname,FormConfig::Text);
-    ui->widgetMemoryMode->Save(m_currentprojectdir + "/"+m_currentprojectname,FormConfig::Memory);
+    ui->widgetChordMode->Save(m_currentprojectfile,FormConfig::Chord);
+    ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);
+    ui->widgetTextMode->Save(m_currentprojectfile,FormConfig::Text);
+    ui->widgetMemoryMode->Save(m_currentprojectfile,FormConfig::Memory);
 }
 
 
