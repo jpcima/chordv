@@ -445,36 +445,26 @@ int Processor::NbPagesInToc(int nbpages)
     return nb;
 }
 
-void Processor::addToc()
+int Processor::FirstPageNumber()
 {
-    if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0) return;
-    int pagenumber=0;
-    PdfPage *toc;
-    int position=0;
-    int compensate=1;
-    int correction;
-    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
+    return m_covermade?2:1;
+}
 
-    if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1 )
-    {
-         position= m_covermade ?1:0;
-         //if ( position == 0 ) return;
-         toc=m_document->InsertPage(*m_dimension,position);
-         pagenumber++;
-         correction=1;
-    }
-    else
-    {
-        toc=m_document->CreatePage(*m_dimension);
-        correction=0;
-    }
+void Processor::addTocAtBegining()
+{
+
+    PdfPage *toc;
+    int pagenumber=0;
+    int position =FirstPageNumber();
+    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
+    toc=m_document->InsertPage(*m_dimension,position-1);
+    pagenumber++;
     m_TocPages<<toc->GetContents();
     m_painter.SetPage(toc);
     bool ok;
     double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentText().toDouble(&ok);
     if ( !ok ) verticalspacing=1;
     verticalspacing*=1.2;
-
     Text(m_document,QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4 ;
     int lineinit=m_line;
@@ -482,15 +472,14 @@ void Processor::addToc()
     int currentcol=0;
     int titlenumber=0;
     int nbpagesintoc=1;
-
-    if (  m_uiconfig->comboBoxTocPosition->currentIndex()==1) nbpagesintoc=NbPagesInToc(m_nbrealpages);
-
+    nbpagesintoc=NbPagesInToc(m_nbrealpages);
     foreach ( QString title, m_toc)
         {
+         // rect is the zone clickable
          PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber+nbpagesintoc-1);
          PdfAnnotation *a=toc->CreateAnnotation(ePdfAnnotation_Link,rect);
          a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc-2).toStdString().c_str());
-         PdfDestination dest(m_document->GetPage(pagenumber+nbpagesintoc-correction-1));
+         PdfDestination dest(m_document->GetPage(pagenumber+nbpagesintoc-1));
          a->SetDestination(dest);
          a->SetFlags( ePdfAnnotationFlags_Hidden);
          pagenumber+=m_tocpages[title];
@@ -508,16 +497,8 @@ void Processor::addToc()
              colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
              m_tocpages[m_tocpages.keys().last()]++;
              if ( m_pageAllocation)  FinishPage(&m_painter);
-             if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1 )
-             {
-                  position++;
-                  toc=m_document->InsertPage(*m_dimension,position);
-                  compensate++;
-             }
-             else
-             {
-                 toc=m_document->CreatePage(*m_dimension);
-             }
+             position++;
+             toc=m_document->InsertPage(*m_dimension,position);
              m_painter.SetPage(toc);
              m_line=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU();
              m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
@@ -526,6 +507,19 @@ void Processor::addToc()
          titlenumber++;
     }
     FinishPage(&m_painter);
+}
+
+void Processor::addTocAtEnd()
+{
+
+}
+
+void Processor::addToc()
+{
+    if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0) return;
+    else if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1) addTocAtBegining();
+    else addTocAtEnd();
+
 }
 
 void Processor::makePageNumber()

@@ -47,6 +47,7 @@ private:
     bool testMode();
     QString getRelativeFilename(QString chofilename);
     void ActualizeProject(QString file);
+    bool SaveCho3(QString file);
 public slots:
     void ChangeLanguage(int );
 private slots:

@@ -265,6 +265,7 @@ void MainWindow::openProject ( bool)
 
 void MainWindow::Save(QString filename)
 {
+    ui->log->clear();
     if ( ! filename.endsWith(".chop") && !filename.endsWith(".conf")) filename+=".chop";
     QSettings sf(filename,QSettings::IniFormat);
     sf.clear();
@@ -278,6 +279,10 @@ void MainWindow::Save(QString filename)
     ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
     ui->widgetTextMode->Save(filename,FormConfig::Text);
     ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
+    if ( SaveCho3(ui->lineEditInputFile->text()) )
+        ui->log->Info(tr("File saved : %1").arg(filename));
+    else
+        ui->log->Info(tr("File not well saved : %1").arg(filename));
 }
 
 QString MainWindow::getRelativeFilename( QString chofilename )
@@ -289,6 +294,7 @@ QString MainWindow::getRelativeFilename( QString chofilename )
 
 void MainWindow::Save(bool)
 {
+    ui->log->clear();
     QSettings s;
     if ( m_currentprojectname.isEmpty())
         SaveAs(true);
@@ -311,6 +317,10 @@ void MainWindow::Save(bool)
     ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);
     ui->widgetTextMode->Save(m_currentprojectfile,FormConfig::Text);
     ui->widgetMemoryMode->Save(m_currentprojectfile,FormConfig::Memory);
+    if ( SaveCho3(ui->lineEditInputFile->text()) )
+        ui->log->Info(tr("File saved : %1").arg(m_currentprojectfile));
+    else
+        ui->log->Info(tr("File not well saved : %1").arg(m_currentprojectfile));
 }
 
 
@@ -371,4 +381,20 @@ void MainWindow::ChangeLanguage(int)
     ui->widgetLyricsMode->Retranslate();
     ui->widgetMemoryMode->Retranslate();
     ui->widgetTextMode->Retranslate();
+}
+
+
+bool MainWindow::SaveCho3(QString filename)
+{
+    QString f(m_currentprojectdir+"/"+filename);
+    QFile file( f);
+   if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+   {
+       ui->log->Error(QString("Cannot write file : %1").arg(f));
+       return false;
+   }
+    QTextStream out(&file);
+    out << ui->textEditCho3File->document()->toPlainText();
+    file.close();
+    return true;
 }

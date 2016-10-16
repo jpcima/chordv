@@ -235,6 +235,9 @@ private:
     /// \param painter painter on the current page
     ///
     void FinishPage(PoDoFo::PdfPainter *painter);
+    void addTocAtBegining();
+    void addTocAtEnd();
+    int FirstPageNumber();
 signals:
     void PDFMade( QString file);
 protected:

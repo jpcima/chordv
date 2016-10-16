@@ -8,7 +8,7 @@ Lyrics=5
 LyricsMode=false
 Memory=5
 MemoryMode=false
-Text=2
+Text=20
 TextMode=true
 
 [Chord]
@@ -193,4 +193,4 @@ TocPosition=1
 TocSpaceCharacter=0
 TocVerticalSpacing=1
 VerticalMargin=20mm
-qt_spinbox_lineedit="2,00"
+qt_spinbox_lineedit="20,00"
