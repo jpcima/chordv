@@ -21,8 +21,9 @@ public:
 private:
     Ui::MainWindow *ui;
     EditorHighlighter *m_editorhighlight;
-    QString m_currentproject;
-    QString m_currentdirproject;
+    QString m_currentprojectname;
+    QString m_currentprojectfile;
+    QString m_currentprojectdir;
     QMenu *m_lastmenu;
     QTranslator *m_translator;
     void setMenuLastProject();
@@ -44,7 +45,8 @@ private:
     /// \return true if there is -t or --test argument false else
     ///
     bool testMode();
-    QString getRelativeFilename(QString chofilename, QString chopfilename);
+    QString getRelativeFilename(QString chofilename);
+    void ActualizeProject(QString file);
 public slots:
     void ChangeLanguage(int );
 private slots:
