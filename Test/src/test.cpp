@@ -20,6 +20,7 @@ Test::Test(QString testname, QString condition, Application *a): QObject()
         qInfo()<<QString("File %1 doesn't exist. Bye!").arg(inifile);
         exit(1);
     }
+    QFile::remove(runfile);
     QFile file(inifile);
     file.copy(runfile);
 
