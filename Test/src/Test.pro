@@ -19,3 +19,7 @@ UI_DIR = build/ui
 HEADERS += \
     test.h \
     application.h
+
+DISTFILES += \
+	../Docs/txt/TestPresentation-en.txt \
+    ../Docs/txt/Makefile

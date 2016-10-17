@@ -191,6 +191,7 @@ private:
 
     int m_nbrealpages;
 
+    int m_positiontoc;
     double TitlePosition();
     double ImagePosition();
     ///

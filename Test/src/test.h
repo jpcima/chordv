@@ -23,6 +23,8 @@ private:
     QEventLoop *m_loop;
     QString m_testname;
     QDateTime m_starttime;
+    QString m_pdffileorig;
+    QString m_pdffiledest;
 };
 
 #endif // TEST_H

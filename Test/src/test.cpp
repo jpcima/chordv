@@ -10,8 +10,10 @@ Test::Test(QString testname, QString condition, Application *a): QObject()
     m_testname=testname;
     m_testname.replace(" ","_");
     m_starttime=QDateTime::currentDateTime();
-    QString inifile=QString("%1/test.chop").arg(a->getBindir());
-    QString runfile=QString("%1/run_%2.chop").arg(a->getBindir(),m_testname);
+    QString inifile=QString("%1/conf/test.chop").arg(a->getBindir());
+    QString runfile=QString("%1/chop/run_%2.chop").arg(a->getBindir(),m_testname);
+    m_pdffileorig=QString("%1/chop/run_%2.pdf").arg(a->getBindir(),m_testname);
+    m_pdffiledest=QString("%1/pdf/run_%2.pdf").arg(a->getBindir(),m_testname);
     QFileInfo fi(inifile);
     if (  ! fi.exists())
     {
@@ -49,6 +51,8 @@ void Test::CheckPDF(int)
        qint64 delta=m_starttime.msecsTo(QDateTime::currentDateTime());
        QTime time(0,0,0,delta);
        qInfo()<<QString("%1 done [%2]").arg(m_testname).arg(time.toString("mm:ss:zzz"));
+       QFile file(m_pdffileorig);
+       file.rename(m_pdffiledest);
        m_loop->exit(0);
 }
 

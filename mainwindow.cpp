@@ -176,10 +176,10 @@ void MainWindow::InitProject()
     ui->lineEditCreatorName->setText(s.value("Creator","").toString());
     ui->lineEditInputFile->setText(s.value("File","").toString());
     ui->lineEditWatermark->setText(s.value("Watermark","").toString());
-    ui->checkBoxChordMode->setChecked(s.value("Chord",true).toBool());
-    ui->checkBoxLyricsMode->setChecked(s.value("Lyrics",true).toBool());
-    ui->checkBoxTextMode->setChecked(s.value("Text",true).toBool());
-    ui->checkBoxMemoryMode->setChecked(s.value("Memory",true).toBool());
+    ui->checkBoxChordMode->setChecked(s.value("ChordMode",true).toBool());
+    ui->checkBoxLyricsMode->setChecked(s.value("LyricsMode",true).toBool());
+    ui->checkBoxTextMode->setChecked(s.value("TextMode",true).toBool());
+    ui->checkBoxMemoryMode->setChecked(s.value("MemoryMode",true).toBool());
     QString file=getFileInArg();
     if ( file.isEmpty())
     {
@@ -227,6 +227,7 @@ void MainWindow::openProject(QString filename)
     QFileInfo fi(filename);
     m_currentprojectname=fi.baseName();
     m_currentprojectdir=fi.absolutePath();
+    QDir::setCurrent(m_currentprojectdir);
     m_currentprojectfile=filename;
     ui->labelNameProjectName->setText(m_currentprojectname);
     ui->labelNameDirProject->setText(m_currentprojectdir);
@@ -272,8 +273,10 @@ void MainWindow::Save(QString filename)
     sf.setValue("Creator",ui->lineEditCreatorName->text());
     sf.setValue("File",ui->lineEditInputFile->text());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
-    sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
-    sf.setValue("Text",ui->checkBoxTextMode->isChecked());
+    sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
+    sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
+    sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
+    sf.setValue("ChordMode",ui->checkBoxChordMode->isChecked());
     sf.sync();
     ui->widgetChordMode->Save(filename,FormConfig::Chord);
     ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
@@ -303,11 +306,6 @@ void MainWindow::Save(bool)
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
     sf.setValue("File",ui->lineEditInputFile->text());
-    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentText());
-    sf.setValue("Lyrics",ui->checkBoxLyricsMode->isChecked());
-    sf.setValue("Chord",ui->checkBoxChordMode->isChecked());
-    sf.setValue("Memory",ui->checkBoxMemoryMode->isChecked());
-    sf.setValue("Text",ui->checkBoxTextMode->isChecked());
     sf.setValue("ChordMode",ui->checkBoxChordMode->isChecked());
     sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
