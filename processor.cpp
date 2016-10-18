@@ -334,7 +334,6 @@ int Processor::nextColumn( int colnumber)
 void Processor::Cover(QString title, QString subtitle)
 
 {
-
         m_pageAllocation=true;
         QString image=m_uiconfig->toolButtonCoverImage->getImage();
         QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor());
@@ -452,6 +451,12 @@ int Processor::FirstPageNumber()
     return m_covermade?2:1;
 }
 
+
+int Processor::NbPageCover()
+{
+    return m_covermade?1:0;
+}
+
 void Processor::addTocAtBegining()
 {
 
@@ -480,10 +485,11 @@ void Processor::addTocAtBegining()
     foreach ( QString title, m_toc)
         {
          // rect is the zone clickable
-         PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,pagenumber+nbpagesintoc-1);
+         int page=pagenumber+nbpagesintoc-1;
+         PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,page);
          PdfAnnotation *a=toc->CreateAnnotation(ePdfAnnotation_Link,rect);
-         a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc-2).toStdString().c_str());
-         PdfDestination dest(m_document->GetPage(pagenumber+nbpagesintoc-1));
+         //a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc-2).toStdString().c_str());
+         PdfDestination dest(m_document->GetPage(page-nbpagesintoc+position));
          a->SetDestination(dest);
          a->SetFlags( ePdfAnnotationFlags_Hidden);
          pagenumber+=m_tocpages[title];
@@ -519,7 +525,6 @@ void Processor::addTocAtEnd()
     PdfPage *toc;
     int pagenumber=0;
     m_positiontoc=m_document->GetPageCount();
-    int position =FirstPageNumber();
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     toc=m_document->CreatePage(*m_dimension);
     pagenumber++;
@@ -535,8 +540,8 @@ void Processor::addTocAtEnd()
     int colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
     int currentcol=0;
     int titlenumber=0;
-    int nbpagesintoc=1;
-    nbpagesintoc=NbPagesInToc(m_nbrealpages);
+//    int nbpagesintoc=1;
+//    nbpagesintoc=NbPagesInToc(m_nbrealpages);
     foreach ( QString title, m_toc)
         {
          // rect is the zone clickable
@@ -545,7 +550,7 @@ void Processor::addTocAtEnd()
      //    a->SetContents(tr("Go to page %1").arg(pagenumber+FirstPageNumber()).toStdString().c_str());
          a->SetContents(QString("Go to page 11").toStdString().c_str());
 
-         PdfDestination dest(m_document->GetPage(pagenumber));
+         PdfDestination dest(m_document->GetPage(pagenumber-1+NbPageCover()));
          a->SetDestination(dest);
          a->SetFlags( ePdfAnnotationFlags_Hidden);
          pagenumber+=m_tocpages[title];
@@ -577,7 +582,7 @@ void Processor::addTocAtEnd()
 
 void Processor::addToc()
 {
-    if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0) return;
+    if ( m_uiconfig->comboBoxTocPosition->currentIndex()==0)  FinishPage(&m_painter);
     else if ( m_uiconfig->comboBoxTocPosition->currentIndex()==1) addTocAtBegining();
     else addTocAtEnd();
 
@@ -593,6 +598,7 @@ void Processor::makePageNumber()
     int nbpage=1;
     for ( int p=firstpage-1; p<=totalpage ; p++)
     {
+        if ( nbpage > totalpage ) break;
         PdfPage *pdfp = m_mdocument->GetPage(p);
         m_painter.SetPage(pdfp);
         QString pattern;
@@ -616,13 +622,15 @@ void Processor::makePageNumber()
         if  ( pagetype == Const::Center ) Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
         else Text(m_mdocument,page,x,y, m_uiconfig->toolButtonPageNumberFont,left);
         double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
-        PdfRect rect(x-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF(),y,widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
-        PdfAnnotation *a=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect);
-        a->SetContents(tr("Go to table of content").toStdString().c_str());
-        PdfDestination dest(m_document->GetPage(m_positiontoc));
-        a->SetDestination(dest);
-        a->SetFlags( ePdfAnnotationFlags_Hidden);
-
+        if ( m_uiconfig->comboBoxTocPosition->currentIndex()!=0 )
+           {
+            PdfRect rect(x-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF(),y,widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
+            PdfAnnotation *a=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect);
+            a->SetContents(tr("Go to table of content").toStdString().c_str());
+            PdfDestination dest(m_document->GetPage(m_positiontoc));
+            a->SetDestination(dest);
+            a->SetFlags( ePdfAnnotationFlags_Hidden);
+           }
         FinishPage(&m_painter);
     }
 }

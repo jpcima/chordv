@@ -87,6 +87,11 @@ void FormConfig::disableWidgets(QRegExp value)
 
 }
 
+void FormConfig::disableGroup(QString group)
+{
+    foreach (QGroupBox *w ,m_parent->findChildren<QGroupBox*>(group))
+        w->setVisible(false);
+}
 
 void FormConfig::setCover(int val)
 {

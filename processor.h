@@ -239,6 +239,7 @@ private:
     void addTocAtBegining();
     void addTocAtEnd();
     int FirstPageNumber();
+    int NbPageCover();
 signals:
     void PDFMade( QString file);
 protected:

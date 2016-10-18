@@ -52,7 +52,9 @@ void Test::CheckPDF(int)
        qint64 delta=m_starttime.msecsTo(QDateTime::currentDateTime());
        QTime time(0,0,0,delta);
        qInfo()<<QString("%1 done [%2]").arg(m_testname).arg(time.toString("mm:ss:zzz"));
+       QFile::remove(m_pdffiledest);
        QFile file(m_pdffileorig);
+
        file.rename(m_pdffiledest);
        m_loop->exit(0);
 }

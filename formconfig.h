@@ -24,6 +24,7 @@ public:
     void SetConfigFromInit();
     QString classe2String(Classes name);
     void Retranslate();
+    void disableGroup(QString group);
 protected:
     void disableWidgets(QRegExp value);
 private:

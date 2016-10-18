@@ -32,7 +32,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_13">
            <item>
-            <widget class="QGroupBox" name="groupBox_4">
+            <widget class="QGroupBox" name="groupBoxPageSize">
              <property name="title">
               <string>PageSize</string>
              </property>
@@ -94,7 +94,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QGroupBox" name="groupBox_8">
+            <widget class="QGroupBox" name="groupBoxMiscellaneous">
              <property name="title">
               <string>Miscellaneous</string>
              </property>
@@ -211,7 +211,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_28">
            <item>
-            <widget class="QGroupBox" name="groupBox_7">
+            <widget class="QGroupBox" name="groupBoxPageNumber">
              <property name="title">
               <string>Page number</string>
              </property>
@@ -309,7 +309,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QGroupBox" name="groupBox_5">
+            <widget class="QGroupBox" name="groupBoxMargin">
              <property name="title">
               <string>Margin</string>
              </property>
@@ -363,7 +363,7 @@
        <item>
         <layout class="QGridLayout" name="gridLayout_2">
          <item row="0" column="0">
-          <widget class="QGroupBox" name="groupBox">
+          <widget class="QGroupBox" name="groupBoxCover">
            <property name="title">
             <string>Cover</string>
            </property>
@@ -470,7 +470,7 @@
           </widget>
          </item>
          <item row="0" column="1" rowspan="2">
-          <widget class="QGroupBox" name="groupBox_3">
+          <widget class="QGroupBox" name="groupBoxChord">
            <property name="title">
             <string>Chord</string>
            </property>
@@ -565,7 +565,7 @@
           </widget>
          </item>
          <item row="1" column="0" rowspan="2">
-          <widget class="QGroupBox" name="groupBox_6">
+          <widget class="QGroupBox" name="groupBoxToc">
            <property name="title">
             <string>Toc</string>
            </property>
@@ -611,6 +611,16 @@
                   <item>
                    <property name="text">
                     <string>3</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>3.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>4</string>
                    </property>
                   </item>
                  </widget>
@@ -738,7 +748,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QGroupBox" name="groupBox_2">
+          <widget class="QGroupBox" name="groupBoxMiscellaneousContent">
            <property name="title">
             <string>Miscellaneous</string>
            </property>
@@ -756,6 +766,61 @@
                 </item>
                 <item>
                  <widget class="QLineEdit" name="lineEditOutFile"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_30">
+                <item>
+                 <widget class="QLabel" name="labelVerticalSpacing">
+                  <property name="text">
+                   <string>Text vertical spacing</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBoxVerticalSpacing">
+                  <item>
+                   <property name="text">
+                    <string>0.9</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>1.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>3</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>3.5</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>4</string>
+                   </property>
+                  </item>
+                 </widget>
                 </item>
                </layout>
               </item>
