@@ -438,7 +438,10 @@ void Processor::addLinkInToc()
 
 int Processor::NbPagesInToc(int nbpages)
 {
-    double heightneed=nbpages*(m_uiconfig->comboBoxTocVerticalSpacing->currentText().toDouble()+1)
+    bool ok ;
+    double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentData().toDouble(&ok);
+    if ( !ok ) verticalspacing=1.2;
+    double heightneed=nbpages*(verticalspacing+1)
             *m_uiconfig->toolButtonTocFont->getFont().pointSizeF()/m_uiconfig->comboBoxTocColumnNumber->currentText().toInt();
     double nbpagesneed=heightneed/(m_uiconfig->spuPageHeight->getPdfU() - m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4
                         - 2*m_uiconfig->spuVerticalMargin->getPdfU() );
@@ -471,9 +474,8 @@ void Processor::addTocAtBegining()
     m_TocPages<<toc->GetContents();
     m_painter.SetPage(toc);
     bool ok;
-    double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentText().toDouble(&ok);
-    if ( !ok ) verticalspacing=1;
-    verticalspacing*=1.2;
+    double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentData().toDouble(&ok);
+    if ( !ok ) verticalspacing=1.2;
     Text(m_document,QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4 ;
     int lineinit=m_line;
@@ -531,9 +533,8 @@ void Processor::addTocAtEnd()
     m_TocPages<<toc->GetContents();
     m_painter.SetPage(toc);
     bool ok;
-    double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentText().toDouble(&ok);
-    if ( !ok ) verticalspacing=1;
-    verticalspacing*=1.2;
+    double verticalspacing=m_uiconfig->comboBoxTocVerticalSpacing->currentData().toDouble(&ok);
+    if ( !ok ) verticalspacing=1.2;
     Text(m_document,QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4 ;
     int lineinit=m_line;

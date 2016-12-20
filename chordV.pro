@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     spinboxunit.cpp \
     dialogconfiguration.cpp \
     settings.cpp \
-    processortext.cpp
+    processortext.cpp \
+    verticalspacing.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -60,7 +61,8 @@ HEADERS  += mainwindow.h \
     dialogconfiguration.h \
     settings.h \
     processortext.h \
-    const.h
+    const.h \
+    verticalspacing.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
@@ -68,7 +70,7 @@ FORMS    += mainwindow.ui \
     dialogabout.ui \
     dialogconfiguration.ui
 
-LIBS += -L/usr/local/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+LIBS += -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include
 DEPENDPATH += /usr/local/include
 

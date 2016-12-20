@@ -582,48 +582,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBoxTocVerticalSpacing">
-                  <item>
-                   <property name="text">
-                    <string>0.9</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>1.5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>2.5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3.5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>4</string>
-                   </property>
-                  </item>
-                 </widget>
+                 <widget class="VerticalSpacing" name="comboBoxTocVerticalSpacing"/>
                 </item>
                </layout>
               </item>
@@ -779,48 +738,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBoxVerticalSpacing">
-                  <item>
-                   <property name="text">
-                    <string>0.9</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>1.5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>2.5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3.5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>4</string>
-                   </property>
-                  </item>
-                 </widget>
+                 <widget class="VerticalSpacing" name="comboBoxVerticalSpacing"/>
                 </item>
                </layout>
               </item>
@@ -877,6 +795,11 @@
    <class>PageSize</class>
    <extends>QComboBox</extends>
    <header>pagesize.h</header>
+  </customwidget>
+  <customwidget>
+   <class>VerticalSpacing</class>
+   <extends>QComboBox</extends>
+   <header location="global">verticalspacing.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
