@@ -70,7 +70,7 @@ FORMS    += mainwindow.ui \
     dialogabout.ui \
     dialogconfiguration.ui
 
-LIBS += -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include
 DEPENDPATH += /usr/local/include
 

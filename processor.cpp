@@ -415,7 +415,7 @@ void Processor::savemem()
 
 void Processor::openExistingFile()
 {
-    m_mdocument = new PdfMemDocument(m_file.toStdString().c_str());
+    m_mdocument = new PdfMemDocument(m_file.toStdString().c_str(),true);
 }
 
 void Processor::addFooter()
