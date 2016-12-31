@@ -36,7 +36,8 @@ SOURCES += main.cpp\
     dialogconfiguration.cpp \
     settings.cpp \
     processortext.cpp \
-    verticalspacing.cpp
+    verticalspacing.cpp \
+    dialogchorddefinition.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -62,13 +63,15 @@ HEADERS  += mainwindow.h \
     settings.h \
     processortext.h \
     const.h \
-    verticalspacing.h
+    verticalspacing.h \
+    dialogchorddefinition.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
     fontchooser.ui \
     dialogabout.ui \
-    dialogconfiguration.ui
+    dialogconfiguration.ui \
+    dialogchorddefinition.ui
 
 LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include

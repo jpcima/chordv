@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialogabout.h"
 #include "dialogconfiguration.h"
+#include "dialogchorddefinition.h"
 #include "util.h"
 #include "processortext.h"
 #include "settings.h"
@@ -38,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
+    connect(ui->actionChord_defintion,SIGNAL(triggered(bool)),this,SLOT(ChordDefinition()));
     connect(ui->actionReset_Preference_as_origine,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
     connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
@@ -412,6 +414,14 @@ void MainWindow::Configuration()
     DialogConfiguration * dial = new DialogConfiguration(this);
     connect ( dial,SIGNAL(LanguageChanged(int)),this,SLOT(ChangeLanguage(int)));
     connect ( dial,SIGNAL(PdfReaderChanged()),this,SLOT(PDFReaderChanged()));
+    dial->exec();
+    delete dial;
+}
+
+
+void MainWindow::ChordDefinition()
+{
+    DialogChordDefinition * dial = new DialogChordDefinition(this);
     dial->exec();
     delete dial;
 }

@@ -487,6 +487,7 @@
     </property>
     <addaction name="actionProduce_PDF_files"/>
     <addaction name="actionPreferences"/>
+    <addaction name="actionChord_defintion"/>
     <addaction name="actionSave_Current_as_Defaut"/>
     <addaction name="actionReset_Preference_as_origine"/>
    </widget>
@@ -581,6 +582,11 @@
   <action name="actionReset_Preference_as_origine">
    <property name="text">
     <string>&amp;Reset Preference as origine</string>
+   </property>
+  </action>
+  <action name="actionChord_defintion">
+   <property name="text">
+    <string>Chord definition</string>
    </property>
   </action>
  </widget>
