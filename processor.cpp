@@ -589,7 +589,8 @@ void Processor::addToc()
 
 }
 
-void Processor::makePageNumber()
+void Processor::
+makePageNumber()
 {
     Const::PageNumber pagetype= Const::getPageNumber(m_uiconfig->comboBoxPageNumber->currentIndex());
     if (pagetype == Const::No )  return ;
@@ -618,8 +619,14 @@ void Processor::makePageNumber()
         else y =  m_uiconfig->spuHorizontalMargin->getPdfU()-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3 ;
         if ( pagetype == Const::Center)
             x = m_uiconfig->spuPageWidth->getPdfU()/2;
-        else
-            x =m_uiconfig->spuPageWidth->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU();
+        else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::Outside )
+        {  if ( m_uiconfig->comboBoxDuplex->currentIndex() ==Const::Simplex)
+              x =m_uiconfig->spuPageWidth->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU();
+           else if ( nbpage %2 == 0 )
+               x =m_uiconfig->spuPageWidth->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU();
+           else
+               x = m_uiconfig->spuHorizontalMargin->getPdfU();
+        }
         if  ( pagetype == Const::Center ) Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
         else Text(m_mdocument,page,x,y, m_uiconfig->toolButtonPageNumberFont,left);
         double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
