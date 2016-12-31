@@ -35,11 +35,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
-    //connect(ui->pushButtonPrintPDF_3,SIGNAL(triggered(bool)),this,SLOT(ProducePDF()));
     connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
     connect(ui->actionReset_Preference_as_origine,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
-    connect(ui->pushButtonPrintPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
+    connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
+    connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     QString file=getFileInArg();
@@ -205,11 +205,14 @@ void MainWindow::openChoFile( QString filename)
 {
     QFile file(filename);
     ui->textEditCho3File->clear();
-    ui->pushButtonPrintPDF->setDisabled(true);
+    ui->pushButtonMakePDF->setDisabled(true);
+    ui->pushButtonMakeAndShowPDF->setDisabled(true);
+    if ( filename.isEmpty()) return;
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(filename)));
     else
     {
-        ui->pushButtonPrintPDF->setDisabled(false);
+        ui->pushButtonMakePDF->setDisabled(false);
+        ui->pushButtonMakeAndShowPDF->setDisabled(false);
         QTextStream in(&file);
         ui->textEditCho3File->append(in.readAll());
         QTextCursor textCursor = ui->textEditCho3File->textCursor();

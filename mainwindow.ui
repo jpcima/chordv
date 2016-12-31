@@ -203,7 +203,7 @@
                   </layout>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonPrintPDF_3">
+                  <widget class="QPushButton" name="pushButtonMakePDF">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -216,7 +216,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonPrintPDF">
+                  <widget class="QPushButton" name="pushButtonMakeAndShowPDF">
                    <property name="minimumSize">
                     <size>
                      <width>100</width>
@@ -326,7 +326,7 @@
      <x>0</x>
      <y>0</y>
      <width>1101</width>
-     <height>27</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
