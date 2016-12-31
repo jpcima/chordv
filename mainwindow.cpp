@@ -529,7 +529,7 @@ void MainWindow::ToogleLongShort()
     ReplaceLongShort("{st:","{SubTitle:" );
     ReplaceLongShort("{ct:","{CoverTitle:");
     ReplaceLongShort("{cs:","{CoverSubTitle:");
-    ReplaceLongShort("{c:","{Columns:");
+    ReplaceLongShort("{col:","{Columns:");
     ReplaceLongShort("{colb}","{Column_break}");
     ReplaceLongShort("{ns}","{New_Song}");
     ReplaceLongShort("{soc}","start_of_chorus");

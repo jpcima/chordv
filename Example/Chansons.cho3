@@ -1,11 +1,11 @@
-{ct: Les Jetés de l'Encre *}
-{cs: *Chansons à respirer}
+{CoverTitle: Les Jetés de l'Encre *}
+{CoverSubTitle: *Chansons à respirer}
 
-{t:Accroche}
+{Title:Accroche}
 
-{st: Paroles & Musiques : Gilles Maire}
-{st: Disque Toulouse}
-{c:2 }
+{SubTitle: Paroles & Musiques : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns:2 }
 
 Si tu [Ré(V)x4]vois qu'à ton cou elle s'accroche
 Embrasse-[La7(IV)x2]la sur la [Ré(V)x2]joue
@@ -34,7 +34,7 @@ J'en suis sûr c'est pour vous
 Une bell' musique en double croches
 Qui sera à son goût
 
-{colb}
+{Column_break}
 
 Ce n'était pas une fille fastoche
 Une fille à trois sous
@@ -47,15 +47,15 @@ Les histoir's qu'on nous passe au cinoche
 On les trouve n'importe où. 
 
 
-{ns}
-{t: À tire d'elles}
-{st: Paroles : Jean-Pierre Rosnay - Musique : Gilles Maire}
-{st: Disque 4 }
-{c:2}
+{New_Song}
+{Title: À tire d'elles}
+{SubTitle: Paroles : Jean-Pierre Rosnay - Musique : Gilles Maire}
+{SubTitle: Disque 4 }
+{Columns:2}
 {compress}
-{soc}
+start_of_chorus
 [Ré(V)][La(V)][Sim][Fa#m][Sol(III)][La(V)][Ré(V)]
-{eoc}
+end_of_chorus
 Ô mes a[Ré(V)]mours inache[La(V)x2]vées,
 Ô mes discrètes passa[Simx2]gères,
 Mon placard rempli de pou[Sol#x2]pées
@@ -89,7 +89,7 @@ A l'heure où les sorcières dansent
 En flamand Edwige a dit oui
 Quand nous nous rencontrâmes au Zoute
 Anne marchait vers ses seize ans
-{colb}
+{Column_break}
 Les a-t-elle trouvés j'en doute
 Moi qui connais bien ses parents
 
@@ -135,10 +135,10 @@ L'avez vous enfin déniché
 Le marchand de l'amour unique
 
 
-{ns}
-{t:Bologne}
-{st: Paroles & Musiques :  Gilles Maire}
-{st: Disque Bologne}
+{New_Song}
+{Title:Bologne}
+{SubTitle: Paroles & Musiques :  Gilles Maire}
+{SubTitle: Disque Bologne}
 
 
 [Rém(V)]T'es belle comme une [Solm]toile de Cré[Do7(III)]moni[Fa]ni
@@ -171,10 +171,10 @@ T'es belle comme une étoile qui se croit tout permis
 Qui regarde en riant sur le quai d'une gare
 Un chanteur éperdu, pleurant sur sa guitare. 
 
-{ns}
-{t: Changement climatique}
-{st: Paroles: Gilles Maire - Musique : Geoffray Milleret}
-{st: Disque La Caulaincourt}
+{New_Song}
+{Title: Changement climatique}
+{SubTitle: Paroles: Gilles Maire - Musique : Geoffray Milleret}
+{SubTitle: Disque La Caulaincourt}
 
 Au [Sol#x2]début ils disaient qu'on allait se [Domx2]réchauffer,
 Les [Sol#x2]savants nous parlaient d'un air ca[Domx2]tastrophé,
@@ -205,11 +205,11 @@ C'est pas demain la veille qu'j'quitterai mon igloo,
 J'ai bien peur que leur monde ne vaille plus un clou. 
 
 
-{ns}
-{t: Court}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque Toulouse}
-{c: 2}
+{New_Song}
+{Title: Court}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns: 2}
 
 [Sol#m]Une bille qui [Do#m]court
 Au [Ré#7]fond de la [Sol#m]cour  
@@ -236,7 +236,7 @@ Ou  juste l'embrasser
 Peut être que c'est 
 Ses bras qui sont trop court
 
-{colb}
+{Column_break}
 
 On sèche les cours
 Un peu  chaque jour
@@ -275,11 +275,11 @@ Par delà les nuages
 A des airs bien trop court 
  
 
-{ns}
-{t: Elle était con}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque Bologne}
-{c: 2}
+{New_Song}
+{Title: Elle était con}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque Bologne}
+{Columns: 2}
 
 Elle aimait [Simx2]Enrico Ma[Mim(VII)x2]cias
 Je n'lui res[La(V)x2]semblais pas hé[Ré7(V)x2]las
@@ -298,7 +298,7 @@ Comme la Jon[Simx2]con
 -d'elle était [Mim(VII)x2]belle
 Mais elle était [La(V)x2]con
 
-{colb}
+{Column_break}
 Comme un violon[Do7(III)x2]celle
 Comme une [Sol(III)]con-
 -tre[Fa#]ba[Sim]sse
@@ -330,10 +330,10 @@ C'est avec beaucoup de tendresse
 Que je vous parle de ses fesses 
 
 
-{ns}
-{t: Embrasse-moi}
-{st: Paroles : Gilles Maire - Musique : Geofffray Milleret}
-{st: Disque La Caulaincourt}
+{New_Song}
+{Title: Embrasse-moi}
+{SubTitle: Paroles : Gilles Maire - Musique : Geofffray Milleret}
+{SubTitle: Disque La Caulaincourt}
 
 [Fam]Embrasse-moi, une [Do]fois encore...
 [Fam]Même s'il a changé mon dé[Do7]cor :
@@ -371,18 +371,18 @@ Comme ils disent je n'suis plus en âge,
 De courir après les nuages... 
 
 
-{ns}
-{t: Je chante pour mes copains}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque 4}
-{c:2}
+{New_Song}
+{Title: Je chante pour mes copains}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque 4}
+{Columns:2}
 
-{soc}
+start_of_chorus
 [Rém(V)]                  [Do7(III)]                    [Fa7(VIII)]
 [La#7(VI)]                [Do(VIII)]                    [La7(V)x2] 
 [Rém(V)]                  [Do7(III)]                    [Fa7(VIII)]
 [La#7(VI)]                [Do(VIII)]                    [La7(V)x2]  [Rém(V)x2]
-{eoc}
+end_of_chorus
 
 Je [Ré7(V)x2]chante juste pour mes co[Solmx4]pains
 Je chante comme un turlu[Fax4]pin
@@ -399,7 +399,7 @@ Des perles de perlimpinpin
 Et je transforme en madone 
 Celles qu'ils appellent bobonne
 
-{colb}
+{Column_break}
 
 Je chante aussi pour ces copains 
 Ceux qui dorment dans leur sapin 
@@ -422,20 +422,20 @@ En nocturne sur ma guitare
 Je traîne mes nuits dans les bars
 
 
-{ns}
-{t:  Jean le libertin}
-{st: Paroles: Gilles Maire - Musique : Geoffray Milleret}
-{st: Disque Toulouse}
-{c: 2}
+{New_Song}
+{Title:  Jean le libertin}
+{SubTitle: Paroles: Gilles Maire - Musique : Geoffray Milleret}
+{SubTitle: Disque Toulouse}
+{Columns: 2}
 
 [Rém(V)]Jean [Solm]regarde la [Mim7b5(VI)]mer, [La7b9(X)]assis [La7(IX)]sous un [Rém11(VII)x2]pin
 Il [Lam11(II)]compte les [Sim11]vagues qui mou[Mi7b9(V)]ton[Mi7(VII)]nent
 A [Rém(V)]chacune il donne un nom et s'é[Rém11(VII)x2]tonne
 De [Lam11(II)]connaître au[Sim11]tant de [Mi7b9(V)]prénoms fémi[Mi7(VII)]nins
 
-{soc}
+start_of_chorus
 [Solx2]                   [Solmx2]                      
-{eoc}
+end_of_chorus
 
 [Ré]Il [Sol]a con[Do#m7b5(III)]nu
 Mille [Fa#7]lèvres, mille [Simx2]z'yeux
@@ -447,7 +447,7 @@ Le temps qui passe et qui se moque
 De l'enfant qu'il fut, des années qui troquent
 Ses beaux cheveux blonds pour de longs cheveux blancs
 
-{colb}
+{Column_break}
 
 Jean le sait il fut un grand libertin
 De sa main qui aimait tant caresser
@@ -464,10 +464,10 @@ Ni mère ni bon Dieu
 Et reconnu
 Ni des lèvres ni des yeux ... 
 
-{ns}
-{t: La Caulaincourt}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque la Caulaincourt}
+{New_Song}
+{Title: La Caulaincourt}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque la Caulaincourt}
 
 Y a [La(V)]la Caulain[Rém(V)]court qui court [La(V)]derrière Mont[Rém(V)x2]martre,
 Quand Cons[Ré7(V)]tentin Pec[Solm]queur lorgne la [Do7(III)]bouche en [La(V)x2]coeur,
@@ -499,20 +499,20 @@ Du blanc lui il s'en fout lui qui peignait qu'en noir,
 Montmartre ne sera pas plus blanche qu'hier
 Et le Rêve d'Éliette s'endort dans ma mémoire. 
 
-{ns}
-{t: La femme du boulanger}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque Toulouse}
-{c: 2}
+{New_Song}
+{Title: La femme du boulanger}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns: 2}
 
 Pour se forger la car[Solm9/13(III)x2]casse
 [Fa]On levait de grosses [Fam9/13x2]masses
 [Solmx2]On courait encore et encore
 [La7x2]On nous voyait dans tous les sports
 
-{soc}
+start_of_chorus
 [Sib7][La7] 
-{eoc}
+end_of_chorus
 
 Et quand passait une belle
 Une dame, une demoiselle
@@ -539,7 +539,7 @@ De toutes nos musculatures
 Elle préfèrent la douceur
 De la farine sur un coeur
 
-{colb}
+{Column_break}
 
 Pour se consoler du chagrin
 Redonner à nos moulins du grains
@@ -572,11 +572,11 @@ Elles préfèrent la douceur
 De la farine sur un coeur 
 
 
-{ns}
-{t: La fille du bar}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque 4 }
-{c:2}
+{New_Song}
+{Title: La fille du bar}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque 4 }
+{Columns:2}
 
 Ce [Sol(III)]soir je meurs de mes tem[Si7x2]pêtes
 Qu'on m'apporte encore quelques [Do7(III)x2]verres
@@ -587,7 +587,7 @@ A vivre sens dessus-des[Fa#x2]sous
 Je bois la tasse et puis je [Sol(III)x2]plonge
 Dans ce chagrin qui me [Fa#]ronge
 
-{colb}
+{Column_break}
 
 Qui c'est qui a dit que les garçons
 Etaient fragiles de la cédille;
@@ -616,11 +616,11 @@ Dire que je fus chanteur de charme
 Je bois ma tasse et puis je plonge
 Dans ce chagrin qui me ronge 
 
-{ns}
-{t: La marche des peineux}
-{st: Paroles et Musique : Gilles Maire}
-{st: Disque 4}
-{c:2}
+{New_Song}
+{Title: La marche des peineux}
+{SubTitle: Paroles et Musique : Gilles Maire}
+{SubTitle: Disque 4}
+{Columns:2}
 
 Quand [Rém(V)]je l'ai vue pas[Solm]ser 
 Je m'suis mis [Do(III)]à chan[Fa]ter
@@ -643,7 +643,7 @@ C'est ainsi ce jour là
 Qu'on s'est mis en chemin 
 La la la la la la la la la la
 
-{colb}
+{Column_break}
 
 Ceux qui ne voyaient plus 
 Ont ouvert grand les yeux
@@ -667,10 +667,10 @@ C'était la liberté
 La la la la la la la la la la 
 
 
-{ns}
-{t: La Milonga}
-{st: Paroles et Musique : Gilles Maire}
-{st: Disque La Caulaincourt}
+{New_Song}
+{Title: La Milonga}
+{SubTitle: Paroles et Musique : Gilles Maire}
+{SubTitle: Disque La Caulaincourt}
 
 On [Rém(V)x2]nous parle aujourd'hui de [Mi°7(III)x2]rallonger nos vies
 De [La7(IV)x2]plus de cinquante [Rém6x2]ans...
@@ -708,11 +708,11 @@ Nous danserons bientôt cette milonga-là,
 Jusqu'à la fin des temps.
 
 
-{ns}
-{t: La reine de la plage}
-{st: Paroles : Gilles Maire - Musique : Geoffray Milleret}
-{st:  Disque Bologne}
-{c:2}
+{New_Song}
+{Title: La reine de la plage}
+{SubTitle: Paroles : Gilles Maire - Musique : Geoffray Milleret}
+{SubTitle:  Disque Bologne}
+{Columns:2}
 
 La voi[Lamx2]ci qui arrive
 Se dévêt sur la rive
@@ -742,7 +742,7 @@ Elles qui font sans cesse appel
 Aux bistouris, aux scalpels
 Pour sculpter leur p'tit cul
 
-{colb}
+{Column_break}
 
 Quand glisse son pied dans l'eau
 Plus rien, plus un pédalo,
@@ -758,11 +758,11 @@ J'ai attendu, coeur battant;
 J'attendrai encore longtemps
 Le jour de son retour 
 
-{ns}
-{t: La rupture}
-{st: Paroles et Musique Gilles Maire}
-{st: Disque Bologne}
-{c: 2}
+{New_Song}
+{Title: La rupture}
+{SubTitle: Paroles et Musique Gilles Maire}
+{SubTitle: Disque Bologne}
+{Columns: 2}
 
 Elle [Solm]lui sou[Ré7(V)]rit mais ses yeux [Solmx2]brillent
 Il [Solm]sent un [Ré7(V)]glaçon dans sa [Solmx2]glotte
@@ -781,7 +781,7 @@ Cet [La#]encore est-il [Ré7(V)x3]assez fort
 Pour faire encore tourner leur [La7(V)x2]corps ?
 Dans leur lit même l'amour s'en[Ré7(V)]dort
 
-{colb}
+{Column_break}
 
 Dans le blanc de ses beaux yeux noirs
 Il voit un film dont le héros,
@@ -804,11 +804,11 @@ Elle sent son coeur partir en vrille
 Il sent ses veines qui sanglotent 
 
 
-{ns}
-{t: La saphique}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque La Caulaincourt}
-{c: 2}
+{New_Song}
+{Title: La saphique}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque La Caulaincourt}
+{Columns: 2}
 
 Quand on est [Rém(V)x4]belle comme elle est [Mi9(VI)x4]belle,
 [La7(IV)x4]On a des amants en ribam[Rém(V)x4]belle ;
@@ -837,7 +837,7 @@ Le Mont Blanc, j'y partirai dès demain ;
 Mais je prendrai le téléphérique,
 Elle n'aime que les amours saphiques !
 
-{colb}
+{Column_break}
 
 Pour l'approcher j'aurais pu déloger
 Pierre, Paul, Marcel, Jacques ou Roger ;
@@ -860,18 +860,18 @@ Nous n'irons jamais jusqu'au cantique,
 Elle n'aime que les amours saphiques ! 
 
 
-{ns}
-{t: La tournée des ringards}
-{st: Paroles et Musiques : Gilles Maire}
-{st: Disque La Caulaincourt}
-{c: 2}
+{New_Song}
+{Title: La tournée des ringards}
+{SubTitle: Paroles et Musiques : Gilles Maire}
+{SubTitle: Disque La Caulaincourt}
+{Columns: 2}
 
-{soc}
+start_of_chorus
 [Mim(VII)]          [Lam(XII)]         [Mim(VII)]        [Do#7°(V)]
 [Si7°(III)]          [La#7°]               [Mi]              [Mi7]
 [Lam(V)]            [Mim(VII)]        [Lam(XII)]         [Mim(VII)]
 [Do#7°(V)]          [Si7°(III)]        [La#7°]       [Mi]
-{eoc}
+end_of_chorus
     
 Notre tour[Mim(VII)]neur a dit « les ringues,
 [Lam(V)]Finie la tournée des campingues,
@@ -897,7 +897,7 @@ Autant jouer de la balalaïka
 Pour faire danser le Dalaï-Lama,
 C'était pas notre répertoire.
 
-{colb}
+{Column_break}
 
 On a été fleurir ma tombe,
 Que celle de Vissotsky surplombe,
@@ -918,10 +918,10 @@ Des cafés de notre quartier,
 Où l'on chantait nos petites histoires.
 
 
-{ns}
-{t: La vie madame}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque La Caulaincourt}
+{New_Song}
+{Title: La vie madame}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque La Caulaincourt}
 
 
 On [Sol#x4]arrive on ne sait com[Do7(III)x4]ment,
@@ -953,11 +953,11 @@ Se promènent main dans la main,
 Du côté de Saint-Germain. 
 
 
-{ns}
-{t: Le casse}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque La Caulaincourt}
-{c:2}
+{New_Song}
+{Title: Le casse}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque La Caulaincourt}
+{Columns:2}
 [Lam6(IV)]Pour s'acheter un pia[Sim6(VI)]no,
 [Mi7(VII)]Des amplis et des micros, [Lam6(IV)][Sol#m6(III)]
 [Lam6(IV)]À la banque on est al[Sim6(VI)]lé,
@@ -971,9 +971,9 @@ On a fait un casse ! [Lam6(IV)][Sol#m6(III)]
 [Lam6(IV)]Mais ce qui nous [Sim6(VI)]manque,
 [Mi7(VII)]C'est un peu de pognon.[Lam6(IV)][Sol#m6(III)]
 
-{soc}
+start_of_chorus
 [Lam6(IV)][Sol#m6(III)][Lam6(IV)][Sol#m6(III)]
-{eoc}
+end_of_chorus
 
 En partant à la guich'tière,
 Qui avait de beaux yeux verts,
@@ -992,7 +992,7 @@ Il a dit « pour un baiser,
 Les filles savent garder,
 Un secret par devers elles,
 Les filles c'est officiel,
-{colb}
+{Column_break}
 Aiment les voyous qui aiment
 Les chansons et les poèmes,
 Surtout les filles classes ! »
@@ -1041,11 +1041,11 @@ On n'est pas mauvais garçons,
 Mais ce qui nous manque,
 C'est toujours une chanson ! 
 
-{ns}
-{t: Le chemin des dames}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque Bologne}
-{c: 2}
+{New_Song}
+{Title: Le chemin des dames}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque Bologne}
+{Columns: 2}
 
 [Do#mx4]J'écrivais des chansons, des p'tit's musiques
 [Sol#7x4]J'avais un répertoire plutôt comique
@@ -1075,7 +1075,7 @@ Je fleurissais le champ de déshonneur
 Quand un matin, un matin de bonne heure,
 Ils m'ont déterré sans aucune honte aucune
 
-{colb}
+{Column_break}
 
 C'est en défilant en levant le nez
 Qu'à l'arc-de-triomphe ils m'ont emmené
@@ -1119,11 +1119,11 @@ Soient remplacés par des farandoles
 Qu'enfin on m'emmène loin des bagnoles
 Qu'auprès de ma fiancée, l'on me ré-enterre 
 
-{ns}
-{t:Le grenier de mon coeur}
-{st:Paroles et musique : Gilles Maire}
-{st: Disque Bologne}
-{c: 2}
+{New_Song}
+{Title:Le grenier de mon coeur}
+{SubTitle:Paroles et musique : Gilles Maire}
+{SubTitle: Disque Bologne}
+{Columns: 2}
 
 [Rém(V)x4]Je m'étais rangé des amou[La7(IV)x8]rettes
 J'avais raccroché mon arba[Rém(V)x2]lète
@@ -1132,9 +1132,9 @@ J'avais raccroché mon arba[Rém(V)x2]lète
 Au milieu des livres et des ca[Rém(V)x2]hiers
 [Mi9(VI)x4]Que j'avais mon[La7(IV)x2]té mon [Rém(V)]coeur
 
-{soc}
+start_of_chorus
 [Rém(V)x4]  [Solmx8]   [Rém(V)x8]          [La7(IV)x8]           [Rém(V)x4]
-{eoc}
+end_of_chorus
 
 Comme une pendule qui a perdu
 Son balancier, les aiguilles tordues
@@ -1150,7 +1150,7 @@ C'est en achetant des cigarettes
 Que je tombe sur cette minette
 Qui m'a tapé dans le coeur
 
-{colb}
+{Column_break}
 
 
 J'ai remis mon costume d'Apollon
@@ -1175,10 +1175,10 @@ Dans ce qui fut autrefois le grenier
 Fut le grenier de mon coeur 
 
  
-{ns}
-{t:Le guitariste}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque La Caulaincourt}
+{New_Song}
+{Title:Le guitariste}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque La Caulaincourt}
 
 [Rém(V)x2]Je m'ennuie d'un musicien qui [Solm]compte le temps qui [Do7(III)x2]passe ;
 Moi ce dont j'ai l'en[Fax2]vie, c'est du temps qui me [La(V)x2]reste,
@@ -1211,11 +1211,11 @@ A t'écouter danser ces mots que t'entrelaces,
 Qui chantent les chagrins que tu essuies d'un geste. 
 
 
-{ns}
-{t: Le petit bar}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque  4 }
-{c:2}
+{New_Song}
+{Title: Le petit bar}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque  4 }
+{Columns:2}
 
 L'ac[Fa#x6]cordéoniste
 Joue pour nous cet air-[Simx2]là
@@ -1237,7 +1237,7 @@ Lance lance lance
 Ton coeur contre mon [La7(IV)x8]sein
 Pense pense pense-
 ras-tu à moi de[Ré(V)x2]main ?
-{colb}
+{Column_break}
 
 Si l'amour s'installe
 Entre nous dans le noir
@@ -1257,11 +1257,11 @@ Descendent en duo
 J'ai le coeur qui flanche
 Cet air là est si beau 
 
-{ns}
-{t: Le sel}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque Toulouse}
-{c:2}
+{New_Song}
+{Title: Le sel}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns:2}
 
 
 Tu [La(V)x2]sens ce goût a[Rém(V)x4]mer
@@ -1283,12 +1283,12 @@ Pour faire trois étincelles
 Sur le feu d'un briquet
 Pauvre feu de Bengale
 Tu fais rire les étoiles
-{soc}
+start_of_chorus
 Qu'est ce que t'as fabri[Ré7(V)x2]qué ?
 Tu fais rire les é[Solmx2]toiles
 Qu'est ce [La(V)x2] que t'as fabri[Rém(V)x2]qué ?
-{eoc}
-{colb}
+end_of_chorus
+{Column_break}
 
 Tu traînes ses dentelles
 De palace en hôtel
@@ -1325,11 +1325,11 @@ Même les soirs d'arc en ciel
 La couleur éternelle
 C'est celle du menhir blanc 
 
-{ns}
-{t: Le signe du destin}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque Toulouse}
-{c: 2}
+{New_Song}
+{Title: Le signe du destin}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns: 2}
 
 [Rém(V)x2]Toi tu attendais un [Fax2]signe,
 Comme un [Do7(III)x2]signe du des[La(V)x2]tin
@@ -1349,7 +1349,7 @@ J'ai trouvé comme un faux air
 De la dame qui dit monsieur
 Aimez vous les primevères
 
-{colb}
+{Column_break}
 
 T'avais la grâce d'un signe
 Des épaules jusqu'au main
@@ -1370,11 +1370,11 @@ Les lèvres là j'ai senti
 Un parfum de primevère 
 
 
-{ns}
-{t: Les aurores boréales}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque 4}
-{c:2}
+{New_Song}
+{Title: Les aurores boréales}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque 4}
+{Columns:2}
 
 J'ado[Lamx2]rais le bolé[Mimx2]ro
 De Ra[Fax2]vel
@@ -1404,7 +1404,7 @@ C'était la fin des vacances
 Aux premières mirabelles
 Just'avant l'adolescence
 
-{colb}
+{Column_break}
 
 Sur la lune y a pas de neiges
 Éternelles
@@ -1427,11 +1427,11 @@ Finissent plus ou moins mal
 Peu d'histoires nous rappellent
 Nos aurores boréales 
 
-{ns}
-{t: Les filles de Mar del Plata}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque Toulouse}
-{c:2}
+{New_Song}
+{Title: Les filles de Mar del Plata}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns:2}
 
 [Mim(VII)x2]Gardant la main gauche en [Si(VII)x4]arrière
 Deux musiciens des quartiers [Mim(VII)x2]nôtres
@@ -1452,7 +1452,7 @@ Serrait son verre d'al[Mim(VII)x2]cool
 J'avais refusé son [Fax2]tango
 Au plus [Si(VII)x2]vieux des deux hidal[Mim(VII)x2]gos
 
-{colb}
+{Column_break}
 
 
 L'un sait jouer à la guitare
@@ -1486,11 +1486,11 @@ Et c'est sur un air de tango
 Qu'il est tombé sur le carreau 
 
 
-{ns}
-{t: Les joies du vélo}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque 4 }
-{c:2}
+{New_Song}
+{Title: Les joies du vélo}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque 4 }
+{Columns:2}
 
 [Sol(III)x6]Roulant à vélo, frôlant d'un peu [La(V)x6]trop
 Près les autos, j'accrochai un ré[Sol(III)x10]tro
@@ -1525,7 +1525,7 @@ Je fis semblant d'être à moitié mourant
 J'allais quand même pas partir en courant
 
 
-{colb}
+{Column_break}
 
 
 «Madame j'ai du mal à respirer
@@ -1543,11 +1543,11 @@ La question sur vos lèvres s'installe
 Je vais y répondre afin de conclure
 L'vélo n'eut pas une égratignure 
 
-{ns}
-{t: Les tempes grises}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque Bologne }
-{c: 2}
+{New_Song}
+{Title: Les tempes grises}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque Bologne }
+{Columns: 2}
 
 Ça y [Fax2]est je suis devenu [Lamx2]vieux,
 Voici le [Sol(III)x2]temps des tempes [Do(III)x2]grises,
@@ -1568,7 +1568,7 @@ Je veux aller à l'essen[Rém(V)x2]tiel
 Du côté [Fa]du sep[Mi]tième [Lamx2]ciel.
 
 
-{colb}
+{Column_break}
 
 Ce soir la belle prends ta valise
 Mais surtout n'y mets rien dedans,
@@ -1598,10 +1598,10 @@ Estomperont mes tempes grises
 Et nous ferons le tour du monde
 Autour de tes formes exquises 
 
-{ns}
-{t: Lettre à mon père}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque 4 }
+{New_Song}
+{Title: Lettre à mon père}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque 4 }
 
 Ça [Do7(III)]ait une sacrée [Fa]paye que t'es par[Sib7]ti aux [Ré#7]cieux
 J'ai [Sol#]bien relu les [Do#7]lettres que t'écri[Sol]vais mon [Do7x2]vieux
@@ -1629,11 +1629,11 @@ J'égrène ici-bas, moi qui ne crois toujours pas,
 Le restant de mes jours en pensant fort à toi 
 
 
-{ns}
-{t: On se dit tu}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque Toulouse}
-{c:2}
+{New_Song}
+{Title: On se dit tu}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns:2}
 On se dit [Rébmx10]tu / Tu habites où ?  
 On se dit tout  / On s'habitue
 On sent bien qu'on s'amou[Fa#mx4]rache 
@@ -1657,7 +1657,7 @@ Entre deux [Mi9(VI)x8]joies et trois émois
 Pour quoi ne ferait on pas rimer en[Sol#7x2]core 
 Avec nos deux [Rébmx4]corps
 
-{colb}
+{Column_break}
 
 Ça fait  trente ans / Qu'on se louvoie
 Que l'on s'entend / Comme on  se voit
@@ -1685,11 +1685,11 @@ Qui verra-t-on /Arroser le temps
 Près d'une  tom- / be qui attend 
 L'autre sous le plancher des vaches 
 
-{ns}
-{t: On sème}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque Bologne }
-{c: 2}
+{New_Song}
+{Title: On sème}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque Bologne }
+{Columns: 2}
 
 [Ré(V)x4]On sème, on sème, on sème
 [Réb(IV)x4]Sans savoir ce qu'on sème
@@ -1706,7 +1706,7 @@ Con[Fa#x4]duisait au bon col
 A[Sol(III)x2]vant, on ne sait [Réb(IV)x2]pas
 A[Sol#x2]vant, on ne sait[Réb(IV)x2]pas
 
-{colb}
+{Column_break}
 
 
 Qu'on chante ou qu'on déchante
@@ -1739,11 +1739,11 @@ Se lasseront un jour
 Avant, on ne sait pas
 Avant, on ne sait pas 
 
-{ns}
-{t: Pablo}
-{st: Paroles : Gilles Maire - Musique   : Geoffray Milleret}
-{st: Disque Bologne}
-{c:2}
+{New_Song}
+{Title: Pablo}
+{SubTitle: Paroles : Gilles Maire - Musique   : Geoffray Milleret}
+{SubTitle: Disque Bologne}
+{Columns:2}
 
 [Solm]Je suis masseur dans un salon d'beau[Ré7]té
 Les femmes j'ai tou[Mi7]jours su les dorlo[Lam]ter
@@ -1764,7 +1764,7 @@ Depuis vingt [Mi7]ans, je fais des mas[Sol(III)]sages
 Il se fout pas mal du droit d'aînesse
 Il prend les plus jeunes et me laisse
 Que les clientes d'un certain âge
-{colb}
+{Column_break}
 D'accord elles sont encore belles, d'accord
 Mais elles ont mal de ne pouvoir encore
 Etre avec Pablo et elles enragent
@@ -1804,11 +1804,11 @@ Pas les doigts comme en velours
 J'ai pas de faux airs d'Iglesias
 J'ai toujours su garder ma place 
 
-{ns}
-{t: Papa pique}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque 4 }
-{c:2}
+{New_Song}
+{Title: Papa pique}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque 4 }
+{Columns:2}
 
 
 [Ré(V)x4]Quand j'étais enfant mon [Mi9(VI)x4]père
@@ -1834,7 +1834,7 @@ Papa, si tu la rasais pas
 On te la piquerait pas
 
 
-{colb}
+{Column_break}
 
 
 La nuit, papa était résistant
@@ -1867,10 +1867,10 @@ Tu piques papa
 Papa tu ne la rasas pas
 Et je m'en pique papa 
 
-{ns}
-{t: Pimprenelle}
-{st: Paroles et musique : Gilles Maire}
-{c: 2}
+{New_Song}
+{Title: Pimprenelle}
+{SubTitle: Paroles et musique : Gilles Maire}
+{Columns: 2}
 
 C'est [Solm]quand on pense à [Ré7(V)]rien
 Que [Solm]tout ça nous re[Domx2]vient
@@ -1881,10 +1881,10 @@ Mais [Solmx2]rue des Écoliers
 Je [La#]t'ai revu sou[La(V)]rire
 Dans un [Ré7(V)]vieux souvenir[Solm]
 
-{soc}
+start_of_chorus
 [Dom]          [Solm]         [La(V)]             [Do7(III)x2]
 [Dom]          [Solm]         [Do7(III)]           [Solmx2]
-{eoc}
+end_of_chorus
 
 Ma pauvre Pimprenelle
 Enrobée de flanelle
@@ -1895,7 +1895,7 @@ J'aimais tant ton haleine
 Je t'ai revenu sourire
 Dans un vieux souvenir
 
-{colb}
+{Column_break}
 
 Et puis quand tout va bien
 On siffle un air de rien 
@@ -1924,10 +1924,10 @@ Tu portais un colliers
 Un collier de sourires
 Pour mes vieux souvenirs.
 
-{ns}
-{t: Tango à Jehro}
-{st: Paroles : Gilles Maire - Musique : Geoffray Milleret}
-{st: Disque Bologne }
+{New_Song}
+{Title: Tango à Jehro}
+{SubTitle: Paroles : Gilles Maire - Musique : Geoffray Milleret}
+{SubTitle: Disque Bologne }
 
 Ce que je [Mim(VII)x4]suis n'a plus beaucoup d'impor[Sol(III)x4]tance
 Que je vive au Pé[Six4]rou, au Brésil, ou en [Mim(VII)x4]France,
@@ -1966,10 +1966,10 @@ Et si vous entendez chanter ce poème
 Venez, ne venez pas, je serai là quand même. 
 
 
-{ns}
-{t: Toulouse}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque Toulouse}
+{New_Song}
+{Title: Toulouse}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque Toulouse}
 
 [Sol(III)]Ça fait trente ans de [Fa#]toi que j'ai [Mi°7(VI)]pris mon [Si7(VI)]envol
 En [La7(IV)]gare de Mata[Mim6(IV)]biau dans un train [Fa#°7(VIII)]Capi[Mim(VII)x2]tole
@@ -2006,11 +2006,11 @@ Revoir fleurir encore ses vieux rêves d'antan
 Je suis parti c'est vrai, mais je n'ai rien quitté
 Nos souvenirs la belle m'ont toujours habité. 
 
-{ns}
-{t: Ulysse}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque 4}
-{c: 2}
+{New_Song}
+{Title: Ulysse}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque 4}
+{Columns: 2}
 
 [Rém(V)x3]De retour en terre d'[La7(V)x6]Ithaque
 La terre où jadis il rê[Rém(V)x6]va
@@ -2028,7 +2028,7 @@ De retour au pays des [Rém(V)x6]siens
 De ne trouver des yeux qui [Do7(III)x6]puissent
 Accueillir l'homme qui re[Rém(V)x6]vient
 
-{colb}
+{Column_break}
 
 
 Arpentant des terres lointaines
@@ -2049,11 +2049,11 @@ Qu'on aima jadis comme un fou
 Courtisé par ces jeunes loups
 Ça rend les années plus cruelles 
 
-{ns}
-{t: Une histoire assez ancienne}
-{st: Paroles et musiques : Gilles Maire}
-{st: Disque La Caulaincourt }
-{c:2}
+{New_Song}
+{Title: Une histoire assez ancienne}
+{SubTitle: Paroles et musiques : Gilles Maire}
+{SubTitle: Disque La Caulaincourt }
+{Columns:2}
 
 C'est [Famx2]une histoire assez an[Sibmx2]cienne,
 Du temps [Do7(III)x2]où j'étais mar[Famx4]mot,
@@ -2072,7 +2072,7 @@ Refrain :
 Jo que se[Sibmx2]rei Troba[Do7(III)x4]dor
 Per trobar un drin d'a[Famx2]mor »
 
-{colb}
+{Column_break}
 
 La mode n'était cette année-là,
 Pas aux cancres, pas aux nigauds,
@@ -2099,11 +2099,11 @@ N'a qu'une guitare et qu'un micro
 Mais encore dans sa mémoire,
 Ses premiers amours de minot. 
 
-{ns}
-{t: Un jour}
-{st: Paroles et musique : Gilles Maire}
-{st: Disque Toulouse}
-{c:2}
+{New_Song}
+{Title: Un jour}
+{SubTitle: Paroles et musique : Gilles Maire}
+{SubTitle: Disque Toulouse}
+{Columns:2}
 
 
 Un [Rém(V)x2]jour
@@ -2130,7 +2130,7 @@ Comme [Do7(III)]on pardonne à ceux qu'on [Fa]aime
 Peut-[Rém(V)]être même tu compren[Solm]dras
 Ma [Do7(III)]vie, un coup je fuis, un coup je [La7(V)]t'ai[Rém(V)]me
 
-{colb}
+{Column_break}
 
 
 Ce soir
