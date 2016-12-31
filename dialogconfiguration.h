@@ -18,6 +18,7 @@ public:
 private slots:
     void Save();
     void SelectLanguage(int i);
+    void SetPDFReader();
 private:
     Ui::DialogConfiguration *ui;
     QWidget *m_parent;
@@ -25,6 +26,7 @@ private:
     void Retranslate(int i);
 signals:
     void LanguageChanged(int i);
+    void PdfReaderChanged();
 };
 
 #endif // DIALOGCONFIGURATION_H

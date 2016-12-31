@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QLineEdit>
 #include <QTranslator>
+#include <QFileDialog>
 
 DialogConfiguration::DialogConfiguration(QWidget *parent) :
     QDialog(parent),
@@ -14,10 +15,17 @@ DialogConfiguration::DialogConfiguration(QWidget *parent) :
     m_parent=parent;
     connect(ui->pushButtonClose,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect(ui->pushButtonSave,SIGNAL(clicked(bool)),this,SLOT(Save()));
+    connect(ui->toolButtonPDFReaderName,SIGNAL(clicked(bool)),this,SLOT(SetPDFReader()));
     Connect();
     InitSettings();
 }
 
+void DialogConfiguration::SetPDFReader()
+{
+    QString pdfreader=QFileDialog::getOpenFileName(this,tr("Choose PDF Reader program"),"/");
+    ui->lineEditPDFReaderName->setText(pdfreader);
+    emit PdfReaderChanged();
+}
 
 void DialogConfiguration::Connect()
 {
@@ -65,6 +73,7 @@ void DialogConfiguration::InitSettings()
     ui->comboBoxInterfaceLanguage->setCurrentIndex(s.value("InterfaceLanguage",0).toInt());
     ui->comboBoxUnit->setCurrentText(s.value("Unit","mm").toString());
     ui->lineEditCreatoName->setText(s.value("CreatorName","").toString());
+    ui->lineEditPDFReaderName->setText(s.value("PDFReader","").toString());
 }
 
 void DialogConfiguration::Save()
@@ -73,6 +82,7 @@ void DialogConfiguration::Save()
    s.setValue("InterfaceLanguage",ui->comboBoxInterfaceLanguage->currentIndex());
    s.setValue("Unit",ui->comboBoxUnit->currentText());
    s.setValue("CreatorName",ui->lineEditCreatoName->text());
+   s.setValue("PDFReader",ui->lineEditPDFReaderName->text());
    ui->memoryConfig->Save(s.fileName(),FormConfig::Memory);
    ui->chordConfig->Save(s.fileName(),FormConfig::Chord);
    ui->textConfig->Save(s.fileName(),FormConfig::Text);

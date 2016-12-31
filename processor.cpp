@@ -152,7 +152,7 @@ openExistingFile();
 addFooter();
 makePageNumber();
 savemem();
-emit PDFMade(tr("Conversion done for : %1").arg(m_file));
+emit PDFMade(m_file);
 }
 
 Processor::~Processor()

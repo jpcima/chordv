@@ -48,6 +48,7 @@ private:
     QString getRelativeFilename(QString chofilename);
     void ActualizeProject(QString file);
     bool SaveCho3(QString file);
+    QString m_pdffilename;
 public slots:
     void ChangeLanguage(int );
 private slots:
@@ -72,6 +73,9 @@ private slots:
     void CurrentAsDefault();
     void Info(QString info);
 
+    void ProducePDFAndShow();
+    void PDFReaderChanged();
+    void ConversionDone(QString filename);
 };
 
 #endif // MAINWINDOW_H

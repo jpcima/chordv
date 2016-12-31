@@ -12,6 +12,7 @@
 #include <QSettings>
 #include <QFileInfo>
 #include <QTranslator>
+#include <QProcess>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -203,10 +204,11 @@ void MainWindow::InitProject()
 
 void MainWindow::openChoFile( QString filename)
 {
+    QSettings s;
     QFile file(filename);
     ui->textEditCho3File->clear();
     ui->pushButtonMakePDF->setDisabled(true);
-    ui->pushButtonMakeAndShowPDF->setDisabled(true);
+    if ( ! s.value("PDFReader").isNull() ) ui->pushButtonMakeAndShowPDF->setDisabled(true);
     if ( filename.isEmpty()) return;
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(filename)));
     else
@@ -348,10 +350,29 @@ void MainWindow::ProducePDF()
   {
       ProcessorText *p;
       p= new ProcessorText(ui,ui->widgetTextMode->getUi());
-      connect(p,SIGNAL(PDFMade(QString)),this, SLOT(Info(QString)));
+      connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
       p->run() ;
       p->deleteLater();
   }
+}
+
+
+void MainWindow::ConversionDone( QString filename)
+{
+    m_pdffilename=filename;
+    Info(tr("Conversion done for : %1").arg(filename));
+}
+
+void MainWindow::ProducePDFAndShow()
+{
+   ProducePDF();
+   QSettings s;
+   QProcess *myprocess = new QProcess(this);
+   QStringList arg;
+   arg<<m_pdffilename;
+   qDebug()<<s.value("PDFReader").toString()<<arg;
+   myprocess->start(s.value("PDFReader").toString(),arg);
+
 }
 
 void MainWindow::Info(QString info)
@@ -367,10 +388,17 @@ void MainWindow::About()
 }
 
 
+void MainWindow::PDFReaderChanged()
+{
+    QSettings s;
+    ui->pushButtonMakeAndShowPDF->setEnabled( ! ui->textEditCho3File->toPlainText().isNull() && ! s.value("PDFReader").isNull());
+}
+
 void MainWindow::Configuration()
 {
     DialogConfiguration * dial = new DialogConfiguration(this);
     connect ( dial,SIGNAL(LanguageChanged(int)),this,SLOT(ChangeLanguage(int)));
+    connect ( dial,SIGNAL(PdfReaderChanged()),this,SLOT(PDFReaderChanged()));
     dial->exec();
     delete dial;
 }

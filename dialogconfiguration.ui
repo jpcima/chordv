@@ -88,6 +88,27 @@
                 </layout>
                </item>
                <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <item>
+                  <widget class="QLabel" name="labelPDFReaderName">
+                   <property name="text">
+                    <string>PDF Reader program</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEditPDFReaderName"/>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="toolButtonPDFReaderName">
+                   <property name="text">
+                    <string>...</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
                   <widget class="QLabel" name="labelCreatorName">
@@ -102,6 +123,9 @@
                 </layout>
                </item>
               </layout>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEditCreatoName_2"/>
              </item>
              <item>
               <spacer name="verticalSpacer">
