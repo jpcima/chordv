@@ -234,7 +234,7 @@ void MainWindow::openChoFile( QString filename)
         textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
         ui->textEditCho3File->setTextCursor(textCursor);
         m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
-        ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:"));
+        ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
     }
 }
 
