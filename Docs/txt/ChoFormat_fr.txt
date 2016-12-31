@@ -1,0 +1,207 @@
+Le format cho
+==============
+:toc:
+:homepage: http://www.gillesmaire.com
+
+Titres
+------
+
+Titre du document
+~~~~~~~~~~~~~~~~~
+
+[Source]
+----
+{covertitle: titre }
+----
+
+Fournit le titre du document
+Un seul titre par document
+
+La notation abrégée est {ct: titre }
+
+
+Sous titre du document
+~~~~~~~~~~~~~~~~~~~~~~
+
+[Source]
+----
+{coversubtitle: sous titre}
+----
+
+Fournit le sous titre du document, c'est à dire un texte accompagnant le titre
+Un seul sous titre par document
+
+
+La notation abrégée est {cs: titre }
+
+Titre d'une chanson
+~~~~~~~~~~~~~~~~~~~~
+
+[Source]
+----
+{title: titre de la chanson}
+----
+
+
+C'est le titre d'une chanson. On trouve autant de rubriques title que de chansons
+dans le document. On ne peut avoir qu'un seul titre par chanson. Si on définit deux
+titres consécutif on provoque un saut de page avec une chanson vide pour la première.
+
+
+La notation abrégée est {t: titre }
+
+Sous titre d'une chanson
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+[Source]
+----
+{subtitle: sous titre d'une chanson }
+----
+
+
+C'est un sous titre, accompagnant la chanson. On peut fournir plusieurs sous titres
+qui seront séparés par des sauts de ligne.
+
+On peut trouver les noms des auteurs, des compositeurs ou des interprètes dans cette
+catégorie.
+
+La notation abrégée est {st: titre }
+
+Sauts
+-----
+
+Nombre de colonnes pour la chanson
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[Source]
+----
+{columns:2}
+----
+
+
+Permet de définir le nombre de colonnes d'impression de la chanson
+
+Saut de colonne
+~~~~~~~~~~~~~~~
+
+[Source]
+----
+{column_break}
+----
+
+
+Provoque la génération d'une nouvelle colonne. 
+
+La notation abrégée est {colb}
+
+
+Nouvelle chanson
+~~~~~~~~~~~~~~~~
+
+[Source]
+----
+{new_song}
+----
+
+
+Reconnu mais pas utilisé, cette balise sert pour la compatibilité avec
+d'autres implémentations du forma cho
+
+La notation abrégée est {ns}
+
+Diminution de l'interlignage
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+[Source]
+----
+{compress}
+----
+
+
+Si une chanson ne rentre pas tout à fait dans une page, on peut activer le mode
+compress qui réduira l'interlignage de la chanson à partir du moment ou l'argument
+est rencontré
+
+Sections
+--------
+
+Début de chorus
+~~~~~~~~~~~~~~~
+
+
+[Source]
+----
+{start_of_chorus}
+----
+
+Indique le début d'un chorus.
+
+La notation abrégée est soc
+
+Fin du chorus
+~~~~~~~~~~~~~
+
+[Source]
+----
+{end_of_chorus}
+----
+
+Indique la fin du chorus
+
+Lanotation abrégée est eoc
+
+Refrain 
+~~~~~~~
+[Source]
+----
+{Refrain}
+----
+
+Indique le refrain
+
+
+Les accords
+-----------
+
+Notation de base 
+~~~~~~~~~~~~~~~~
+
+- En format anglais (si le format est configuré en anglais) on suit la notation ABCDEFG
+
+[Source]
+----
+[A] 
+----
+
+- En format français (s'il est configuré comme tel), on suit la notation La Si Do Ré Mi Fa Sol
+
+[Source]
+----
+[La] 
+----
+
+- Le mode mineur est noté - si les accords sont en anglais et m s'ils sont en français
+- Les mode 7 6 5 13 etc sont noté en chiffre
+
+Notation étendue 
+~~~~~~~~~~~~~~~~
+
+- barrés son notés en chiffre romain avec la case du barré  :
+
+[Source]
+----
+[La(V)] 
+----
+
+
+Extention du temps 
+~~~~~~~~~~~~~~~~~~
+
+x numéo indique le nombre de temps de l'accord
+
+[Source]
+----
+[La(V)x3]
+----
+
+

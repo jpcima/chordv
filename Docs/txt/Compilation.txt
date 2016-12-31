@@ -1,38 +1,52 @@
-# Compilation installation
+Chord V Compilation documentation
+==================================
+:toc:
+:homepage: http://www.gillesmaire.com
 
-## Podofo library installation 9.8
 
-### Linux Debian
+Compilation installation
+--------------------------
+
+Podofo library installation 9.8
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Linux Debian
+^^^^^^^^^^^^
 
 
 - In a shell script
-
-~~~bash
+[Source,bash]
+----
 sudo apt-get install libpodofo-dev
-~~~
-- In the pro file add
+----
 
-~~~
+- In the pro file add
+[Source,pro]
+----
 LIBS +=
 INCLUDEPATH +=
 DEPENDPATH +=
-~~~
+----
 
 
-### Podofo compilation from sources
+Podofo compilation from sources
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-### Install dependancies
+Install dependancies
+^^^^^^^^^^^^^^^^^^^^
 
-~~~bash
+[Source,bash]
+----
 sudo apt-get install -y subversion cmake
 sudo apt-get install -y libz-dev libfreetype6-dev libfontconfig1-dev libjpeg-dev libssl-dev libcrypto++9v5-dev libtiff5-dev
 sudo apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev
-~~~
+----
 
-### Compilation
+Compilation
+^^^^^^^^^^^^
 
-
-~~~bash
+[Source,bash]
+----
 svn co http://svn.code.sf.net/p/podofo/code/podofo/trunk podofo
 mkdir podofo-build
 cd podofo-build
@@ -40,12 +54,14 @@ cmake ../podofo
 make
 su
 make install
-~~~
+----
 
-### add in pro file
+add in pro file
+^^^^^^^^^^^^^^^
 
-~~~ini
+[Source,ini]
+----
 LIBS += -L/usr/local/lib -lpodofo -lz -lfreetype -lfontconfig -lidn -ljpeg -lcrypto -lssl
 INCLUDEPATH += /usr/local/include
 DEPENDPATH += /usr/local/include
-~~~
+----

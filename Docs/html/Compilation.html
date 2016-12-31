@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 <meta name="generator" content="AsciiDoc 8.6.9" />
-<title></title>
+<title>Chord V Compilation documentation</title>
 <style type="text/css">
 /* Shared CSS for AsciiDoc xhtml11 and html5 backends */
 
@@ -727,17 +727,26 @@ install: function(toclevels) {
 }
 
 }
-asciidoc.install();
+asciidoc.install(2);
 /*]]>*/
 </script>
 </head>
 <body class="article">
 <div id="header">
+<h1>Chord V Compilation documentation</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
 </div>
 <div id="content">
-<div class="paragraph"><p># Compilation installation</p></div>
-<div class="paragraph"><p>## Podofo library installation 9.8</p></div>
-<div class="paragraph"><p># Linux Debian</p></div>
+<div class="sect1">
+<h2 id="_compilation_installation">Compilation installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_podofo_library_installation_9_8">Podofo library installation 9.8</h3>
+<div class="sect3">
+<h4 id="_linux_debian">Linux Debian</h4>
 <div class="ulist"><ul>
 <li>
 <p>
@@ -745,44 +754,67 @@ In a shell script
 </p>
 </li>
 </ul></div>
-<div class="paragraph"><p><sub>~</sub>bash
-sudo apt-get install libpodofo-dev
-<sub>~</sub>
-- In the pro file add</p></div>
-<div class="paragraph"><p><sub>~</sub>
-LIBS +=
+<div class="listingblock">
+<div class="content">
+<pre><code>sudo apt-get install libpodofo-dev</code></pre>
+</div></div>
+<div class="ulist"><ul>
+<li>
+<p>
+In the pro file add
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>LIBS +=
 INCLUDEPATH +=
-DEPENDPATH +=
-<sub>~</sub></p></div>
-<div class="paragraph"><p># Podofo compilation from sources</p></div>
-<div class="paragraph"><p># Install dependancies</p></div>
-<div class="paragraph"><p><sub>~</sub>bash
-sudo apt-get install -y subversion cmake
+DEPENDPATH +=</code></pre>
+</div></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_podofo_compilation_from_sources">Podofo compilation from sources</h3>
+<div class="sect3">
+<h4 id="_install_dependancies">Install dependancies</h4>
+<div class="listingblock">
+<div class="content">
+<pre><code>sudo apt-get install -y subversion cmake
 sudo apt-get install -y libz-dev libfreetype6-dev libfontconfig1-dev libjpeg-dev libssl-dev libcrypto++9v5-dev libtiff5-dev
-sudo apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev
-<sub>~</sub></p></div>
-<div class="paragraph"><p># Compilation</p></div>
-<div class="paragraph"><p><sub>~</sub>bash
-svn co <a href="http://svn.code.sf.net/p/podofo/code/podofo/trunk">http://svn.code.sf.net/p/podofo/code/podofo/trunk</a> podofo
+sudo apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_compilation">Compilation</h4>
+<div class="listingblock">
+<div class="content">
+<pre><code>svn co http://svn.code.sf.net/p/podofo/code/podofo/trunk podofo
 mkdir podofo-build
 cd podofo-build
 cmake ../podofo
 make
 su
-make install
-<sub>~</sub></p></div>
-<div class="paragraph"><p># add in pro file</p></div>
-<div class="paragraph"><p><sub>~</sub>ini
-LIBS += -L/usr/local/lib -lpodofo -lz -lfreetype -lfontconfig -lidn -ljpeg -lcrypto -lssl
+make install</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_add_in_pro_file">add in pro file</h4>
+<div class="listingblock">
+<div class="content">
+<pre><code>LIBS += -L/usr/local/lib -lpodofo -lz -lfreetype -lfontconfig -lidn -ljpeg -lcrypto -lssl
 INCLUDEPATH += /usr/local/include
-DEPENDPATH += /usr/local/include
-<sub>~</sub></p></div>
+DEPENDPATH += /usr/local/include</code></pre>
+</div></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footnotes"><hr /></div>
 <div id="footer">
 <div id="footer-text">
 Last updated
- 2016-10-04 15:46:06 CEST
+ 2016-12-31 06:12:04 CET
 </div>
 </div>
 </body>

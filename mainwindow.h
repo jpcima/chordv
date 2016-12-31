@@ -5,6 +5,7 @@
 #include <QMenu>
 #include "editorhighlighter.h"
 #include <QTranslator>
+#include <QToolButton>
 
 namespace Ui {
 class MainWindow;
@@ -49,6 +50,9 @@ private:
     void ActualizeProject(QString file);
     bool SaveCho3(QString file);
     QString m_pdffilename;
+    void ReplaceLongShort(QString a, QString b);
+    QString m_buffreplace;
+    void GenericInsert(QToolButton *w, QString token, QString label1, QString label2);
 public slots:
     void ChangeLanguage(int );
 private slots:
@@ -76,6 +80,17 @@ private slots:
     void ProducePDFAndShow();
     void PDFReaderChanged();
     void ConversionDone(QString filename);
+    void InsertT();
+    void ToogleLongShort();
+    void InsertST();
+    void InsertCol();
+    void InsertCompress();
+    void InsertCS();
+    void InsertCT();
+    void InsertEOC();
+    void InsertSOC();
+    void InsertRef();
+    void InsertCB();
 };
 
 #endif // MAINWINDOW_H

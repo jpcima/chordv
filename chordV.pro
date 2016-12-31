@@ -88,7 +88,9 @@ DISTFILES += \
 	Docs/txt/Makefile \
     Docs/txt/index.txt \
     Test/data/Makefile \
-    Test/Docs/txt/Makefile
+    Test/Docs/txt/Makefile \
+    Docs/txt/ChoFormat_en.txt \
+    Docs/txt/ChoFormat_fr.txt
 
 RESOURCES += \
     resources.qrc
