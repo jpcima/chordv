@@ -111,9 +111,9 @@ void Neck::DrawNotes()
             DrawNoNote(-10,height()/6*string+center)  ;
         }
         if ( m_strings[string] == 0 )
-            m_scene->addEllipse(-13,height()/6*string,sizesmallpoint,sizesmallpoint,QPen(),QBrush(QColor(Qt::green)) );
+            m_scene->addEllipse(-13,height()/6*string+center-sizesmallpoint/2,sizesmallpoint,sizesmallpoint,QPen(),QBrush(QColor(Qt::green)) );
         else
-           m_scene->addEllipse((width()/22)*m_strings[string]-sizepoint,height()/6*string,sizepoint,sizepoint,QPen(),QBrush(QColor(Qt::green)) );
+           m_scene->addEllipse((width()/22)*m_strings[string]-sizepoint,height()/6*string+center-sizepoint/2,sizepoint,sizepoint,QPen(),QBrush(QColor(Qt::green)) );
     }
 }
 
