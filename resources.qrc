@@ -4,5 +4,6 @@
     </qresource>
     <qresource prefix="/Image">
         <file>Images/icon.png</file>
+        <file>Images/neck.jpg</file>
     </qresource>
 </RCC>

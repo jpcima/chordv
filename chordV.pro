@@ -37,7 +37,8 @@ SOURCES += main.cpp\
     settings.cpp \
     processortext.cpp \
     verticalspacing.cpp \
-    dialogchorddefinition.cpp
+    dialogchorddefinition.cpp \
+    neck.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -64,7 +65,8 @@ HEADERS  += mainwindow.h \
     processortext.h \
     const.h \
     verticalspacing.h \
-    dialogchorddefinition.h
+    dialogchorddefinition.h \
+    neck.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QHash>
+#include <QGraphicsScene>
 
 namespace Ui {
 class DialogChordDefinition;

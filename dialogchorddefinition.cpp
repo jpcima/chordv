@@ -6,6 +6,9 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     ui(new Ui::DialogChordDefinition)
 {
     ui->setupUi(this);
+    InitialSetup();
+    connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
+    connect ( ui->pushButtonSave,SIGNAL(clicked(bool)),this,SLOT(save()));
 }
 
 DialogChordDefinition::~DialogChordDefinition()
