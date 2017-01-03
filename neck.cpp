@@ -18,6 +18,9 @@ Neck::Neck(QWidget *parent) : QGraphicsView(parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff );
     setFrameStyle(0);
     for ( int string=0; string <=5; string ++) m_strings[string]=-1;
+    m_notes<<"C"<<"C#"<<"Db"<<"D"<<"D#"<<"Eb"<<"E"<<"F"<<"F#"<<"Gb"<<"G"<<"G#"<<"Ab"<<"A"<<"A#"<<"Bb"<<"B";
+    int i=0;
+    foreach ( QString note, m_notes) m_notevalues[note]=i++;
 }
 
 void Neck::mousePressEvent(QMouseEvent *event)
@@ -45,6 +48,7 @@ void Neck::DrawNeck()
     for ( int fret=0;  fret < 22; fret++) DrawFret(fret);
     DrawStrings();
     DrawNotes();
+   // getNotes();
 }
 
 void Neck::DrawFret ( int fret  )
@@ -123,5 +127,26 @@ void Neck::DrawNoNote( int x, int y)
     int size=3;
      m_scene->addLine(x-size,y-size, x+size,y+size ,QPen(QColor(Qt::red))) ;
      m_scene->addLine(x-size,y+size, x+size,y-size ,QPen(QColor(Qt::red))) ;
+}
+
+QString Neck::String2Note ( int string, int fret )
+{
+    //switch ( string  )
+    //case 1 :
+
+
+}
+
+QString Neck::getNotes()
+{
+   QString ret;
+   for ( int i=0; i<6; i++)
+       ret+=String2Note( i, m_strings[i]);
+   return ret;
+
+}
+
+QString Neck::NotesToChord()
+{
 
 }

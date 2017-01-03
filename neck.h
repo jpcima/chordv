@@ -24,6 +24,12 @@ private:
     void mousePressEvent(QMouseEvent *event);
     void DrawNotes();
     void DrawNoNote(int x,int y);
+    QString String2Note(int string, int fret);
+    QString NotesToChord();
+    QString getNotes();
+    QStringList m_notes;
+    QHash <QString,int> m_notevalues;
+    QStringList m_value2note;
 };
 
 #endif // NECK_H
