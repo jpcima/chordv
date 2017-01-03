@@ -1,5 +1,6 @@
 #include "neck.h"
 #include <QDebug>
+#include <QMouseEvent>
 
 
 Neck::Neck(QWidget *parent) : QGraphicsView(parent)
@@ -16,14 +17,25 @@ Neck::Neck(QWidget *parent) : QGraphicsView(parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff );
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff );
     setFrameStyle(0);
+    for ( int string=0; string <=5; string ++) m_strings[string]=-1;
 }
 
-
+void Neck::mousePressEvent(QMouseEvent *event)
+{
+    if ( event->button()==Qt::LeftButton )
+    {
+        QPointF point=this->mapToScene(event->pos());
+        int string=(int)(point.y()*6/height()+1);
+        int fret=(int)(point.x()*23/width()+1);
+        if ( m_strings[string-1] == 0 ) m_strings[string-1]=-1;
+        else m_strings[string-1]=fret;
+        DrawNeck();
+    }
+}
 
 void Neck::resizeEvent(QResizeEvent *)
 {
    DrawNeck();
-   qDebug()<<width()<<height()<<m_scene->width()<<m_scene->width();
 }
 
 void Neck::DrawNeck()
@@ -32,6 +44,7 @@ void Neck::DrawNeck()
     m_scene->addRect(0,0,width(),height(),m_woodpen,m_woodbrush);
     for ( int fret=0;  fret < 22; fret++) DrawFret(fret);
     DrawStrings();
+    DrawNotes();
 }
 
 void Neck::DrawFret ( int fret  )
@@ -74,13 +87,41 @@ void Neck::SizeString( int string)
 
 void Neck::DrawCircle(int fret)
 {
-    if ( fret == 3 || fret == 5 || fret == 7 || fret == 9 || fret == 15   || fret == 17|| fret == 19 )
+    if ( fret == 3 ||  fret == 5 || fret == 7 || fret == 9 || fret == 15   || fret == 17|| fret == 19 )
     {
-        m_scene->addEllipse((width()/22)*fret+ width()/44-7,height()/2-7,14,14,QPen(),QBrush(QColor(Qt::white)) );
+        m_scene->addEllipse((width()/22)*fret- width()/44-7,height()/2-7,14,14,QPen(),QBrush(QColor(Qt::white)) );
     }
     else if ( fret == 12 )
     {
-        m_scene->addEllipse((width()/22)*fret+ width()/44-7,height()/4-7,14,14,QPen(),QBrush(QColor(Qt::white)) );
-        m_scene->addEllipse((width()/22)*fret+ width()/44-7,height()*3/4-7,14,14,QPen(),QBrush(QColor(Qt::white)) );
+        m_scene->addEllipse((width()/22)*fret- width()/44-7,height()/4-7,14,14,QPen(),QBrush(QColor(Qt::white)) );
+        m_scene->addEllipse((width()/22)*fret- width()/44-7,height()*3/4-7,14,14,QPen(),QBrush(QColor(Qt::white)) );
     }
+}
+
+
+void Neck::DrawNotes()
+{
+    int sizepoint=17;
+    int sizesmallpoint=13;
+    int center=(height())/12;
+    for ( int string =0; string <6; string ++)
+    {
+        if ( m_strings[string]== -1 )
+        {
+            DrawNoNote(-10,height()/6*string+center)  ;
+        }
+        if ( m_strings[string] == 0 )
+            m_scene->addEllipse(-13,height()/6*string,sizesmallpoint,sizesmallpoint,QPen(),QBrush(QColor(Qt::green)) );
+        else
+           m_scene->addEllipse((width()/22)*m_strings[string]-sizepoint,height()/6*string,sizepoint,sizepoint,QPen(),QBrush(QColor(Qt::green)) );
+    }
+}
+
+
+void Neck::DrawNoNote( int x, int y)
+{
+    int size=3;
+     m_scene->addLine(x-size,y-size, x+size,y+size ,QPen(QColor(Qt::red))) ;
+     m_scene->addLine(x-size,y+size, x+size,y-size ,QPen(QColor(Qt::red))) ;
+
 }

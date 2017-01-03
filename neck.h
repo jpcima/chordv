@@ -17,9 +17,13 @@ private:
     QPen m_fretpen;
     QPen m_woodpen;
     QPen m_stringpen;
+    int m_strings[5];
     void DrawStrings();
     void SizeString(int string);
     void DrawCircle(int fret);
+    void mousePressEvent(QMouseEvent *event);
+    void DrawNotes();
+    void DrawNoNote(int x,int y);
 };
 
 #endif // NECK_H
