@@ -17,10 +17,12 @@ Neck::Neck(QWidget *parent) : QGraphicsView(parent)
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff );
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff );
     setFrameStyle(0);
-    for ( int string=0; string <=5; string ++) m_strings[string]=-1;
+    for ( int string=0; string <=5; string ++) m_chord[string]=-1;
+    m_necknotes<<"C"<<"C#"<<"D"<<"D#"<<"E"<<"F"<<"F#"<<"G"<<"G#"<<"A"<<"A#"<<"B";
     m_notes<<"C"<<"C#"<<"Db"<<"D"<<"D#"<<"Eb"<<"E"<<"F"<<"F#"<<"Gb"<<"G"<<"G#"<<"Ab"<<"A"<<"A#"<<"Bb"<<"B";
     int i=0;
-    foreach ( QString note, m_notes) m_notevalues[note]=i++;
+    foreach ( QString note, m_notes) m_notevalues[note]=m_values[i++];
+
 }
 
 void Neck::mousePressEvent(QMouseEvent *event)
@@ -30,8 +32,8 @@ void Neck::mousePressEvent(QMouseEvent *event)
         QPointF point=this->mapToScene(event->pos());
         int string=(int)(point.y()*6/height()+1);
         int fret=(int)(point.x()*23/width()+1);
-        if ( m_strings[string-1] == 0 ) m_strings[string-1]=-1;
-        else m_strings[string-1]=fret;
+        if ( m_chord[string-1] == 0 ) m_chord[string-1]=-1;
+        else m_chord[string-1]=fret;
         DrawNeck();
     }
 }
@@ -48,7 +50,7 @@ void Neck::DrawNeck()
     for ( int fret=0;  fret < 22; fret++) DrawFret(fret);
     DrawStrings();
     DrawNotes();
-   // getNotes();
+    qDebug()<<getNotes();
 }
 
 void Neck::DrawFret ( int fret  )
@@ -110,14 +112,14 @@ void Neck::DrawNotes()
     int center=(height())/12;
     for ( int string =0; string <6; string ++)
     {
-        if ( m_strings[string]== -1 )
+        if ( m_chord[string]== -1 )
         {
             DrawNoNote(-10,height()/6*string+center)  ;
         }
-        if ( m_strings[string] == 0 )
+        if ( m_chord[string] == 0 )
             m_scene->addEllipse(-13,height()/6*string+center-sizesmallpoint/2,sizesmallpoint,sizesmallpoint,QPen(),QBrush(QColor(Qt::green)) );
         else
-           m_scene->addEllipse((width()/22)*m_strings[string]-sizepoint,height()/6*string+center-sizepoint/2,sizepoint,sizepoint,QPen(),QBrush(QColor(Qt::green)) );
+           m_scene->addEllipse((width()/22)*m_chord[string]-sizepoint,height()/6*string+center-sizepoint/2,sizepoint,sizepoint,QPen(),QBrush(QColor(Qt::green)) );
     }
 }
 
@@ -131,18 +133,22 @@ void Neck::DrawNoNote( int x, int y)
 
 QString Neck::String2Note ( int string, int fret )
 {
-    //switch ( string  )
-    //case 1 :
-
-
+    if (fret == -1 ) return 0;
+    int note=m_strings[string];
+    note=(fret+note)%12;
+    return m_necknotes.at(note);
 }
 
-QString Neck::getNotes()
+QStringList Neck::getNotes()
 {
-   QString ret;
-   for ( int i=0; i<6; i++)
-       ret+=String2Note( i, m_strings[i]);
+   QStringList ret;
+   for ( int i=5; i>=0; i--)
+       ret<<String2Note( i, m_chord[i]);
    return ret;
+}
+
+QList<int> Neck::CalcChorInterval( QStringList chord)
+{
 
 }
 
