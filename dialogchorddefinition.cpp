@@ -9,6 +9,7 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     InitialSetup();
     connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect ( ui->pushButtonSave,SIGNAL(clicked(bool)),this,SLOT(save()));
+    connect ( ui->neck,SIGNAL(ChordDetected(QString)),this,SLOT(ShowChord(QString)));
 }
 
 DialogChordDefinition::~DialogChordDefinition()
@@ -16,6 +17,10 @@ DialogChordDefinition::~DialogChordDefinition()
     delete ui;
 }
 
+void DialogChordDefinition::ShowChord(QString chordname)
+{
+   ui->lineEditChord->setText(chordname);
+}
 
 void DialogChordDefinition::InitialSetup()
 {

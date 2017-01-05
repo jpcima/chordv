@@ -17,6 +17,8 @@ public:
     explicit DialogChordDefinition(QWidget *parent = 0);
     ~DialogChordDefinition();
 
+protected slots:
+    void ShowChord(QString chordname);
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;

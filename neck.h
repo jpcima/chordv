@@ -5,6 +5,7 @@
 
 class Neck : public QGraphicsView
 {
+    Q_OBJECT
 public:
     Neck(QWidget *parent);
 private:
@@ -31,14 +32,25 @@ private:
     /// \return  : the note in string format
     ///
     QString String2Note(int string, int fret);
-    QString NotesToChord();
+    ///
+    /// \brief NotesToChord convert a list of notes ("D","E","G" ) to chord name
+    /// \param Notes a list of note in form "C" "C#" "D" "D#" ... "B"
+    /// \return the chord in QString format
+    ///
+    QString NotesToChord(QStringList Notes);
+
+    ///
+    /// \brief getNotes return the list of 6 notes clicked on neck as QStringList form
+    /// Exemple : ("D",,"E",,,,) .
+    /// \return  a QStringList with "" for no note and note in form "C" "C#" "D" "D#" ... "B"
+    ///
     QStringList getNotes();
 
     ///
     /// \brief m_chord fret values on each chord
     /// chord is 0 x 2 3 3 2 ( 1 chord is high )
     ///
-    int m_chord[5];
+    int m_chord[6];
     ///
     /// \brief m_notes list of 17 notes  :  C C# Db D D# Eb E F F# Gb G G# Ab A A# Bb B
     ///                                     0 1  1  2 3  3  4 5 6  6  7 8  8  9 10 10 11
@@ -46,7 +58,10 @@ private:
     ///
     /// \brief m_values list of values for each 17 notes : 0 1 1 2 3 3 4 5 6 6 7 8 8 9 10 10 11
     ///
-    int m_values[17]= {0,1,1,2,3,3,4,5,6,6,7,8,9,10,10,11};
+    int m_values[17]= {0,1,1,2,3,3,4,5,6,6,7,8,8,9,10,10,11};
+    ///
+    /// \brief m_necknotes
+    ///
     QStringList m_necknotes;
     ///
     /// \brief m_notevalues m_notevalues["C#"] = 1 ...
@@ -58,7 +73,21 @@ private:
     int m_strings[6] ={4,11,7,2,9,4};
     QList <int>m_chordInterval ;
     QStringList m_chordNote;
-    QList<int> CalcChorInterval(QStringList chord);
+    QString chordQuality(int i);
+    ///
+    /// \brief EraseEmptyNote erase in QStringList with six chords, the unplayed chord
+    /// \param notes QStringList with several notes
+    /// \return  QStringList without any "" notes
+    ///
+    QStringList EraseEmptyNote(QStringList notes);
+    ///
+    /// \brief chordInterval return interval in string char. O is ommitted.
+    /// \param i : interval
+    /// \return  : the string value
+    ///
+    QString chordInterval(int i);
+signals:
+    void ChordDetected(QString chordname);
 };
 
 #endif // NECK_H

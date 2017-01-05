@@ -1,4 +1,5 @@
 #include "neck.h"
+#include "ChordDetector.h"
 #include <QDebug>
 #include <QMouseEvent>
 
@@ -18,11 +19,10 @@ Neck::Neck(QWidget *parent) : QGraphicsView(parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff );
     setFrameStyle(0);
     for ( int string=0; string <=5; string ++) m_chord[string]=-1;
-    m_necknotes<<"C"<<"C#"<<"D"<<"D#"<<"E"<<"F"<<"F#"<<"G"<<"G#"<<"A"<<"A#"<<"B";
+    m_necknotes<<"C"<<"Db"<<"D"<<"Eb"<<"E"<<"F"<<"F#"<<"G"<<"Ab"<<"A"<<"Bb"<<"B";
     m_notes<<"C"<<"C#"<<"Db"<<"D"<<"D#"<<"Eb"<<"E"<<"F"<<"F#"<<"Gb"<<"G"<<"G#"<<"Ab"<<"A"<<"A#"<<"Bb"<<"B";
     int i=0;
     foreach ( QString note, m_notes) m_notevalues[note]=m_values[i++];
-
 }
 
 void Neck::mousePressEvent(QMouseEvent *event)
@@ -50,7 +50,7 @@ void Neck::DrawNeck()
     for ( int fret=0;  fret < 22; fret++) DrawFret(fret);
     DrawStrings();
     DrawNotes();
-    qDebug()<<getNotes();
+    emit ChordDetected( NotesToChord(getNotes()));
 }
 
 void Neck::DrawFret ( int fret  )
@@ -147,12 +147,45 @@ QStringList Neck::getNotes()
    return ret;
 }
 
-QList<int> Neck::CalcChorInterval( QStringList chord)
-{
 
+QString Neck::NotesToChord( QStringList notes )
+{
+  notes=EraseEmptyNote(notes);
+  std::vector<double> chroma(12) ;
+  int i=0;
+  foreach  ( QString note, notes)
+  {
+    chroma[m_notevalues[note]]=1;
+  }
+  ChordDetector detect;
+  QList<int> chrom;
+  for ( int i=0;i< 12; i++) chrom<<chroma[i];
+  detect.detectChord(chroma);
+  return QString("%1%2%3").arg(m_necknotes[detect.rootNote]).arg(chordQuality(detect.quality)).arg(chordInterval(detect.intervals));
 }
 
-QString Neck::NotesToChord()
-{
 
+QString Neck::chordQuality( int i )
+{
+    if (i==0) return("m");
+    if (i==1) return("");
+    if (i==2) return("sus");
+    if (i==3) return("M");
+    if (i==4) return("dim");
+    if (i==5) return("aug");
+}
+
+QStringList Neck::EraseEmptyNote(QStringList notes)
+{
+    QStringList ret;
+    foreach ( QString note, notes)
+        if ( ! note.isEmpty()) ret<<note;
+    return ret;
+}
+
+QString Neck::chordInterval( int i)
+{
+  if ( i == 0 ) return "";
+  return QString("%1"
+                 "").arg(i)  ;
 }

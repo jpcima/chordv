@@ -29,7 +29,7 @@
          <item>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="Neck" name="graphicsView">
+            <widget class="Neck" name="neck">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                <horstretch>0</horstretch>
@@ -41,17 +41,17 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="labelChordName">
                <property name="text">
                 <string>Chord name</string>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox"/>
+              <widget class="QLineEdit" name="lineEditChord"/>
              </item>
              <item>
-              <widget class="QToolButton" name="toolButton">
+              <widget class="QToolButton" name="toolButtonPlus">
                <property name="font">
                 <font>
                  <pointsize>20</pointsize>
@@ -63,7 +63,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QToolButton" name="toolButton_2">
+              <widget class="QToolButton" name="toolButtonMinus">
                <property name="font">
                 <font>
                  <pointsize>20</pointsize>
@@ -75,7 +75,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QLabel" name="label_2">
+              <widget class="QLabel" name="labelChordsCount">
                <property name="text">
                 <string>0</string>
                </property>

@@ -38,6 +38,7 @@ SOURCES += main.cpp\
     processortext.cpp \
     verticalspacing.cpp \
     dialogchorddefinition.cpp \
+    ChordDetector.cpp\
     neck.cpp
 
 HEADERS  += mainwindow.h \
@@ -66,6 +67,7 @@ HEADERS  += mainwindow.h \
     const.h \
     verticalspacing.h \
     dialogchorddefinition.h \
+    ChordDetector.h \
     neck.h
 
 FORMS    += mainwindow.ui \
