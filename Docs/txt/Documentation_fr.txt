@@ -6,8 +6,8 @@ Chord documentation V utilisateur
 Introduction
 ------------
 
-- ChordV permet de produire différents types de fichiers PDF pour une chansons
-   - ** Texte: ** dans ce mode, les paroles seules apparaissent, sans aucune représentation d'accord
+- ChordV permet de produire différents types de fichiers PDF pour une chanson
+- ** Texte: ** dans ce mode, les paroles seules apparaissent, sans aucune représentation d'accord
    - ** Lyrics: ** dans ce mode, le texte et les accords sont affichés.
    - ** Accords: ** dans ce mode, les accords ne sont affichés. Il est utile pour les musiciens d'accompagnement.
    - ** Mémoire: ** dans ce mode, seul le début du texte sont affichés
