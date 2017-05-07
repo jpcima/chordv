@@ -11,6 +11,20 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = chordV
 TEMPLATE = app
 
+linux{
+target.path = /usr/bin
+INSTALLS += target
+VERSION=$$system(git tag -l | head -1)
+FULLVERSION=$$system(git log -1 --format=format:%H)
+DATEUS=$$system(date +%Y/%m/%d)
+system(/bin/echo -e \\\x23ifndef VERSION_H >version.h)
+system(/bin/echo -e \\\x23define VERSION_H>>version.h)
+system(/bin/echo -e \\\x23define VERSION \\\"$$VERSION\\\">>version.h)
+system(/bin/echo -e \\\x23define FULLVERSION \\\"$$FULLVERSION\\\" >>version.h)
+system(/bin/echo -e \\\x23define DATEFR \\\"$$DATEFR\\\" >>version.h)
+system(/bin/echo -e \\\x23define DATEUS \\\"$$DATEUS\\\" >> version.h)
+system(/bin/echo -e \\\x23endif // VERSION_H >>version.h)
+}
 
 SOURCES += main.cpp\
         mainwindow.cpp \
@@ -39,7 +53,8 @@ SOURCES += main.cpp\
     verticalspacing.cpp \
     dialogchorddefinition.cpp \
     ChordDetector.cpp\
-    neck.cpp
+    neck.cpp \
+    dialogsysteminfo.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -68,14 +83,16 @@ HEADERS  += mainwindow.h \
     verticalspacing.h \
     dialogchorddefinition.h \
     ChordDetector.h \
-    neck.h
+    neck.h \
+    dialogsysteminfo.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
     fontchooser.ui \
     dialogabout.ui \
     dialogconfiguration.ui \
-    dialogchorddefinition.ui
+    dialogchorddefinition.ui \
+    dialogsysteminfo.ui
 
 LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include

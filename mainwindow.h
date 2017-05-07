@@ -92,6 +92,7 @@ private slots:
     void InsertRef();
     void InsertCB();
     void ChordDefinition();
+    void SystemInfo();
 };
 
 #endif // MAINWINDOW_H

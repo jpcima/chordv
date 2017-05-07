@@ -3,6 +3,7 @@
 #include "dialogabout.h"
 #include "dialogconfiguration.h"
 #include "dialogchorddefinition.h"
+#include "dialogsysteminfo.h"
 #include "util.h"
 #include "processortext.h"
 #include "settings.h"
@@ -42,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionChord_defintion,SIGNAL(triggered(bool)),this,SLOT(ChordDefinition()));
     connect(ui->actionReset_Preference_as_origine,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
+    connect (ui->actionSystem_Info,SIGNAL(triggered(bool)),this,SLOT(SystemInfo()));
     connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
     connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
@@ -546,4 +548,11 @@ void MainWindow::ToogleLongShort()
     ReplaceLongShort("{eoc}","end_of_chorus");
 
     ui->textEditCho3File->setText(m_buffreplace);
+}
+
+
+void MainWindow::SystemInfo()
+{
+    DialogSystemInfo dial(this);
+    dial.exec();
 }

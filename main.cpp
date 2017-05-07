@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setOrganizationName("IGNU");
     a.setApplicationName("ChordV");
+    a.setApplicationVersion("");
 //    a.setOrganizationDomain("ignu.com");
     QTranslator *tr=0;
     QSettings s;
