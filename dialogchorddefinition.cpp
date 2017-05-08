@@ -27,6 +27,11 @@ void DialogChordDefinition::ShowChords(QStringList chordnames)
    ui->listWidgetChords->addItems(chordnames);
 }
 
+void DialogChordDefinition::save()
+{
+
+}
+
 void DialogChordDefinition::ShowChord(QModelIndex index)
 {
     ui->lineEditChord->setText(index.data().toString());

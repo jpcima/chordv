@@ -107,8 +107,8 @@ void Neck::DrawCircle(int fret)
 
 void Neck::DrawNotes()
 {
-    int sizepoint=17;
-    int sizesmallpoint=13;
+    int sizepoint=height()/7;
+    int sizesmallpoint=height()/10;
     int center=(height())/12;
     for ( int string =0; string <6; string ++)
     {
@@ -116,10 +116,15 @@ void Neck::DrawNotes()
         {
             DrawNoNote(-10,height()/6*string+center)  ;
         }
-        if ( m_chord[string] == 0 )
-            m_scene->addEllipse(-13,height()/6*string+center-sizesmallpoint/2,sizesmallpoint,sizesmallpoint,QPen(),QBrush(QColor(Qt::green)) );
         else
-           m_scene->addEllipse((width()/22)*m_chord[string]-sizepoint,height()/6*string+center-sizepoint/2,sizepoint,sizepoint,QPen(),QBrush(QColor(Qt::green)) );
+        if ( m_chord[string] == 0 )
+        {
+        m_scene->addEllipse(-13,height()/6*string+center-sizesmallpoint/2,sizesmallpoint,sizesmallpoint,QPen(),QBrush(QColor(Qt::green)) );
+        }
+        else
+        {
+        m_scene->addEllipse((width()/22)*m_chord[string]-sizepoint,height()/6*string+center-sizepoint/2,sizepoint,sizepoint,QPen(),QBrush(QColor(Qt::green)) );
+        }
     }
 }
 

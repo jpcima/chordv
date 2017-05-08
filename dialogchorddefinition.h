@@ -22,6 +22,7 @@ protected slots:
     void ShowChords(QStringList chordnames);
 private slots:
     void ShowChord(QModelIndex index);
+    void save();
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;
