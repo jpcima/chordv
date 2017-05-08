@@ -21,7 +21,6 @@ system(/bin/echo -e \\\x23ifndef VERSION_H >version.h)
 system(/bin/echo -e \\\x23define VERSION_H>>version.h)
 system(/bin/echo -e \\\x23define VERSION \\\"$$VERSION\\\">>version.h)
 system(/bin/echo -e \\\x23define FULLVERSION \\\"$$FULLVERSION\\\" >>version.h)
-system(/bin/echo -e \\\x23define DATEFR \\\"$$DATEFR\\\" >>version.h)
 system(/bin/echo -e \\\x23define DATEUS \\\"$$DATEUS\\\" >> version.h)
 system(/bin/echo -e \\\x23endif // VERSION_H >>version.h)
 }

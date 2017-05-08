@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
-    <height>310</height>
+    <width>462</width>
+    <height>299</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -45,6 +45,13 @@
           <widget class="QLabel" name="labelGitVersion">
            <property name="text">
             <string>Git version</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelDateCompilation">
+           <property name="text">
+            <string>Compilation date</string>
            </property>
           </widget>
          </item>
@@ -96,6 +103,13 @@
          </item>
          <item>
           <widget class="QLineEdit" name="lineEditGitVersion">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditDateCompilation">
            <property name="readOnly">
             <bool>true</bool>
            </property>

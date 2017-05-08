@@ -37,7 +37,7 @@ private:
     /// \param Notes a list of note in form "C" "C#" "D" "D#" ... "B"
     /// \return the chord in QString format
     ///
-    QString NotesToChord(QStringList Notes);
+    QStringList NotesToChord(QStringList Notes);
 
     ///
     /// \brief getNotes return the list of 6 notes clicked on neck as QStringList form
@@ -73,7 +73,6 @@ private:
     int m_strings[6] ={4,11,7,2,9,4};
     QList <int>m_chordInterval ;
     QStringList m_chordNote;
-    QString chordQuality(int i);
     ///
     /// \brief EraseEmptyNote erase in QStringList with six chords, the unplayed chord
     /// \param notes QStringList with several notes
@@ -87,7 +86,7 @@ private:
     ///
     QString chordInterval(int i);
 signals:
-    void ChordDetected(QString chordname);
+    void ChordsDetected(QStringList chordname);
 };
 
 #endif // NECK_H

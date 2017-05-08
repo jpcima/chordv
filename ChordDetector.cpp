@@ -1,391 +1,195 @@
-//=======================================================================
-/** @file ChordDetector.cpp
- *  @brief ChordDetector - a class for estimating chord labels from chromagram input
- *  @author Adam Stark
- *  @copyright Copyright (C) 2008-2014  Queen Mary University of London
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-//=======================================================================
 
 #include "ChordDetector.h"
 #include <math.h>
+#include <QSqlQuery>
+#include <QVariant>
 
-//=======================================================================
-ChordDetector::ChordDetector()
+QStringList ChordDetector::detectChord()
 {
-	bias = 1.06;
-	makeChordProfiles();
+    QStringList ret;
+    if (m_listNotes.isEmpty()) return ret;
+
+
+    CalculateAllChords(m_listNotes,0);
+    foreach (QStringList list,getAllChords())
+    {
+      QString startNote=list.at(0);
+      QStringList spellingArray;
+     for(int i=0;i<=11; i++)
+    {
+     bool found=false;
+     foreach (QString note,list )if(note2num(note)==(note2num(startNote)+i)%12 ) found=true;
+     if(found)
+         spellingArray<<num2spellingElement(i);
+    }
+    QString code=convertToCodeIfPossible(orderSpelling(spellingArray));
+
+    if ( ! code.contains("ERROR"))
+    ret<<QString("%1 %2").arg(startNote).arg(code);
+    }
+    ret.removeDuplicates();
+    return ret;
 }
 
-//=======================================================================
-void ChordDetector::detectChord (std::vector<double> chroma)
-{
-    detectChord (&chroma[0]);
-}
 
-//=======================================================================
-void ChordDetector::detectChord (double* chroma)
+ChordDetector::ChordDetector(QStringList listNotes)
 {
-	for (int i = 0; i < 12; i++)
-	{
-		chromagram[i] = chroma[i];
-	}
+    listNotes.removeDuplicates();
+    m_listNotes=listNotes;
 
-	classifyChromagram();
 }
 
 
-//=======================================================================
-void ChordDetector::classifyChromagram()
+QString ChordDetector::convertToCodeIfPossible(QStringList spelling)
 {
-	int i;
-	int j;
-	int fifth;
-	int chordindex;
-	
-	// remove some of the 5th note energy from chromagram
-	for (i = 0; i < 12; i++)
-	{
-		fifth = (i+7) % 12;
-		chromagram[fifth] = chromagram[fifth] - (0.1 * chromagram[i]);
-		
-		if (chromagram[fifth] < 0)
-		{
-			chromagram[fifth] = 0;
-		}
-	}
-	
-	// major chords
-	for (j = 0; j < 12; j++)
-	{
-		chord[j] = calculateChordScore (chromagram,chordProfiles[j], bias, 3);
-	}
-	
-	// minor chords
-	for (j = 12; j < 24; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], bias, 3);
-	}
-	
-	// diminished 5th chords
-	for (j = 24; j < 36; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], bias, 3);
-	}
-	
-	// augmented 5th chords
-	for (j = 36; j < 48; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], bias, 3);
-	}
-	
-	// sus2 chords
-	for (j = 48; j < 60; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], 1, 3);
-	}
-	
-	// sus4 chords
-	for (j = 60; j < 72; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], 1, 3);
-	}
-	
-	// major 7th chords
-	for (j = 72; j < 84; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], 1, 4);
-	}
-	
-	// minor 7th chords
-	for (j = 84; j < 96; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], bias, 4);
-	}
-
-	// dominant 7th chords
-	for (j = 96; j < 108; j++)
-	{
-		chord[j] = calculateChordScore (chromagram, chordProfiles[j], bias, 4);
-	}
-	
-	chordindex = minimumIndex (chord, 108);
-	
-	// major
-	if (chordindex < 12)
-	{
-		rootNote = chordindex;
-		quality = Major;
-		intervals = 0;
-	}
-	
-	// minor
-	if ((chordindex >= 12) && (chordindex < 24))
-	{
-		rootNote = chordindex-12;
-		quality = Minor;
-		intervals = 0;
-	}
-	
-	// diminished 5th
-	if ((chordindex >= 24) && (chordindex < 36))
-	{
-		rootNote = chordindex-24;
-		quality = Dimished5th;
-		intervals = 0;
-	}
-	
-	// augmented 5th
-	if ((chordindex >= 36) && (chordindex < 48))
-	{
-		rootNote = chordindex-36;
-		quality = Augmented5th;
-		intervals = 0;
-	}
-	
-	// sus2
-	if ((chordindex >= 48) && (chordindex < 60))
-	{
-		rootNote = chordindex-48;
-		quality = Suspended;
-		intervals = 2;
-	}
-	
-	// sus4
-	if ((chordindex >= 60) && (chordindex < 72))
-	{
-		rootNote = chordindex-60;
-		quality = Suspended;
-		intervals = 4;
-	}
-	
-	// major 7th
-	if ((chordindex >= 72) && (chordindex < 84))
-	{
-		rootNote = chordindex-72;
-		quality = Major;
-		intervals = 7;
-	}
-	
-	// minor 7th
-	if ((chordindex >= 84) && (chordindex < 96))
-	{
-		rootNote = chordindex-84;
-		quality = Minor;
-		intervals = 7;
-	}
-	
-	// dominant 7th
-	if ((chordindex >= 96) && (chordindex < 108))
-	{
-		rootNote = chordindex-96;
-		quality = Dominant;
-		intervals = 7;
-	}
+ QString spellingStr=spelling.join(",");
+ QSqlQuery query(QString("select txtCode from tblSciType where txtSpelling='%1'").arg(spellingStr));
+ if (query.next() && ! query.value(0).toString().isEmpty())
+   return query.value(0).toString();
+ else
+ {
+  return QString("ERROR");
+ }
 }
 
-//=======================================================================
-double ChordDetector::calculateChordScore (double* chroma, double* chordProfile, double biasToUse, double N)
+
+int ChordDetector::note2num(QString note)
 {
-	double sum = 0;
-	double delta;
+ if(note=="C") return 0;
+ if(note=="C#") return 1;
+ if(note=="Db") return 1;
+ if(note=="D") return 2;
+ if(note=="D#") return 3;
+ if(note=="Eb") return 3;
+ if(note=="E") return 4;
+ if(note=="F") return 5;
+ if(note=="F#") return 6;
+ if(note=="Gb") return 6;
+ if(note=="G") return 7;
+ if(note=="G#") return 8;
+ if(note=="Ab") return 8;
+ if(note=="A") return 9;
+ if(note=="A#") return 10;
+ if(note=="Bb") return 10;
+ if(note=="B") return 11;
+ return -1;
+ }
 
-	for (int i = 0; i < 12; i++)
-	{
-		sum = sum + ((1 - chordProfile[i]) * (chroma[i] * chroma[i]));
-	}
 
-	delta = sqrt (sum) / ((12 - N) * biasToUse);
-	
-	return delta;
+QString   ChordDetector::num2spellingElement(int inNum)
+{
+    if(inNum==1 || inNum%12==1) return "b2";
+    if(inNum==2 || inNum%12==2) return "2";
+    if(inNum==3 || inNum%12==3) return "b3";
+    if(inNum==4 || inNum%12==4) return "3";
+    if(inNum==5 || inNum%12==5) return "4";
+    if(inNum==6 || inNum%12==6) return "b5";
+    if(inNum==7 || inNum%12==7) return "5";
+    if(inNum==8 || inNum%12==8) return "b6";
+    if(inNum==9 || inNum%12==9) return "6";
+    if(inNum==10 || inNum%12==10) return "b7";
+    if(inNum==11 || inNum%12==11) return "7";
+    if(inNum==0 || inNum%12==0) return "1";
+    return "ERROR NUM2SPELLINGELEMENT";
 }
 
-//=======================================================================
-int ChordDetector::minimumIndex (double* array, int arrayLength)
+
+QStringList ChordDetector::orderSpelling( QStringList spelling)
+ {
+  QStringList outSpellingArray ;
+  for(int i=1;i<=12;i++)
+  {
+   bool found=false;
+   foreach( QString sciElement, spelling )
+       if(spellingElement2num(sciElement)==i)  found=true;
+   if(found) outSpellingArray<<num2spellingElement(i);
+  }
+  return outSpellingArray;
+ }
+
+
+int ChordDetector::spellingElement2num(QString inSc)
 {
-	double minValue = 100000;
-	int minIndex = 0;
-	
-	for (int i = 0;i < arrayLength;i++)
-	{
-		if (array[i] < minValue)
-		{
-			minValue = array[i];
-			minIndex = i;
-		}
-	}
-	
-	return minIndex;
+    if(inSc=="1") return 0;
+    if(inSc=="b2" || inSc=="#1") return 1;
+    if(inSc=="2") return 2;
+    if(inSc=="b3" || inSc=="#2") return 3;
+    if(inSc=="3" || inSc=="b4")  return 4;
+    if(inSc=="4" || inSc=="#3")  return 5;
+    if(inSc=="b5" || inSc=="#4") return 6;
+    if(inSc=="5") return 7;
+    if(inSc=="b6" || inSc=="#5") return 8;
+    if(inSc=="6") return 9;
+    if(inSc=="b7" || inSc=="#6") return 10;
+    if(inSc=="7"  || inSc=="b1") return 11;
 }
 
-//=======================================================================
-void ChordDetector::makeChordProfiles()
+
+QMap <int, QMap <int , QString >> ChordDetector::getModeArray(QString spelling)
+ {
+  QMap <int,QMap <int , QString >> realModeArray;
+  realModeArray[0][0]="1";
+  realModeArray[0][1]=spelling;
+
+  QString spellingWithOne = QString("1,%1").arg(spelling);
+  int numNotes=spellingWithOne.split(",").count();
+  QMap <int,QMap <int , QString >> modeArray;
+  int key=0;
+  int   realModeNum=1;
+  for( int thisMode=1; thisMode<numNotes; thisMode++)
+  {
+    foreach ( QString value, spellingWithOne.split(","))
+    {
+     modeArray[thisMode][(thisMode+key)%numNotes]=value;
+     key++;
+    }
+  }
+  QString outMSc;
+  for( int thisMode=numNotes-1; thisMode>0; thisMode--)
+  {
+   outMSc.clear();
+   int startNum = spellingElement2num(modeArray[thisMode][0]);
+   for( int thisSc=0; thisSc < numNotes; thisSc++ )
+   {
+    if( thisSc >= 2 )
+      outMSc+=",";
+    if( thisSc >= 1 )
+    {
+      outMSc += num2spellingElement((spellingElement2num(modeArray[thisMode][thisSc]) + 12 - startNum )%12 );
+     }
+  }
+   realModeArray[realModeNum][0]=modeArray[thisMode][0];
+   realModeArray[realModeNum][1]=outMSc;
+   realModeNum++;
+
+ }
+  return realModeArray;
+}
+
+
+void ChordDetector::round(QStringList &list,int i)
 {
-	int i;
-	int t;
-	int j = 0;
-	int root;
-	int third;
-	int fifth;
-	int seventh;
-	
-	double v1 = 1;
-	double v2 = 1;
-	double v3 = 1;
-	
-	// set profiles matrix to all zeros
-	for (j = 0; j < 108; j++)
-	{
-		for (t = 0;t < 12;t++)
-		{
-			chordProfiles[j][t] = 0;
-		}
-	}
-	
-	// reset j to zero to begin creating profiles
-	j = 0;
-	
-	// major chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 4) % 12;
-		fifth = (i + 7) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		
-		j++;				
-	}
+      QString temp = list[i];
+      for(int j=i;j < list.count()-1;j++){
+          list[j] = list[j+1];
+      }
+      list[list.count()-1]= temp;
+}
 
-	// minor chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 3) % 12;
-		fifth = (i + 7) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		
-		j++;				
-	}
+void ChordDetector::CalculateAllChords(QStringList list,int first)
+{
+          if ((list.count() - first) <= 1){
+            m_listAllChords<<list ;
+          }else {
+            for (int i = 0; i < list.count()-first ; i++) {
+            round(list, first);
+            CalculateAllChords(list, first+1);
+            }
+          }
+}
 
-	// diminished chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 3) % 12;
-		fifth = (i + 6) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		
-		j++;				
-	}	
-	
-	// augmented chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 4) % 12;
-		fifth = (i + 8) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		
-		j++;				
-	}	
-	
-	// sus2 chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 2) % 12;
-		fifth = (i + 7) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		
-		j++;				
-	}
-	
-	// sus4 chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 5) % 12;
-		fifth = (i + 7) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		
-		j++;				
-	}		
-	
-	// major 7th chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 4) % 12;
-		fifth = (i + 7) % 12;
-		seventh = (i + 11) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		chordProfiles[j][seventh] = v3;
-		
-		j++;				
-	}	
-	
-	// minor 7th chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 3) % 12;
-		fifth = (i + 7) % 12;
-		seventh = (i + 10) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		chordProfiles[j][seventh] = v3;
-		
-		j++;				
-	}
-	
-	// dominant 7th chords
-	for (i = 0; i < 12; i++)
-	{
-		root = i % 12;
-		third = (i + 4) % 12;
-		fifth = (i + 7) % 12;
-		seventh = (i + 10) % 12;
-		
-		chordProfiles[j][root] = v1;
-		chordProfiles[j][third] = v2;
-		chordProfiles[j][fifth] = v3;
-		chordProfiles[j][seventh] = v3;
-		
-		j++;				
-	}
+QList<QStringList> ChordDetector::getAllChords()
+{
+    return m_listAllChords;
+    m_listAllChords.clear();
 }

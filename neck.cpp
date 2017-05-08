@@ -50,7 +50,7 @@ void Neck::DrawNeck()
     for ( int fret=0;  fret < 22; fret++) DrawFret(fret);
     DrawStrings();
     DrawNotes();
-    emit ChordDetected( NotesToChord(getNotes()));
+    emit ChordsDetected( NotesToChord(getNotes()));
 }
 
 void Neck::DrawFret ( int fret  )
@@ -143,37 +143,21 @@ QStringList Neck::getNotes()
 {
    QStringList ret;
    for ( int i=5; i>=0; i--)
-       ret<<String2Note( i, m_chord[i]);
+    {
+       QString note=String2Note( i, m_chord[i]);
+       if (!note.isNull())ret<<note;
+   }
    return ret;
 }
 
 
-QString Neck::NotesToChord( QStringList notes )
+QStringList Neck::NotesToChord( QStringList notes )
 {
-  notes=EraseEmptyNote(notes);
-  std::vector<double> chroma(12) ;
-  int i=0;
-  foreach  ( QString note, notes)
-  {
-    chroma[m_notevalues[note]]=1;
-  }
-  ChordDetector detect;
-  QList<int> chrom;
-  for ( int i=0;i< 12; i++) chrom<<chroma[i];
-  detect.detectChord(chroma);
-  return QString("%1%2%3").arg(m_necknotes[detect.rootNote]).arg(chordQuality(detect.quality)).arg(chordInterval(detect.intervals));
+  ChordDetector d(notes);
+  return d.detectChord();
 }
 
 
-QString Neck::chordQuality( int i )
-{
-    if (i==0) return("m");
-    if (i==1) return("");
-    if (i==2) return("sus");
-    if (i==3) return("M");
-    if (i==4) return("dim");
-    if (i==5) return("aug");
-}
 
 QStringList Neck::EraseEmptyNote(QStringList notes)
 {

@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QHash>
 #include <QGraphicsScene>
+#include <QModelIndex>
 
 namespace Ui {
 class DialogChordDefinition;
@@ -18,7 +19,9 @@ public:
     ~DialogChordDefinition();
 
 protected slots:
-    void ShowChord(QString chordname);
+    void ShowChords(QStringList chordnames);
+private slots:
+    void ShowChord(QModelIndex index);
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;

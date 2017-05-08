@@ -9,7 +9,8 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     InitialSetup();
     connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect ( ui->pushButtonSave,SIGNAL(clicked(bool)),this,SLOT(save()));
-    connect ( ui->neck,SIGNAL(ChordDetected(QString)),this,SLOT(ShowChord(QString)));
+    connect ( ui->neck,SIGNAL(ChordsDetected(QStringList)),this,SLOT(ShowChords(QStringList)));
+    connect (ui->listWidgetChords,SIGNAL(clicked(QModelIndex)),this,SLOT(ShowChord(QModelIndex)));
 }
 
 DialogChordDefinition::~DialogChordDefinition()
@@ -17,9 +18,18 @@ DialogChordDefinition::~DialogChordDefinition()
     delete ui;
 }
 
-void DialogChordDefinition::ShowChord(QString chordname)
+void DialogChordDefinition::ShowChords(QStringList chordnames)
 {
-   ui->lineEditChord->setText(chordname);
+   QString chordmin=tr("Undertermined");
+   foreach ( QString chord, chordnames) if (chord.length()< chordmin.length() ) chordmin=chord;
+   ui->lineEditChord->setText(chordmin);
+   ui->listWidgetChords->clear();
+   ui->listWidgetChords->addItems(chordnames);
+}
+
+void DialogChordDefinition::ShowChord(QModelIndex index)
+{
+    ui->lineEditChord->setText(index.data().toString());
 }
 
 void DialogChordDefinition::InitialSetup()
