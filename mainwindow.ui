@@ -499,7 +499,15 @@
     <addaction name="actionAbout"/>
     <addaction name="actionSystem_Info"/>
    </widget>
+   <widget class="QMenu" name="menuEdition">
+    <property name="title">
+     <string>Edition</string>
+    </property>
+    <addaction name="actionSearch"/>
+    <addaction name="actionReplace"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuEdition"/>
    <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -596,6 +604,22 @@
   <action name="actionSystem_Info">
    <property name="text">
     <string>&amp;System Info</string>
+   </property>
+  </action>
+  <action name="actionSearch">
+   <property name="text">
+    <string>Find</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionReplace">
+   <property name="text">
+    <string>Replace</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
    </property>
   </action>
  </widget>

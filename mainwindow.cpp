@@ -1,9 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+
 #include "dialogabout.h"
 #include "dialogconfiguration.h"
 #include "dialogchorddefinition.h"
 #include "dialogsysteminfo.h"
+#include "dialogsearch.h"
+#include "dialogreplace.h"
+
 #include "util.h"
 #include "processortext.h"
 #include "settings.h"
@@ -43,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionChord_defintion,SIGNAL(triggered(bool)),this,SLOT(ChordDefinition()));
     connect(ui->actionReset_Preference_as_origine,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
+    connect(ui->actionSearch,SIGNAL(triggered(bool)),this,SLOT(Search()));
+    connect(ui->actionReplace,SIGNAL(triggered(bool)),this,SLOT(Replace()));
     connect (ui->actionSystem_Info,SIGNAL(triggered(bool)),this,SLOT(SystemInfo()));
     connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
@@ -555,4 +561,39 @@ void MainWindow::SystemInfo()
 {
     DialogSystemInfo dial(this);
     dial.exec();
+}
+
+
+void MainWindow::Search()
+{
+  DialogSearch * dial = new DialogSearch(this);
+  connect (dial,SIGNAL(Search(QString,bool,bool)),this,SLOT(Search(QString,bool,bool)));
+  connect (dial,SIGNAL(SearchBack(QString,bool,bool)),this,SLOT(SearchBack(QString,bool,bool)));
+  dial->show();
+}
+
+
+void MainWindow::Replace()
+{
+ DialogReplace *dial = new DialogReplace(this);
+ dial->show();
+}
+
+
+void MainWindow::Search(QString text, bool casesensitive, bool wordonly )
+{
+    ui->tabWidget->setCurrentIndex(5);
+    QFlags<QTextDocument::FindFlag> flag;
+    if (casesensitive ) flag =QTextDocument::FindCaseSensitively;
+    if (wordonly) flag|=QTextDocument::FindWholeWords;
+    ui->textEditCho3File->find(text,flag);
+}
+
+void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
+{
+    ui->tabWidget->setCurrentIndex(5);
+    QFlags<QTextDocument::FindFlag> flag= QTextDocument::FindBackward;
+    if (casesensitive ) flag |=QTextDocument::FindCaseSensitively;
+    if (wordonly) flag|=QTextDocument::FindWholeWords;
+    ui->textEditCho3File->find(text,flag);
 }

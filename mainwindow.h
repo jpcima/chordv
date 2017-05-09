@@ -93,6 +93,10 @@ private slots:
     void InsertCB();
     void ChordDefinition();
     void SystemInfo();
+    void Search();
+    void Replace();
+    void Search(QString text, bool casesensitive, bool wordonly);
+    void SearchBack(QString text, bool casesensitive, bool wordonly);
 };
 
 #endif // MAINWINDOW_H
