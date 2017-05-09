@@ -56,8 +56,7 @@ void Neck::DrawNeck()
 QString Neck::toString()
 {
     QString ret;
-    qDebug()<<ret;
-    for ( int i=0; i<=5; i++)
+    for ( int i=5; i>=0; i--)
     {
         if ( m_chord[i]== -1) ret+="x-";
         else ret+=QString("%1-").arg(m_chord[i]);

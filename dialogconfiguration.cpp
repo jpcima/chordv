@@ -59,7 +59,6 @@ void DialogConfiguration::SelectLanguage(int i)
 
 void DialogConfiguration::Retranslate(int i)
 {
-    qDebug()<<"ici"<<i;
     ui->comboBoxInterfaceLanguage->disconnect();
     ui->retranslateUi(this);
     ui->comboBoxInterfaceLanguage->setCurrentIndex(i);

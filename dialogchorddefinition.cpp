@@ -1,6 +1,8 @@
 #include "dialogchorddefinition.h"
 #include "ui_dialogchorddefinition.h"
 #include "util.h"
+#include "logmessages.h"
+#include "dialogchoosegoodchord.h"
 
 #include <QVector>
 #include <QSqlQuery>
@@ -17,10 +19,10 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
 {
     ui->setupUi(this);
     connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
-    connect ( ui->pushButtonSave,SIGNAL(clicked(bool)),this,SLOT(save()));
     connect (ui->pushButtonImport,SIGNAL(clicked(bool)),this,SLOT(Import()));
     connect ( ui->neck,SIGNAL(ChordsDetected(QStringList,QString)),this,SLOT(ShowChords(QStringList,QString)));
     connect (ui->listWidgetChords,SIGNAL(clicked(QModelIndex)),this,SLOT(ShowChord(QModelIndex)));
+    connect (ui->toolButtonPlus,SIGNAL(clicked(bool)),this,SLOT(AddChord()));
     m_model=new QSqlTableModel(this);
     m_model->setTable("Chords");
     m_model->select();
@@ -118,11 +120,6 @@ QString DialogChordDefinition::findName( QString chordstring, QString chordname)
            .arg(notes[4]).arg(notes[5]);
 }
 
-void DialogChordDefinition::save()
-{
-
-}
-
 void DialogChordDefinition::ShowChord(QModelIndex index)
 {
     QString chordname=index.data().toString();
@@ -140,7 +137,6 @@ void DialogChordDefinition::Import()
         linenumber=1;
         line.replace(QRegExp("^\\s+"),"").replace(QRegExp("\\+$"),"");
         QStringList records=line.split("=");
-        qDebug()<<records.count();
         if ( records.count()== 2 )
         {
          QSqlQuery q(QString("INSERT INTO Chords (Name,Value) VALUES ('%1', '%2')").arg(records.at(0)).arg(records.at(1)));
@@ -160,7 +156,29 @@ void DialogChordDefinition::setError(QString message,int linenumber)
     QTextCursor cursor(ui->plainTextEditImport->document()->findBlockByLineNumber(linenumber));
     cursor.select(QTextCursor::BlockUnderCursor);
     ui->plainTextEditImport->setTextCursor(cursor);
-    this->setToolTip(message);
+    emit Error(message);
 }
 
 
+void DialogChordDefinition::AddChord()
+{
+    QStringList chord=ui->lineEditName->text().replace("'","").split(":");
+    QString name=chord.at(0);
+    QString value=chord.at(1);
+    QSqlQuery q(QString("SELECT name,value FROM Chords WHERE name='%1'").arg(name));
+    if (q.next())
+    {
+        QString oldname=q.value("name").toString();
+        QString oldvalue=q.value("value").toString();
+        if ( oldname==name && oldvalue==value )
+            emit Error(tr("Warning : Chord name exist in the database with the same name and same value"));
+        else
+        {
+            DialogChooseGoodChord *dial = new DialogChooseGoodChord(oldname,oldvalue,name,value,this);
+            connect (dial,SIGNAL(Error(QString)),this,SIGNAL(Error(QString)));
+            dial->exec();
+        }
+    }
+    else
+        QSqlQuery qinsert(QString ("INSERT INTO Chords (name,value) VALUES ('%1','%2')").arg(name).arg(value));
+}

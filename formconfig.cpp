@@ -134,7 +134,6 @@ void FormConfig::setValue(QString var, QVariant value)
     {
             bool ok ;
             int index=value.toInt(&ok);
-            qDebug()<<index;
             if ( ok )
             foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentIndex(index);
             else

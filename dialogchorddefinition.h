@@ -28,12 +28,11 @@ protected slots:
     void ShowChords(QStringList chordnames,QString chortdstring);
 private slots:
     void ShowChord(QModelIndex index);
-    void save();
     void Import();
     void ChordClicked(QModelIndex);
     void ModifyChord();
     void DeleteChord();
-
+    void AddChord();
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;
@@ -41,6 +40,8 @@ private:
     QSqlTableModel *m_model;
     int m_index;
     void setError(QString message, int linenumber);
+signals:
+    void Error(QString message);
 };
 
 

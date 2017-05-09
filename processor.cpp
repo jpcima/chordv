@@ -342,7 +342,6 @@ void Processor::Cover(QString title, QString subtitle)
         m_painter.SetColor(backgroundcolor.redF(),backgroundcolor.greenF(),backgroundcolor.blueF());
         m_painter.Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
         m_painter.Fill(true);
-        qDebug()<<QDir::currentPath()<<QDir::current();
         if (! image.isEmpty())
           {
             QPixmap pix(image);

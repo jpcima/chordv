@@ -27,6 +27,5 @@ QString ImageButton::getImage()
 void ImageButton::setImage(QString image)
 {
    m_image=image;
-   qDebug()<<image;
    emit ImageSelelected(image);
 }

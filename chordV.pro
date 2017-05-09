@@ -54,7 +54,8 @@ SOURCES += main.cpp\
     ChordDetector.cpp\
     neck.cpp \
     dialogsysteminfo.cpp \
-    chorddiagram.cpp
+    chorddiagram.cpp \
+    dialogchoosegoodchord.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -85,7 +86,8 @@ HEADERS  += mainwindow.h \
     ChordDetector.h \
     neck.h \
     dialogsysteminfo.h \
-    chorddiagram.h
+    chorddiagram.h \
+    dialogchoosegoodchord.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
@@ -93,7 +95,8 @@ FORMS    += mainwindow.ui \
     dialogabout.ui \
     dialogconfiguration.ui \
     dialogchorddefinition.ui \
-    dialogsysteminfo.ui
+    dialogsysteminfo.ui \
+    dialogchoosegoodchord.ui
 
 LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include

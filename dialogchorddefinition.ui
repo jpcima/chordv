@@ -19,7 +19,7 @@
      <item>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="tabNewChord">
         <attribute name="title">
@@ -257,17 +257,7 @@
        <item>
         <widget class="QPushButton" name="pushButtonCancel">
          <property name="text">
-          <string>Cancel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButtonSave">
-         <property name="text">
-          <string>Save</string>
-         </property>
-         <property name="default">
-          <bool>true</bool>
+          <string>Close</string>
          </property>
         </widget>
        </item>

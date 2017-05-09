@@ -387,7 +387,6 @@ void MainWindow::ProducePDFAndShow()
    QProcess *myprocess = new QProcess(this);
    QStringList arg;
    arg<<m_pdffilename;
-   qDebug()<<s.value("PDFReader").toString()<<arg;
    myprocess->start(s.value("PDFReader").toString(),arg);
 
 }
@@ -424,6 +423,7 @@ void MainWindow::Configuration()
 void MainWindow::ChordDefinition()
 {
     DialogChordDefinition * dial = new DialogChordDefinition(this);
+    connect (dial,SIGNAL(Error(QString)),this,SLOT(Log(QString)));
     dial->exec();
     delete dial;
 }

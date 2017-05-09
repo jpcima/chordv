@@ -9,6 +9,7 @@ class ChordDiagram : public QWidget
 public:
     explicit ChordDiagram(QWidget *parent = 0);
      void setDiagram(QString diagram);
+     QString getDiagram();
 private:
     void paintEvent(QPaintEvent *p);
     QString m_diagram;
