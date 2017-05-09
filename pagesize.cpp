@@ -6,9 +6,9 @@
 PageSize::PageSize(QWidget *parent) : QComboBox(parent)
 {
     m_sizes.insert("A4","210x297 mm");
-    m_sizes.insert("US Letter","33.46x43.31 mm");
-    m_sizes.insert("US Legal","33.46x55.12 mm");
-    m_sizes.insert("US Executive","28.35x41.34 mm");
+    m_sizes.insert("US Letter","216x279 mm");
+    m_sizes.insert("US Legal","216x356 mm");
+    m_sizes.insert("US Tabloid","279x432 mm");
     m_sizes.insert("A0","841x1189 mm");
     m_sizes.insert("A1","594x841 mm");
     m_sizes.insert("A2","420x594 mm");
