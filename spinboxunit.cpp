@@ -5,7 +5,7 @@ SpinBoxUnit::SpinBoxUnit(QWidget *parent) : QWidget(parent)
 {
    m_layout=new QHBoxLayout(this);
    m_doublespinbox = new QDoubleSpinBox(this);
-   m_doublespinbox->setMaximum(999);
+   m_doublespinbox->setMaximum(9999);
    m_doublespinbox->setMinimum(0);
    m_cbunit=new QComboBox(this);
    m_cbunit->addItem(tr("mm"));

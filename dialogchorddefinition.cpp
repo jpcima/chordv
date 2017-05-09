@@ -111,6 +111,7 @@ QString DialogChordDefinition::findName( QString chordstring, QString chordname)
            }
         }
     }
+    else notemin=0;
 
    chordname.replace(QRegExp("M$"),"").replace(" ","");
    if ( notemin > 2 ) chordname=QString("%1(%2)").arg(chordname).arg(Util::toRomain(notemin));

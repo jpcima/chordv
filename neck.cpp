@@ -187,6 +187,5 @@ QStringList Neck::EraseEmptyNote(QStringList notes)
 QString Neck::chordInterval( int i)
 {
   if ( i == 0 ) return "";
-  return QString("%1"
-                 "").arg(i)  ;
+  return QString("%1").arg(i)  ;
 }
