@@ -14,7 +14,6 @@ Strange
 -------
 
 
-
 Planned feature ported from perl
 --------------------------------
 - Chords
@@ -27,4 +26,7 @@ Planned features
 - Make a test classes
 - Put a button  copy like other for each tab
 - Launch PDF reader
-
+- Popup menu on chord in text to see the chords
+- When chord is added test if chord is memorized and propose the pitures of the two chords
+- In text mode, propose to delete the columns mark
+- Add tempo

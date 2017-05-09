@@ -53,7 +53,8 @@ SOURCES += main.cpp\
     dialogchorddefinition.cpp \
     ChordDetector.cpp\
     neck.cpp \
-    dialogsysteminfo.cpp
+    dialogsysteminfo.cpp \
+    chorddiagram.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -83,7 +84,8 @@ HEADERS  += mainwindow.h \
     dialogchorddefinition.h \
     ChordDetector.h \
     neck.h \
-    dialogsysteminfo.h
+    dialogsysteminfo.h \
+    chorddiagram.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

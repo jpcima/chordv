@@ -11,6 +11,7 @@ public:
     static void MemorizeProject( QString filename);
     static QString getLastDirectory();
     static void setLastDirectory(QString filename);
+    static QString toRomain(int i);
 };
 
 #endif // UTIL_H

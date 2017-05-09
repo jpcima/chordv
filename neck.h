@@ -85,8 +85,13 @@ private:
     /// \return  : the string value
     ///
     QString chordInterval(int i);
+    ///
+    /// \brief toString tranform m_chord to x32233 string
+    /// \return
+    ///
+    QString toString();
 signals:
-    void ChordsDetected(QStringList chordname);
+    void ChordsDetected(QStringList chordname,QString notes);
 };
 
 #endif // NECK_H

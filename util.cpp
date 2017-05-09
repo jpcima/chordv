@@ -53,3 +53,27 @@ void Util::setLastDirectory(QString filename)
     s.setValue("LastOpenedDirectory",dir);
 
 }
+
+QString Util::toRomain(int i)
+{
+    if ( i == 1 ) return "I";
+    if ( i == 2 ) return "II";
+    if ( i == 3 ) return "III";
+    if ( i == 4 ) return "IV";
+    if ( i == 5 ) return "V";
+    if ( i == 6 ) return "VI";
+    if ( i == 7 ) return "VII";
+    if ( i == 8 ) return "VIII";
+    if ( i == 9 ) return "IX";
+    if ( i == 10 ) return "X";
+    if ( i == 11 ) return "XI";
+    if ( i == 12 ) return "XII";
+    if ( i == 13 ) return "XIII";
+    if ( i == 14 ) return "XIV";
+    if ( i == 15 ) return "XV";
+    if ( i == 16 ) return "XVI";
+    if ( i == 17 ) return "XVII";
+    if ( i == 18 ) return "XVIII";
+    if ( i == 19 ) return "XIX";
+    if ( i == 20 ) return "XX";
+}

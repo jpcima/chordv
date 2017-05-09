@@ -26,7 +26,7 @@
       </property>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>5</number>
+        <number>0</number>
        </property>
        <property name="tabBarAutoHide">
         <bool>true</bool>
@@ -589,10 +589,13 @@
    <property name="text">
     <string>&amp;Chord definition</string>
    </property>
+   <property name="shortcut">
+    <string>F3</string>
+   </property>
   </action>
   <action name="actionSystem_Info">
    <property name="text">
-    <string>System Info</string>
+    <string>&amp;System Info</string>
    </property>
   </action>
  </widget>

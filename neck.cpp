@@ -50,7 +50,20 @@ void Neck::DrawNeck()
     for ( int fret=0;  fret < 22; fret++) DrawFret(fret);
     DrawStrings();
     DrawNotes();
-    emit ChordsDetected( NotesToChord(getNotes()));
+    emit ChordsDetected( NotesToChord(getNotes()),toString());
+}
+
+QString Neck::toString()
+{
+    QString ret;
+    qDebug()<<ret;
+    for ( int i=0; i<=5; i++)
+    {
+        if ( m_chord[i]== -1) ret+="x-";
+        else ret+=QString("%1-").arg(m_chord[i]);
+    }
+    ret.replace(QRegExp("-$"),"");
+    return ret;
 }
 
 void Neck::DrawFret ( int fret  )

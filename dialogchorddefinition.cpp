@@ -1,16 +1,62 @@
 #include "dialogchorddefinition.h"
 #include "ui_dialogchorddefinition.h"
+#include "util.h"
+
+#include <QVector>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QDebug>
+#include <QTextCursor>
+#include <QTextBlock>
+#include <QGraphicsScene>
+
 
 DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogChordDefinition)
 {
     ui->setupUi(this);
-    InitialSetup();
     connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect ( ui->pushButtonSave,SIGNAL(clicked(bool)),this,SLOT(save()));
-    connect ( ui->neck,SIGNAL(ChordsDetected(QStringList)),this,SLOT(ShowChords(QStringList)));
+    connect (ui->pushButtonImport,SIGNAL(clicked(bool)),this,SLOT(Import()));
+    connect ( ui->neck,SIGNAL(ChordsDetected(QStringList,QString)),this,SLOT(ShowChords(QStringList,QString)));
     connect (ui->listWidgetChords,SIGNAL(clicked(QModelIndex)),this,SLOT(ShowChord(QModelIndex)));
+    m_model=new QSqlTableModel(this);
+    m_model->setTable("Chords");
+    m_model->select();
+    ui->tableView->setModel(m_model);
+    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableView->setSelectionMode(QAbstractItemView::ContiguousSelection);
+    connect(ui->tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClicked(QModelIndex)));
+    connect (ui->pushButtonModify,SIGNAL(clicked(bool)),this,SLOT(ModifyChord()));
+    connect (ui->pushButtonDelete,SIGNAL(clicked(bool)),this,SLOT(DeleteChord()));
+}
+
+void DialogChordDefinition::ModifyChord()
+{
+    QSqlQuery q(QString("UPDATE Chords SET name='%1', value='%1' WHERE Index='%3'")
+                .arg(ui->lineEditNameIndex->text()).arg(ui->lineEditValueIndex->text())
+                .arg(m_index));
+    m_model->select();
+}
+
+void DialogChordDefinition::DeleteChord()
+{
+    foreach ( QModelIndex index, ui->tableView->selectionModel()->selectedIndexes())
+    {
+        QSqlQuery q(QString("DELETE FROM Chords WHERE  Id=%1")
+                    .arg(index.sibling(index.row(),2).data().toString()));
+    }
+    m_model->select();
+}
+
+void DialogChordDefinition::ChordClicked(QModelIndex index)
+{
+    QString name=index.sibling(index.row(),1).data().toString();
+    ui->lineEditNameIndex->setText(index.sibling(index.row(),0).data().toString());
+    ui->lineEditValueIndex->setText(name);
+    m_index=index.sibling(index.row(),2).data().toInt();
+    ui->widget->setDiagram(ui->lineEditValueIndex->text());
 }
 
 DialogChordDefinition::~DialogChordDefinition()
@@ -18,13 +64,58 @@ DialogChordDefinition::~DialogChordDefinition()
     delete ui;
 }
 
-void DialogChordDefinition::ShowChords(QStringList chordnames)
+void DialogChordDefinition::ShowChords(QStringList chordnames,QString chordstring)
 {
    QString chordmin=tr("Undertermined");
-   foreach ( QString chord, chordnames) if (chord.length()< chordmin.length() ) chordmin=chord;
+   foreach ( QString chord, chordnames)
+       if (chord.length()< chordmin.length() ) chordmin=chord;
    ui->lineEditChord->setText(chordmin);
    ui->listWidgetChords->clear();
    ui->listWidgetChords->addItems(chordnames);
+   ui->lineEditNotation->setText(chordstring);
+   ui->lineEditName->setText(findName(chordstring,chordmin));
+
+}
+
+
+QString DialogChordDefinition::findName( QString chordstring, QString chordname)
+{
+    int notemin=100;
+    QStringList chord=chordstring.split("-");
+    QVector <QString> notes(6);
+    int i=0;
+    bool ok=false;
+    foreach ( QString string , chord)
+    {
+        if ( string != "x")
+        {
+            int note=string.toInt();
+            if ( note < notemin) notemin = note;
+            notes[i]=QString("%1").arg(note);
+            ok =true;
+        }
+        else notes[i]="x";
+        i++;
+    }
+    if (! ok) return("");
+    if ( notemin > 2 )
+    {
+        for (int j=0; j<=5;j++)
+        {
+           if ( notes[j] != "x" )
+           {   int n=notes[j].toInt();
+               n-=notemin;
+               notes[j]=QString("%1").arg(n);
+           }
+        }
+    }
+
+   chordname.replace(QRegExp("M$"),"").replace(" ","");
+   if ( notemin > 2 ) chordname=QString("%1(%2)").arg(chordname).arg(Util::toRomain(notemin));
+   return QString("%1:%2 %3 %4 %5 %6 %7 %8")
+           .arg(chordname).arg(notemin).arg(notes[0])
+           .arg(notes[1]).arg(notes[2]).arg(notes[3])
+           .arg(notes[4]).arg(notes[5]);
 }
 
 void DialogChordDefinition::save()
@@ -34,104 +125,42 @@ void DialogChordDefinition::save()
 
 void DialogChordDefinition::ShowChord(QModelIndex index)
 {
-    ui->lineEditChord->setText(index.data().toString());
+    QString chordname=index.data().toString();
+    ui->lineEditChord->setText(chordname);
+
 }
 
-void DialogChordDefinition::InitialSetup()
+
+void DialogChordDefinition::Import()
 {
-    m_chords["C"]="0 3 3 2 0 1 0";
-    m_chords["C7"]="3 0 3 2 3 1 0";
-    m_chords["C-"]="5 2 x 1 2 2 x";
-    m_chords["C-6(V)"]="5 2 x 1 2 2 x";
-    m_chords["C7(III)"]="3 1 1 3 1 3 1";
-    m_chords["C9"]="0 3 3 2 3 3 3";
-    m_chords["C(III)"]="3 1 1 3 3 3 1";
-    m_chords["C7(III)"]="3 1 1 3 1 3 1";
-    m_chords["C(VIII)"]="8 1 3 3 2 1 1";
-    m_chords["C#"]="4 1 1 3 3 3 1";
-    m_chords["C#-"]="4 1 1 3 3 2 1";
-    m_chords["C#7"]="4 1 1 3 1 3 1";
-    m_chords["C7°(IV)"]="4 x 2 3 1 3 x";
-    m_chords["C#7°(V)"]="5 x 2 3 1 3 x";
-    m_chords["C#-7b5(III)"]="3 x 1 2 1 2 x";
-    m_chords["Db(IV)"]="4 1 1 3 3 3 1";
-    m_chords["Db9"]="0 4 4 3 4 4 4";
-    m_chords["DbM7"]="4 x 1 3 2 3 1";
-    m_chords["Db-"]="4 1 1 3 3 2 1";
-    m_chords["D"]="0 x x 0 2 3 2";
-    m_chords["D-"]="0 x x 0 2 3 1";
-    m_chords["D7"]="0 x x 0 2 1 2";
-    m_chords["D-(V)"]="5 1 1 3 3 2 1";
-    m_chords["D-6"]="0 x 2 3 2 3 x";
-    m_chords["D-11(VII)"]="7 3 x 3 3 1 x";
-    m_chords["D"]="0 x x 0 2 3 2";
-    m_chords["D(V)"]="5 1 1 3 3 3 1";
-    m_chords["D7(V)"]="5 1 1 3 1 3 1";
-    m_chords["D#"]="6 1 1 3 3 3 1";
-    m_chords["D#7"]="6 1 1 3 1 3 1";
-    m_chords["D#°(VI)"]="6 x 2 3 1 3 x";
-    m_chords["D9"]="4 2 2 1 2 2 2";
-    m_chords["D°"]="0 x x 0 1 0 1";
-    m_chords["E"]="0 0 2 2 1 0 0";
-    m_chords["E7(VII)"]="7 x 3 2 3 1 x";
-    m_chords["E7"]="0 0 2 2 1 3 0";
-    m_chords["E-7b5(VI)"]="6 x 1 2 1 2 x";
-    m_chords["E7b9(V)"]="5 x 2 1 2 1 x";
-    m_chords["E°"]="0 x x 2 3 2 3";
-    m_chords["E°7(III)"]="3 x 2 3 1 3 x";
-    m_chords["E°7(VI)"]="6 x 2 3 1 3 x";
-    m_chords["E-"]="0 0 2 2 0 0 0";
-    m_chords["E-6(IV)"]="4 x 1 2 1 2 x";
-    m_chords["E-(VII)"]="7 1 1 3 3 2 1";
-    m_chords["E9(VI)"]="6 2 2 1 2 2 2";
-    m_chords["F"]="0 1 3 3 2 1 1";
-    m_chords["F-"]="0 1 3 3 1 1 1";
-    m_chords["F-(VIII)"]="8 1 1 3 3 2 1";
-    m_chords[" F-9/13"]="0 x x 3 1 3 3";
-    m_chords["F°"]="0 x x 3 4 3 4";
-    m_chords["F7(VIII)"]="0 1 3 1 2 4 1";
-    m_chords["F#"]="0 2 4 4 3 2 2";
-    m_chords["F#-"]="0 2 4 4 2 2 2";
-    m_chords["F#7"]="2 1 3 1 2 4 1";
-    m_chords["F#°7(VIII)"]="8 x 2 3 1 3 x";
-    m_chords["G"]="3 3 2 0 0 0 3";
-    m_chords["G7"]="3 3 2 0 0 0 1";
-    m_chords["G(III)"]="3 1 3 3 2 1 1";
-    m_chords["G7(III)"]="3 1 3 1 2 4 1";
-    m_chords["G-"]="3 1 3 3 1 1 1";
-    m_chords["G-7"]="3 1 3 1 1 4 1";
-    m_chords["G-6"]="0 3 x 2 3 3 3";
-    m_chords["G-9/13(III)"]="3 x x 3 1 3 3";
-    m_chords["G#"]="4 1 3 3 2 1 1";
-    m_chords["G#-"]="4 1 3 3 1 1 1";
-    m_chords["G#-6(III)"]="3 2 x 1 2 2 x";
-    m_chords["G#7"]="3 2 1 2 2 2 2";
-    m_chords["A"]="0 x 0 2 2 2 0";
-    m_chords["A(V)"]="5 1 3 3 2 1 1";
-    m_chords["A-"]="0 x 0 2 2 1 0";
-    m_chords["A-(V)"]="5 1 3 3 1 1 1";
-    m_chords["A-(XII)"]="12 1 1 3 3 2 1";
-    m_chords["A-6(IV)"]="4 2 x 1 2 2 x";
-    m_chords["A-11(II)"]="2 3 x 3 3 1 x";
-    m_chords["A7"]="0 x 0 2 0 2 0";
-    m_chords["A7(V)"]="5 1 3 1 2 4 1";
-    m_chords["A7(IV)"]="4 2 1 2 2 2 2";
-    m_chords["A#7(VI)"]="6 1 3 1 2 4 1";
-    m_chords["A7b9(X)"]="10 x 2 1 2 1 x";
-    m_chords["A7(IX)"]="9 x 3 2 3 1 x";
-    m_chords["A#"]="6 1 3 3 2 1 1";
-    m_chords["A#7(V)"]="5 2 1 2 2 2 2";
-    m_chords["A#7°"]="0 x 3 4 2 4 x";
-    m_chords["Bb"]="1 1 1 3 3 3 1";
-    m_chords["Bb7"]="1 1 1 3 1 3 1";
-    m_chords["Bb-"]="1 1 1 3 3 2 1";
-    m_chords["B"]="2 1 1 3 3 3 1";
-    m_chords["B(VII)"]="7 1 3 3 2 1 1";
-    m_chords["B-"]="2 1 1 3 3 2 1";
-    m_chords["B7"]="0 2 2 4 2 4 2";
-    m_chords["B7(VI)"]="6 2 1 2 2 2 2";
-    m_chords["B7°(III)"]="3 x 2 3 1 3 x";
-    m_chords["B-6(VI)"]="6 2 x 1 2 2 x";
-    m_chords["B-11"]="4 3 x 3 3 1 x";
-    m_chords["NO"]="0 x x x x x x";
+    QStringList lines=ui->plainTextEditImport->toPlainText().split("\n");
+    int linenumber=0;
+    foreach ( QString line, lines)
+    {
+        linenumber=1;
+        line.replace(QRegExp("^\\s+"),"").replace(QRegExp("\\+$"),"");
+        QStringList records=line.split("=");
+        qDebug()<<records.count();
+        if ( records.count()== 2 )
+        {
+         QSqlQuery q(QString("INSERT INTO Chords (Name,Value) VALUES ('%1', '%2')").arg(records.at(0)).arg(records.at(1)));
+         if ( q.lastError().isValid())
+             setError(tr("ERROR line %1 : %2").arg(linenumber).arg(q.lastError().text()),linenumber);
+        }
+        else
+            setError(tr("ERROR line %1 :syntax error").arg(linenumber),linenumber);
+    }
+    m_model->select();
+
+
 }
+
+void DialogChordDefinition::setError(QString message,int linenumber)
+{
+    QTextCursor cursor(ui->plainTextEditImport->document()->findBlockByLineNumber(linenumber));
+    cursor.select(QTextCursor::BlockUnderCursor);
+    ui->plainTextEditImport->setTextCursor(cursor);
+    this->setToolTip(message);
+}
+
+

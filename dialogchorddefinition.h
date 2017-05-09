@@ -5,10 +5,16 @@
 #include <QHash>
 #include <QGraphicsScene>
 #include <QModelIndex>
+#include <QSqlTableModel>
+#include <QTableView>
+
+#include <QPaintEvent>
 
 namespace Ui {
 class DialogChordDefinition;
 }
+
+
 
 class DialogChordDefinition : public QDialog
 {
@@ -19,14 +25,23 @@ public:
     ~DialogChordDefinition();
 
 protected slots:
-    void ShowChords(QStringList chordnames);
+    void ShowChords(QStringList chordnames,QString chortdstring);
 private slots:
     void ShowChord(QModelIndex index);
     void save();
+    void Import();
+    void ChordClicked(QModelIndex);
+    void ModifyChord();
+    void DeleteChord();
+
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;
-    void InitialSetup();
+    QString findName(QString chordstring, QString chordmin);
+    QSqlTableModel *m_model;
+    int m_index;
+    void setError(QString message, int linenumber);
 };
+
 
 #endif // DIALOGCHORDDEFINITION_H
