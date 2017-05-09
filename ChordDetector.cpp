@@ -122,6 +122,7 @@ int ChordDetector::spellingElement2num(QString inSc)
     if(inSc=="6") return 9;
     if(inSc=="b7" || inSc=="#6") return 10;
     if(inSc=="7"  || inSc=="b1") return 11;
+    return 0;
 }
 
 

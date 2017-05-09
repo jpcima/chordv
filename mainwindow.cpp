@@ -355,7 +355,7 @@ void MainWindow::SaveAs(bool)
     }
 }
 
-void MainWindow::ActualizeProject( QString file)
+void MainWindow::ActualizeProject( QString )
 {
 
 }

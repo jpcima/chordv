@@ -19,7 +19,7 @@ QString ChordDiagram::getDiagram()
     return m_diagram;
 }
 
-void ChordDiagram::paintEvent(QPaintEvent *e)
+void ChordDiagram::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     int h=height();

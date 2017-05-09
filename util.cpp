@@ -76,4 +76,5 @@ QString Util::toRomain(int i)
     if ( i == 18 ) return "XVIII";
     if ( i == 19 ) return "XIX";
     if ( i == 20 ) return "XX";
+    return "I";
 }
