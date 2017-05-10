@@ -53,9 +53,9 @@ On les trouve n'importe où.
 {SubTitle: Disque 4 }
 {Columns:2}
 {compress}
-start_of_chorus
+{start_of_chorus}
 [Ré(V)][La(V)][Sim][Fa#m][Sol(III)][La(V)][Ré(V)]
-end_of_chorus
+{end_of_chorus}
 Ô mes a[Ré(V)]mours inache[La(V)x2]vées,
 Ô mes discrètes passa[Simx2]gères,
 Mon placard rempli de pou[Sol#x2]pées
@@ -377,12 +377,12 @@ De courir après les nuages...
 {SubTitle: Disque 4}
 {Columns:2}
 
-start_of_chorus
+{start_of_chorus}
 [Rém(V)]                  [Do7(III)]                    [Fa7(VIII)]
 [La#7(VI)]                [Do(VIII)]                    [La7(V)x2] 
 [Rém(V)]                  [Do7(III)]                    [Fa7(VIII)]
 [La#7(VI)]                [Do(VIII)]                    [La7(V)x2]  [Rém(V)x2]
-end_of_chorus
+{end_of_chorus}
 
 Je [Ré7(V)x2]chante juste pour mes co[Solmx4]pains
 Je chante comme un turlu[Fax4]pin
@@ -433,9 +433,9 @@ Il [Lam11(II)]compte les [Sim11]vagues qui mou[Mi7b9(V)]ton[Mi7(VII)]nent
 A [Rém(V)]chacune il donne un nom et s'é[Rém11(VII)x2]tonne
 De [Lam11(II)]connaître au[Sim11]tant de [Mi7b9(V)]prénoms fémi[Mi7(VII)]nins
 
-start_of_chorus
+{start_of_chorus}
 [Solx2]                   [Solmx2]                      
-end_of_chorus
+{end_of_chorus}
 
 [Ré]Il [Sol]a con[Do#m7b5(III)]nu
 Mille [Fa#7]lèvres, mille [Simx2]z'yeux
@@ -510,9 +510,9 @@ Pour se forger la car[Solm9/13(III)x2]casse
 [Solmx2]On courait encore et encore
 [La7x2]On nous voyait dans tous les sports
 
-start_of_chorus
+{start_of_chorus}
 [Sib7][La7] 
-end_of_chorus
+{end_of_chorus}
 
 Et quand passait une belle
 Une dame, une demoiselle
@@ -866,12 +866,12 @@ Elle n'aime que les amours saphiques !
 {SubTitle: Disque La Caulaincourt}
 {Columns: 2}
 
-start_of_chorus
+{start_of_chorus}
 [Mim(VII)]          [Lam(XII)]         [Mim(VII)]        [Do#7°(V)]
 [Si7°(III)]          [La#7°]               [Mi]              [Mi7]
 [Lam(V)]            [Mim(VII)]        [Lam(XII)]         [Mim(VII)]
 [Do#7°(V)]          [Si7°(III)]        [La#7°]       [Mi]
-end_of_chorus
+{end_of_chorus}
     
 Notre tour[Mim(VII)]neur a dit « les ringues,
 [Lam(V)]Finie la tournée des campingues,
@@ -971,9 +971,9 @@ On a fait un casse ! [Lam6(IV)][Sol#m6(III)]
 [Lam6(IV)]Mais ce qui nous [Sim6(VI)]manque,
 [Mi7(VII)]C'est un peu de pognon.[Lam6(IV)][Sol#m6(III)]
 
-start_of_chorus
+{start_of_chorus}
 [Lam6(IV)][Sol#m6(III)][Lam6(IV)][Sol#m6(III)]
-end_of_chorus
+{end_of_chorus}
 
 En partant à la guich'tière,
 Qui avait de beaux yeux verts,
@@ -1132,9 +1132,9 @@ J'avais raccroché mon arba[Rém(V)x2]lète
 Au milieu des livres et des ca[Rém(V)x2]hiers
 [Mi9(VI)x4]Que j'avais mon[La7(IV)x2]té mon [Rém(V)]coeur
 
-start_of_chorus
+{start_of_chorus}
 [Rém(V)x4]  [Solmx8]   [Rém(V)x8]          [La7(IV)x8]           [Rém(V)x4]
-end_of_chorus
+{end_of_chorus}
 
 Comme une pendule qui a perdu
 Son balancier, les aiguilles tordues
@@ -1283,11 +1283,9 @@ Pour faire trois étincelles
 Sur le feu d'un briquet
 Pauvre feu de Bengale
 Tu fais rire les étoiles
-start_of_chorus
 Qu'est ce que t'as fabri[Ré7(V)x2]qué ?
 Tu fais rire les é[Solmx2]toiles
 Qu'est ce [La(V)x2] que t'as fabri[Rém(V)x2]qué ?
-end_of_chorus
 {Column_break}
 
 Tu traînes ses dentelles
@@ -1881,10 +1879,10 @@ Mais [Solmx2]rue des Écoliers
 Je [La#]t'ai revu sou[La(V)]rire
 Dans un [Ré7(V)]vieux souvenir[Solm]
 
-start_of_chorus
+{start_of_chorus}
 [Dom]          [Solm]         [La(V)]             [Do7(III)x2]
 [Dom]          [Solm]         [Do7(III)]           [Solmx2]
-end_of_chorus
+{end_of_chorus}
 
 Ma pauvre Pimprenelle
 Enrobée de flanelle

@@ -53,6 +53,7 @@ private:
     void ReplaceLongShort(QString a, QString b);
     QString m_buffreplace;
     void GenericInsert(QToolButton *w, QString token, QString label1, QString label2);
+    bool m_found;
 public slots:
     void ChangeLanguage(int );
 private slots:

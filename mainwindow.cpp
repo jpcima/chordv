@@ -591,7 +591,7 @@ void MainWindow::Search(QString text, bool casesensitive, bool wordonly )
     QFlags<QTextDocument::FindFlag> flag;
     if (casesensitive ) flag =QTextDocument::FindCaseSensitively;
     if (wordonly) flag|=QTextDocument::FindWholeWords;
-    ui->textEditCho3File->find(text,flag);
+    m_found=ui->textEditCho3File->find(text,flag);
 }
 
 void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
@@ -600,14 +600,28 @@ void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
     QFlags<QTextDocument::FindFlag> flag= QTextDocument::FindBackward;
     if (casesensitive ) flag |=QTextDocument::FindCaseSensitively;
     if (wordonly) flag|=QTextDocument::FindWholeWords;
-    ui->textEditCho3File->find(text,flag);
+    m_found=ui->textEditCho3File->find(text,flag);
 }
 
 void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool casesensitive, bool wordonly, bool back)
 {
+    if (!m_found ) return;
     ui->tabWidget->setCurrentIndex(5);
-    ui->textEditCho3File->textCursor().clearSelection();
-    ui->textEditCho3File->insertPlainText(textto);
-    if ( back ) SearchBack(textfrom,casesensitive,wordonly);
-    else Search(textfrom,casesensitive,wordonly);
+    if ( all )
+    {
+        while ( m_found )
+        {
+         ui->textEditCho3File->textCursor().clearSelection();
+         ui->textEditCho3File->insertPlainText(textto);
+         if ( back ) SearchBack(textfrom,casesensitive,wordonly);
+         else Search(textfrom,casesensitive,wordonly);
+        }
+    }
+    else
+    {
+        ui->textEditCho3File->textCursor().clearSelection();
+        ui->textEditCho3File->insertPlainText(textto);
+        if ( back ) SearchBack(textfrom,casesensitive,wordonly);
+        else Search(textfrom,casesensitive,wordonly);
+    }
 }
