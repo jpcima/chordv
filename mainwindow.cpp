@@ -566,6 +566,7 @@ void MainWindow::SystemInfo()
 
 void MainWindow::Search()
 {
+  ui->textEditCho3File->copy();
   DialogSearch * dial = new DialogSearch(this);
   connect (dial,SIGNAL(Search(QString,bool,bool)),this,SLOT(Search(QString,bool,bool)));
   connect (dial,SIGNAL(SearchBack(QString,bool,bool)),this,SLOT(SearchBack(QString,bool,bool)));
@@ -575,7 +576,11 @@ void MainWindow::Search()
 
 void MainWindow::Replace()
 {
+ ui->textEditCho3File->copy();
  DialogReplace *dial = new DialogReplace(this);
+ connect (dial,SIGNAL(Search(QString,bool,bool)),this,SLOT(Search(QString,bool,bool)));
+ connect (dial,SIGNAL(SearchBack(QString,bool,bool)),this,SLOT(SearchBack(QString,bool,bool)));
+ connect (dial,SIGNAL(Replace(QString,QString,bool,bool,bool,bool)),this,SLOT(Replace(QString,QString,bool,bool,bool,bool)));
  dial->show();
 }
 
@@ -596,4 +601,13 @@ void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
     if (casesensitive ) flag |=QTextDocument::FindCaseSensitively;
     if (wordonly) flag|=QTextDocument::FindWholeWords;
     ui->textEditCho3File->find(text,flag);
+}
+
+void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool casesensitive, bool wordonly, bool back)
+{
+    ui->tabWidget->setCurrentIndex(5);
+    ui->textEditCho3File->textCursor().clearSelection();
+    ui->textEditCho3File->insertPlainText(textto);
+    if ( back ) SearchBack(textfrom,casesensitive,wordonly);
+    else Search(textfrom,casesensitive,wordonly);
 }

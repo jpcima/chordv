@@ -97,6 +97,7 @@ private slots:
     void Replace();
     void Search(QString text, bool casesensitive, bool wordonly);
     void SearchBack(QString text, bool casesensitive, bool wordonly);
+    void Replace(QString textfrom, QString textto, bool all, bool casesensitive, bool wordonly, bool back);
 };
 
 #endif // MAINWINDOW_H
