@@ -3,6 +3,7 @@
 
 #include <QDialog>
 
+#include <QComboBox>
 namespace Ui {
 class DialogConfiguration;
 }
@@ -15,17 +16,19 @@ public:
     explicit DialogConfiguration(QWidget *parent = 0);
     ~DialogConfiguration();
     void InitSettings();
+    static void setLanguageComboBox(QComboBox *ptr);
+    static QString getTranslationQmFileName(QString lang);
 private slots:
     void Save();
-    void SelectLanguage(int i);
     void SetPDFReader();
+    void SelectLanguage(QString lang);
 private:
     Ui::DialogConfiguration *ui;
     QWidget *m_parent;
     void Connect();
-    void Retranslate(int i);
+    void Retranslate(QString lang);
 signals:
-    void LanguageChanged(int i);
+    void LanguageChanged(QString lang);
     void PdfReaderChanged();
 };
 

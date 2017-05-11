@@ -1,9 +1,15 @@
 <RCC>
     <qresource prefix="/Lang">
-        <file>chordV_fr_FR.qm</file>
+        <file>fr.qm</file>
+        <file>fr.ts</file>
     </qresource>
     <qresource prefix="/Image">
         <file>Images/icon.png</file>
         <file>Images/neck.jpg</file>
+        <file>Images/en.png</file>
+        <file>Images/fr.png</file>
+    </qresource>
+    <qresource prefix="/Base">
+        <file>Bd/Chord.db</file>
     </qresource>
 </RCC>

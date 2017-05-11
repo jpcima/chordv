@@ -34,7 +34,6 @@ public:
     void setSocMode(bool socmode);
     void setRefrain( bool refrain);
 
-    QString keepChords(QString line);
 
     // virtual e section
     virtual void newPage();
@@ -240,6 +239,11 @@ private:
     void addTocAtEnd();
     int FirstPageNumber();
     int NbPageCover();
+    ///
+    /// \brief memorizeChords memorize Chord for the song in m_BufChords;
+    /// \param line the line read
+    ///
+    void memorizeChords(QString line);
 signals:
     void PDFMade( QString file);
 protected:

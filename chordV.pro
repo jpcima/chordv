@@ -57,7 +57,8 @@ SOURCES += main.cpp\
     chorddiagram.cpp \
     dialogchoosegoodchord.cpp \
     dialogsearch.cpp \
-    dialogreplace.cpp
+    dialogreplace.cpp \
+    processorlyrics.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -91,7 +92,8 @@ HEADERS  += mainwindow.h \
     chorddiagram.h \
     dialogchoosegoodchord.h \
     dialogsearch.h \
-    dialogreplace.h
+    dialogreplace.h \
+    processorlyrics.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
@@ -109,7 +111,7 @@ INCLUDEPATH += /usr/local/include
 DEPENDPATH += /usr/local/include
 
 
-TRANSLATIONS=chordV_fr_FR.ts
+TRANSLATIONS=fr.ts
 
 DISTFILES += \
     Example/deuxdisques.png \

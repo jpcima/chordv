@@ -18,7 +18,10 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_uiconfig=ui2;
     m_uimainwindow=ui1;
     m_documentAllocation=false;
-    m_file=m_uimainwindow->labelNameDirProject->text()+"/"+m_uimainwindow->labelNameProjectName->text()+".pdf";
+    m_file=QString("%1/%2_%3.pdf")
+            .arg(m_uimainwindow->labelNameDirProject->text())
+            .arg(m_uimainwindow->labelNameProjectName->text())
+            .arg(m_uiconfig->lineEditOutFile->text());
     m_pageAllocation=false;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
@@ -134,6 +137,7 @@ void Processor::run()
 
              if ( m_socmode ) includeChorus(line);
              else m_BufLyrics<<line;
+             memorizeChords(line);
 
         }
         else
@@ -251,24 +255,6 @@ void Processor::setRefrain(bool refrain)
 
 
 
-QString Processor::keepChords(QString line)
-{
-   // suppress before first []
-   line.replace(QRegExp("^[^[]*"),"") ;
-   // suppress end  after last  []
-   line.replace(QRegExp("[^]]*$"),"");
-   // suppress after all []
-   line.replace(QRegExp("\\[([^]]+)\\][^[]+"),"\\1");
-   // suppress (V)
-    line.replace(QRegExp("\\(([^)]*)\\)"),"");
-    // line=&Translate(line);
-   line.replace("][","|");
-   line.replace("]","");
-   line.replace("[","");
-   return line;
-}
-
-
 void Processor::newPage()
 {
     if ( m_pageAllocation)
@@ -378,7 +364,7 @@ void Processor::doChords()
 
 void Processor::displayChordsForSong()
 {
-
+  qDebug()<<m_BufChords;
 }
 
 void Processor::displayPageTitle()
@@ -457,6 +443,16 @@ int Processor::FirstPageNumber()
 int Processor::NbPageCover()
 {
     return m_covermade?1:0;
+}
+
+void Processor::memorizeChords(QString line)
+{
+    QRegExp chordEx("\\[([^]]*)\\]");
+    while ( line.indexOf(chordEx)!=-1)
+    {
+        m_BufChords<<chordEx.cap(1);
+        line.replace(QString("[%1]").arg(chordEx.cap(1)),"");
+    }
 }
 
 void Processor::addTocAtBegining()
@@ -613,9 +609,10 @@ makePageNumber()
         nbpage++;
         int x;
         int y;
-        if (  m_uiconfig->spuHorizontalMargin->getPdfU() < m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3 )
+        if (  m_uiconfig->spuHorizontalMargin->getPdfU() < m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF() )
             y= m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3;
-        else y =  m_uiconfig->spuHorizontalMargin->getPdfU()-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3 ;
+        else
+          y =  m_uiconfig->spuHorizontalMargin->getPdfU()-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF() ;
         if ( pagetype == Const::Center)
             x = m_uiconfig->spuPageWidth->getPdfU()/2;
         else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::Outside )

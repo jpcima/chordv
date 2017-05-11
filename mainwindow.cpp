@@ -10,6 +10,7 @@
 
 #include "util.h"
 #include "processortext.h"
+#include "processorlyrics.h"
 #include "settings.h"
 #include "logmessages.h"
 
@@ -373,6 +374,14 @@ void MainWindow::ProducePDF()
   {
       ProcessorText *p;
       p= new ProcessorText(ui,ui->widgetTextMode->getUi());
+      connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
+      p->run() ;
+      p->deleteLater();
+  }
+  if (ui->checkBoxLyricsMode->isChecked())
+  {
+      ProcessorLyrics *p;
+      p= new ProcessorLyrics(ui,ui->widgetLyricsMode->getUi());
       connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
       p->run() ;
       p->deleteLater();

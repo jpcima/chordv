@@ -45,12 +45,11 @@
                   <widget class="QComboBox" name="comboBoxInterfaceLanguage">
                    <item>
                     <property name="text">
-                     <string>English</string>
+                     <string notr="true">English</string>
                     </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Français</string>
+                    <property name="icon">
+                     <iconset>
+                      <normaloff>Images/en.png</normaloff>Images/en.png</iconset>
                     </property>
                    </item>
                   </widget>
