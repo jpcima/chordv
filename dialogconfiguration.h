@@ -4,6 +4,8 @@
 #include <QDialog>
 
 #include <QComboBox>
+#include <QTranslator>
+
 namespace Ui {
 class DialogConfiguration;
 }
@@ -14,6 +16,7 @@ class DialogConfiguration : public QDialog
 
 public:
     explicit DialogConfiguration(QWidget *parent = 0);
+    void setTranslator( QTranslator *translator);
     ~DialogConfiguration();
     void InitSettings();
     static void setLanguageComboBox(QComboBox *ptr);
@@ -25,6 +28,7 @@ private slots:
 private:
     Ui::DialogConfiguration *ui;
     QWidget *m_parent;
+    QTranslator *m_translator;
     void Connect();
     void Retranslate(QString lang);
 signals:

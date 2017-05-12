@@ -1,7 +1,10 @@
 #include "dialogconfiguration.h"
 #include "ui_dialogconfiguration.h"
+
 #include "spinboxunit.h"
 #include "settings.h"
+#include "language.h"
+
 #include <QDebug>
 #include <QLineEdit>
 #include <QTranslator>
@@ -15,7 +18,7 @@ DialogConfiguration::DialogConfiguration(QWidget *parent) :
 {
     ui->setupUi(this);
     m_parent=parent;
-    setLanguageComboBox(ui->comboBoxInterfaceLanguage);
+    Language::setLanguageComboBox(ui->comboBoxInterfaceLanguage);
     connect(ui->pushButtonClose,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect(ui->pushButtonSave,SIGNAL(clicked(bool)),this,SLOT(Save()));
     connect(ui->toolButtonPDFReaderName,SIGNAL(clicked(bool)),this,SLOT(SetPDFReader()));
@@ -23,45 +26,13 @@ DialogConfiguration::DialogConfiguration(QWidget *parent) :
     InitSettings();
 }
 
-
-void DialogConfiguration::setLanguageComboBox(QComboBox *ptr)
+void DialogConfiguration::setTranslator(QTranslator *translator)
 {
-    QSettings s;
-    QFileInfo fi(s.fileName());
-    QString Langpath=fi.absolutePath();
-    QString path=Langpath+"/Languages";
-    QFileInfoList filist=QDir(path).entryInfoList(QDir::AllDirs|QDir::NoDotAndDotDot);
-    foreach (QFileInfo fi, filist)
-    {
-        QString dir=fi.absoluteFilePath();
-        QString name=fi.fileName();
-        QDir d(dir);
-        QStringList filter;
-        filter<<"*.qm";
-        QFileInfoList list=d.entryInfoList(filter);
-        if ( !list.isEmpty())
-        {
-            QString qmfile=list.at(0).absoluteFilePath();
-            QString pngfile=qmfile.replace(QRegExp("\\.qm$"),".png");
-            ptr->addItem(QIcon(pngfile),name);
-        }
-    }
-
+    m_translator=translator;
 }
 
-QString DialogConfiguration::getTranslationQmFileName(QString language)
-{
-    if (language=="English") return QString();
-    QSettings s;
-    QFileInfo f1(s.fileName());
-    QString dirname=f1.absolutePath()+"/Languages/"+language;
-    QDir d(dirname);
-    QStringList filter;
-    filter<<"*.qm";
-    QFileInfoList fi=d.entryInfoList(filter);
-    if (fi.count()>1)
-        return fi.at(0).absoluteFilePath();
-}
+
+
 
 void DialogConfiguration::SetPDFReader()
 {
@@ -72,7 +43,7 @@ void DialogConfiguration::SetPDFReader()
 
 void DialogConfiguration::Connect()
 {
-    connect(ui->comboBoxInterfaceLanguage,SIGNAL(currentIndexChanged(QString)),this,SLOT(SelectLanguage(QString)));
+    connect(ui->comboBoxInterfaceLanguage,SIGNAL(currentTextChanged(QString)),this,SLOT(SelectLanguage(QString)));
 
 }
 
@@ -86,15 +57,18 @@ void DialogConfiguration::SelectLanguage(QString  lang)
     Settings s;
     s.setValue("InterfaceLanguage",lang);
     QTranslator tr;
-    QString filename=getTranslationQmFileName(lang);
+    QString filename=Language::getTranslationQmFileName(lang);
+    qDebug()<<filename<<lang;
     tr.load(filename);
     if ( lang != "English" )
        {
           qApp->installTranslator(&tr);
+          m_translator=&tr;
        }
     else
        {
-          qApp->removeTranslator(&tr);
+          qApp->removeTranslator(m_translator);
+          m_translator=0;
        }
     Retranslate(lang);
     emit LanguageChanged(lang);
@@ -106,7 +80,7 @@ void DialogConfiguration::Retranslate(QString lang)
     ui->comboBoxInterfaceLanguage->disconnect();
     ui->retranslateUi(this);
     //ui->comboBoxInterfaceLanguage->setCurrent;
-    connect(ui->comboBoxInterfaceLanguage,SIGNAL(currentIndexChanged(int)),this,SLOT(SelectLanguage(int)));
+    connect(ui->comboBoxInterfaceLanguage,SIGNAL(currentTextChanged(QString)),this,SLOT(SelectLanguage(QString)));
 
 }
 

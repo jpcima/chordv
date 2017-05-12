@@ -55,7 +55,7 @@ private:
     void GenericInsert(QToolButton *w, QString token, QString label1, QString label2);
     bool m_found;
 public slots:
-    void ChangeLanguage(int );
+    void ChangeLanguage(QString );
 private slots:
     void newProject(bool);
     void openProject(bool);

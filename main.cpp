@@ -8,7 +8,7 @@
 #include <QMessageBox>
 #include <QDir>
 #include <version.h>
-#include <dialogconfiguration.h>
+#include <language.h>
 
 int main(int argc, char *argv[])
 {
@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     QString langfrfilename3=fi.absolutePath()+"/Languages/Français/fr.png";
 
     QFileInfo fidb(databasefile);
-    if  (! fidb.exists()) QFile::copy(":/Base/Chord.db",databasefile);
+    if  (! fidb.exists()) QFile::copy(":/Base/Bd/Chord.db",databasefile);
     QFileInfo filang(langfrfilename);
               if (! filang.exists())
     {
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     if ( lang != "English" )
     {
         tr =new QTranslator;
-        QString qmfile=DialogConfiguration::getTranslationQmFileName(lang);
+        QString qmfile=Language::getTranslationQmFileName(lang);
         tr->load(qmfile);
         a.installTranslator(tr);
     }

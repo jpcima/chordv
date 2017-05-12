@@ -428,7 +428,8 @@ void MainWindow::PDFReaderChanged()
 void MainWindow::Configuration()
 {
     DialogConfiguration * dial = new DialogConfiguration(this);
-    connect ( dial,SIGNAL(LanguageChanged(int)),this,SLOT(ChangeLanguage(int)));
+    dial->setTranslator(m_translator);
+    connect ( dial,SIGNAL(LanguageChanged(QString)),this,SLOT(ChangeLanguage(QString)));
     connect ( dial,SIGNAL(PdfReaderChanged()),this,SLOT(PDFReaderChanged()));
     dial->exec();
     delete dial;
@@ -443,7 +444,7 @@ void MainWindow::ChordDefinition()
     delete dial;
 }
 
-void MainWindow::ChangeLanguage(int)
+void MainWindow::ChangeLanguage(QString )
 {
     ui->retranslateUi(this);
     ui->widgetChordMode->Retranslate();
