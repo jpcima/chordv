@@ -59,7 +59,8 @@ SOURCES += main.cpp\
     dialogsearch.cpp \
     dialogreplace.cpp \
     processorlyrics.cpp \
-    language.cpp
+    language.cpp \
+    chord.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -95,7 +96,8 @@ HEADERS  += mainwindow.h \
     dialogsearch.h \
     dialogreplace.h \
     processorlyrics.h \
-    language.h
+    language.h \
+    chord.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

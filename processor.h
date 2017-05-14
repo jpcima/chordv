@@ -62,7 +62,7 @@ public:
     ///
     virtual QString Category();    
     double mm(int value);
-private:
+protected:
     ///
     /// \brief m_compress allow to compress lines to fill a page
     ///
@@ -255,6 +255,7 @@ protected:
     /// \brief addLinkInToc add link in toc
     ///
     virtual void addLinkInToc();
+    void displayChord(QString chord, int &line, int &column,int size);
 };
 
 #endif // PROCESSOR_H

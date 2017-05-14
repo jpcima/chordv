@@ -3,8 +3,8 @@ Chord=5
 ChordMode=false
 Creator=Gilles Maire
 File=Chansons.cho3
-Lyrics=5
-LyricsMode=false
+Lyrics=2
+LyricsMode=true
 Memory=5
 MemoryMode=false
 Text=5
@@ -102,7 +102,7 @@ TocSpaceCharacter=0
 TocVerticalSpacing=1
 VerticalMargin=5mm
 VerticalSpacing=2
-qt_spinbox_lineedit="5,00"
+qt_spinbox_lineedit="2,00"
 
 [Memory]
 ChordFont="Ubuntu,11,-1,5,50,0,0,0,0,0"

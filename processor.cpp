@@ -2,6 +2,7 @@
 #include "ui_formconfig.h"
 #include "ui_mainwindow.h"
 #include "const.h"
+#include "chord.h"
 
 #include <QRegExp>
 #include <QDebug>
@@ -364,7 +365,6 @@ void Processor::doChords()
 
 void Processor::displayChordsForSong()
 {
-  qDebug()<<m_BufChords;
 }
 
 void Processor::displayPageTitle()
@@ -772,3 +772,20 @@ void Processor::FinishPage(PdfPainter *painter)
     painter->FinishPage();
 }
 
+
+
+void Processor::displayChord(QString ch,int &line, int &column,int size)
+{
+    Chord chord(ch);
+    int steph=size/7+column;
+    int stepv=line;
+    QString fret=chord.fret();
+    if ( !fret.isEmpty()) m_painter.DrawText(steph,stepv,fret.toStdString());
+    m_painter.SetStrokeWidth(3);
+    m_painter.DrawLine(2*steph,2*stepv,7*steph,6*stepv);
+    m_painter.SetStrokeWidth(1);
+    for ( int i=1; i<6;i++) m_painter.DrawLine((2+i)*steph,2*stepv,7*steph,(2+i)*stepv);
+    for (int i=1;i<6;i++) m_painter.DrawLine(2*steph,stepv,2*steph,(2*i)*stepv);
+    line-=size;
+    column+=size;
+}

@@ -87,7 +87,7 @@ void DialogConfiguration::Retranslate(QString lang)
 void DialogConfiguration::InitSettings()
 {
     Settings s;
-    ui->comboBoxInterfaceLanguage->setCurrentIndex(s.value("InterfaceLanguage",0).toInt());
+    ui->comboBoxInterfaceLanguage->setCurrentText(s.value("InterfaceLanguage",0).toString());
     ui->comboBoxUnit->setCurrentText(s.value("Unit","mm").toString());
     ui->lineEditCreatoName->setText(s.value("CreatorName","").toString());
     ui->lineEditPDFReaderName->setText(s.value("PDFReader","").toString());
@@ -96,7 +96,7 @@ void DialogConfiguration::InitSettings()
 void DialogConfiguration::Save()
 {
    QSettings s;
-   s.setValue("InterfaceLanguage",ui->comboBoxInterfaceLanguage->currentIndex());
+   s.setValue("InterfaceLanguage",ui->comboBoxInterfaceLanguage->currentText());
    s.setValue("Unit",ui->comboBoxUnit->currentText());
    s.setValue("CreatorName",ui->lineEditCreatoName->text());
    s.setValue("PDFReader",ui->lineEditPDFReaderName->text());
