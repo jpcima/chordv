@@ -1,7 +1,7 @@
 #ifndef CHORD_H
 #define CHORD_H
 
-
+#include "langnotes.h"
 #include <QString>
 #include <QRegExp>
 #include <QStringList>
@@ -9,12 +9,12 @@
 class Chord : public QString
 {
 public:
-    Chord(QString chord);
+    Chord(QString chord,QString lang);
     QString removeTempo();
     QString tempo();
     QStringList toStrings();
     QString fret();
-    QString ToEnglish(QString chord);
+    QString ToEnglish(QString lang,QString chord);
     QString nameEnglish();
     QString nameLocale();
 private:
@@ -26,6 +26,8 @@ private:
     QString m_fret; // 0 1 ...
     QString m_nameLocale; // Ré7
     QString m_nameEnglish; //D7
+    LangNotes m_notes;
+    QString m_lang;
 };
 
 #endif // CHORD_H
