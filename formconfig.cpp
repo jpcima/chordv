@@ -1,13 +1,16 @@
 #include "formconfig.h"
 #include "ui_formconfig.h"
 
+
+#include "colorbutton.h"
+#include "examplelabel.h"
+#include "settings.h"
+#include "language.h"
+
 #include <QDebug>
 #include <QRegExp>
 #include <QLineEdit>
 #include <QSettings>
-#include "colorbutton.h"
-#include "examplelabel.h"
-#include "settings.h"
 
 FormConfig::FormConfig(QWidget *parent) :
     QWidget(parent),
@@ -15,6 +18,7 @@ FormConfig::FormConfig(QWidget *parent) :
 {
     ui->setupUi(this);
     SetConfigFromInit();
+    Language::setLanguageComboBox(ui->comboBoxChordLang);
     m_parent=parent;
     connect (ui->checkBoxCover,SIGNAL(stateChanged(int)),this,SLOT(setCover(int)));
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
@@ -132,14 +136,7 @@ void FormConfig::setValue(QString var, QVariant value)
     }
   else if ( var.startsWith("comboBox") )
     {
-            bool ok ;
-            int index=value.toInt(&ok);
-            if ( ok )
-            foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentIndex(index);
-            else
             foreach (QComboBox *w , m_parent->findChildren<QComboBox*>(var)) w->setCurrentText(value.toString());
-
-
     }
     else if ( var.startsWith("spinBox"))
     {
