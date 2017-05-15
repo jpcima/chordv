@@ -1,4 +1,5 @@
 #include "chord.h"
+#include "langnotes.h"
 
 #include <QApplication>
 #include <QRegExp>
@@ -8,11 +9,11 @@
 #include <QStringList>
 #include <QVariant>
 #include <QDebug>
+#include <QSettings>
 
-Chord::Chord(QString chord):QString(chord)
+Chord::Chord(QString chord, QString lang):QString(chord)
 {
-
-
+ m_lang=lang;
  QRegExp exp("([^x]*)x([0-9]$)");
  QRegExp par("([^(]+)");
  if ( chord.contains(exp))
@@ -35,7 +36,7 @@ Chord::Chord(QString chord):QString(chord)
      {
           m_nameLocale=par.cap(1);
      }
-     m_purechordEnglish=ToEnglish(m_purechordLocale);
+     m_purechordEnglish=ToEnglish(lang,m_purechordLocale);
 
      if ( m_purechordEnglish.contains(par))
      {
@@ -72,25 +73,17 @@ QString Chord::fret()
 }
 
 
-QString Chord::ToEnglish(QString  chord)
+QString Chord::ToEnglish(QString lang,QString  chord)
 {
-
    chord.replace ("m","-");
-   QString A=qApp->translate("Chord","A");
-   QString B=qApp->translate("Chord","B");
-   QString C=qApp->translate("Chord","C");
-   QString D=qApp->translate("Chord","D");
-   QString E=qApp->translate("Chord","E");
-   QString F=qApp->translate("Chord","F");
-   QString G=qApp->translate("Chord","G");
    QString ret;
-   if ( chord.startsWith(A)) ret=chord.replace(A,"A");
-   if ( chord.startsWith(B)) ret=chord.replace(B,"B");
-   if ( chord.startsWith(C)) ret=chord.replace(C,"C");
-   if ( chord.startsWith(D)) ret=chord.replace(D,"D");
-   if ( chord.startsWith(E)) ret=chord.replace(E,"E");
-   if ( chord.startsWith(F)) ret=chord.replace(F,"F");
-   if ( chord.startsWith(G)) ret=chord.replace(G,"G");
+   if ( chord.startsWith(m_notes.note(lang,"A"))) ret=chord.replace(m_notes.note(lang,"A"),"A");
+   if ( chord.startsWith(m_notes.note(lang,"B"))) ret=chord.replace(m_notes.note(lang,"B"),"B");
+   if ( chord.startsWith(m_notes.note(lang,"C"))) ret=chord.replace(m_notes.note(lang,"C"),"C");
+   if ( chord.startsWith(m_notes.note(lang,"D"))) ret=chord.replace(m_notes.note(lang,"D"),"D");
+   if ( chord.startsWith(m_notes.note(lang,"E"))) ret=chord.replace(m_notes.note(lang,"E"),"E");
+   if ( chord.startsWith(m_notes.note(lang,"F"))) ret=chord.replace(m_notes.note(lang,"F"),"F");
+   if ( chord.startsWith(m_notes.note(lang,"G"))) ret=chord.replace(m_notes.note(lang,"G"),"G");
    return(ret);
 }
 
