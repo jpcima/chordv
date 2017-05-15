@@ -777,15 +777,29 @@ void Processor::FinishPage(PdfPainter *painter)
 void Processor::displayChord(QString ch,int &line, int &column,int size)
 {
     Chord chord(ch);
-    int steph=size/7+column;
-    int stepv=line;
+    int steph=size/7;
+    int stepv=size/10 ;
+
+//    1 2 3 4 5 6 7
+//1        0
+//2     ===========
+//3      o
+//4     -----------
+//5
+//6     -----------
+//7
+//8     -----------
+//9
+//10    -----------
+
+
     QString fret=chord.fret();
-    if ( !fret.isEmpty()) m_painter.DrawText(steph,stepv,fret.toStdString());
+    if ( !fret.isEmpty()) m_painter.DrawText(column+steph,line+stepv*3,fret.toStdString());
     m_painter.SetStrokeWidth(3);
-    m_painter.DrawLine(2*steph,2*stepv,7*steph,6*stepv);
+    m_painter.DrawLine(column+2*steph,line+2*stepv,column+7*steph,line+2*stepv);
     m_painter.SetStrokeWidth(1);
-    for ( int i=1; i<6;i++) m_painter.DrawLine((2+i)*steph,2*stepv,7*steph,(2+i)*stepv);
-    for (int i=1;i<6;i++) m_painter.DrawLine(2*steph,stepv,2*steph,(2*i)*stepv);
+    for ( int i=0; i<4;i++) m_painter.DrawLine(column+2*steph,line+(2+i)*stepv,column+7*steph,line+(2+i)*stepv);
+    for (int i=1;i<6;i++)   m_painter.DrawLine(column+(1+i)*steph,line+2*stepv,column+(1+i)*steph,line+(10)*stepv);
     line-=size;
     column+=size;
 }
