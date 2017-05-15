@@ -776,34 +776,52 @@ void Processor::FinishPage(PdfPainter *painter)
 void Processor::displayChord(QString ch,int &line, int &column,int size)
 {
     Chord chord(ch,"fr");
-    int steph=size/7;
+    int steph=size/8;
     int stepv=size/10 ;
 
-//    1 2 3 4 5 6 7
+//   1 2 3 4 5 6 7 8
 //1        0
-//2     ===========
-//3      o
-//4     -----------
+//2      ===========
+//3       o
+//4      -----------
 //5
-//6     -----------
+//6      -----------
 //7
-//8     -----------
+//8      -----------
 //9
-//10    -----------
+//10     -----------
 
 
     QString fret=chord.fret();
-    if ( !fret.isEmpty()) m_painter.DrawText(column+steph,line+stepv*3,fret.toStdString());
-    m_painter.SetStrokeWidth(1);
-    m_painter.DrawLine(column+2*steph,line+2*stepv,column+7*steph,line+2*stepv);
+    // print fret number
+    if ( !fret.isEmpty()) m_painter.DrawText(column+steph,line-stepv*3,PdfString(chord.fret().toLatin1()));
+    // print chord name
+    m_painter.DrawTextAligned(column+size/2,line-stepv,chord.nameLocale().length(),PdfString(chord.nameLocale().toLatin1()), EPdfAlignment::ePdfAlignment_Center);
+    // print first fret
+    m_painter.SetStrokeWidth(1.5);
+    m_painter.DrawLine(column+2*steph,line-2*stepv,column+7*steph,line-2*stepv);
+    // print 4 fret
     m_painter.SetStrokeWidth(0.5);
-    for ( int i=0; i<4;i++) m_painter.DrawLine(column+2*steph,line+(2+i)*stepv,column+7*steph,line+(2+i)*stepv);
-    for (int i=1;i<6;i++)   m_painter.DrawLine(column+(1+i)*steph,line+2*stepv,column+(1+i)*steph,line+(10)*stepv);
-    column+=size;
-    if ( column > m_uiconfig->spuPageWidth->getValue() - m_uiconfig->spuHorizontalMargin->getValue())
+    for ( int i=0; i<=3;i++) m_painter.DrawLine(column+2*steph,line-(3+i)*stepv,column+7*steph,line-(3+i)*stepv);
+    for (int i=1;i<7;i++)   m_painter.DrawLine(column+(1+i)*steph,line-2*stepv,column+(1+i)*steph,line-7*stepv);
+
+    foreach ( QString s, chord.toStrings())
     {
-        column = m_uiconfig->spuHorizontalMargin->getValue();
-        line=line+size;
+        if ( s == "x")
+            qDebug()<<s;
+        else if ( s == "0")
+            qDebug()<<s;
+        else
+        {
+            m_painter.Circle();
+        }
+    }
+
+    column+=size;
+    if ( column > m_uiconfig->spuPageWidth->getPdfU() - m_uiconfig->spuHorizontalMargin->getPdfU())
+    {
+        column = m_uiconfig->spuHorizontalMargin->getPdfU();
+        line=line-size;
     }
 
 }
