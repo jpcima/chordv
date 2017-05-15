@@ -1,0 +1,6 @@
+#ifndef VERSION_H
+#define VERSION_H
+#define VERSION "v0.1"
+#define FULLVERSION "6e077137a73daa378541518e39462855fea65f05"
+#define DATEUS "2017/05/14"
+#endif // VERSION_H
