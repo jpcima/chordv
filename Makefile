@@ -189,96 +189,6 @@ DIST          = Example/deuxdisques.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiAgentBase.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiCalendar.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiContact.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiMime.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiNotes.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiSocialUtils.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiXml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Attica.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_BluezQt.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KActivities.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KAlarmCal.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KArchive.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KAuth.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KBlog.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KBookmarks.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCalCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCalUtils.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCMUtils.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCodecs.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCompletion.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigGui.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KContacts.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCoreAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCrash.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDBusAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDeclarative.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDESu.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDEWebKit.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDNSSD.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KEmoticons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIBlogger.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPICalendar.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIContacts.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPICore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIDrive.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPILatitude.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIMaps.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPITasks.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGlobalAccel.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGuiAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KHolidays.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KHtml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KI18n.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIconThemes.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIdentityManagement.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIdleTime.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIMAP.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOFileWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOGui.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KItemModels.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KItemViews.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJobWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJS.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJSApi.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJsEmbed.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KMailTransport.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KMime.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNewStuff.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNewStuffCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNotifications.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNotifyConfig.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNTLM.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KontactInterface.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KParts.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPeople.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPeopleWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPIMTextEdit.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPlotting.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPty.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KrossCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KrossUi.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KRunner.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KScreen.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KService.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTextEditor.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTextWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTNef.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KUnitConversion.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWallet.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWidgetsAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWindowSystem.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KXmlGui.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KXmlRpcClient.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Ldap.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri \
@@ -290,8 +200,6 @@ DIST          = Example/deuxdisques.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_multimedia.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_multimediawidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri \
@@ -301,39 +209,19 @@ DIST          = Example/deuxdisques.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_script.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_svg.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Mbox.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_NetworkManagerQt.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Prison.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_QGpgme.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_QuickAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Solid.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_SonnetCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_SonnetUi.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Syndication.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_ThreadWeaver.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -446,96 +334,6 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiAgentBase.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiCalendar.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiContact.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiMime.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiNotes.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiSocialUtils.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiXml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Attica.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_BluezQt.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KActivities.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KAlarmCal.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KArchive.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KAuth.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KBlog.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KBookmarks.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCalCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCalUtils.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCMUtils.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCodecs.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCompletion.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigGui.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KContacts.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCoreAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCrash.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDBusAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDeclarative.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDESu.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDEWebKit.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDNSSD.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KEmoticons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIBlogger.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPICalendar.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIContacts.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPICore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIDrive.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPILatitude.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIMaps.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPITasks.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGlobalAccel.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGuiAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KHolidays.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KHtml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KI18n.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIconThemes.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIdentityManagement.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIdleTime.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIMAP.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOFileWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOGui.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KItemModels.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KItemViews.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJobWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJS.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJSApi.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJsEmbed.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KMailTransport.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KMime.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNewStuff.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNewStuffCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNotifications.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNotifyConfig.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNTLM.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KontactInterface.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KParts.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPeople.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPeopleWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPIMTextEdit.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPlotting.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPty.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KrossCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KrossUi.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KRunner.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KScreen.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KService.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTextEditor.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTextWidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTNef.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KUnitConversion.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWallet.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWidgetsAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWindowSystem.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KXmlGui.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KXmlRpcClient.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Ldap.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri \
@@ -547,8 +345,6 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_multimedia.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_multimediawidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri \
@@ -558,39 +354,19 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_script.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_svg.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Mbox.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_NetworkManagerQt.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Prison.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_QGpgme.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_QuickAddons.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Solid.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_SonnetCore.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_SonnetUi.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Syndication.pri \
-		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_ThreadWeaver.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -625,96 +401,6 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-base.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/g++-unix.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/qconfig.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiAgentBase.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiCalendar.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiContact.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiCore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiMime.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiNotes.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiSocialUtils.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiWidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_AkonadiXml.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Attica.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_BluezQt.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KActivities.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KAlarmCal.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KArchive.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KAuth.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KBlog.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KBookmarks.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCalCore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCalUtils.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCMUtils.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCodecs.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCompletion.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigCore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigGui.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KConfigWidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KContacts.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCoreAddons.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KCrash.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDBusAddons.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDeclarative.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDESu.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDEWebKit.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KDNSSD.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KEmoticons.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIBlogger.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPICalendar.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIContacts.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPICore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIDrive.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPILatitude.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPIMaps.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGAPITasks.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGlobalAccel.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KGuiAddons.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KHolidays.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KHtml.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KI18n.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIconThemes.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIdentityManagement.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIdleTime.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIMAP.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOCore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOFileWidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOGui.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KIOWidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KItemModels.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KItemViews.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJobWidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJS.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJSApi.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KJsEmbed.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KMailTransport.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KMime.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNewStuff.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNewStuffCore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNotifications.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNotifyConfig.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KNTLM.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KontactInterface.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KParts.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPeople.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPeopleWidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPIMTextEdit.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPlotting.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KPty.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KrossCore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KrossUi.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KRunner.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KScreen.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KService.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTextEditor.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTextWidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KTNef.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KUnitConversion.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWallet.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWidgetsAddons.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KWindowSystem.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KXmlGui.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_KXmlRpcClient.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Ldap.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_bootstrap_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_concurrent_private.pri:
@@ -726,8 +412,6 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_eglfs_kms_support_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_gui_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_multimedia.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_multimediawidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_network_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_opengl.pri:
@@ -737,39 +421,19 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_script.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_scripttools.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_svg.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkit.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_webkitwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_widgets_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xcb_qpa_lib_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_xml_private.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Mbox.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_NetworkManagerQt.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Prison.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_QGpgme.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_QuickAddons.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Solid.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_SonnetCore.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_SonnetUi.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_Syndication.pri:
-/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_ThreadWeaver.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_functions.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -1062,7 +726,8 @@ build/obj/mainwindow.o: mainwindow.cpp mainwindow.h \
 		pagesize.h \
 		fontbutton.h \
 		processorlyrics.h \
-		settings.h
+		settings.h \
+		language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/mainwindow.o mainwindow.cpp
 
 build/obj/util.o: util.cpp util.h
@@ -1077,7 +742,8 @@ build/obj/formconfig.o: formconfig.cpp formconfig.h \
 		pagesize.h \
 		spinboxunit.h \
 		colorbutton.h \
-		settings.h
+		settings.h \
+		language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formconfig.o formconfig.cpp
 
 build/obj/lyricsconfig.o: lyricsconfig.cpp lyricsconfig.h \
