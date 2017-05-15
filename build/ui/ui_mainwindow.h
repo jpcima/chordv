@@ -127,7 +127,7 @@ public:
     QToolButton *toolButtonSOC;
     QToolButton *toolButtonEOC;
     QToolButton *toolButtonREF;
-    QComboBox *comboBox;
+    QComboBox *comboBoxEdit;
     QFrame *line;
     QCheckBox *checkBoxLongShort;
     QTextEdit *textEditCho3File;
@@ -260,6 +260,9 @@ public:
         horizontalLayout_3->addWidget(labelChordLanguage);
 
         comboBoxChordLanguage = new QComboBox(General);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/Image/Images/en.png"), QSize(), QIcon::Normal, QIcon::Off);
+        comboBoxChordLanguage->addItem(icon1, QString());
         comboBoxChordLanguage->setObjectName(QStringLiteral("comboBoxChordLanguage"));
 
         horizontalLayout_3->addWidget(comboBoxChordLanguage);
@@ -494,11 +497,11 @@ public:
 
         horizontalLayout_8->addWidget(toolButtonREF);
 
-        comboBox = new QComboBox(Editor2);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-        comboBox->setMaximumSize(QSize(100, 16777215));
+        comboBoxEdit = new QComboBox(Editor2);
+        comboBoxEdit->setObjectName(QStringLiteral("comboBoxEdit"));
+        comboBoxEdit->setMaximumSize(QSize(100, 16777215));
 
-        horizontalLayout_8->addWidget(comboBox);
+        horizontalLayout_8->addWidget(comboBoxEdit);
 
         line = new QFrame(Editor2);
         line->setObjectName(QStringLiteral("line"));
@@ -602,19 +605,16 @@ public:
         actionChord_defintion->setText(QApplication::translate("MainWindow", "&Chord definition", Q_NULLPTR));
         actionChord_defintion->setShortcut(QApplication::translate("MainWindow", "F3", Q_NULLPTR));
         actionSystem_Info->setText(QApplication::translate("MainWindow", "&System Info", Q_NULLPTR));
-        actionSearch->setText(QApplication::translate("MainWindow", "Find", Q_NULLPTR));
+        actionSearch->setText(QApplication::translate("MainWindow", "&Find", Q_NULLPTR));
         actionSearch->setShortcut(QApplication::translate("MainWindow", "Ctrl+F", Q_NULLPTR));
-        actionReplace->setText(QApplication::translate("MainWindow", "Replace", Q_NULLPTR));
+        actionReplace->setText(QApplication::translate("MainWindow", "&Replace", Q_NULLPTR));
         actionReplace->setShortcut(QApplication::translate("MainWindow", "Ctrl+R", Q_NULLPTR));
         labelInputFile->setText(QApplication::translate("MainWindow", "Input File", Q_NULLPTR));
         toolButtonInputFile->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
         labelCreatorName->setText(QApplication::translate("MainWindow", "Creator name", Q_NULLPTR));
         labelChordLanguage->setText(QApplication::translate("MainWindow", "Chord Language", Q_NULLPTR));
-        comboBoxChordLanguage->clear();
-        comboBoxChordLanguage->insertItems(0, QStringList()
-         << QApplication::translate("MainWindow", "English", Q_NULLPTR)
-         << QApplication::translate("MainWindow", "Fran\303\247ais", Q_NULLPTR)
-        );
+        comboBoxChordLanguage->setItemText(0, QApplication::translate("MainWindow", "English", Q_NULLPTR));
+
         checkBoxLyricsMode->setText(QApplication::translate("MainWindow", "Lyrics and chords mode book", Q_NULLPTR));
         checkBoxChordMode->setText(QApplication::translate("MainWindow", "Chords only mode book", Q_NULLPTR));
         checkBoxTextMode->setText(QApplication::translate("MainWindow", "Text only mode book", Q_NULLPTR));
@@ -679,7 +679,7 @@ public:
         menuFile->setTitle(QApplication::translate("MainWindow", "F&ile", Q_NULLPTR));
         menuTools->setTitle(QApplication::translate("MainWindow", "Too&ls", Q_NULLPTR));
         menuHelp->setTitle(QApplication::translate("MainWindow", "&Help", Q_NULLPTR));
-        menuEdition->setTitle(QApplication::translate("MainWindow", "Edition", Q_NULLPTR));
+        menuEdition->setTitle(QApplication::translate("MainWindow", "&Edition", Q_NULLPTR));
     } // retranslateUi
 
 };
