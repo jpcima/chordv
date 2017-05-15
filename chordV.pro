@@ -60,7 +60,8 @@ SOURCES += main.cpp\
     dialogreplace.cpp \
     processorlyrics.cpp \
     language.cpp \
-    chord.cpp
+    chord.cpp \
+    langnotes.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -97,7 +98,8 @@ HEADERS  += mainwindow.h \
     dialogreplace.h \
     processorlyrics.h \
     language.h \
-    chord.h
+    chord.h \
+    langnotes.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
