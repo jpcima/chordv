@@ -584,8 +584,7 @@ void Processor::addToc()
 
 }
 
-void Processor::
-makePageNumber()
+void Processor::makePageNumber()
 {
     Const::PageNumber pagetype= Const::getPageNumber(m_uiconfig->comboBoxPageNumber->currentIndex());
     if (pagetype == Const::No )  return ;
@@ -776,7 +775,7 @@ void Processor::FinishPage(PdfPainter *painter)
 
 void Processor::displayChord(QString ch,int &line, int &column,int size)
 {
-    Chord chord(ch);
+    Chord chord(ch,"fr");
     int steph=size/7;
     int stepv=size/10 ;
 
@@ -795,11 +794,16 @@ void Processor::displayChord(QString ch,int &line, int &column,int size)
 
     QString fret=chord.fret();
     if ( !fret.isEmpty()) m_painter.DrawText(column+steph,line+stepv*3,fret.toStdString());
-    m_painter.SetStrokeWidth(3);
-    m_painter.DrawLine(column+2*steph,line+2*stepv,column+7*steph,line+2*stepv);
     m_painter.SetStrokeWidth(1);
+    m_painter.DrawLine(column+2*steph,line+2*stepv,column+7*steph,line+2*stepv);
+    m_painter.SetStrokeWidth(0.5);
     for ( int i=0; i<4;i++) m_painter.DrawLine(column+2*steph,line+(2+i)*stepv,column+7*steph,line+(2+i)*stepv);
     for (int i=1;i<6;i++)   m_painter.DrawLine(column+(1+i)*steph,line+2*stepv,column+(1+i)*steph,line+(10)*stepv);
-    line-=size;
     column+=size;
+    if ( column > m_uiconfig->spuPageWidth->getValue() - m_uiconfig->spuHorizontalMargin->getValue())
+    {
+        column = m_uiconfig->spuHorizontalMargin->getValue();
+        line=line+size;
+    }
+
 }
