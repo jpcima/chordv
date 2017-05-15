@@ -26,7 +26,7 @@ Chord::Chord(QString chord):QString(chord)
      m_purechordLocale=chord;
  }
  QString res;
- if ( m_purechordLocale.contains(QRegExp("[x0-9 ]+")))
+ if ( m_purechordLocale.contains(QRegExp("([A-G][#b]?[^:]*):([x0-9 ]+")))
      res=m_purechordLocale;
  else
  {
