@@ -2,6 +2,8 @@
 #define UTIL_H
 
 #include <QStringList>
+/// Some utilities
+
 
 class Util
 {
