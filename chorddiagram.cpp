@@ -60,7 +60,7 @@ void ChordDiagram::paintEvent(QPaintEvent *)
         font.setPixelSize(rcercle);
         painter.setFont(font);
         if ( list.at(0) != "0") painter.drawText(QPoint(x+xmfret,y+ymfret),list.at(0));
-        for ( int i=1;i<6;i++)
+        for ( int i=1;i<=6;i++)
         {
             QString note=list.at(i);
             if (note == "0" )
