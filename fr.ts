@@ -4,32 +4,44 @@
 <context>
     <name>Chord</name>
     <message>
+        <location filename="chord.cpp" line="46"/>
+        <source>ERROR</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="chord.cpp" line="79"/>
         <source>A</source>
-        <translation type="obsolete">La</translation>
+        <translation>La</translation>
     </message>
     <message>
+        <location filename="chord.cpp" line="80"/>
         <source>B</source>
-        <translation type="obsolete">Si</translation>
+        <translation>Si</translation>
     </message>
     <message>
+        <location filename="chord.cpp" line="81"/>
         <source>C</source>
-        <translation type="obsolete">Do</translation>
+        <translation>Do</translation>
     </message>
     <message>
+        <location filename="chord.cpp" line="82"/>
         <source>D</source>
-        <translation type="obsolete">Ré</translation>
+        <translation>Ré</translation>
     </message>
     <message>
+        <location filename="chord.cpp" line="83"/>
         <source>E</source>
-        <translation type="obsolete">Mi</translation>
+        <translation>Mi</translation>
     </message>
     <message>
+        <location filename="chord.cpp" line="84"/>
         <source>F</source>
-        <translation type="obsolete">Fa</translation>
+        <translation>Fa</translation>
     </message>
     <message>
+        <location filename="chord.cpp" line="85"/>
         <source>G</source>
-        <translation type="obsolete">Sol</translation>
+        <translation>Sol</translation>
     </message>
 </context>
 <context>
@@ -405,41 +417,42 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="33"/>
-        <source>Program location</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="dialogsysteminfo.ui" line="40"/>
-        <source>Program version</source>
+        <source>Program arguments</source>
+        <oldsource>Program location</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="47"/>
-        <source>Git version</source>
+        <source>Program version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="54"/>
-        <source>Compilation date</source>
+        <source>Git version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="61"/>
-        <source>Porgram Pid</source>
+        <source>Compilation date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="68"/>
-        <source>Configuration file</source>
+        <source>Program Pid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="75"/>
+        <source>Configuration file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dialogsysteminfo.ui" line="82"/>
         <source>Database name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dialogsysteminfo.ui" line="161"/>
+        <location filename="dialogsysteminfo.ui" line="175"/>
         <source>Close</source>
         <translation type="unfinished">Fermer</translation>
     </message>
@@ -1349,39 +1362,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chord.cpp" line="66"/>
         <source>A</source>
-        <translation type="unfinished">La</translation>
+        <translation type="obsolete">La</translation>
     </message>
     <message>
-        <location filename="chord.cpp" line="67"/>
         <source>B</source>
-        <translation type="unfinished">Si</translation>
+        <translation type="obsolete">Si</translation>
     </message>
     <message>
-        <location filename="chord.cpp" line="68"/>
         <source>C</source>
-        <translation type="unfinished">Do</translation>
+        <translation type="obsolete">Do</translation>
     </message>
     <message>
-        <location filename="chord.cpp" line="69"/>
         <source>D</source>
-        <translation type="unfinished">Ré</translation>
+        <translation type="obsolete">Ré</translation>
     </message>
     <message>
-        <location filename="chord.cpp" line="70"/>
         <source>E</source>
-        <translation type="unfinished">Mi</translation>
+        <translation type="obsolete">Mi</translation>
     </message>
     <message>
-        <location filename="chord.cpp" line="71"/>
         <source>F</source>
-        <translation type="unfinished">Fa</translation>
+        <translation type="obsolete">Fa</translation>
     </message>
     <message>
-        <location filename="chord.cpp" line="72"/>
         <source>G</source>
-        <translation type="unfinished">Sol</translation>
+        <translation type="obsolete">Sol</translation>
     </message>
 </context>
 <context>
@@ -1413,52 +1419,52 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="verticalspacing.cpp" line="5"/>
         <source>Very compressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Très compressé</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="5"/>
         <source>Compressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Compressé</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="5"/>
         <source>Regular</source>
-        <translation type="unfinished"></translation>
+        <translation>Normal</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="5"/>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Moyen</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="5"/>
         <source>Large</source>
-        <translation type="unfinished"></translation>
+        <translation>Grand</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="6"/>
         <source>Extra large</source>
-        <translation type="unfinished"></translation>
+        <translation>Très grand</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="6"/>
         <source>Big</source>
-        <translation type="unfinished"></translation>
+        <translation>Gros</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="6"/>
         <source>Extra Big</source>
-        <translation type="unfinished"></translation>
+        <translation>Très gros</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="6"/>
         <source>Huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Énorme</translation>
     </message>
     <message>
         <location filename="verticalspacing.cpp" line="6"/>
         <source>Extra Huge</source>
-        <translation type="unfinished"></translation>
+        <translation>Plus qu&apos;énorme</translation>
     </message>
 </context>
 </TS>
