@@ -13,6 +13,7 @@
 #include "processorlyrics.h"
 #include "settings.h"
 #include "logmessages.h"
+#include "language.h"
 
 #include <QDebug>
 #include <QFileDialog>
@@ -28,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    Language::setLanguageComboBox( ui->comboBoxChordLanguage);
     ui->tabWidget->setCurrentIndex(0);
     m_lastmenu= new QMenu(tr("Last Projects"));
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
@@ -246,6 +248,7 @@ void MainWindow::openChoFile( QString filename)
         ui->textEditCho3File->setTextCursor(textCursor);
         m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
         ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
+
     }
 }
 
@@ -339,6 +342,7 @@ void MainWindow::Save(bool)
     sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
     sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
+    sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.sync();
     ui->widgetChordMode->Save(m_currentprojectfile,FormConfig::Chord);
     ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);

@@ -16,9 +16,10 @@ void ProcessorLyrics::displayChordsForSong()
       foreach ( QString chord, chords)
     {
         displayChord(chord,m_line,m_column,m_uiconfig->spuChordHorizontalSize->getValue());
-        m_line-=m_uiconfig->spuChordHorizontalSize->getValue();
-        m_column+= m_uiconfig->spuChordHorizontalSize->getValue();
     }
   }
+  m_column=m_uiconfig->spuHorizontalMargin->getValue();
+  m_line-=m_uiconfig->spuChordHorizontalSize->getValue();
+
 
 }
