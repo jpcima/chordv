@@ -1,13 +1,14 @@
 [General]
-Chord=5
+Chord=2
+ChordLang=1
 ChordMode=false
 Creator=Gilles Maire
 File=Chansons.cho3
-Lyrics=21
+Lyrics=5
 LyricsMode=true
-Memory=5
+Memory=2
 MemoryMode=false
-Text=5
+Text=2
 TextMode=true
 
 [Chord]
@@ -55,15 +56,15 @@ TocSpaceCharacter=0
 TocVerticalSpacing=1
 VerticalMargin=5mm
 VerticalSpacing=2
-qt_spinbox_lineedit="5,00"
+qt_spinbox_lineedit="2,00"
 
 [Lyrics]
 ChordFont="Ubuntu,11,-1,5,50,0,0,0,0,0"
 ChordFontBackgroundColor=#ffffff
 ChordFontColor=#000000
-ChordHorizontalSize=21mm
+ChordHorizontalSize=30mm
 ChordInText=0
-ChordLang=-1
+ChordLang=1
 Cover=1
 CoverFont="Ubuntu,11,-1,5,50,0,0,0,0,0"
 CoverFontBackgroundColor=#ffffff
@@ -102,7 +103,7 @@ TocSpaceCharacter=0
 TocVerticalSpacing=1
 VerticalMargin=5mm
 VerticalSpacing=2
-qt_spinbox_lineedit="21,00"
+qt_spinbox_lineedit="5,00"
 
 [Memory]
 ChordFont="Ubuntu,11,-1,5,50,0,0,0,0,0"
@@ -149,7 +150,7 @@ TocSpaceCharacter=0
 TocVerticalSpacing=1
 VerticalMargin=5mm
 VerticalSpacing=2
-qt_spinbox_lineedit="5,00"
+qt_spinbox_lineedit="2,00"
 
 [Text]
 ChordFont="Ubuntu,11,-1,5,50,0,0,0,0,0"
@@ -196,4 +197,4 @@ TocSpaceCharacter=0
 TocVerticalSpacing=1
 VerticalMargin=5mm
 VerticalSpacing=2
-qt_spinbox_lineedit="5,00"
+qt_spinbox_lineedit="2,00"
