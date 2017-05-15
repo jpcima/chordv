@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>462</width>
-    <height>299</height>
+    <width>478</width>
+    <height>330</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,16 +21,23 @@
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
-          <widget class="QLabel" name="labelName">
+          <widget class="QLabel" name="labelNme">
            <property name="text">
             <string>Program name</string>
            </property>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="labelLocation">
+          <widget class="QLabel" name="labelNameProgramArguments">
            <property name="text">
-            <string>Program location</string>
+            <string>Program arguments</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelNameProgramArguments_2">
+           <property name="text">
+            <string>Program Location</string>
            </property>
           </widget>
          </item>
@@ -58,7 +65,7 @@
          <item>
           <widget class="QLabel" name="labelPid">
            <property name="text">
-            <string>Porgram Pid</string>
+            <string>Program Pid</string>
            </property>
           </widget>
          </item>
@@ -82,6 +89,13 @@
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
           <widget class="QLineEdit" name="lineEditName">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditProgramArguments">
            <property name="readOnly">
             <bool>true</bool>
            </property>
