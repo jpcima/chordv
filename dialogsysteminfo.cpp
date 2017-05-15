@@ -12,8 +12,10 @@ DialogSystemInfo::DialogSystemInfo(QWidget *parent) :
     ui->setupUi(this);
     QSettings s;
     ui->lineEditConfiguration->setText(s.fileName());
-    ui->lineEditDatabase->setText("");
     ui->lineEditName->setText(qApp->applicationName());
+    QStringList l=qApp->arguments();
+    l.pop_front();
+    ui->lineEditProgramArguments->setText(l.join(" "));
     ui->lineEditPid->setText(QString("%1").arg(qApp->applicationPid()));
     ui->lineEditLocation->setText(qApp->applicationDirPath());
     QStringList versionlist=qApp->applicationVersion().split("/");
