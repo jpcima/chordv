@@ -83,7 +83,8 @@ SOURCES       = main.cpp \
 		dialogreplace.cpp \
 		processorlyrics.cpp \
 		language.cpp \
-		chord.cpp build/rcc/qrc_resources.cpp \
+		chord.cpp \
+		langnotes.cpp build/rcc/qrc_resources.cpp \
 		build/moc/moc_mainwindow.cpp \
 		build/moc/moc_formconfig.cpp \
 		build/moc/moc_lyricsconfig.cpp \
@@ -142,6 +143,7 @@ OBJECTS       = build/obj/main.o \
 		build/obj/processorlyrics.o \
 		build/obj/language.o \
 		build/obj/chord.o \
+		build/obj/langnotes.o \
 		build/obj/qrc_resources.o \
 		build/obj/moc_mainwindow.o \
 		build/obj/moc_formconfig.o \
@@ -385,7 +387,8 @@ DIST          = Example/deuxdisques.png \
 		dialogreplace.h \
 		processorlyrics.h \
 		language.h \
-		chord.h main.cpp \
+		chord.h \
+		langnotes.h main.cpp \
 		mainwindow.cpp \
 		util.cpp \
 		formconfig.cpp \
@@ -420,7 +423,8 @@ DIST          = Example/deuxdisques.png \
 		dialogreplace.cpp \
 		processorlyrics.cpp \
 		language.cpp \
-		chord.cpp
+		chord.cpp \
+		langnotes.cpp
 QMAKE_TARGET  = chordV
 DESTDIR       = bin/
 TARGET        = bin/chordV
@@ -805,8 +809,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h util.h formconfig.h lyricsconfig.h chordconfig.h textconfig.h fontchooser.h fontbutton.h fontdialog.h colorbutton.h lineedittest.h logmessages.h editorhighlighter.h imagebutton.h examplelabel.h pagesize.h processor.h dialogabout.h memoryconfig.h spinboxunit.h dialogconfiguration.h settings.h processortext.h const.h verticalspacing.h dialogchorddefinition.h ChordDetector.h neck.h dialogsysteminfo.h chorddiagram.h dialogchoosegoodchord.h dialogsearch.h dialogreplace.h processorlyrics.h language.h chord.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp util.cpp formconfig.cpp lyricsconfig.cpp chordconfig.cpp textconfig.cpp fontchooser.cpp fontbutton.cpp fontdialog.cpp colorbutton.cpp lineedittest.cpp logmessages.cpp editorhighlighter.cpp imagebutton.cpp examplelabel.cpp pagesize.cpp processor.cpp dialogabout.cpp memoryconfig.cpp spinboxunit.cpp dialogconfiguration.cpp settings.cpp processortext.cpp verticalspacing.cpp dialogchorddefinition.cpp ChordDetector.cpp neck.cpp dialogsysteminfo.cpp chorddiagram.cpp dialogchoosegoodchord.cpp dialogsearch.cpp dialogreplace.cpp processorlyrics.cpp language.cpp chord.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h util.h formconfig.h lyricsconfig.h chordconfig.h textconfig.h fontchooser.h fontbutton.h fontdialog.h colorbutton.h lineedittest.h logmessages.h editorhighlighter.h imagebutton.h examplelabel.h pagesize.h processor.h dialogabout.h memoryconfig.h spinboxunit.h dialogconfiguration.h settings.h processortext.h const.h verticalspacing.h dialogchorddefinition.h ChordDetector.h neck.h dialogsysteminfo.h chorddiagram.h dialogchoosegoodchord.h dialogsearch.h dialogreplace.h processorlyrics.h language.h chord.h langnotes.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp util.cpp formconfig.cpp lyricsconfig.cpp chordconfig.cpp textconfig.cpp fontchooser.cpp fontbutton.cpp fontdialog.cpp colorbutton.cpp lineedittest.cpp logmessages.cpp editorhighlighter.cpp imagebutton.cpp examplelabel.cpp pagesize.cpp processor.cpp dialogabout.cpp memoryconfig.cpp spinboxunit.cpp dialogconfiguration.cpp settings.cpp processortext.cpp verticalspacing.cpp dialogchorddefinition.cpp ChordDetector.cpp neck.cpp dialogsysteminfo.cpp chorddiagram.cpp dialogchoosegoodchord.cpp dialogsearch.cpp dialogreplace.cpp processorlyrics.cpp language.cpp chord.cpp langnotes.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui formconfig.ui fontchooser.ui dialogabout.ui dialogconfiguration.ui dialogchorddefinition.ui dialogsysteminfo.ui dialogchoosegoodchord.ui dialogsearch.ui dialogreplace.ui $(DISTDIR)/
 	$(COPY_FILE) --parents fr.ts $(DISTDIR)/
 
@@ -1142,7 +1146,8 @@ build/obj/processor.o: processor.cpp processor.h \
 		memoryconfig.h \
 		textconfig.h \
 		const.h \
-		chord.h
+		chord.h \
+		langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processor.o processor.cpp
 
 build/obj/dialogabout.o: dialogabout.cpp dialogabout.h \
@@ -1242,8 +1247,12 @@ build/obj/processorlyrics.o: processorlyrics.cpp processorlyrics.h \
 build/obj/language.o: language.cpp language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/language.o language.cpp
 
-build/obj/chord.o: chord.cpp chord.h
+build/obj/chord.o: chord.cpp chord.h \
+		langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chord.o chord.cpp
+
+build/obj/langnotes.o: langnotes.cpp langnotes.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/langnotes.o langnotes.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_resources.o build/rcc/qrc_resources.cpp
