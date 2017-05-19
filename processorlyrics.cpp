@@ -1,5 +1,7 @@
 #include "processorlyrics.h"
 #include "ui_formconfig.h"
+#include "chord.h"
+
 #include <QDebug>
 #include <QStringList>
 ProcessorLyrics::ProcessorLyrics(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Processor(ui1,ui2)
@@ -10,10 +12,10 @@ ProcessorLyrics::ProcessorLyrics(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Proce
 void ProcessorLyrics::displayChordsForSong()
 {
   QStringList chords=m_BufChords;
-  chords.removeDuplicates();
+  QStringList chordswithouttempo=Chord::removeDupplicateWhithoutTempo(chords,m_uiconfig->comboBoxChordLang->currentData().toString());
   if (m_uiconfig->comboBoxChordInText->currentIndex()==0)
   {
-      foreach ( QString chord, chords)
+      foreach ( QString chord, chordswithouttempo)
     {
         displayChord(chord,m_line,m_column,m_uiconfig->spuChordHorizontalSize->getPdfU());
     }
