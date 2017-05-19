@@ -7,6 +7,11 @@
 #include "dialogsysteminfo.h"
 #include "dialogsearch.h"
 #include "dialogreplace.h"
+#include "lyricsconfig.h"
+#include "formconfig.h"
+#include "textconfig.h"
+#include "memoryconfig.h"
+#include "formconfig.h"
 
 #include "util.h"
 #include "processortext.h"
@@ -14,6 +19,7 @@
 #include "settings.h"
 #include "logmessages.h"
 #include "language.h"
+#include "pdfviewer.h"
 
 #include <QDebug>
 #include <QFileDialog>
@@ -22,7 +28,7 @@
 #include <QTranslator>
 #include <QProcess>
 #include <QInputDialog>
-
+#include "ui_formconfig.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -52,7 +58,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
     connect(ui->actionChord_defintion,SIGNAL(triggered(bool)),this,SLOT(ChordDefinition()));
-    connect(ui->actionReset_Preference_as_origine,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
+    connect(ui->actionReset_Preferences_as_Origin,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
     connect(ui->actionSearch,SIGNAL(triggered(bool)),this,SLOT(Search()));
     connect(ui->actionReplace,SIGNAL(triggered(bool)),this,SLOT(Replace()));
@@ -78,6 +84,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionSelectLyrics,SIGNAL(triggered(bool)),this,SLOT(ShowLyricsMode()));
     connect (ui->actionSelectChord,SIGNAL(triggered(bool)),this,SLOT(ShowChordMode()));
     connect(ui->actionSelectEditor,SIGNAL(triggered(bool)),this,SLOT(ShowEditor()));
+    connect (ui->actionBuildText,SIGNAL(triggered(bool)),this,SLOT(BuildTextPdf()));
+    connect (ui->actionBuildLyrics,SIGNAL(triggered(bool)),this,SLOT(BuildLyricsPdf()));
+    connect (ui->actionBuildChord,SIGNAL(triggered(bool)),this,SLOT(BuildChordPdf()));
+    connect (ui->actionBuildMemory,SIGNAL(triggered(bool)),this,SLOT(BuildMemoryPdf()));
+    connect (ui->actionViewText,SIGNAL(triggered(bool)),this,SLOT(ViewTextPdf()));
+    connect (ui->actionViewLyrics,SIGNAL(triggered(bool)),this,SLOT(ViewLyricsPdf()));
+    connect (ui->actionViewChord,SIGNAL(triggered(bool)),this,SLOT(ViewChordPdf()));
+    connect (ui->actionViewMemory,SIGNAL(triggered(bool)),this,SLOT(ViewMemoryPdf()));
+    connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViesLastBuildPdf()));
 
 
     QString file=getFileInArg();
@@ -178,16 +193,33 @@ void MainWindow::LastProjectOpen(QAction *action )
 void MainWindow::setChordMode( int i)
 {
     ui->actionSelectChord->setEnabled(i!=0);
+    ui->actionBuildChord->setEnabled(i!=0);
+    ui->actionViewChord->setEnabled(i!=0);
+
+
 }
 
 void MainWindow::setTextMode(int i)
 {
     ui->actionSelectText->setEnabled(i!=0);
+    ui->actionBuildText->setEnabled(i!=0);
+    ui->actionViewText->setEnabled(i!=0);
+
 }
 
 void MainWindow::setMemoryMode(int i)
 {
     ui->actionSelectMemory->setEnabled(i!=0);
+    ui->actionBuildMemory->setEnabled(i!=0);
+    ui->actionViewMemory->setEnabled(i!=0);
+}
+
+void MainWindow::setLyricsMode(int i)
+{
+    ui->actionSelectLyrics->setEnabled(i!=0);
+    ui->actionBuildLyrics->setEnabled(i!=0);
+    ui->actionViewLyrics->setEnabled(i!=0);
+
 }
 
 void MainWindow::Log(QString message)
@@ -195,10 +227,6 @@ void MainWindow::Log(QString message)
     ui->log->Error(message);
 }
 
-void MainWindow::setLyricsMode(int i)
-{
-    ui->actionSelectLyrics->setEnabled(i!=0);
-}
 
 MainWindow::~MainWindow()
 {
@@ -387,23 +415,98 @@ void MainWindow::ActualizeProject( QString )
 
 void MainWindow::ProducePDF()
 {
- //Save(true);
   if (ui->checkBoxTextMode->isChecked())
   {
-      ProcessorText *p;
-      p= new ProcessorText(ui,ui->widgetTextMode->getUi());
-      connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
-      p->run() ;
-      p->deleteLater();
+     BuildTextPdf();
   }
   if (ui->checkBoxLyricsMode->isChecked())
   {
-      ProcessorLyrics *p;
-      p= new ProcessorLyrics(ui,ui->widgetLyricsMode->getUi());
-      connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
-      p->run() ;
-      p->deleteLater();
+     BuildLyricsPdf();
   }
+  if ( ui->checkBoxChordMode->isChecked())
+  {
+      BuildChordPdf();
+  }
+  if ( ui->checkBoxMemoryMode->isChecked())
+  {
+      BuildMemoryPdf();
+  }
+}
+
+
+void MainWindow::ProducePDFAndShow()
+{
+   ProducePDF();
+
+
+}
+
+
+void MainWindow::BuildTextPdf()
+{
+    ProcessorText *p;
+    p= new ProcessorText(ui,ui->widgetTextMode->getUi());
+    connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
+    p->run() ;
+    p->deleteLater();
+}
+
+void MainWindow::BuildLyricsPdf()
+{
+    ProcessorLyrics *p;
+    p= new ProcessorLyrics(ui,ui->widgetLyricsMode->getUi());
+    connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
+    p->run() ;
+    p->deleteLater();
+}
+
+void MainWindow::BuildChordPdf()
+{
+
+}
+
+void MainWindow::BuildMemoryPdf()
+{
+
+}
+
+void MainWindow::ViewTextPdf()
+{
+    QString filename2=ui->widgetTextMode->getUi()->lineEditOutFile->text();
+    QString filename=ui->lineEditInputFile->text().replace(QRegExp("\\.cho3"),QString("_%1.pdf").arg(filename2));
+    filename;
+    PdfViewer *pdf  = new PdfViewer(filename,this);
+
+}
+
+void MainWindow::endProcess(int status)
+{
+    qDebug()<<"process end"<<status<<sender();
+}
+
+void MainWindow::ViewLyricsPdf()
+{
+
+}
+
+void MainWindow::ViewChordPdf()
+{
+
+}
+
+void MainWindow::ViewMemoryPdf()
+{
+
+}
+
+void MainWindow::ViewLastBuildPdf()
+{
+    QSettings s;
+    QProcess *myprocess = new QProcess(this);
+    QStringList arg;
+    arg<<m_pdffilename;
+    myprocess->start(s.value("PDFReader").toString(),arg);
+
 }
 
 
@@ -413,16 +516,6 @@ void MainWindow::ConversionDone( QString filename)
     Info(tr("Conversion done for : %1").arg(filename));
 }
 
-void MainWindow::ProducePDFAndShow()
-{
-   ProducePDF();
-   QSettings s;
-   QProcess *myprocess = new QProcess(this);
-   QStringList arg;
-   arg<<m_pdffilename;
-   myprocess->start(s.value("PDFReader").toString(),arg);
-
-}
 
 void MainWindow::Info(QString info)
 {
@@ -670,6 +763,7 @@ void MainWindow::ShowLyricsMode()
 {
     ui->stackedWidget->setCurrentIndex(2);
     setChecked(2);
+
 }
 
 void MainWindow::ShowMemoryMode()
