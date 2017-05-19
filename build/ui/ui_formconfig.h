@@ -584,9 +584,6 @@ public:
         horizontalLayout_22->addWidget(labelChordLang);
 
         comboBoxChordLang = new QComboBox(groupBoxChord);
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/Image/Images/en.png"), QSize(), QIcon::Normal, QIcon::Off);
-        comboBoxChordLang->addItem(icon, QString());
         comboBoxChordLang->setObjectName(QStringLiteral("comboBoxChordLang"));
 
         horizontalLayout_22->addWidget(comboBoxChordLang);
@@ -843,8 +840,6 @@ public:
         labelChordFontExample->setText(QApplication::translate("FormConfig", "Example", Q_NULLPTR));
         toolButtonChordFont->setText(QApplication::translate("FormConfig", "...", Q_NULLPTR));
         labelChordLang->setText(QApplication::translate("FormConfig", "Chord Lang", Q_NULLPTR));
-        comboBoxChordLang->setItemText(0, QApplication::translate("FormConfig", "English", Q_NULLPTR));
-
         labelChordLangInText->setText(QApplication::translate("FormConfig", "Chord in text", Q_NULLPTR));
         comboBoxChordInText->clear();
         comboBoxChordInText->insertItems(0, QStringList()

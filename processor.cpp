@@ -112,6 +112,7 @@ void Processor::run()
 //            $MaxLine=$lyricsline=($ury-$lly)*190/210;
 //            $lyricscol=$llx+Util::convert(${Config}->{LyricsBook}->{MarginHorizontal});
               m_BufLyrics.clear();
+              m_BufChords.clear();
 //            $CurrentColor=$Config->{ChordBook}->{NormalColor};
 //            $vmargin=Util::convert($Config->{"LyricsBook"}->{MarginVertical});
               displayPageTitle();
@@ -791,32 +792,42 @@ void Processor::displayChord(QString ch,int &line, int &column,int size)
 //9
 //10     -----------
 
-
+    int sizecircle=steph/3;
+    int sizefont;
     QString fret=chord.fret();
     // print fret number
-    if ( !fret.isEmpty()) m_painter.DrawText(column+steph,line-stepv*3,PdfString(chord.fret().toLatin1()));
+    if (  fret!= "0") m_painter.DrawText(column+steph,line-stepv*3,PdfString(chord.fret().toLatin1()));
     // print chord name
     m_painter.DrawTextAligned(column+size/2,line-stepv,chord.nameLocale().length(),PdfString(chord.nameLocale().toLatin1()), EPdfAlignment::ePdfAlignment_Center);
     // print first fret
-    m_painter.SetStrokeWidth(1.5);
-    m_painter.DrawLine(column+2*steph,line-2*stepv,column+7*steph,line-2*stepv);
-    // print 4 fret
+    m_painter.SetStrokeWidth(2);
+    m_painter.SetLineCapStyle(ePdfLineCapStyle_Round);
+    m_painter.DrawLine(column+2*steph,line-2*stepv+1,column+7*steph,line-2*stepv+1);
     m_painter.SetStrokeWidth(0.5);
+    // print 4 fret
     for ( int i=0; i<=3;i++) m_painter.DrawLine(column+2*steph,line-(3+i)*stepv,column+7*steph,line-(3+i)*stepv);
     for (int i=1;i<7;i++)   m_painter.DrawLine(column+(1+i)*steph,line-2*stepv,column+(1+i)*steph,line-7*stepv);
 
+    int string=1;
     foreach ( QString s, chord.toStrings())
     {
         if ( s == "x")
-            qDebug()<<s;
+        {
+            m_painter.DrawLine(column+(1+string)*steph,line-(stepv+s.toInt()*stepv)-stepv/2+2,column+(1+string)*steph-2,line-(stepv+s.toInt()*stepv)-stepv/2-2);
+        }
         else if ( s == "0")
-            qDebug()<<s;
+        {
+            m_painter.Circle(column+(1+string)*steph,line-(stepv+s.toInt()*stepv)-stepv/2+2,sizecircle*0.8);
+            m_painter.SetStrokeWidth(0.5);
+            m_painter.Stroke();
+        }
         else
         {
-            m_painter.Circle();
+            m_painter.Circle(column+(1+string)*steph,line-(stepv+s.toInt()*stepv)-stepv/2,sizecircle);
+            m_painter.Fill(true);
         }
+        string++;
     }
-
     column+=size;
     if ( column > m_uiconfig->spuPageWidth->getPdfU() - m_uiconfig->spuHorizontalMargin->getPdfU())
     {
