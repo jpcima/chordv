@@ -608,13 +608,16 @@
    </property>
   </action>
   <action name="actionDefinition">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Global definitions</string>
    </property>
   </action>
   <action name="actionText_only_mode">
    <property name="checkable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Text only mode</string>
@@ -622,7 +625,7 @@
   </action>
   <action name="actionLyrics_and_chord_mode">
    <property name="checkable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Lyrics and chord mode</string>
@@ -630,7 +633,7 @@
   </action>
   <action name="actionChord_mode">
    <property name="checkable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Chord mode</string>
@@ -638,13 +641,16 @@
   </action>
   <action name="actionMemory_mode">
    <property name="checkable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Memory mode</string>
    </property>
   </action>
   <action name="actionEditor">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="text">
     <string>Editor</string>
    </property>
