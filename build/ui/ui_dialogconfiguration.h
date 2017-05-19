@@ -108,9 +108,6 @@ public:
         horizontalLayout_4->addWidget(labelInterfaceLanguage);
 
         comboBoxInterfaceLanguage = new QComboBox(tab);
-        QIcon icon;
-        icon.addFile(QStringLiteral("Images/en.png"), QSize(), QIcon::Normal, QIcon::Off);
-        comboBoxInterfaceLanguage->addItem(icon, QStringLiteral("English"));
         comboBoxInterfaceLanguage->setObjectName(QStringLiteral("comboBoxInterfaceLanguage"));
 
         horizontalLayout_4->addWidget(comboBoxInterfaceLanguage);
@@ -280,7 +277,6 @@ public:
     {
         DialogConfiguration->setWindowTitle(QApplication::translate("DialogConfiguration", "Configuration", Q_NULLPTR));
         labelInterfaceLanguage->setText(QApplication::translate("DialogConfiguration", " Interface language", Q_NULLPTR));
-
         labelUnit->setText(QApplication::translate("DialogConfiguration", "Preferred units", Q_NULLPTR));
         comboBoxUnit->clear();
         comboBoxUnit->insertItems(0, QStringList()
