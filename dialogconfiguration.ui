@@ -42,17 +42,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBoxInterfaceLanguage">
-                   <item>
-                    <property name="text">
-                     <string notr="true">English</string>
-                    </property>
-                    <property name="icon">
-                     <iconset>
-                      <normaloff>Images/en.png</normaloff>Images/en.png</iconset>
-                    </property>
-                   </item>
-                  </widget>
+                  <widget class="QComboBox" name="comboBoxInterfaceLanguage"/>
                  </item>
                 </layout>
                </item>
