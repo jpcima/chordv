@@ -84,7 +84,8 @@ SOURCES       = main.cpp \
 		processorlyrics.cpp \
 		language.cpp \
 		chord.cpp \
-		langnotes.cpp build/rcc/qrc_resources.cpp \
+		langnotes.cpp \
+		pdfviewer.cpp build/rcc/qrc_resources.cpp \
 		build/moc/moc_mainwindow.cpp \
 		build/moc/moc_formconfig.cpp \
 		build/moc/moc_lyricsconfig.cpp \
@@ -106,7 +107,8 @@ SOURCES       = main.cpp \
 		build/moc/moc_chorddiagram.cpp \
 		build/moc/moc_dialogchoosegoodchord.cpp \
 		build/moc/moc_dialogsearch.cpp \
-		build/moc/moc_dialogreplace.cpp
+		build/moc/moc_dialogreplace.cpp \
+		build/moc/moc_pdfviewer.cpp
 OBJECTS       = build/obj/main.o \
 		build/obj/mainwindow.o \
 		build/obj/util.o \
@@ -144,6 +146,7 @@ OBJECTS       = build/obj/main.o \
 		build/obj/language.o \
 		build/obj/chord.o \
 		build/obj/langnotes.o \
+		build/obj/pdfviewer.o \
 		build/obj/qrc_resources.o \
 		build/obj/moc_mainwindow.o \
 		build/obj/moc_formconfig.o \
@@ -166,7 +169,8 @@ OBJECTS       = build/obj/main.o \
 		build/obj/moc_chorddiagram.o \
 		build/obj/moc_dialogchoosegoodchord.o \
 		build/obj/moc_dialogsearch.o \
-		build/obj/moc_dialogreplace.o
+		build/obj/moc_dialogreplace.o \
+		build/obj/moc_pdfviewer.o
 DIST          = Example/deuxdisques.png \
 		Example/Chansons.cho3 \
 		Example/Chansons.chop \
@@ -277,7 +281,8 @@ DIST          = Example/deuxdisques.png \
 		processorlyrics.h \
 		language.h \
 		chord.h \
-		langnotes.h main.cpp \
+		langnotes.h \
+		pdfviewer.h main.cpp \
 		mainwindow.cpp \
 		util.cpp \
 		formconfig.cpp \
@@ -313,7 +318,8 @@ DIST          = Example/deuxdisques.png \
 		processorlyrics.cpp \
 		language.cpp \
 		chord.cpp \
-		langnotes.cpp
+		langnotes.cpp \
+		pdfviewer.cpp
 QMAKE_TARGET  = chordV
 DESTDIR       = bin/
 TARGET        = bin/chordV
@@ -476,8 +482,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h util.h formconfig.h lyricsconfig.h chordconfig.h textconfig.h fontchooser.h fontbutton.h fontdialog.h colorbutton.h lineedittest.h logmessages.h editorhighlighter.h imagebutton.h examplelabel.h pagesize.h processor.h dialogabout.h memoryconfig.h spinboxunit.h dialogconfiguration.h settings.h processortext.h const.h verticalspacing.h dialogchorddefinition.h ChordDetector.h neck.h dialogsysteminfo.h chorddiagram.h dialogchoosegoodchord.h dialogsearch.h dialogreplace.h processorlyrics.h language.h chord.h langnotes.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp util.cpp formconfig.cpp lyricsconfig.cpp chordconfig.cpp textconfig.cpp fontchooser.cpp fontbutton.cpp fontdialog.cpp colorbutton.cpp lineedittest.cpp logmessages.cpp editorhighlighter.cpp imagebutton.cpp examplelabel.cpp pagesize.cpp processor.cpp dialogabout.cpp memoryconfig.cpp spinboxunit.cpp dialogconfiguration.cpp settings.cpp processortext.cpp verticalspacing.cpp dialogchorddefinition.cpp ChordDetector.cpp neck.cpp dialogsysteminfo.cpp chorddiagram.cpp dialogchoosegoodchord.cpp dialogsearch.cpp dialogreplace.cpp processorlyrics.cpp language.cpp chord.cpp langnotes.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h util.h formconfig.h lyricsconfig.h chordconfig.h textconfig.h fontchooser.h fontbutton.h fontdialog.h colorbutton.h lineedittest.h logmessages.h editorhighlighter.h imagebutton.h examplelabel.h pagesize.h processor.h dialogabout.h memoryconfig.h spinboxunit.h dialogconfiguration.h settings.h processortext.h const.h verticalspacing.h dialogchorddefinition.h ChordDetector.h neck.h dialogsysteminfo.h chorddiagram.h dialogchoosegoodchord.h dialogsearch.h dialogreplace.h processorlyrics.h language.h chord.h langnotes.h pdfviewer.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp util.cpp formconfig.cpp lyricsconfig.cpp chordconfig.cpp textconfig.cpp fontchooser.cpp fontbutton.cpp fontdialog.cpp colorbutton.cpp lineedittest.cpp logmessages.cpp editorhighlighter.cpp imagebutton.cpp examplelabel.cpp pagesize.cpp processor.cpp dialogabout.cpp memoryconfig.cpp spinboxunit.cpp dialogconfiguration.cpp settings.cpp processortext.cpp verticalspacing.cpp dialogchorddefinition.cpp ChordDetector.cpp neck.cpp dialogsysteminfo.cpp chorddiagram.cpp dialogchoosegoodchord.cpp dialogsearch.cpp dialogreplace.cpp processorlyrics.cpp language.cpp chord.cpp langnotes.cpp pdfviewer.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui formconfig.ui fontchooser.ui dialogabout.ui dialogconfiguration.ui dialogchorddefinition.ui dialogsysteminfo.ui dialogchoosegoodchord.ui dialogsearch.ui dialogreplace.ui $(DISTDIR)/
 	$(COPY_FILE) --parents fr.ts $(DISTDIR)/
 
@@ -512,14 +518,16 @@ build/rcc/qrc_resources.cpp: resources.qrc \
 		Images/fr.png \
 		Images/neck.jpg \
 		Images/en.png \
+		Images/warning.png \
+		Images/warning.png \
 		fr.ts \
 		fr.qm \
 		Bd/Chord.db
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name resources resources.qrc -o build/rcc/qrc_resources.cpp
 
-compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp
+compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_pdfviewer.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp
+	-$(DEL_FILE) build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_pdfviewer.cpp
 build/moc/moc_mainwindow.cpp: editorhighlighter.h \
 		mainwindow.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
@@ -619,6 +627,10 @@ build/moc/moc_dialogreplace.cpp: dialogreplace.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogreplace.h -o build/moc/moc_dialogreplace.cpp
 
+build/moc/moc_pdfviewer.cpp: pdfviewer.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include pdfviewer.h -o build/moc/moc_pdfviewer.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_uic_make_all: build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h
@@ -711,6 +723,12 @@ build/obj/main.o: main.cpp mainwindow.h \
 build/obj/mainwindow.o: mainwindow.cpp mainwindow.h \
 		editorhighlighter.h \
 		build/ui/ui_mainwindow.h \
+		chordconfig.h \
+		formconfig.h \
+		logmessages.h \
+		lyricsconfig.h \
+		memoryconfig.h \
+		textconfig.h \
 		dialogabout.h \
 		dialogconfiguration.h \
 		dialogchorddefinition.h \
@@ -721,12 +739,16 @@ build/obj/mainwindow.o: mainwindow.cpp mainwindow.h \
 		processortext.h \
 		processor.h \
 		pagesize.h \
-		formconfig.h \
 		fontbutton.h \
 		processorlyrics.h \
 		settings.h \
-		logmessages.h \
-		language.h
+		language.h \
+		pdfviewer.h \
+		build/ui/ui_formconfig.h \
+		verticalspacing.h \
+		examplelabel.h \
+		imagebutton.h \
+		spinboxunit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/mainwindow.o mainwindow.cpp
 
 build/obj/util.o: util.cpp util.h
@@ -734,8 +756,13 @@ build/obj/util.o: util.cpp util.h
 
 build/obj/formconfig.o: formconfig.cpp formconfig.h \
 		build/ui/ui_formconfig.h \
-		colorbutton.h \
+		verticalspacing.h \
 		examplelabel.h \
+		fontbutton.h \
+		imagebutton.h \
+		pagesize.h \
+		spinboxunit.h \
+		colorbutton.h \
 		settings.h \
 		language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formconfig.o formconfig.cpp
@@ -754,7 +781,8 @@ build/obj/textconfig.o: textconfig.cpp textconfig.h \
 
 build/obj/fontchooser.o: fontchooser.cpp fontchooser.h \
 		fontdialog.h \
-		build/ui/ui_fontchooser.h
+		build/ui/ui_fontchooser.h \
+		colorbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontchooser.o fontchooser.cpp
 
 build/obj/fontbutton.o: fontbutton.cpp fontbutton.h \
@@ -794,7 +822,16 @@ build/obj/processor.o: processor.cpp processor.h \
 		mainwindow.h \
 		editorhighlighter.h \
 		build/ui/ui_formconfig.h \
+		verticalspacing.h \
+		examplelabel.h \
+		imagebutton.h \
+		spinboxunit.h \
 		build/ui/ui_mainwindow.h \
+		chordconfig.h \
+		logmessages.h \
+		lyricsconfig.h \
+		memoryconfig.h \
+		textconfig.h \
 		const.h \
 		chord.h \
 		langnotes.h
@@ -813,6 +850,11 @@ build/obj/spinboxunit.o: spinboxunit.cpp spinboxunit.h
 
 build/obj/dialogconfiguration.o: dialogconfiguration.cpp dialogconfiguration.h \
 		build/ui/ui_dialogconfiguration.h \
+		chordconfig.h \
+		formconfig.h \
+		lyricsconfig.h \
+		memoryconfig.h \
+		textconfig.h \
 		spinboxunit.h \
 		settings.h \
 		language.h
@@ -828,7 +870,11 @@ build/obj/processortext.o: processortext.cpp processortext.h \
 		fontbutton.h \
 		mainwindow.h \
 		editorhighlighter.h \
-		build/ui/ui_formconfig.h
+		build/ui/ui_formconfig.h \
+		verticalspacing.h \
+		examplelabel.h \
+		imagebutton.h \
+		spinboxunit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processortext.o processortext.cpp
 
 build/obj/verticalspacing.o: verticalspacing.cpp verticalspacing.h
@@ -836,6 +882,8 @@ build/obj/verticalspacing.o: verticalspacing.cpp verticalspacing.h
 
 build/obj/dialogchorddefinition.o: dialogchorddefinition.cpp dialogchorddefinition.h \
 		build/ui/ui_dialogchorddefinition.h \
+		chorddiagram.h \
+		neck.h \
 		util.h \
 		logmessages.h \
 		dialogchoosegoodchord.h
@@ -857,7 +905,8 @@ build/obj/chorddiagram.o: chorddiagram.cpp chorddiagram.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chorddiagram.o chorddiagram.cpp
 
 build/obj/dialogchoosegoodchord.o: dialogchoosegoodchord.cpp dialogchoosegoodchord.h \
-		build/ui/ui_dialogchoosegoodchord.h
+		build/ui/ui_dialogchoosegoodchord.h \
+		chorddiagram.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchoosegoodchord.o dialogchoosegoodchord.cpp
 
 build/obj/dialogsearch.o: dialogsearch.cpp dialogsearch.h \
@@ -876,6 +925,10 @@ build/obj/processorlyrics.o: processorlyrics.cpp processorlyrics.h \
 		mainwindow.h \
 		editorhighlighter.h \
 		build/ui/ui_formconfig.h \
+		verticalspacing.h \
+		examplelabel.h \
+		imagebutton.h \
+		spinboxunit.h \
 		chord.h \
 		langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorlyrics.o processorlyrics.cpp
@@ -889,6 +942,9 @@ build/obj/chord.o: chord.cpp chord.h \
 
 build/obj/langnotes.o: langnotes.cpp langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/langnotes.o langnotes.cpp
+
+build/obj/pdfviewer.o: pdfviewer.cpp pdfviewer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/pdfviewer.o pdfviewer.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_resources.o build/rcc/qrc_resources.cpp
@@ -958,6 +1014,9 @@ build/obj/moc_dialogsearch.o: build/moc/moc_dialogsearch.cpp
 
 build/obj/moc_dialogreplace.o: build/moc/moc_dialogreplace.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/moc_dialogreplace.o build/moc/moc_dialogreplace.cpp
+
+build/obj/moc_pdfviewer.o: build/moc/moc_pdfviewer.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/moc_pdfviewer.o build/moc/moc_pdfviewer.cpp
 
 ####### Install
 
