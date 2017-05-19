@@ -26,8 +26,8 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSplitter>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QToolButton>
@@ -62,12 +62,36 @@ public:
     QAction *actionSystem_Info;
     QAction *actionSearch;
     QAction *actionReplace;
+    QAction *actionDefinition;
+    QAction *actionText_only_mode;
+    QAction *actionLyrics_and_chord_mode;
+    QAction *actionChord_mode;
+    QAction *actionMemory_mode;
+    QAction *actionEditor;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout_6;
     QSplitter *splitter;
-    QTabWidget *tabWidget;
-    QWidget *General;
-    QVBoxLayout *verticalLayout_12;
+    QStackedWidget *stackedWidget;
+    QWidget *page;
+    QVBoxLayout *verticalLayout;
+    QVBoxLayout *verticalLayout_7;
+    QHBoxLayout *horizontalLayout_8;
+    QToolButton *toolButtonCT;
+    QToolButton *toolButtonCS;
+    QToolButton *toolButtonT;
+    QToolButton *toolButtonST;
+    QToolButton *toolButtonCol;
+    QToolButton *toolButtonCB;
+    QToolButton *toolButtonCompress;
+    QToolButton *toolButtonSOC;
+    QToolButton *toolButtonEOC;
+    QToolButton *toolButtonREF;
+    QComboBox *comboBoxEdit;
+    QFrame *line;
+    QCheckBox *checkBoxLongShort;
+    QTextEdit *textEditCho3File;
+    QWidget *page_2;
+    QVBoxLayout *verticalLayout_10;
     QVBoxLayout *verticalLayout_11;
     QHBoxLayout *horizontalLayout_11;
     QHBoxLayout *horizontalLayout_10;
@@ -101,42 +125,25 @@ public:
     QPushButton *pushButtonMakeAndShowPDF;
     QSpacerItem *horizontalSpacer;
     QSpacerItem *verticalSpacer;
-    QWidget *LyricsMode;
-    QVBoxLayout *verticalLayout_3;
+    QWidget *page_3;
+    QVBoxLayout *verticalLayout_13;
     LyricsConfig *widgetLyricsMode;
-    QWidget *ChordMode;
-    QVBoxLayout *verticalLayout_4;
+    QWidget *page_4;
+    QVBoxLayout *verticalLayout_14;
     ChordConfig *widgetChordMode;
-    QWidget *TextMode;
-    QVBoxLayout *verticalLayout_2;
+    QWidget *page_5;
+    QVBoxLayout *verticalLayout_15;
     TextConfig *widgetTextMode;
-    QWidget *MemoryMode;
-    QVBoxLayout *verticalLayout;
+    QWidget *page_6;
+    QVBoxLayout *verticalLayout_16;
     MemoryConfig *widgetMemoryMode;
-    QWidget *Editor2;
-    QHBoxLayout *horizontalLayout_9;
-    QVBoxLayout *verticalLayout_7;
-    QHBoxLayout *horizontalLayout_8;
-    QToolButton *toolButtonCT;
-    QToolButton *toolButtonCS;
-    QToolButton *toolButtonT;
-    QToolButton *toolButtonST;
-    QToolButton *toolButtonCol;
-    QToolButton *toolButtonCB;
-    QToolButton *toolButtonCompress;
-    QToolButton *toolButtonSOC;
-    QToolButton *toolButtonEOC;
-    QToolButton *toolButtonREF;
-    QComboBox *comboBoxEdit;
-    QFrame *line;
-    QCheckBox *checkBoxLongShort;
-    QTextEdit *textEditCho3File;
     LogMessages *log;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuTools;
     QMenu *menuHelp;
     QMenu *menuEdition;
+    QMenu *menuOutput;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -144,7 +151,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(1101, 732);
+        MainWindow->resize(846, 682);
         QIcon icon;
         icon.addFile(QStringLiteral(":/Image/Images/icon.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -170,6 +177,7 @@ public:
         actionLast_Poject->setObjectName(QStringLiteral("actionLast_Poject"));
         actionProduce_PDF_files = new QAction(MainWindow);
         actionProduce_PDF_files->setObjectName(QStringLiteral("actionProduce_PDF_files"));
+        actionProduce_PDF_files->setEnabled(false);
         actionPreferences = new QAction(MainWindow);
         actionPreferences->setObjectName(QStringLiteral("actionPreferences"));
         actionOpen_Song_File = new QAction(MainWindow);
@@ -184,6 +192,22 @@ public:
         actionSearch->setObjectName(QStringLiteral("actionSearch"));
         actionReplace = new QAction(MainWindow);
         actionReplace->setObjectName(QStringLiteral("actionReplace"));
+        actionDefinition = new QAction(MainWindow);
+        actionDefinition->setObjectName(QStringLiteral("actionDefinition"));
+        actionText_only_mode = new QAction(MainWindow);
+        actionText_only_mode->setObjectName(QStringLiteral("actionText_only_mode"));
+        actionText_only_mode->setCheckable(false);
+        actionLyrics_and_chord_mode = new QAction(MainWindow);
+        actionLyrics_and_chord_mode->setObjectName(QStringLiteral("actionLyrics_and_chord_mode"));
+        actionLyrics_and_chord_mode->setCheckable(false);
+        actionChord_mode = new QAction(MainWindow);
+        actionChord_mode->setObjectName(QStringLiteral("actionChord_mode"));
+        actionChord_mode->setCheckable(false);
+        actionMemory_mode = new QAction(MainWindow);
+        actionMemory_mode->setObjectName(QStringLiteral("actionMemory_mode"));
+        actionMemory_mode->setCheckable(false);
+        actionEditor = new QAction(MainWindow);
+        actionEditor->setObjectName(QStringLiteral("actionEditor"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalLayout_6 = new QHBoxLayout(centralWidget);
@@ -193,15 +217,107 @@ public:
         splitter = new QSplitter(centralWidget);
         splitter->setObjectName(QStringLiteral("splitter"));
         splitter->setOrientation(Qt::Vertical);
-        tabWidget = new QTabWidget(splitter);
-        tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setTabBarAutoHide(true);
-        General = new QWidget();
-        General->setObjectName(QStringLiteral("General"));
-        verticalLayout_12 = new QVBoxLayout(General);
-        verticalLayout_12->setSpacing(6);
-        verticalLayout_12->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        stackedWidget = new QStackedWidget(splitter);
+        stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
+        page = new QWidget();
+        page->setObjectName(QStringLiteral("page"));
+        verticalLayout = new QVBoxLayout(page);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout_7 = new QVBoxLayout();
+        verticalLayout_7->setSpacing(6);
+        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
+        horizontalLayout_8 = new QHBoxLayout();
+        horizontalLayout_8->setSpacing(6);
+        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
+        toolButtonCT = new QToolButton(page);
+        toolButtonCT->setObjectName(QStringLiteral("toolButtonCT"));
+
+        horizontalLayout_8->addWidget(toolButtonCT);
+
+        toolButtonCS = new QToolButton(page);
+        toolButtonCS->setObjectName(QStringLiteral("toolButtonCS"));
+
+        horizontalLayout_8->addWidget(toolButtonCS);
+
+        toolButtonT = new QToolButton(page);
+        toolButtonT->setObjectName(QStringLiteral("toolButtonT"));
+
+        horizontalLayout_8->addWidget(toolButtonT);
+
+        toolButtonST = new QToolButton(page);
+        toolButtonST->setObjectName(QStringLiteral("toolButtonST"));
+
+        horizontalLayout_8->addWidget(toolButtonST);
+
+        toolButtonCol = new QToolButton(page);
+        toolButtonCol->setObjectName(QStringLiteral("toolButtonCol"));
+
+        horizontalLayout_8->addWidget(toolButtonCol);
+
+        toolButtonCB = new QToolButton(page);
+        toolButtonCB->setObjectName(QStringLiteral("toolButtonCB"));
+
+        horizontalLayout_8->addWidget(toolButtonCB);
+
+        toolButtonCompress = new QToolButton(page);
+        toolButtonCompress->setObjectName(QStringLiteral("toolButtonCompress"));
+
+        horizontalLayout_8->addWidget(toolButtonCompress);
+
+        toolButtonSOC = new QToolButton(page);
+        toolButtonSOC->setObjectName(QStringLiteral("toolButtonSOC"));
+
+        horizontalLayout_8->addWidget(toolButtonSOC);
+
+        toolButtonEOC = new QToolButton(page);
+        toolButtonEOC->setObjectName(QStringLiteral("toolButtonEOC"));
+
+        horizontalLayout_8->addWidget(toolButtonEOC);
+
+        toolButtonREF = new QToolButton(page);
+        toolButtonREF->setObjectName(QStringLiteral("toolButtonREF"));
+
+        horizontalLayout_8->addWidget(toolButtonREF);
+
+        comboBoxEdit = new QComboBox(page);
+        comboBoxEdit->setObjectName(QStringLiteral("comboBoxEdit"));
+        comboBoxEdit->setMaximumSize(QSize(100, 16777215));
+
+        horizontalLayout_8->addWidget(comboBoxEdit);
+
+        line = new QFrame(page);
+        line->setObjectName(QStringLiteral("line"));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        horizontalLayout_8->addWidget(line);
+
+        checkBoxLongShort = new QCheckBox(page);
+        checkBoxLongShort->setObjectName(QStringLiteral("checkBoxLongShort"));
+        checkBoxLongShort->setMaximumSize(QSize(100, 16777215));
+
+        horizontalLayout_8->addWidget(checkBoxLongShort);
+
+
+        verticalLayout_7->addLayout(horizontalLayout_8);
+
+        textEditCho3File = new QTextEdit(page);
+        textEditCho3File->setObjectName(QStringLiteral("textEditCho3File"));
+
+        verticalLayout_7->addWidget(textEditCho3File);
+
+
+        verticalLayout->addLayout(verticalLayout_7);
+
+        stackedWidget->addWidget(page);
+        page_2 = new QWidget();
+        page_2->setObjectName(QStringLiteral("page_2"));
+        verticalLayout_10 = new QVBoxLayout(page_2);
+        verticalLayout_10->setSpacing(6);
+        verticalLayout_10->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
         verticalLayout_11 = new QVBoxLayout();
         verticalLayout_11->setSpacing(6);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
@@ -217,17 +333,17 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        labelInputFile = new QLabel(General);
+        labelInputFile = new QLabel(page_2);
         labelInputFile->setObjectName(QStringLiteral("labelInputFile"));
 
         horizontalLayout->addWidget(labelInputFile);
 
-        lineEditInputFile = new QLineEdit(General);
+        lineEditInputFile = new QLineEdit(page_2);
         lineEditInputFile->setObjectName(QStringLiteral("lineEditInputFile"));
 
         horizontalLayout->addWidget(lineEditInputFile);
 
-        toolButtonInputFile = new QToolButton(General);
+        toolButtonInputFile = new QToolButton(page_2);
         toolButtonInputFile->setObjectName(QStringLiteral("toolButtonInputFile"));
 
         horizontalLayout->addWidget(toolButtonInputFile);
@@ -238,12 +354,12 @@ public:
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        labelCreatorName = new QLabel(General);
+        labelCreatorName = new QLabel(page_2);
         labelCreatorName->setObjectName(QStringLiteral("labelCreatorName"));
 
         horizontalLayout_2->addWidget(labelCreatorName);
 
-        lineEditCreatorName = new QLineEdit(General);
+        lineEditCreatorName = new QLineEdit(page_2);
         lineEditCreatorName->setObjectName(QStringLiteral("lineEditCreatorName"));
 
         horizontalLayout_2->addWidget(lineEditCreatorName);
@@ -254,15 +370,12 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        labelChordLanguage = new QLabel(General);
+        labelChordLanguage = new QLabel(page_2);
         labelChordLanguage->setObjectName(QStringLiteral("labelChordLanguage"));
 
         horizontalLayout_3->addWidget(labelChordLanguage);
 
-        comboBoxChordLanguage = new QComboBox(General);
-        QIcon icon1;
-        icon1.addFile(QStringLiteral(":/Image/Images/en.png"), QSize(), QIcon::Normal, QIcon::Off);
-        comboBoxChordLanguage->addItem(icon1, QString());
+        comboBoxChordLanguage = new QComboBox(page_2);
         comboBoxChordLanguage->setObjectName(QStringLiteral("comboBoxChordLanguage"));
 
         horizontalLayout_3->addWidget(comboBoxChordLanguage);
@@ -270,25 +383,25 @@ public:
 
         verticalLayout_5->addLayout(horizontalLayout_3);
 
-        checkBoxLyricsMode = new QCheckBox(General);
+        checkBoxLyricsMode = new QCheckBox(page_2);
         checkBoxLyricsMode->setObjectName(QStringLiteral("checkBoxLyricsMode"));
         checkBoxLyricsMode->setChecked(true);
 
         verticalLayout_5->addWidget(checkBoxLyricsMode);
 
-        checkBoxChordMode = new QCheckBox(General);
+        checkBoxChordMode = new QCheckBox(page_2);
         checkBoxChordMode->setObjectName(QStringLiteral("checkBoxChordMode"));
         checkBoxChordMode->setChecked(true);
 
         verticalLayout_5->addWidget(checkBoxChordMode);
 
-        checkBoxTextMode = new QCheckBox(General);
+        checkBoxTextMode = new QCheckBox(page_2);
         checkBoxTextMode->setObjectName(QStringLiteral("checkBoxTextMode"));
         checkBoxTextMode->setChecked(true);
 
         verticalLayout_5->addWidget(checkBoxTextMode);
 
-        checkBoxMemoryMode = new QCheckBox(General);
+        checkBoxMemoryMode = new QCheckBox(page_2);
         checkBoxMemoryMode->setObjectName(QStringLiteral("checkBoxMemoryMode"));
         checkBoxMemoryMode->setChecked(true);
 
@@ -297,12 +410,12 @@ public:
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        labelWatermark = new QLabel(General);
+        labelWatermark = new QLabel(page_2);
         labelWatermark->setObjectName(QStringLiteral("labelWatermark"));
 
         horizontalLayout_4->addWidget(labelWatermark);
 
-        lineEditWatermark = new QLineEdit(General);
+        lineEditWatermark = new QLineEdit(page_2);
         lineEditWatermark->setObjectName(QStringLiteral("lineEditWatermark"));
 
         horizontalLayout_4->addWidget(lineEditWatermark);
@@ -322,12 +435,12 @@ public:
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        labelProjectName = new QLabel(General);
+        labelProjectName = new QLabel(page_2);
         labelProjectName->setObjectName(QStringLiteral("labelProjectName"));
 
         horizontalLayout_5->addWidget(labelProjectName);
 
-        labelNameProjectName = new QLabel(General);
+        labelNameProjectName = new QLabel(page_2);
         labelNameProjectName->setObjectName(QStringLiteral("labelNameProjectName"));
 
         horizontalLayout_5->addWidget(labelNameProjectName);
@@ -338,12 +451,12 @@ public:
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        labelDirProject = new QLabel(General);
+        labelDirProject = new QLabel(page_2);
         labelDirProject->setObjectName(QStringLiteral("labelDirProject"));
 
         horizontalLayout_7->addWidget(labelDirProject);
 
-        labelNameDirProject = new QLabel(General);
+        labelNameDirProject = new QLabel(page_2);
         labelNameDirProject->setObjectName(QStringLiteral("labelNameDirProject"));
 
         horizontalLayout_7->addWidget(labelNameDirProject);
@@ -354,13 +467,13 @@ public:
 
         verticalLayout_8->addLayout(verticalLayout_6);
 
-        pushButtonMakePDF = new QPushButton(General);
+        pushButtonMakePDF = new QPushButton(page_2);
         pushButtonMakePDF->setObjectName(QStringLiteral("pushButtonMakePDF"));
         pushButtonMakePDF->setMinimumSize(QSize(100, 100));
 
         verticalLayout_8->addWidget(pushButtonMakePDF);
 
-        pushButtonMakeAndShowPDF = new QPushButton(General);
+        pushButtonMakeAndShowPDF = new QPushButton(page_2);
         pushButtonMakeAndShowPDF->setObjectName(QStringLiteral("pushButtonMakeAndShowPDF"));
         pushButtonMakeAndShowPDF->setMinimumSize(QSize(100, 100));
 
@@ -384,151 +497,58 @@ public:
         verticalLayout_11->addItem(verticalSpacer);
 
 
-        verticalLayout_12->addLayout(verticalLayout_11);
+        verticalLayout_10->addLayout(verticalLayout_11);
 
-        tabWidget->addTab(General, QString());
-        LyricsMode = new QWidget();
-        LyricsMode->setObjectName(QStringLiteral("LyricsMode"));
-        verticalLayout_3 = new QVBoxLayout(LyricsMode);
-        verticalLayout_3->setSpacing(6);
-        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
-        widgetLyricsMode = new LyricsConfig(LyricsMode);
+        stackedWidget->addWidget(page_2);
+        page_3 = new QWidget();
+        page_3->setObjectName(QStringLiteral("page_3"));
+        verticalLayout_13 = new QVBoxLayout(page_3);
+        verticalLayout_13->setSpacing(6);
+        verticalLayout_13->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
+        widgetLyricsMode = new LyricsConfig(page_3);
         widgetLyricsMode->setObjectName(QStringLiteral("widgetLyricsMode"));
 
-        verticalLayout_3->addWidget(widgetLyricsMode);
+        verticalLayout_13->addWidget(widgetLyricsMode);
 
-        tabWidget->addTab(LyricsMode, QString());
-        ChordMode = new QWidget();
-        ChordMode->setObjectName(QStringLiteral("ChordMode"));
-        verticalLayout_4 = new QVBoxLayout(ChordMode);
-        verticalLayout_4->setSpacing(6);
-        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        widgetChordMode = new ChordConfig(ChordMode);
+        stackedWidget->addWidget(page_3);
+        page_4 = new QWidget();
+        page_4->setObjectName(QStringLiteral("page_4"));
+        verticalLayout_14 = new QVBoxLayout(page_4);
+        verticalLayout_14->setSpacing(6);
+        verticalLayout_14->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        widgetChordMode = new ChordConfig(page_4);
         widgetChordMode->setObjectName(QStringLiteral("widgetChordMode"));
 
-        verticalLayout_4->addWidget(widgetChordMode);
+        verticalLayout_14->addWidget(widgetChordMode);
 
-        tabWidget->addTab(ChordMode, QString());
-        TextMode = new QWidget();
-        TextMode->setObjectName(QStringLiteral("TextMode"));
-        verticalLayout_2 = new QVBoxLayout(TextMode);
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        widgetTextMode = new TextConfig(TextMode);
+        stackedWidget->addWidget(page_4);
+        page_5 = new QWidget();
+        page_5->setObjectName(QStringLiteral("page_5"));
+        verticalLayout_15 = new QVBoxLayout(page_5);
+        verticalLayout_15->setSpacing(6);
+        verticalLayout_15->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
+        widgetTextMode = new TextConfig(page_5);
         widgetTextMode->setObjectName(QStringLiteral("widgetTextMode"));
 
-        verticalLayout_2->addWidget(widgetTextMode);
+        verticalLayout_15->addWidget(widgetTextMode);
 
-        tabWidget->addTab(TextMode, QString());
-        MemoryMode = new QWidget();
-        MemoryMode->setObjectName(QStringLiteral("MemoryMode"));
-        verticalLayout = new QVBoxLayout(MemoryMode);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        widgetMemoryMode = new MemoryConfig(MemoryMode);
+        stackedWidget->addWidget(page_5);
+        page_6 = new QWidget();
+        page_6->setObjectName(QStringLiteral("page_6"));
+        verticalLayout_16 = new QVBoxLayout(page_6);
+        verticalLayout_16->setSpacing(6);
+        verticalLayout_16->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
+        widgetMemoryMode = new MemoryConfig(page_6);
         widgetMemoryMode->setObjectName(QStringLiteral("widgetMemoryMode"));
 
-        verticalLayout->addWidget(widgetMemoryMode);
+        verticalLayout_16->addWidget(widgetMemoryMode);
 
-        tabWidget->addTab(MemoryMode, QString());
-        Editor2 = new QWidget();
-        Editor2->setObjectName(QStringLiteral("Editor2"));
-        horizontalLayout_9 = new QHBoxLayout(Editor2);
-        horizontalLayout_9->setSpacing(6);
-        horizontalLayout_9->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(6);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        toolButtonCT = new QToolButton(Editor2);
-        toolButtonCT->setObjectName(QStringLiteral("toolButtonCT"));
-
-        horizontalLayout_8->addWidget(toolButtonCT);
-
-        toolButtonCS = new QToolButton(Editor2);
-        toolButtonCS->setObjectName(QStringLiteral("toolButtonCS"));
-
-        horizontalLayout_8->addWidget(toolButtonCS);
-
-        toolButtonT = new QToolButton(Editor2);
-        toolButtonT->setObjectName(QStringLiteral("toolButtonT"));
-
-        horizontalLayout_8->addWidget(toolButtonT);
-
-        toolButtonST = new QToolButton(Editor2);
-        toolButtonST->setObjectName(QStringLiteral("toolButtonST"));
-
-        horizontalLayout_8->addWidget(toolButtonST);
-
-        toolButtonCol = new QToolButton(Editor2);
-        toolButtonCol->setObjectName(QStringLiteral("toolButtonCol"));
-
-        horizontalLayout_8->addWidget(toolButtonCol);
-
-        toolButtonCB = new QToolButton(Editor2);
-        toolButtonCB->setObjectName(QStringLiteral("toolButtonCB"));
-
-        horizontalLayout_8->addWidget(toolButtonCB);
-
-        toolButtonCompress = new QToolButton(Editor2);
-        toolButtonCompress->setObjectName(QStringLiteral("toolButtonCompress"));
-
-        horizontalLayout_8->addWidget(toolButtonCompress);
-
-        toolButtonSOC = new QToolButton(Editor2);
-        toolButtonSOC->setObjectName(QStringLiteral("toolButtonSOC"));
-
-        horizontalLayout_8->addWidget(toolButtonSOC);
-
-        toolButtonEOC = new QToolButton(Editor2);
-        toolButtonEOC->setObjectName(QStringLiteral("toolButtonEOC"));
-
-        horizontalLayout_8->addWidget(toolButtonEOC);
-
-        toolButtonREF = new QToolButton(Editor2);
-        toolButtonREF->setObjectName(QStringLiteral("toolButtonREF"));
-
-        horizontalLayout_8->addWidget(toolButtonREF);
-
-        comboBoxEdit = new QComboBox(Editor2);
-        comboBoxEdit->setObjectName(QStringLiteral("comboBoxEdit"));
-        comboBoxEdit->setMaximumSize(QSize(100, 16777215));
-
-        horizontalLayout_8->addWidget(comboBoxEdit);
-
-        line = new QFrame(Editor2);
-        line->setObjectName(QStringLiteral("line"));
-        line->setFrameShape(QFrame::VLine);
-        line->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_8->addWidget(line);
-
-        checkBoxLongShort = new QCheckBox(Editor2);
-        checkBoxLongShort->setObjectName(QStringLiteral("checkBoxLongShort"));
-        checkBoxLongShort->setMaximumSize(QSize(100, 16777215));
-
-        horizontalLayout_8->addWidget(checkBoxLongShort);
-
-
-        verticalLayout_7->addLayout(horizontalLayout_8);
-
-        textEditCho3File = new QTextEdit(Editor2);
-        textEditCho3File->setObjectName(QStringLiteral("textEditCho3File"));
-
-        verticalLayout_7->addWidget(textEditCho3File);
-
-
-        horizontalLayout_9->addLayout(verticalLayout_7);
-
-        tabWidget->addTab(Editor2, QString());
-        splitter->addWidget(tabWidget);
+        stackedWidget->addWidget(page_6);
+        splitter->addWidget(stackedWidget);
         log = new LogMessages(splitter);
         log->setObjectName(QStringLiteral("log"));
         splitter->addWidget(log);
@@ -538,7 +558,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1101, 22));
+        menuBar->setGeometry(QRect(0, 0, 846, 22));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuTools = new QMenu(menuBar);
@@ -547,6 +567,8 @@ public:
         menuHelp->setObjectName(QStringLiteral("menuHelp"));
         menuEdition = new QMenu(menuBar);
         menuEdition->setObjectName(QStringLiteral("menuEdition"));
+        menuOutput = new QMenu(menuBar);
+        menuOutput->setObjectName(QStringLiteral("menuOutput"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -557,6 +579,7 @@ public:
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuEdition->menuAction());
+        menuBar->addAction(menuOutput->menuAction());
         menuBar->addAction(menuTools->menuAction());
         menuBar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionNew_Project);
@@ -575,10 +598,18 @@ public:
         menuHelp->addAction(actionSystem_Info);
         menuEdition->addAction(actionSearch);
         menuEdition->addAction(actionReplace);
+        menuOutput->addSeparator();
+        menuOutput->addAction(actionEditor);
+        menuOutput->addAction(actionDefinition);
+        menuOutput->addSeparator();
+        menuOutput->addAction(actionText_only_mode);
+        menuOutput->addAction(actionLyrics_and_chord_mode);
+        menuOutput->addAction(actionChord_mode);
+        menuOutput->addAction(actionMemory_mode);
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -609,28 +640,12 @@ public:
         actionSearch->setShortcut(QApplication::translate("MainWindow", "Ctrl+F", Q_NULLPTR));
         actionReplace->setText(QApplication::translate("MainWindow", "&Replace", Q_NULLPTR));
         actionReplace->setShortcut(QApplication::translate("MainWindow", "Ctrl+R", Q_NULLPTR));
-        labelInputFile->setText(QApplication::translate("MainWindow", "Input File", Q_NULLPTR));
-        toolButtonInputFile->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
-        labelCreatorName->setText(QApplication::translate("MainWindow", "Creator name", Q_NULLPTR));
-        labelChordLanguage->setText(QApplication::translate("MainWindow", "Chord Language", Q_NULLPTR));
-        comboBoxChordLanguage->setItemText(0, QApplication::translate("MainWindow", "English", Q_NULLPTR));
-
-        checkBoxLyricsMode->setText(QApplication::translate("MainWindow", "Lyrics and chords mode book", Q_NULLPTR));
-        checkBoxChordMode->setText(QApplication::translate("MainWindow", "Chords only mode book", Q_NULLPTR));
-        checkBoxTextMode->setText(QApplication::translate("MainWindow", "Text only mode book", Q_NULLPTR));
-        checkBoxMemoryMode->setText(QApplication::translate("MainWindow", "Memory mode book", Q_NULLPTR));
-        labelWatermark->setText(QApplication::translate("MainWindow", "Watermark", Q_NULLPTR));
-        labelProjectName->setText(QApplication::translate("MainWindow", "Project name :", Q_NULLPTR));
-        labelNameProjectName->setText(QString());
-        labelDirProject->setText(QApplication::translate("MainWindow", "Project directory :", Q_NULLPTR));
-        labelNameDirProject->setText(QString());
-        pushButtonMakePDF->setText(QApplication::translate("MainWindow", "Make PDF", Q_NULLPTR));
-        pushButtonMakeAndShowPDF->setText(QApplication::translate("MainWindow", "Make  and show PDF ", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(General), QApplication::translate("MainWindow", "General", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(LyricsMode), QApplication::translate("MainWindow", "Lyrics mode", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(ChordMode), QApplication::translate("MainWindow", "Chord mode", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(TextMode), QApplication::translate("MainWindow", "Text mode", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(MemoryMode), QApplication::translate("MainWindow", "Memory mode", Q_NULLPTR));
+        actionDefinition->setText(QApplication::translate("MainWindow", "Global definitions", Q_NULLPTR));
+        actionText_only_mode->setText(QApplication::translate("MainWindow", "Text only mode", Q_NULLPTR));
+        actionLyrics_and_chord_mode->setText(QApplication::translate("MainWindow", "Lyrics and chord mode", Q_NULLPTR));
+        actionChord_mode->setText(QApplication::translate("MainWindow", "Chord mode", Q_NULLPTR));
+        actionMemory_mode->setText(QApplication::translate("MainWindow", "Memory mode", Q_NULLPTR));
+        actionEditor->setText(QApplication::translate("MainWindow", "Editor", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         toolButtonCT->setToolTip(QApplication::translate("MainWindow", "Cover Title", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
@@ -675,11 +690,26 @@ public:
         checkBoxLongShort->setToolTip(QApplication::translate("MainWindow", "Long/Short notation in text", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         checkBoxLongShort->setText(QApplication::translate("MainWindow", "Long syntax", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(Editor2), QApplication::translate("MainWindow", "Editor", Q_NULLPTR));
+        labelInputFile->setText(QApplication::translate("MainWindow", "Input File", Q_NULLPTR));
+        toolButtonInputFile->setText(QApplication::translate("MainWindow", "...", Q_NULLPTR));
+        labelCreatorName->setText(QApplication::translate("MainWindow", "Creator name", Q_NULLPTR));
+        labelChordLanguage->setText(QApplication::translate("MainWindow", "Chord Language", Q_NULLPTR));
+        checkBoxLyricsMode->setText(QApplication::translate("MainWindow", "Lyrics and chords mode book", Q_NULLPTR));
+        checkBoxChordMode->setText(QApplication::translate("MainWindow", "Chords only mode book", Q_NULLPTR));
+        checkBoxTextMode->setText(QApplication::translate("MainWindow", "Text only mode book", Q_NULLPTR));
+        checkBoxMemoryMode->setText(QApplication::translate("MainWindow", "Memory mode book", Q_NULLPTR));
+        labelWatermark->setText(QApplication::translate("MainWindow", "Watermark", Q_NULLPTR));
+        labelProjectName->setText(QApplication::translate("MainWindow", "Project name :", Q_NULLPTR));
+        labelNameProjectName->setText(QString());
+        labelDirProject->setText(QApplication::translate("MainWindow", "Project directory :", Q_NULLPTR));
+        labelNameDirProject->setText(QString());
+        pushButtonMakePDF->setText(QApplication::translate("MainWindow", "Make PDF", Q_NULLPTR));
+        pushButtonMakeAndShowPDF->setText(QApplication::translate("MainWindow", "Make  and show PDF ", Q_NULLPTR));
         menuFile->setTitle(QApplication::translate("MainWindow", "F&ile", Q_NULLPTR));
         menuTools->setTitle(QApplication::translate("MainWindow", "Too&ls", Q_NULLPTR));
         menuHelp->setTitle(QApplication::translate("MainWindow", "&Help", Q_NULLPTR));
         menuEdition->setTitle(QApplication::translate("MainWindow", "&Edition", Q_NULLPTR));
+        menuOutput->setTitle(QApplication::translate("MainWindow", "Window", Q_NULLPTR));
     } // retranslateUi
 
 };
