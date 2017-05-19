@@ -453,11 +453,39 @@
     <property name="title">
      <string>Too&amp;ls</string>
     </property>
+    <widget class="QMenu" name="menuPreferences_hints">
+     <property name="title">
+      <string>Preferences hints</string>
+     </property>
+     <addaction name="actionSave_Current_as_Defaut"/>
+     <addaction name="actionReset_Preferences_as_Origin"/>
+    </widget>
+    <widget class="QMenu" name="menuBuild_PDF">
+     <property name="title">
+      <string>Build PDF</string>
+     </property>
+     <addaction name="actionAll_selectable"/>
+     <addaction name="actionBuildText"/>
+     <addaction name="actionBuildLyrics"/>
+     <addaction name="actionBuildChord"/>
+     <addaction name="actionBuildMemory"/>
+    </widget>
+    <widget class="QMenu" name="menuLaunch_PDF_Viewer">
+     <property name="title">
+      <string>Launch PDF Viewer</string>
+     </property>
+     <addaction name="actionViewText"/>
+     <addaction name="actionViewLyrics"/>
+     <addaction name="actionViewChord"/>
+     <addaction name="actionViewMemory"/>
+     <addaction name="actionViewLastbuilt"/>
+    </widget>
     <addaction name="actionProduce_PDF_files"/>
     <addaction name="actionPreferences"/>
+    <addaction name="menuPreferences_hints"/>
     <addaction name="actionChord_defintion"/>
-    <addaction name="actionSave_Current_as_Defaut"/>
-    <addaction name="actionReset_Preference_as_origine"/>
+    <addaction name="menuBuild_PDF"/>
+    <addaction name="menuLaunch_PDF_Viewer"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -573,11 +601,6 @@
     <string>Open &amp;Song File</string>
    </property>
   </action>
-  <action name="actionReset_Preference_as_origine">
-   <property name="text">
-    <string>&amp;Reset Preference as origine</string>
-   </property>
-  </action>
   <action name="actionChord_defintion">
    <property name="text">
     <string>&amp;Chord definition</string>
@@ -653,6 +676,93 @@
    </property>
    <property name="text">
     <string>Editor</string>
+   </property>
+  </action>
+  <action name="action1">
+   <property name="text">
+    <string>1</string>
+   </property>
+  </action>
+  <action name="actionAll_selectable">
+   <property name="text">
+    <string>All selectable</string>
+   </property>
+   <property name="shortcut">
+    <string>F4</string>
+   </property>
+  </action>
+  <action name="actionBuildText">
+   <property name="text">
+    <string>Text</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="actionBuildLyrics">
+   <property name="text">
+    <string>Lyrics</string>
+   </property>
+   <property name="shortcut">
+    <string>F6</string>
+   </property>
+  </action>
+  <action name="actionBuildChord">
+   <property name="text">
+    <string>Chord</string>
+   </property>
+   <property name="shortcut">
+    <string>F7</string>
+   </property>
+  </action>
+  <action name="actionBuildMemory">
+   <property name="text">
+    <string>Memory</string>
+   </property>
+   <property name="shortcut">
+    <string>F8</string>
+   </property>
+  </action>
+  <action name="actionViewText">
+   <property name="text">
+    <string>Text</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F5</string>
+   </property>
+  </action>
+  <action name="actionViewLyrics">
+   <property name="text">
+    <string>Lyrics</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F6</string>
+   </property>
+  </action>
+  <action name="actionViewChord">
+   <property name="text">
+    <string>Chord</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F7</string>
+   </property>
+  </action>
+  <action name="actionViewMemory">
+   <property name="text">
+    <string>Memory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F8</string>
+   </property>
+  </action>
+  <action name="actionReset_Preferences_as_Origin">
+   <property name="text">
+    <string>Reset Preferences as Origin</string>
+   </property>
+  </action>
+  <action name="actionViewLastbuilt">
+   <property name="text">
+    <string>Last built</string>
    </property>
   </action>
  </widget>
