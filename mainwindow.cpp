@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QList <int> size;
     size<<700<<100;
     ui->splitter->setSizes(size);
+    ui->actionSelectEditor->setChecked(true);
     Language::setLanguageComboBox( ui->comboBoxChordLanguage);
     ui->stackedWidget->setCurrentIndex(0);
     m_lastmenu= new QMenu(tr("Last Projects"));
@@ -71,12 +72,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->toolButtonST,SIGNAL(clicked(bool)),this,SLOT(InsertST()));
     connect(ui->toolButtonT,SIGNAL(clicked(bool)),this,SLOT(InsertT()));
     connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
-    connect (ui->actionDefinition,SIGNAL(triggered(bool)),this,SLOT(ShowDefinition()));
-    connect (ui->actionMemory_mode,SIGNAL(triggered(bool)),this,SLOT(ShowMemoryMode()));
-    connect (ui->actionText_only_mode,SIGNAL(triggered(bool)),this,SLOT(ShowTextMode()));
-    connect (ui->actionLyrics_and_chord_mode,SIGNAL(triggered(bool)),this,SLOT(ShowLyricsMode()));
-    connect (ui->actionChord_mode,SIGNAL(triggered(bool)),this,SLOT(ShowChordMode()));
-    connect(ui->actionEditor,SIGNAL(triggered(bool)),this,SLOT(ShowEditor()));
+    connect (ui->actionSelectDefinition,SIGNAL(triggered(bool)),this,SLOT(ShowDefinition()));
+    connect (ui->actionSelectMemory,SIGNAL(triggered(bool)),this,SLOT(ShowMemoryMode()));
+    connect (ui->actionSelectText,SIGNAL(triggered(bool)),this,SLOT(ShowTextMode()));
+    connect (ui->actionSelectLyrics,SIGNAL(triggered(bool)),this,SLOT(ShowLyricsMode()));
+    connect (ui->actionSelectChord,SIGNAL(triggered(bool)),this,SLOT(ShowChordMode()));
+    connect(ui->actionSelectEditor,SIGNAL(triggered(bool)),this,SLOT(ShowEditor()));
 
 
     QString file=getFileInArg();
@@ -176,17 +177,17 @@ void MainWindow::LastProjectOpen(QAction *action )
 
 void MainWindow::setChordMode( int i)
 {
-    ui->actionChord_mode->setEnabled(i!=0);
+    ui->actionSelectChord->setEnabled(i!=0);
 }
 
 void MainWindow::setTextMode(int i)
 {
-    ui->actionText_only_mode->setEnabled(i!=0);
+    ui->actionSelectText->setEnabled(i!=0);
 }
 
 void MainWindow::setMemoryMode(int i)
 {
-    ui->actionMemory_mode->setEnabled(i!=0);
+    ui->actionSelectMemory->setEnabled(i!=0);
 }
 
 void MainWindow::Log(QString message)
@@ -196,7 +197,7 @@ void MainWindow::Log(QString message)
 
 void MainWindow::setLyricsMode(int i)
 {
-    ui->actionLyrics_and_chord_mode->setEnabled(i!=0);
+    ui->actionSelectLyrics->setEnabled(i!=0);
 }
 
 MainWindow::~MainWindow()
@@ -656,29 +657,45 @@ void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool cases
 void MainWindow::ShowEditor()
 {
     ui->stackedWidget->setCurrentIndex(0);
+    setChecked(0);
 }
 
 void MainWindow::ShowDefinition()
 {
     ui->stackedWidget->setCurrentIndex(1);
+    setChecked(1);
 }
 
 void MainWindow::ShowLyricsMode()
 {
     ui->stackedWidget->setCurrentIndex(2);
+    setChecked(2);
 }
 
 void MainWindow::ShowMemoryMode()
 {
     ui->stackedWidget->setCurrentIndex(5);
+    setChecked(5);
 }
 
 void MainWindow::ShowChordMode()
 {
     ui->stackedWidget->setCurrentIndex(3);
+    setChecked(3);
 }
 
 void MainWindow::ShowTextMode()
 {
     ui->stackedWidget->setCurrentIndex(4);
+    setChecked(4);
+}
+
+void MainWindow::setChecked(int i)
+{
+    ui->actionSelectChord->setChecked(i==3);
+    ui->actionSelectDefinition->setChecked(i==1);
+    ui->actionSelectEditor->setChecked(i==0);
+    ui->actionSelectLyrics->setChecked(i==2);
+    ui->actionSelectMemory->setChecked(i==5);
+    ui->actionSelectText->setChecked(i==4);
 }
