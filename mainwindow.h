@@ -6,6 +6,7 @@
 #include "editorhighlighter.h"
 #include <QTranslator>
 #include <QToolButton>
+#include <QProcess>
 
 namespace Ui {
 class MainWindow;
@@ -107,6 +108,16 @@ private slots:
     void ShowTextMode();
 
     void ShowEditor();
+    void BuildTextPdf();
+    void BuildLyricsPdf();
+    void BuildChordPdf();
+    void BuildMemoryPdf();
+    void ViewLastBuildPdf();
+    void ViewTextPdf();
+    void ViewLyricsPdf();
+    void ViewChordPdf();
+    void ViewMemoryPdf();
+    void endProcess(int status);
 };
 
 #endif // MAINWINDOW_H
