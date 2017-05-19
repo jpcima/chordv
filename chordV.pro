@@ -61,7 +61,8 @@ SOURCES += main.cpp\
     processorlyrics.cpp \
     language.cpp \
     chord.cpp \
-    langnotes.cpp
+    langnotes.cpp \
+    pdfviewer.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -99,7 +100,8 @@ HEADERS  += mainwindow.h \
     processorlyrics.h \
     language.h \
     chord.h \
-    langnotes.h
+    langnotes.h \
+    pdfviewer.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
