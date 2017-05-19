@@ -222,6 +222,7 @@ DIST          = Example/deuxdisques.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -367,6 +368,7 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -434,6 +436,7 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -708,12 +711,6 @@ build/obj/main.o: main.cpp mainwindow.h \
 build/obj/mainwindow.o: mainwindow.cpp mainwindow.h \
 		editorhighlighter.h \
 		build/ui/ui_mainwindow.h \
-		chordconfig.h \
-		formconfig.h \
-		logmessages.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
 		dialogabout.h \
 		dialogconfiguration.h \
 		dialogchorddefinition.h \
@@ -724,9 +721,11 @@ build/obj/mainwindow.o: mainwindow.cpp mainwindow.h \
 		processortext.h \
 		processor.h \
 		pagesize.h \
+		formconfig.h \
 		fontbutton.h \
 		processorlyrics.h \
 		settings.h \
+		logmessages.h \
 		language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/mainwindow.o mainwindow.cpp
 
@@ -735,13 +734,8 @@ build/obj/util.o: util.cpp util.h
 
 build/obj/formconfig.o: formconfig.cpp formconfig.h \
 		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		examplelabel.h \
-		fontbutton.h \
-		imagebutton.h \
-		pagesize.h \
-		spinboxunit.h \
 		colorbutton.h \
+		examplelabel.h \
 		settings.h \
 		language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formconfig.o formconfig.cpp
@@ -760,8 +754,7 @@ build/obj/textconfig.o: textconfig.cpp textconfig.h \
 
 build/obj/fontchooser.o: fontchooser.cpp fontchooser.h \
 		fontdialog.h \
-		build/ui/ui_fontchooser.h \
-		colorbutton.h
+		build/ui/ui_fontchooser.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontchooser.o fontchooser.cpp
 
 build/obj/fontbutton.o: fontbutton.cpp fontbutton.h \
@@ -801,16 +794,7 @@ build/obj/processor.o: processor.cpp processor.h \
 		mainwindow.h \
 		editorhighlighter.h \
 		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h \
 		build/ui/ui_mainwindow.h \
-		chordconfig.h \
-		logmessages.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
 		const.h \
 		chord.h \
 		langnotes.h
@@ -829,11 +813,6 @@ build/obj/spinboxunit.o: spinboxunit.cpp spinboxunit.h
 
 build/obj/dialogconfiguration.o: dialogconfiguration.cpp dialogconfiguration.h \
 		build/ui/ui_dialogconfiguration.h \
-		chordconfig.h \
-		formconfig.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
 		spinboxunit.h \
 		settings.h \
 		language.h
@@ -849,11 +828,7 @@ build/obj/processortext.o: processortext.cpp processortext.h \
 		fontbutton.h \
 		mainwindow.h \
 		editorhighlighter.h \
-		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h
+		build/ui/ui_formconfig.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processortext.o processortext.cpp
 
 build/obj/verticalspacing.o: verticalspacing.cpp verticalspacing.h
@@ -861,8 +836,6 @@ build/obj/verticalspacing.o: verticalspacing.cpp verticalspacing.h
 
 build/obj/dialogchorddefinition.o: dialogchorddefinition.cpp dialogchorddefinition.h \
 		build/ui/ui_dialogchorddefinition.h \
-		chorddiagram.h \
-		neck.h \
 		util.h \
 		logmessages.h \
 		dialogchoosegoodchord.h
@@ -884,8 +857,7 @@ build/obj/chorddiagram.o: chorddiagram.cpp chorddiagram.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chorddiagram.o chorddiagram.cpp
 
 build/obj/dialogchoosegoodchord.o: dialogchoosegoodchord.cpp dialogchoosegoodchord.h \
-		build/ui/ui_dialogchoosegoodchord.h \
-		chorddiagram.h
+		build/ui/ui_dialogchoosegoodchord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchoosegoodchord.o dialogchoosegoodchord.cpp
 
 build/obj/dialogsearch.o: dialogsearch.cpp dialogsearch.h \
@@ -904,10 +876,8 @@ build/obj/processorlyrics.o: processorlyrics.cpp processorlyrics.h \
 		mainwindow.h \
 		editorhighlighter.h \
 		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h
+		chord.h \
+		langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorlyrics.o processorlyrics.cpp
 
 build/obj/language.o: language.cpp language.h
