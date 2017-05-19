@@ -8,8 +8,12 @@
         <file>Images/neck.jpg</file>
         <file>Images/en.png</file>
         <file>Images/fr.png</file>
+        <file>Images/warning.png</file>
     </qresource>
     <qresource prefix="/Base">
         <file>Bd/Chord.db</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Images/warning.png</file>
     </qresource>
 </RCC>
