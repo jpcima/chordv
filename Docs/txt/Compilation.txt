@@ -48,6 +48,7 @@ Compilation
 [Source,bash]
 ----
 svn co http://svn.code.sf.net/p/podofo/code/podofo/trunk podofo
+cd podofo
 mkdir podofo-build
 cd podofo-build
 cmake ../podofo
