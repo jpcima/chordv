@@ -54,6 +54,7 @@ private:
     QString m_buffreplace;
     void GenericInsert(QToolButton *w, QString token, QString label1, QString label2);
     bool m_found;
+    void setChecked(int i);
 public slots:
     void ChangeLanguage(QString );
 private slots:
