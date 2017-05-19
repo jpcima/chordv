@@ -27,6 +27,7 @@ void Language::setLanguageComboBox(QComboBox *ptr)
     QFileInfo fi(s.fileName());
     QString Langpath=fi.absolutePath();
     QString path=Langpath+"/Languages";
+    ptr->addItem(QIcon(":/Image/Images/en.png"),"English","en");
     QFileInfoList filist=QDir(path).entryInfoList(QDir::AllDirs|QDir::NoDotAndDotDot);
     foreach (QFileInfo fi, filist)
     {
@@ -40,7 +41,8 @@ void Language::setLanguageComboBox(QComboBox *ptr)
         {
             QString qmfile=list.at(0).absoluteFilePath();
             QString pngfile=qmfile.replace(QRegExp("\\.qm$"),".png");
-            ptr->addItem(QIcon(pngfile),name);
+            QString lang=qmfile.replace(QRegExp("\\.qm$"),"");
+            ptr->addItem(QIcon(pngfile),name,lang);
         }
     }
 

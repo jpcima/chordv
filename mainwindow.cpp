@@ -29,8 +29,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QList <int> size;
+    size<<700<<100;
+    ui->splitter->setSizes(size);
     Language::setLanguageComboBox( ui->comboBoxChordLanguage);
-    ui->tabWidget->setCurrentIndex(0);
+    ui->stackedWidget->setCurrentIndex(0);
     m_lastmenu= new QMenu(tr("Last Projects"));
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
     setMenuLastProject();
@@ -68,6 +71,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->toolButtonST,SIGNAL(clicked(bool)),this,SLOT(InsertST()));
     connect(ui->toolButtonT,SIGNAL(clicked(bool)),this,SLOT(InsertT()));
     connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
+    connect (ui->actionDefinition,SIGNAL(triggered(bool)),this,SLOT(ShowDefinition()));
+    connect (ui->actionMemory_mode,SIGNAL(triggered(bool)),this,SLOT(ShowMemoryMode()));
+    connect (ui->actionText_only_mode,SIGNAL(triggered(bool)),this,SLOT(ShowTextMode()));
+    connect (ui->actionLyrics_and_chord_mode,SIGNAL(triggered(bool)),this,SLOT(ShowLyricsMode()));
+    connect (ui->actionChord_mode,SIGNAL(triggered(bool)),this,SLOT(ShowChordMode()));
+    connect(ui->actionEditor,SIGNAL(triggered(bool)),this,SLOT(ShowEditor()));
+
 
     QString file=getFileInArg();
     if ( ! file.isEmpty() )
@@ -88,7 +98,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
   }
 
- QString MainWindow::getFileInArg()
+
+
+
+QString MainWindow::getFileInArg()
 {
     QStringList list=qApp->arguments();
     if ( list.empty()) return ("");
@@ -163,17 +176,17 @@ void MainWindow::LastProjectOpen(QAction *action )
 
 void MainWindow::setChordMode( int i)
 {
-    ui->tabWidget->setTabEnabled(2,i!=0);
+    ui->actionChord_mode->setEnabled(i!=0);
 }
 
 void MainWindow::setTextMode(int i)
 {
-    ui->tabWidget->setTabEnabled(3,i!=0);
+    ui->actionText_only_mode->setEnabled(i!=0);
 }
 
 void MainWindow::setMemoryMode(int i)
 {
-    ui->tabWidget->setTabEnabled(4,i!=0);
+    ui->actionMemory_mode->setEnabled(i!=0);
 }
 
 void MainWindow::Log(QString message)
@@ -183,7 +196,7 @@ void MainWindow::Log(QString message)
 
 void MainWindow::setLyricsMode(int i)
 {
-    ui->tabWidget->setTabEnabled(1,i!=0);
+    ui->actionLyrics_and_chord_mode->setEnabled(i!=0);
 }
 
 MainWindow::~MainWindow()
@@ -601,7 +614,7 @@ void MainWindow::Replace()
 
 void MainWindow::Search(QString text, bool casesensitive, bool wordonly )
 {
-    ui->tabWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(5);
     QFlags<QTextDocument::FindFlag> flag;
     if (casesensitive ) flag =QTextDocument::FindCaseSensitively;
     if (wordonly) flag|=QTextDocument::FindWholeWords;
@@ -610,7 +623,7 @@ void MainWindow::Search(QString text, bool casesensitive, bool wordonly )
 
 void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
 {
-    ui->tabWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(5);
     QFlags<QTextDocument::FindFlag> flag= QTextDocument::FindBackward;
     if (casesensitive ) flag |=QTextDocument::FindCaseSensitively;
     if (wordonly) flag|=QTextDocument::FindWholeWords;
@@ -620,7 +633,7 @@ void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
 void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool casesensitive, bool wordonly, bool back)
 {
     if (!m_found ) return;
-    ui->tabWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(5);
     if ( all )
     {
         while ( m_found )
@@ -638,4 +651,34 @@ void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool cases
         if ( back ) SearchBack(textfrom,casesensitive,wordonly);
         else Search(textfrom,casesensitive,wordonly);
     }
+}
+
+void MainWindow::ShowEditor()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainWindow::ShowDefinition()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::ShowLyricsMode()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::ShowMemoryMode()
+{
+    ui->stackedWidget->setCurrentIndex(5);
+}
+
+void MainWindow::ShowChordMode()
+{
+    ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::ShowTextMode()
+{
+    ui->stackedWidget->setCurrentIndex(4);
 }
