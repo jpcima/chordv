@@ -17,6 +17,9 @@ public:
     QString ToEnglish(QString lang,QString chord);
     QString nameEnglish();
     QString nameLocale();
+    QString pureNameLocale();
+    QString pureNameEnglish();
+    static QStringList removeDupplicateWhithoutTempo(QStringList chords,QString lang);
 private:
     QString m_tempo; // 2 : from D7x2
     QString m_purechordLocale; // Ré7(III)

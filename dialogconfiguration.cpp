@@ -58,7 +58,6 @@ void DialogConfiguration::SelectLanguage(QString  lang)
     s.setValue("InterfaceLanguage",lang);
     QTranslator tr;
     QString filename=Language::getTranslationQmFileName(lang);
-    qDebug()<<filename<<lang;
     tr.load(filename);
     if ( lang != "English" )
        {
