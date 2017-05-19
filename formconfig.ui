@@ -530,17 +530,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="comboBoxChordLang">
-                  <item>
-                   <property name="text">
-                    <string>English</string>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="resources.qrc">
-                     <normaloff>:/Image/Images/en.png</normaloff>:/Image/Images/en.png</iconset>
-                   </property>
-                  </item>
-                 </widget>
+                 <widget class="QComboBox" name="comboBoxChordLang"/>
                 </item>
                </layout>
               </item>
@@ -812,8 +802,6 @@
    <header location="global">verticalspacing.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

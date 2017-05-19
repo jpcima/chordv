@@ -73,23 +73,46 @@ QString Chord::fret()
 }
 
 
+
 QString Chord::ToEnglish(QString lang,QString  chord)
 {
    chord.replace ("m","-");
-   QString ret;
-   if ( chord.startsWith(m_notes.note(lang,"A"))) ret=chord.replace(m_notes.note(lang,"A"),"A");
-   if ( chord.startsWith(m_notes.note(lang,"B"))) ret=chord.replace(m_notes.note(lang,"B"),"B");
-   if ( chord.startsWith(m_notes.note(lang,"C"))) ret=chord.replace(m_notes.note(lang,"C"),"C");
-   if ( chord.startsWith(m_notes.note(lang,"D"))) ret=chord.replace(m_notes.note(lang,"D"),"D");
-   if ( chord.startsWith(m_notes.note(lang,"E"))) ret=chord.replace(m_notes.note(lang,"E"),"E");
-   if ( chord.startsWith(m_notes.note(lang,"F"))) ret=chord.replace(m_notes.note(lang,"F"),"F");
-   if ( chord.startsWith(m_notes.note(lang,"G"))) ret=chord.replace(m_notes.note(lang,"G"),"G");
-   return(ret);
+   if ( chord.startsWith(m_notes.note(lang,"A"))) chord.replace(m_notes.note(lang,"A"),"A");
+   else if ( chord.startsWith(m_notes.note(lang,"B"))) chord.replace(m_notes.note(lang,"B"),"B");
+   else if ( chord.startsWith(m_notes.note(lang,"C"))) chord.replace(m_notes.note(lang,"C"),"C");
+   else if ( chord.startsWith(m_notes.note(lang,"D"))) chord.replace(m_notes.note(lang,"D"),"D");
+   else if ( chord.startsWith(m_notes.note(lang,"E"))) chord.replace(m_notes.note(lang,"E"),"E");
+   else if ( chord.startsWith(m_notes.note(lang,"F"))) chord.replace(m_notes.note(lang,"F"),"F");
+   else if ( chord.startsWith(m_notes.note(lang,"G"))) chord.replace(m_notes.note(lang,"G"),"G");
+   return(chord);
 }
 
 QString Chord::nameLocale()
 {
     return m_nameLocale;
+}
+
+QString Chord::pureNameLocale()
+{
+    return m_purechordLocale;
+}
+
+QString Chord::pureNameEnglish()
+{
+    return m_purechordEnglish;
+}
+
+QStringList Chord::removeDupplicateWhithoutTempo(QStringList chords,QString lang)
+{
+    QStringList ret;
+    foreach ( QString ch, chords)
+    {
+        Chord c(ch,lang);
+        if ( lang=="en") ret<<c.pureNameEnglish();
+        else ret<<c.pureNameLocale();
+    }
+    ret.removeDuplicates();
+    return ret;
 }
 
 QString Chord::nameEnglish()
