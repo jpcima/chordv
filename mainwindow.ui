@@ -479,13 +479,13 @@
      <string>Window</string>
     </property>
     <addaction name="separator"/>
-    <addaction name="actionEditor"/>
-    <addaction name="actionDefinition"/>
+    <addaction name="actionSelectEditor"/>
+    <addaction name="actionSelectDefinition"/>
     <addaction name="separator"/>
-    <addaction name="actionText_only_mode"/>
-    <addaction name="actionLyrics_and_chord_mode"/>
-    <addaction name="actionChord_mode"/>
-    <addaction name="actionMemory_mode"/>
+    <addaction name="actionSelectText"/>
+    <addaction name="actionSelectLyrics"/>
+    <addaction name="actionSelectChord"/>
+    <addaction name="actionSelectMemory"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdition"/>
@@ -607,7 +607,7 @@
     <string>Ctrl+R</string>
    </property>
   </action>
-  <action name="actionDefinition">
+  <action name="actionSelectDefinition">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -615,7 +615,7 @@
     <string>Global definitions</string>
    </property>
   </action>
-  <action name="actionText_only_mode">
+  <action name="actionSelectText">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -623,7 +623,7 @@
     <string>Text only mode</string>
    </property>
   </action>
-  <action name="actionLyrics_and_chord_mode">
+  <action name="actionSelectLyrics">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -631,7 +631,7 @@
     <string>Lyrics and chord mode</string>
    </property>
   </action>
-  <action name="actionChord_mode">
+  <action name="actionSelectChord">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -639,7 +639,7 @@
     <string>Chord mode</string>
    </property>
   </action>
-  <action name="actionMemory_mode">
+  <action name="actionSelectMemory">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -647,7 +647,7 @@
     <string>Memory mode</string>
    </property>
   </action>
-  <action name="actionEditor">
+  <action name="actionSelectEditor">
    <property name="checkable">
     <bool>true</bool>
    </property>
