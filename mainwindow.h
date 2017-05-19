@@ -99,6 +99,13 @@ private slots:
     void Search(QString text, bool casesensitive, bool wordonly);
     void SearchBack(QString text, bool casesensitive, bool wordonly);
     void Replace(QString textfrom, QString textto, bool all, bool casesensitive, bool wordonly, bool back);
+    void ShowDefinition();
+    void ShowLyricsMode();
+    void ShowMemoryMode();
+    void ShowChordMode();
+    void ShowTextMode();
+
+    void ShowEditor();
 };
 
 #endif // MAINWINDOW_H
