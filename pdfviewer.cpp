@@ -4,32 +4,56 @@
 #include <QProcess>
 #include <QMessageBox>
 #include <QDebug>
+#include <QApplication>
+#include <QFileInfo>
 
-PdfViewer::PdfViewer(QString filename)
+PdfViewer::PdfViewer(QString filename, QWidget *parent)
 {
     QSettings s;
-    if ( s.value("PDFReader").toString().isEmpty())
+    m_filename=filename;
+    QString command =s.value("PDFReader").toString();
+    QFileInfo fi(filename);
+    if ( ! fi.exists() )
     {
-        QMessageBox::warning(this,tr("Variable PDFREader not set in Configuration")
-                             ,tr("Go to Tools/Preference and set the PDF Reader name and path ")
-                             ,tr("Ok"));
-        m_process=0;
+        QMessageBox::warning(parent,qApp->translate("pdfReader","File not found")
+                             ,qApp->translate("pdfReader","PDF file %1 not yet generated !").arg(filename)
+                             ,qApp->translate("pdfReader","Ok"));
+        m_status=false;
+        m_error= qApp->translate("pdfReader","PdfReader: file %1 not found").arg(filename);
+
+    }
+
+    else if ( command.isEmpty())
+    {
+        QMessageBox::warning(parent,qApp->translate("pdfReader","Variable PDFReader not set in Configuration")
+                             ,qApp->translate("pdfReader","Go to Tools/Preference and set the PDF Reader name and path ")
+                             ,qApp->translate("pdfReader","Ok"));
+        m_status=false;
+        m_error= qApp->translate("pdfReader","PdfReader: PDFReader not configured");
 
     }
     else
     {
-        m_process = new QProcess(this);
-        connect ( m_process,SIGNAL(finished(int)),this,SLOT(endProcess(int)));
         QStringList arg;
         arg<<filename;
-        m_process->start(s.value("PDFReader").toString(),arg);
-    }
+        m_status =QProcess::startDetached(command,arg);
+        m_error=qApp->translate("pdfReader","PdfReader: Unknown error");
+
+     }
+
 }
 
-
-void PdfViewer::endProcess(int)
+bool PdfViewer::getStatus()
 {
-    if ( m_process != 0 )
-        delete m_process;
-    emit finished();
+    return m_status ;
+}
+
+QString PdfViewer::getStatusError()
+{
+    return m_error;
+}
+
+QString PdfViewer::getStatusInfo()
+{
+    return (qApp->translate("pdfReader","PdfReader: %1 launched").arg(m_filename));
 }
