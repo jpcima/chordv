@@ -41,7 +41,8 @@ void Language::setLanguageComboBox(QComboBox *ptr)
         {
             QString qmfile=list.at(0).absoluteFilePath();
             QString pngfile=qmfile.replace(QRegExp("\\.qm$"),".png");
-            QString lang=qmfile.replace(QRegExp("\\.qm$"),"");
+            QFileInfo fi(pngfile);
+            QString lang=fi.baseName();
             ptr->addItem(QIcon(pngfile),name,lang);
         }
     }
