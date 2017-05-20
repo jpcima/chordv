@@ -1,20 +1,19 @@
 #ifndef PDFVIEWER_H
 #define PDFVIEWER_H
 
-#include <QProcess>
 #include <QWidget>
 
 class PdfViewer
 {
-    Q_OBJECT
 public:
-    PdfViewer( QString filename);
-private slots:
-    void endProcess(int);
+    PdfViewer( QString filename, QWidget *parent );
+    bool getStatus();
+    QString getStatusError();
+    QString getStatusInfo();
 private:
-    QProcess *m_process;
-signals:
-    void finished();
+    bool m_status;
+    QString m_error;
+    QString m_filename;
 };
 
 #endif // PDFVIEWER_H

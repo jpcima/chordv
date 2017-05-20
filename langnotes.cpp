@@ -1,40 +1,34 @@
 #include "langnotes.h"
 
+#include <QApplication>
+
 LangNotes::LangNotes()
 {
-    QStringList listfrench;
-    listfrench<<"Do"<<"Ré"<<"Mi"<<"Fa"<<"Sol"<<"La"<<"Si";
-    m_lang["fr"]=listfrench;
-    QStringList listgerman;
-    listgerman<<"C"<<"D"<<"E"<<"F"<<"G"<<"A"<<"H";
-    m_lang["de"]=listgerman;
-    QStringList listenglish;
-    listenglish<<"C"<<"D"<<"E"<<"F"<<"G"<<"A"<<"B";
-    m_lang["en"]=listenglish;
-    QStringList listhindi;
-    listhindi<<"स "<< "रे"<<"ग" <<" म"<<"प"<<"ध" <<"नि";
-    m_lang["hi"]<<listenglish;
-    QStringList listjapaneese;
-    listjapaneese<<"ハ"<<"ニ"<<"ホ"<<"ヘ"<<"ト"<<"イ"<<"ロ";
-    m_lang["jp"]=listjapaneese;
-    QStringList listrussian;
-    listrussian <<"До"<<"Pe"<<"Mи"<<"фа"<<"Cоль"<<"ля"<<"Cи";
-    m_lang["ru"]=listrussian;
-    m_lang["it"]=listfrench;
-    m_lang["es"]=listfrench;
-    m_englishnote["C"]=0;
-    m_englishnote["D"]=1;
-    m_englishnote["E"]=2;
-    m_englishnote["F"]=3;
-    m_englishnote["G"]=4;
-    m_englishnote["A"]=5;
-    m_englishnote["B"]=6;
-
+    m_note["A"]=qApp->translate("LangNote","A");
+    m_note["B"]=qApp->translate("LangNote","B");
+    m_note["C"]=qApp->translate("LangNote","C");
+    m_note["D"]=qApp->translate("LangNote","D");
+    m_note["E"]=qApp->translate("LangNote","E");
+    m_note["F"]=qApp->translate("LangNote","F");
+    m_note["G"]=qApp->translate("LangNote","G");
 }
 
-QString LangNotes::note(QString lang, QString englishnote)
+QString LangNotes::noteLocale(QString englishnote)
 {
-    return m_lang[lang].at(m_englishnote[englishnote]);
+    return m_note[englishnote];
+}
+
+QString LangNotes::noteEnglish(QString localenote)
+{
+    foreach ( QString note, m_note.keys())
+        if (m_note[note]==localenote) return note;
+    return QString("ERR");
+}
+
+QString LangNotes::note(QString lang, QString note)
+{
+    if (lang!= "en") return noteLocale(lang);
+    else return noteEnglish(lang);
 }
 
 
