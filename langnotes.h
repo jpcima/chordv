@@ -7,10 +7,11 @@ class LangNotes
 {
 public:
     LangNotes();
-    QString note(QString lang,QString englishnote);
+    QString noteLocale(QString englishnote);
+    QString noteEnglish(QString localenote);
+    QString note(QString lang, QString note);
 private:
-    QMap  < QString ,QStringList > m_lang;
-    QMap <QString,int> m_englishnote;
+    QMap  < QString ,QString > m_note;
 };
 
 #endif // LANGNOTES_H
