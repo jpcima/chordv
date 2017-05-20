@@ -474,10 +474,10 @@ void MainWindow::ViewTextPdf()
 {
     QString filename2=ui->widgetTextMode->getUi()->lineEditOutFile->text();
     QString filename=ui->lineEditInputFile->text().replace(QRegExp("\\.cho3"),QString("_%1.pdf").arg(filename2));
-    filename;
-    PdfViewer *pdf  = new PdfViewer(filename,this);
-
+    m_pdfviewer  = new PdfViewer(filename);
+    connect (m_pdfviewer,SIGNAL(finished()),this,SLOT(freeMem()));
 }
+
 
 void MainWindow::endProcess(int status)
 {
@@ -509,6 +509,10 @@ void MainWindow::ViewLastBuildPdf()
 
 }
 
+void MainWindow::freeMem()
+{
+   m_pdfviewer->deleteLater();
+}
 
 void MainWindow::ConversionDone( QString filename)
 {
