@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QMenu>
 #include "editorhighlighter.h"
+#include "pdfviewer.h"
 #include <QTranslator>
 #include <QToolButton>
 #include <QProcess>
@@ -56,6 +57,7 @@ private:
     void GenericInsert(QToolButton *w, QString token, QString label1, QString label2);
     bool m_found;
     void setChecked(int i);
+    PdfViewer *m_pdfviewer;
 public slots:
     void ChangeLanguage(QString );
 private slots:
@@ -118,6 +120,7 @@ private slots:
     void ViewChordPdf();
     void ViewMemoryPdf();
     void endProcess(int status);
+    void freeMem();
 };
 
 #endif // MAINWINDOW_H
