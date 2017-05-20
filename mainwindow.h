@@ -1,13 +1,15 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
-#include <QMenu>
 #include "editorhighlighter.h"
 #include "pdfviewer.h"
+#include "chordconfig.h"
+
 #include <QTranslator>
 #include <QToolButton>
 #include <QProcess>
+#include <QMainWindow>
+#include <QMenu>
 
 namespace Ui {
 class MainWindow;
@@ -57,7 +59,7 @@ private:
     void GenericInsert(QToolButton *w, QString token, QString label1, QString label2);
     bool m_found;
     void setChecked(int i);
-    PdfViewer *m_pdfviewer;
+    QString getPdfFileName(QString  text);
 public slots:
     void ChangeLanguage(QString );
 private slots:
@@ -119,8 +121,6 @@ private slots:
     void ViewLyricsPdf();
     void ViewChordPdf();
     void ViewMemoryPdf();
-    void endProcess(int status);
-    void freeMem();
 };
 
 #endif // MAINWINDOW_H

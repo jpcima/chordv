@@ -774,9 +774,9 @@ void Processor::FinishPage(PdfPainter *painter)
 
 
 
-void Processor::displayChord(QString ch,int &line, int &column,int size)
+void Processor::displayChord(QString ch,int &line, int &column,int size,QString lang)
 {
-    Chord chord(ch,"fr");
+    Chord chord(ch,lang);
     int steph=size/8;
     int stepv=size/10 ;
 
