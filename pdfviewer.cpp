@@ -5,7 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 
-PdfViewer::PdfViewer(QString filename,QWidget *parent): QWidget(parent)
+PdfViewer::PdfViewer(QString filename)
 {
     QSettings s;
     if ( s.value("PDFReader").toString().isEmpty())
@@ -31,4 +31,5 @@ void PdfViewer::endProcess(int)
 {
     if ( m_process != 0 )
         delete m_process;
+    emit finished();
 }
