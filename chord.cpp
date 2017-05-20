@@ -77,13 +77,13 @@ QString Chord::fret()
 QString Chord::ToEnglish(QString lang,QString  chord)
 {
    chord.replace ("m","-");
-   if ( chord.startsWith(m_notes.note(lang,"A"))) chord.replace(m_notes.note(lang,"A"),"A");
-   else if ( chord.startsWith(m_notes.note(lang,"B"))) chord.replace(m_notes.note(lang,"B"),"B");
-   else if ( chord.startsWith(m_notes.note(lang,"C"))) chord.replace(m_notes.note(lang,"C"),"C");
-   else if ( chord.startsWith(m_notes.note(lang,"D"))) chord.replace(m_notes.note(lang,"D"),"D");
-   else if ( chord.startsWith(m_notes.note(lang,"E"))) chord.replace(m_notes.note(lang,"E"),"E");
-   else if ( chord.startsWith(m_notes.note(lang,"F"))) chord.replace(m_notes.note(lang,"F"),"F");
-   else if ( chord.startsWith(m_notes.note(lang,"G"))) chord.replace(m_notes.note(lang,"G"),"G");
+   if ( chord.startsWith(m_notes.noteLocale("A"))) chord.replace(m_notes.noteLocale("A"),"A");
+   else if ( chord.startsWith(m_notes.noteLocale("B"))) chord.replace(m_notes.noteLocale("B"),"B");
+   else if ( chord.startsWith(m_notes.noteLocale("C"))) chord.replace(m_notes.noteLocale("C"),"C");
+   else if ( chord.startsWith(m_notes.noteLocale("D"))) chord.replace(m_notes.noteLocale("D"),"D");
+   else if ( chord.startsWith(m_notes.noteLocale("E"))) chord.replace(m_notes.noteLocale("E"),"E");
+   else if ( chord.startsWith(m_notes.noteLocale("F"))) chord.replace(m_notes.noteLocale("F"),"F");
+   else if ( chord.startsWith(m_notes.noteLocale("G"))) chord.replace(m_notes.noteLocale("G"),"G");
    return(chord);
 }
 
