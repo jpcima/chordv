@@ -19,7 +19,7 @@ public:
     void setValue(QString var, QVariant value);
     void Save(QString filename,Classes section);
     void InitDefault(Classes classe);
-    Ui::FormConfig *getUi() { return ui;}
+    virtual Ui::FormConfig *getUi() { return ui;}
     void SetConfigFromFile(QString FileName);
     void SetConfigFromInit();
     QString classe2String(Classes name);

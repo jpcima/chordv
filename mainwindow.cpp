@@ -92,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionViewLyrics,SIGNAL(triggered(bool)),this,SLOT(ViewLyricsPdf()));
     connect (ui->actionViewChord,SIGNAL(triggered(bool)),this,SLOT(ViewChordPdf()));
     connect (ui->actionViewMemory,SIGNAL(triggered(bool)),this,SLOT(ViewMemoryPdf()));
-    connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViesLastBuildPdf()));
+    connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViewLastBuildPdf()));
 
 
     QString file=getFileInArg();
@@ -227,6 +227,10 @@ void MainWindow::Log(QString message)
     ui->log->Error(message);
 }
 
+void MainWindow::Info(QString info)
+{
+    ui->log->Info(info);
+}
 
 MainWindow::~MainWindow()
 {
@@ -470,23 +474,25 @@ void MainWindow::BuildMemoryPdf()
 
 }
 
+
+QString MainWindow::getPdfFileName(QString text )
+{
+   return  m_currentprojectfile.replace(QRegExp("\\.chop"),QString("_%1.pdf").arg(text));
+}
+
 void MainWindow::ViewTextPdf()
-{
-    QString filename2=ui->widgetTextMode->getUi()->lineEditOutFile->text();
-    QString filename=ui->lineEditInputFile->text().replace(QRegExp("\\.cho3"),QString("_%1.pdf").arg(filename2));
-    m_pdfviewer  = new PdfViewer(filename);
-    connect (m_pdfviewer,SIGNAL(finished()),this,SLOT(freeMem()));
+{   
+    PdfViewer viewer(getPdfFileName(ui->widgetTextMode->getUi()->lineEditOutFile->text()),this);
+    if ( ! viewer.getStatus())  Log(viewer.getStatusError());
+     else Info(viewer.getStatusInfo());
 }
 
-
-void MainWindow::endProcess(int status)
-{
-    qDebug()<<"process end"<<status<<sender();
-}
 
 void MainWindow::ViewLyricsPdf()
 {
-
+    PdfViewer viewer(getPdfFileName(ui->widgetLyricsMode->getUi()->lineEditOutFile->text()),this);
+    if ( ! viewer.getStatus())  Log(viewer.getStatusError());
+    else Info(viewer.getStatusInfo());
 }
 
 void MainWindow::ViewChordPdf()
@@ -501,18 +507,11 @@ void MainWindow::ViewMemoryPdf()
 
 void MainWindow::ViewLastBuildPdf()
 {
-    QSettings s;
-    QProcess *myprocess = new QProcess(this);
-    QStringList arg;
-    arg<<m_pdffilename;
-    myprocess->start(s.value("PDFReader").toString(),arg);
-
+    PdfViewer viewer(m_pdffilename,this);
+    if ( ! viewer.getStatus())  Log(viewer.getStatusError());
+    else Info(viewer.getStatusInfo());
 }
 
-void MainWindow::freeMem()
-{
-   m_pdfviewer->deleteLater();
-}
 
 void MainWindow::ConversionDone( QString filename)
 {
@@ -521,10 +520,6 @@ void MainWindow::ConversionDone( QString filename)
 }
 
 
-void MainWindow::Info(QString info)
-{
-    ui->log->Info(info);
-}
 
 
 void MainWindow::About()
