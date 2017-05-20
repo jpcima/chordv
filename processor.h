@@ -255,7 +255,7 @@ protected:
     /// \brief addLinkInToc add link in toc
     ///
     virtual void addLinkInToc();
-    void displayChord(QString chord, int &line, int &column,int size);
+    void displayChord(QString chord, int &line, int &column,int size,QString lang);
 };
 
 #endif // PROCESSOR_H
