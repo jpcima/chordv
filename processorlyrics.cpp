@@ -11,13 +11,15 @@ ProcessorLyrics::ProcessorLyrics(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Proce
 
 void ProcessorLyrics::displayChordsForSong()
 {
+  NextLine();NextLine();
   QStringList chords=m_BufChords;
+
   QStringList chordswithouttempo=Chord::removeDupplicateWhithoutTempo(chords,m_uiconfig->comboBoxChordLang->currentData().toString());
   if (m_uiconfig->comboBoxChordInText->currentIndex()==0)
   {
       foreach ( QString chord, chordswithouttempo)
     {
-        displayChord(chord,m_line,m_column,m_uiconfig->spuChordHorizontalSize->getPdfU());
+        displayChord(chord,m_line,m_column,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
     }
   }
   m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
