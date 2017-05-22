@@ -539,7 +539,7 @@
                 <item>
                  <widget class="QLabel" name="labelChordLangInText">
                   <property name="text">
-                   <string>Chord in text</string>
+                   <string>Chord display</string>
                   </property>
                  </widget>
                 </item>
@@ -547,12 +547,17 @@
                  <widget class="QComboBox" name="comboBoxChordInText">
                   <item>
                    <property name="text">
-                    <string>with name</string>
+                    <string>with diagram in text</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>with diagram</string>
+                    <string>with name in text but all chords at begining</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>with name in text and no chord at begining</string>
                    </property>
                   </item>
                  </widget>

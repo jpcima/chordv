@@ -1,5 +1,6 @@
 #include "processorlyrics.h"
 #include "ui_formconfig.h"
+#include "ui_mainwindow.h"
 #include "chord.h"
 
 #include <QDebug>
@@ -16,21 +17,28 @@ ProcessorLyrics::ProcessorLyrics(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Proce
 
 void ProcessorLyrics::displayChordsForSong()
 {
-  NextLine();NextLine();
-  QStringList chords=m_BufChords;
+  NextLine();
 
-  QStringList chordswithouttempo=Chord::removeDupplicateWhithoutTempo(chords,m_uiconfig->comboBoxChordLang->currentData().toString());
-  if (m_uiconfig->comboBoxChordInText->currentIndex()==0)
+  if ( m_uiconfig->comboBoxChordInText->currentIndex()==1 )
   {
-      foreach ( QString chord, chordswithouttempo)
+    // chords are displayed in first with diagram and just chord name in text
+    NextLine();
+    QStringList chords=m_BufChords;
+    QStringList chordswithouttempo=Chord::removeDupplicateWhithoutTempo(chords,m_uiconfig->comboBoxChordLang->currentData().toString());
+    if (m_uiconfig->comboBoxChordInText->currentIndex()==0)
     {
+      foreach ( QString chord, chordswithouttempo)
+      {
         displayChord(chord,m_line,m_column,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
+      }
     }
-  }
   m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
   m_line-=m_uiconfig->spuChordHorizontalSize->getPdfU();
-
-
+ }
+ else
+ {
+    // chords diagrams are displayed in text
+ }
 }
 
 
@@ -53,14 +61,13 @@ void ProcessorLyrics::displayLyrics()
           {
             num=2;
             QString t1=chordexp.cap(1);
-            QString c1=chordexp.cap(2);
+            Chord ch(chordexp.cap(2),m_uimainwindow->comboBoxChordLanguage->currentData().toString());
+            QString c1=m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale();
             text=chordexp.cap(3);
-            qDebug()<<t1;
             Text(m_document,t1,col,m_line,m_uiconfig->toolButtonNormalFont);
             PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonNormalFont->getFont().family().toLatin1());
             col+=pfont->GetFontMetrics()->StringWidth(PdfString (t1.toLatin1()));
-            qDebug()<<c1;
-            Text(m_document,c1,col,m_line+10,m_uiconfig->toolButtonNormalFont);
+            Text(m_document,c1,col,m_line+10,m_uiconfig->toolButtonChordFont);
           }
           qDebug()<<text;
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);

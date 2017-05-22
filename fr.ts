@@ -611,7 +611,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="formconfig.ui" line="99"/>
-        <location filename="formconfig.ui" line="712"/>
+        <location filename="formconfig.ui" line="717"/>
         <source>Miscellaneous</source>
         <translation>Divers</translation>
     </message>
@@ -627,7 +627,7 @@ p, li { white-space: pre-wrap; }
         <location filename="formconfig.ui" line="293"/>
         <location filename="formconfig.ui" line="392"/>
         <location filename="formconfig.ui" line="508"/>
-        <location filename="formconfig.ui" line="631"/>
+        <location filename="formconfig.ui" line="636"/>
         <source>Example</source>
         <translation>Exemple</translation>
     </message>
@@ -639,7 +639,7 @@ p, li { white-space: pre-wrap; }
         <location filename="formconfig.ui" line="399"/>
         <location filename="formconfig.ui" line="461"/>
         <location filename="formconfig.ui" line="515"/>
-        <location filename="formconfig.ui" line="638"/>
+        <location filename="formconfig.ui" line="643"/>
         <source>...</source>
         <translation></translation>
     </message>
@@ -672,7 +672,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="formconfig.ui" line="234"/>
-        <location filename="formconfig.ui" line="687"/>
+        <location filename="formconfig.ui" line="692"/>
         <source>No</source>
         <translation>Non</translation>
     </message>
@@ -693,7 +693,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="formconfig.ui" line="264"/>
-        <location filename="formconfig.ui" line="602"/>
+        <location filename="formconfig.ui" line="607"/>
         <source>1</source>
         <translation></translation>
     </message>
@@ -781,7 +781,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="formconfig.ui" line="485"/>
         <source>Chord diagram horizontal size</source>
-        <translation>Taille horieontale des diagrammes d&apos;accord</translation>
+        <translation>Taille horizontale des diagrammes d&apos;accord</translation>
     </message>
     <message>
         <location filename="formconfig.ui" line="501"/>
@@ -795,96 +795,110 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="formconfig.ui" line="542"/>
-        <source>Chord in text</source>
-        <translation>Accords en texte</translation>
+        <source>Chord display</source>
+        <oldsource>Chord in text</oldsource>
+        <translation>Affichage des accords</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="550"/>
         <source>with name</source>
-        <translation>Avec le nom</translation>
+        <translation type="vanished">Avec le nom</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="555"/>
         <source>with diagram</source>
-        <translation>Avec un diagramme</translation>
+        <translation type="vanished">Avec un diagramme</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="570"/>
+        <location filename="formconfig.ui" line="575"/>
         <source>Toc</source>
         <translation>Table des matières</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="580"/>
+        <location filename="formconfig.ui" line="585"/>
         <source>Toc vertical spacing</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="607"/>
+        <location filename="formconfig.ui" line="612"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="612"/>
+        <location filename="formconfig.ui" line="617"/>
         <source>3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="594"/>
+        <location filename="formconfig.ui" line="599"/>
         <source>Toc column number</source>
         <translation>Nombre de colonnes de la table des matières</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="624"/>
+        <location filename="formconfig.ui" line="550"/>
+        <source>with diagram in text</source>
+        <translation>Avec les diagrammes dans le texte</translation>
+    </message>
+    <message>
+        <location filename="formconfig.ui" line="555"/>
+        <source>with name in text but all chords at begining</source>
+        <translation>Avec les noms d&apos;accord dans le texte et les diagrammes au début</translation>
+    </message>
+    <message>
+        <location filename="formconfig.ui" line="560"/>
+        <source>with name in text and no chord at begining</source>
+        <translation>Avec les noms dans le texte et pas d&apos;accord au début</translation>
+    </message>
+    <message>
+        <location filename="formconfig.ui" line="629"/>
         <source>Toc Font</source>
         <translation>Police de la table des matières</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="649"/>
+        <location filename="formconfig.ui" line="654"/>
         <source>Space character</source>
         <translation>Caractère espace</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="657"/>
+        <location filename="formconfig.ui" line="662"/>
         <source>. . . .</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="662"/>
+        <location filename="formconfig.ui" line="667"/>
         <source>- - - -</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="679"/>
+        <location filename="formconfig.ui" line="684"/>
         <source>Position </source>
         <translation>Position</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="692"/>
+        <location filename="formconfig.ui" line="697"/>
         <source>At begining</source>
         <translation>Au début</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="697"/>
+        <location filename="formconfig.ui" line="702"/>
         <source>At end</source>
         <translation>À la fin</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="722"/>
+        <location filename="formconfig.ui" line="727"/>
         <source>Output file name</source>
         <translation>Nom du fichier de sortie</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="736"/>
+        <location filename="formconfig.ui" line="741"/>
         <source>Text vertical spacing</source>
         <translation>Espacement vertical</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="748"/>
+        <location filename="formconfig.ui" line="753"/>
         <source>Open in full screen mode</source>
         <translation>Ouvrir en mode plein écran</translation>
     </message>
     <message>
-        <location filename="formconfig.ui" line="755"/>
+        <location filename="formconfig.ui" line="760"/>
         <source>Title in uppercase</source>
         <translation>Titres en majuscule</translation>
     </message>
@@ -1297,7 +1311,9 @@ chanson</translation>
     <message>
         <location filename="mainwindow.ui" line="76"/>
         <source>Song
-subtilte</source>
+subtitle</source>
+        <oldsource>Song
+subtilte</oldsource>
         <translation>Sous-titre
 chanson</translation>
     </message>
@@ -1498,7 +1514,7 @@ chorus</source>
         <translation type="vanished">Aller à la page %1</translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="633"/>
+        <location filename="processor.cpp" line="636"/>
         <source>Go to table of content</source>
         <translation>Aller à la table des matières</translation>
     </message>
@@ -1537,8 +1553,8 @@ chorus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="475"/>
-        <location filename="processor.cpp" line="534"/>
+        <location filename="processor.cpp" line="478"/>
+        <location filename="processor.cpp" line="537"/>
         <source>Table of content</source>
         <translation>Table des matières</translation>
     </message>
@@ -1560,57 +1576,57 @@ chorus</source>
     <message>
         <location filename="main.cpp" line="61"/>
         <source>Database %1 not found. You will not be able to design chords !</source>
-        <translation type="unfinished"></translation>
+        <translation>La base de données %1 n&apos;a pas été trouvée. Vous ne serez pas en mesure de gérer les accords !</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="601"/>
         <source>Enter title</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrer un titre</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="601"/>
         <source>Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="606"/>
         <source>Enter sub title</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrez un sous titre</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="606"/>
         <source>Sub Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Sous-titre</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="616"/>
         <source>Enter columns number</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrer le nombre de colonnes</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="616"/>
         <source>Column number</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de colonnes</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="627"/>
         <source>Enter  cover subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrer le sous-titre de la couverture</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="627"/>
         <source>Cover Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Sous-titre couverture</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="632"/>
         <source>Enter cover title</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrer le titre de la couverture</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="632"/>
         <source>Cover title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre de la couverture</translation>
     </message>
     <message>
         <source>A</source>
@@ -1739,32 +1755,32 @@ chorus</source>
     <message>
         <location filename="pdfviewer.cpp" line="22"/>
         <source>PdfReader: file %1 not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Lecteur PDF : fichier %1 non trouvé</translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="28"/>
         <source>Variable PDFReader not set in Configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>La variable Lecteur PDF  n&apos;a pasa été positionnée dans la configuration</translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="29"/>
         <source>Go to Tools/Preference and set the PDF Reader name and path </source>
-        <translation type="unfinished"></translation>
+        <translation>Aller dans le menu Outils/Préférences et positionner la variable Lecteur PDF</translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="32"/>
         <source>PdfReader: PDFReader not configured</source>
-        <translation type="unfinished"></translation>
+        <translation>Lecteur PDF : le lecteur PDF n&apos;est pas configuré</translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="40"/>
         <source>PdfReader: Unknown error</source>
-        <translation type="unfinished"></translation>
+        <translation>Lecteur PDF : erreur inconnue</translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="58"/>
         <source>PdfReader: %1 launched</source>
-        <translation type="unfinished"></translation>
+        <translation>Lecteur PDF : %1 lancé</translation>
     </message>
 </context>
 </TS>
