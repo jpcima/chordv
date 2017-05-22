@@ -126,7 +126,7 @@ int ChordDetector::spellingElement2num(QString inSc)
 }
 
 
-QMap <int, QMap <int , QString >> ChordDetector::getModeArray(QString spelling)
+QMap <int, QMap <int , QString > > ChordDetector::getModeArray(QString spelling)
  {
   QMap <int,QMap <int , QString >> realModeArray;
   realModeArray[0][0]="1";

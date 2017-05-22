@@ -1,0 +1,13 @@
+#!/bin/sh
+# for developpers only 
+# copy database and language files in .config/ChordV directory
+
+CONF=~/.config/ChordV
+LANGFILE=$CONF/Languages/Français
+mkdir -p $LANGFILE
+
+
+cp fr.qm $LANGFILE
+cp fr.ts $LANGFILE
+cp Images/fr.png $LANGFILE
+cp Bd/Chord.db $CONF

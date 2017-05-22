@@ -3,7 +3,7 @@
 
 
 #include <QStringList>
-
+#include <QMap>
 class ChordDetector
 {
 public:
@@ -16,7 +16,7 @@ private:
     int spellingElement2num(QString inSc);
     QStringList orderSpelling(QStringList spelling);
     QString convertToCodeIfPossible(QStringList spelling);
-    QMap<int, QMap<int, QString>> getModeArray(QString spelling);
+    QMap<int, QMap<int, QString> > getModeArray(QString spelling);
     QList<QStringList> m_list;
     void round(QStringList &list, int i);
     void CalculateAllChords(QStringList list, int first);
