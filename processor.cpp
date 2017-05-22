@@ -333,18 +333,21 @@ void Processor::Cover(QString title, QString subtitle)
         if (! image.isEmpty())
           {
             QPixmap pix(image);
-            double maxh=m_uiconfig->spuPageHeight->getPdfU()/4.0;
-            double maxw=m_uiconfig->spuPageWidth->getPdfU()*0.75;
-            double imageh=pix.size().height();
-            double imagew=pix.size().width();
-            double scale1,scale2;
-            scale1=maxh/imageh;
-            scale2=maxw/imagew;
-            double scale=scale1>scale2?scale1:scale2;
-            PdfImage *pdfi = new PdfImage(m_document);
-            pdfi->SetImageChromaKeyMask(0,0,0);
-            pdfi->LoadFromFile(image.toLatin1());
-            m_painter.DrawImage(100,100,pdfi,scale);
+            if (! pix.isNull())
+            {
+                double maxh=m_uiconfig->spuPageHeight->getPdfU()/4.0;
+                double maxw=m_uiconfig->spuPageWidth->getPdfU()*0.75;
+                double imageh=pix.size().height();
+                double imagew=pix.size().width();
+                double scale1,scale2;
+                scale1=maxh/imageh;
+                scale2=maxw/imagew;
+                double scale=scale1>scale2?scale1:scale2;
+                PdfImage *pdfi = new PdfImage(m_document);
+                pdfi->SetImageChromaKeyMask(0,0,0);
+                pdfi->LoadFromFile(image.toLatin1());
+                m_painter.DrawImage(100,100,pdfi,scale);
+            }
           }
 
           double posx=m_uiconfig->spuPageWidth->getPdfU()/2;

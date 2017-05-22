@@ -213,87 +213,87 @@ p, li { white-space: pre-wrap; }
         <location filename="dialogchorddefinition.ui" line="14"/>
         <location filename="dialogchorddefinition.ui" line="26"/>
         <source>Chord Definition</source>
-        <translation type="unfinished"></translation>
+        <translation>Définition de l&apos;accord</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="46"/>
         <source>Chord name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de l&apos;accord</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="85"/>
         <source>+</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="92"/>
         <source>0</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="104"/>
         <source>Chord Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestion des accords</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="142"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suppression</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="149"/>
         <source>Modifiy</source>
-        <translation type="unfinished"></translation>
+        <translation>Modification</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="179"/>
         <source>Chord Inport</source>
-        <translation type="unfinished"></translation>
+        <translation>Importation d&apos;accords</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="192"/>
         <source>Copy paste chords in form </source>
-        <translation type="unfinished"></translation>
+        <translation>Copier coller d&apos;accords dans le formulaire</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="199"/>
         <source>chord=relative position 6 ..position 1 </source>
-        <translation type="unfinished"></translation>
+        <translation>accord=case position 6 ... position 1</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="206"/>
         <source>C(III)=3 0 0 3 3 3 0  </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="228"/>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importation</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.ui" line="260"/>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.cpp" line="71"/>
         <source>Undertermined</source>
-        <translation type="unfinished"></translation>
+        <translation>Indéterminé</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.cpp" line="145"/>
         <source>ERROR line %1 : %2</source>
-        <translation type="unfinished"></translation>
+        <translation>ERREUR ligne %1 : %2</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.cpp" line="148"/>
         <source>ERROR line %1 :syntax error</source>
-        <translation type="unfinished"></translation>
+        <translation>ERREUR ligne %1 : erreur de syntaxe</translation>
     </message>
     <message>
         <location filename="dialogchorddefinition.cpp" line="175"/>
         <source>Warning : Chord name exist in the database with the same name and same value</source>
-        <translation type="unfinished"></translation>
+        <translation>Attention : l&apos;accord existe déjà dans la base avec le même nom et la même valeur</translation>
     </message>
 </context>
 <context>
@@ -344,12 +344,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dialogconfiguration.ui" line="84"/>
         <source>PDF Reader program</source>
-        <translation type="unfinished"></translation>
+        <translation>Programme de lecture PDF</translation>
     </message>
     <message>
         <location filename="dialogconfiguration.ui" line="94"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="dialogconfiguration.ui" line="105"/>
@@ -394,7 +394,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dialogconfiguration.cpp" line="39"/>
         <source>Choose PDF Reader program</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir un lecteur PDF</translation>
     </message>
 </context>
 <context>
@@ -402,57 +402,57 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dialogreplace.ui" line="14"/>
         <source>Search and replace</source>
-        <translation type="unfinished"></translation>
+        <translation>Cherche et remplace</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="26"/>
         <source>Text to replace</source>
-        <translation type="unfinished"></translation>
+        <translation>Texte à remplacer</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="33"/>
         <source>Replace with </source>
-        <translation type="unfinished"></translation>
+        <translation>Remplacer par</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="54"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Chercher</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="64"/>
         <source>Replace</source>
-        <translation type="unfinished"></translation>
+        <translation>Remplacer</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="74"/>
         <source>Skip</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauter</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="100"/>
         <source>Backward</source>
-        <translation type="unfinished"></translation>
+        <translation>En arrière</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="107"/>
         <source>All Document</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout le documennt</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="114"/>
         <source>Case sensitive</source>
-        <translation type="unfinished"></translation>
+        <translation>Sensible à la casse</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="121"/>
         <source>Word only</source>
-        <translation type="unfinished"></translation>
+        <translation>Mots uniquement</translation>
     </message>
     <message>
         <location filename="dialogreplace.ui" line="145"/>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
@@ -461,32 +461,32 @@ p, li { white-space: pre-wrap; }
         <location filename="dialogsearch.ui" line="14"/>
         <location filename="dialogsearch.ui" line="62"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Chercher</translation>
     </message>
     <message>
         <location filename="dialogsearch.ui" line="24"/>
         <source>Text to Search </source>
-        <translation type="unfinished"></translation>
+        <translation>Texte à chercher</translation>
     </message>
     <message>
         <location filename="dialogsearch.ui" line="38"/>
         <source>Case sentitive</source>
-        <translation type="unfinished"></translation>
+        <translation>Sensible à la casse</translation>
     </message>
     <message>
         <location filename="dialogsearch.ui" line="45"/>
         <source>Word only</source>
-        <translation type="unfinished"></translation>
+        <translation>Mot uniquement</translation>
     </message>
     <message>
         <location filename="dialogsearch.ui" line="52"/>
         <source>Previous</source>
-        <translation type="unfinished"></translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="dialogsearch.ui" line="89"/>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
@@ -494,58 +494,58 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="dialogsysteminfo.ui" line="14"/>
         <source>System informations</source>
-        <translation type="unfinished"></translation>
+        <translation>Informations systèmes</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="26"/>
         <source>Program name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom du programme</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="33"/>
         <source>Program arguments</source>
         <oldsource>Program location</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Arguments du programme</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="40"/>
         <source>Program Location</source>
-        <translation type="unfinished"></translation>
+        <translation>Emplacement du programme</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="47"/>
         <source>Program version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version du programme</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="54"/>
         <source>Git version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version git</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="61"/>
         <source>Compilation date</source>
-        <translation type="unfinished"></translation>
+        <translation>Date de compilation</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="68"/>
         <source>Program Pid</source>
-        <translation type="unfinished"></translation>
+        <translation>Numéro didentification du programme</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="75"/>
         <source>Configuration file</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier de configuration</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="82"/>
         <source>Database name</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom de la base</translation>
     </message>
     <message>
         <location filename="dialogsysteminfo.ui" line="175"/>
         <source>Close</source>
-        <translation type="unfinished">Fermer</translation>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
@@ -952,22 +952,22 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Général</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="194"/>
+        <location filename="mainwindow.ui" line="201"/>
         <source>Input File</source>
         <translation>Fichier d&apos;entrée</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="204"/>
+        <location filename="mainwindow.ui" line="211"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="215"/>
+        <location filename="mainwindow.ui" line="222"/>
         <source>Creator name</source>
         <translation>Nom de l&apos;auteur</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="229"/>
+        <location filename="mainwindow.ui" line="236"/>
         <source>Chord Language</source>
         <translation>Langue des accords</translation>
     </message>
@@ -976,27 +976,27 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Français</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="241"/>
+        <location filename="mainwindow.ui" line="248"/>
         <source>Lyrics and chords mode book</source>
         <translation>Mode carnet de chansons</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="251"/>
+        <location filename="mainwindow.ui" line="258"/>
         <source>Chords only mode book</source>
         <translation>Mode accords seulement</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="261"/>
+        <location filename="mainwindow.ui" line="268"/>
         <source>Text only mode book</source>
         <translation>Mode texte seul</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="271"/>
+        <location filename="mainwindow.ui" line="278"/>
         <source>Memory mode book</source>
         <translation>Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="283"/>
+        <location filename="mainwindow.ui" line="290"/>
         <source>Watermark</source>
         <translation>Texte en filigrane</translation>
     </message>
@@ -1005,31 +1005,31 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Générer le fichier PDF</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="303"/>
+        <location filename="mainwindow.ui" line="310"/>
         <source>Project name :</source>
-        <translation type="unfinished"></translation>
+        <translation>Nom du projet :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="321"/>
+        <location filename="mainwindow.ui" line="328"/>
         <source>Project directory :</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire du projet :</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="345"/>
+        <location filename="mainwindow.ui" line="352"/>
         <source>Make PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>Fabrication des PDF</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="358"/>
+        <location filename="mainwindow.ui" line="365"/>
         <source>Make  and show PDF </source>
-        <translation type="unfinished"></translation>
+        <translation>Fabricationet visualisation des PDF</translation>
     </message>
     <message>
         <source>Lyrics mode</source>
         <translation type="vanished">Mode carnet de chansons</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="662"/>
+        <location filename="mainwindow.ui" line="669"/>
         <source>Chord mode</source>
         <translation>Mode accords</translation>
     </message>
@@ -1038,342 +1038,350 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Mode texte</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="670"/>
+        <location filename="mainwindow.ui" line="677"/>
         <source>Memory mode</source>
         <translation>Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="678"/>
+        <location filename="mainwindow.ui" line="685"/>
         <source>Editor</source>
         <translation>Éditeur</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="40"/>
         <source>Cover Title</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre couverture</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="43"/>
-        <source>ct</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="50"/>
+        <location filename="mainwindow.ui" line="51"/>
         <source>Cover Subtitle</source>
-        <translation type="unfinished"></translation>
+        <translation>Sous-titre\ncouverture</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="53"/>
-        <source>cs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="60"/>
+        <location filename="mainwindow.ui" line="62"/>
         <source>Song Title</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="63"/>
-        <source>t</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="70"/>
-        <source>Song Sub Titile</source>
-        <translation type="unfinished"></translation>
+        <translation>Titre \nchanson</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="73"/>
-        <source>st</source>
-        <translation type="unfinished"></translation>
+        <source>Song Sub Titile</source>
+        <translation>Sous-titre\nchanson</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="80"/>
+        <location filename="mainwindow.ui" line="84"/>
         <source>Column number for this song</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="83"/>
-        <source>c:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="90"/>
+        <location filename="mainwindow.ui" line="94"/>
         <source>Column break</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="93"/>
-        <source>cb</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="100"/>
+        <location filename="mainwindow.ui" line="105"/>
         <source>Compression until end of song</source>
-        <translation type="unfinished"></translation>
+        <translation>Compression jusqu&apos;à  la fin de la chanson</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="103"/>
+        <location filename="mainwindow.ui" line="108"/>
         <source>c</source>
-        <translation type="unfinished"></translation>
+        <translation>c</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="110"/>
+        <location filename="mainwindow.ui" line="115"/>
         <source>Start of chorus</source>
-        <translation type="unfinished"></translation>
+        <translation>Début du chorus</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="113"/>
-        <source>soc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="120"/>
+        <location filename="mainwindow.ui" line="126"/>
         <source>End of chorus</source>
-        <translation type="unfinished"></translation>
+        <translation>Fin du chorus</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="123"/>
-        <source>eoc</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="130"/>
+        <location filename="mainwindow.ui" line="137"/>
+        <location filename="mainwindow.ui" line="140"/>
         <source>Refrain</source>
-        <translation type="unfinished"></translation>
+        <translation>Refrain</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="133"/>
-        <source>ref</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="163"/>
+        <location filename="mainwindow.ui" line="170"/>
         <source>Long/Short notation in text</source>
-        <translation type="unfinished"></translation>
+        <translation>Notation Longue/courte dans le texte</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="166"/>
+        <location filename="mainwindow.ui" line="173"/>
         <source>Long syntax</source>
-        <translation type="unfinished"></translation>
+        <translation>Syntaxe longue</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="443"/>
+        <location filename="mainwindow.ui" line="450"/>
         <source>F&amp;ile</source>
         <translation>F&amp;ichier</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="454"/>
+        <location filename="mainwindow.ui" line="461"/>
         <source>Too&amp;ls</source>
         <translation>Outi&amp;ls</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="458"/>
-        <source>Preferences hints</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="465"/>
+        <source>Preferences hints</source>
+        <translation>Gadgets de configuration</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="472"/>
         <source>Build PDF</source>
-        <translation type="unfinished"></translation>
+        <translation>Construire le PDF</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="475"/>
+        <location filename="mainwindow.ui" line="482"/>
         <source>Launch PDF Viewer</source>
-        <translation type="unfinished"></translation>
+        <translation>Lancer l&apos;afficheur PDF</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="492"/>
-        <location filename="mainwindow.ui" line="568"/>
+        <location filename="mainwindow.ui" line="499"/>
+        <location filename="mainwindow.ui" line="575"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="500"/>
-        <source>&amp;Edition</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="507"/>
+        <source>&amp;Edition</source>
+        <translation>&amp;Édition</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="514"/>
         <source>Window</source>
-        <translation type="unfinished"></translation>
+        <translation>Fenêtres</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="619"/>
+        <location filename="mainwindow.ui" line="626"/>
         <source>&amp;Find</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Chercher</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="627"/>
+        <location filename="mainwindow.ui" line="634"/>
         <source>&amp;Replace</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Remplacer</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="638"/>
+        <location filename="mainwindow.ui" line="645"/>
         <source>Global definitions</source>
-        <translation type="unfinished"></translation>
+        <translation>Définitions globales</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="646"/>
+        <location filename="mainwindow.ui" line="653"/>
         <source>Text only mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode Texte</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="654"/>
+        <location filename="mainwindow.ui" line="661"/>
         <source>Lyrics and chord mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Textes et accords</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="683"/>
+        <location filename="mainwindow.ui" line="690"/>
         <source>1</source>
-        <translation type="unfinished"></translation>
+        <translation>1</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="688"/>
+        <location filename="mainwindow.ui" line="695"/>
         <source>All selectable</source>
-        <translation type="unfinished"></translation>
+        <translation>Tout sélectionner</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="691"/>
+        <location filename="mainwindow.ui" line="698"/>
         <source>F4</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="696"/>
-        <location filename="mainwindow.ui" line="728"/>
+        <location filename="mainwindow.ui" line="703"/>
+        <location filename="mainwindow.ui" line="735"/>
         <source>Text</source>
-        <translation type="unfinished">Texte</translation>
+        <translation>Texte</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="699"/>
+        <location filename="mainwindow.ui" line="706"/>
         <source>F5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="704"/>
-        <location filename="mainwindow.ui" line="736"/>
+        <location filename="mainwindow.ui" line="711"/>
+        <location filename="mainwindow.ui" line="743"/>
         <source>Lyrics</source>
-        <translation type="unfinished">Carnet</translation>
+        <translation>Textes et accords</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="707"/>
+        <location filename="mainwindow.ui" line="714"/>
         <source>F6</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="712"/>
-        <location filename="mainwindow.ui" line="744"/>
+        <location filename="mainwindow.ui" line="719"/>
+        <location filename="mainwindow.ui" line="751"/>
         <source>Chord</source>
-        <translation type="unfinished">Accords</translation>
+        <translation>Accords</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="715"/>
+        <location filename="mainwindow.ui" line="722"/>
         <source>F7</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="720"/>
-        <location filename="mainwindow.ui" line="752"/>
+        <location filename="mainwindow.ui" line="727"/>
+        <location filename="mainwindow.ui" line="759"/>
         <source>Memory</source>
-        <translation type="unfinished">Aide mémoire</translation>
+        <translation>Aide mémoire</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="723"/>
+        <location filename="mainwindow.ui" line="730"/>
         <source>F8</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="731"/>
+        <location filename="mainwindow.ui" line="738"/>
         <source>Ctrl+F5</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="739"/>
+        <location filename="mainwindow.ui" line="746"/>
         <source>Ctrl+F6</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="747"/>
+        <location filename="mainwindow.ui" line="754"/>
         <source>Ctrl+F7</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="755"/>
+        <location filename="mainwindow.ui" line="762"/>
         <source>Ctrl+F8</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="760"/>
+        <location filename="mainwindow.ui" line="767"/>
         <source>Reset Preferences as Origin</source>
-        <translation type="unfinished"></translation>
+        <translation>Mettre les préférences dans l&apos;état d&apos;origine</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="765"/>
+        <location filename="mainwindow.ui" line="772"/>
         <source>Last built</source>
-        <translation type="unfinished"></translation>
+        <translation>Dernier construit</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="535"/>
+        <location filename="mainwindow.ui" line="542"/>
         <source>&amp;New Project</source>
         <translation>&amp;Nouveau projet</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="540"/>
+        <location filename="mainwindow.ui" line="43"/>
+        <source>Cover 
+title</source>
+        <translation>Titre
+couverture</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="54"/>
+        <source>Cover
+subtitle</source>
+        <translation>Sous-titre
+couverture</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="65"/>
+        <source>Song 
+title</source>
+        <translation>Titre
+chanson</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="76"/>
+        <source>Song
+subtilte</source>
+        <translation>Sous-titre
+chanson</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="87"/>
+        <source>Column:</source>
+        <translation>Colonne:</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="97"/>
+        <source>Column
+break</source>
+        <translation>Changerment
+de colonne</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="118"/>
+        <source>Start of
+chorus</source>
+        <translation>Début de chorus</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="129"/>
+        <source>End of
+chorus</source>
+        <translation>Fin de chorus</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="547"/>
         <source>&amp;Open Project</source>
         <translation>&amp;Ouvrir un projet</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="545"/>
+        <location filename="mainwindow.ui" line="552"/>
         <source>&amp;Quit</source>
         <translation>&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="550"/>
+        <location filename="mainwindow.ui" line="557"/>
         <source>&amp;Save Current as Defaut</source>
         <translation>&amp;Sauvegarder l&apos;état actuel comme par défaut</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="555"/>
+        <location filename="mainwindow.ui" line="562"/>
         <source>Sa&amp;ve</source>
         <translation>Sau&amp;vegarder</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="558"/>
+        <location filename="mainwindow.ui" line="565"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="563"/>
+        <location filename="mainwindow.ui" line="570"/>
         <source>Sav&amp;e As</source>
         <translation>Sau&amp;vegarder comme</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="573"/>
+        <location filename="mainwindow.ui" line="580"/>
         <source>&amp;About</source>
         <translation>&amp;À propos</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="578"/>
+        <location filename="mainwindow.ui" line="585"/>
         <source>Last Project</source>
         <translation>Dernier projet</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="583"/>
+        <location filename="mainwindow.ui" line="590"/>
         <source>&amp;Last Projects</source>
         <translation>&amp;Derniers projets</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="591"/>
+        <location filename="mainwindow.ui" line="598"/>
         <source>&amp;Produce PDF files</source>
         <translation>&amp;Produire un fichier PDF</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="596"/>
+        <location filename="mainwindow.ui" line="603"/>
         <source>Pr&amp;eferences</source>
         <translation>Préfér&amp;ences</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="601"/>
+        <location filename="mainwindow.ui" line="608"/>
         <source>Open &amp;Song File</source>
         <translation>Ouvrir un fichier chan&amp;son</translation>
     </message>
@@ -1382,29 +1390,29 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">&amp;Remettre les options à l&apos;état usine</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="606"/>
+        <location filename="mainwindow.ui" line="613"/>
         <source>&amp;Chord definition</source>
-        <translation type="unfinished"></translation>
+        <translation>Définition de l&apos;a&amp;ccord</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="609"/>
+        <location filename="mainwindow.ui" line="616"/>
         <source>F3</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="614"/>
+        <location filename="mainwindow.ui" line="621"/>
         <source>&amp;System Info</source>
-        <translation type="unfinished"></translation>
+        <translation>Informations &amp;systèmes</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="622"/>
+        <location filename="mainwindow.ui" line="629"/>
         <source>Ctrl+F</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="630"/>
+        <location filename="mainwindow.ui" line="637"/>
         <source>Ctrl+R</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="44"/>
@@ -1414,7 +1422,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.cpp" line="104"/>
         <source>%1 does&apos;nt exit. Bye !</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 n&apos;existe pas. Au revoir !</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="163"/>
@@ -1442,13 +1450,13 @@ p, li { white-space: pre-wrap; }
         <location filename="mainwindow.cpp" line="364"/>
         <location filename="mainwindow.cpp" line="398"/>
         <source>File saved : %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier sauvegardé : %1</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="366"/>
         <location filename="mainwindow.cpp" line="400"/>
         <source>File not well saved : %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier non sauvegardé : %1</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="407"/>
@@ -1463,7 +1471,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="mainwindow.cpp" line="519"/>
         <source>Conversion done for : %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Conversion effectuée pour : %1</translation>
     </message>
 </context>
 <context>
@@ -1715,18 +1723,18 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="pdfviewer.cpp" line="18"/>
         <source>File not found</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier non trouvé</translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="19"/>
         <source>PDF file %1 not yet generated !</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier PDF %1 pas encore généré !</translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="20"/>
         <location filename="pdfviewer.cpp" line="30"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="pdfviewer.cpp" line="22"/>

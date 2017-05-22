@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>846</width>
+    <width>944</width>
     <height>682</height>
    </rect>
   </property>
@@ -40,7 +40,8 @@
                 <string>Cover Title</string>
                </property>
                <property name="text">
-                <string>ct</string>
+                <string>Cover 
+title</string>
                </property>
               </widget>
              </item>
@@ -50,7 +51,8 @@
                 <string>Cover Subtitle</string>
                </property>
                <property name="text">
-                <string>cs</string>
+                <string>Cover
+subtitle</string>
                </property>
               </widget>
              </item>
@@ -60,7 +62,8 @@
                 <string>Song Title</string>
                </property>
                <property name="text">
-                <string>t</string>
+                <string>Song 
+title</string>
                </property>
               </widget>
              </item>
@@ -70,7 +73,8 @@
                 <string>Song Sub Titile</string>
                </property>
                <property name="text">
-                <string>st</string>
+                <string>Song
+subtitle</string>
                </property>
               </widget>
              </item>
@@ -80,7 +84,7 @@
                 <string>Column number for this song</string>
                </property>
                <property name="text">
-                <string>c:</string>
+                <string>Column:</string>
                </property>
               </widget>
              </item>
@@ -90,7 +94,8 @@
                 <string>Column break</string>
                </property>
                <property name="text">
-                <string>cb</string>
+                <string>Column
+break</string>
                </property>
               </widget>
              </item>
@@ -110,7 +115,8 @@
                 <string>Start of chorus</string>
                </property>
                <property name="text">
-                <string>soc</string>
+                <string>Start of
+chorus</string>
                </property>
               </widget>
              </item>
@@ -120,7 +126,8 @@
                 <string>End of chorus</string>
                </property>
                <property name="text">
-                <string>eoc</string>
+                <string>End of
+chorus</string>
                </property>
               </widget>
              </item>
@@ -130,7 +137,7 @@
                 <string>Refrain</string>
                </property>
                <property name="text">
-                <string>ref</string>
+                <string>Refrain</string>
                </property>
               </widget>
              </item>
@@ -434,8 +441,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>846</width>
-     <height>22</height>
+     <width>944</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
