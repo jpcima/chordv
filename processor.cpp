@@ -832,8 +832,9 @@ void Processor::displayChord(QString ch,int &line, int &column,int size,QString 
         string++;
     }
     column+=size;
-    if ( column > m_uiconfig->spuPageWidth->getPdfU() - m_uiconfig->spuHorizontalMargin->getPdfU())
+    if ( column +size > m_uiconfig->spuPageWidth->getPdfU() - m_uiconfig->spuHorizontalMargin->getPdfU())
     {
+
         column = m_uiconfig->spuHorizontalMargin->getPdfU();
         line=line-size;
     }
