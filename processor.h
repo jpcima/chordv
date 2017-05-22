@@ -206,7 +206,7 @@ protected:
     double Text(PoDoFo::PdfDocument *doc,QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);
 
 
-    virtual void NextLine();
+    virtual void NextLine( int num=1);
     virtual int currentColumn();
     virtual int nextColumn( int current);
 

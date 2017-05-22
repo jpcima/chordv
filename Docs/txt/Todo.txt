@@ -2,7 +2,7 @@
 Bug
 ----
 
-- In Lyrics mode chord design is too right
+
 
 - Check fonts bold
 - When toc is at end clic on toc go to page 1

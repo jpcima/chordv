@@ -289,10 +289,10 @@ void Processor::displayLyrics()
     }
 }
 
-void Processor::NextLine()
+void Processor::NextLine(int num )
 {
     if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
-        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2*num;
     else if ( currentColumn() < m_colnumber )
       {
         m_column = nextColumn( currentColumn() ) ;
