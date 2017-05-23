@@ -795,8 +795,17 @@ void Processor::displayChord(QString ch,int &line, int &column,int size,QString 
 //9
 //10     -----------
 
+
+
     int sizecircle=steph/3;
-    int sizefont;
+    int sizenonote=steph/4;
+    int sizefont=steph;
+
+    PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonChordFont->getFont().family().toLatin1());
+    pfont->SetFontSize(sizefont);
+    pfont->SetUnderlined(m_uiconfig->toolButtonChordFont->getFont().underline());
+    pfont->SetStrikeOut(m_uiconfig->toolButtonChordFont->getFont().strikeOut());
+    m_painter.SetFont(pfont);
     QString fret=chord.fret();
     // print fret number
     if (  fret!= "0") m_painter.DrawText(column+steph,line-stepv*3,PdfString(chord.fret().toLatin1()));
@@ -816,11 +825,13 @@ void Processor::displayChord(QString ch,int &line, int &column,int size,QString 
     {
         if ( s == "x")
         {
-            m_painter.DrawLine(column+(1+string)*steph,line-(stepv+s.toInt()*stepv)-stepv/2+2,column+(1+string)*steph-2,line-(stepv+s.toInt()*stepv)-stepv/2-2);
+            m_painter.DrawLine(column+(1+string)*steph-sizenonote,line-(stepv+s.toInt()*stepv)-stepv/2+2+sizenonote,column+(1+string)*steph+sizenonote,line-(stepv+s.toInt()*stepv)-stepv/2+2-sizenonote);
+            m_painter.DrawLine(column+(1+string)*steph-sizenonote,line-(stepv+s.toInt()*stepv)-stepv/2+2-sizenonote,column+(1+string)*steph+sizenonote,line-(stepv+s.toInt()*stepv)-stepv/2+2+sizenonote);
+
         }
         else if ( s == "0")
         {
-            m_painter.Circle(column+(1+string)*steph,line-(stepv+s.toInt()*stepv)-stepv/2+2,sizecircle*0.8);
+            m_painter.Circle(column+(1+string)*steph,line-(stepv+s.toInt()*stepv)-stepv/2+2,sizecircle*0.6);
             m_painter.SetStrokeWidth(0.5);
             m_painter.Stroke();
         }
