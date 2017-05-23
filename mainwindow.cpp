@@ -68,7 +68,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionSystem_Info,SIGNAL(triggered(bool)),this,SLOT(SystemInfo()));
     connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
-    connect(ui->toolButtonInputFile,SIGNAL(clicked(bool)),this,SLOT(SetInputFile()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     connect(ui->toolButtonCB,SIGNAL(clicked(bool)),this,SLOT(InsertCB()));
     connect(ui->toolButtonCol,SIGNAL(clicked(bool)),this,SLOT(InsertCol()));
@@ -167,18 +166,9 @@ void MainWindow::CurrentAsDefault()
 void MainWindow::openChoFile(bool)
 {
    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),Util::getLastDirectory(),tr("cho3 file(*.cho3)"));
-   ui->lineEditInputFile->setText(file);
    Util::setLastDirectory(file);
    openChoFile(file);
 
-}
-
-void MainWindow::SetInputFile()
-{
-    QSettings s;
-    QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),Util::getLastDirectory(),tr("cho3 file(*.cho3)"));
-    ui->lineEditInputFile->setText(getRelativeFilename(file));
-    openChoFile(file);
 }
 
 void MainWindow::setMenuLastProject()
@@ -253,7 +243,6 @@ void MainWindow::InitProject()
 {
     Settings s;
     ui->lineEditCreatorName->setText(s.value("Creator","").toString());
-    ui->lineEditInputFile->setText(s.value("File","").toString());
     ui->lineEditWatermark->setText(s.value("Watermark","").toString());
     ui->checkBoxChordMode->setChecked(s.value("ChordMode",true).toBool());
     ui->checkBoxLyricsMode->setChecked(s.value("LyricsMode",true).toBool());
@@ -316,7 +305,6 @@ void MainWindow::openProject(QString filename)
     ui->labelNameProjectName->setText(m_currentprojectname);
     ui->labelNameDirProject->setText(m_currentprojectdir);
     QSettings p(filename,QSettings::IniFormat);
-    ui->lineEditInputFile->setText(p.value("File").toString());
     ui->lineEditCreatorName->setText(p.value("Creator").toString());
     ui->comboBoxChordLanguage->setCurrentIndex(p.value("ChordLang").toInt());
     ui->lineEditWatermark->setText(p.value("Watermark").toString());
@@ -332,7 +320,7 @@ void MainWindow::openProject(QString filename)
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
-    openChoFile(m_currentprojectdir+"/"+ui->lineEditInputFile->text());
+    ui->textEditCho3File->setText(p.value("Content").toString());
 }
 
 void MainWindow::openProject ( bool)
@@ -355,7 +343,6 @@ void MainWindow::Save(QString filename)
     QSettings sf(filename,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
-    sf.setValue("File",ui->lineEditInputFile->text());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
@@ -366,10 +353,6 @@ void MainWindow::Save(QString filename)
     ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
     ui->widgetTextMode->Save(filename,FormConfig::Text);
     ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
-    if ( SaveCho3(ui->lineEditInputFile->text()) )
-        ui->log->Info(tr("File saved : %1").arg(filename));
-    else
-        ui->log->Info(tr("File not well saved : %1").arg(filename));
 }
 
 QString MainWindow::getRelativeFilename( QString chofilename )
@@ -389,21 +372,19 @@ void MainWindow::Save(bool)
     QSettings sf(m_currentprojectfile,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
-    sf.setValue("File",ui->lineEditInputFile->text());
+    //sf.setValue("File",ui->lineEditInputFile->text());
     sf.setValue("ChordMode",ui->checkBoxChordMode->isChecked());
     sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
     sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
+    sf.setValue("Content",ui->textEditCho3File->document()->toPlainText());
     sf.sync();
     ui->widgetChordMode->Save(m_currentprojectfile,FormConfig::Chord);
     ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);
     ui->widgetTextMode->Save(m_currentprojectfile,FormConfig::Text);
     ui->widgetMemoryMode->Save(m_currentprojectfile,FormConfig::Memory);
-    if ( SaveCho3(ui->lineEditInputFile->text()) )
-        ui->log->Info(tr("File saved : %1").arg(m_currentprojectfile));
-    else
-        ui->log->Info(tr("File not well saved : %1").arg(m_currentprojectfile));
+
 }
 
 

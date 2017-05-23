@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>944</width>
+    <width>951</width>
     <height>682</height>
    </rect>
   </property>
@@ -203,27 +203,6 @@ chorus</string>
               <layout class="QHBoxLayout" name="horizontalLayout_10">
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout">
-                   <item>
-                    <widget class="QLabel" name="labelInputFile">
-                     <property name="text">
-                      <string>Input File</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="lineEditInputFile"/>
-                   </item>
-                   <item>
-                    <widget class="QToolButton" name="toolButtonInputFile">
-                     <property name="text">
-                      <string>...</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_2">
                    <item>
@@ -451,8 +430,8 @@ chorus</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>944</width>
-     <height>22</height>
+     <width>951</width>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -472,14 +451,14 @@ chorus</string>
     </property>
     <widget class="QMenu" name="menuPreferences_hints">
      <property name="title">
-      <string>Preferences hints</string>
+      <string>Preferences &amp;hints</string>
      </property>
      <addaction name="actionSave_Current_as_Defaut"/>
      <addaction name="actionReset_Preferences_as_Origin"/>
     </widget>
     <widget class="QMenu" name="menuBuild_PDF">
      <property name="title">
-      <string>Build PDF</string>
+      <string>&amp;Build PDF</string>
      </property>
      <addaction name="actionBuildText"/>
      <addaction name="actionBuildLyrics"/>
@@ -489,7 +468,7 @@ chorus</string>
     </widget>
     <widget class="QMenu" name="menuLaunch_PDF_Viewer">
      <property name="title">
-      <string>Launch PDF Viewer</string>
+      <string>&amp;Launch PDF Viewer</string>
      </property>
      <addaction name="actionViewText"/>
      <addaction name="actionViewLyrics"/>
@@ -652,7 +631,7 @@ chorus</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Global definitions</string>
+    <string>&amp;Global definitions</string>
    </property>
   </action>
   <action name="actionSelectText">
@@ -660,7 +639,7 @@ chorus</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Text only mode</string>
+    <string>&amp;Text only mode</string>
    </property>
   </action>
   <action name="actionSelectLyrics">
@@ -668,7 +647,7 @@ chorus</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Lyrics and chord mode</string>
+    <string>&amp;Lyrics and chord mode</string>
    </property>
   </action>
   <action name="actionSelectChord">
@@ -676,7 +655,7 @@ chorus</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Chord mode</string>
+    <string>&amp;Chord mode</string>
    </property>
   </action>
   <action name="actionSelectMemory">
@@ -684,7 +663,7 @@ chorus</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Memory mode</string>
+    <string>&amp;Memory mode</string>
    </property>
   </action>
   <action name="actionSelectEditor">
@@ -692,7 +671,7 @@ chorus</string>
     <bool>true</bool>
    </property>
    <property name="text">
-    <string>Editor</string>
+    <string>&amp;Editor</string>
    </property>
   </action>
   <action name="action1">
@@ -702,7 +681,7 @@ chorus</string>
   </action>
   <action name="actionBuildAll">
    <property name="text">
-    <string>Build All</string>
+    <string>&amp;Build All</string>
    </property>
    <property name="shortcut">
     <string>F9</string>
@@ -710,7 +689,7 @@ chorus</string>
   </action>
   <action name="actionBuildText">
    <property name="text">
-    <string>Text</string>
+    <string>&amp;Text</string>
    </property>
    <property name="shortcut">
     <string>F5</string>
@@ -718,7 +697,7 @@ chorus</string>
   </action>
   <action name="actionBuildLyrics">
    <property name="text">
-    <string>Lyrics</string>
+    <string>&amp;Lyrics</string>
    </property>
    <property name="shortcut">
     <string>F6</string>
@@ -726,7 +705,7 @@ chorus</string>
   </action>
   <action name="actionBuildChord">
    <property name="text">
-    <string>Chord</string>
+    <string>&amp;Chord</string>
    </property>
    <property name="shortcut">
     <string>F7</string>
@@ -734,7 +713,7 @@ chorus</string>
   </action>
   <action name="actionBuildMemory">
    <property name="text">
-    <string>Memory</string>
+    <string>&amp;Memory</string>
    </property>
    <property name="shortcut">
     <string>F8</string>
@@ -742,7 +721,7 @@ chorus</string>
   </action>
   <action name="actionViewText">
    <property name="text">
-    <string>Text</string>
+    <string>&amp;Text</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F5</string>
@@ -750,7 +729,7 @@ chorus</string>
   </action>
   <action name="actionViewLyrics">
    <property name="text">
-    <string>Lyrics</string>
+    <string>&amp;Lyrics</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F6</string>
@@ -758,7 +737,7 @@ chorus</string>
   </action>
   <action name="actionViewChord">
    <property name="text">
-    <string>Chord</string>
+    <string>&amp;Chord</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F7</string>
@@ -766,7 +745,7 @@ chorus</string>
   </action>
   <action name="actionViewMemory">
    <property name="text">
-    <string>Memory</string>
+    <string>&amp;Memory</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+F8</string>
@@ -774,12 +753,12 @@ chorus</string>
   </action>
   <action name="actionReset_Preferences_as_Origin">
    <property name="text">
-    <string>Reset Preferences as Origin</string>
+    <string>&amp;Reset Preferences as Origin</string>
    </property>
   </action>
   <action name="actionViewLastbuilt">
    <property name="text">
-    <string>Last built</string>
+    <string>Last &amp;built</string>
    </property>
   </action>
  </widget>

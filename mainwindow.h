@@ -76,7 +76,6 @@ private slots:
     void openProject(QString filename);
     void ProducePDF();
     void About();
-    void SetInputFile();
     void Configuration();
     void openChoFile(QString filename);
     void openChoFile(bool);

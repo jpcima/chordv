@@ -150,6 +150,34 @@ Site : http://www.gillesmaire.com</translation>
     </message>
 </context>
 <context>
+    <name>DialogBar</name>
+    <message>
+        <location filename="dialogbar.ui" line="14"/>
+        <source>Enter Bar</source>
+        <translation>Entrer la mesure</translation>
+    </message>
+    <message>
+        <location filename="dialogbar.ui" line="24"/>
+        <source>Enter bar </source>
+        <translation>Entrer la mesure</translation>
+    </message>
+    <message>
+        <location filename="dialogbar.ui" line="44"/>
+        <source>/</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="dialogbar.ui" line="68"/>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <location filename="dialogbar.ui" line="75"/>
+        <source>Ok</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>DialogChooseGoodChord</name>
     <message>
         <location filename="dialogchoosegoodchord.ui" line="14"/>
@@ -1082,6 +1110,11 @@ p, li { white-space: pre-wrap; }
         <translation>Sous-titre\nchanson</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="87"/>
+        <source>Bar</source>
+        <translation>Mesure</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="104"/>
         <source>Column number for this song</source>
         <translation></translation>
@@ -1326,14 +1359,9 @@ chanson</translation>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="87"/>
-        <source>Tempo</source>
-        <translation></translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="94"/>
         <source>Beat per minute</source>
-        <translation type="unfinished">Battements par minute</translation>
+        <translation>Battements par minute</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="97"/>
@@ -1454,63 +1482,83 @@ chorus</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="44"/>
+        <location filename="mainwindow.cpp" line="47"/>
         <source>Last Projects</source>
         <translation>Derniers projets</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="104"/>
+        <location filename="mainwindow.cpp" line="110"/>
         <source>%1 does&apos;nt exit. Bye !</source>
         <translation>%1 n&apos;existe pas. Au revoir !</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="163"/>
-        <location filename="mainwindow.cpp" line="173"/>
+        <location filename="mainwindow.cpp" line="169"/>
+        <location filename="mainwindow.cpp" line="179"/>
         <source>Open text file</source>
         <translation>Ouvrir un fichier texte</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="163"/>
-        <location filename="mainwindow.cpp" line="173"/>
+        <location filename="mainwindow.cpp" line="169"/>
+        <location filename="mainwindow.cpp" line="179"/>
         <source>cho3 file(*.cho3)</source>
         <translation>Fichier cho3 (*.cho3)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="285"/>
+        <location filename="mainwindow.cpp" line="291"/>
         <source>Cannot open file : %1</source>
         <translation>Ne peut ouvrir le fichier : %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="336"/>
+        <location filename="mainwindow.cpp" line="342"/>
         <source>Open conf file</source>
         <translation>Ouvrir un fichier conf</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="364"/>
-        <location filename="mainwindow.cpp" line="398"/>
+        <location filename="mainwindow.cpp" line="370"/>
+        <location filename="mainwindow.cpp" line="404"/>
         <source>File saved : %1</source>
         <translation>Fichier sauvegardé : %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="366"/>
-        <location filename="mainwindow.cpp" line="400"/>
+        <location filename="mainwindow.cpp" line="372"/>
+        <location filename="mainwindow.cpp" line="406"/>
         <source>File not well saved : %1</source>
         <translation>Fichier non sauvegardé : %1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="407"/>
+        <location filename="mainwindow.cpp" line="413"/>
         <source>Save project as</source>
         <translation>Suvegarder le projet</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="407"/>
+        <location filename="mainwindow.cpp" line="413"/>
         <source>Save as (*.chop)</source>
         <translation>Sauvegarder comme (*.chop)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="520"/>
+        <location filename="mainwindow.cpp" line="532"/>
         <source>Conversion done for : %1</source>
         <translation>Conversion effectuée pour : %1</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="632"/>
+        <source>Enter columns number</source>
+        <translation>Entrer le nombre de colonnes</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="632"/>
+        <source>Column number</source>
+        <translation>Nombre de colonnes</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="639"/>
+        <source>Enter bpm</source>
+        <translation>Entrer le battement par minute</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="639"/>
+        <source>Beats per minute</source>
+        <translation>Battements par minute</translation>
     </message>
 </context>
 <context>
@@ -1602,52 +1650,50 @@ chorus</source>
         <translation>La base de données %1 n&apos;a pas été trouvée. Vous ne serez pas en mesure de gérer les accords !</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="602"/>
+        <location filename="mainwindow.cpp" line="616"/>
         <source>Enter title</source>
         <translation>Entrer un titre</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="602"/>
+        <location filename="mainwindow.cpp" line="616"/>
         <source>Title</source>
         <translation>Titre</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="607"/>
+        <location filename="mainwindow.cpp" line="621"/>
         <source>Enter sub title</source>
         <translation>Entrez un sous titre</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="607"/>
+        <location filename="mainwindow.cpp" line="621"/>
         <source>Sub Title</source>
         <translation>Sous-titre</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="617"/>
         <source>Enter columns number</source>
-        <translation>Entrer le nombre de colonnes</translation>
+        <translation type="vanished">Entrer le nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="617"/>
         <source>Column number</source>
-        <translation>Nombre de colonnes</translation>
+        <translation type="vanished">Nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="628"/>
+        <location filename="mainwindow.cpp" line="664"/>
         <source>Enter  cover subtitle</source>
         <translation>Entrer le sous-titre de la couverture</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="628"/>
+        <location filename="mainwindow.cpp" line="664"/>
         <source>Cover Subtitle</source>
         <translation>Sous-titre couverture</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="633"/>
+        <location filename="mainwindow.cpp" line="669"/>
         <source>Enter cover title</source>
         <translation>Entrer le titre de la couverture</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="633"/>
+        <location filename="mainwindow.cpp" line="669"/>
         <source>Cover title</source>
         <translation>Titre de la couverture</translation>
     </message>
