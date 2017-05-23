@@ -566,7 +566,7 @@ void MainWindow::ChangeLanguage(QString )
 void MainWindow::ExportCho3File()
 {
     QString cho3file=m_currentprojectfile;
-    cho3file.replace(QRegExp("\\.chop$"),"cho3");
+    cho3file.replace(QRegExp("\\.chop$"),".cho3");
    QFile file( cho3file);
    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
    {
