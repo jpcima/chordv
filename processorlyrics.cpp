@@ -17,11 +17,12 @@ ProcessorLyrics::ProcessorLyrics(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Proce
 
 void ProcessorLyrics::displayChordsForSong()
 {
-  NextLine();
+
 
   if ( m_uiconfig->comboBoxChordInText->currentIndex()==1 )
   {
     // chords are displayed in first with diagram and just chord name in text
+    NextLine();
     NextLine();
     QStringList chords=m_BufChords;
     QStringList chordswithouttempo=Chord::removeDupplicateWhithoutTempo(chords,m_uiconfig->comboBoxChordLang->currentData().toString());
@@ -69,7 +70,6 @@ void ProcessorLyrics::displayLyrics()
             col+=pfont->GetFontMetrics()->StringWidth(PdfString (t1.toLatin1()));
             Text(m_document,c1,col,m_line+10,m_uiconfig->toolButtonChordFont);
           }
-          qDebug()<<text;
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
         }
         NextLine(num);

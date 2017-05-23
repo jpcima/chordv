@@ -1200,12 +1200,17 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="mainwindow.ui" line="695"/>
+        <source>Build All</source>
+        <translation>Tout construire</translation>
+    </message>
+    <message>
         <source>All selectable</source>
-        <translation>Tout sélectionner</translation>
+        <translation type="vanished">Tout sélectionner</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="698"/>
-        <source>F4</source>
+        <source>F9</source>
+        <oldsource>F4</oldsource>
         <translation></translation>
     </message>
     <message>

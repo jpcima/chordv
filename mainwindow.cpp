@@ -477,14 +477,15 @@ void MainWindow::BuildMemoryPdf()
 
 QString MainWindow::getPdfFileName(QString text )
 {
-   return  m_currentprojectfile.replace(QRegExp("\\.chop"),QString("_%1.pdf").arg(text));
+   QString project=m_currentprojectfile;
+   return  project.replace(QRegExp("\\.chop"),QString("_%1.pdf").arg(text));
 }
 
 void MainWindow::ViewTextPdf()
 {   
     PdfViewer viewer(getPdfFileName(ui->widgetTextMode->getUi()->lineEditOutFile->text()),this);
     if ( ! viewer.getStatus())  Log(viewer.getStatusError());
-     else Info(viewer.getStatusInfo());
+    else Info(viewer.getStatusInfo());
 }
 
 

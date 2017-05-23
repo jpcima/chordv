@@ -35,7 +35,8 @@ PdfViewer::PdfViewer(QString filename, QWidget *parent)
     else
     {
         QStringList arg;
-        arg<<filename;
+        arg<<m_filename;
+        qDebug()<<m_filename;
         m_status =QProcess::startDetached(command,arg);
         m_error=qApp->translate("pdfReader","PdfReader: Unknown error");
 

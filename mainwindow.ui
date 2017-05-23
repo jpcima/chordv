@@ -471,11 +471,11 @@ chorus</string>
      <property name="title">
       <string>Build PDF</string>
      </property>
-     <addaction name="actionAll_selectable"/>
      <addaction name="actionBuildText"/>
      <addaction name="actionBuildLyrics"/>
      <addaction name="actionBuildChord"/>
      <addaction name="actionBuildMemory"/>
+     <addaction name="actionBuildAll"/>
     </widget>
     <widget class="QMenu" name="menuLaunch_PDF_Viewer">
      <property name="title">
@@ -690,12 +690,12 @@ chorus</string>
     <string>1</string>
    </property>
   </action>
-  <action name="actionAll_selectable">
+  <action name="actionBuildAll">
    <property name="text">
-    <string>All selectable</string>
+    <string>Build All</string>
    </property>
    <property name="shortcut">
-    <string>F4</string>
+    <string>F9</string>
    </property>
   </action>
   <action name="actionBuildText">
