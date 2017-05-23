@@ -18,6 +18,8 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
 {
     m_uiconfig=ui2;
     m_uimainwindow=ui1;
+    m_projectpath=ui1->labelNameDirProject->text();
+    qDebug()<<m_projectpath;
     m_documentAllocation=false;
     m_file=QString("%1/%2_%3.pdf")
             .arg(m_uimainwindow->labelNameDirProject->text())
@@ -323,7 +325,7 @@ void Processor::Cover(QString title, QString subtitle)
 
 {
         m_pageAllocation=true;
-        QString image=m_uiconfig->toolButtonCoverImage->getImage();
+        QString image=m_projectpath+"/"+m_uiconfig->toolButtonCoverImage->getImage();
         QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor());
         m_page= m_document->CreatePage(*m_dimension);
         m_painter.SetPage(m_page);

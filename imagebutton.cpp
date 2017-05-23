@@ -13,7 +13,9 @@ ImageButton::ImageButton(QWidget *parent):QToolButton(parent)
 void ImageButton::SetImage(bool)
 {
     QSettings s;
-    m_image=QFileDialog::getOpenFileName(this,tr("Choose an Image file"),Util::getLastDirectory(),tr("Image(*.jpg *.png)"));
+    QString filename=QFileDialog::getOpenFileName(this,tr("Choose an Image file"),Util::getLastDirectory(),tr("Image(*.jpg *.png)"));
+    QDir dir(m_projectpath);
+    m_image=dir.relativeFilePath(filename);
     if ( ! m_image.isEmpty())  emit ImageSelelected(m_image);
 }
 
@@ -28,4 +30,9 @@ void ImageButton::setImage(QString image)
 {
    m_image=image;
    emit ImageSelelected(image);
+}
+
+void ImageButton::setProjectPath(QString path)
+{
+    m_projectpath=path;
 }

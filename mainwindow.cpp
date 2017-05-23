@@ -301,6 +301,7 @@ void MainWindow::openProject(QString filename)
     QFileInfo fi(filename);
     m_currentprojectname=fi.baseName();
     m_currentprojectdir=fi.absolutePath();
+
     QDir::setCurrent(m_currentprojectdir);
     m_currentprojectfile=filename;
     ui->labelNameProjectName->setText(m_currentprojectname);
@@ -315,12 +316,16 @@ void MainWindow::openProject(QString filename)
     ui->checkBoxTextMode->setChecked(p.value("TextMode").toBool());
     ui->widgetChordMode->SetConfigFromFile(filename);
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
+    ui->widgetChordMode->setProjectPath(m_currentprojectdir);
     ui->widgetLyricsMode->SetConfigFromFile(filename);
     ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
+    ui->widgetLyricsMode->setProjectPath(m_currentprojectdir);
     ui->widgetMemoryMode->SetConfigFromFile(filename);
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
+    ui->widgetMemoryMode->setProjectPath(m_currentprojectdir);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
+    ui->widgetTextMode->setProjectPath(m_currentprojectdir);
     ui->textEditCho3File->setText(p.value("Content").toString());
     m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
     ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
@@ -376,7 +381,6 @@ void MainWindow::Save(bool)
     QSettings sf(m_currentprojectfile,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
-    //sf.setValue("File",ui->lineEditInputFile->text());
     sf.setValue("ChordMode",ui->checkBoxChordMode->isChecked());
     sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());

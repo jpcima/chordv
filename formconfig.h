@@ -26,13 +26,14 @@ public:
     QString classe2String(Classes name);
     void Retranslate();
     void disableGroup(QString group);
+    void setProjectPath(QString path);
 protected:
     void disableWidgets(QRegExp value);
 private:
     Ui::FormConfig *ui;
     QWidget *m_parent;
     QString m_configFileName;
-
+    QString m_projectpath;
     void Calculate();
 signals:
     void sendLog (QString message);

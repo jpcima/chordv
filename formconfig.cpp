@@ -97,6 +97,12 @@ void FormConfig::disableGroup(QString group)
         w->setVisible(false);
 }
 
+void FormConfig::setProjectPath(QString path)
+{
+    m_projectpath=path;
+    ui->toolButtonCoverImage->setProjectPath(path);
+}
+
 void FormConfig::setCover(int val)
 {
 
@@ -269,6 +275,7 @@ void FormConfig::Save(QString filename, Classes classe)
         QRegExp i("Image$");
         QString name=w->objectName().replace(tb,"").replace(i,"");
         sf.setValue(QString("%1/%2Image").arg(section).arg(name),w->getImage());
+        qDebug()<<section<<name;
     }
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
     {

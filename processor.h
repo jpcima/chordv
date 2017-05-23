@@ -187,7 +187,7 @@ protected:
     ///
     QList <PoDoFo::PdfObject *> m_TocPages;
 
-
+    QString m_projectpath;
     int m_nbrealpages;
 
     int m_positiontoc;
