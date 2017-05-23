@@ -14,6 +14,7 @@ class FormConfig : public QWidget
 
 public:
     enum Classes { Chord,Lyrics,Memory,Text};
+    enum ChordInclusion {DiagramInText,ChordAtBeginingAndChordNameInText,NoChordAtBeginingAndChordNameInText};
     explicit FormConfig(QWidget *parent = 0);
     ~FormConfig();
     void setValue(QString var, QVariant value);
