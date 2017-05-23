@@ -777,7 +777,7 @@ void Processor::FinishPage(PdfPainter *painter)
 
 
 
-void Processor::displayChord(QString ch,int &line, int &column,int size,QString lang)
+void Processor::displayChord(QString ch,int &line, int &column,int size, QString lang)
 {
     Chord chord(ch,lang);
     int steph=size/8;

@@ -66,8 +66,7 @@ void ProcessorLyrics::displayLyrics()
                 num = m_uiconfig->spuChordHorizontalSize->getPdfU();
                 int line1=m_line+num;
                 int col1=col;
-                displayChord(m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale(),
-                             line1,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
+                displayChord(ch.chord(),line1,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
                }
             text=chordexp.cap(3);
           }

@@ -13,6 +13,7 @@
 
 Chord::Chord(QString chord, QString lang):QString(chord)
 {
+ m_originalchord=chord;
  m_lang=lang;
  QRegExp exp("([^x]*)x([0-9]$)");
  QRegExp par("([^(]+)");
@@ -50,6 +51,11 @@ Chord::Chord(QString chord, QString lang):QString(chord)
  }
  m_chordonstrings=res.split(" ");
  m_fret=m_chordonstrings.takeFirst();
+}
+
+QString Chord::chord()
+{
+    return m_originalchord;
 }
 
 QString Chord::removeTempo()
