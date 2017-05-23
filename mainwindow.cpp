@@ -18,6 +18,7 @@
 #include "util.h"
 #include "processortext.h"
 #include "processorlyrics.h"
+#include "processorchord.h"
 #include "settings.h"
 #include "logmessages.h"
 #include "language.h"
@@ -471,7 +472,11 @@ void MainWindow::BuildLyricsPdf()
 
 void MainWindow::BuildChordPdf()
 {
-
+    ProcessorChord *p;
+    p = new ProcessorChord(ui,ui->widgetChordMode->getUi());
+    connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
+    p->run();
+    p->deleteLater();
 }
 
 void MainWindow::BuildMemoryPdf()
@@ -503,7 +508,9 @@ void MainWindow::ViewLyricsPdf()
 
 void MainWindow::ViewChordPdf()
 {
-
+    PdfViewer viewer(getPdfFileName(ui->widgetChordMode->getUi()->lineEditOutFile->text()),this);
+    if ( ! viewer.getStatus())  Log(viewer.getStatusError());
+    else Info(viewer.getStatusInfo());
 }
 
 void MainWindow::ViewMemoryPdf()

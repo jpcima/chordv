@@ -86,7 +86,8 @@ SOURCES       = main.cpp \
 		chord.cpp \
 		langnotes.cpp \
 		pdfviewer.cpp \
-		dialogbar.cpp build/rcc/qrc_resources.cpp \
+		dialogbar.cpp \
+		processorchord.cpp build/rcc/qrc_resources.cpp \
 		build/moc/moc_mainwindow.cpp \
 		build/moc/moc_formconfig.cpp \
 		build/moc/moc_lyricsconfig.cpp \
@@ -149,6 +150,7 @@ OBJECTS       = build/obj/main.o \
 		build/obj/langnotes.o \
 		build/obj/pdfviewer.o \
 		build/obj/dialogbar.o \
+		build/obj/processorchord.o \
 		build/obj/qrc_resources.o \
 		build/obj/moc_mainwindow.o \
 		build/obj/moc_formconfig.o \
@@ -285,7 +287,8 @@ DIST          = Example/deuxdisques.png \
 		chord.h \
 		langnotes.h \
 		pdfviewer.h \
-		dialogbar.h main.cpp \
+		dialogbar.h \
+		processorchord.h main.cpp \
 		mainwindow.cpp \
 		util.cpp \
 		formconfig.cpp \
@@ -323,7 +326,8 @@ DIST          = Example/deuxdisques.png \
 		chord.cpp \
 		langnotes.cpp \
 		pdfviewer.cpp \
-		dialogbar.cpp
+		dialogbar.cpp \
+		processorchord.cpp
 QMAKE_TARGET  = chordV
 DESTDIR       = bin/
 TARGET        = bin/chordV
@@ -486,8 +490,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h util.h formconfig.h lyricsconfig.h chordconfig.h textconfig.h fontchooser.h fontbutton.h fontdialog.h colorbutton.h lineedittest.h logmessages.h editorhighlighter.h imagebutton.h examplelabel.h pagesize.h processor.h dialogabout.h memoryconfig.h spinboxunit.h dialogconfiguration.h settings.h processortext.h const.h verticalspacing.h dialogchorddefinition.h ChordDetector.h neck.h dialogsysteminfo.h chorddiagram.h dialogchoosegoodchord.h dialogsearch.h dialogreplace.h processorlyrics.h language.h chord.h langnotes.h pdfviewer.h dialogbar.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp util.cpp formconfig.cpp lyricsconfig.cpp chordconfig.cpp textconfig.cpp fontchooser.cpp fontbutton.cpp fontdialog.cpp colorbutton.cpp lineedittest.cpp logmessages.cpp editorhighlighter.cpp imagebutton.cpp examplelabel.cpp pagesize.cpp processor.cpp dialogabout.cpp memoryconfig.cpp spinboxunit.cpp dialogconfiguration.cpp settings.cpp processortext.cpp verticalspacing.cpp dialogchorddefinition.cpp ChordDetector.cpp neck.cpp dialogsysteminfo.cpp chorddiagram.cpp dialogchoosegoodchord.cpp dialogsearch.cpp dialogreplace.cpp processorlyrics.cpp language.cpp chord.cpp langnotes.cpp pdfviewer.cpp dialogbar.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents mainwindow.h util.h formconfig.h lyricsconfig.h chordconfig.h textconfig.h fontchooser.h fontbutton.h fontdialog.h colorbutton.h lineedittest.h logmessages.h editorhighlighter.h imagebutton.h examplelabel.h pagesize.h processor.h dialogabout.h memoryconfig.h spinboxunit.h dialogconfiguration.h settings.h processortext.h const.h verticalspacing.h dialogchorddefinition.h ChordDetector.h neck.h dialogsysteminfo.h chorddiagram.h dialogchoosegoodchord.h dialogsearch.h dialogreplace.h processorlyrics.h language.h chord.h langnotes.h pdfviewer.h dialogbar.h processorchord.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp mainwindow.cpp util.cpp formconfig.cpp lyricsconfig.cpp chordconfig.cpp textconfig.cpp fontchooser.cpp fontbutton.cpp fontdialog.cpp colorbutton.cpp lineedittest.cpp logmessages.cpp editorhighlighter.cpp imagebutton.cpp examplelabel.cpp pagesize.cpp processor.cpp dialogabout.cpp memoryconfig.cpp spinboxunit.cpp dialogconfiguration.cpp settings.cpp processortext.cpp verticalspacing.cpp dialogchorddefinition.cpp ChordDetector.cpp neck.cpp dialogsysteminfo.cpp chorddiagram.cpp dialogchoosegoodchord.cpp dialogsearch.cpp dialogreplace.cpp processorlyrics.cpp language.cpp chord.cpp langnotes.cpp pdfviewer.cpp dialogbar.cpp processorchord.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents mainwindow.ui formconfig.ui fontchooser.ui dialogabout.ui dialogconfiguration.ui dialogchorddefinition.ui dialogsysteminfo.ui dialogchoosegoodchord.ui dialogsearch.ui dialogreplace.ui dialogbar.ui $(DISTDIR)/
 	$(COPY_FILE) --parents fr.ts $(DISTDIR)/
 
@@ -753,12 +757,14 @@ build/obj/mainwindow.o: mainwindow.cpp mainwindow.h \
 		dialogsysteminfo.h \
 		dialogsearch.h \
 		dialogreplace.h \
+		dialogbar.h \
 		util.h \
 		processortext.h \
 		processor.h \
 		pagesize.h \
 		fontbutton.h \
 		processorlyrics.h \
+		processorchord.h \
 		settings.h \
 		language.h \
 		build/ui/ui_formconfig.h \
@@ -977,6 +983,17 @@ build/obj/pdfviewer.o: pdfviewer.cpp pdfviewer.h
 build/obj/dialogbar.o: dialogbar.cpp dialogbar.h \
 		build/ui/ui_dialogbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogbar.o dialogbar.cpp
+
+build/obj/processorchord.o: processorchord.cpp processorchord.h \
+		processor.h \
+		pagesize.h \
+		formconfig.h \
+		fontbutton.h \
+		mainwindow.h \
+		editorhighlighter.h \
+		pdfviewer.h \
+		chordconfig.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorchord.o processorchord.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_resources.o build/rcc/qrc_resources.cpp
