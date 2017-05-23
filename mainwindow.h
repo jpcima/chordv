@@ -52,7 +52,6 @@ private:
     bool testMode();
     QString getRelativeFilename(QString chofilename);
     void ActualizeProject(QString file);
-    bool SaveCho3(QString file);
     QString m_pdffilename;
     void ReplaceLongShort(QString a, QString b);
     QString m_buffreplace;
@@ -122,6 +121,7 @@ private slots:
     void ViewMemoryPdf();
     void InsertBPM();
     void InsertBar();
+    void ExportCho3File();
 };
 
 #endif // MAINWINDOW_H

@@ -56,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionNew_Project,SIGNAL(triggered(bool)),this,SLOT(newProject(bool)));
     connect(ui->actionOpen_Project,SIGNAL(triggered(bool)),this,SLOT(openProject(bool)));
     connect(ui->actionOpen_Song_File,SIGNAL(triggered(bool)),this,SLOT(openChoFile(bool)));
+    connect(ui->actionExport_tho_cho3_file,SIGNAL(triggered(bool)),this,SLOT(ExportCho3File()));
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
@@ -321,6 +322,9 @@ void MainWindow::openProject(QString filename)
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
     ui->textEditCho3File->setText(p.value("Content").toString());
+    m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
+    ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
+
 }
 
 void MainWindow::openProject ( bool)
@@ -558,19 +562,21 @@ void MainWindow::ChangeLanguage(QString )
 }
 
 
-bool MainWindow::SaveCho3(QString filename)
+
+void MainWindow::ExportCho3File()
 {
-    QString f(m_currentprojectdir+"/"+filename);
-    QFile file( f);
+    QString cho3file=m_currentprojectfile;
+    cho3file.replace(QRegExp("\\.chop$"),"cho3");
+   QFile file( cho3file);
    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
    {
-       ui->log->Error(QString("Cannot write file : %1").arg(f));
-       return false;
+       ui->log->Error(tr("Cannot write file : %1").arg(cho3file));
+       return;
    }
     QTextStream out(&file);
     out << ui->textEditCho3File->document()->toPlainText();
     file.close();
-    return true;
+    ui->log->Info(tr("%1 file exported").arg(cho3file));
 }
 
 void MainWindow::GenericInsert(QToolButton*w,QString token,QString label1, QString label2 )
