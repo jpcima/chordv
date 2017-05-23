@@ -79,6 +79,26 @@ subtitle</string>
               </widget>
              </item>
              <item>
+              <widget class="QToolButton" name="toolButtonBar">
+               <property name="toolTip">
+                <string>4/4 3/4 ...</string>
+               </property>
+               <property name="text">
+                <string>Bar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButtonBPM">
+               <property name="toolTip">
+                <string>Beat per minute</string>
+               </property>
+               <property name="text">
+                <string>BPM</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QToolButton" name="toolButtonCol">
                <property name="toolTip">
                 <string>Column number for this song</string>
@@ -96,16 +116,6 @@ subtitle</string>
                <property name="text">
                 <string>Column
 break</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonCompress">
-               <property name="toolTip">
-                <string>Compression until end of song</string>
-               </property>
-               <property name="text">
-                <string>c</string>
                </property>
               </widget>
              </item>

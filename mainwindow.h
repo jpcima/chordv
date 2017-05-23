@@ -121,6 +121,8 @@ private slots:
     void ViewLyricsPdf();
     void ViewChordPdf();
     void ViewMemoryPdf();
+    void InsertBPM();
+    void InsertBar();
 };
 
 #endif // MAINWINDOW_H

@@ -62,7 +62,8 @@ SOURCES += main.cpp\
     language.cpp \
     chord.cpp \
     langnotes.cpp \
-    pdfviewer.cpp
+    pdfviewer.cpp \
+    dialogbar.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -101,7 +102,8 @@ HEADERS  += mainwindow.h \
     language.h \
     chord.h \
     langnotes.h \
-    pdfviewer.h
+    pdfviewer.h \
+    dialogbar.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \
@@ -112,7 +114,8 @@ FORMS    += mainwindow.ui \
     dialogsysteminfo.ui \
     dialogchoosegoodchord.ui \
     dialogsearch.ui \
-    dialogreplace.ui
+    dialogreplace.ui \
+    dialogbar.ui
 
 LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include

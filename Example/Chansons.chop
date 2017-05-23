@@ -4,7 +4,7 @@ ChordLang=1
 ChordMode=false
 Creator=Gilles Maire
 File=Chansons.cho3
-Lyrics=15
+Lyrics=25
 LyricsMode=true
 Memory=2
 MemoryMode=false
@@ -62,7 +62,7 @@ qt_spinbox_lineedit="2,00"
 ChordFont="Ubuntu,9,-1,5,75,0,0,0,0,0"
 ChordFontBackgroundColor=#ffffff
 ChordFontColor=#000000
-ChordHorizontalSize=15mm
+ChordHorizontalSize=25mm
 ChordInText=1
 ChordLang=0
 Cover=1
@@ -103,7 +103,7 @@ TocSpaceCharacter=0
 TocVerticalSpacing=0
 VerticalMargin=10mm
 VerticalSpacing=2
-qt_spinbox_lineedit="15,00"
+qt_spinbox_lineedit="25,00"
 
 [Memory]
 ChordFont="Ubuntu,11,-1,5,50,0,0,0,0,0"

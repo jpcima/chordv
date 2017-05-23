@@ -7,6 +7,8 @@
 #include "dialogsysteminfo.h"
 #include "dialogsearch.h"
 #include "dialogreplace.h"
+#include "dialogbar.h"
+
 #include "lyricsconfig.h"
 #include "formconfig.h"
 #include "textconfig.h"
@@ -69,7 +71,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     connect(ui->toolButtonCB,SIGNAL(clicked(bool)),this,SLOT(InsertCB()));
     connect(ui->toolButtonCol,SIGNAL(clicked(bool)),this,SLOT(InsertCol()));
-    connect(ui->toolButtonCompress,SIGNAL(clicked(bool)),this,SLOT(InsertCompress()));
+    connect(ui->toolButtonBPM,SIGNAL(clicked(bool)),this,SLOT(InsertBPM()));
+    connect(ui->toolButtonBar,SIGNAL(clicked(bool)),this,SLOT(InsertBar()));
+
+    //connect(ui->toolButtonCompress,SIGNAL(clicked(bool)),this,SLOT(InsertCompress()));
     connect(ui->toolButtonCS,SIGNAL(clicked(bool)),this,SLOT(InsertCS()));
     connect(ui->toolButtonCT,SIGNAL(clicked(bool)),this,SLOT(InsertCT()));
     connect(ui->toolButtonEOC,SIGNAL(clicked(bool)),this,SLOT(InsertEOC()));
@@ -590,11 +595,13 @@ void MainWindow::GenericInsert(QToolButton*w,QString token,QString label1, QStri
     }
     else
     {
-        QString val=QInputDialog::getText(w,label1,label2);
+        QString val;
+        val=QInputDialog::getText(w,label1,label2);
         if ( !val.isEmpty() )ui->textEditCho3File->insertPlainText(QString(token).arg(val));
     }
 
 }
+
 
 
 void MainWindow::InsertT()
@@ -614,7 +621,27 @@ void MainWindow::InsertCB()
 
 void MainWindow::InsertCol()
 {
-    GenericInsert(ui->toolButtonCol,ui->checkBoxLongShort->isChecked()?QString("{Columns:%1}"):QString("{col:%1}"),QObject::tr("Enter columns number"),QObject::tr("Column number"));
+    QString token=ui->checkBoxLongShort->isChecked()?QString("{Columns:%1}"):QString("{col:%1}");
+    int i=QInputDialog::getInt(ui->toolButtonBPM,tr("Enter columns number"),tr("Column number"),1,1,3);
+    ui->textEditCho3File->insertPlainText(QString(token).arg(QString("%1").arg(i)));
+}
+
+void MainWindow::InsertBPM()
+{
+    QString token=ui->checkBoxLongShort->isChecked()?QString("{Beats_per_minute:%1}"):QString("{bpm:%1}");
+    int i=QInputDialog::getInt(ui->toolButtonBPM,tr("Enter bpm"),tr("Beats per minute"),120,20,250);
+    ui->textEditCho3File->insertPlainText(QString(token).arg(QString("%1").arg(i)));
+}
+
+void MainWindow::InsertBar()
+{
+    DialogBar bar(ui->toolButtonBar);
+    bar.exec();
+    if ( !bar.canceled())
+    {
+       QString token=ui->checkBoxLongShort->isChecked()?QString("{Tempo:%1}"):QString("{temp:%1}");
+        ui->textEditCho3File->insertPlainText(token.arg(bar.value()));
+    }
 }
 
 void MainWindow::InsertCompress()
@@ -622,6 +649,8 @@ void MainWindow::InsertCompress()
     ui->textEditCho3File->insertPlainText("{compress}");
 
 }
+
+
 
 void MainWindow::InsertCS()
 {
@@ -671,8 +700,10 @@ void MainWindow::ToogleLongShort()
     ReplaceLongShort("{col:","{Columns:");
     ReplaceLongShort("{colb}","{Column_break}");
     ReplaceLongShort("{ns}","{New_Song}");
-    ReplaceLongShort("{soc}","start_of_chorus");
-    ReplaceLongShort("{eoc}","end_of_chorus");
+    ReplaceLongShort("{soc}","{start_of_chorus}");
+    ReplaceLongShort("{eoc}","{end_of_chorus}");
+    ReplaceLongShort("{bpm:","{Beats_per_minute:");
+    ReplaceLongShort("{temp:","{Tempo:");
 
     ui->textEditCho3File->setText(m_buffreplace);
 }
