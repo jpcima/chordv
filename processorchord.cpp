@@ -30,41 +30,41 @@ void ProcessorChord::displayLyrics()
     }
     foreach (QString text,m_BufLyrics)
     {
-        int num=0;
         if ( ! text.isEmpty() )
         {
           int col=m_column;
           QRegExp chordexp("([^[]*)\\[([^]]*)\\](.*)");
           while  ( text.indexOf(chordexp)!=-1)
           {
-
-            QString t1=chordexp.cap(1);
-            Text(m_document,t1,col,m_line,m_uiconfig->toolButtonNormalFont);
             Chord ch(chordexp.cap(2),m_uimainwindow->comboBoxChordLanguage->currentData().toString());
-            PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonNormalFont->getFont().family().toLatin1());
-            col+=pfont->GetFontMetrics()->StringWidth(PdfString (t1.toLatin1()));
             if (  m_uiconfig->comboBoxChordInText->currentIndex()!= FormConfig::DiagramInText)
                {
-                num=m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
-                QString c1=m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale();
-                Text(m_document,c1,col,m_line+num,m_uiconfig->toolButtonChordFont);
+                QString c=m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale();
+                Text(m_document,c,col,m_line,m_uiconfig->toolButtonChordFont);
                }
             else
                {
-                num = m_uiconfig->spuChordHorizontalSize->getPdfU();
-                int line1=m_line+num;
-                int col1=col;
-                displayChord(ch.chord(),line1,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
+                displayChord(ch.chord(),m_line,col,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
                }
             text=chordexp.cap(3);
           }
-          Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
         }
-        NextLine(num);
+        NextLine();
     }
 }
 
-void ProcessorChord::displayPageSubtitle(QString)
+
+void ProcessorChord::displayPageSubtitle( QString )
 {
 
+}
+
+void ProcessorChord::displayTempo()
+{
+    //Processor::displayPageSubtitle(m_tempo);
+}
+
+void ProcessorChord::displayBpm()
+{
+    //Text(m_document,QString("%1").arg(m_bpm),100,m_line,m_uiconfig->toolButtonSubtitleFont,right);
 }

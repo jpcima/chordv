@@ -65,6 +65,7 @@ QString Chord::removeTempo()
 
 QString Chord::tempo()
 {
+    if ( m_tempo.isEmpty()) return ("1");
     return (m_tempo);
 }
 

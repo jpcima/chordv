@@ -29,6 +29,7 @@ public:
     void setProjectPath(QString path);
 protected:
     void disableWidgets(QRegExp value);
+    void InitComboBoxChordInclusion(QStringList list);
 private:
     Ui::FormConfig *ui;
     QWidget *m_parent;

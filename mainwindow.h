@@ -97,7 +97,8 @@ private slots:
     void InsertCT();
     void InsertEOC();
     void InsertSOC();
-    void InsertRef();
+    void InsertSOR();
+    void InsertEOR();
     void InsertCB();
     void ChordDefinition();
     void SystemInfo();

@@ -12,7 +12,9 @@ public:
     ProcessorChord(Ui::MainWindow *ui1, Ui::FormConfig *ui2);
 private:
     void displayLyrics();
-    void displayPageSubtitle(QString subtitle);
+    void displayTempo();
+    void displayBpm();
+    void displayPageSubtitle(QString);
 };
 
 #endif // PROCESSORCHORD_H

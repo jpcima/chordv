@@ -19,7 +19,6 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_uiconfig=ui2;
     m_uimainwindow=ui1;
     m_projectpath=ui1->labelNameDirProject->text();
-    qDebug()<<m_projectpath;
     m_documentAllocation=false;
     m_file=QString("%1/%2_%3.pdf")
             .arg(m_uimainwindow->labelNameDirProject->text())
@@ -54,8 +53,9 @@ void Processor::run()
     QRegExp SocREX("^ *\\{(?:soc|start_of_chorus)\\}",Qt::CaseInsensitive);
     QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}",Qt::CaseInsensitive);
     QRegExp RefrainREX("^Refrain *: *$",Qt::CaseInsensitive);
-    QRegExp ChordRex("\\[[^]]+\\]",Qt::CaseInsensitive);
-
+    QRegExp ChordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
+    QRegExp BpmREX("^ *\\{(?:Beats_per_minute|bpm): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp TempoREX("^ *\\{(?:Tempo|temp): *([^}]*) *\\}",Qt::CaseInsensitive);
 
     setCoverMade(false);
 
@@ -70,6 +70,14 @@ void Processor::run()
         else if ( line.contains(ColumnsREX) )
         {
             setColNumber(ColumnsREX.cap(1).toInt());
+        }
+        else if ( line.contains(BpmREX))
+        {
+            setBpm(BpmREX.cap(1).toInt());
+        }
+        else if ( line.contains(TempoREX))
+        {
+            setTempo(TempoREX.cap(1));
         }
         else if ( line.contains(ColumnBreakREX) )
         {
@@ -105,7 +113,8 @@ void Processor::run()
                  setCoverMade(true);
                  m_nbrealpages=0;
             }
-
+            displayTempo();
+            displayBpm();
             displayChordsForSong();
             displayLyrics();
             displayTitle(title);
@@ -136,7 +145,7 @@ void Processor::run()
             setRefrain(true);
             m_BufLyrics<<QObject::tr("Refrain");
         }
-        else if   ( line.contains(ChordRex) )
+        else if   ( line.contains(ChordREX) )
         {
 
              if ( m_socmode ) includeChorus(line);
@@ -183,6 +192,16 @@ void Processor::setCompress(bool compress)
 void Processor::setColNumber(int colnumber)
 {
     m_colnumber=colnumber;
+}
+
+void Processor::setBpm(int bpm)
+{
+    m_bpm=bpm;
+}
+
+void Processor::setTempo( QString tempo)
+{
+    m_tempo=tempo;
 }
 
 void Processor::setCoverTitle(QString covertitle)
@@ -248,6 +267,12 @@ void Processor::displayTitle(QString title)
 void Processor::displayPageSubtitle(QString subtitle)
 {
   m_subtitle=subtitle;
+  m_painter.SetColor(m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().blueF());
+  m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
+                      m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize(),
+                      m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
+                      m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize()+m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
+  m_painter.Fill();
   m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize()*1.6;
   Text(m_document,subtitle,m_uiconfig->spuPageWidth->getPdfU()/2,
              m_line,
@@ -866,4 +891,15 @@ void Processor::displayChord(QString ch,int &line, int &column,int size, QString
         column = m_uiconfig->spuHorizontalMargin->getPdfU();
         line=line-size;
     }
+}
+
+
+void Processor::displayTempo()
+{
+
+}
+
+void Processor::displayBpm()
+{
+
 }

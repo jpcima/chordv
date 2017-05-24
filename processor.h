@@ -24,12 +24,14 @@ public:
     ~Processor();
     void process();
     void setCompress(bool compress);
-    void setColNumber(int columber);
+    virtual void setColNumber(int columber);
+    virtual void setBpm(int bpm);
+    virtual void setTempo(QString tempo);
     void setCoverMade(bool status){m_covermade=status;}
     bool getCoverMade(){return m_covermade ;}
-    void setCoverTitle(QString covertitle);
+    virtual void setCoverTitle(QString covertitle);
     QString getCoverTitle(){return m_covertitle;}
-    void setCoverSubtitle(QString coversubtitle);
+    virtual void setCoverSubtitle(QString coversubtitle);
     QString getCoverSubtitle(){return m_coversubtitle;}
     void setSocMode(bool socmode);
     void setRefrain( bool refrain);
@@ -76,6 +78,8 @@ protected:
     /// \brief m_colnumber number of column if avalaible for the media
     ///
     int m_colnumber;
+    int m_bpm;
+    QString m_tempo;
     ///
     /// \brief m_covertitle : title of the cover
     ///
@@ -256,6 +260,8 @@ protected:
     ///
     virtual void addLinkInToc();
     void displayChord(QString chord, int &line, int &column,int size,QString lang);
+    virtual  void displayTempo();
+    virtual void displayBpm();
 };
 
 #endif // PROCESSOR_H

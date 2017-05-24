@@ -275,7 +275,6 @@ void FormConfig::Save(QString filename, Classes classe)
         QRegExp i("Image$");
         QString name=w->objectName().replace(tb,"").replace(i,"");
         sf.setValue(QString("%1/%2Image").arg(section).arg(name),w->getImage());
-        qDebug()<<section<<name;
     }
     foreach (QCheckBox *w ,m_parent->findChildren<QCheckBox*>())
     {
@@ -354,4 +353,10 @@ QString FormConfig::classe2String(Classes name)
 void FormConfig::Retranslate()
 {
     ui->retranslateUi(this);
+}
+
+void FormConfig::InitComboBoxChordInclusion(QStringList list)
+{
+    ui->comboBoxChordInText->clear();
+    ui->comboBoxChordInText->addItems(list);
 }

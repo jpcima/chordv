@@ -82,9 +82,10 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect(ui->toolButtonCompress,SIGNAL(clicked(bool)),this,SLOT(InsertCompress()));
     connect(ui->toolButtonCS,SIGNAL(clicked(bool)),this,SLOT(InsertCS()));
     connect(ui->toolButtonCT,SIGNAL(clicked(bool)),this,SLOT(InsertCT()));
-    connect(ui->toolButtonEOC,SIGNAL(clicked(bool)),this,SLOT(InsertEOC()));
-    connect(ui->toolButtonREF,SIGNAL(clicked(bool)),this,SLOT(InsertRef()));
     connect(ui->toolButtonSOC,SIGNAL(clicked(bool)),this,SLOT(InsertSOC()));
+    connect(ui->toolButtonEOC,SIGNAL(clicked(bool)),this,SLOT(InsertEOC()));
+    connect(ui->toolButtonSOR,SIGNAL(clicked(bool)),this,SLOT(InsertSOR()));
+    connect(ui->toolButtonEOR,SIGNAL(clicked(bool)),this,SLOT(InsertEOR()));
     connect(ui->toolButtonST,SIGNAL(clicked(bool)),this,SLOT(InsertST()));
     connect(ui->toolButtonT,SIGNAL(clicked(bool)),this,SLOT(InsertT()));
     connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
@@ -707,9 +708,14 @@ void MainWindow::InsertSOC()
 }
 
 
-void MainWindow::InsertRef()
+void MainWindow::InsertSOR()
 {
-    ui->textEditCho3File->insertPlainText("Refrain:");
+    ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{start_of_refrain}"):QString("{sor}"));
+}
+
+void MainWindow::InsertEOR()
+{
+    ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{end_of_refrain}"):QString("{eor}"));
 }
 
 void MainWindow::ReplaceLongShort(  QString a, QString b)
@@ -735,6 +741,8 @@ void MainWindow::ToogleLongShort()
     ReplaceLongShort("{ns}","{New_Song}");
     ReplaceLongShort("{soc}","{start_of_chorus}");
     ReplaceLongShort("{eoc}","{end_of_chorus}");
+    ReplaceLongShort("{sor}","{start_of_refrain}");
+    ReplaceLongShort("{eor}","{end_of_refrain}");
     ReplaceLongShort("{bpm:","{Beats_per_minute:");
     ReplaceLongShort("{temp:","{Tempo:");
 
@@ -772,7 +780,7 @@ void MainWindow::Replace()
 
 void MainWindow::Search(QString text, bool casesensitive, bool wordonly )
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(0);
     QFlags<QTextDocument::FindFlag> flag;
     if (casesensitive ) flag =QTextDocument::FindCaseSensitively;
     if (wordonly) flag|=QTextDocument::FindWholeWords;
@@ -781,7 +789,7 @@ void MainWindow::Search(QString text, bool casesensitive, bool wordonly )
 
 void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(0);
     QFlags<QTextDocument::FindFlag> flag= QTextDocument::FindBackward;
     if (casesensitive ) flag |=QTextDocument::FindCaseSensitively;
     if (wordonly) flag|=QTextDocument::FindWholeWords;
@@ -791,7 +799,7 @@ void MainWindow::SearchBack(QString text, bool casesensitive, bool wordonly )
 void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool casesensitive, bool wordonly, bool back)
 {
     if (!m_found ) return;
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->stackedWidget->setCurrentIndex(0);
     if ( all )
     {
         while ( m_found )

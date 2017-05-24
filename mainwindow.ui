@@ -79,6 +79,50 @@ subtitle</string>
               </widget>
              </item>
              <item>
+              <widget class="QToolButton" name="toolButtonSOC">
+               <property name="toolTip">
+                <string>Start of chorus</string>
+               </property>
+               <property name="text">
+                <string>Start of
+chorus</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButtonEOC">
+               <property name="toolTip">
+                <string>End of chorus</string>
+               </property>
+               <property name="text">
+                <string>End of
+chorus</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButtonSOR">
+               <property name="toolTip">
+                <string>Refrain</string>
+               </property>
+               <property name="text">
+                <string>Start of 
+refrain</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QToolButton" name="toolButtonEOR">
+               <property name="toolTip">
+                <string>Refrain</string>
+               </property>
+               <property name="text">
+                <string>End of 
+refrain</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QToolButton" name="toolButtonBar">
                <property name="toolTip">
                 <string>4/4 3/4 ...</string>
@@ -116,38 +160,6 @@ subtitle</string>
                <property name="text">
                 <string>Column
 break</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonSOC">
-               <property name="toolTip">
-                <string>Start of chorus</string>
-               </property>
-               <property name="text">
-                <string>Start of
-chorus</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonEOC">
-               <property name="toolTip">
-                <string>End of chorus</string>
-               </property>
-               <property name="text">
-                <string>End of
-chorus</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonREF">
-               <property name="toolTip">
-                <string>Refrain</string>
-               </property>
-               <property name="text">
-                <string>Refrain</string>
                </property>
               </widget>
              </item>
