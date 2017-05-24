@@ -10,7 +10,7 @@
 #include <QProcess>
 #include <QMainWindow>
 #include <QMenu>
-
+#include <QLabel>
 namespace Ui {
 class MainWindow;
 }
@@ -59,6 +59,9 @@ private:
     bool m_found;
     void setChecked(int i);
     QString getPdfFileName(QString  text);
+    QLabel *m_labelactivestacked;
+    QStringList m_liststacked;
+
 public slots:
     void ChangeLanguage(QString );
 private slots:
@@ -122,6 +125,7 @@ private slots:
     void InsertBPM();
     void InsertBar();
     void ExportCho3File();
+    void ShowStacked(int i);
 };
 
 #endif // MAINWINDOW_H

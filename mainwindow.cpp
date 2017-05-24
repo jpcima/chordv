@@ -40,6 +40,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     QList <int> size;
     size<<700<<100;
+    m_labelactivestacked= new QLabel(this);
+    ui->statusBar->addWidget(m_labelactivestacked);
+    m_liststacked<<tr("Editor")<<tr("Global definitions")<<tr("Text and chord Mode")<<tr("Chord Mode")<<tr("Text mode")<<tr("Memory Mode");
+    ShowStacked(0);
     ui->splitter->setSizes(size);
     ui->actionSelectEditor->setChecked(true);
     Language::setLanguageComboBox( ui->comboBoxChordLanguage);
@@ -99,6 +103,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionViewChord,SIGNAL(triggered(bool)),this,SLOT(ViewChordPdf()));
     connect (ui->actionViewMemory,SIGNAL(triggered(bool)),this,SLOT(ViewMemoryPdf()));
     connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViewLastBuildPdf()));
+    connect(ui->stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(ShowStacked(int)));
 
 
     QString file=getFileInArg();
@@ -821,4 +826,10 @@ void MainWindow::setChecked(int i)
     ui->actionSelectLyrics->setChecked(i==2);
     ui->actionSelectMemory->setChecked(i==5);
     ui->actionSelectText->setChecked(i==4);
+}
+
+
+void MainWindow::ShowStacked( int i )
+{
+    m_labelactivestacked->setText(m_liststacked.at(i));
 }
