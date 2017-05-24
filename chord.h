@@ -12,7 +12,8 @@ public:
     Chord(QString chord,QString lang);
     QString chord();
     QString removeTempo();
-    QString tempo();
+    QString nbBar();
+    QString nbBeat();
     QStringList toStrings();
     QString fret();
     QString ToEnglish(QString lang,QString chord);
@@ -23,7 +24,8 @@ public:
     static QStringList removeDupplicateWhithoutTempo(QStringList chords,QString lang);
 private:
     QString m_originalchord;
-    QString m_tempo; // 2 : from D7x2
+    QString m_nbbar; // 2 : from D7x2
+    QString m_nbbeat; // 2 : from D7:2
     QString m_purechordLocale; // Ré7(III)
     QString m_purechordEnglish; // D7(III)
 
