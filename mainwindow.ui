@@ -431,7 +431,7 @@ chorus</string>
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>20</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -479,12 +479,22 @@ chorus</string>
      <addaction name="actionViewMemory"/>
      <addaction name="actionViewLastbuilt"/>
     </widget>
+    <widget class="QMenu" name="menuBuild_and_Launch_PDF">
+     <property name="title">
+      <string>B&amp;uild and Launch PDF</string>
+     </property>
+     <addaction name="actionBuildAndViewText"/>
+     <addaction name="actionBuildAndViewLyrics"/>
+     <addaction name="actionBuildAndViewChord"/>
+     <addaction name="actionBuildAndViewMemory"/>
+    </widget>
     <addaction name="actionProduce_PDF_files"/>
     <addaction name="actionPreferences"/>
     <addaction name="menuPreferences_hints"/>
     <addaction name="actionChord_defintion"/>
     <addaction name="menuBuild_PDF"/>
     <addaction name="menuLaunch_PDF_Viewer"/>
+    <addaction name="menuBuild_and_Launch_PDF"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -597,7 +607,7 @@ chorus</string>
   </action>
   <action name="actionOpen_Song_File">
    <property name="text">
-    <string>Import cho3 File</string>
+    <string>&amp;Import cho3 File</string>
    </property>
   </action>
   <action name="actionChord_defintion">
@@ -766,7 +776,39 @@ chorus</string>
   </action>
   <action name="actionExport_tho_cho3_file">
    <property name="text">
-    <string>Export to cho3 file</string>
+    <string>Export to &amp;cho3 file</string>
+   </property>
+  </action>
+  <action name="actionBuildAndViewText">
+   <property name="text">
+    <string>&amp;Text</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F6</string>
+   </property>
+  </action>
+  <action name="actionBuildAndViewLyrics">
+   <property name="text">
+    <string>&amp;Lyrics</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F7</string>
+   </property>
+  </action>
+  <action name="actionBuildAndViewMemory">
+   <property name="text">
+    <string>&amp;Memory</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F9</string>
+   </property>
+  </action>
+  <action name="actionBuildAndViewChord">
+   <property name="text">
+    <string>&amp;Chord</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F8</string>
    </property>
   </action>
  </widget>

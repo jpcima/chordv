@@ -126,6 +126,10 @@ private slots:
     void InsertBar();
     void ExportCho3File();
     void ShowStacked(int i);
+    void BuildAndViewText();
+    void BuildAndViewMemory();
+    void BuildAndViewChord();
+    void BuildAndViewLyrics();
 };
 
 #endif // MAINWINDOW_H

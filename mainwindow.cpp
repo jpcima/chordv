@@ -103,6 +103,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionViewChord,SIGNAL(triggered(bool)),this,SLOT(ViewChordPdf()));
     connect (ui->actionViewMemory,SIGNAL(triggered(bool)),this,SLOT(ViewMemoryPdf()));
     connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViewLastBuildPdf()));
+    connect (ui->actionBuildAndViewText,SIGNAL(triggered(bool)),this,SLOT(BuildAndViewText()));
+    connect (ui->actionBuildAndViewLyrics,SIGNAL(triggered(bool)),this,SLOT(BuildAndViewLyrics()));
+    connect (ui->actionBuildAndViewChord,SIGNAL(triggered(bool)),this,SLOT(BuildAndViewChord()));
+    connect (ui->actionBuildAndViewMemory,SIGNAL(triggered(bool)),this,SLOT(BuildAndViewMemory()));
+    connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViewLastBuildPdf()));
+
     connect(ui->stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(ShowStacked(int)));
 
 
@@ -519,6 +525,30 @@ void MainWindow::ViewLastBuildPdf()
     else Info(viewer.getStatusInfo());
 }
 
+
+void MainWindow::BuildAndViewText()
+{
+   BuildTextPdf();
+   ViewTextPdf();
+}
+
+void MainWindow::BuildAndViewLyrics()
+{
+   BuildLyricsPdf();
+   ViewLyricsPdf();
+}
+
+void MainWindow::BuildAndViewChord()
+{
+   BuildChordPdf();
+   ViewChordPdf();
+}
+
+void MainWindow::BuildAndViewMemory()
+{
+   BuildMemoryPdf();
+   ViewMemoryPdf();
+}
 
 void MainWindow::ConversionDone( QString filename)
 {
