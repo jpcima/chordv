@@ -1,14 +1,16 @@
 #include "processorchord.h"
+
 #include "ui_formconfig.h"
 #include "ui_mainwindow.h"
 #include "chord.h"
-
-#include <QStringList>
-
 #include "mainwindow.h"
+
 #include <podofo/podofo.h>
 #include <podofo/podofo-base.h>
 
+
+#include <QStringList>
+#include <QDebug>
 
 using namespace PoDoFo;
 
@@ -60,4 +62,9 @@ void ProcessorChord::displayLyrics()
         }
         NextLine(num);
     }
+}
+
+void ProcessorChord::displayPageSubtitle(QString)
+{
+
 }

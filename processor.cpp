@@ -232,11 +232,12 @@ void Processor::displayTitle(QString title)
     m_colnumber=1;
     m_painter.SetColor(m_uiconfig->toolButtonTitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonTitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonTitleFont->getBackgroundColor().blueF());
     m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
-                        m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU(),
-                        m_uiconfig->spuPageWidth->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU(),
-                        m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize());
+                        m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize(),
+                        m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
+                        m_uiconfig->toolButtonTitleFont->getFont().pointSize());
     m_painter.Fill();
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()*0.8;
+
     Text(m_document,title,m_uiconfig->spuPageWidth->getPdfU()/2,
                m_line,
                m_uiconfig->toolButtonTitleFont,center);
@@ -698,11 +699,18 @@ double  Processor::Text( PdfDocument *doc, QString text, double x, double y, Fon
     double end=0;
     PdfFont *pfont=doc->CreateFont(fb->getFont().family().toLatin1());
     PdfString str(text.toLatin1());
-    pfont->SetFontSize(fb->getFont().pointSize()*scale);
+    double fontsize=fb->getFont().pointSize()*scale;
+    pfont->SetFontSize(fontsize);
     pfont->SetUnderlined(fb->getFont().underline());
     pfont->SetStrikeOut(fb->getFont().strikeOut());
-    m_painter.SetFont(pfont);
     double widthtext=pfont->GetFontMetrics()->StringWidth(str);
+    while ( widthtext >m_uiconfig->spuPageWidth->getPdfU() )
+    {
+        fontsize=fontsize*0.9;
+        pfont->SetFontSize(fontsize);
+        widthtext=pfont->GetFontMetrics()->StringWidth(str);
+    }
+    m_painter.SetFont(pfont);
     m_painter.SetColor(fb->getTextColor().redF(),fb->getTextColor().greenF(),fb->getTextColor().blueF());
     m_painter.Fill(true);
     if (! text.isEmpty())
@@ -715,6 +723,7 @@ double  Processor::Text( PdfDocument *doc, QString text, double x, double y, Fon
     }
     return end;
 }
+
 
 PdfRect Processor::LineToc(QString text, double width, double x, double y, FontButton *fb, int pagenumber)
 {
