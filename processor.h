@@ -8,9 +8,12 @@
 
 #include <QString>
 #include <QStringList>
+#include <QDate>
+#include <QMap>
+
 #include <podofo/podofo.h>
 #include <podofo/podofo-base.h>
-#include <QDate>
+
 
 
 class Processor : public QObject
@@ -58,7 +61,7 @@ public:
     virtual int calcColumn();
     virtual int calcLine();
     virtual void FollowingLine();
-    virtual void includeChorus(QString text);
+    virtual void includeChorus(QString text, int line =0);
     ///
     /// \brief m_category category in config file  (file.conf) Chordbook,LyricsBook,MemoryMode,TextBook
     ///
@@ -167,6 +170,8 @@ protected:
     ///
     int m_line;
 
+
+    int m_lineindex;
     ///
     /// \brief m_column x current column printed
     ///
@@ -213,6 +218,7 @@ protected:
     virtual void NextLine( int num=0);
     virtual int currentColumn();
     virtual int nextColumn( int current);
+    QMap <int, QStringList> m_chorus;
 
     ///
     /// \brief LineToc print each line in toc

@@ -52,15 +52,17 @@ void Processor::run()
     QRegExp TitleREX("^ *\\{(?:title|t): *([^}]*)\\}",Qt::CaseInsensitive);
     QRegExp SocREX("^ *\\{(?:soc|start_of_chorus)\\}",Qt::CaseInsensitive);
     QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}",Qt::CaseInsensitive);
-    QRegExp RefrainREX("^Refrain *: *$",Qt::CaseInsensitive);
+    QRegExp SorREX("^ *\\{(?:sor|start_of_refrain)\\}",Qt::CaseInsensitive);
+    QRegExp EorREX("^ *\\{(?:eor|end_of_refrain)\\}",Qt::CaseInsensitive);
     QRegExp ChordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
     QRegExp BpmREX("^ *\\{(?:Beats_per_minute|bpm): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp TempoREX("^ *\\{(?:Tempo|temp): *([^}]*) *\\}",Qt::CaseInsensitive);
 
     setCoverMade(false);
-
+    m_lineindex=0;
     foreach ( QString line, m_text.split(QRegExp("\n")) )
     {
+        m_lineindex++;
         if ( line.contains(NewSongREX) )
         { }
         else if ( line.contains(CompressREX) )
@@ -133,30 +135,30 @@ void Processor::run()
         else if ( line.contains(SocREX) )
         {
             setSocMode(true);
-            includeChorus(QObject::tr("Chorus"));
+            includeChorus("Chorus",m_lineindex);
         }
         else if ( line.contains(EocREX) )
         {
-            includeChorus(QObject::tr("Endchorus"));
             setSocMode(false);
         }
-        else if ( line.contains(RefrainREX) )
+        else if ( line.contains(SerREX) )
         {
             setRefrain(true);
             m_BufLyrics<<QObject::tr("Refrain");
         }
-        else if   ( line.contains(ChordREX) )
+        else if ( line.contains(EorREX) )
         {
-
+            setRefrain(false);
+        }
+        else if ( line.contains(ChordREX) )
+        {
              if ( m_socmode ) includeChorus(line);
              else m_BufLyrics<<line;
              memorizeChords(line);
-
         }
         else
         {
-            if ( m_socmode ) includeChorus(line);
-            else m_BufLyrics<<line;
+            m_BufLyrics<<line;
         }
     }
 
@@ -236,9 +238,20 @@ void Processor::setCoverSubtitle(QString coversubtitle)
 }
 
 
-void Processor::includeChorus( QString )
+void Processor::includeChorus( QString line, int numberline)
 {
-
+ if ( numberline == 0 )
+ {
+     int i=m_chorus.count();
+     QStringList l=m_chorus[i];
+     l<<line;
+     m_chorus[i]=line;
+ }
+ else
+ {
+     QStringList l;
+     m_chors[numberline]=l;
+ }
 }
 
 void Processor::displayTitle(QString title)

@@ -6,6 +6,9 @@
 #include <podofo/podofo.h>
 #include <podofo/podofo-base.h>
 
+#include <QMap>
+
+
 class ProcessorChord : public Processor
 {
 public:
@@ -15,6 +18,7 @@ private:
     void displayTempo();
     void displayBpm();
     void displayPageSubtitle(QString);
+    QMap <QString , QStringList > m_chords;
 };
 
 #endif // PROCESSORCHORD_H

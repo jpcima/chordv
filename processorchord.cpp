@@ -20,36 +20,18 @@ ProcessorChord::ProcessorChord(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Process
 
 }
 
+void ProcessorChord::includeChorus( QString )
+{
+
+}
+
+
 void ProcessorChord::displayLyrics()
 {
-    if ( m_firstline )
-    {
-        m_firstline=false;
-        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*3;
-        m_initialhposition=m_line;
-    }
+    QRegExp chordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
     foreach (QString text,m_BufLyrics)
     {
-        if ( ! text.isEmpty() )
-        {
-          int col=m_column;
-          QRegExp chordexp("([^[]*)\\[([^]]*)\\](.*)");
-          while  ( text.indexOf(chordexp)!=-1)
-          {
-            Chord ch(chordexp.cap(2),m_uimainwindow->comboBoxChordLanguage->currentData().toString());
-            if (  m_uiconfig->comboBoxChordInText->currentIndex()!= FormConfig::DiagramInText)
-               {
-                QString c=m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale();
-                Text(m_document,c,col,m_line,m_uiconfig->toolButtonChordFont);
-               }
-            else
-               {
-                displayChord(ch.chord(),m_line,col,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
-               }
-            text=chordexp.cap(3);
-          }
-        }
-        NextLine();
+       qDebug()<<"hihi"<<text;
     }
 }
 
