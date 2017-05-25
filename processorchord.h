@@ -18,7 +18,14 @@ private:
     void displayRytm();
     void displayBpm();
     void displayPageSubtitle(QString);
+
+    void includeSoc();
+    void includeEoc();
+    void includeSoR();
+    void includeEoR();
     int m_nbBeatPerBar;
+    void includeSor();
+    void includeEor();
 };
 
 #endif // PROCESSORCHORD_H

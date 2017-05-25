@@ -4,7 +4,7 @@
 <context>
     <name>Chord</name>
     <message>
-        <location filename="chord.cpp" line="48"/>
+        <location filename="chord.cpp" line="50"/>
         <source>ERROR</source>
         <translation></translation>
     </message>
@@ -1744,7 +1744,27 @@ chorus</translation>
         <translation type="vanished">Aller à la page %1</translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="670"/>
+        <location filename="processor.cpp" line="250"/>
+        <source>Chorus :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="processor.cpp" line="255"/>
+        <source>End of chorus</source>
+        <translation type="unfinished">Fin du chorus</translation>
+    </message>
+    <message>
+        <location filename="processor.cpp" line="261"/>
+        <source>Refrain :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="processor.cpp" line="266"/>
+        <source>End of refrain :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="processor.cpp" line="700"/>
         <source>Go to table of content</source>
         <translation>Aller à la table des matières</translation>
     </message>
@@ -1768,23 +1788,16 @@ chorus</translation>
         <translation type="vanished">Accords</translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="136"/>
         <source>Chorus</source>
-        <translation>Chorus</translation>
+        <translation type="vanished">Chorus</translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="140"/>
         <source>Endchorus</source>
-        <translation>Fin du chorus</translation>
+        <translation type="vanished">Fin du chorus</translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="146"/>
-        <source>Refrain</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="processor.cpp" line="512"/>
-        <location filename="processor.cpp" line="571"/>
+        <location filename="processor.cpp" line="542"/>
+        <location filename="processor.cpp" line="601"/>
         <source>Table of content</source>
         <translation>Table des matières</translation>
     </message>

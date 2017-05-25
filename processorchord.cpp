@@ -27,10 +27,28 @@ void ProcessorChord::displayLyrics()
         m_nbBeatPerBar=4;
     else
         m_nbBeatPerBar=m_rythm.split("/").at(1).toInt();
-        foreach ( QString line, m_BufLyrics)
+
+    int nbeat=0;
+    int col=10;
+    QRegExp regChord("([^[]*)\\[([^]]+)\\](.*)",Qt::CaseInsensitive);
+    foreach ( QString line, m_BufLyrics)
     {
-        if ( line =)
-        while (line.indexOf(QRegEx))
+
+        while (line.indexOf(regChord)!=-1)
+        {
+            QString ch=regChord.cap(2);
+            nbeat++;
+            if ( line =="SOC" || line=="EOC" || line =="SOR" || line == "EOR" || nbeat>m_nbBeatPerBar )
+            {
+                nbeat=1;
+            }
+            Chord chord(ch,m_uimainwindow->comboBoxChordLanguage->currentData().toString());
+            qDebug()<<chord.chord()<<chord.nbBar()<<chord.nbBeat()<<chord.nbNote();
+            Text(m_document,chord.nameEnglish(),col,m_line,m_uiconfig->toolButtonChordFont);
+            col+=10;
+            m_line+=10;
+            line=regChord.cap(3);
+        }
     }
 }
 
@@ -39,6 +57,28 @@ void ProcessorChord::displayPageSubtitle( QString )
 {
 
 }
+
+void ProcessorChord::includeEoc()
+{
+    m_BufLyrics<<"EOC";
+}
+
+
+void ProcessorChord::includeSoc()
+{
+    m_BufLyrics<<"SOC";
+}
+
+void ProcessorChord::includeSor()
+{
+    m_BufLyrics<<"SOR";
+}
+
+void ProcessorChord::includeEor()
+{
+    m_BufLyrics<<"EOR";
+}
+
 
 void ProcessorChord::displayRytm()
 {
