@@ -30,4 +30,4 @@ Planned features
 - Launch PDF reader
 - Popup menu on chord in text to see the chords
 - In text mode, propose to delete the columns mark
-- Add tempo
+- Add rythm

@@ -15,10 +15,10 @@ public:
     ProcessorChord(Ui::MainWindow *ui1, Ui::FormConfig *ui2);
 private:
     void displayLyrics();
-    void displayTempo();
+    void displayRytm();
     void displayBpm();
     void displayPageSubtitle(QString);
-    QMap <QString , QStringList > m_chords;
+    int m_nbBeatPerBar;
 };
 
 #endif // PROCESSORCHORD_H

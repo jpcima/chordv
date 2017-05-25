@@ -60,7 +60,7 @@ QString Chord::chord()
     return m_originalchord;
 }
 
-QString Chord::removeTempo()
+QString Chord::removeRytm()
 {
   return (m_purechordLocale);
 }
@@ -117,7 +117,7 @@ QString Chord::pureNameEnglish()
     return m_purechordEnglish;
 }
 
-QStringList Chord::removeDupplicateWhithoutTempo(QStringList chords,QString lang)
+QStringList Chord::removeDupplicateWhithoutRytm(QStringList chords,QString lang)
 {
     QStringList ret;
     foreach ( QString ch, chords)

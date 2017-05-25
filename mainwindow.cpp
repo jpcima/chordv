@@ -673,7 +673,7 @@ void MainWindow::InsertBar()
     bar.exec();
     if ( !bar.canceled())
     {
-       QString token=ui->checkBoxLongShort->isChecked()?QString("{Tempo:%1}"):QString("{temp:%1}");
+       QString token=ui->checkBoxLongShort->isChecked()?QString("{Rytm:%1}"):QString("{temp:%1}");
         ui->textEditCho3File->insertPlainText(token.arg(bar.value()));
     }
 }
@@ -744,7 +744,7 @@ void MainWindow::ToogleLongShort()
     ReplaceLongShort("{sor}","{start_of_refrain}");
     ReplaceLongShort("{eor}","{end_of_refrain}");
     ReplaceLongShort("{bpm:","{Beats_per_minute:");
-    ReplaceLongShort("{temp:","{Tempo:");
+    ReplaceLongShort("{temp:","{Rytm:");
 
     ui->textEditCho3File->setText(m_buffreplace);
 }

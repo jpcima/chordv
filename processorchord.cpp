@@ -20,18 +20,17 @@ ProcessorChord::ProcessorChord(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Process
 
 }
 
-void ProcessorChord::includeChorus( QString )
-{
-
-}
-
 
 void ProcessorChord::displayLyrics()
 {
-    QRegExp chordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
-    foreach (QString text,m_BufLyrics)
+    if ( !m_rythm.contains("/"))
+        m_nbBeatPerBar=4;
+    else
+        m_nbBeatPerBar=m_rythm.split("/").at(1).toInt();
+        foreach ( QString line, m_BufLyrics)
     {
-       qDebug()<<"hihi"<<text;
+        if ( line =)
+        while (line.indexOf(QRegEx))
     }
 }
 
@@ -41,9 +40,9 @@ void ProcessorChord::displayPageSubtitle( QString )
 
 }
 
-void ProcessorChord::displayTempo()
+void ProcessorChord::displayRytm()
 {
-    //Processor::displayPageSubtitle(m_tempo);
+    //Processor::displayPageSubtitle(m_rythm);
 }
 
 void ProcessorChord::displayBpm()

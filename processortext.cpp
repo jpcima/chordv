@@ -7,3 +7,4 @@ ProcessorText::ProcessorText(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Processor
 {
 }
 
+

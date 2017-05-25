@@ -20,6 +20,8 @@ class Processor : public QObject
 
 {
     Q_OBJECT
+
+
 public:
     enum Align {left,center,right};
     Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
@@ -29,7 +31,7 @@ public:
     void setCompress(bool compress);
     virtual void setColNumber(int columber);
     virtual void setBpm(int bpm);
-    virtual void setTempo(QString tempo);
+    virtual void setRytm(QString rythm);
     void setCoverMade(bool status){m_covermade=status;}
     bool getCoverMade(){return m_covermade ;}
     virtual void setCoverTitle(QString covertitle);
@@ -61,7 +63,12 @@ public:
     virtual int calcColumn();
     virtual int calcLine();
     virtual void FollowingLine();
-    virtual void includeChorus(QString text, int line =0);
+    virtual void includeChorus(QString text);
+    virtual void includeSoc();
+    virtual void includeEoc();
+    virtual void includeRefrain(QString text);
+    virtual void includeSor();
+    virtual void includeEor();
     ///
     /// \brief m_category category in config file  (file.conf) Chordbook,LyricsBook,MemoryMode,TextBook
     ///
@@ -82,7 +89,7 @@ protected:
     ///
     int m_colnumber;
     int m_bpm;
-    QString m_tempo;
+    QString m_rythm;
     ///
     /// \brief m_covertitle : title of the cover
     ///
@@ -100,13 +107,14 @@ protected:
     ///
     QString m_title;
     ///
-    /// \brief m_socmode
+    /// \brief m_chorus
     ///
-    bool m_socmode;
+    bool m_chorus;
     ///
     /// \brief m_refrain this is refrain ?
     ///
     bool m_refrain;
+
     ///
     /// \brief m_file dir where product the output file
     ///
@@ -218,7 +226,6 @@ protected:
     virtual void NextLine( int num=0);
     virtual int currentColumn();
     virtual int nextColumn( int current);
-    QMap <int, QStringList> m_chorus;
 
     ///
     /// \brief LineToc print each line in toc
@@ -266,7 +273,7 @@ protected:
     ///
     virtual void addLinkInToc();
     void displayChord(QString chord, int &line, int &column,int size,QString lang);
-    virtual  void displayTempo();
+    virtual  void displayRytm();
     virtual void displayBpm();
 };
 

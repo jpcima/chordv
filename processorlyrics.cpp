@@ -23,8 +23,8 @@ void ProcessorLyrics::displayChordsForSong()
     NextLine();
     NextLine();
     QStringList chords=m_BufChords;
-    QStringList chordswithouttempo=Chord::removeDupplicateWhithoutTempo(chords,m_uiconfig->comboBoxChordLang->currentData().toString());
-    foreach ( QString chord, chordswithouttempo)
+    QStringList chordswithoutrythm=Chord::removeDupplicateWhithoutRytm(chords,m_uiconfig->comboBoxChordLang->currentData().toString());
+    foreach ( QString chord, chordswithoutrythm)
         displayChord(chord,m_line,m_column,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
     m_line-=m_uiconfig->spuChordHorizontalSize->getPdfU();

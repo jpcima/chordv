@@ -32,7 +32,7 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_dimension = new PdfRect(PageSize(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU()));
     m_documentAllocation=true;
     m_compress=false;
-    m_socmode=false;
+    m_chorus=false;
     m_refrain=false;
     m_text=m_uimainwindow->textEditCho3File->document()->toPlainText();
     m_nbrealpages=0;
@@ -56,7 +56,7 @@ void Processor::run()
     QRegExp EorREX("^ *\\{(?:eor|end_of_refrain)\\}",Qt::CaseInsensitive);
     QRegExp ChordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
     QRegExp BpmREX("^ *\\{(?:Beats_per_minute|bpm): *([^}]*) *\\}",Qt::CaseInsensitive);
-    QRegExp TempoREX("^ *\\{(?:Tempo|temp): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp RytmREX("^ *\\{(?:Rytm|temp): *([^}]*) *\\}",Qt::CaseInsensitive);
 
     setCoverMade(false);
     m_lineindex=0;
@@ -77,9 +77,9 @@ void Processor::run()
         {
             setBpm(BpmREX.cap(1).toInt());
         }
-        else if ( line.contains(TempoREX))
+        else if ( line.contains(RytmREX))
         {
-            setTempo(TempoREX.cap(1));
+            setRytm(RytmREX.cap(1));
         }
         else if ( line.contains(ColumnBreakREX) )
         {
@@ -115,7 +115,7 @@ void Processor::run()
                  setCoverMade(true);
                  m_nbrealpages=0;
             }
-            displayTempo();
+            displayRytm();
             displayBpm();
             displayChordsForSong();
             displayLyrics();
@@ -135,24 +135,26 @@ void Processor::run()
         else if ( line.contains(SocREX) )
         {
             setSocMode(true);
-            includeChorus("Chorus",m_lineindex);
+            includeSoc();
         }
         else if ( line.contains(EocREX) )
         {
             setSocMode(false);
+            includeEoc();
         }
-        else if ( line.contains(SerREX) )
+        else if ( line.contains(SorREX) )
         {
             setRefrain(true);
-            m_BufLyrics<<QObject::tr("Refrain");
+            includeSor();
         }
         else if ( line.contains(EorREX) )
         {
             setRefrain(false);
+            includeEor();
         }
         else if ( line.contains(ChordREX) )
         {
-             if ( m_socmode ) includeChorus(line);
+             if ( m_chorus ) includeChorus(line);
              else m_BufLyrics<<line;
              memorizeChords(line);
         }
@@ -201,9 +203,9 @@ void Processor::setBpm(int bpm)
     m_bpm=bpm;
 }
 
-void Processor::setTempo( QString tempo)
+void Processor::setRytm( QString rythm)
 {
-    m_tempo=tempo;
+    m_rythm=rythm;
 }
 
 void Processor::setCoverTitle(QString covertitle)
@@ -237,21 +239,36 @@ void Processor::setCoverSubtitle(QString coversubtitle)
     m_coversubtitle=coversubtitle;
 }
 
-
-void Processor::includeChorus( QString line, int numberline)
+void Processor::includeRefrain(QString line)
 {
- if ( numberline == 0 )
- {
-     int i=m_chorus.count();
-     QStringList l=m_chorus[i];
-     l<<line;
-     m_chorus[i]=line;
- }
- else
- {
-     QStringList l;
-     m_chors[numberline]=l;
- }
+  m_BufLyrics<<line;
+}
+
+
+void Processor::includeSoc()
+{
+    m_BufLyrics<<tr("Chorus :");
+}
+
+void Processor::includeEoc()
+{
+    m_BufLyrics<<tr("End of chorus");
+}
+
+
+void Processor::includeSor()
+{
+     m_BufLyrics<<tr("Refrain :");
+}
+
+void Processor::includeEor()
+{
+     m_BufLyrics<<tr("End of refrain :");
+}
+
+void Processor::includeChorus( QString line)
+{
+  m_BufLyrics<<line;
 }
 
 void Processor::displayTitle(QString title)
@@ -280,12 +297,12 @@ void Processor::displayTitle(QString title)
 void Processor::displayPageSubtitle(QString subtitle)
 {
   m_subtitle=subtitle;
-  m_painter.SetColor(m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().blueF());
-  m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
-                      m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize(),
-                      m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
-                      m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize()+m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
-  m_painter.Fill();
+//  m_painter.SetColor(m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().blueF());
+//  m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
+//                      m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize(),
+//                      m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
+//                      m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize()+m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
+//  m_painter.Fill();
   m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize()*1.6;
   Text(m_document,subtitle,m_uiconfig->spuPageWidth->getPdfU()/2,
              m_line,
@@ -294,7 +311,7 @@ void Processor::displayPageSubtitle(QString subtitle)
 
 void Processor::setSocMode(bool socmode)
 {
-    m_socmode=socmode;
+    m_chorus=socmode;
 }
 
 void Processor::setRefrain(bool refrain)
@@ -907,7 +924,7 @@ void Processor::displayChord(QString ch,int &line, int &column,int size, QString
 }
 
 
-void Processor::displayTempo()
+void Processor::displayRytm()
 {
 
 }

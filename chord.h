@@ -11,7 +11,7 @@ class Chord : public QString
 public:
     Chord(QString chord,QString lang);
     QString chord();
-    QString removeTempo();
+    QString removeRytm();
     QString nbBar();
     QString nbBeat();
     QStringList toStrings();
@@ -21,7 +21,7 @@ public:
     QString nameLocale();
     QString pureNameLocale();
     QString pureNameEnglish();
-    static QStringList removeDupplicateWhithoutTempo(QStringList chords,QString lang);
+    static QStringList removeDupplicateWhithoutRytm(QStringList chords,QString lang);
 private:
     QString m_originalchord;
     QString m_nbbar; // 2 : from D7x2

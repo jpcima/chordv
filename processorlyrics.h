@@ -13,6 +13,7 @@ public:
 private:
     void displayChordsForSong();
     void displayLyrics();
+    void includeEor(){}
 };
 
 #endif // PROCESSORLYRICS_H
