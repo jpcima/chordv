@@ -12,7 +12,6 @@ private:
     void includeEoc(){}
     void includeSoc(){}
     void includeEor(){}
-
 };
 
 #endif // PROCESSORTEXT_H

@@ -26,6 +26,8 @@ private:
     int m_nbBeatPerBar;
     void includeSor();
     void includeEor();
+    void doColumnBreak(QString line){}
+
 };
 
 #endif // PROCESSORCHORD_H

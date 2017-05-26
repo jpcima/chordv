@@ -2,9 +2,16 @@
 Bug
 ----
 
+Lyrics mode :
 
+1- Chorus with diagram : horizontal space wrong
+2- End of chorus to keep or delete ?
+3- If song on many pages, followed are squeezed on each mode !
+4- if diagram chord are to neiboored the are hover displayed
+5 - in diagram inside text mode add some blank line before the first line
+6 - On jean le Libertin chord problem
+7 - Toc page number don't count multiple pages
 
-- Check fonts bold
 - When toc is at end clic on toc go to page 1
 - When toc is at begining page number start +1
 - Toc end : first page0 in Toc .
@@ -12,22 +19,11 @@ Bug
 
 
 
-Strange
--------
-
-
-Planned feature ported from perl
---------------------------------
-- Chords
-- Special Annotation in chord
-
-
 
 Planned features
 ------------------
 - Make a test classes
 - Put a button  copy like other for each tab
-- Launch PDF reader
 - Popup menu on chord in text to see the chords
 - In text mode, propose to delete the columns mark
-- Add rythm
+

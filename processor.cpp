@@ -36,6 +36,7 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_refrain=false;
     m_text=m_uimainwindow->textEditCho3File->document()->toPlainText();
     m_nbrealpages=0;
+    m_mode="generic";
 }
 
 
@@ -45,7 +46,7 @@ void Processor::run()
     QRegExp NewSongREX("^ *\\{(new_song|ns) *\\} *$",Qt::CaseInsensitive);
     QRegExp CompressREX("^ *\\{compress\\} * *$",Qt::CaseInsensitive);
     QRegExp ColumnsREX("^ *\\{(?:col|columns): *([^}]*) *\\}",Qt::CaseInsensitive);
-    QRegExp ColumnBreakREX("^ *\\{(column_break|colb) *\\}",Qt::CaseInsensitive);
+    QRegExp ColumnBreakREX("^ *\\{(column_break|colb)(:(text|lyrics))? *\\}",Qt::CaseInsensitive);
     QRegExp CoverTitleREX("^ *\\{*(?:covertitle|ct): *([^}]+)\\}",Qt::CaseInsensitive);
     QRegExp CoverSubTitleREX("^ *\\{(?:coversubtitle|cs): *([^}]+)\\}",Qt::CaseInsensitive);
     QRegExp SubTitleREX("^ *\\{(?:subtitle|st): *([^}]+)\\}",Qt::CaseInsensitive);
@@ -83,7 +84,8 @@ void Processor::run()
         }
         else if ( line.contains(ColumnBreakREX) )
         {
-            setColBreak();
+
+            setColBreak(line);
         }
         else if ( line.contains(CoverTitleREX) )
         {
@@ -333,6 +335,24 @@ void Processor::newPage()
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
  }
 
+void Processor::doColumnBreak(QString line)
+{
+    QRegExp ColumnBreakREX("^ *\\{(column_break|colb) *\\}",Qt::CaseInsensitive);
+    if ( line.contains(ColumnBreakREX))
+    {
+        if ( m_colnumber > 1 && currentColumn() < m_colnumber  )
+              {
+                m_column = nextColumn( currentColumn() ) ;
+                m_line=m_initialhposition;
+              }
+            else
+            {
+                if (m_tocpages.count() != 0)
+                    m_tocpages[m_tocpages.keys().last()]++;
+                newPage();
+            }
+    }
+}
 
 void Processor::displayLyrics()
 {
@@ -347,17 +367,25 @@ void Processor::displayLyrics()
         if ( ! text.isEmpty() )
         {
             text.replace(QRegExp("\\[[^]]+\\]"),"") ;
-            Text(m_document,text,m_column,m_line,m_uiconfig->toolButtonNormalFont);
+            if ( isColBreak(text))
+                doColumnBreak(text);
+            else
+                Text(m_document,text,m_column,m_line,m_uiconfig->toolButtonNormalFont);
         }
         NextLine();
     }
+}
+
+bool Processor::isColBreak(QString line)
+{
+    return ( line.contains(QRegExp("^ *\\{(column_break|colb)",Qt::CaseInsensitive)));
 }
 
 void Processor::NextLine(int num )
 {
     if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2+num;
-    else if ( currentColumn() < m_colnumber )
+    else if ( m_colnumber > 1 && currentColumn() < m_colnumber  )
       {
         m_column = nextColumn( currentColumn() ) ;
         m_line=m_initialhposition;
@@ -375,12 +403,12 @@ int Processor::currentColumn()
 {
   int c=1;
   while (c * m_uiconfig->spuPageWidth->getPdfU()/m_colnumber < m_column ) c++;
-  return c-1;
+  return c;
 }
 
 int Processor::nextColumn( int colnumber)
 {
-    return ( m_uiconfig->spuPageWidth->getPdfU()*(colnumber+1)/m_colnumber +m_uiconfig->spuHorizontalMargin->getPdfU());
+    return ( m_uiconfig->spuPageWidth->getPdfU()*(colnumber)/m_colnumber +m_uiconfig->spuHorizontalMargin->getPdfU());
 }
 
 void Processor::Cover(QString title, QString subtitle)
@@ -441,9 +469,9 @@ void Processor::displayPageTitle()
 }
 
 
-void Processor::setColBreak()
+void Processor::setColBreak(QString line)
 {
-
+       m_BufLyrics<<line;
 }
 
 void Processor::save()

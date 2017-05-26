@@ -12,7 +12,7 @@ using namespace PoDoFo;
 
 ProcessorLyrics::ProcessorLyrics(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Processor(ui1,ui2)
 {
-
+    m_mode="lyrics";
 }
 
 void ProcessorLyrics::displayChordsForSong()
@@ -45,6 +45,9 @@ void ProcessorLyrics::displayLyrics()
         int num=0;
         if ( ! text.isEmpty() )
         {
+          if ( isColBreak(text)) doColumnBreak(text);
+          else
+          {
           int col=m_column;
           QRegExp chordexp("([^[]*)\\[([^]]*)\\](.*)");
           while  ( text.indexOf(chordexp)!=-1)
@@ -71,7 +74,28 @@ void ProcessorLyrics::displayLyrics()
             text=chordexp.cap(3);
           }
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
+          }
         }
         NextLine(num);
     }
+}
+
+void ProcessorLyrics::doColumnBreak(QString line)
+{
+    QRegExp ColumnBreakREX("^ *\\{(column_break|colb)(:lyrics) *\\}",Qt::CaseInsensitive);
+    if ( line.contains(ColumnBreakREX))
+    {
+        if ( m_colnumber > 1 && currentColumn() < m_colnumber  )
+              {
+                m_column = nextColumn( currentColumn() ) ;
+                m_line=m_initialhposition;
+              }
+            else
+            {
+                if (m_tocpages.count() != 0)
+                    m_tocpages[m_tocpages.keys().last()]++;
+                newPage();
+            }
+    }
+
 }

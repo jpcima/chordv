@@ -22,6 +22,8 @@ class Processor : public QObject
     Q_OBJECT
 
 
+
+
 public:
     enum Align {left,center,right};
     Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
@@ -51,7 +53,8 @@ public:
     virtual void doChords();
     virtual void displayChordsForSong();
     virtual void displayPageTitle();
-    virtual void setColBreak();
+    virtual void setColBreak(QString line);
+    virtual void doColumnBreak(QString line);
     virtual void save();
     virtual void addFooter();
     ///
@@ -209,6 +212,12 @@ protected:
     int m_nbrealpages;
 
     int m_positiontoc;
+
+    ///
+    /// \brief m_mode : generic, text, lyrics, memory, chord
+    ///
+    QString m_mode;
+
     double TitlePosition();
     double ImagePosition();
     ///
@@ -275,6 +284,7 @@ protected:
     void displayChord(QString chord, int &line, int &column,int size,QString lang);
     virtual  void displayRytm();
     virtual void displayBpm();
+    bool isColBreak(QString line);
 };
 
 #endif // PROCESSOR_H
