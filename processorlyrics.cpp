@@ -93,7 +93,7 @@ void ProcessorLyrics::doColumnBreak(QString line)
             else
             {
                 if (m_tocpages.count() != 0)
-                    m_tocpages[m_tocpages.keys().last()]++;
+                    m_tocpages[m_title]++;
                 newPage();
             }
     }

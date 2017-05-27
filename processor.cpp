@@ -348,7 +348,7 @@ void Processor::doColumnBreak(QString line)
             else
             {
                 if (m_tocpages.count() != 0)
-                    m_tocpages[m_tocpages.keys().last()]++;
+                    m_tocpages[m_title]++;
                 newPage();
             }
     }
@@ -370,8 +370,12 @@ void Processor::displayLyrics()
             if ( isColBreak(text))
                 doColumnBreak(text);
             else
+            {
                 Text(m_document,text,m_column,m_line,m_uiconfig->toolButtonNormalFont);
+                NextLine();
+            }
         }
+        else
         NextLine();
     }
 }
@@ -393,7 +397,11 @@ void Processor::NextLine(int num )
     else
     {
         if (m_tocpages.count() != 0)
-            m_tocpages[m_tocpages.keys().last()]++;
+        {
+            qDebug()<<m_title<<m_tocpages<<m_tocpages.keys().last();
+            m_tocpages[m_title]++;
+            qDebug()<<m_tocpages;
+        }
         newPage();
     }
 }
@@ -598,7 +606,7 @@ void Processor::addTocAtBegining()
          {
              m_line=lineinit;
              colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
-             m_tocpages[m_tocpages.keys().last()]++;
+             m_tocpages[m_title]++;
              if ( m_pageAllocation)  FinishPage(&m_painter);
              toc=m_document->InsertPage(*m_dimension,position);
              position++;
@@ -658,7 +666,7 @@ void Processor::addTocAtEnd()
          {
              m_line=lineinit;
              colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
-             m_tocpages[m_tocpages.keys().last()]++;
+             m_tocpages[m_title]++;
              if ( m_pageAllocation)  FinishPage(&m_painter);
              toc=m_document->CreatePage(*m_dimension);
              m_painter.SetPage(toc);

@@ -6,7 +6,6 @@ Lyrics mode :
 
 1- Chorus with diagram : horizontal space wrong
 2- End of chorus to keep or delete ?
-3- If song on many pages, followed are squeezed on each mode !
 4- if diagram chord are to neiboored the are hover displayed
 5 - in diagram inside text mode add some blank line before the first line
 6 - On jean le Libertin chord problem
@@ -16,7 +15,6 @@ Lyrics mode :
 - When toc is at begining page number start +1
 - Toc end : first page0 in Toc .
 - Toc end : click on page in page must go on Toc no on first page
-
 
 
 
