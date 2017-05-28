@@ -15,6 +15,7 @@ private:
     void displayLyrics();
     void includeEor(){}
     void doColumnBreak(QString line);
+
 };
 
 #endif // PROCESSORLYRICS_H

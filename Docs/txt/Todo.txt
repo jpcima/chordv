@@ -9,7 +9,7 @@ Lyrics mode :
 4- if diagram chord are to neiboored the are hover displayed
 5 - in diagram inside text mode add some blank line before the first line
 6 - On jean le Libertin chord problem
-7 - Toc page number don't count multiple pages
+
 
 - When toc is at end clic on toc go to page 1
 - When toc is at begining page number start +1

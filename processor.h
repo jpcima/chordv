@@ -24,6 +24,8 @@ class Processor : public QObject
 
 
 
+
+
 public:
     enum Align {left,center,right};
     Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
@@ -34,6 +36,7 @@ public:
     virtual void setColNumber(int columber);
     virtual void setBpm(int bpm);
     virtual void setRytm(QString rythm);
+    virtual bool isChorus(QString text);
     void setCoverMade(bool status){m_covermade=status;}
     bool getCoverMade(){return m_covermade ;}
     virtual void setCoverTitle(QString covertitle);
@@ -270,6 +273,7 @@ protected:
     /// \param line the line read
     ///
     void memorizeChords(QString line);
+    int m_oldcol;
 signals:
     void PDFMade( QString file);
 protected:
@@ -285,6 +289,7 @@ protected:
     virtual  void displayRytm();
     virtual void displayBpm();
     bool isColBreak(QString line);
+    void BufLyricsNormailisation();
 };
 
 #endif // PROCESSOR_H

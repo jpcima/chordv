@@ -9,6 +9,7 @@
 #include <QFileInfo>
 #include <QtMath>
 #include <QDir>
+#include <QStringList>
 
 
 using namespace PoDoFo;
@@ -356,6 +357,7 @@ void Processor::doColumnBreak(QString line)
 
 void Processor::displayLyrics()
 {
+    BufLyricsNormailisation();
     if ( m_firstline )
     {
         m_firstline=false;
@@ -380,6 +382,14 @@ void Processor::displayLyrics()
     }
 }
 
+
+bool Processor::isChorus(QString text)
+{
+    QString emptyifchorus=text;
+    emptyifchorus.replace(QRegExp("\\[[^]]+\\]"),"").replace(" ","") ;
+    return emptyifchorus.isEmpty();
+}
+
 bool Processor::isColBreak(QString line)
 {
     return ( line.contains(QRegExp("^ *\\{(column_break|colb)",Qt::CaseInsensitive)));
@@ -392,15 +402,15 @@ void Processor::NextLine(int num )
     else if ( m_colnumber > 1 && currentColumn() < m_colnumber  )
       {
         m_column = nextColumn( currentColumn() ) ;
+        m_oldcol=-1000;
         m_line=m_initialhposition;
       }
     else
     {
+        m_oldcol=-1000;
         if (m_tocpages.count() != 0)
         {
-            qDebug()<<m_title<<m_tocpages<<m_tocpages.keys().last();
             m_tocpages[m_title]++;
-            qDebug()<<m_tocpages;
         }
         newPage();
     }
@@ -967,5 +977,22 @@ void Processor::displayRytm()
 
 void Processor::displayBpm()
 {
+
+}
+
+
+void Processor::BufLyricsNormailisation()
+{
+    int i=0;
+    int max=m_BufLyrics.count();
+    QStringList out;
+    foreach ( QString text , m_BufLyrics)
+    {
+        if ( text.contains(QRegExp("^ +$"))) text.clear();
+        if ( !(text.isEmpty() && i!=max-1 &&  m_BufLyrics.at(i+1).isEmpty()))
+            out<<text;
+    }
+    m_BufLyrics=out;
+    while ( m_BufLyrics.last().isEmpty() && m_BufLyrics.count()!=1) m_BufLyrics.takeLast();
 
 }
