@@ -2,14 +2,14 @@
 Bug
 ----
 
-Lyrics mode :
+Lyrics mo:
 
-1- Chorus with diagram : horizontal space wrong
-2- End of chorus to keep or delete ?
-4- if diagram chord are to neiboored the are hover displayed
-5 - in diagram inside text mode add some blank line before the first line
+2- End of chorus to keep or delete
 6 - On jean le Libertin chord problem
-
+7 - Diagram in text : Chorus and Refrain add enough vertical space
+8 - Diagram in text : respect of column
+9 - Diagram in text : respect of page size
+10-
 
 - When toc is at end clic on toc go to page 1
 - When toc is at begining page number start +1

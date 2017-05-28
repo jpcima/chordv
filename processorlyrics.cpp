@@ -85,6 +85,10 @@ void ProcessorLyrics::displayLyrics()
                }
             text=chordexp.cap(3);
            }
+          if ( text ==tr("Refrain :") || text ==tr("Chorus :"))
+          {
+              num = m_uiconfig->spuChordHorizontalSize->getPdfU();
+          }
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
           }
           else
