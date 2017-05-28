@@ -6,10 +6,10 @@ Lyrics mo:
 
 2- End of chorus to keep or delete
 6 - On jean le Libertin chord problem
-7 - Diagram in text : Chorus and Refrain add enough vertical space
+
 8 - Diagram in text : respect of column
 9 - Diagram in text : respect of page size
-10-
+12 -BreaklIne suppressed in Bologne
 
 - When toc is at end clic on toc go to page 1
 - When toc is at begining page number start +1

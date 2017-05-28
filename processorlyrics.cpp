@@ -85,7 +85,7 @@ void ProcessorLyrics::displayLyrics()
                }
             text=chordexp.cap(3);
            }
-          if ( text ==tr("Refrain :") || text ==tr("Chorus :"))
+          if ( (text ==tr("Refrain :") || text ==tr("Chorus :")) && m_uiconfig->comboBoxChordInText->currentIndex()==0)
           {
               num = m_uiconfig->spuChordHorizontalSize->getPdfU();
           }
