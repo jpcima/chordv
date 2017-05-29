@@ -26,7 +26,7 @@ void ProcessorChord::displayLyrics()
         m_nbBeatPerBar=4;
     else
         m_nbBeatPerBar=m_rythm.split("/").at(1).toInt();
-
+  //  m_nbBeatPerBar/=4;
     m_h=80;
     m_w=100;
     m_x0=m_uiconfig->spuHorizontalMargin->getPdfU();
@@ -37,18 +37,19 @@ void ProcessorChord::displayLyrics()
     qDebug()<<m_title;
     foreach ( QString line, m_BufLyrics)
     {
+        if ( line =="SOC" || line=="EOC" || line =="SOR" || line == "EOR" || nbeat>m_nbBeatPerBar )
+        {
+            nbeat=0;
+        }
         while (line.indexOf(regChord)!=-1)
         {
             QString ch=regChord.cap(2);
-            if ( line =="SOC" || line=="EOC" || line =="SOR" || line == "EOR" || nbeat>m_nbBeatPerBar )
-            {
-                nbeat=0;
-            }
+
             Chord chord(ch,m_uimainwindow->comboBoxChordLanguage->currentData().toString());
             if ( chord.nbBeat() >=1 )
             {
               m_beats[chord.nameEnglish()]=chord.nbBeat();
-              if ( !m_beats.isEmpty() && CompleteBeats() )
+              if ( !m_beats.isEmpty()  )
               {
                 QStringList vallist;
                 foreach ( QString k, m_beats.keys())  vallist<<QString("%1:%2").arg(k).arg(m_beats[k]);
@@ -63,11 +64,12 @@ void ProcessorChord::displayLyrics()
                 }
               }
             }
-            else if (chord.nbNote()>=1 )
+            else if (chord.nbBar()>=1 )
             {
-                for ( int note=1; note<chord.nbNote(); note ++)
+                for ( int note=1; note<=chord.nbBar(); note ++)
                 {
-                   m_bar<<chord.nameEnglish();
+                   if ( note == 1 ) m_bar<<chord.nameEnglish();
+                   else m_bar<<"%";
                    nbeat++;
                    if (nbeat==m_nbBeatPerBar)
                    {
@@ -76,10 +78,6 @@ void ProcessorChord::displayLyrics()
                        m_bar.clear();
                    }
                 }
-            }
-            else if  ( chord.nbBar()>=1 )
-            {
-
             }
 //            Text(m_document,chord.nameEnglish(),col,m_line,m_uiconfig->toolButtonChordFont);
 //            col+=10;

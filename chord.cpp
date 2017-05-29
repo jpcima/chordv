@@ -14,16 +14,15 @@
 Chord::Chord(QString chord, QString lang):QString(chord)
 {
  m_originalchord=chord;
- m_nbnote=m_nbbeat=m_nbbar=0;
+ m_nbbeat=0;
+ m_nbbar=1;
  m_lang=lang;
  QRegExp exp("([^xX:]*)([Xx:]?)([0-9]*)");
  QRegExp par("([^(]+)");
  if ( chord.contains(exp))
  {
      if ( exp.cap(2)=="x")
-        m_nbnote=exp.cap(3).toInt();
-     else if ( exp.cap(2)=="X")
-        m_nbbar=exp.cap(3).toInt() ;
+        m_nbbar=exp.cap(3).toInt();
      else if (exp.cap(3) == ":")
         m_nbbeat=exp.cap(3).toInt();
      m_purechordLocale=exp.cap(1);
@@ -76,11 +75,6 @@ int Chord::nbBar()
 int Chord::nbBeat()
 {
     return m_nbbeat;
-}
-
-int Chord::nbNote()
-{
-    return m_nbnote;
 }
 
 QStringList Chord::toStrings()
