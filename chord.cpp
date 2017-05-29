@@ -14,7 +14,7 @@
 Chord::Chord(QString chord, QString lang):QString(chord)
 {
  m_originalchord=chord;
- m_nbnote=m_nbbeat=m_nbbar=1;
+ m_nbnote=m_nbbeat=m_nbbar=0;
  m_lang=lang;
  QRegExp exp("([^xX:]*)([Xx:]?)([0-9]*)");
  QRegExp par("([^(]+)");
