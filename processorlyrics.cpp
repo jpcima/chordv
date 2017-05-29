@@ -67,7 +67,8 @@ void ProcessorLyrics::displayLyrics()
             Chord ch(chordexp.cap(2),m_uimainwindow->comboBoxChordLanguage->currentData().toString());
             QString t1=chordexp.cap(1);
             Text(m_document,t1,col,m_line,m_uiconfig->toolButtonNormalFont);
-            col+=pfont->GetFontMetrics()->StringWidth(PdfString (t1.toLatin1()));
+            //col+=pfont->GetFontMetrics()->StringWidth(PdfString (t1.toLatin1()));
+            addCol(col,pfont->GetFontMetrics()->StringWidth(PdfString (t1.toLatin1())));
             if (  m_uiconfig->comboBoxChordInText->currentIndex()!= FormConfig::DiagramInText)
                {
                 num=m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
@@ -79,7 +80,8 @@ void ProcessorLyrics::displayLyrics()
                 num = m_uiconfig->spuChordHorizontalSize->getPdfU();
                 int line1=m_line+num;
                 int col1=col-m_uiconfig->spuChordHorizontalSize->getPdfU()/2;
-                while ( col1 -m_oldcol <m_uiconfig->spuChordHorizontalSize->getPdfU()/6) col1+=m_uiconfig->spuChordHorizontalSize->getPdfU()/6;
+                //while ( col1 -m_oldcol <m_uiconfig->spuChordHorizontalSize->getPdfU()/6) col1+=m_uiconfig->spuChordHorizontalSize->getPdfU()/6;
+              addCol(col1,m_uiconfig->spuChordHorizontalSize->getPdfU()/6);
                 displayChord(ch.chord(),line1,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
                 m_oldcol=col1;
                }
@@ -101,7 +103,9 @@ void ProcessorLyrics::displayLyrics()
                    num=m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
                    QString c1=m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale();
                    Text(m_document,c1,col,m_line,m_uiconfig->toolButtonChordFont);
-                   col+=cfont->GetFontMetrics()->StringWidth(PdfString ((c1+"  ").toLatin1()));
+                   //int col2=col+cfont->GetFontMetrics()->StringWidth(PdfString ((c1+"  ").toLatin1()));
+                   //col+=col2 ;
+                    addCol(col,cfont->GetFontMetrics()->StringWidth(PdfString ((c1+"  ").toLatin1())));
                   }
                else
                   {

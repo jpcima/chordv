@@ -290,6 +290,7 @@ protected:
     virtual void displayBpm();
     bool isColBreak(QString line);
     void BufLyricsNormailisation();
+    void addCol(int &col, int num);
 };
 
 #endif // PROCESSOR_H

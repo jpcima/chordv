@@ -396,14 +396,16 @@ bool Processor::isColBreak(QString line)
 
 void Processor::NextLine(int num )
 {
-    if ( m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
+    if (  m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
+    {
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2+num;
+    }
     else if ( m_colnumber > 1 && currentColumn() < m_colnumber  )
-      {
-        m_column = nextColumn( currentColumn() ) ;
+   {
+        m_column = nextColumn(currentColumn()) ;
         m_oldcol=-1000;
         m_line=m_initialhposition;
-      }
+    }
     else
     {
         m_oldcol=-1000;
@@ -960,10 +962,11 @@ void Processor::displayChord(QString ch,int &line, int &column,int size, QString
         string++;
     }
     column+=size;
+    // PB NOT COL COMPLIENT
     if ( column +size > m_uiconfig->spuPageWidth->getPdfU() - m_uiconfig->spuHorizontalMargin->getPdfU())
     {
-
         column = m_uiconfig->spuHorizontalMargin->getPdfU();
+        // TEST IF ENOUGH PLACE
         line=line-size;
     }
 }
@@ -987,11 +990,38 @@ void Processor::BufLyricsNormailisation()
     QStringList out;
     foreach ( QString text , m_BufLyrics)
     {
-        if ( text.contains(QRegExp("^ +$"))) text.clear();
-        if ( !(text.isEmpty() && i!=max-1 &&  m_BufLyrics.at(i+1).isEmpty()))
+
+        //if ( text.contains(QRegExp("^ +$"))) text.replace(QRegExp(" +"),"");
+        if ( text.isEmpty() && i!=max-1 && m_BufLyrics.at(i+1).isEmpty())
+         ;
+        else
             out<<text;
+        i++;
     }
     m_BufLyrics=out;
     while ( m_BufLyrics.last().isEmpty() && m_BufLyrics.count()!=1) m_BufLyrics.takeLast();
+}
+
+
+void Processor::addCol(int &col, int num)
+{
+  if ( m_colnumber == 1  && col + num < m_uiconfig->spuPageWidth->getPdfU()-m_uiconfig->spuHorizontalMargin->getPdfU())
+  {
+      col+=num;
+  }
+  else if ( m_colnumber == 1 )
+  {
+     NextLine(num);
+     col=m_column;
+  }
+  else if ( m_colnumber > 1 &&  col+num < nextColumn(currentColumn()) )
+  {
+      col+=num;
+  }
+  else
+  {
+     NextLine(num);
+     col=m_column;
+  }
 
 }
