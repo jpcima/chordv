@@ -17,13 +17,13 @@ Chord::Chord(QString chord, QString lang):QString(chord)
  m_nbbeat=0;
  m_nbbar=1;
  m_lang=lang;
- QRegExp exp("([^xX:]*)([Xx:]?)([0-9]*)");
+ QRegExp exp("([^x:]*)([x:]?)([0-9]*)");
  QRegExp par("([^(]+)");
  if ( chord.contains(exp))
  {
      if ( exp.cap(2)=="x")
         m_nbbar=exp.cap(3).toInt();
-     else if (exp.cap(3) == ":")
+     else if (exp.cap(2) == ":")
         m_nbbeat=exp.cap(3).toInt();
      m_purechordLocale=exp.cap(1);
  }

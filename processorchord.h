@@ -31,6 +31,8 @@ private:
     int m_h;
     int m_x0;
     int m_y0;
+    int m_vm;
+    int m_vm0;
     int m_fontchordsize;
     int m_barsperline;
     int m_position;

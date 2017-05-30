@@ -22,13 +22,14 @@ ProcessorChord::ProcessorChord(Ui::MainWindow *ui1, Ui::FormConfig *ui2):Process
 
 void ProcessorChord::displayLyrics()
 {
+    m_vm0=10;
+    m_vm=0;
     if ( !m_rythm.contains("/"))
         m_nbBeatPerBar=4;
     else
         m_nbBeatPerBar=m_rythm.split("/").at(1).toInt();
     m_barsperline=4;
-
-    m_fontchordsize=m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
+    m_fontchordsize=m_uiconfig->toolButtonChordFont->getFont().pointSize();
     m_position=1;
     m_w=m_fontchordsize*3;
     m_h=m_fontchordsize*2;
@@ -133,22 +134,22 @@ void ProcessorChord::displayBpm()
 
 void ProcessorChord::DisplayBars(QStringList ch, int position)
 {
-    m_painter.Rectangle(m_x0,m_y0-(position-1)*m_h,m_w*m_barsperline,m_h);
-    m_painter.Stroke();
-   for ( int i=1 ; i <=m_barsperline ;i++)
+  m_painter.Rectangle(m_x0,m_y0-(position-1)*m_h-m_vm,m_w*m_barsperline,m_h);
+  m_painter.Stroke();
+  for ( int i=1 ; i <=m_barsperline ;i++)
    {
-       m_painter.DrawLine(m_x0+i*m_w*m_barsperline,m_y0-(position-1)*m_h,
-                                  m_x0+i*m_w*m_barsperline,m_y0-(position)*m_h);
-       qDebug()<< m_x0+i*m_w*m_barsperline<<m_y0-(position-1)*m_h<<m_x0+i*m_w*m_barsperline<<m_y0-(position)*m_h;
+       m_painter.DrawLine(m_x0+i*m_w,m_y0-(position-2)*m_h-m_vm,
+                          m_x0+i*m_w,m_y0-(position-1)*m_h-m_vm);
    }
-    int i=0;
-    foreach ( QString c, ch)
-     {
-        double x=m_x0+(position+i+0.5)*m_w;
-        double y=m_y0+i*m_h;
-        i++;
-        Text(m_document,c,x,y,m_uiconfig->toolButtonChordFont,center);
-     }
+  int i=0;
+  foreach ( QString c, ch)
+   {
+      double x=m_x0+(i+0.5)*m_w;
+      double y=m_y0-(position -1.33)*m_h-m_vm;
+      i++;
+      Text(m_document,c,x,y,m_uiconfig->toolButtonChordFont,center);
+   }
+  m_vm+=m_vm0;
 }
 
 
