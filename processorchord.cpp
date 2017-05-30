@@ -26,11 +26,14 @@ void ProcessorChord::displayLyrics()
         m_nbBeatPerBar=4;
     else
         m_nbBeatPerBar=m_rythm.split("/").at(1).toInt();
-  //  m_nbBeatPerBar/=4;
-    m_h=80;
-    m_w=100;
-    m_x0=m_uiconfig->spuHorizontalMargin->getPdfU();
-    m_y0=m_initialhposition;
+    m_barsperline=4;
+
+    m_fontchordsize=m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
+    m_position=1;
+    m_w=m_fontchordsize*3;
+    m_h=m_fontchordsize*2;
+    m_x0=m_uiconfig->spuPageWidth->getPdfU()/3;
+    m_y0=m_uiconfig->spuPageHeight->getPdfU()/2;
     int nbeat=0;
     int col=10;
     QRegExp regChord("([^[]*)\\[([^]]+)\\](.*)",Qt::CaseInsensitive);
@@ -58,7 +61,8 @@ void ProcessorChord::displayLyrics()
                 nbeat++;
                 if (nbeat==m_nbBeatPerBar)
                 {
-                    qDebug()<<m_bar;
+                    DisplayBars(m_bar,m_position);
+                    m_position++;
                     nbeat=0;
                     m_bar.clear();
                 }
@@ -73,7 +77,8 @@ void ProcessorChord::displayLyrics()
                    nbeat++;
                    if (nbeat==m_nbBeatPerBar)
                    {
-                       qDebug()<<m_bar;
+                       DisplayBars(m_bar,m_position);
+                       m_position++;
                        nbeat=0;
                        m_bar.clear();
                    }
@@ -126,15 +131,24 @@ void ProcessorChord::displayBpm()
 }
 
 
-void ProcessorChord::Rectangle(QStringList ch,int type, int positionx,int positiony)
+void ProcessorChord::DisplayBars(QStringList ch, int position)
 {
-    m_painter.Rectangle(m_x0+(positionx-1)*m_w,m_y0+(positiony-1)*m_h,m_w,m_h);
-    if ( type==1) m_painter.DrawText(m_x0+(positionx-1)*m_w/2,m_y0+(positiony-1)*m_h/2,
-                                     PdfString(ch.at(0).toLocal8Bit()));
-    else if ( type == 2 )
-    {
-        m_painter.DrawLine(m_x0+(positionx-1)*m_w,m_y0+(positiony-1)*m_h,m_x0+positionx*m_w,m_y0+positiony*m_h);
-    }
+    m_painter.Rectangle(m_x0,m_y0-(position-1)*m_h,m_w*m_barsperline,m_h);
+    m_painter.Stroke();
+   for ( int i=1 ; i <=m_barsperline ;i++)
+   {
+       m_painter.DrawLine(m_x0+i*m_w*m_barsperline,m_y0-(position-1)*m_h,
+                                  m_x0+i*m_w*m_barsperline,m_y0-(position)*m_h);
+       qDebug()<< m_x0+i*m_w*m_barsperline<<m_y0-(position-1)*m_h<<m_x0+i*m_w*m_barsperline<<m_y0-(position)*m_h;
+   }
+    int i=0;
+    foreach ( QString c, ch)
+     {
+        double x=m_x0+(position+i+0.5)*m_w;
+        double y=m_y0+i*m_h;
+        i++;
+        Text(m_document,c,x,y,m_uiconfig->toolButtonChordFont,center);
+     }
 }
 
 

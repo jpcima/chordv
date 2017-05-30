@@ -31,11 +31,15 @@ private:
     int m_h;
     int m_x0;
     int m_y0;
-    void Rectangle(QStringList ch, int type,int positionx , int positiony);
+    int m_fontchordsize;
+    int m_barsperline;
+    int m_position;
+
     QMap <QString, int >m_beats;
     QStringList m_bar;
-
+    PoDoFo::PdfFont *m_chordfont;
     bool CompleteBeats();
-};
+    void DisplayBars(QStringList ch, int position);
+  };
 
 #endif // PROCESSORCHORD_H
