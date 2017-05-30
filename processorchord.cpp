@@ -38,7 +38,6 @@ void ProcessorChord::displayLyrics()
     int nbeat=0;
     int col=10;
     QRegExp regChord("([^[]*)\\[([^]]+)\\](.*)",Qt::CaseInsensitive);
-    qDebug()<<m_title;
     foreach ( QString line, m_BufLyrics)
     {
         if ( line =="SOC" || line=="EOC" || line =="SOR" || line == "EOR" || nbeat>m_nbBeatPerBar )
@@ -123,12 +122,12 @@ void ProcessorChord::includeEor()
 
 void ProcessorChord::displayRytm()
 {
-    //Processor::displayPageSubtitle(m_rythm);
+    Processor::displayPageSubtitle(m_rythm);
 }
 
 void ProcessorChord::displayBpm()
 {
-    //Text(m_document,QString("%1").arg(m_bpm),100,m_line,m_uiconfig->toolButtonSubtitleFont,right);
+    Text(m_document,QString("%1").arg(m_bpm),100,m_line,m_uiconfig->toolButtonSubtitleFont,right);
 }
 
 

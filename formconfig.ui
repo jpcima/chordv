@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>635</width>
+    <width>645</width>
     <height>472</height>
    </rect>
   </property>
@@ -20,17 +20,17 @@
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
        <string>Document</string>
       </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_29">
+      <layout class="QHBoxLayout" name="horizontalLayout_34">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_10">
+        <layout class="QVBoxLayout" name="verticalLayout_15">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_13">
+          <layout class="QHBoxLayout" name="horizontalLayout_33">
            <item>
             <widget class="QGroupBox" name="groupBoxPageSize">
              <property name="title">
@@ -98,9 +98,9 @@
              <property name="title">
               <string>Miscellaneous</string>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_33">
+             <layout class="QHBoxLayout" name="horizontalLayout_29">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_18">
+               <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_6">
                   <item>
@@ -197,6 +197,24 @@
                       <string>Duplex</string>
                      </property>
                     </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_13">
+                  <item>
+                   <widget class="QLabel" name="label_2">
+                    <property name="text">
+                     <string>Paper color</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="ColorButton" name="toolButton">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -805,6 +823,11 @@
    <class>VerticalSpacing</class>
    <extends>QComboBox</extends>
    <header location="global">verticalspacing.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ColorButton</class>
+   <extends>QToolButton</extends>
+   <header>colorbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

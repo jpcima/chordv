@@ -6,10 +6,22 @@ Lyrics mo:
 
 2- End of chorus to keep or delete
 6 - On jean le Libertin chord problem
-
 8 - Diagram in text : respect of column
 9 - Diagram in text : respect of page size
 12 -BreaklIne suppressed in Bologne
+
+
+Chord :
+
+- don't print all 4 case but just case needed
+- print refrain and chorus
+- develop D:2 mode
+- print tempo, rythm
+- arrow
+- page number
+
+
+
 
 - When toc is at end clic on toc go to page 1
 - When toc is at begining page number start +1
