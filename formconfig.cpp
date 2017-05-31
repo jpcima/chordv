@@ -169,7 +169,14 @@ void FormConfig::setValue(QString var, QVariant value)
         }
 
     }
+   else if ( var.startsWith("colorButton"))
+    {
+       foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>(QString("colorButton")+var))
+            {
+                w->setColor(QColor(value.toString()));
+            }
 
+    }
    // else emit sendLog(QString ("Notice: (à finir) %1 => %2").arg(var).arg(value.toString()));
 
 }
@@ -234,6 +241,7 @@ void FormConfig::InitDefault(Classes c)
     ui->toolButtonTocFont->setBackgroundColor(QColor(s->value(QString("%1/TocFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s->value(QString("%1/PageNumberFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonCoverImage->setImage(s->value(QString("%1/CoverImage").arg(classe),"").toString());
+    ui->colorButtonPaperColor->setColor(s->value(QString("%1/PaperColor").arg(classe),"#FFFFFF").toString());
     delete s;
 }
 
@@ -306,7 +314,12 @@ void FormConfig::Save(QString filename, Classes classe)
          QString name=w->objectName().replace(tb,"");
          sf.setValue(QString("%1/%2").arg(section).arg(name),w->value());
     }
-
+    foreach (ColorButton *w ,m_parent->findChildren<ColorButton*>())
+    {
+         QRegExp tb("^colorButton");
+         QString name=w->objectName().replace(tb,"");
+         sf.setValue(QString("%1/%2").arg(section).arg(name),w->getColor());
+    }
     sf.sync();
 }
 
