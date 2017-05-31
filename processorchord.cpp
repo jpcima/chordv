@@ -82,7 +82,9 @@ void ProcessorChord::displayLyrics()
             }
           line=regChord.cap(3);
         }
+
     }
+    SubBar2Bar();
 }
 
 
