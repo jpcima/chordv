@@ -93,11 +93,6 @@ void ProcessorChord::displayLyrics()
 }
 
 
-void ProcessorChord::displayPageSubtitle( QString )
-{
-
-}
-
 void ProcessorChord::includeEoc()
 {
     m_BufLyrics<<"EOC";
@@ -120,14 +115,27 @@ void ProcessorChord::includeEor()
 }
 
 
-void ProcessorChord::displayRytm()
-{
-    Processor::displayPageSubtitle(m_rythm);
-}
 
 void ProcessorChord::displayBpm()
 {
-    Text(m_document,QString("%1").arg(m_bpm),100,m_line,m_uiconfig->toolButtonSubtitleFont,right);
+    m_subtitlenumber++;
+    if ( m_uiconfig->toolButtonSubtitleFont->getBackgroundColor() != m_uiconfig->colorButtonPaperColor->getColor())
+    {
+      m_painter.SetColor(m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().blueF());
+      m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
+                          m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()-m_subtitlenumber*m_uiconfig->toolButtonSubtitleFont->getFont().pointSize(),//*1.4-1,
+                          m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
+                          m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
+      m_painter.Fill();
+    }
+    m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize();
+    Text(m_document,tr("  Rythm : %1").arg(m_rythm),m_uiconfig->spuHorizontalMargin->getPdfU(),
+         m_line,
+         m_uiconfig->toolButtonSubtitleFont,left);
+    Text(m_document,tr("Bpm : %1  ").arg(m_bpm),m_uiconfig->spuPageWidth->getPdfU(),
+         m_line,
+         m_uiconfig->toolButtonSubtitleFont,right);
+
 }
 
 

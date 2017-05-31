@@ -78,3 +78,4 @@ QString Util::toRomain(int i)
     if ( i == 20 ) return "XX";
     return "I";
 }
+

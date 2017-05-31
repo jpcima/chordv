@@ -38,6 +38,7 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_text=m_uimainwindow->textEditCho3File->document()->toPlainText();
     m_nbrealpages=0;
     m_mode="generic";
+    m_subtitlenumber=0;
 }
 
 
@@ -122,7 +123,7 @@ void Processor::run()
             displayBpm();
             displayChordsForSong();
             displayLyrics();
-            displayTitle(title);
+            displayPageTitle(title);
             m_nbrealpages++;
 
 //            $MaxLine=$lyricsline=($ury-$lly)*190/210;
@@ -131,7 +132,6 @@ void Processor::run()
               m_BufChords.clear();
 //            $CurrentColor=$Config->{ChordBook}->{NormalColor};
 //            $vmargin=Util::convert($Config->{"LyricsBook"}->{MarginVertical});
-              displayPageTitle();
 //            $vmargin=$ury-$ury*192/200;
               setCompress(false);
         }
@@ -273,7 +273,7 @@ void Processor::includeChorus( QString line)
   m_BufLyrics<<line;
 }
 
-void Processor::displayTitle(QString title)
+void Processor::displayPageTitle( QString title)
 {
     newPage();
     m_NormalPages<<m_page->GetContents();
@@ -285,33 +285,34 @@ void Processor::displayTitle(QString title)
     {
       m_painter.SetColor(m_uiconfig->toolButtonTitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonTitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonTitleFont->getBackgroundColor().blueF());
       m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
-                        m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize(),
+                        m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize(),
                         m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
                         m_uiconfig->toolButtonTitleFont->getFont().pointSize());
       m_painter.Fill();
     }
-    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()*0.8;
-
+    m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()/1.4;//*0.8;
     Text(m_document,title,m_uiconfig->spuPageWidth->getPdfU()/2,
                m_line,
                m_uiconfig->toolButtonTitleFont,center);
     m_firstline=true;
+    m_subtitlenumber=0;
+    m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize()/1.8;
 }
-
 
 void Processor::displayPageSubtitle(QString subtitle)
 {
+  m_subtitlenumber++;
   m_subtitle=subtitle;
   if ( m_uiconfig->toolButtonSubtitleFont->getBackgroundColor() != m_uiconfig->colorButtonPaperColor->getColor())
   {
     m_painter.SetColor(m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().blueF());
     m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
-                        m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize(),
+                        m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()-m_subtitlenumber*m_uiconfig->toolButtonSubtitleFont->getFont().pointSize(),//*1.4-1,
                         m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
-                        m_uiconfig->spuPageHeight->getPdfU()-2*m_uiconfig->spuVerticalMargin->getPdfU()+m_uiconfig->toolButtonTitleFont->getFont().pointSize()+m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
+                        m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
     m_painter.Fill();
   }
-  m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize()*1.6;
+  m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize();
   Text(m_document,subtitle,m_uiconfig->spuPageWidth->getPdfU()/2,
        m_line,
        m_uiconfig->toolButtonSubtitleFont,center);
@@ -488,10 +489,6 @@ void Processor::displayChordsForSong()
 {
 }
 
-void Processor::displayPageTitle()
-{
-
-}
 
 
 void Processor::setColBreak(QString line)

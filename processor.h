@@ -49,13 +49,12 @@ public:
 
     // virtual e section
     virtual void newPage();
-    virtual void displayTitle(QString title );
+    virtual void displayPageTitle(QString titile);
     virtual void displayPageSubtitle( QString subtitle )  ;
     virtual void displayLyrics();
     virtual void Cover(QString title, QString subtitle);
     virtual void doChords();
     virtual void displayChordsForSong();
-    virtual void displayPageTitle();
     virtual void setColBreak(QString line);
     virtual void doColumnBreak(QString line);
     virtual void save();
@@ -274,6 +273,7 @@ protected:
     ///
     void memorizeChords(QString line);
     int m_oldcol;
+    int m_subtitlenumber;
 signals:
     void PDFMade( QString file);
 protected:

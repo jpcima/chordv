@@ -15,10 +15,8 @@ public:
     ProcessorChord(Ui::MainWindow *ui1, Ui::FormConfig *ui2);
 private:
     void displayLyrics();
-    void displayRytm();
     void displayBpm();
-    void displayPageSubtitle(QString);
-
+    void displayPageSubtitle(QString ){}
     void includeSoc();
     void includeEoc();
     void includeSoR();
