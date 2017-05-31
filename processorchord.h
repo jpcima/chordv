@@ -18,32 +18,28 @@ private:
     void displayBpm();
     void displayPageSubtitle(QString ){}
     void includeSoc();
-    void includeEoc();
-    void includeSoR();
-    void includeEoR();
-    int m_nbBeatPerBar;
     void includeSor();
-    void includeEor();
+    int m_nbBeatPerBar;
     void doColumnBreak(QString line){}
     int m_w;
     int m_h;
     int m_x0;
-    int m_y0;
+    ///
+    /// \brief m_vm vertical margin between two chord lines
+    ///
     int m_vm;
-    int m_vm0;
     int m_hm;
     int m_fontchordsize;
     int m_barsperline;
-    int m_position;
+    ///
+    /// \brief m_posx can be 1 2 3 4 ( if 4 = m_nbBeatPerBar )
+    ///
     int m_posx;
-    int m_posy;
 
     QMap <QString, int >m_beats;
-    QStringList m_bar;
     QStringList m_subbar;
     PoDoFo::PdfFont *m_chordfont;
     bool CompleteBeats(QStringList listchord,int nbbeat);
-    void DisplayBars(QStringList ch, int position);
     void DisplayBar(QString ch);
     void SubBar2Bar();
 };

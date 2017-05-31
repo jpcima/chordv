@@ -14,7 +14,9 @@ private:
     void displayChordsForSong();
     void displayLyrics();
     void includeEor(){}
+    void includeEoc(){}
     void doColumnBreak(QString line);
+
 
 };
 

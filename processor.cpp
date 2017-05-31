@@ -255,7 +255,7 @@ void Processor::includeSoc()
 
 void Processor::includeEoc()
 {
-
+    m_BufLyrics<<tr("End of chorus");
 }
 
 
@@ -266,6 +266,7 @@ void Processor::includeSor()
 
 void Processor::includeEor()
 {
+  m_BufLyrics<<tr("End of refrain");
 }
 
 void Processor::includeChorus( QString line)

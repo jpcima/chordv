@@ -1764,7 +1764,7 @@ chorus</translation>
         <translation></translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="750"/>
+        <location filename="processor.cpp" line="751"/>
         <source>Go to table of content</source>
         <translation>Aller à la table des matières</translation>
     </message>
@@ -1772,12 +1772,27 @@ chorus</translation>
 <context>
     <name>ProcessorChord</name>
     <message>
-        <location filename="processorchord.cpp" line="132"/>
+        <location filename="processorchord.cpp" line="52"/>
+        <source>Refrain :</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="processorchord.cpp" line="148"/>
+        <source>   Refrain :</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="processorchord.cpp" line="153"/>
+        <source>   Chorus :</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="processorchord.cpp" line="170"/>
         <source>  Rythm : %1</source>
         <translation>Rythme : %1</translation>
     </message>
     <message>
-        <location filename="processorchord.cpp" line="135"/>
+        <location filename="processorchord.cpp" line="173"/>
         <source>Bpm : %1  </source>
         <translation></translation>
     </message>
@@ -1827,8 +1842,8 @@ chorus</translation>
         <translation type="vanished">Fin du chorus</translation>
     </message>
     <message>
-        <location filename="processor.cpp" line="592"/>
-        <location filename="processor.cpp" line="651"/>
+        <location filename="processor.cpp" line="593"/>
+        <location filename="processor.cpp" line="652"/>
         <source>Table of content</source>
         <translation>Table des matières</translation>
     </message>
