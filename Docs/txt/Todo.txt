@@ -16,7 +16,6 @@ Chord :
 - don't print all 4 case but just case needed
 - print refrain and chorus
 - develop D:2 mode
-- print tempo, rythm
 - arrow
 - page number
 

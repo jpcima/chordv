@@ -316,6 +316,7 @@ void Processor::displayPageSubtitle(QString subtitle)
   Text(m_document,subtitle,m_uiconfig->spuPageWidth->getPdfU()/2,
        m_line,
        m_uiconfig->toolButtonSubtitleFont,center);
+  m_line-=m_uiconfig->toolButtonSubtitleFont->font().pointSize()*2;
 }
 
 void Processor::setSocMode(bool socmode)
@@ -779,7 +780,6 @@ double Processor::mm(int value)
 }
 
 
-
 double Processor::TitlePosition()
 {
     double factor;
@@ -1026,5 +1026,4 @@ void Processor::addCol(int &col, int num)
      NextLine(num);
      col=m_column;
   }
-
 }
