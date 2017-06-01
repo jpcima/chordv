@@ -4,10 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
+QT       += core gui sql widgets
 TARGET = chordV
 TEMPLATE = app
 
@@ -17,116 +14,116 @@ INSTALLS += target
 VERSION=$$system(git tag -l | head -1)
 FULLVERSION=$$system(git log -1 --format=format:%H)
 DATEUS=$$system(date +%Y/%m/%d)
-system(/bin/echo -e \\\x23ifndef VERSION_H >version.h)
-system(/bin/echo -e \\\x23define VERSION_H>>version.h)
-system(/bin/echo -e \\\x23define VERSION \\\"$$VERSION\\\">>version.h)
-system(/bin/echo -e \\\x23define FULLVERSION \\\"$$FULLVERSION\\\" >>version.h)
-system(/bin/echo -e \\\x23define DATEUS \\\"$$DATEUS\\\" >> version.h)
-system(/bin/echo -e \\\x23endif // VERSION_H >>version.h)
+system(/bin/echo -e \\\x23ifndef VERSION_H >include/version.h)
+system(/bin/echo -e \\\x23define VERSION_H>>include/version.h)
+system(/bin/echo -e \\\x23define VERSION \\\"$$VERSION\\\">>include/version.h)
+system(/bin/echo -e \\\x23define FULLVERSION \\\"$$FULLVERSION\\\" >>include/version.h)
+system(/bin/echo -e \\\x23define DATEUS \\\"$$DATEUS\\\" >> include/version.h)
+system(/bin/echo -e \\\x23endif // VERSION_H >>include/version.h)
 }
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
-    util.cpp \
-    formconfig.cpp \
-    lyricsconfig.cpp \
-    chordconfig.cpp \
-    textconfig.cpp \
-    fontchooser.cpp \
-    fontbutton.cpp \
-    fontdialog.cpp \
-    colorbutton.cpp \
-    lineedittest.cpp \
-    logmessages.cpp \
-    editorhighlighter.cpp \
-    imagebutton.cpp \
-    examplelabel.cpp \
-    pagesize.cpp \
-    processor.cpp \
-    dialogabout.cpp \
-    memoryconfig.cpp \
-    spinboxunit.cpp \
-    dialogconfiguration.cpp \
-    settings.cpp \
-    processortext.cpp \
-    verticalspacing.cpp \
-    dialogchorddefinition.cpp \
-    ChordDetector.cpp\
-    neck.cpp \
-    dialogsysteminfo.cpp \
-    chorddiagram.cpp \
-    dialogchoosegoodchord.cpp \
-    dialogsearch.cpp \
-    dialogreplace.cpp \
-    processorlyrics.cpp \
-    language.cpp \
-    chord.cpp \
-    langnotes.cpp \
-    pdfviewer.cpp \
-    dialogbar.cpp \
-    processorchord.cpp \
-    textedit.cpp
+SOURCES += src/main.cpp\
+        src/mainwindow.cpp \
+    src/util.cpp \
+    src/formconfig.cpp \
+    src/lyricsconfig.cpp \
+    src/chordconfig.cpp \
+    src/textconfig.cpp \
+    src/fontchooser.cpp \
+    src/fontbutton.cpp \
+    src/fontdialog.cpp \
+    src/colorbutton.cpp \
+    src/lineedittest.cpp \
+    src/logmessages.cpp \
+    src/editorhighlighter.cpp \
+    src/imagebutton.cpp \
+    src/examplelabel.cpp \
+    src/pagesize.cpp \
+    src/processor.cpp \
+    src/dialogabout.cpp \
+    src/memoryconfig.cpp \
+    src/spinboxunit.cpp \
+    src/dialogconfiguration.cpp \
+    src/settings.cpp \
+    src/processortext.cpp \
+    src/verticalspacing.cpp \
+    src/dialogchorddefinition.cpp \
+    src/ChordDetector.cpp\
+    src/neck.cpp \
+    src/dialogsysteminfo.cpp \
+    src/chorddiagram.cpp \
+    src/dialogchoosegoodchord.cpp \
+    src/dialogsearch.cpp \
+    src/dialogreplace.cpp \
+    src/processorlyrics.cpp \
+    src/language.cpp \
+    src/chord.cpp \
+    src/langnotes.cpp \
+    src/pdfviewer.cpp \
+    src/dialogbar.cpp \
+    src/processorchord.cpp \
+    src/textedit.cpp
 
-HEADERS  += mainwindow.h \
-    util.h \
-    formconfig.h \
-    lyricsconfig.h \
-    chordconfig.h \
-    textconfig.h \
-    fontchooser.h \
-    fontbutton.h \
-    fontdialog.h \
-    colorbutton.h \
-    lineedittest.h \
-    logmessages.h \
-    editorhighlighter.h \
-    imagebutton.h \
-    examplelabel.h \
-    pagesize.h \
-    processor.h \
-    dialogabout.h \
-    memoryconfig.h \
-    spinboxunit.h \
-    dialogconfiguration.h \
-    settings.h \
-    processortext.h \
-    const.h \
-    verticalspacing.h \
-    dialogchorddefinition.h \
-    ChordDetector.h \
-    neck.h \
-    dialogsysteminfo.h \
-    chorddiagram.h \
-    dialogchoosegoodchord.h \
-    dialogsearch.h \
-    dialogreplace.h \
-    processorlyrics.h \
-    language.h \
-    chord.h \
-    langnotes.h \
-    pdfviewer.h \
-    dialogbar.h \
-    processorchord.h \
-    textedit.h
+HEADERS  += include/mainwindow.h \
+    include/util.h \
+    include/formconfig.h \
+    include/lyricsconfig.h \
+    include/chordconfig.h \
+    include/textconfig.h \
+    include/fontchooser.h \
+    include/fontbutton.h \
+    include/fontdialog.h \
+    include/colorbutton.h \
+    include/lineedittest.h \
+    include/logmessages.h \
+    include/editorhighlighter.h \
+    include/imagebutton.h \
+    include/examplelabel.h \
+    include/pagesize.h \
+    include/processor.h \
+    include/dialogabout.h \
+    include/memoryconfig.h \
+    include/spinboxunit.h \
+    include/dialogconfiguration.h \
+    include/settings.h \
+    include/processortext.h \
+    include/const.h \
+    include/verticalspacing.h \
+    include/dialogchorddefinition.h \
+    include/ChordDetector.h \
+    include/neck.h \
+    include/dialogsysteminfo.h \
+    include/chorddiagram.h \
+    include/dialogchoosegoodchord.h \
+    include/dialogsearch.h \
+    include/dialogreplace.h \
+    include/processorlyrics.h \
+    include/language.h \
+    include/chord.h \
+    include/langnotes.h \
+    include/pdfviewer.h \
+    include/dialogbar.h \
+    include/processorchord.h \
+    include/textedit.h
 
-FORMS    += mainwindow.ui \
-    formconfig.ui \
-    fontchooser.ui \
-    dialogabout.ui \
-    dialogconfiguration.ui \
-    dialogchorddefinition.ui \
-    dialogsysteminfo.ui \
-    dialogchoosegoodchord.ui \
-    dialogsearch.ui \
-    dialogreplace.ui \
-    dialogbar.ui
+FORMS    += ui/mainwindow.ui \
+    ui/formconfig.ui \
+    ui/fontchooser.ui \
+    ui/dialogabout.ui \
+    ui/dialogconfiguration.ui \
+    ui/dialogchorddefinition.ui \
+    ui/dialogsysteminfo.ui \
+    ui/dialogchoosegoodchord.ui \
+    ui/dialogsearch.ui \
+    ui/dialogreplace.ui \
+    ui/dialogbar.ui
 
 LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
-INCLUDEPATH += /usr/local/include
+INCLUDEPATH += /usr/local/include ./include
 DEPENDPATH += /usr/local/include
 
 
-TRANSLATIONS=fr.ts
+TRANSLATIONS=translations/fr.ts
 
 DISTFILES += \
     Example/deuxdisques.png \
@@ -144,7 +141,8 @@ DISTFILES += \
     Docs/txt/ChoFormat_fr.txt
 
 RESOURCES += \
-    resources.qrc
+    Resources/resources.qrc \
+    ui/resources.qrc
 
 
 DESTDIR = bin

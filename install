@@ -7,7 +7,7 @@ LANGFILE=$CONF/Languages/Français
 mkdir -p $LANGFILE
 
 
-cp fr.qm $LANGFILE
-cp fr.ts $LANGFILE
+cp translations/fr.qm $LANGFILE
+cp translations/fr.ts $LANGFILE
 cp Images/fr.png $LANGFILE
 cp Bd/Chord.db $CONF

@@ -14,7 +14,7 @@
    <string>Chord V</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset>
     <normaloff>:/Image/Images/icon.png</normaloff>:/Image/Images/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -838,6 +838,9 @@ break</string>
    <property name="text">
     <string>Z&amp;oom - </string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
@@ -877,8 +880,6 @@ break</string>
    <header>textedit.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

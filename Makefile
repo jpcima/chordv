@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -isystem /usr/local/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtSql -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -Ibuild/moc -Ibuild/ui -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
+INCPATH       = -I. -isystem /usr/local/include -Iinclude -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtSql -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -Ibuild/moc -Ibuild/ui -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -48,47 +48,47 @@ OBJECTS_DIR   = build/obj/
 
 ####### Files
 
-SOURCES       = main.cpp \
-		mainwindow.cpp \
-		util.cpp \
-		formconfig.cpp \
-		lyricsconfig.cpp \
-		chordconfig.cpp \
-		textconfig.cpp \
-		fontchooser.cpp \
-		fontbutton.cpp \
-		fontdialog.cpp \
-		colorbutton.cpp \
-		lineedittest.cpp \
-		logmessages.cpp \
-		editorhighlighter.cpp \
-		imagebutton.cpp \
-		examplelabel.cpp \
-		pagesize.cpp \
-		processor.cpp \
-		dialogabout.cpp \
-		memoryconfig.cpp \
-		spinboxunit.cpp \
-		dialogconfiguration.cpp \
-		settings.cpp \
-		processortext.cpp \
-		verticalspacing.cpp \
-		dialogchorddefinition.cpp \
-		ChordDetector.cpp \
-		neck.cpp \
-		dialogsysteminfo.cpp \
-		chorddiagram.cpp \
-		dialogchoosegoodchord.cpp \
-		dialogsearch.cpp \
-		dialogreplace.cpp \
-		processorlyrics.cpp \
-		language.cpp \
-		chord.cpp \
-		langnotes.cpp \
-		pdfviewer.cpp \
-		dialogbar.cpp \
-		processorchord.cpp \
-		textedit.cpp build/rcc/qrc_resources.cpp \
+SOURCES       = src/main.cpp \
+		src/mainwindow.cpp \
+		src/util.cpp \
+		src/formconfig.cpp \
+		src/lyricsconfig.cpp \
+		src/chordconfig.cpp \
+		src/textconfig.cpp \
+		src/fontchooser.cpp \
+		src/fontbutton.cpp \
+		src/fontdialog.cpp \
+		src/colorbutton.cpp \
+		src/lineedittest.cpp \
+		src/logmessages.cpp \
+		src/editorhighlighter.cpp \
+		src/imagebutton.cpp \
+		src/examplelabel.cpp \
+		src/pagesize.cpp \
+		src/processor.cpp \
+		src/dialogabout.cpp \
+		src/memoryconfig.cpp \
+		src/spinboxunit.cpp \
+		src/dialogconfiguration.cpp \
+		src/settings.cpp \
+		src/processortext.cpp \
+		src/verticalspacing.cpp \
+		src/dialogchorddefinition.cpp \
+		src/ChordDetector.cpp \
+		src/neck.cpp \
+		src/dialogsysteminfo.cpp \
+		src/chorddiagram.cpp \
+		src/dialogchoosegoodchord.cpp \
+		src/dialogsearch.cpp \
+		src/dialogreplace.cpp \
+		src/processorlyrics.cpp \
+		src/language.cpp \
+		src/chord.cpp \
+		src/langnotes.cpp \
+		src/pdfviewer.cpp \
+		src/dialogbar.cpp \
+		src/processorchord.cpp \
+		src/textedit.cpp build/rcc/qrc_resources.cpp \
 		build/moc/moc_mainwindow.cpp \
 		build/moc/moc_formconfig.cpp \
 		build/moc/moc_lyricsconfig.cpp \
@@ -362,87 +362,87 @@ DIST          = Example/deuxdisques.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		chordV.pro mainwindow.h \
-		util.h \
-		formconfig.h \
-		lyricsconfig.h \
-		chordconfig.h \
-		textconfig.h \
-		fontchooser.h \
-		fontbutton.h \
-		fontdialog.h \
-		colorbutton.h \
-		lineedittest.h \
-		logmessages.h \
-		editorhighlighter.h \
-		imagebutton.h \
-		examplelabel.h \
-		pagesize.h \
-		processor.h \
-		dialogabout.h \
-		memoryconfig.h \
-		spinboxunit.h \
-		dialogconfiguration.h \
-		settings.h \
-		processortext.h \
-		const.h \
-		verticalspacing.h \
-		dialogchorddefinition.h \
-		ChordDetector.h \
-		neck.h \
-		dialogsysteminfo.h \
-		chorddiagram.h \
-		dialogchoosegoodchord.h \
-		dialogsearch.h \
-		dialogreplace.h \
-		processorlyrics.h \
-		language.h \
-		chord.h \
-		langnotes.h \
-		pdfviewer.h \
-		dialogbar.h \
-		processorchord.h \
-		textedit.h main.cpp \
-		mainwindow.cpp \
-		util.cpp \
-		formconfig.cpp \
-		lyricsconfig.cpp \
-		chordconfig.cpp \
-		textconfig.cpp \
-		fontchooser.cpp \
-		fontbutton.cpp \
-		fontdialog.cpp \
-		colorbutton.cpp \
-		lineedittest.cpp \
-		logmessages.cpp \
-		editorhighlighter.cpp \
-		imagebutton.cpp \
-		examplelabel.cpp \
-		pagesize.cpp \
-		processor.cpp \
-		dialogabout.cpp \
-		memoryconfig.cpp \
-		spinboxunit.cpp \
-		dialogconfiguration.cpp \
-		settings.cpp \
-		processortext.cpp \
-		verticalspacing.cpp \
-		dialogchorddefinition.cpp \
-		ChordDetector.cpp \
-		neck.cpp \
-		dialogsysteminfo.cpp \
-		chorddiagram.cpp \
-		dialogchoosegoodchord.cpp \
-		dialogsearch.cpp \
-		dialogreplace.cpp \
-		processorlyrics.cpp \
-		language.cpp \
-		chord.cpp \
-		langnotes.cpp \
-		pdfviewer.cpp \
-		dialogbar.cpp \
-		processorchord.cpp \
-		textedit.cpp
+		chordV.pro include/mainwindow.h \
+		include/util.h \
+		include/formconfig.h \
+		include/lyricsconfig.h \
+		include/chordconfig.h \
+		include/textconfig.h \
+		include/fontchooser.h \
+		include/fontbutton.h \
+		include/fontdialog.h \
+		include/colorbutton.h \
+		include/lineedittest.h \
+		include/logmessages.h \
+		include/editorhighlighter.h \
+		include/imagebutton.h \
+		include/examplelabel.h \
+		include/pagesize.h \
+		include/processor.h \
+		include/dialogabout.h \
+		include/memoryconfig.h \
+		include/spinboxunit.h \
+		include/dialogconfiguration.h \
+		include/settings.h \
+		include/processortext.h \
+		include/const.h \
+		include/verticalspacing.h \
+		include/dialogchorddefinition.h \
+		include/ChordDetector.h \
+		include/neck.h \
+		include/dialogsysteminfo.h \
+		include/chorddiagram.h \
+		include/dialogchoosegoodchord.h \
+		include/dialogsearch.h \
+		include/dialogreplace.h \
+		include/processorlyrics.h \
+		include/language.h \
+		include/chord.h \
+		include/langnotes.h \
+		include/pdfviewer.h \
+		include/dialogbar.h \
+		include/processorchord.h \
+		include/textedit.h src/main.cpp \
+		src/mainwindow.cpp \
+		src/util.cpp \
+		src/formconfig.cpp \
+		src/lyricsconfig.cpp \
+		src/chordconfig.cpp \
+		src/textconfig.cpp \
+		src/fontchooser.cpp \
+		src/fontbutton.cpp \
+		src/fontdialog.cpp \
+		src/colorbutton.cpp \
+		src/lineedittest.cpp \
+		src/logmessages.cpp \
+		src/editorhighlighter.cpp \
+		src/imagebutton.cpp \
+		src/examplelabel.cpp \
+		src/pagesize.cpp \
+		src/processor.cpp \
+		src/dialogabout.cpp \
+		src/memoryconfig.cpp \
+		src/spinboxunit.cpp \
+		src/dialogconfiguration.cpp \
+		src/settings.cpp \
+		src/processortext.cpp \
+		src/verticalspacing.cpp \
+		src/dialogchorddefinition.cpp \
+		src/ChordDetector.cpp \
+		src/neck.cpp \
+		src/dialogsysteminfo.cpp \
+		src/chorddiagram.cpp \
+		src/dialogchoosegoodchord.cpp \
+		src/dialogsearch.cpp \
+		src/dialogreplace.cpp \
+		src/processorlyrics.cpp \
+		src/language.cpp \
+		src/chord.cpp \
+		src/langnotes.cpp \
+		src/pdfviewer.cpp \
+		src/dialogbar.cpp \
+		src/processorchord.cpp \
+		src/textedit.cpp
 QMAKE_TARGET  = chordV
 DESTDIR       = bin/
 TARGET        = bin/chordV
@@ -628,7 +628,7 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		chordV.pro \
-		resources.qrc \
+		Resources/resources.qrc \
 		/usr/lib/x86_64-linux-gnu/libQt5Widgets.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5Gui.prl \
 		/usr/lib/x86_64-linux-gnu/libQt5Sql.prl \
@@ -807,7 +807,7 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf:
 chordV.pro:
-resources.qrc:
+Resources/resources.qrc:
 /usr/lib/x86_64-linux-gnu/libQt5Widgets.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Gui.prl:
 /usr/lib/x86_64-linux-gnu/libQt5Sql.prl:
@@ -826,11 +826,11 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.h util.h formconfig.h lyricsconfig.h chordconfig.h textconfig.h fontchooser.h fontbutton.h fontdialog.h colorbutton.h lineedittest.h logmessages.h editorhighlighter.h imagebutton.h examplelabel.h pagesize.h processor.h dialogabout.h memoryconfig.h spinboxunit.h dialogconfiguration.h settings.h processortext.h const.h verticalspacing.h dialogchorddefinition.h ChordDetector.h neck.h dialogsysteminfo.h chorddiagram.h dialogchoosegoodchord.h dialogsearch.h dialogreplace.h processorlyrics.h language.h chord.h langnotes.h pdfviewer.h dialogbar.h processorchord.h textedit.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp mainwindow.cpp util.cpp formconfig.cpp lyricsconfig.cpp chordconfig.cpp textconfig.cpp fontchooser.cpp fontbutton.cpp fontdialog.cpp colorbutton.cpp lineedittest.cpp logmessages.cpp editorhighlighter.cpp imagebutton.cpp examplelabel.cpp pagesize.cpp processor.cpp dialogabout.cpp memoryconfig.cpp spinboxunit.cpp dialogconfiguration.cpp settings.cpp processortext.cpp verticalspacing.cpp dialogchorddefinition.cpp ChordDetector.cpp neck.cpp dialogsysteminfo.cpp chorddiagram.cpp dialogchoosegoodchord.cpp dialogsearch.cpp dialogreplace.cpp processorlyrics.cpp language.cpp chord.cpp langnotes.cpp pdfviewer.cpp dialogbar.cpp processorchord.cpp textedit.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents mainwindow.ui formconfig.ui fontchooser.ui dialogabout.ui dialogconfiguration.ui dialogchorddefinition.ui dialogsysteminfo.ui dialogchoosegoodchord.ui dialogsearch.ui dialogreplace.ui dialogbar.ui $(DISTDIR)/
-	$(COPY_FILE) --parents fr.ts $(DISTDIR)/
+	$(COPY_FILE) --parents Resources/resources.qrc $(DISTDIR)/
+	$(COPY_FILE) --parents include/mainwindow.h include/util.h include/formconfig.h include/lyricsconfig.h include/chordconfig.h include/textconfig.h include/fontchooser.h include/fontbutton.h include/fontdialog.h include/colorbutton.h include/lineedittest.h include/logmessages.h include/editorhighlighter.h include/imagebutton.h include/examplelabel.h include/pagesize.h include/processor.h include/dialogabout.h include/memoryconfig.h include/spinboxunit.h include/dialogconfiguration.h include/settings.h include/processortext.h include/const.h include/verticalspacing.h include/dialogchorddefinition.h include/ChordDetector.h include/neck.h include/dialogsysteminfo.h include/chorddiagram.h include/dialogchoosegoodchord.h include/dialogsearch.h include/dialogreplace.h include/processorlyrics.h include/language.h include/chord.h include/langnotes.h include/pdfviewer.h include/dialogbar.h include/processorchord.h include/textedit.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/util.cpp src/formconfig.cpp src/lyricsconfig.cpp src/chordconfig.cpp src/textconfig.cpp src/fontchooser.cpp src/fontbutton.cpp src/fontdialog.cpp src/colorbutton.cpp src/lineedittest.cpp src/logmessages.cpp src/editorhighlighter.cpp src/imagebutton.cpp src/examplelabel.cpp src/pagesize.cpp src/processor.cpp src/dialogabout.cpp src/memoryconfig.cpp src/spinboxunit.cpp src/dialogconfiguration.cpp src/settings.cpp src/processortext.cpp src/verticalspacing.cpp src/dialogchorddefinition.cpp src/ChordDetector.cpp src/neck.cpp src/dialogsysteminfo.cpp src/chorddiagram.cpp src/dialogchoosegoodchord.cpp src/dialogsearch.cpp src/dialogreplace.cpp src/processorlyrics.cpp src/language.cpp src/chord.cpp src/langnotes.cpp src/pdfviewer.cpp src/dialogbar.cpp src/processorchord.cpp src/textedit.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ui/mainwindow.ui ui/formconfig.ui ui/fontchooser.ui ui/dialogabout.ui ui/dialogconfiguration.ui ui/dialogchorddefinition.ui ui/dialogsysteminfo.ui ui/dialogchoosegoodchord.ui ui/dialogsearch.ui ui/dialogreplace.ui ui/dialogbar.ui $(DISTDIR)/
+	$(COPY_FILE) --parents translations/fr.ts $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -857,209 +857,204 @@ benchmark: first
 compiler_rcc_make_all: build/rcc/qrc_resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) build/rcc/qrc_resources.cpp
-build/rcc/qrc_resources.cpp: resources.qrc \
-		/usr/lib/x86_64-linux-gnu/qt5/bin/rcc \
-		Images/icon.png \
-		Images/fr.png \
-		Images/neck.jpg \
-		Images/en.png \
-		Images/warning.png \
-		Images/gilles.jpg \
-		Images/warning.png \
-		fr.ts \
-		fr.qm \
-		Bd/Chord.db
-	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name resources resources.qrc -o build/rcc/qrc_resources.cpp
+build/rcc/qrc_resources.cpp: Resources/resources.qrc \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/rcc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name resources Resources/resources.qrc -o build/rcc/qrc_resources.cpp
 
 compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp
-build/moc/moc_mainwindow.cpp: editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
-		formconfig.h \
-		mainwindow.h \
+build/moc/moc_mainwindow.cpp: include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		include/formconfig.h \
+		include/mainwindow.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o build/moc/moc_mainwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o build/moc/moc_mainwindow.cpp
 
-build/moc/moc_formconfig.cpp: formconfig.h \
+build/moc/moc_formconfig.cpp: include/formconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include formconfig.h -o build/moc/moc_formconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/formconfig.h -o build/moc/moc_formconfig.cpp
 
-build/moc/moc_lyricsconfig.cpp: formconfig.h \
-		lyricsconfig.h \
+build/moc/moc_lyricsconfig.cpp: include/formconfig.h \
+		include/lyricsconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include lyricsconfig.h -o build/moc/moc_lyricsconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/lyricsconfig.h -o build/moc/moc_lyricsconfig.cpp
 
-build/moc/moc_chordconfig.cpp: formconfig.h \
-		chordconfig.h \
+build/moc/moc_chordconfig.cpp: include/formconfig.h \
+		include/chordconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include chordconfig.h -o build/moc/moc_chordconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/chordconfig.h -o build/moc/moc_chordconfig.cpp
 
-build/moc/moc_textconfig.cpp: formconfig.h \
-		textconfig.h \
+build/moc/moc_textconfig.cpp: include/formconfig.h \
+		include/textconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include textconfig.h -o build/moc/moc_textconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/textconfig.h -o build/moc/moc_textconfig.cpp
 
-build/moc/moc_fontchooser.cpp: fontdialog.h \
-		fontchooser.h \
+build/moc/moc_fontchooser.cpp: include/fontdialog.h \
+		include/fontchooser.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include fontchooser.h -o build/moc/moc_fontchooser.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontchooser.h -o build/moc/moc_fontchooser.cpp
 
-build/moc/moc_fontbutton.cpp: fontbutton.h \
+build/moc/moc_fontbutton.cpp: include/fontbutton.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include fontbutton.h -o build/moc/moc_fontbutton.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontbutton.h -o build/moc/moc_fontbutton.cpp
 
-build/moc/moc_fontdialog.cpp: fontdialog.h \
+build/moc/moc_fontdialog.cpp: include/fontdialog.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include fontdialog.h -o build/moc/moc_fontdialog.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontdialog.h -o build/moc/moc_fontdialog.cpp
 
-build/moc/moc_colorbutton.cpp: colorbutton.h \
+build/moc/moc_colorbutton.cpp: include/colorbutton.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include colorbutton.h -o build/moc/moc_colorbutton.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/colorbutton.h -o build/moc/moc_colorbutton.cpp
 
-build/moc/moc_imagebutton.cpp: imagebutton.h \
+build/moc/moc_imagebutton.cpp: include/imagebutton.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include imagebutton.h -o build/moc/moc_imagebutton.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/imagebutton.h -o build/moc/moc_imagebutton.cpp
 
-build/moc/moc_processor.cpp: pagesize.h \
-		formconfig.h \
-		fontbutton.h \
-		mainwindow.h \
-		editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
-		processor.h \
+build/moc/moc_processor.cpp: include/pagesize.h \
+		include/formconfig.h \
+		include/fontbutton.h \
+		include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		include/processor.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include processor.h -o build/moc/moc_processor.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/processor.h -o build/moc/moc_processor.cpp
 
-build/moc/moc_dialogabout.cpp: dialogabout.h \
+build/moc/moc_dialogabout.cpp: include/dialogabout.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogabout.h -o build/moc/moc_dialogabout.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogabout.h -o build/moc/moc_dialogabout.cpp
 
-build/moc/moc_memoryconfig.cpp: formconfig.h \
-		memoryconfig.h \
+build/moc/moc_memoryconfig.cpp: include/formconfig.h \
+		include/memoryconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include memoryconfig.h -o build/moc/moc_memoryconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/memoryconfig.h -o build/moc/moc_memoryconfig.cpp
 
-build/moc/moc_spinboxunit.cpp: spinboxunit.h \
+build/moc/moc_spinboxunit.cpp: include/spinboxunit.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include spinboxunit.h -o build/moc/moc_spinboxunit.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/spinboxunit.h -o build/moc/moc_spinboxunit.cpp
 
-build/moc/moc_dialogconfiguration.cpp: dialogconfiguration.h \
+build/moc/moc_dialogconfiguration.cpp: include/dialogconfiguration.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogconfiguration.h -o build/moc/moc_dialogconfiguration.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogconfiguration.h -o build/moc/moc_dialogconfiguration.cpp
 
-build/moc/moc_dialogchorddefinition.cpp: dialogchorddefinition.h \
+build/moc/moc_dialogchorddefinition.cpp: include/dialogchorddefinition.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogchorddefinition.h -o build/moc/moc_dialogchorddefinition.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchorddefinition.h -o build/moc/moc_dialogchorddefinition.cpp
 
-build/moc/moc_neck.cpp: neck.h \
+build/moc/moc_neck.cpp: include/neck.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include neck.h -o build/moc/moc_neck.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/neck.h -o build/moc/moc_neck.cpp
 
-build/moc/moc_dialogsysteminfo.cpp: dialogsysteminfo.h \
+build/moc/moc_dialogsysteminfo.cpp: include/dialogsysteminfo.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogsysteminfo.h -o build/moc/moc_dialogsysteminfo.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogsysteminfo.h -o build/moc/moc_dialogsysteminfo.cpp
 
-build/moc/moc_chorddiagram.cpp: chorddiagram.h \
+build/moc/moc_chorddiagram.cpp: include/chorddiagram.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include chorddiagram.h -o build/moc/moc_chorddiagram.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/chorddiagram.h -o build/moc/moc_chorddiagram.cpp
 
-build/moc/moc_dialogchoosegoodchord.cpp: dialogchoosegoodchord.h \
+build/moc/moc_dialogchoosegoodchord.cpp: include/dialogchoosegoodchord.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogchoosegoodchord.h -o build/moc/moc_dialogchoosegoodchord.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchoosegoodchord.h -o build/moc/moc_dialogchoosegoodchord.cpp
 
-build/moc/moc_dialogsearch.cpp: dialogsearch.h \
+build/moc/moc_dialogsearch.cpp: include/dialogsearch.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogsearch.h -o build/moc/moc_dialogsearch.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogsearch.h -o build/moc/moc_dialogsearch.cpp
 
-build/moc/moc_dialogreplace.cpp: dialogreplace.h \
+build/moc/moc_dialogreplace.cpp: include/dialogreplace.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogreplace.h -o build/moc/moc_dialogreplace.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogreplace.h -o build/moc/moc_dialogreplace.cpp
 
-build/moc/moc_dialogbar.cpp: dialogbar.h \
+build/moc/moc_dialogbar.cpp: include/dialogbar.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogbar.h -o build/moc/moc_dialogbar.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogbar.h -o build/moc/moc_dialogbar.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_uic_make_all: build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h
 compiler_uic_clean:
 	-$(DEL_FILE) build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h
-build/ui/ui_mainwindow.h: mainwindow.ui \
+build/ui/ui_mainwindow.h: ui/mainwindow.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
-		lyricsconfig.h \
-		chordconfig.h \
-		textconfig.h \
-		memoryconfig.h \
-		logmessages.h \
-		textedit.h \
-		formconfig.h \
-		formconfig.h \
-		formconfig.h \
-		formconfig.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic mainwindow.ui -o build/ui/ui_mainwindow.h
+		include/lyricsconfig.h \
+		include/chordconfig.h \
+		include/textconfig.h \
+		include/memoryconfig.h \
+		include/logmessages.h \
+		include/textedit.h \
+		include/formconfig.h \
+		include/formconfig.h \
+		include/formconfig.h \
+		include/formconfig.h \
+		include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		include/formconfig.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/mainwindow.ui -o build/ui/ui_mainwindow.h
 
-build/ui/ui_formconfig.h: formconfig.ui \
+build/ui/ui_formconfig.h: ui/formconfig.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
-		spinboxunit.h \
-		fontbutton.h \
-		imagebutton.h \
-		examplelabel.h \
-		pagesize.h \
-		verticalspacing.h \
-		colorbutton.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic formconfig.ui -o build/ui/ui_formconfig.h
+		include/spinboxunit.h \
+		include/fontbutton.h \
+		include/imagebutton.h \
+		include/examplelabel.h \
+		include/pagesize.h \
+		include/verticalspacing.h \
+		include/colorbutton.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/formconfig.ui -o build/ui/ui_formconfig.h
 
-build/ui/ui_fontchooser.h: fontchooser.ui \
+build/ui/ui_fontchooser.h: ui/fontchooser.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
-		colorbutton.h \
-		fontdialog.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic fontchooser.ui -o build/ui/ui_fontchooser.h
+		include/colorbutton.h \
+		include/fontdialog.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/fontchooser.ui -o build/ui/ui_fontchooser.h
 
-build/ui/ui_dialogabout.h: dialogabout.ui \
+build/ui/ui_dialogabout.h: ui/dialogabout.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogabout.ui -o build/ui/ui_dialogabout.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogabout.ui -o build/ui/ui_dialogabout.h
 
-build/ui/ui_dialogconfiguration.h: dialogconfiguration.ui \
+build/ui/ui_dialogconfiguration.h: ui/dialogconfiguration.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
-		lyricsconfig.h \
-		chordconfig.h \
-		textconfig.h \
-		memoryconfig.h \
-		formconfig.h \
-		formconfig.h \
-		formconfig.h \
-		formconfig.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogconfiguration.ui -o build/ui/ui_dialogconfiguration.h
+		include/lyricsconfig.h \
+		include/chordconfig.h \
+		include/textconfig.h \
+		include/memoryconfig.h \
+		include/formconfig.h \
+		include/formconfig.h \
+		include/formconfig.h \
+		include/formconfig.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogconfiguration.ui -o build/ui/ui_dialogconfiguration.h
 
-build/ui/ui_dialogchorddefinition.h: dialogchorddefinition.ui \
+build/ui/ui_dialogchorddefinition.h: ui/dialogchorddefinition.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
-		neck.h \
-		chorddiagram.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogchorddefinition.ui -o build/ui/ui_dialogchorddefinition.h
+		include/neck.h \
+		include/chorddiagram.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogchorddefinition.ui -o build/ui/ui_dialogchorddefinition.h
 
-build/ui/ui_dialogsysteminfo.h: dialogsysteminfo.ui \
+build/ui/ui_dialogsysteminfo.h: ui/dialogsysteminfo.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogsysteminfo.ui -o build/ui/ui_dialogsysteminfo.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogsysteminfo.ui -o build/ui/ui_dialogsysteminfo.h
 
-build/ui/ui_dialogchoosegoodchord.h: dialogchoosegoodchord.ui \
+build/ui/ui_dialogchoosegoodchord.h: ui/dialogchoosegoodchord.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
-		chorddiagram.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogchoosegoodchord.ui -o build/ui/ui_dialogchoosegoodchord.h
+		include/chorddiagram.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogchoosegoodchord.ui -o build/ui/ui_dialogchoosegoodchord.h
 
-build/ui/ui_dialogsearch.h: dialogsearch.ui \
+build/ui/ui_dialogsearch.h: ui/dialogsearch.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogsearch.ui -o build/ui/ui_dialogsearch.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogsearch.ui -o build/ui/ui_dialogsearch.h
 
-build/ui/ui_dialogreplace.h: dialogreplace.ui \
+build/ui/ui_dialogreplace.h: ui/dialogreplace.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogreplace.ui -o build/ui/ui_dialogreplace.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogreplace.ui -o build/ui/ui_dialogreplace.h
 
-build/ui/ui_dialogbar.h: dialogbar.ui \
+build/ui/ui_dialogbar.h: ui/dialogbar.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogbar.ui -o build/ui/ui_dialogbar.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogbar.ui -o build/ui/ui_dialogbar.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1071,288 +1066,243 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-build/obj/main.o: main.cpp mainwindow.h \
-		editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
-		formconfig.h \
-		version.h \
-		language.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/main.o main.cpp
+build/obj/main.o: src/main.cpp include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		include/formconfig.h \
+		include/version.h \
+		include/language.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/main.o src/main.cpp
 
-build/obj/mainwindow.o: mainwindow.cpp mainwindow.h \
-		editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
-		formconfig.h \
+build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		include/formconfig.h \
 		build/ui/ui_mainwindow.h \
-		logmessages.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
-		dialogabout.h \
-		dialogconfiguration.h \
-		dialogchorddefinition.h \
-		dialogsysteminfo.h \
-		dialogsearch.h \
-		dialogreplace.h \
-		dialogbar.h \
-		util.h \
-		processortext.h \
-		processor.h \
-		pagesize.h \
-		fontbutton.h \
-		processorlyrics.h \
-		processorchord.h \
-		settings.h \
-		language.h \
+		include/dialogabout.h \
+		include/dialogconfiguration.h \
+		include/dialogchorddefinition.h \
+		include/dialogsysteminfo.h \
+		include/dialogsearch.h \
+		include/dialogreplace.h \
+		include/dialogbar.h \
+		include/lyricsconfig.h \
+		include/textconfig.h \
+		include/memoryconfig.h \
+		include/util.h \
+		include/processortext.h \
+		include/processor.h \
+		include/pagesize.h \
+		include/fontbutton.h \
+		include/processorlyrics.h \
+		include/processorchord.h \
+		include/settings.h \
+		include/logmessages.h \
+		include/language.h \
+		build/ui/ui_formconfig.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/mainwindow.o src/mainwindow.cpp
+
+build/obj/util.o: src/util.cpp include/util.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/util.o src/util.cpp
+
+build/obj/formconfig.o: src/formconfig.cpp include/formconfig.h \
 		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		colorbutton.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/mainwindow.o mainwindow.cpp
+		include/colorbutton.h \
+		include/examplelabel.h \
+		include/settings.h \
+		include/language.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formconfig.o src/formconfig.cpp
 
-build/obj/util.o: util.cpp util.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/util.o util.cpp
+build/obj/lyricsconfig.o: src/lyricsconfig.cpp include/lyricsconfig.h \
+		include/formconfig.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/lyricsconfig.o src/lyricsconfig.cpp
 
-build/obj/formconfig.o: formconfig.cpp formconfig.h \
+build/obj/chordconfig.o: src/chordconfig.cpp include/chordconfig.h \
+		include/formconfig.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chordconfig.o src/chordconfig.cpp
+
+build/obj/textconfig.o: src/textconfig.cpp include/textconfig.h \
+		include/formconfig.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/textconfig.o src/textconfig.cpp
+
+build/obj/fontchooser.o: src/fontchooser.cpp include/fontchooser.h \
+		include/fontdialog.h \
+		build/ui/ui_fontchooser.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontchooser.o src/fontchooser.cpp
+
+build/obj/fontbutton.o: src/fontbutton.cpp include/fontbutton.h \
+		include/fontchooser.h \
+		include/fontdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontbutton.o src/fontbutton.cpp
+
+build/obj/fontdialog.o: src/fontdialog.cpp include/fontdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontdialog.o src/fontdialog.cpp
+
+build/obj/colorbutton.o: src/colorbutton.cpp include/colorbutton.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/colorbutton.o src/colorbutton.cpp
+
+build/obj/lineedittest.o: src/lineedittest.cpp include/lineedittest.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/lineedittest.o src/lineedittest.cpp
+
+build/obj/logmessages.o: src/logmessages.cpp include/logmessages.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/logmessages.o src/logmessages.cpp
+
+build/obj/editorhighlighter.o: src/editorhighlighter.cpp include/editorhighlighter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/editorhighlighter.o src/editorhighlighter.cpp
+
+build/obj/imagebutton.o: src/imagebutton.cpp include/imagebutton.h \
+		include/util.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/imagebutton.o src/imagebutton.cpp
+
+build/obj/examplelabel.o: src/examplelabel.cpp include/examplelabel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/examplelabel.o src/examplelabel.cpp
+
+build/obj/pagesize.o: src/pagesize.cpp include/pagesize.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/pagesize.o src/pagesize.cpp
+
+build/obj/processor.o: src/processor.cpp include/processor.h \
+		include/pagesize.h \
+		include/formconfig.h \
+		include/fontbutton.h \
+		include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		colorbutton.h \
-		examplelabel.h \
-		fontbutton.h \
-		imagebutton.h \
-		pagesize.h \
-		spinboxunit.h \
-		settings.h \
-		language.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formconfig.o formconfig.cpp
-
-build/obj/lyricsconfig.o: lyricsconfig.cpp lyricsconfig.h \
-		formconfig.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/lyricsconfig.o lyricsconfig.cpp
-
-build/obj/chordconfig.o: chordconfig.cpp chordconfig.h \
-		formconfig.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chordconfig.o chordconfig.cpp
-
-build/obj/textconfig.o: textconfig.cpp textconfig.h \
-		formconfig.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/textconfig.o textconfig.cpp
-
-build/obj/fontchooser.o: fontchooser.cpp fontchooser.h \
-		fontdialog.h \
-		build/ui/ui_fontchooser.h \
-		colorbutton.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontchooser.o fontchooser.cpp
-
-build/obj/fontbutton.o: fontbutton.cpp fontbutton.h \
-		fontchooser.h \
-		fontdialog.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontbutton.o fontbutton.cpp
-
-build/obj/fontdialog.o: fontdialog.cpp fontdialog.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontdialog.o fontdialog.cpp
-
-build/obj/colorbutton.o: colorbutton.cpp colorbutton.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/colorbutton.o colorbutton.cpp
-
-build/obj/lineedittest.o: lineedittest.cpp lineedittest.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/lineedittest.o lineedittest.cpp
-
-build/obj/logmessages.o: logmessages.cpp logmessages.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/logmessages.o logmessages.cpp
-
-build/obj/editorhighlighter.o: editorhighlighter.cpp editorhighlighter.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/editorhighlighter.o editorhighlighter.cpp
-
-build/obj/imagebutton.o: imagebutton.cpp imagebutton.h \
-		util.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/imagebutton.o imagebutton.cpp
-
-build/obj/examplelabel.o: examplelabel.cpp examplelabel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/examplelabel.o examplelabel.cpp
-
-build/obj/pagesize.o: pagesize.cpp pagesize.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/pagesize.o pagesize.cpp
-
-build/obj/processor.o: processor.cpp processor.h \
-		pagesize.h \
-		formconfig.h \
-		fontbutton.h \
-		mainwindow.h \
-		editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
-		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		colorbutton.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h \
 		build/ui/ui_mainwindow.h \
-		logmessages.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
-		const.h \
-		chord.h \
-		langnotes.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processor.o processor.cpp
+		include/const.h \
+		include/chord.h \
+		include/langnotes.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processor.o src/processor.cpp
 
-build/obj/dialogabout.o: dialogabout.cpp dialogabout.h \
+build/obj/dialogabout.o: src/dialogabout.cpp include/dialogabout.h \
 		build/ui/ui_dialogabout.h \
-		version.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogabout.o dialogabout.cpp
+		include/version.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogabout.o src/dialogabout.cpp
 
-build/obj/memoryconfig.o: memoryconfig.cpp memoryconfig.h \
-		formconfig.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/memoryconfig.o memoryconfig.cpp
+build/obj/memoryconfig.o: src/memoryconfig.cpp include/memoryconfig.h \
+		include/formconfig.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/memoryconfig.o src/memoryconfig.cpp
 
-build/obj/spinboxunit.o: spinboxunit.cpp spinboxunit.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/spinboxunit.o spinboxunit.cpp
+build/obj/spinboxunit.o: src/spinboxunit.cpp include/spinboxunit.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/spinboxunit.o src/spinboxunit.cpp
 
-build/obj/dialogconfiguration.o: dialogconfiguration.cpp dialogconfiguration.h \
+build/obj/dialogconfiguration.o: src/dialogconfiguration.cpp include/dialogconfiguration.h \
 		build/ui/ui_dialogconfiguration.h \
-		chordconfig.h \
-		formconfig.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
-		spinboxunit.h \
-		settings.h \
-		language.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogconfiguration.o dialogconfiguration.cpp
+		include/spinboxunit.h \
+		include/settings.h \
+		include/language.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogconfiguration.o src/dialogconfiguration.cpp
 
-build/obj/settings.o: settings.cpp settings.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/settings.o settings.cpp
+build/obj/settings.o: src/settings.cpp include/settings.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/settings.o src/settings.cpp
 
-build/obj/processortext.o: processortext.cpp processortext.h \
-		processor.h \
-		pagesize.h \
-		formconfig.h \
-		fontbutton.h \
-		mainwindow.h \
-		editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
-		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		colorbutton.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processortext.o processortext.cpp
+build/obj/processortext.o: src/processortext.cpp include/processortext.h \
+		include/processor.h \
+		include/pagesize.h \
+		include/formconfig.h \
+		include/fontbutton.h \
+		include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		build/ui/ui_formconfig.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processortext.o src/processortext.cpp
 
-build/obj/verticalspacing.o: verticalspacing.cpp verticalspacing.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/verticalspacing.o verticalspacing.cpp
+build/obj/verticalspacing.o: src/verticalspacing.cpp include/verticalspacing.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/verticalspacing.o src/verticalspacing.cpp
 
-build/obj/dialogchorddefinition.o: dialogchorddefinition.cpp dialogchorddefinition.h \
+build/obj/dialogchorddefinition.o: src/dialogchorddefinition.cpp include/dialogchorddefinition.h \
 		build/ui/ui_dialogchorddefinition.h \
-		chorddiagram.h \
-		neck.h \
-		util.h \
-		logmessages.h \
-		dialogchoosegoodchord.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchorddefinition.o dialogchorddefinition.cpp
+		include/util.h \
+		include/logmessages.h \
+		include/dialogchoosegoodchord.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchorddefinition.o src/dialogchorddefinition.cpp
 
-build/obj/ChordDetector.o: ChordDetector.cpp ChordDetector.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/ChordDetector.o ChordDetector.cpp
+build/obj/ChordDetector.o: src/ChordDetector.cpp include/ChordDetector.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/ChordDetector.o src/ChordDetector.cpp
 
-build/obj/neck.o: neck.cpp neck.h \
-		ChordDetector.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/neck.o neck.cpp
+build/obj/neck.o: src/neck.cpp include/neck.h \
+		include/ChordDetector.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/neck.o src/neck.cpp
 
-build/obj/dialogsysteminfo.o: dialogsysteminfo.cpp dialogsysteminfo.h \
+build/obj/dialogsysteminfo.o: src/dialogsysteminfo.cpp include/dialogsysteminfo.h \
 		build/ui/ui_dialogsysteminfo.h \
-		version.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogsysteminfo.o dialogsysteminfo.cpp
+		include/version.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogsysteminfo.o src/dialogsysteminfo.cpp
 
-build/obj/chorddiagram.o: chorddiagram.cpp chorddiagram.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chorddiagram.o chorddiagram.cpp
+build/obj/chorddiagram.o: src/chorddiagram.cpp include/chorddiagram.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chorddiagram.o src/chorddiagram.cpp
 
-build/obj/dialogchoosegoodchord.o: dialogchoosegoodchord.cpp dialogchoosegoodchord.h \
-		build/ui/ui_dialogchoosegoodchord.h \
-		chorddiagram.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchoosegoodchord.o dialogchoosegoodchord.cpp
+build/obj/dialogchoosegoodchord.o: src/dialogchoosegoodchord.cpp include/dialogchoosegoodchord.h \
+		build/ui/ui_dialogchoosegoodchord.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchoosegoodchord.o src/dialogchoosegoodchord.cpp
 
-build/obj/dialogsearch.o: dialogsearch.cpp dialogsearch.h \
+build/obj/dialogsearch.o: src/dialogsearch.cpp include/dialogsearch.h \
 		build/ui/ui_dialogsearch.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogsearch.o dialogsearch.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogsearch.o src/dialogsearch.cpp
 
-build/obj/dialogreplace.o: dialogreplace.cpp dialogreplace.h \
+build/obj/dialogreplace.o: src/dialogreplace.cpp include/dialogreplace.h \
 		build/ui/ui_dialogreplace.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogreplace.o dialogreplace.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogreplace.o src/dialogreplace.cpp
 
-build/obj/processorlyrics.o: processorlyrics.cpp processorlyrics.h \
-		processor.h \
-		pagesize.h \
-		formconfig.h \
-		fontbutton.h \
-		mainwindow.h \
-		editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
+build/obj/processorlyrics.o: src/processorlyrics.cpp include/processorlyrics.h \
+		include/processor.h \
+		include/pagesize.h \
+		include/formconfig.h \
+		include/fontbutton.h \
+		include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		colorbutton.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h \
 		build/ui/ui_mainwindow.h \
-		logmessages.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
-		chord.h \
-		langnotes.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorlyrics.o processorlyrics.cpp
+		include/chord.h \
+		include/langnotes.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorlyrics.o src/processorlyrics.cpp
 
-build/obj/language.o: language.cpp language.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/language.o language.cpp
+build/obj/language.o: src/language.cpp include/language.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/language.o src/language.cpp
 
-build/obj/chord.o: chord.cpp chord.h \
-		langnotes.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chord.o chord.cpp
+build/obj/chord.o: src/chord.cpp include/chord.h \
+		include/langnotes.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chord.o src/chord.cpp
 
-build/obj/langnotes.o: langnotes.cpp langnotes.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/langnotes.o langnotes.cpp
+build/obj/langnotes.o: src/langnotes.cpp include/langnotes.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/langnotes.o src/langnotes.cpp
 
-build/obj/pdfviewer.o: pdfviewer.cpp pdfviewer.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/pdfviewer.o pdfviewer.cpp
+build/obj/pdfviewer.o: src/pdfviewer.cpp include/pdfviewer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/pdfviewer.o src/pdfviewer.cpp
 
-build/obj/dialogbar.o: dialogbar.cpp dialogbar.h \
+build/obj/dialogbar.o: src/dialogbar.cpp include/dialogbar.h \
 		build/ui/ui_dialogbar.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogbar.o dialogbar.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogbar.o src/dialogbar.cpp
 
-build/obj/processorchord.o: processorchord.cpp processorchord.h \
-		processor.h \
-		pagesize.h \
-		formconfig.h \
-		fontbutton.h \
-		mainwindow.h \
-		editorhighlighter.h \
-		pdfviewer.h \
-		chordconfig.h \
+build/obj/processorchord.o: src/processorchord.cpp include/processorchord.h \
+		include/processor.h \
+		include/pagesize.h \
+		include/formconfig.h \
+		include/fontbutton.h \
+		include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
-		verticalspacing.h \
-		colorbutton.h \
-		examplelabel.h \
-		imagebutton.h \
-		spinboxunit.h \
 		build/ui/ui_mainwindow.h \
-		logmessages.h \
-		lyricsconfig.h \
-		memoryconfig.h \
-		textconfig.h \
-		chord.h \
-		langnotes.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorchord.o processorchord.cpp
+		include/chord.h \
+		include/langnotes.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorchord.o src/processorchord.cpp
 
-build/obj/textedit.o: textedit.cpp textedit.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/textedit.o textedit.cpp
+build/obj/textedit.o: src/textedit.cpp include/textedit.h \
+		include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		include/formconfig.h \
+		build/ui/ui_mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/textedit.o src/textedit.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_resources.o build/rcc/qrc_resources.cpp

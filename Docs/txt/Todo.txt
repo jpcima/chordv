@@ -16,7 +16,11 @@ Chord :
 
 - arrow
 - page number
+- :4 chord
 
+Editor :
+
+- think about chord insertion menu
 
 
 
