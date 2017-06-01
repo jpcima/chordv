@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>About</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_5">
+  <layout class="QVBoxLayout" name="verticalLayout_5">
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
@@ -219,7 +219,6 @@ p, li { white-space: pre-wrap; }
     </layout>
    </item>
   </layout>
-  <zorder></zorder>
  </widget>
  <resources/>
  <connections>

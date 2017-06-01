@@ -16,7 +16,7 @@ public:
     int nbBeat();
     QStringList toStrings();
     QString fret();
-    QString ToEnglish(QString lang,QString chord);
+    QString ToEnglish(QString chord);
     QString nameEnglish();
     QString nameLocale();
     QString pureNameLocale();

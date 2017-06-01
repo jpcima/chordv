@@ -858,7 +858,17 @@ compiler_rcc_make_all: build/rcc/qrc_resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) build/rcc/qrc_resources.cpp
 build/rcc/qrc_resources.cpp: Resources/resources.qrc \
-		/usr/lib/x86_64-linux-gnu/qt5/bin/rcc
+		/usr/lib/x86_64-linux-gnu/qt5/bin/rcc \
+		Images/icon.png \
+		Images/fr.png \
+		Images/neck.jpg \
+		Images/en.png \
+		Images/warning.png \
+		Images/gilles.jpg \
+		Images/warning.png \
+		translations/fr.ts \
+		translations/fr.qm \
+		Bd/Chord.db
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name resources Resources/resources.qrc -o build/rcc/qrc_resources.cpp
 
 compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp

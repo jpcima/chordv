@@ -74,7 +74,7 @@ void DialogConfiguration::SelectLanguage(QString  lang)
 }
 
 
-void DialogConfiguration::Retranslate(QString lang)
+void DialogConfiguration::Retranslate(QString)
 {
     ui->comboBoxInterfaceLanguage->disconnect();
     ui->retranslateUi(this);

@@ -141,8 +141,7 @@ DISTFILES += \
     Docs/txt/ChoFormat_fr.txt
 
 RESOURCES += \
-    Resources/resources.qrc \
-    ui/resources.qrc
+    Resources/resources.qrc
 
 
 DESTDIR = bin

@@ -41,7 +41,7 @@ Chord::Chord(QString chord, QString lang):QString(chord)
      {
           m_nameLocale=par.cap(1);
      }
-     m_purechordEnglish=ToEnglish(lang,m_purechordLocale);
+     m_purechordEnglish=ToEnglish(m_purechordLocale);
 
      if ( m_purechordEnglish.contains(par))
      {
@@ -89,7 +89,7 @@ QString Chord::fret()
 
 
 
-QString Chord::ToEnglish(QString lang,QString  chord)
+QString Chord::ToEnglish(QString  chord)
 {
    chord.replace ("m","-");
    if ( chord.startsWith(m_notes.noteLocale("A"))) chord.replace(m_notes.noteLocale("A"),"A");

@@ -51,7 +51,6 @@ void ProcessorLyrics::displayLyrics()
     {
         int num=0;
         int col=m_column;
-        int m_oldcol=-1000;
 
         QRegExp chordexp("([^[]*)\\[([^]]*)\\](.*)");
         PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonNormalFont->getFont().family().toLatin1());

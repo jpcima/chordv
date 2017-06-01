@@ -20,7 +20,7 @@ private:
     void includeSoc();
     void includeSor();
     int m_nbBeatPerBar;
-    void doColumnBreak(QString line){}
+    void doColumnBreak(QString){}
     int m_w;
     int m_h;
     int m_x0;

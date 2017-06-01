@@ -41,7 +41,6 @@ void ProcessorChord::displayLyrics()
     m_w=m_fontchordsize*4.5;
     m_h=m_fontchordsize*3;
     m_x0=m_uiconfig->spuPageWidth->getPdfU()/5;
-    int col=10;
 
     QRegExp regChord("([^[]*)\\[([^]]+)\\](.*)",Qt::CaseInsensitive);
 

@@ -27,8 +27,8 @@ QString LangNotes::noteEnglish(QString localenote)
 
 QString LangNotes::note(QString lang, QString note)
 {
-    if (lang!= "en") return noteLocale(lang);
-    else return noteEnglish(lang);
+    if (lang!= "en") return noteLocale(note);
+    else return noteEnglish(note);
 }
 
 
