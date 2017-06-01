@@ -131,6 +131,8 @@ private slots:
     void BuildAndViewMemory();
     void BuildAndViewChord();
     void BuildAndViewLyrics();
+    void ZoomIn();
+    void ZoomOut();
 };
 
 #endif // MAINWINDOW_H

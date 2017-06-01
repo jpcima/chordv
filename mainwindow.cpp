@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->textEditCho3File->SetUi(ui);
     QList <int> size;
     size<<700<<100;
     m_labelactivestacked= new QLabel(this);
@@ -69,6 +70,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionReset_Preferences_as_Origin,SIGNAL(triggered(bool)),this,SLOT(PreferencesAsOrigine()));
     connect(ui->actionSave_Current_as_Defaut,SIGNAL(triggered(bool)),this,SLOT(CurrentAsDefault()));
     connect(ui->actionSearch,SIGNAL(triggered(bool)),this,SLOT(Search()));
+    connect (ui->actionZoomIn,SIGNAL(triggered(bool)),this,SLOT(ZoomIn()));
+    connect (ui->actionZoomOut,SIGNAL(triggered(bool)),this,SLOT(ZoomOut()));
     connect(ui->actionReplace,SIGNAL(triggered(bool)),this,SLOT(Replace()));
     connect (ui->actionSystem_Info,SIGNAL(triggered(bool)),this,SLOT(SystemInfo()));
     connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
@@ -355,8 +358,15 @@ void MainWindow::openProject ( bool)
    setMenuLastProject();
 }
 
+void MainWindow::ZoomIn()
+{
+    ui->textEditCho3File->zoomIn();
+}
 
-
+void MainWindow::ZoomOut()
+{
+    ui->textEditCho3File->zoomOut();
+}
 void MainWindow::Save(QString filename)
 {
     ui->log->clear();
@@ -648,10 +658,7 @@ void MainWindow::InsertST()
     GenericInsert(ui->toolButtonST,ui->checkBoxLongShort->isChecked()?QString("{SubTitle:%1}"):QString("{st:%1}"),QObject::tr("Enter sub title"),QObject::tr("Sub Title"));
 }
 
-void MainWindow::InsertCB()
-{
-    ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{column_break}"):QString("{colb}"));
-}
+
 
 void MainWindow::InsertCol()
 {
@@ -716,6 +723,11 @@ void MainWindow::InsertSOR()
 void MainWindow::InsertEOR()
 {
     ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{end_of_refrain}"):QString("{eor}"));
+}
+
+void MainWindow::InsertCB()
+{
+   ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{column_break}"):QString("{colb}"));
 }
 
 void MainWindow::ReplaceLongShort(  QString a, QString b)

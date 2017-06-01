@@ -64,7 +64,8 @@ SOURCES += main.cpp\
     langnotes.cpp \
     pdfviewer.cpp \
     dialogbar.cpp \
-    processorchord.cpp
+    processorchord.cpp \
+    textedit.cpp
 
 HEADERS  += mainwindow.h \
     util.h \
@@ -105,7 +106,8 @@ HEADERS  += mainwindow.h \
     langnotes.h \
     pdfviewer.h \
     dialogbar.h \
-    processorchord.h
+    processorchord.h \
+    textedit.h
 
 FORMS    += mainwindow.ui \
     formconfig.ui \

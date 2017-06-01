@@ -199,7 +199,7 @@ break</string>
             </layout>
            </item>
            <item>
-            <widget class="QTextEdit" name="textEditCho3File"/>
+            <widget class="TextEdit" name="textEditCho3File"/>
            </item>
           </layout>
          </item>
@@ -522,6 +522,9 @@ break</string>
     </property>
     <addaction name="actionSearch"/>
     <addaction name="actionReplace"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoomIn"/>
+    <addaction name="actionZoomOut"/>
    </widget>
    <widget class="QMenu" name="menuOutput">
     <property name="title">
@@ -823,6 +826,19 @@ break</string>
     <string>Shift+F8</string>
    </property>
   </action>
+  <action name="actionZoomIn">
+   <property name="text">
+    <string>&amp;Zoom +</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="actionZoomOut">
+   <property name="text">
+    <string>Z&amp;oom - </string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -854,6 +870,11 @@ break</string>
    <class>LogMessages</class>
    <extends>QTextEdit</extends>
    <header>logmessages.h</header>
+  </customwidget>
+  <customwidget>
+   <class>TextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>textedit.h</header>
   </customwidget>
  </customwidgets>
  <resources>
