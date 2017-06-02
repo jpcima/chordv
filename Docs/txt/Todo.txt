@@ -21,8 +21,8 @@ Chord :
 Editor :
 
 - think about chord insertion menu
-
-
+- perhaps on  popup menu to show all the chords stored in database
+- show all the chord not present in database
 
 - When toc is at end clic on toc go to page 1
 - When toc is at begining page number start +1
@@ -38,3 +38,5 @@ Planned features
 - Popup menu on chord in text to see the chords
 - In text mode, propose to delete the columns mark
 
+PDF :
+  - PDF fonts are not used in pdf but all font are constructed

@@ -89,6 +89,18 @@ protected:
     /// \brief m_covermade true if the cover is made
     ///
     bool m_covermade;
+
+    ///
+    /// \brief m_covertitleexist true if there is a cover title is present in doc
+    ///
+    bool m_covertitleexist;
+
+    ///
+    /// \brief m_covertsubtitleexisttrue if there is a subtitlecover is present in doc
+    ///
+    ///
+    bool m_covertsubtitleexist;
+
     ///
     /// \brief m_colnumber number of column if avalaible for the media
     ///

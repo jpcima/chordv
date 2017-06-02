@@ -39,6 +39,8 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_nbrealpages=0;
     m_mode="generic";
     m_subtitlenumber=0;
+    m_covertitleexist=false;
+    m_covertsubtitleexist=false;
 }
 
 
@@ -113,7 +115,7 @@ void Processor::run()
 //              $ant->text($AnnotationAuth);
 //              $AnnotationAuth="";
 //            }
-            if ( ! getCoverMade()  && m_uiconfig->checkBoxCover->isChecked())
+            if ( m_covertitleexist && ! getCoverMade()  && m_uiconfig->checkBoxCover->isChecked())
             {
                  Cover(getCoverTitle(),getCoverSubtitle());
                  setCoverMade(true);
@@ -214,6 +216,7 @@ void Processor::setRytm( QString rythm)
 void Processor::setCoverTitle(QString covertitle)
 {
     m_covertitle=covertitle;
+    m_covertitleexist=true;
     includeInfo();
 }
 
@@ -239,6 +242,7 @@ int Processor::calcLine()
 
 void Processor::setCoverSubtitle(QString coversubtitle)
 {
+    m_covertsubtitleexist=true;
     m_coversubtitle=coversubtitle;
 }
 
@@ -803,6 +807,7 @@ double Processor::ImagePosition()
 double  Processor::Text( PdfDocument *doc, QString text, double x, double y, FontButton *fb ,Align align, double scale)
 {
     double end=0;
+    qDebug()<<fb->getFont().family().toLatin1();
     PdfFont *pfont=doc->CreateFont(fb->getFont().family().toLatin1());
     PdfString str(text.toLatin1());
     double fontsize=fb->getFont().pointSize()*scale;
@@ -1003,6 +1008,7 @@ void Processor::BufLyricsNormailisation()
         i++;
     }
     m_BufLyrics=out;
+    if (!m_BufLyrics.isEmpty())
     while ( m_BufLyrics.last().isEmpty() && m_BufLyrics.count()!=1) m_BufLyrics.takeLast();
 }
 
