@@ -41,6 +41,8 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_subtitlenumber=0;
     m_covertitleexist=false;
     m_covertsubtitleexist=false;
+    m_rythm="4/4";
+    m_bpm=120;
 }
 
 
@@ -101,11 +103,15 @@ void Processor::run()
         }
         else if ( line.contains(SubTitleREX) )
         {
-            displayPageSubtitle(SubTitleREX.cap(1) ) ;
+            m_subtitle=SubTitleREX.cap(1);
+            displayPageSubtitle(m_title) ;
+            displayRytm();
+            displayBpm();
+
         }
         else if ( line.contains(TitleREX) )
         {
-              QString title=TitleREX.cap(1);
+              m_title=TitleREX.cap(1);
 
 //            if ( $AnnotationAuth!~/^$/ )
 //            {
@@ -121,12 +127,12 @@ void Processor::run()
                  setCoverMade(true);
                  m_nbrealpages=0;
             }
-            displayRytm();
-            displayBpm();
+
             displayChordsForSong();
             displayLyrics();
-            displayPageTitle(title);
             m_nbrealpages++;
+            displayPageTitle(m_title);
+
 
 //            $MaxLine=$lyricsline=($ury-$lly)*190/210;
 //            $lyricscol=$llx+Util::convert(${Config}->{LyricsBook}->{MarginHorizontal});
@@ -346,6 +352,7 @@ void Processor::newPage()
     m_painter.SetPage(m_page);
     m_line=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
+    m_pageAllocation=true;
  }
 
 void Processor::doColumnBreak(QString line)
@@ -446,11 +453,9 @@ int Processor::nextColumn( int colnumber)
 void Processor::Cover(QString title, QString subtitle)
 
 {
-        m_pageAllocation=true;
+        AllocatePage();
         QString image=m_projectpath+"/"+m_uiconfig->toolButtonCoverImage->getImage();
         QColor backgroundcolor=QColor(m_uiconfig->toolButtonCoverFont->getBackgroundColor());
-        m_page= m_document->CreatePage(*m_dimension);
-        m_painter.SetPage(m_page);
         m_painter.SetColor(backgroundcolor.redF(),backgroundcolor.greenF(),backgroundcolor.blueF());
         m_painter.Rectangle(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU());
         m_painter.Fill(true);
@@ -478,12 +483,19 @@ void Processor::Cover(QString title, QString subtitle)
           double posy=TitlePosition();
           double x2=Text(m_document,title,posx,posy,m_uiconfig->toolButtonCoverFont,center);
           PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonCoverFont->getFont().family().toLatin1());
-          PdfString str(subtitle.toLatin1());
           pfont->SetFontSize(m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5);
           pfont->SetUnderlined(m_uiconfig->toolButtonCoverFont->getFont().underline());
           pfont->SetStrikeOut(m_uiconfig->toolButtonCoverFont->getFont().strikeOut());
           double widthtext=pfont->GetFontMetrics()->StringWidth(subtitle.toLatin1());
           Text(m_document,subtitle,x2-widthtext/2,posy-m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5,m_uiconfig->toolButtonCoverFont,right,0.5);
+}
+
+
+void Processor::AllocatePage()
+{
+    m_pageAllocation=true;
+    m_page= m_document->CreatePage(*m_dimension);
+    m_painter.SetPage(m_page);
 }
 
 void Processor::doChords()
@@ -807,7 +819,6 @@ double Processor::ImagePosition()
 double  Processor::Text( PdfDocument *doc, QString text, double x, double y, FontButton *fb ,Align align, double scale)
 {
     double end=0;
-    qDebug()<<fb->getFont().family().toLatin1();
     PdfFont *pfont=doc->CreateFont(fb->getFont().family().toLatin1());
     PdfString str(text.toLatin1());
     double fontsize=fb->getFont().pointSize()*scale;

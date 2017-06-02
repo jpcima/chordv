@@ -13,7 +13,6 @@ Lyrics mo:
 
 Chord :
 
-
 - arrow
 - page number
 - :4 chord
@@ -40,3 +39,4 @@ Planned features
 
 PDF :
   - PDF fonts are not used in pdf but all font are constructed
+  - change ERROR for chord not found in database

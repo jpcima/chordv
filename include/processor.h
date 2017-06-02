@@ -26,6 +26,7 @@ class Processor : public QObject
 
 
 
+    void AllocatePage();
 public:
     enum Align {left,center,right};
     Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
