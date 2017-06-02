@@ -108,9 +108,8 @@ void ProcessorChord::SubBar2Bar()
     int nbbeat=0;
     foreach ( QString b, m_subbar)
     {
-        QStringList l=b.split(":");
         nbbeat++;
-        chordlist<<l.at(0);
+        chordlist<<b;
         if ( CompleteBeats(m_subbar, nbbeat))
         {
             bar<<chordlist.join("|");
@@ -174,17 +173,85 @@ void ProcessorChord::DisplayBar(QString ch )
     {
         double x=m_x0+(m_posx+0.5)*m_w;
         double y=m_line+0.33*m_h;
-        Text(m_document,ch,x,y,m_uiconfig->toolButtonChordFont,center);
+        Text(m_document,ch.split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center);
     }
     else if ( chords.count() == 2 )
     {
         m_painter.DrawLine(m_x0+m_posx*m_w,m_line ,m_x0+m_posx*m_w+m_w,m_line +m_h);
         double x=m_x0+(m_posx+0.25)*m_w;
         double y=m_line+0.53*m_h;
-        Text(m_document,chords.at(0),x,y,m_uiconfig->toolButtonChordFont,center);
+        Text(m_document,chords.at(0).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center);
         x=m_x0+(m_posx+0.75)*m_w;
         y=m_line+0.17*m_h;
-        Text(m_document,chords.at(1),x,y,m_uiconfig->toolButtonChordFont,center);
+        Text(m_document,chords.at(1).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center);
+    }
+    else if ( chords.count()==3)
+    {
+        QStringList beatlist;
+        beatlist<<chords.at(0).split(":").at(1);
+        beatlist<<chords.at(1).split(":").at(1);
+        beatlist<<chords.at(2).split(":").at(1);
+        QString sequence=beatlist.join("");
+        if ( sequence == "244")
+        {
+            m_painter.DrawLine(m_x0+m_posx*m_w,m_line ,m_x0+m_posx*m_w+m_w,m_line +m_h);
+            m_painter.DrawLine(m_x0+(m_posx+0.5)*m_w,m_line+0.5*m_h ,m_x0+m_posx*m_w+m_w,m_line);
+            double x=m_x0+(m_posx+0.25)*m_w;
+            double y=m_line+0.53*m_h;
+            Text(m_document,chords.at(0).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center);
+            x=m_x0+(m_posx+0.80)*m_w;
+            y=m_line+0.40*m_h;
+            Text(m_document,chords.at(1).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+            x=m_x0+(m_posx+0.50)*m_w;
+            y=m_line+0.15*m_h;
+            Text(m_document,chords.at(2).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+        }
+        else if ( sequence == "424")
+        {
+            m_painter.DrawLine(m_x0+m_posx*m_w,m_line+m_h ,m_x0+m_posx*m_w+m_w,m_line);
+            m_painter.DrawLine(m_x0+m_posx*m_w,m_line ,m_x0+(m_posx-0.5)*m_w+m_w,m_line +m_h*0.5);
+            double x=m_x0+(m_posx+0.20)*m_w;
+            double y=m_line+0.40*m_h;
+            Text(m_document,chords.at(0).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+            x=m_x0+(m_posx+0.75)*m_w;
+            y=m_line+0.5*m_h;
+            Text(m_document,chords.at(1).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center);
+            x=m_x0+(m_posx+0.50)*m_w;
+            y=m_line+0.15*m_h;
+            Text(m_document,chords.at(2).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+
+        }
+        else if ( sequence == "442")
+        {
+            m_painter.DrawLine(m_x0+m_posx*m_w,m_line ,m_x0+m_posx*m_w+m_w,m_line +m_h);
+            m_painter.DrawLine(m_x0+m_posx*m_w,m_line+m_h,  m_x0+(m_posx-0.5)*m_w+m_w,m_line+m_h*0.5);
+            double x=m_x0+(m_posx+0.20)*m_w;
+            double y=m_line+0.40*m_h;
+            Text(m_document,chords.at(0).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+            x=m_x0+(m_posx+0.50)*m_w;
+            y=m_line+0.70*m_h;
+            Text(m_document,chords.at(1).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+            x=m_x0+(m_posx+0.75)*m_w;
+            y=m_line+0.17*m_h;
+            Text(m_document,chords.at(2).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center);
+        }
+    }
+    else if ( chords.count()==4)
+    {
+         m_painter.DrawLine(m_x0+m_posx*m_w,m_line ,m_x0+m_posx*m_w+m_w,m_line +m_h);
+         m_painter.DrawLine(m_x0+m_posx*m_w,m_line+m_h ,m_x0+m_posx*m_w+m_w,m_line);
+         double x=m_x0+(m_posx+0.20)*m_w;
+         double y=m_line+0.40*m_h;
+         Text(m_document,chords.at(0).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+         x=m_x0+(m_posx+0.50)*m_w;
+         y=m_line+0.70*m_h;
+         Text(m_document,chords.at(1).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+         x=m_x0+(m_posx+0.80)*m_w;
+         y=m_line+0.40*m_h;
+        Text(m_document,chords.at(2).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
+         x=m_x0+(m_posx+0.50)*m_w;
+         y=m_line+0.15*m_h;
+        Text(m_document,chords.at(3).split(":").at(0),x,y,m_uiconfig->toolButtonChordFont,center,0.75);
     }
     if ( m_posx == 3)
         {
