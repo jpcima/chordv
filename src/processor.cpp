@@ -104,7 +104,7 @@ void Processor::run()
         else if ( line.contains(SubTitleREX) )
         {
             m_subtitle=SubTitleREX.cap(1);
-            displayPageSubtitle(m_title) ;
+            displayPageSubtitle(m_subtitle) ;
             displayRytm();
             displayBpm();
 
@@ -117,7 +117,7 @@ void Processor::run()
 //            {
 //              my ($llx,$lly,$urx,$ury)=$pagechords->get_mediabox();
 //              my $ant=$pagechords->annotation();
-//              $ant->rect($llx,$ury*19/20,$urx,$ury);
+//              $ant->rect($llx,$ury*19À tire d'elles/20,$urx,$ury);
 //              $ant->text($AnnotationAuth);
 //              $AnnotationAuth="";
 //            }
@@ -127,7 +127,6 @@ void Processor::run()
                  setCoverMade(true);
                  m_nbrealpages=0;
             }
-
             displayChordsForSong();
             displayLyrics();
             m_nbrealpages++;
