@@ -105,8 +105,12 @@ void Processor::run()
         {
             m_subtitle=SubTitleREX.cap(1);
             displayPageSubtitle(m_subtitle) ;
-            displayRytm();
-            displayBpm();
+            qDebug()<<m_subtitlenumber;
+            if ( m_subtitlenumber==0)
+            {
+              displayRytm();
+              displayBpm();
+            }
 
         }
         else if ( line.contains(TitleREX) )
