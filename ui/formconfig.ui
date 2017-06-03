@@ -292,6 +292,11 @@
                       <string>1/50</string>
                      </property>
                     </item>
+                    <item>
+                     <property name="text">
+                      <string>&lt;&lt; 1 &gt;&gt;</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                  </layout>

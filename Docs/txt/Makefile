@@ -1,5 +1,5 @@
-HTML=$(patsubst %.txt,%.html,$(wildcard *.txt))
+HTML=$(patsubst %.md,%.html,$(wildcard *.md))
 all : $(HTML) 
-%.html : %.txt
-	asciidoc -o $@ $<
-	@mv $@ ../html
+%.html : %.md
+	pandoc --from=markdown --to=html --output=../html/$@  $<
+	

@@ -47,6 +47,12 @@ private slots:
     void SizeChanged(bool);
     void FindSize(double);
     void deleteCoverImage(bool);
+    ///
+    /// \brief CheckArrow number with arrow force number centered
+    /// \param i index of combobox number style
+    ///
+
+    void CheckArrow(int i);
 };
 
 #endif // FORMCONFIG_H

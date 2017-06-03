@@ -190,6 +190,15 @@ DIST          = Example/deuxdisques.png \
 		Test/Docs/txt/Makefile \
 		Docs/txt/ChoFormat_en.txt \
 		Docs/txt/ChoFormat_fr.txt \
+		Docs/txt/fr/Documentation.md \
+		Docs/txt/fr/ChoFormat.txt \
+		Docs/txt/en/Documentation.txt \
+		Docs/txt/en/ChoFormat.txt \
+		Docs/img/fr/menupreferences.png \
+		Docs/img/fr/preferencegeneral.png \
+		Docs/img/fr/fontselection.png \
+		Docs/img/fr/preferencetext.png \
+		Docs/img/fr/preferencestextcontent.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -1091,6 +1100,11 @@ build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		include/chordconfig.h \
 		include/formconfig.h \
 		build/ui/ui_mainwindow.h \
+		include/logmessages.h \
+		include/lyricsconfig.h \
+		include/memoryconfig.h \
+		include/textconfig.h \
+		include/textedit.h \
 		include/dialogabout.h \
 		include/dialogconfiguration.h \
 		include/dialogchorddefinition.h \
@@ -1098,9 +1112,6 @@ build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		include/dialogsearch.h \
 		include/dialogreplace.h \
 		include/dialogbar.h \
-		include/lyricsconfig.h \
-		include/textconfig.h \
-		include/memoryconfig.h \
 		include/util.h \
 		include/processortext.h \
 		include/processor.h \
@@ -1109,9 +1120,13 @@ build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		include/processorlyrics.h \
 		include/processorchord.h \
 		include/settings.h \
-		include/logmessages.h \
 		include/language.h \
-		build/ui/ui_formconfig.h
+		build/ui/ui_formconfig.h \
+		include/verticalspacing.h \
+		include/colorbutton.h \
+		include/examplelabel.h \
+		include/imagebutton.h \
+		include/spinboxunit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/mainwindow.o src/mainwindow.cpp
 
 build/obj/util.o: src/util.cpp include/util.h
@@ -1119,8 +1134,13 @@ build/obj/util.o: src/util.cpp include/util.h
 
 build/obj/formconfig.o: src/formconfig.cpp include/formconfig.h \
 		build/ui/ui_formconfig.h \
+		include/verticalspacing.h \
 		include/colorbutton.h \
 		include/examplelabel.h \
+		include/fontbutton.h \
+		include/imagebutton.h \
+		include/pagesize.h \
+		include/spinboxunit.h \
 		include/settings.h \
 		include/language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formconfig.o src/formconfig.cpp
@@ -1139,7 +1159,8 @@ build/obj/textconfig.o: src/textconfig.cpp include/textconfig.h \
 
 build/obj/fontchooser.o: src/fontchooser.cpp include/fontchooser.h \
 		include/fontdialog.h \
-		build/ui/ui_fontchooser.h
+		build/ui/ui_fontchooser.h \
+		include/colorbutton.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontchooser.o src/fontchooser.cpp
 
 build/obj/fontbutton.o: src/fontbutton.cpp include/fontbutton.h \
@@ -1181,7 +1202,17 @@ build/obj/processor.o: src/processor.cpp include/processor.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
+		include/verticalspacing.h \
+		include/colorbutton.h \
+		include/examplelabel.h \
+		include/imagebutton.h \
+		include/spinboxunit.h \
 		build/ui/ui_mainwindow.h \
+		include/logmessages.h \
+		include/lyricsconfig.h \
+		include/memoryconfig.h \
+		include/textconfig.h \
+		include/textedit.h \
 		include/const.h \
 		include/chord.h \
 		include/langnotes.h
@@ -1201,6 +1232,11 @@ build/obj/spinboxunit.o: src/spinboxunit.cpp include/spinboxunit.h
 
 build/obj/dialogconfiguration.o: src/dialogconfiguration.cpp include/dialogconfiguration.h \
 		build/ui/ui_dialogconfiguration.h \
+		include/chordconfig.h \
+		include/formconfig.h \
+		include/lyricsconfig.h \
+		include/memoryconfig.h \
+		include/textconfig.h \
 		include/spinboxunit.h \
 		include/settings.h \
 		include/language.h
@@ -1218,7 +1254,12 @@ build/obj/processortext.o: src/processortext.cpp include/processortext.h \
 		include/editorhighlighter.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
-		build/ui/ui_formconfig.h
+		build/ui/ui_formconfig.h \
+		include/verticalspacing.h \
+		include/colorbutton.h \
+		include/examplelabel.h \
+		include/imagebutton.h \
+		include/spinboxunit.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processortext.o src/processortext.cpp
 
 build/obj/verticalspacing.o: src/verticalspacing.cpp include/verticalspacing.h
@@ -1226,6 +1267,8 @@ build/obj/verticalspacing.o: src/verticalspacing.cpp include/verticalspacing.h
 
 build/obj/dialogchorddefinition.o: src/dialogchorddefinition.cpp include/dialogchorddefinition.h \
 		build/ui/ui_dialogchorddefinition.h \
+		include/chorddiagram.h \
+		include/neck.h \
 		include/util.h \
 		include/logmessages.h \
 		include/dialogchoosegoodchord.h
@@ -1247,7 +1290,8 @@ build/obj/chorddiagram.o: src/chorddiagram.cpp include/chorddiagram.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chorddiagram.o src/chorddiagram.cpp
 
 build/obj/dialogchoosegoodchord.o: src/dialogchoosegoodchord.cpp include/dialogchoosegoodchord.h \
-		build/ui/ui_dialogchoosegoodchord.h
+		build/ui/ui_dialogchoosegoodchord.h \
+		include/chorddiagram.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchoosegoodchord.o src/dialogchoosegoodchord.cpp
 
 build/obj/dialogsearch.o: src/dialogsearch.cpp include/dialogsearch.h \
@@ -1268,7 +1312,17 @@ build/obj/processorlyrics.o: src/processorlyrics.cpp include/processorlyrics.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
+		include/verticalspacing.h \
+		include/colorbutton.h \
+		include/examplelabel.h \
+		include/imagebutton.h \
+		include/spinboxunit.h \
 		build/ui/ui_mainwindow.h \
+		include/logmessages.h \
+		include/lyricsconfig.h \
+		include/memoryconfig.h \
+		include/textconfig.h \
+		include/textedit.h \
 		include/chord.h \
 		include/langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorlyrics.o src/processorlyrics.cpp
@@ -1300,7 +1354,17 @@ build/obj/processorchord.o: src/processorchord.cpp include/processorchord.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
+		include/verticalspacing.h \
+		include/colorbutton.h \
+		include/examplelabel.h \
+		include/imagebutton.h \
+		include/spinboxunit.h \
 		build/ui/ui_mainwindow.h \
+		include/logmessages.h \
+		include/lyricsconfig.h \
+		include/memoryconfig.h \
+		include/textconfig.h \
+		include/textedit.h \
 		include/chord.h \
 		include/langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorchord.o src/processorchord.cpp
@@ -1311,7 +1375,11 @@ build/obj/textedit.o: src/textedit.cpp include/textedit.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
 		include/formconfig.h \
-		build/ui/ui_mainwindow.h
+		build/ui/ui_mainwindow.h \
+		include/logmessages.h \
+		include/lyricsconfig.h \
+		include/memoryconfig.h \
+		include/textconfig.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/textedit.o src/textedit.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 

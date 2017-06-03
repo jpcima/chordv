@@ -6,6 +6,7 @@
 #include "examplelabel.h"
 #include "settings.h"
 #include "language.h"
+#include "const.h"
 
 #include <QDebug>
 #include <QRegExp>
@@ -29,6 +30,7 @@ FormConfig::FormConfig(QWidget *parent) :
     connect(ui->spuPageHeight,SIGNAL(valueChanged(double)),this,SLOT(FindSize(double)));
     connect(ui->spuPageWidth,SIGNAL(valueChanged(double)),this,SLOT(FindSize(double)));
     connect(ui->toolButtonSuppressCoverImage,SIGNAL(clicked(bool)),this,SLOT(deleteCoverImage(bool)));
+    connect (ui->comboBoxPageNumberStyle,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckArrow(int)));
 }
 
 void FormConfig::SizeChanged(bool)
@@ -39,6 +41,20 @@ void FormConfig::SizeChanged(bool)
 void FormConfig::SizeChanged(QString)
 {
     Calculate();
+}
+
+
+void FormConfig::CheckArrow(int i )
+{
+    if ( i == Const::NumberAndArrows )
+    {
+        ui->comboBoxPageNumber->setCurrentIndex(Const::Center);
+        ui->comboBoxPageNumber->setDisabled(true);
+    }
+    else
+    {
+        ui->comboBoxPageNumber->setDisabled(false);
+    }
 }
 
 void FormConfig::Calculate()

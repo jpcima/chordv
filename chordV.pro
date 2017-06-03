@@ -138,7 +138,16 @@ DISTFILES += \
     Test/data/Makefile \
     Test/Docs/txt/Makefile \
     Docs/txt/ChoFormat_en.txt \
-    Docs/txt/ChoFormat_fr.txt
+    Docs/txt/ChoFormat_fr.txt \
+    Docs/txt/fr/Documentation.md \
+    Docs/txt/fr/ChoFormat.txt \
+    Docs/txt/en/Documentation.txt \
+    Docs/txt/en/ChoFormat.txt \
+    Docs/img/fr/menupreferences.png \
+    Docs/img/fr/preferencegeneral.png \
+    Docs/img/fr/fontselection.png \
+    Docs/img/fr/preferencetext.png \
+    Docs/img/fr/preferencestextcontent.png
 
 RESOURCES += \
     Resources/resources.qrc

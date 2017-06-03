@@ -722,8 +722,10 @@ void Processor::addToc()
 
 void Processor::makePageNumber()
 {
+    bool arrow = false;
     Const::PageNumber pagetype= Const::getPageNumber(m_uiconfig->comboBoxPageNumber->currentIndex());
     if (pagetype == Const::No )  return ;
+
     int firstpage=getCoverMade() ? 2:1;
     int totalpage=m_mdocument->GetPageCount()-firstpage+1;
     if (totalpage<=0) return;
@@ -734,11 +736,17 @@ void Processor::makePageNumber()
         PdfPage *pdfp = m_mdocument->GetPage(p);
         m_painter.SetPage(pdfp);
         QString pattern;
-        if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==0)
+        if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::Number)
             pattern="%1";
-        else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==1)
+        else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::NumberAndTiret )
             pattern="- %1 -";
-        else pattern=QString("%%1/%1").arg(totalpage);
+        else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::NumberDivideByPageNUmber ) pattern=QString("%%1/%1").arg(totalpage);
+        else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::NumberAndArrows )
+        {
+            pattern=QString("%1").arg(totalpage);
+            arrow=true;
+        }
+        else pattern="";
         QString page=QString(pattern).arg(nbpage);
 
         nbpage++;
@@ -758,8 +766,25 @@ void Processor::makePageNumber()
            else
                x = m_uiconfig->spuHorizontalMargin->getPdfU();
         }
-        if  ( pagetype == Const::Center ) Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
-        else Text(m_mdocument,page,x,y, m_uiconfig->toolButtonPageNumberFont,left);
+        if ( m_uiconfig->toolButtonPageNumberFont->getBackgroundColor() != m_uiconfig->colorButtonPaperColor->getColor() )
+        {
+            m_painter.SetColor(m_uiconfig->toolButtonPageNumberFont->getBackgroundColor().redF(),m_uiconfig->toolButtonPageNumberFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonPageNumberFont->getBackgroundColor().blueF());
+            m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
+                              y-m_uiconfig->toolButtonTocFont->getFont().pointSize()/3.0,
+                              m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
+                              m_uiconfig->toolButtonTocFont->getFont().pointSize()*1.3);
+            m_painter.Fill();
+        }
+        if  ( pagetype == Const::Center )
+        {
+            Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
+            if ( arrow )
+            {
+
+            }
+        }
+        else
+            Text(m_mdocument,page,x,y, m_uiconfig->toolButtonPageNumberFont,left);
         double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
         if ( m_uiconfig->comboBoxTocPosition->currentIndex()!=0 )
            {

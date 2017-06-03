@@ -24,9 +24,6 @@ class Processor : public QObject
 
 
 
-
-
-    void AllocatePage();
 public:
     enum Align {left,center,right};
     Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
@@ -132,7 +129,6 @@ protected:
     /// \brief m_refrain this is refrain ?
     ///
     bool m_refrain;
-
     ///
     /// \brief m_file dir where product the output file
     ///
@@ -304,6 +300,10 @@ protected:
     bool isColBreak(QString line);
     void BufLyricsNormailisation();
     void addCol(int &col, int num);
+    ///
+    /// \brief AllocatePage
+    ///
+    virtual void AllocatePage();
 };
 
 #endif // PROCESSOR_H

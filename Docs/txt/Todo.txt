@@ -11,11 +11,15 @@ Lyrics mo:
 12 -BreaklIne suppressed in Bologne
 
 
-Chord :
+PDF Chord :
 
 - arrow
-- page number
-- :4 chord
+
+
+
+Chord Editor :
+
+- save first chord and not the name choosen in the list
 
 Editor :
 
@@ -32,8 +36,8 @@ Editor :
 
 Planned features
 ------------------
-- Make a test classes
 - Put a button  copy like other for each tab
+- Force all page all in configuration
 - Popup menu on chord in text to see the chords
 - In text mode, propose to delete the columns mark
 

@@ -14,7 +14,7 @@
    <string>Chord V</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../Resources/resources.qrc">
     <normaloff>:/Image/Images/icon.png</normaloff>:/Image/Images/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
@@ -470,6 +470,7 @@ break</string>
      </property>
      <addaction name="actionSave_Current_as_Defaut"/>
      <addaction name="actionReset_Preferences_as_Origin"/>
+     <addaction name="actionForce_configuration_files_to_currrent_project"/>
     </widget>
     <widget class="QMenu" name="menuBuild_PDF">
      <property name="title">
@@ -501,11 +502,14 @@ break</string>
      <addaction name="actionBuildAndViewMemory"/>
     </widget>
     <addaction name="actionProduce_PDF_files"/>
+    <addaction name="separator"/>
     <addaction name="actionPreferences"/>
     <addaction name="menuPreferences_hints"/>
+    <addaction name="separator"/>
     <addaction name="actionChord_defintion"/>
-    <addaction name="menuBuild_PDF"/>
+    <addaction name="separator"/>
     <addaction name="menuLaunch_PDF_Viewer"/>
+    <addaction name="menuBuild_PDF"/>
     <addaction name="menuBuild_and_Launch_PDF"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
@@ -618,6 +622,9 @@ break</string>
   <action name="actionPreferences">
    <property name="text">
     <string>Pr&amp;eferences</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="actionOpen_Song_File">
@@ -842,6 +849,11 @@ break</string>
     <string>Ctrl+-</string>
    </property>
   </action>
+  <action name="actionForce_configuration_files_to_currrent_project">
+   <property name="text">
+    <string>Force configuration files to currrent project</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -880,6 +892,8 @@ break</string>
    <header>textedit.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

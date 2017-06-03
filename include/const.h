@@ -5,6 +5,7 @@ class Const{
 public:
     enum PageNumber { No, Center, Outside };
     enum Plex { Simplex, Duplex};
+    enum PageStyle { Number, NumberAndTiret, NumberDivideByPageNUmber, NumberAndArrows};
     static PageNumber getPageNumber( int i ) {if ( i == 1 ) return Center; else if ( i == 2 ) return Outside ; else return No; }
 }
 ;
