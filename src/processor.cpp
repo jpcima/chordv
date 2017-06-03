@@ -740,16 +740,17 @@ void Processor::makePageNumber()
             pattern="%1";
         else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::NumberAndTiret )
             pattern="- %1 -";
-        else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::NumberDivideByPageNUmber ) pattern=QString("%%1/%1").arg(totalpage);
+        else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::NumberDivideByPageNUmber )
+            pattern=QString("%%1/%1").arg(totalpage);
         else if ( m_uiconfig->comboBoxPageNumberStyle->currentIndex()==Const::NumberAndArrows )
         {
-            pattern=QString("%1").arg(totalpage);
+            pattern=QString("%1");
             arrow=true;
         }
-        else pattern="";
+        else pattern=QString("%1");
         QString page=QString(pattern).arg(nbpage);
 
-        nbpage++;
+        double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
         int x;
         int y;
         if (  m_uiconfig->spuHorizontalMargin->getPdfU() < m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF() )
@@ -777,24 +778,57 @@ void Processor::makePageNumber()
         }
         if  ( pagetype == Const::Center )
         {
-            Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
+
             if ( arrow )
             {
-
+              Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,left);
+              if (nbpage > 1)
+              {
+                m_painter.SetColor(m_uiconfig->toolButtonPageNumberFont->getTextColor().redF(),m_uiconfig->toolButtonPageNumberFont->getTextColor().greenF(),m_uiconfig->toolButtonPageNumberFont->getTextColor().blueF());
+                m_painter.MoveTo(x-m_uiconfig->toolButtonTocFont->getFont().pointSize(),y+0.4*m_uiconfig->toolButtonTocFont->getFont().pointSize());
+                m_painter.LineTo(x-m_uiconfig->toolButtonTocFont->getFont().pointSize()/2,y+0.8*m_uiconfig->toolButtonTocFont->getFont().pointSize());
+                m_painter.LineTo(x-m_uiconfig->toolButtonTocFont->getFont().pointSize()/2,y);
+                m_painter.ClosePath();
+                m_painter.Fill();
+                PdfRect rect1(x-1.5*m_uiconfig->toolButtonTocFont->getFont().pointSize(),y,m_uiconfig->toolButtonTocFont->getFont().pointSize(),m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
+                PdfAnnotation *a1=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect1);
+                a1->SetContents(tr("Go to last song").toStdString().c_str());
+                PdfDestination dest1(m_document->GetPage(nbpage-2));
+                a1->SetDestination(dest1);
+                a1->SetFlags( ePdfAnnotationFlags_Hidden);
+              }
+              if (nbpage < totalpage)
+              {
+                m_painter.SetColor(m_uiconfig->toolButtonPageNumberFont->getTextColor().redF(),m_uiconfig->toolButtonPageNumberFont->getTextColor().greenF(),m_uiconfig->toolButtonPageNumberFont->getTextColor().blueF());
+                m_painter.MoveTo(x+widthtext+m_uiconfig->toolButtonTocFont->getFont().pointSize()/2,y+0.4*m_uiconfig->toolButtonTocFont->getFont().pointSize());
+                m_painter.LineTo(x+widthtext,y+0.8*m_uiconfig->toolButtonTocFont->getFont().pointSize());
+                m_painter.LineTo(x+widthtext,y);
+                m_painter.ClosePath();
+                m_painter.Fill();
+                PdfRect rect2(x+widthtext,y,m_uiconfig->toolButtonTocFont->getFont().pointSize(),m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
+                PdfAnnotation *a2=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect2);
+                a2->SetContents(tr("Go to next song").toStdString().c_str());
+                PdfDestination dest2(m_document->GetPage(nbpage));
+                a2->SetDestination(dest2);
+                a2->SetFlags( ePdfAnnotationFlags_Hidden);
+              }
             }
+            else
+                Text(m_mdocument,page,x,y,m_uiconfig->toolButtonPageNumberFont,center);
         }
         else
             Text(m_mdocument,page,x,y, m_uiconfig->toolButtonPageNumberFont,left);
-        double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
-        if ( m_uiconfig->comboBoxTocPosition->currentIndex()!=0 )
-           {
-            PdfRect rect(x-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF(),y,widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
+        nbpage++;
+    if (m_uiconfig->comboBoxTocPosition->currentIndex() != Const::No)
+    {
+            PdfRect rect(x-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()/2,y,1.5*widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
+            qDebug()<<widthtext;
             PdfAnnotation *a=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect);
             a->SetContents(tr("Go to table of content").toStdString().c_str());
             PdfDestination dest(m_document->GetPage(m_positiontoc));
             a->SetDestination(dest);
             a->SetFlags( ePdfAnnotationFlags_Hidden);
-           }
+     }
         FinishPage(&m_painter);
     }
 }
