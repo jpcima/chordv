@@ -27,6 +27,9 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     connect (ui->toolButtonPlus,SIGNAL(clicked(bool)),this,SLOT(AddChord()));
     m_model=new QSqlTableModel(this);
     m_model->setTable("Chords");
+    m_model->setHeaderData(0,Qt::Horizontal,tr("Name"));
+    m_model->setHeaderData(1,Qt::Horizontal,tr("Value"));
+    m_model->setHeaderData(2,Qt::Horizontal,tr("Index"));
     m_model->select();
     ui->tableView->setModel(m_model);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
