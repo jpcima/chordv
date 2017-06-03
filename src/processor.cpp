@@ -105,7 +105,6 @@ void Processor::run()
         {
             m_subtitle=SubTitleREX.cap(1);
             displayPageSubtitle(m_subtitle) ;
-            qDebug()<<m_subtitlenumber;
             if ( m_subtitlenumber==0)
             {
               displayRytm();
@@ -825,7 +824,6 @@ void Processor::makePageNumber()
     if (m_uiconfig->comboBoxTocPosition->currentIndex() != Const::No)
     {
             PdfRect rect(x-m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()/2,y,1.5*widthtext,m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
-            qDebug()<<widthtext;
             PdfAnnotation *a=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect);
             a->SetContents(tr("Go to table of content").toStdString().c_str());
             PdfDestination dest(m_document->GetPage(m_positiontoc));

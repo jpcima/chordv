@@ -11,6 +11,7 @@
 #include <QTextCursor>
 #include <QTextBlock>
 #include <QGraphicsScene>
+#include <QRegExp>
 
 
 DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
@@ -59,6 +60,7 @@ void DialogChordDefinition::ChordClicked(QModelIndex index)
     ui->lineEditValueIndex->setText(name);
     m_index=index.sibling(index.row(),2).data().toInt();
     ui->widget->setDiagram(ui->lineEditValueIndex->text());
+
 }
 
 DialogChordDefinition::~DialogChordDefinition()
@@ -125,7 +127,17 @@ void DialogChordDefinition::ShowChord(QModelIndex index)
 {
     QString chordname=index.data().toString();
     ui->lineEditChord->setText(chordname);
-
+    QString newname=chordname;
+    newname.replace(" ","");
+    QString oldname= ui->lineEditName->text();
+    QRegExp exp("^([^:(]+)((?:\\([^:]+){0,1}):");
+    if ( oldname.indexOf(exp) != -1)
+     {
+      QString c=exp.cap(1);
+      QString f=exp.cap(2);
+      oldname.replace(exp,QString("%1%2:").arg(newname).arg(f));
+     }
+    ui->lineEditName->setText(oldname);
 }
 
 

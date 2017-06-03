@@ -25,6 +25,8 @@ Chord Editor :
 
 - save first chord and not the name choosen in the list
 - search in chord managment
+- Refresh the list after add
+
 
 Editor :
 -------
