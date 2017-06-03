@@ -12,6 +12,7 @@
 #include <QTextBlock>
 #include <QGraphicsScene>
 #include <QRegExp>
+#include <QSqlError>
 
 
 DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
@@ -33,6 +34,37 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     connect(ui->tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClicked(QModelIndex)));
     connect (ui->pushButtonModify,SIGNAL(clicked(bool)),this,SLOT(ModifyChord()));
     connect (ui->pushButtonDelete,SIGNAL(clicked(bool)),this,SLOT(DeleteChord()));
+    connect (ui->radioButtonChordName,SIGNAL(clicked(bool)),this,SLOT(SortOnChord(bool)));
+    connect (ui->radioButtonFret,SIGNAL(clicked(bool)),this,SLOT(SortOnFret(bool)));
+    connect (ui->radioButtonSortIndex,SIGNAL(clicked(bool)),this,SLOT(SortOnIndex(bool)));
+    connect (ui->toolButtonClearFilter,SIGNAL(clicked(bool)),ui->lineEditFilter,SLOT(clear()));
+    connect (ui->lineEditFilter,SIGNAL(textChanged(QString)),this,SLOT(SetFilter(QString)));
+}
+
+void DialogChordDefinition::SetFilter(QString filter)
+{
+    m_model->setFilter(QString("name LIKE '%1%'").arg(filter));
+    m_model->select();
+}
+
+void DialogChordDefinition::SortOnFret(bool checked)
+{
+    if ( checked ) m_model->setSort(1,Qt::AscendingOrder);
+    m_model->select();
+}
+
+
+void DialogChordDefinition::SortOnIndex( bool checked)
+{
+    if (checked ) m_model->setSort(2,Qt::AscendingOrder);
+    m_model->select();
+}
+
+
+void DialogChordDefinition::SortOnChord( bool checked)
+{
+    if (checked) m_model->setSort(0,Qt::AscendingOrder);
+    m_model->select();
 }
 
 void DialogChordDefinition::ModifyChord()

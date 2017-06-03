@@ -873,6 +873,7 @@ build/rcc/qrc_resources.cpp: Resources/resources.qrc \
 		Images/neck.jpg \
 		Images/en.png \
 		Images/warning.png \
+		Images/cross.png \
 		Images/gilles.jpg \
 		Images/warning.png \
 		translations/fr.ts \
@@ -1142,7 +1143,8 @@ build/obj/formconfig.o: src/formconfig.cpp include/formconfig.h \
 		include/pagesize.h \
 		include/spinboxunit.h \
 		include/settings.h \
-		include/language.h
+		include/language.h \
+		include/const.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formconfig.o src/formconfig.cpp
 
 build/obj/lyricsconfig.o: src/lyricsconfig.cpp include/lyricsconfig.h \

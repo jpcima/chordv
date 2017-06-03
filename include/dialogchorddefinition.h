@@ -33,6 +33,10 @@ private slots:
     void ModifyChord();
     void DeleteChord();
     void AddChord();
+    void SortOnFret(bool checked);
+    void SortOnIndex(bool checked);
+    void SortOnChord(bool checked);
+    void SetFilter(QString filter);
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;

@@ -24,8 +24,6 @@ Chord Editor :
 ------------
 
 
-- search in chord managment
-- Refresh the list after add
 
 
 Editor :

@@ -10,6 +10,7 @@
         <file>../Images/fr.png</file>
         <file>../Images/warning.png</file>
         <file>../Images/gilles.jpg</file>
+        <file>../Images/cross.png</file>
     </qresource>
     <qresource prefix="/Base">
         <file>../Bd/Chord.db</file>
