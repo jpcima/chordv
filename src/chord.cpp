@@ -49,7 +49,7 @@ Chord::Chord(QString chord, QString lang):QString(chord)
      }
      QSqlQuery q(QString("SELECT value FROM chords WHERE name='%1'").arg(m_purechordEnglish));
      if ( !q.next())
-         res=QString(qApp->translate("Chord","ERROR"));
+         res=QString(qApp->translate("Chord","not found"));
      else
          res=q.value(0).toString();
  }

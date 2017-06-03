@@ -144,7 +144,6 @@ void ProcessorChord::includeSoc()
 
 void ProcessorChord::displayBpm()
 {
-    qDebug()<<"appel"<<m_title;
     m_subtitlenumber++;
     if ( m_uiconfig->toolButtonSubtitleFont->getBackgroundColor() != m_uiconfig->colorButtonPaperColor->getColor())
     {

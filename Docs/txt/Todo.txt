@@ -1,8 +1,10 @@
 
-Bug
-----
+List of bugs and todo
+======================
 
-Lyrics mo:
+
+Lyrics mode :
+------------
 
 2- End of chorus to keep or delete
 6 - On jean le Libertin chord problem
@@ -12,12 +14,14 @@ Lyrics mo:
 
 
 PDF Chord :
+----------
 
 - arrow next not working ....
 - Toc has no margin.... define margin for toc ?
 
 
 Chord Editor :
+------------
 
 - save first chord and not the name choosen in the list
 - search in chord managment
@@ -37,7 +41,6 @@ Editor :
 Processor :
 ----------
 
- - Multi title ??
 
 Planned features
 ------------------
@@ -46,6 +49,7 @@ Planned features
 - Popup menu on chord in text to see the chords
 - In text mode, propose to delete the columns mark
 
+
 PDF :
+----
   - PDF fonts are not used in pdf but all font are constructed
-  - change ERROR for chord not found in database
