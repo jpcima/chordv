@@ -133,7 +133,6 @@ void DialogChordDefinition::ShowChord(QModelIndex index)
     QRegExp exp("^([^:(]+)((?:\\([^:]+){0,1}):");
     if ( oldname.indexOf(exp) != -1)
      {
-      QString c=exp.cap(1);
       QString f=exp.cap(2);
       oldname.replace(exp,QString("%1%2:").arg(newname).arg(f));
      }
@@ -194,4 +193,5 @@ void DialogChordDefinition::AddChord()
     }
     else
         QSqlQuery qinsert(QString ("INSERT INTO Chords (name,value) VALUES ('%1','%2')").arg(name).arg(value));
+    m_model->select();
 }
