@@ -25,15 +25,20 @@ void Util::MemorizeProject(QString filename)
     if (filename.isEmpty()) return;
     QSettings s;
     s.beginGroup("LastProjects");
+    QStringList olds;
     foreach ( QString l, s.allKeys())
-      if ( s.value(l).toString()==filename) return ;
+      {
+       if ( s.value(QString("%1").arg(l)).toString()==filename) return ;
+       olds<<s.value(QString("%1").arg(l)).toString();
+      }
     s.endGroup();
-    QString old=s.value(QString("LastProjects/f1")).toString();
     s.setValue("LastProjects/f1",filename);
-    for (int i=2; (i<10) && (!old.isEmpty()) ; i++)
+    int i=2;
+    foreach ( QString old, olds)
     {
         s.setValue(QString("LastProjects/f%1").arg(i),old);
-        old=s.value(QString("LastProjects/f%1").arg(i+1)).toString();
+        if ( i==10) return;
+        i++;
     }
 }
 
@@ -45,7 +50,7 @@ QString  Util::getLastDirectory()
 }
 
 void Util::setLastDirectory(QString filename)
-{
+{http://99.198.112.59:80
     if (filename.isEmpty()) return;
     QSettings s;
     QFileInfo fi(filename);
