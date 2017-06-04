@@ -23,7 +23,6 @@ QString Language::getTranslationQmFileName(QString language)
 
 QString Language::getTranslationDocFileName(QString language)
 {
-    if (language=="English") return QString("en");
     QSettings s;
     QFileInfo f1(s.fileName());
     QString dirname=f1.absolutePath()+"/Languages/"+language;

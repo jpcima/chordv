@@ -424,9 +424,14 @@ void MainWindow::Save(bool)
 void MainWindow::SaveAs(bool)
 {
     QSettings s;
-    m_currentprojectfile=QFileDialog::getSaveFileName(this,tr("Save project as"),Util::getLastDirectory(),tr("Save as (*.chop)"));
+    m_currentprojectfile=QFileDialog::getSaveFileName(this,tr("Save project as"),Util::getLastDirectory(),tr("(*.chop)"));
     if (!m_currentprojectfile.isEmpty() )
     {
+        if ( m_currentprojectname.isEmpty())
+        {
+            QFileInfo fi( m_currentprojectfile);
+            m_currentprojectname=fi.baseName();
+        }
         Save(true);
         Util::setLastDirectory(m_currentprojectfile);
     }

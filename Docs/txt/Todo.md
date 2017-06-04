@@ -23,19 +23,9 @@ PDF Chord :
 Chord Editor :
 ------------
 
-
-
 Editor :
 -------
 
-- think about chord insertion menu
-- perhaps on  popup menu to show all the chords stored in database
-- show all the chord not present in database
-
-- When toc is at end clic on toc go to page 1
-- When toc is at begining page number start +1
-- Toc end : first page0 in Toc .
-- Toc end : click on page in page must go on Toc no on first page
 
 Processor :
 ----------

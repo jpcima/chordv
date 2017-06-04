@@ -24,13 +24,8 @@ DialogDocumentation::DialogDocumentation(QWidget *parent) :
     file.open(QIODevice::ReadOnly|QIODevice::Text);
     QString content=file.readAll();
     file.close();
-//    QWebEngineView *wv = new QWebEngineView(ui->widget);
-//    //wv->setHtml(content);
-//    wv->load(QUrl(filename));
-//    wv->show();
     QStringList pathlist;
     pathlist<<path;
-    qDebug()<<pathlist;
     ui->textBrowser->setSearchPaths(pathlist);
     ui->textBrowser->setHtml(content);
 

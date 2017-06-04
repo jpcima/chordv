@@ -131,11 +131,11 @@ DISTFILES += \
     Example/deuxdisques.png \
     Example/Chansons.cho3 \
     Example/Chansons.chop \
-	Docs/txt/Documentation_en.txt \
-	Docs/txt/Documentation_fr.txt \
-	Docs/txt/Compilation.txt \
-	Docs/txt/Todo.txt \
-	Docs/txt/Makefile \
+    Docs/txt/Documentation_en.txt \
+    Docs/txt/Documentation_fr.txt \
+    Docs/txt/Compilation.md \
+    Docs/txt/Todo.md \
+    Docs/txt/Makefile \
     Docs/txt/index.txt \
     Test/data/Makefile \
     Test/Docs/txt/Makefile \

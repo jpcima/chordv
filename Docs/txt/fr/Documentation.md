@@ -68,12 +68,10 @@ Brassens, un recueil des chansons de Renaud et un recueil des chansons
 de Jeanne Chéral. Pour chacun de ces recueils, vous pourrez choisir 
 les différentes types de sortie que vous souhaitez et définir à votre
 guise chaque sortie, mais vous pouvez vouloir définir les mêmes 
-ormats pour chacun d'eux, ou au moins quelques options communes dans 
-les polices
-de caractères ou autre. C'est dans les préférences que vous pourrez 
-régler ces options globales, quitte à pouvoir les adpater à chacuns 
-des artistes
-par la suite
+formats pour chacun d'eux, ou au moins quelques options communes dans 
+les polices de caractères ou autre. C'est dans les préférences que vous 
+pourrez  régler ces options globales, quitte à pouvoir les adpater à 
+chacun des artistes par la suite.
 - Il faut noter qu'il existe des raccourcis de préférences appelés 
 gadgets de préférence.
    - L'un vous permet de revenir aux choix initiaux du logiciels au 
@@ -161,7 +159,7 @@ numéros de page. Si la la couleur de font de page n'est pas identique
 
 ### Les options communes de l'onglet Contenu 
 
-![Options générales partie contenue](./img/preferencetextcontent.png)
+![Options générales partie contenue](./img/preferencestextcontent.png)
 
 1.
 2.

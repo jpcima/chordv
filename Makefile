@@ -191,8 +191,8 @@ DIST          = Example/deuxdisques.png \
 		Example/Chansons.chop \
 		Docs/txt/Documentation_en.txt \
 		Docs/txt/Documentation_fr.txt \
-		Docs/txt/Compilation.txt \
-		Docs/txt/Todo.txt \
+		Docs/txt/Compilation.md \
+		Docs/txt/Todo.md \
 		Docs/txt/Makefile \
 		Docs/txt/index.txt \
 		Test/data/Makefile \

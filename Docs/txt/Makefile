@@ -1,5 +1,8 @@
 HTML=$(patsubst %.md,%.html,$(wildcard *.md))
-all : $(HTML) 
+all : $(HTML) fr en
 %.html : %.md
-	pandoc --from=markdown --to=html --output=../html/$@  $<
-	
+	@pandoc --toc --ascii --smart -N --css=../css/pandoc.css  --from=markdown --to=html --output=../html/$@ $<
+fr:
+	make -C fr
+en: 
+	make -C en

@@ -5,11 +5,14 @@
 CONF=~/.config/ChordV
 LANGFILE=$CONF/Languages/Français
 mkdir -p $LANGFILE
+mkdir -p ~/.config/ChordV/Languages/English
 
 
 cp translations/fr.qm $LANGFILE
 cp translations/fr.ts $LANGFILE
 cp Images/fr.png $LANGFILE
 cp Bd/Chord.db $CONF
-cp Docs/html/fr/Documentation.html $LANGFILE/fr.doc
+cp Docs/html/fr/Documentation.html $LANGFILE/fr.html
 cp -r Docs/html/fr/img $LANGFILE
+cp Docs/html/en/Documentation.html ~/.config/ChordV/Languages/English/en.html
+cp -r Docs/html/en/img ~/.config/ChordV/Languages/English

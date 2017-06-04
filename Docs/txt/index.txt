@@ -1,8 +1,0 @@
-ChordV Documentation
---------------------
-
-- link:Compilation.html[Docs en English for developpers]
-- link:Documentation_en.html[Users documentation in English]
-- link:Documentation_fr.html[Documentation utilisateur en français]
-- link:ChoFormat_en.html[Cho Format file in English]
-- link:ChoFormat_fr.html[Le format cho en français]
