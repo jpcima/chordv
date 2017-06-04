@@ -111,7 +111,8 @@ SOURCES       = src/main.cpp \
 		build/moc/moc_dialogchoosegoodchord.cpp \
 		build/moc/moc_dialogsearch.cpp \
 		build/moc/moc_dialogreplace.cpp \
-		build/moc/moc_dialogbar.cpp
+		build/moc/moc_dialogbar.cpp \
+		build/moc/moc_textedit.cpp
 OBJECTS       = build/obj/main.o \
 		build/obj/mainwindow.o \
 		build/obj/util.o \
@@ -176,7 +177,8 @@ OBJECTS       = build/obj/main.o \
 		build/obj/moc_dialogchoosegoodchord.o \
 		build/obj/moc_dialogsearch.o \
 		build/obj/moc_dialogreplace.o \
-		build/obj/moc_dialogbar.o
+		build/obj/moc_dialogbar.o \
+		build/obj/moc_textedit.o
 DIST          = Example/deuxdisques.png \
 		Example/Chansons.cho3 \
 		Example/Chansons.chop \
@@ -199,6 +201,7 @@ DIST          = Example/deuxdisques.png \
 		Docs/img/fr/fontselection.png \
 		Docs/img/fr/preferencetext.png \
 		Docs/img/fr/preferencestextcontent.png \
+		Docs/img/fr/editor.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -881,9 +884,9 @@ build/rcc/qrc_resources.cpp: Resources/resources.qrc \
 		Bd/Chord.db
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name resources Resources/resources.qrc -o build/rcc/qrc_resources.cpp
 
-compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp
+compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp build/moc/moc_textedit.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp
+	-$(DEL_FILE) build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp build/moc/moc_textedit.cpp
 build/moc/moc_mainwindow.cpp: include/editorhighlighter.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
@@ -991,6 +994,15 @@ build/moc/moc_dialogreplace.cpp: include/dialogreplace.h \
 build/moc/moc_dialogbar.cpp: include/dialogbar.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogbar.h -o build/moc/moc_dialogbar.cpp
+
+build/moc/moc_textedit.cpp: include/mainwindow.h \
+		include/editorhighlighter.h \
+		include/pdfviewer.h \
+		include/chordconfig.h \
+		include/formconfig.h \
+		include/textedit.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/textedit.h -o build/moc/moc_textedit.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -1381,7 +1393,10 @@ build/obj/textedit.o: src/textedit.cpp include/textedit.h \
 		include/logmessages.h \
 		include/lyricsconfig.h \
 		include/memoryconfig.h \
-		include/textconfig.h
+		include/textconfig.h \
+		include/chord.h \
+		include/langnotes.h \
+		include/dialogchorddefinition.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/textedit.o src/textedit.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 
@@ -1455,6 +1470,9 @@ build/obj/moc_dialogreplace.o: build/moc/moc_dialogreplace.cpp
 
 build/obj/moc_dialogbar.o: build/moc/moc_dialogbar.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/moc_dialogbar.o build/moc/moc_dialogbar.cpp
+
+build/obj/moc_textedit.o: build/moc/moc_textedit.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/moc_textedit.o build/moc/moc_textedit.cpp
 
 ####### Install
 

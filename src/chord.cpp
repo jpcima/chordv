@@ -24,7 +24,10 @@ Chord::Chord(QString chord, QString lang):QString(chord)
      if ( exp.cap(2)=="x")
         m_nbbar=exp.cap(3).toInt();
      else if (exp.cap(2) == ":")
+     {
         m_nbbeat=exp.cap(3).toInt();
+        m_nbbar=0;
+     }
      m_purechordLocale=exp.cap(1);
  }
  else
@@ -133,4 +136,26 @@ QStringList Chord::removeDupplicateWhithoutRytm(QStringList chords,QString lang)
 QString Chord::nameEnglish()
 {
     return m_nameEnglish;
+}
+
+
+QString Chord::up()
+{
+    if ( m_nbbeat == 4) return QString("%1:2").arg(m_purechordLocale);
+    else if ( m_nbbeat == 2 ) return m_purechordLocale;
+    else if ( m_nbbar==1 ) return QString("%1x2").arg(m_purechordLocale);
+    else if ( m_nbbar>1 ) return QString("%1x%2").arg(m_purechordLocale).arg(m_nbbar+1);
+    else return (m_originalchord);
+}
+
+
+
+QString Chord::down()
+{
+
+    if ( m_nbbar >=3 ) return QString("%1x%2").arg(m_purechordLocale).arg(m_nbbar-1);
+    else if ( m_nbbar==2 ) return m_purechordLocale;
+    else if ( m_nbbar==1 ) return QString("%1:2").arg(m_purechordLocale);
+    else if (m_nbbeat==2) return QString("%1:4").arg(m_purechordLocale );
+    else return (m_originalchord);
 }

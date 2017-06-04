@@ -22,6 +22,8 @@ public:
     QString pureNameLocale();
     QString pureNameEnglish();
     static QStringList removeDupplicateWhithoutRytm(QStringList chords,QString lang);
+    QString up();
+    QString down();
 private:
     QString m_originalchord;
     int m_nbbar; // 2 : from D7x2

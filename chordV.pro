@@ -147,7 +147,8 @@ DISTFILES += \
     Docs/img/fr/preferencegeneral.png \
     Docs/img/fr/fontselection.png \
     Docs/img/fr/preferencetext.png \
-    Docs/img/fr/preferencestextcontent.png
+    Docs/img/fr/preferencestextcontent.png \
+    Docs/img/fr/editor.png
 
 RESOURCES += \
     Resources/resources.qrc

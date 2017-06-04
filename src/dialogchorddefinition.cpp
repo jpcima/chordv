@@ -34,6 +34,7 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     ui->tableView->setModel(m_model);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::ContiguousSelection);
+    ui->pushButtonInsertChord->setVisible(false);
     connect(ui->tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClicked(QModelIndex)));
     connect (ui->pushButtonModify,SIGNAL(clicked(bool)),this,SLOT(ModifyChord()));
     connect (ui->pushButtonDelete,SIGNAL(clicked(bool)),this,SLOT(DeleteChord()));
@@ -42,6 +43,18 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     connect (ui->radioButtonSortIndex,SIGNAL(clicked(bool)),this,SLOT(SortOnIndex(bool)));
     connect (ui->toolButtonClearFilter,SIGNAL(clicked(bool)),ui->lineEditFilter,SLOT(clear()));
     connect (ui->lineEditFilter,SIGNAL(textChanged(QString)),this,SLOT(SetFilter(QString)));
+    connect (ui->pushButtonInsertChord,SIGNAL(clicked(bool)),this,SLOT(InsertChord(bool)));
+}
+
+void DialogChordDefinition::ActiveInsertButton()
+{
+    ui->pushButtonInsertChord->setVisible(true);
+}
+
+void DialogChordDefinition::InsertChord(bool )
+{
+  if ( ! ui->lineEditNameIndex->text().isEmpty()) emit ChordToInsert(QString("[%1]").arg(ui->lineEditNameIndex->text()));
+  close();
 }
 
 void DialogChordDefinition::SetFilter(QString filter)

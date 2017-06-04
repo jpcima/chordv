@@ -31,6 +31,7 @@
 #include <QTranslator>
 #include <QProcess>
 #include <QInputDialog>
+#include <QShortcut>
 #include "ui_formconfig.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -77,6 +78,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
+
     connect(ui->toolButtonCB,SIGNAL(clicked(bool)),this,SLOT(InsertCB()));
     connect(ui->toolButtonCol,SIGNAL(clicked(bool)),this,SLOT(InsertCol()));
     connect(ui->toolButtonBPM,SIGNAL(clicked(bool)),this,SLOT(InsertBPM()));

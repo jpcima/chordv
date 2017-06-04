@@ -23,7 +23,7 @@ class DialogChordDefinition : public QDialog
 public:
     explicit DialogChordDefinition(QWidget *parent = 0);
     ~DialogChordDefinition();
-
+    void ActiveInsertButton();
 protected slots:
     void ShowChords(QStringList chordnames,QString chortdstring);
 private slots:
@@ -37,6 +37,7 @@ private slots:
     void SortOnIndex(bool checked);
     void SortOnChord(bool checked);
     void SetFilter(QString filter);
+    void InsertChord(bool);
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;
@@ -46,6 +47,7 @@ private:
     void setError(QString message, int linenumber);
 signals:
     void Error(QString message);
+    void ChordToInsert(QString chord);
 };
 
 

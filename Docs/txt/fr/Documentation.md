@@ -175,16 +175,78 @@ numéros de page. Si la la couleur de font de page n'est pas identique
 
 ![Sélection des polices](../../img/fr/fontselection.png)
 
-- La sélection des polices permet de sélectionner la famille police 
+La sélection des polices permet de sélectionner la famille police 
 souhaitée, sa taille, son style et toutes les options traditionnelles
 aux quelles sont ajoutés : 
     - la couleur du fond
     - la couleur de la police
-- La sélection d'une couleur changera la couleur du bouton afin de 
+La sélection d'une couleur changera la couleur du bouton afin de 
 vous montrer la couleur qu'il recèle
-- Une explication sur la couleur de fond est nécessaire.
+Une explication sur la couleur de fond est nécessaire.
+
+
+# La fenêtre d'édition 
+
+## Présentation 
+
+### La fenêtre d'édition 
+
+![La fenêtre d'édition](../../img/fr/editor.png)
+
+1. Le menu édition permet d'accéder aux fonctions rechercher remplacer
+et de zoomer la police de caractères. En regard les items du menu vous
+disposez de raccourcis clavier. 
+2. Les icones permettent d'insérer les Titres de couverture, les mesures
+et toutes les informations qui sont surlignées en violet sur la figure.
+3. La zone de texte vous permet de rentrer les chansons au format 
+chord pro 
+4. La partie log affiche des messages d'erreur étiquetés en rouge
+et des messages de succès étiquetés en vert.
+5. Quand vous sélectionner un accord, en actionnant la molette de la
+souris vers le haut ou le bas vous montez ou descendez la durée d'un 
+accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant 
+la molette vers soi.
+
+
+### Le langage à balise de chord pro 
+
+On peut trouver étrange qu'un logiciel moderne ne présente pas une
+interface Wysiwyg, c'est à dire dont l'aspect ressemble à la sortie
+papier. En fait ChordV prend un seul format d'entrée et il est capable
+de générer un livret de texte, un livret de texte et accords, un livret 
+de grille d'accords et des aide mémoires. Dans quel mode fallait 
+il choisir de travailler ? Nous avons choisi le mode à balise qui nous 
+semblé un format pivot. 
+
+En plus ce format pivot est écrit dans le langage chord pro plus des 
+extensions utiles au programme. Ainsi vous pourrez charger dans ChordV 
+l'ensemble des fichiers chord pro disponibles dans les resources 
+musicales libres du net.
+
+
+## Insertion des accords dans l'éditeur
+
+En double cliquant sur le texte la fenêtre d'inclusion d'accord vous 
+permet de sélectionner un accord par l'appui sur le bouton Inserer
+l'accord. 
+Vous pouvez modifier le tempo par l'emploi de la molette de la souris 
+en maintenant la touche SHIFT appuyée dans l'éditeur.
+
 
 # Partie technique
+
+## Raccourcis claviers - Actions souris 
+
+### Raccourcis clavier 
+
+| Raccourcis | Action        || Raccourcis | Action |
+|------------|---------------||------------|--------|
+|  CTRL + F  | Rechercher    ||
+|  CTRL + O  | Préférences   ||
+|  CTRL + R  | Remplacer     ||
+|  CTRL + S  | Sauvegarder   ||
+|  CTRL + +  | Zoomer +      ||
+|  CTRL + -  | Zommer -      ||
 
 ## Traduction du logiciel dans une langue
 
