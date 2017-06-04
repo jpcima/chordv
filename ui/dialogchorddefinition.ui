@@ -26,6 +26,9 @@
          <property name="movable">
           <bool>true</bool>
          </property>
+         <property name="tabBarAutoHide">
+          <bool>true</bool>
+         </property>
          <widget class="QWidget" name="tabNewChord">
           <attribute name="title">
            <string>Chord Definition</string>

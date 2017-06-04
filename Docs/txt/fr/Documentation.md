@@ -228,9 +228,13 @@ musicales libres du net.
 
 En double cliquant sur le texte la fenêtre d'inclusion d'accord vous 
 permet de sélectionner un accord par l'appui sur le bouton Inserer
-l'accord. 
+l'accord. Cette action peut également être optenue par l'appui de
+la touche F4 (alors que la touche F3 permet d'entrer dans le mode
+de gestion des accords)
+
 Vous pouvez modifier le tempo par l'emploi de la molette de la souris 
 en maintenant la touche SHIFT appuyée dans l'éditeur.
+
 
 
 # Partie technique
@@ -239,14 +243,16 @@ en maintenant la touche SHIFT appuyée dans l'éditeur.
 
 ### Raccourcis clavier 
 
-| Raccourcis | Action        || Raccourcis | Action |
-|------------|---------------||------------|--------|
-|  CTRL + F  | Rechercher    ||
-|  CTRL + O  | Préférences   ||
-|  CTRL + R  | Remplacer     ||
-|  CTRL + S  | Sauvegarder   ||
-|  CTRL + +  | Zoomer +      ||
-|  CTRL + -  | Zommer -      ||
+| Raccourcis | Action        || Raccourcis | Action         |
+|------------|---------------||------------|----------------|
+|  CTRL + F  | Rechercher    ||  F1        | Documentation  |
+|  CTRL + O  | Préférences   ||  F2        |                |
+|  CTRL + R  | Remplacer     ||  F3        | Déf. accords   |
+|  CTRL + S  | Sauvegarder   ||  F4        | Insert. accords|
+|  CTRL + +  | Zoomer +      ||  F5        | PDF texte      |
+|  CTRL + -  | Zommer -      ||  F6        | PDF accord+text|
+|  CTRL + -  | Zommer -      ||  F7        | PDF grille     |
+
 
 ## Traduction du logiciel dans une langue
 
