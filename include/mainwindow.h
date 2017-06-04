@@ -133,6 +133,7 @@ private slots:
     void BuildAndViewLyrics();
     void ZoomIn();
     void ZoomOut();
+    void Documentation();
 };
 
 #endif // MAINWINDOW_H

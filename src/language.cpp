@@ -21,6 +21,23 @@ QString Language::getTranslationQmFileName(QString language)
 }
 
 
+QString Language::getTranslationDocFileName(QString language)
+{
+    if (language=="English") return QString("en");
+    QSettings s;
+    QFileInfo f1(s.fileName());
+    QString dirname=f1.absolutePath()+"/Languages/"+language;
+    QDir d(dirname);
+    QStringList filter;
+    filter<<"*.html";
+    QFileInfoList fi=d.entryInfoList(filter);
+    if (fi.count()>=1)
+        return fi.at(0).absoluteFilePath();
+    else return QString();
+}
+
+
+
 void Language::setLanguageComboBox(QComboBox *ptr)
 {
     QSettings s;

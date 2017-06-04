@@ -8,6 +8,7 @@
 #include "dialogsearch.h"
 #include "dialogreplace.h"
 #include "dialogbar.h"
+#include "dialogdocumentation.h"
 
 #include "lyricsconfig.h"
 #include "formconfig.h"
@@ -114,7 +115,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionBuildAndViewChord,SIGNAL(triggered(bool)),this,SLOT(BuildAndViewChord()));
     connect (ui->actionBuildAndViewMemory,SIGNAL(triggered(bool)),this,SLOT(BuildAndViewMemory()));
     connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViewLastBuildPdf()));
-
+    connect (ui->actionDocumentation,SIGNAL(triggered(bool)),this,SLOT(Documentation()));
     connect(ui->stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(ShowStacked(int)));
 
 
@@ -884,4 +885,11 @@ void MainWindow::setChecked(int i)
 void MainWindow::ShowStacked( int i )
 {
     m_labelactivestacked->setText(m_liststacked.at(i));
+}
+
+void MainWindow::Documentation()
+{
+    DialogDocumentation *dial= new DialogDocumentation(this);
+    dial->show();
+
 }

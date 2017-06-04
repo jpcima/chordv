@@ -53,9 +53,6 @@ void DialogChordDefinition::ActiveInsertButton()
     ui->tabWidget->removeTab(2);
     ui->tabWidget->removeTab(0);
     this->setWindowTitle(tr("Chord insertion"));
-
-
-
 }
 
 void DialogChordDefinition::InsertChord(bool )

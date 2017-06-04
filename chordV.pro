@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui sql widgets
-TARGET = chordV
 TEMPLATE = app
 
 linux{
@@ -62,7 +61,8 @@ SOURCES += src/main.cpp\
     src/pdfviewer.cpp \
     src/dialogbar.cpp \
     src/processorchord.cpp \
-    src/textedit.cpp
+    src/textedit.cpp \
+    src/dialogdocumentation.cpp
 
 HEADERS  += include/mainwindow.h \
     include/util.h \
@@ -104,7 +104,8 @@ HEADERS  += include/mainwindow.h \
     include/pdfviewer.h \
     include/dialogbar.h \
     include/processorchord.h \
-    include/textedit.h
+    include/textedit.h \
+    include/dialogdocumentation.h
 
 FORMS    += ui/mainwindow.ui \
     ui/formconfig.ui \
@@ -116,7 +117,8 @@ FORMS    += ui/mainwindow.ui \
     ui/dialogchoosegoodchord.ui \
     ui/dialogsearch.ui \
     ui/dialogreplace.ui \
-    ui/dialogbar.ui
+    ui/dialogbar.ui \
+    ui/dialogdocumentation.ui
 
 LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include ./include

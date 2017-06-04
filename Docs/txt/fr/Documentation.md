@@ -1,7 +1,12 @@
-# Chord documentation V utilisateur
+% Documentation utilisateur de chord V
+% Gilles Maire 
+% juin 2017
 
 
-## Introduction
+# Introduction 
+
+
+## Présentation 
 
 
 - ChordV permet de produire différents types de fichiers PDF pour une 
@@ -81,12 +86,12 @@ gadgets de préférence.
 - On accède aux préférences par le menu Préférence ou par le racourci 
 clavier CTRL + O comme le montre la figure suivante
 
-![Le menu des préférences ](../../img/fr/menupreferences.png)
+![Le menu des préférences ](./img/menupreferences.png)
 
 
 ## Les options générales des préférences
 
-![Options générales](../../img/fr/preferencegeneral.png)
+![Options générales](./img/preferencegeneral.png)
 
 1. Vous pouvez choisir la langue du logiciel. Si votre langue de figure
 pas dans la liste, vous pouvez fabriquer un fichier de traduction
@@ -114,7 +119,7 @@ chacune des
 ### Les options communes de l'onglet Document
 
 
-![Options générales](../../img/fr/preferencetext.png)
+![Options générales](./img/preferencetext.png)
 
 1. Zone de sélection de la largeur. Si vous mettez ici des valeurs 
 correspondants à un format existant, ce format sera affiché dans la zone
@@ -156,7 +161,7 @@ numéros de page. Si la la couleur de font de page n'est pas identique
 
 ### Les options communes de l'onglet Contenu 
 
-![Options générales partie contenue](../../img/fr/preferencetextcontent.png)
+![Options générales partie contenue](./img/preferencetextcontent.png)
 
 1.
 2.
@@ -173,7 +178,7 @@ numéros de page. Si la la couleur de font de page n'est pas identique
 
 ### Sélection des polices 
 
-![Sélection des polices](../../img/fr/fontselection.png)
+![Sélection des polices](./img/fontselection.png)
 
 La sélection des polices permet de sélectionner la famille police 
 souhaitée, sa taille, son style et toutes les options traditionnelles
@@ -191,7 +196,7 @@ Une explication sur la couleur de fond est nécessaire.
 
 ### La fenêtre d'édition 
 
-![La fenêtre d'édition](../../img/fr/editor.png)
+![La fenêtre d'édition](./img/editor.png)
 
 1. Le menu édition permet d'accéder aux fonctions rechercher remplacer
 et de zoomer la police de caractères. En regard les items du menu vous
@@ -243,15 +248,25 @@ en maintenant la touche SHIFT appuyée dans l'éditeur.
 
 ### Raccourcis clavier 
 
-| Raccourcis | Action        || Raccourcis | Action         |
-|------------|---------------||------------|----------------|
-|  CTRL + F  | Rechercher    ||  F1        | Documentation  |
-|  CTRL + O  | Préférences   ||  F2        |                |
-|  CTRL + R  | Remplacer     ||  F3        | Déf. accords   |
-|  CTRL + S  | Sauvegarder   ||  F4        | Insert. accords|
-|  CTRL + +  | Zoomer +      ||  F5        | PDF texte      |
-|  CTRL + -  | Zommer -      ||  F6        | PDF accord+text|
-|  CTRL + -  | Zommer -      ||  F7        | PDF grille     |
+-------------------------------------------------------------
+ Raccourcis        Action       Raccourcis     Action         
+------------ ---------------  ------------  -----------------
+  CTRL + F    Rechercher        F1          Documentation   
+  
+  CTRL + O    Préférences       F2                          
+  
+  CTRL + R    Remplacer         F3          Déf. accords    
+  
+  CTRL + S    Sauvegarder       F4          Insert. accords 
+  
+  CTRL + +    Zoomer +          F5          PDF texte       
+  
+  CTRL + -    Zommer -          F6          PDF accord+text 
+  
+  CTRL + -    Zommer -          F7          PDF grille      
+  
+-------------------------------------------------------------
+: Les raccourcis clavier
 
 
 ## Traduction du logiciel dans une langue
