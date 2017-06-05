@@ -271,14 +271,14 @@ en maintenant la touche SHIFT appuyée dans l'éditeur.
 
 ### Présentation
 
-- Vous n'avez pas besoin des codes sources pour traduire le logiciel.
-- Si vous vous rendez dans le menu système de l'application, vous
+ Vous n'avez pas besoin des codes sources pour traduire le logiciel.
+ Si vous vous rendez dans le menu système de l'application, vous
 trouverez le chemin du fichier de configuration par exemple :
 
 ~~~bash
 /home/gilles/.config/ChordV/ChordV.conf
 ~~~
-- dans le répertoire /home/gilles/.config/ChordV/ se trouvent les fichiers
+- Dans le répertoire /home/gilles/.config/ChordV/ se trouvent les fichiers
 de langue organisés dans le répertoire Languages contenant les langues
 écrites avec le nom dans la langue traduite. Pour le français on trouvera
 le nom avec la cédille exactement comme un français pourrait le lire.
@@ -286,6 +286,9 @@ le nom avec la cédille exactement comme un français pourrait le lire.
     - fr.png : ce fichier est un drapeau de la langue au format png
     - fr.ts : ce fichier est le ficher contenant les paires de traduction
     - fr.qm  : ce fichier contient le fichier ts compilé
+    - fr.html : la documentation en langue française dans le format HTML
+    - fr.md : la documentation en langue en française dans le format md
+    
 
 ### Traduction du fichier fr.ts
 
@@ -298,5 +301,52 @@ Fichier/Publier le fichier ts.qm sera créé
 fichier es.ts afin qu'il soit inclu dans la prochaine distribution du logiciel
 
 
+## La documentation utilisateur de Chord V
+
+### Présentation 
+
+La documentation est accessible dans le logiciel via le menu aide
+à l'item Documentation.
+
+Cette documentation a été transformée automatiquement à partir 
+du format Markdown vers le HTML via le programme Pandoc.
+
+Le fichier documentation se trouve dans le répertoire cité la partie
+[Traduction du logiciel dans une langue](#traduction-du-logiciel-dans-une-langue)
 
 
+### Processus de traduction 
+
+Si vous désirez traduire la documentation du logiciel, il faut récupérer
+le fichier md dans la langue désirée, le convertir via un traducteur
+automatique et le corriger.
+
+Prendre garde car les traducteur on tendance à transformer les codes 
+md du style 
+
+~~~md
+![La fenêtre d'édition](./img/editor.png)
+~~~
+
+en 
+
+~~~md
+! [La fenêtre d'édition] (./img/editor.png)
+~~~
+
+Une fois le fichier traduit, vous pouvez le convertir en format html
+via la commande (après avoir récupérer la feuille de style css sur 
+le net)
+
+~~~bash
+pandoc --toc --ascii --smart -N --css=pandoc.css  --from=markdown --to=html --output=es.html es.md
+~~~
+
+### Les images
+
+Les images sont à inclure dans le répertoire img du répertoire Langage/es,
+elles sont issues de copies d'écran. Si vous utilisez gimp vous pouvez utiliser 
+le plugin drawnumbers qui permet de produire les pastilles rouges.
+
+Il est disponible à l'adresse 
+[Draw-number](xhttp://www.gillesmaire.com/tiki-index.php?page=draw-numbers)
