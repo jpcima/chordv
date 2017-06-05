@@ -53,8 +53,8 @@ void Processor::run()
     QRegExp CompressREX("^ *\\{compress\\} * *$",Qt::CaseInsensitive);
     QRegExp ColumnsREX("^ *\\{(?:col|columns): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp ColumnBreakREX("^ *\\{(column_break|colb)(:(text|lyrics))? *\\}",Qt::CaseInsensitive);
-    QRegExp CoverTitleREX("^ *\\{*(?:covertitle|ct): *([^}]+)\\}",Qt::CaseInsensitive);
-    QRegExp CoverSubTitleREX("^ *\\{(?:coversubtitle|cs): *([^}]+)\\}",Qt::CaseInsensitive);
+    QRegExp CoverTitleREX("^ *\\{*(?:cover_title|ct): *([^}]+)\\}",Qt::CaseInsensitive);
+    QRegExp CoverSubTitleREX("^ *\\{(?:cover_subtitle|cs): *([^}]+)\\}",Qt::CaseInsensitive);
     QRegExp SubTitleREX("^ *\\{(?:subtitle|st): *([^}]+)\\}",Qt::CaseInsensitive);
     QRegExp TitleREX("^ *\\{(?:title|t): *([^}]*)\\}",Qt::CaseInsensitive);
     QRegExp SocREX("^ *\\{(?:soc|start_of_chorus)\\}",Qt::CaseInsensitive);
@@ -62,8 +62,8 @@ void Processor::run()
     QRegExp SorREX("^ *\\{(?:sor|start_of_refrain)\\}",Qt::CaseInsensitive);
     QRegExp EorREX("^ *\\{(?:eor|end_of_refrain)\\}",Qt::CaseInsensitive);
     QRegExp ChordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
-    QRegExp BpmREX("^ *\\{(?:Beats_per_minute|bpm): *([^}]*) *\\}",Qt::CaseInsensitive);
-    QRegExp RytmREX("^ *\\{(?:Rytm|temp): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp TempoREX("^ *\\{(?:tempo): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp TimeREX("^ *\\{(?:time): *([^}]*) *\\}",Qt::CaseInsensitive);
 
     setCoverMade(false);
     m_lineindex=0;
@@ -80,13 +80,13 @@ void Processor::run()
         {
             setColNumber(ColumnsREX.cap(1).toInt());
         }
-        else if ( line.contains(BpmREX))
+        else if ( line.contains(TempoREX))
         {
-            setBpm(BpmREX.cap(1).toInt());
+            setBpm(TempoREX.cap(1).toInt());
         }
-        else if ( line.contains(RytmREX))
+        else if ( line.contains(TimeREX))
         {
-            setRytm(RytmREX.cap(1));
+            setRytm(TimeREX.cap(1));
         }
         else if ( line.contains(ColumnBreakREX) )
         {

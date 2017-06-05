@@ -18,7 +18,7 @@
     <normaloff>:/Image/Images/icon.png</normaloff>:/Image/Images/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_6">
+   <layout class="QVBoxLayout" name="verticalLayout_7">
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
@@ -29,179 +29,9 @@
         <number>0</number>
        </property>
        <widget class="QWidget" name="page">
-        <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_14">
          <item>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_8">
-             <item>
-              <widget class="QToolButton" name="toolButtonCT">
-               <property name="toolTip">
-                <string>Cover Title</string>
-               </property>
-               <property name="text">
-                <string>Cover 
-title</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonCS">
-               <property name="toolTip">
-                <string>Cover Subtitle</string>
-               </property>
-               <property name="text">
-                <string>Cover
-subtitle</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonT">
-               <property name="toolTip">
-                <string>Song Title</string>
-               </property>
-               <property name="text">
-                <string>Song 
-title</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonST">
-               <property name="toolTip">
-                <string>Song Sub Titile</string>
-               </property>
-               <property name="text">
-                <string>Song
-subtitle</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonSOC">
-               <property name="toolTip">
-                <string>Start of chorus</string>
-               </property>
-               <property name="text">
-                <string>Start of
-chorus</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonEOC">
-               <property name="toolTip">
-                <string>End of chorus</string>
-               </property>
-               <property name="text">
-                <string>End of
-chorus</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonSOR">
-               <property name="toolTip">
-                <string>Refrain</string>
-               </property>
-               <property name="text">
-                <string>Start of 
-refrain</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonEOR">
-               <property name="toolTip">
-                <string>Refrain</string>
-               </property>
-               <property name="text">
-                <string>End of 
-refrain</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonBar">
-               <property name="toolTip">
-                <string>4/4 3/4 ...</string>
-               </property>
-               <property name="text">
-                <string>Bar</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonBPM">
-               <property name="toolTip">
-                <string>Beat per minute</string>
-               </property>
-               <property name="text">
-                <string>BPM</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonCol">
-               <property name="toolTip">
-                <string>Column number for this song</string>
-               </property>
-               <property name="text">
-                <string>Column:</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QToolButton" name="toolButtonCB">
-               <property name="toolTip">
-                <string>Column break</string>
-               </property>
-               <property name="text">
-                <string>Column
-break</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QComboBox" name="comboBoxEdit">
-               <property name="maximumSize">
-                <size>
-                 <width>100</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="Line" name="line">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QCheckBox" name="checkBoxLongShort">
-               <property name="maximumSize">
-                <size>
-                 <width>100</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>Long/Short notation in text</string>
-               </property>
-               <property name="text">
-                <string>Long syntax</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <widget class="TextEdit" name="textEditCho3File"/>
-           </item>
-          </layout>
+          <widget class="FormEditor" name="textEditCho3File" native="true"/>
          </item>
         </layout>
        </widget>
@@ -890,9 +720,10 @@ break</string>
    <header>logmessages.h</header>
   </customwidget>
   <customwidget>
-   <class>TextEdit</class>
-   <extends>QTextEdit</extends>
-   <header>textedit.h</header>
+   <class>FormEditor</class>
+   <extends>QWidget</extends>
+   <header>formeditor.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

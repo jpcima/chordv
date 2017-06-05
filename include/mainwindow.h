@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "editorhighlighter.h"
 #include "pdfviewer.h"
 #include "chordconfig.h"
 
@@ -25,7 +24,6 @@ public:
     void setTranstator(QTranslator *tr) { m_translator= tr;}
 private:
     Ui::MainWindow *ui;
-    EditorHighlighter *m_editorhighlight;
     QString m_currentprojectname;
     QString m_currentprojectfile;
     QString m_currentprojectdir;
@@ -53,9 +51,8 @@ private:
     QString getRelativeFilename(QString chofilename);
     void ActualizeProject(QString file);
     QString m_pdffilename;
-    void ReplaceLongShort(QString a, QString b);
-    QString m_buffreplace;
-    void GenericInsert(QToolButton *w, QString token, QString label1, QString label2);
+
+
     bool m_found;
     void setChecked(int i);
     QString getPdfFileName(QString  text);
@@ -88,18 +85,7 @@ private slots:
     void ProducePDFAndShow();
     void PDFReaderChanged();
     void ConversionDone(QString filename);
-    void InsertT();
-    void ToogleLongShort();
-    void InsertST();
-    void InsertCol();
-    void InsertCompress();
-    void InsertCS();
-    void InsertCT();
-    void InsertEOC();
-    void InsertSOC();
-    void InsertSOR();
-    void InsertEOR();
-    void InsertCB();
+
     void ChordDefinition();
     void SystemInfo();
     void Search();
@@ -123,8 +109,7 @@ private slots:
     void ViewLyricsPdf();
     void ViewChordPdf();
     void ViewMemoryPdf();
-    void InsertBPM();
-    void InsertBar();
+
     void ExportCho3File();
     void ShowStacked(int i);
     void BuildAndViewText();

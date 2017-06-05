@@ -4,6 +4,7 @@
 #include "chord.h"
 #include "dialogchorddefinition.h"
 
+
 #include <QDebug>
 #include <QShortcut>
 #include <QKeySequence>
@@ -12,12 +13,19 @@
 TextEdit::TextEdit(QWidget *parent ): QTextEdit(parent)
 {
     new QShortcut(QKeySequence(Qt::Key_F4),this,SLOT(ShowChordInclusionDial()));
+    m_editorhightlighter = new EditorHighlighter(document());
 }
 
-void TextEdit::SetUi(Ui::MainWindow *ptr)
+void TextEdit::insertPlainText(const QString &text)
 {
-    ui=ptr;
+    textCursor().insertText(text);
+    textCursor().insertBlock();
 }
+
+//void TextEdit::SetUi(Ui::MainWindow *ptr)
+//{
+//    ui=ptr;
+//}
 
 void TextEdit::wheelEvent(QWheelEvent *e)
 {

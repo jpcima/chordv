@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->textEditCho3File->SetUi(ui);
+    //ui->textEditCho3File->SetUi(ui);
     QList <int> size;
     size<<700<<100;
     m_labelactivestacked= new QLabel(this);
@@ -80,21 +80,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
 
-    connect(ui->toolButtonCB,SIGNAL(clicked(bool)),this,SLOT(InsertCB()));
-    connect(ui->toolButtonCol,SIGNAL(clicked(bool)),this,SLOT(InsertCol()));
-    connect(ui->toolButtonBPM,SIGNAL(clicked(bool)),this,SLOT(InsertBPM()));
-    connect(ui->toolButtonBar,SIGNAL(clicked(bool)),this,SLOT(InsertBar()));
 
-    //connect(ui->toolButtonCompress,SIGNAL(clicked(bool)),this,SLOT(InsertCompress()));
-    connect(ui->toolButtonCS,SIGNAL(clicked(bool)),this,SLOT(InsertCS()));
-    connect(ui->toolButtonCT,SIGNAL(clicked(bool)),this,SLOT(InsertCT()));
-    connect(ui->toolButtonSOC,SIGNAL(clicked(bool)),this,SLOT(InsertSOC()));
-    connect(ui->toolButtonEOC,SIGNAL(clicked(bool)),this,SLOT(InsertEOC()));
-    connect(ui->toolButtonSOR,SIGNAL(clicked(bool)),this,SLOT(InsertSOR()));
-    connect(ui->toolButtonEOR,SIGNAL(clicked(bool)),this,SLOT(InsertEOR()));
-    connect(ui->toolButtonST,SIGNAL(clicked(bool)),this,SLOT(InsertST()));
-    connect(ui->toolButtonT,SIGNAL(clicked(bool)),this,SLOT(InsertT()));
-    connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
     connect (ui->actionSelectDefinition,SIGNAL(triggered(bool)),this,SLOT(ShowDefinition()));
     connect (ui->actionSelectMemory,SIGNAL(triggered(bool)),this,SLOT(ShowMemoryMode()));
     connect (ui->actionSelectText,SIGNAL(triggered(bool)),this,SLOT(ShowTextMode()));
@@ -306,8 +292,8 @@ void MainWindow::openChoFile( QString filename)
         QTextCursor textCursor = ui->textEditCho3File->textCursor();
         textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
         ui->textEditCho3File->setTextCursor(textCursor);
-        m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
-        ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
+        //m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
+        //ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
 
     }
 }
@@ -345,8 +331,7 @@ void MainWindow::openProject(QString filename)
     ui->widgetTextMode->InitDefault(FormConfig::Text);
     ui->widgetTextMode->setProjectPath(m_currentprojectdir);
     ui->textEditCho3File->setText(p.value("Content").toString());
-    m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
-    ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
+    //ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
 
 }
 
@@ -588,7 +573,7 @@ void MainWindow::About()
 void MainWindow::PDFReaderChanged()
 {
     QSettings s;
-    ui->pushButtonMakeAndShowPDF->setEnabled( ! ui->textEditCho3File->toPlainText().isNull() && ! s.value("PDFReader").isNull());
+   // ui->pushButtonMakeAndShowPDF->setEnabled( ! ui->textEditCho3File->toPlainText().isNull() && ! s.value("PDFReader").isNull());
 }
 
 void MainWindow::Configuration()
@@ -637,137 +622,6 @@ void MainWindow::ExportCho3File()
     ui->log->Info(tr("%1 file exported").arg(cho3file));
 }
 
-void MainWindow::GenericInsert(QToolButton*w,QString token,QString label1, QString label2 )
-{
-    QString selected=ui->textEditCho3File->textCursor().selectedText();
-    if (! selected.isEmpty())
-    {
-        ui->textEditCho3File->textCursor().removeSelectedText();
-        ui->textEditCho3File->insertPlainText(QString(token).arg(selected));
-    }
-    else
-    {
-        QString val;
-        val=QInputDialog::getText(w,label1,label2);
-        if ( !val.isEmpty() )ui->textEditCho3File->insertPlainText(QString(token).arg(val));
-    }
-
-}
-
-
-
-void MainWindow::InsertT()
-{
-    GenericInsert(ui->toolButtonT,ui->checkBoxLongShort->isChecked()?QString("{Title:%1}"):QString("{t:%1}"),QObject::tr("Enter title"),QObject::tr("Title"));
-}
-
-void MainWindow::InsertST()
-{
-    GenericInsert(ui->toolButtonST,ui->checkBoxLongShort->isChecked()?QString("{SubTitle:%1}"):QString("{st:%1}"),QObject::tr("Enter sub title"),QObject::tr("Sub Title"));
-}
-
-
-
-void MainWindow::InsertCol()
-{
-    QString token=ui->checkBoxLongShort->isChecked()?QString("{Columns:%1}"):QString("{col:%1}");
-    int i=QInputDialog::getInt(ui->toolButtonBPM,tr("Enter columns number"),tr("Column number"),1,1,3);
-    ui->textEditCho3File->insertPlainText(QString(token).arg(QString("%1").arg(i)));
-}
-
-void MainWindow::InsertBPM()
-{
-    QString token=ui->checkBoxLongShort->isChecked()?QString("{Beats_per_minute:%1}"):QString("{bpm:%1}");
-    int i=QInputDialog::getInt(ui->toolButtonBPM,tr("Enter bpm"),tr("Beats per minute"),120,20,250);
-    ui->textEditCho3File->insertPlainText(QString(token).arg(QString("%1").arg(i)));
-}
-
-void MainWindow::InsertBar()
-{
-    DialogBar bar(ui->toolButtonBar);
-    bar.exec();
-    if ( !bar.canceled())
-    {
-       QString token=ui->checkBoxLongShort->isChecked()?QString("{Rytm:%1}"):QString("{temp:%1}");
-        ui->textEditCho3File->insertPlainText(token.arg(bar.value()));
-    }
-}
-
-void MainWindow::InsertCompress()
-{
-    ui->textEditCho3File->insertPlainText("{compress}");
-
-}
-
-
-
-void MainWindow::InsertCS()
-{
-    GenericInsert(ui->toolButtonCS,ui->checkBoxLongShort->isChecked()?QString("{Cover subtitle:%1}"):QString("{cs:%1}"),QObject::tr("Enter  cover subtitle"),QObject::tr("Cover Subtitle"));
-}
-
-void MainWindow::InsertCT()
-{
-    GenericInsert(ui->toolButtonCT,ui->checkBoxLongShort->isChecked()?QString("{Cover title:%1}"):QString("{ct:%1}"),QObject::tr("Enter cover title"),QObject::tr("Cover title"));
-}
-
-void MainWindow::InsertEOC()
-{
-    ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{end_of_chorus}"):QString("{eoc}"));
-}
-
-
-void MainWindow::InsertSOC()
-{
-    ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{start_of_chorus}"):QString("{soc}"));
-}
-
-
-void MainWindow::InsertSOR()
-{
-    ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{start_of_refrain}"):QString("{sor}"));
-}
-
-void MainWindow::InsertEOR()
-{
-    ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{end_of_refrain}"):QString("{eor}"));
-}
-
-void MainWindow::InsertCB()
-{
-   ui->textEditCho3File->insertPlainText(ui->checkBoxLongShort->isChecked()?QString("{column_break}"):QString("{colb}"));
-}
-
-void MainWindow::ReplaceLongShort(  QString a, QString b)
-{
-
-    if ( ui->checkBoxLongShort->isChecked())
-        m_buffreplace.replace(a,b,Qt::CaseInsensitive);
-    else
-        m_buffreplace.replace(b,a,Qt::CaseInsensitive);
-
-}
-
-void MainWindow::ToogleLongShort()
-{
-
-    m_buffreplace=ui->textEditCho3File->toPlainText();
-    ReplaceLongShort("{t:","{Title:");
-    ReplaceLongShort("{st:","{SubTitle:" );
-    ReplaceLongShort("{ct:","{CoverTitle:");
-    ReplaceLongShort("{cs:","{CoverSubTitle:");
-    ReplaceLongShort("{col:","{Columns:");
-    ReplaceLongShort("{colb}","{Column_break}");
-    ReplaceLongShort("{ns}","{New_Song}");
-    ReplaceLongShort("{soc}","{start_of_chorus}");
-    ReplaceLongShort("{eoc}","{end_of_chorus}");
-    ReplaceLongShort("{sor}","{start_of_refrain}");
-    ReplaceLongShort("{eor}","{end_of_refrain}");
-    ReplaceLongShort("{bpm:","{Beats_per_minute:");
-    ReplaceLongShort("{temp:","{Rytm:");
-
-    ui->textEditCho3File->setText(m_buffreplace);
-}
 
 
 void MainWindow::SystemInfo()

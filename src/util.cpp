@@ -50,13 +50,12 @@ QString  Util::getLastDirectory()
 }
 
 void Util::setLastDirectory(QString filename)
-{http://99.198.112.59:80
+{
     if (filename.isEmpty()) return;
     QSettings s;
     QFileInfo fi(filename);
     QString  dir=fi.absoluteDir().absolutePath();
     s.setValue("LastOpenedDirectory",dir);
-
 }
 
 QString Util::toRomain(int i)
