@@ -41,8 +41,8 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_subtitlenumber=0;
     m_covertitleexist=false;
     m_covertsubtitleexist=false;
-    m_rythm="4/4";
-    m_bpm=120;
+    m_time="4/4";
+    m_tempo=120;
 }
 
 
@@ -64,6 +64,15 @@ void Processor::run()
     QRegExp ChordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
     QRegExp TempoREX("^ *\\{(?:tempo): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp TimeREX("^ *\\{(?:time): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp ComposerRex("^ *\\{(?:composer): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp LyricistRex("^ *\\{(?:lyricist): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp ArrangerRex("^ *\\{(?:arranger): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp ArtistRex("^ *\\{(?:artist): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp AlbumRex("^ *\\{(?:album): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp CopyrightRex("^ *\\{(?:copyright): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp YearRex("^ *\\{(?:year): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp KeyRex("^ *\\{(?:key): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp DurationRex("^ *\\{(?:key): *([^}]*) *\\}",Qt::CaseInsensitive);
 
     setCoverMade(false);
     m_lineindex=0;
@@ -87,6 +96,42 @@ void Processor::run()
         else if ( line.contains(TimeREX))
         {
             setRytm(TimeREX.cap(1));
+        }
+        else if ( line.contains(ComposerRex))
+        {
+            setComposer(ComposerRex.cap(1));
+        }
+        else if ( line.contains(LyricistRex))
+        {
+            setLyricist(LyricistRex.cap(1));
+        }
+        else if ( line.contains(ArrangerRex))
+        {
+            setArranger(ArtistRex.cap(1));
+        }
+        else if ( line.contains(ArtistRex))
+        {
+            setArtist(ArtistRex.cap(1));
+        }
+        else if ( line.contains(AlbumRex))
+        {
+            setAlbum(AlbumRex.cap(1));
+        }
+        else if ( line.contains(CopyrightRex))
+        {
+            setCopyright(CopyrightRex.cap(1));
+        }
+        else if ( line.contains(YearRex))
+        {
+            setYear(YearRex.cap(1).toInt());
+        }
+        else if ( line.contains(KeyRex))
+        {
+            setKey(KeyRex.cap(1));
+        }
+        else if ( line.contains(DurationRex))
+        {
+            setDuration(DurationRex.cap(1));
         }
         else if ( line.contains(ColumnBreakREX) )
         {
@@ -213,12 +258,12 @@ void Processor::setColNumber(int colnumber)
 
 void Processor::setBpm(int bpm)
 {
-    m_bpm=bpm;
+    m_tempo=bpm;
 }
 
 void Processor::setRytm( QString rythm)
 {
-    m_rythm=rythm;
+    m_time=rythm;
 }
 
 void Processor::setCoverTitle(QString covertitle)
@@ -1104,4 +1149,48 @@ void Processor::addCol(int &col, int num)
      NextLine(num);
      col=m_column;
   }
+}
+
+
+void Processor::setComposer( QString composer)
+{
+    m_composer=composer;
+}
+
+void Processor::setLyricist(QString lyricist)
+{
+    m_lyricist=lyricist;
+}
+
+void Processor::setArranger(QString arranger)
+{
+    m_arranger=arranger;
+}
+
+void Processor::setArtist(QString artist)
+{
+    m_artist=artist;
+}
+void Processor::setAlbum( QString album)
+{
+    m_album=album;
+}
+void Processor::setCopyright(QString copyright)
+{
+    m_copyright=copyright;
+}
+
+void Processor::setYear(int year)
+{
+    m_year=year;
+}
+
+void Processor::setKey(QString key)
+{
+    m_key=key;
+}
+
+void Processor::setDuration( QString duration)
+{
+    m_duration=duration;
 }

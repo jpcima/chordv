@@ -302,4 +302,121 @@ Es.ts file so that it is included in the next software distribution
 ## Documentation of Chord V
 
 
-### The documentation seen from 
+## Presentation
+
+The documentation is accessible in the software via the help menu
+To the Documentation item.
+
+This documentation has been automatically
+From the Markdown to HTML format via the Pandoc program.
+
+The documentation file is located in the directory cited part
+[Translation of the software into a language] (# translation-of-software-in-a-language)
+
+
+### Translation Process
+
+If you wish to translate the software documentation, you must
+The md file in the desired language, convert it via a translator
+Automatic and correct it.
+
+Beware because the translator tends to transform the codes
+Md style
+
+~~~ md
+! [The editing window] (./img/ editor.png)
+~~~
+
+in
+
+~~~ md
+! [The editing window] (./img/editor.png)
+~~~
+
+Once the file is translated, you can convert it to html format
+Via the command (after retrieving the css style sheet on
+the Internet)
+
+~~~ bash
+Pandoc --toc --ascii --smart -N --css = pandoc.css --from = markdown --to = html --output = es.html es.md
+~~~
+
+### Images
+
+The images are to be included in the img directory of the / es languages ​​directory,
+They come from screenshots. If you use gimp you can use
+The plugin drawnumbers which allows to produce the red pellets.
+
+It is available at
+[Draw-number] (xhttp: //www.gillesmaire.com/tiki-index.php page = draw-numbers?)
+
+
+## Compatibility Chordpro
+
+### Introduction
+
+Chord V is designed to produce 4 types of documents at the same time
+and some chord pro tags are designed for a single use. So we
+do not want to output the same format for each of the
+documents, knowing that the booklets of words are perhaps intended
+to a printed file and the tuning grid files may be
+be for PDF files for a reader or tablet.
+
+Chord reads Chordpro ​​files and knows how to extract
+ChordPro compatible file.
+
+Some tags are not used because replaced by the graphical interface.
+
+### Compatibility ChordPro 2ii
+
+-----------------------	    ----------------------
+ChordPro 2ii                           Chord V
+--------------------    	------------------
+{New_song} {ns} 				Read but replaced by title
+
+{Title} {t} 								X
+
+{Subtitle} {st} 							X
+
+{Comment: text} {c: text} 					X
+
+{Comment_italic: text} {ci: text} 			X
+
+{Comment_box: text} {cb: text} 				X
+
+{Start_of_chorus} {soc} 					X
+
+{End_of_chorus} {eoc} 						X
+
+{Start_of_tab} {sot} 						nOn
+
+{End_of_tab} {eot} 						nOn
+
+{Define ...} biEntot
+
+{Textfont: fontname} {tf: fontname} 	Graphical interface
+
+{Textsize: fontsize} {ts: fontsize} 	graphic interface
+
+{Chordfont: fontname} {cf: fontname} 	Graphical interface
+
+{Chordsize: fontsize} {cs: fontsize} 	graphic interface
+
+{No_grid} {ng}							 nOn
+
+{Grid} {g} 								 nOn
+
+{Titles: flush} 						nOn
+
+{New_page} {np} 					   ASAP
+
+{New_physical_page} {npp} 				nOn
+
+{Columns: number} {col: number} 	    X
+
+{Column_break} {colb}                   X
+
+{Pageize: type} {papersize: type}  	Graphical interface
+
+-------------------------------------------------- ----------------------
+:: List of commands chordpro ​​2ii

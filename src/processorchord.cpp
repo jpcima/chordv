@@ -32,10 +32,10 @@ void ProcessorChord::displayLyrics()
     //m_vm0=10;
     m_vm=10;
     m_hm=0;
-    if ( !m_rythm.contains("/"))
+    if ( !m_time.contains("/"))
         m_nbBeatPerBar=4;
     else
-        m_nbBeatPerBar=m_rythm.split("/").at(1).toInt();
+        m_nbBeatPerBar=m_time.split("/").at(1).toInt();
     m_barsperline=4; // Unused ?
     m_fontchordsize=m_uiconfig->toolButtonChordFont->getFont().pointSize();
     m_w=m_fontchordsize*4.5;
@@ -155,10 +155,10 @@ void ProcessorChord::displayBpm()
       m_painter.Fill();
     }
     m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize();
-    Text(m_document,tr("  Rythm : %1").arg(m_rythm),m_uiconfig->spuHorizontalMargin->getPdfU(),
+    Text(m_document,tr("  Time : %1").arg(m_time),m_uiconfig->spuHorizontalMargin->getPdfU(),
          m_line,
          m_uiconfig->toolButtonSubtitleFont,left);
-    Text(m_document,tr("Bpm : %1  ").arg(m_bpm),m_uiconfig->spuPageWidth->getPdfU(),
+    Text(m_document,tr("Tempo : %1  ").arg(m_tempo),m_uiconfig->spuPageWidth->getPdfU(),
          m_line,
          m_uiconfig->toolButtonSubtitleFont,right);
 

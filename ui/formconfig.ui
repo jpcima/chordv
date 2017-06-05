@@ -26,79 +26,124 @@
       <attribute name="title">
        <string>Document</string>
       </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_34">
+      <layout class="QHBoxLayout" name="horizontalLayout_35">
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_15">
+        <layout class="QVBoxLayout" name="verticalLayout_20">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_33">
+          <layout class="QHBoxLayout" name="horizontalLayout_20">
            <item>
-            <widget class="QGroupBox" name="groupBoxPageSize">
-             <property name="title">
-              <string>PageSize</string>
-             </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_20">
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_4">
+            <layout class="QVBoxLayout" name="verticalLayout_18">
+             <item>
+              <widget class="QGroupBox" name="groupBoxPageSize">
+               <property name="title">
+                <string>PageSize</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_17">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_18">
+                 <layout class="QVBoxLayout" name="verticalLayout_4">
                   <item>
-                   <widget class="QLabel" name="labelPageWidth">
-                    <property name="text">
-                     <string>Page width</string>
-                    </property>
-                   </widget>
+                   <layout class="QHBoxLayout" name="horizontalLayout_18">
+                    <item>
+                     <widget class="QLabel" name="labelPageWidth">
+                      <property name="text">
+                       <string>Page width</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="SpinBoxUnit" name="spuPageWidth" native="true"/>
+                    </item>
+                   </layout>
                   </item>
                   <item>
-                   <widget class="SpinBoxUnit" name="spuPageWidth" native="true"/>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_19">
-                  <item>
-                   <widget class="QLabel" name="labelPageHeight">
-                    <property name="text">
-                     <string>Page height</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="SpinBoxUnit" name="spuPageHeight" native="true"/>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_21">
-                  <item>
-                   <widget class="QLabel" name="labelPageDimension">
-                    <property name="text">
-                     <string>Page</string>
-                    </property>
-                   </widget>
+                   <layout class="QHBoxLayout" name="horizontalLayout_19">
+                    <item>
+                     <widget class="QLabel" name="labelPageHeight">
+                      <property name="text">
+                       <string>Page height</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="SpinBoxUnit" name="spuPageHeight" native="true"/>
+                    </item>
+                   </layout>
                   </item>
                   <item>
-                   <widget class="PageSize" name="comboBoxMediaBox"/>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBoxLandscape">
-                    <property name="text">
-                     <string>Landscape</string>
-                    </property>
-                   </widget>
+                   <layout class="QHBoxLayout" name="horizontalLayout_21">
+                    <item>
+                     <widget class="QLabel" name="labelPageDimension">
+                      <property name="text">
+                       <string>Page</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="PageSize" name="comboBoxMediaBox"/>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBoxLandscape">
+                      <property name="text">
+                       <string>Landscape</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                  </layout>
                 </item>
                </layout>
-              </item>
-             </layout>
-            </widget>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBoxMargin">
+               <property name="title">
+                <string>Margin</string>
+               </property>
+               <layout class="QVBoxLayout" name="verticalLayout_15">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_9">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_16">
+                    <item>
+                     <widget class="QLabel" name="labelMarginHorizontal">
+                      <property name="text">
+                       <string>Horizontal </string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="SpinBoxUnit" name="spuHorizontalMargin" native="true"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_17">
+                    <item>
+                     <widget class="QLabel" name="labelMarginVertical">
+                      <property name="text">
+                       <string>Vertical</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="SpinBoxUnit" name="spuVerticalMargin" native="true"/>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
            </item>
            <item>
             <widget class="QGroupBox" name="groupBoxMiscellaneous">
              <property name="title">
-              <string>Miscellaneous</string>
+              <string>Fonts</string>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_29">
+             <layout class="QVBoxLayout" name="verticalLayout_19">
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_10">
                 <item>
@@ -152,7 +197,7 @@
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <layout class="QHBoxLayout" name="horizontalLayout_28">
                   <item>
                    <widget class="QLabel" name="labelSubtitleFont">
                     <property name="text">
@@ -177,41 +222,73 @@
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_27">
+                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                   <item>
-                   <widget class="QLabel" name="labelDuplex">
+                   <widget class="QLabel" name="labelCommentFont">
                     <property name="text">
-                     <string>Duplex</string>
+                     <string>Comment Font</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxDuplex">
-                    <item>
-                     <property name="text">
-                      <string>Simplex</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Duplex</string>
-                     </property>
-                    </item>
+                   <widget class="ExampleLabel" name="labelCommentFontExample">
+                    <property name="text">
+                     <string>Example</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="FontButton" name="toolButtonCommentFont">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
                    </widget>
                   </item>
                  </layout>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_13">
+                 <layout class="QHBoxLayout" name="horizontalLayout_34">
                   <item>
-                   <widget class="QLabel" name="labelPageColor">
+                   <widget class="QLabel" name="labelCommentItalicFont">
                     <property name="text">
-                     <string>Paper color</string>
+                     <string>Comment ItalicFont</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="ColorButton" name="colorButtonPaperColor">
+                   <widget class="ExampleLabel" name="labelCommentItalicFontExample">
+                    <property name="text">
+                     <string>Example</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="FontButton" name="toolButtonCommentItalicFont">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_29">
+                  <item>
+                   <widget class="QLabel" name="labelCommentBoxFont">
+                    <property name="text">
+                     <string>Comment Font in box</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="ExampleLabel" name="labelCommentFontBoxExample">
+                    <property name="text">
+                     <string>Example</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="FontButton" name="toolButtonCommentBoxFont">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -227,7 +304,7 @@
           </layout>
          </item>
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_28">
+          <layout class="QHBoxLayout" name="horizontalLayout_33">
            <item>
             <widget class="QGroupBox" name="groupBoxPageNumber">
              <property name="title">
@@ -332,40 +409,51 @@
             </widget>
            </item>
            <item>
-            <widget class="QGroupBox" name="groupBoxMargin">
+            <widget class="QGroupBox" name="groupBox">
              <property name="title">
-              <string>Margin</string>
+              <string>Page topology</string>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_25">
+             <layout class="QVBoxLayout" name="verticalLayout_16">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_9">
+               <layout class="QHBoxLayout" name="horizontalLayout_27">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_16">
-                  <item>
-                   <widget class="QLabel" name="labelMarginHorizontal">
-                    <property name="text">
-                     <string>Horizontal </string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="SpinBoxUnit" name="spuHorizontalMargin" native="true"/>
-                  </item>
-                 </layout>
+                 <widget class="QLabel" name="labelDuplex">
+                  <property name="text">
+                   <string>Duplex</string>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_17">
+                 <widget class="QComboBox" name="comboBoxDuplex">
                   <item>
-                   <widget class="QLabel" name="labelMarginVertical">
-                    <property name="text">
-                     <string>Vertical</string>
-                    </property>
-                   </widget>
+                   <property name="text">
+                    <string>Simplex</string>
+                   </property>
                   </item>
                   <item>
-                   <widget class="SpinBoxUnit" name="spuVerticalMargin" native="true"/>
+                   <property name="text">
+                    <string>Duplex</string>
+                   </property>
                   </item>
-                 </layout>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_13">
+                <item>
+                 <widget class="QLabel" name="labelPageColor">
+                  <property name="text">
+                   <string>Paper color</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="ColorButton" name="colorButtonPaperColor">
+                  <property name="text">
+                   <string>...</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>

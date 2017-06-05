@@ -67,6 +67,7 @@ private slots:
     void InsertComment();
     void InsertSOG();
     void InsertEOG();
+    void InsertCommentBox();
 };
 
 #endif // FORMEDITOR_H

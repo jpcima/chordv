@@ -350,3 +350,75 @@ le plugin drawnumbers qui permet de produire les pastilles rouges.
 
 Il est disponible à l'adresse 
 [Draw-number](xhttp://www.gillesmaire.com/tiki-index.php?page=draw-numbers)
+
+## Compatibilité Chordpro
+
+### Introduction 
+
+Chord V est conçu pour produire 4 types de documents en même temps
+et certaines balises chord pro sont à vocation unique. Ainsi nous 
+ne voulons peut être pas sortir le même format pour chacun des 
+documents, sachant que les livrets de paroles sont peut-être destiné
+à un fichier imprimé et les fichiers de grilles d'accord sont peut 
+être destinés à des fichiers PDF pour une liseuse ou une tablette.
+
+Chord lit les fichiers Chordpro et sait extraire de son format un 
+fichier compatible chordPro.
+
+Mais certaines balises ne sont pas utilisées car remplacées par 
+l'interface graphique. 
+
+### Compatibilité ChordPro 2ii
+
+------------------------------------------------------------------------
+ChordPro 2ii                                Chord V
+------------------------------    --------------------------------------
+{new_song}	{ns}	              	Lu mais remplacé par title
+
+{title} {t}										X
+
+{subtitle} {st}									X
+
+{comment:text} {c:text} 						X
+
+{comment_italic:text} {ci:text}					X
+
+{comment_box:text}  {cb:text}					X
+
+{start_of_chorus} {soc} 						X
+
+{end_of_chorus} {eoc}							X
+
+{start_of_tab} {sot} 						   nOn
+
+{end_of_tab} {eot}							   nOn
+
+{define ... }								  biEntot  
+
+{textfont:fontname} {tf:fontname}		 InterfaCe graphique
+
+{textsize:fontsize} {ts:fontsize}		 InterfaCe graphique
+
+{chordfont:fontname} {cf:fontname}		 InterfaCe graphique
+
+{chordsize:fontsize} {cs:fontsize}		 InterfaCe graphique
+
+{no_grid} {ng}								   nOn
+
+{grid} {g} 									   nOn
+
+{titles:flush}								   nOn
+
+{new_page} {np}								  biEntot
+
+{new_physical_page} {npp}					   nOn
+
+{columns:number} {col:number}				    X
+
+{column_break} {colb}						    X
+
+{pagesize:type}  {papersize:type}	     InterfaCe graphique
+
+------------------------------------------------------------------------
+::Liste des commandes chordpro 2ii
+

@@ -15,8 +15,6 @@ FormEditor::FormEditor(QWidget *parent) :
     connect(ui->toolButtonCol,SIGNAL(clicked(bool)),this,SLOT(InsertCol()));
     connect(ui->toolButtonTempo,SIGNAL(clicked(bool)),this,SLOT(InsertTempo()));
     connect(ui->toolButtonTime,SIGNAL(clicked(bool)),this,SLOT(InsertTime()));
-
-    //connect(ui->toolButtonCompress,SIGNAL(clicked(bool)),this,SLOT(InsertCompress()));
     connect(ui->toolButtonCS,SIGNAL(clicked(bool)),this,SLOT(InsertCS()));
     connect(ui->toolButtonCT,SIGNAL(clicked(bool)),this,SLOT(InsertCT()));
     connect(ui->toolButtonSOC,SIGNAL(clicked(bool)),this,SLOT(InsertSOC()));
@@ -41,6 +39,7 @@ FormEditor::FormEditor(QWidget *parent) :
     connect(ui->toolButtonPageBreak,SIGNAL(clicked(bool)),this,SLOT(InsertPageBreak()));
     connect(ui->toolButtonComment,SIGNAL(clicked(bool)),this,SLOT(InsertComment()));
     connect(ui->toolButtonCommentItalic,SIGNAL(clicked(bool)),this,SLOT(InsertCommentItalic()));
+    connect(ui->toolButtonCommentBox,SIGNAL(clicked(bool)),this,SLOT(InsertCommentBox()));
 
     connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
 }
@@ -71,6 +70,7 @@ void FormEditor::setText(QString text)
 
 {
     ui->textEdit->setText(text);
+    ui->checkBoxLongShort->setChecked(ui->textEdit->document()->toPlainText().contains("{title:",Qt::CaseInsensitive));
 }
 
 QTextDocument *FormEditor::document()
@@ -188,12 +188,17 @@ void FormEditor::InsertDuration()
 
 void FormEditor::InsertComment()
 {
-    GenericInsert(ui->toolButtonComment,QString("{comment:%1}"),QObject::tr("Enter comment"),QObject::tr("Comment"));
+    GenericInsert(ui->toolButtonComment,ui->checkBoxLongShort->isChecked()?QString("{comment:%1}"):QString("{c:%1}"),QObject::tr("Enter comment"),QObject::tr("Comment"));
 }
 
 void FormEditor::InsertCommentItalic()
 {
-    GenericInsert(ui->toolButtonCommentItalic,QString("{comment_italic:%1}"),QObject::tr("Enter comment"),QObject::tr("Comment"));
+    GenericInsert(ui->toolButtonCommentItalic,ui->checkBoxLongShort->isChecked()?QString("{comment_Italic:%1}"):QString("{ci:%1}"),QObject::tr("Enter comment"),QObject::tr("Comment italic"));
+}
+
+void FormEditor::InsertCommentBox()
+{
+    GenericInsert(ui->toolButtonCommentBox,ui->checkBoxLongShort->isChecked()?QString("{comment_box:%1}"):QString("{ci:%1}"),QObject::tr("Enter comment"),QObject::tr("Comment box"));
 }
 
 
@@ -326,6 +331,7 @@ void FormEditor::ReplaceLongShort(  QString a, QString b)
         ReplaceLongShort("{c:","{comment:");
         ReplaceLongShort("{ci:","{comment_italic:");
         ReplaceLongShort("{ci:","{comment_italic:");
+        ReplaceLongShort("{cb:","{comment_box:");
         ui->textEdit->setText(m_buffreplace);
     }
 

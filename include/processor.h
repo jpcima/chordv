@@ -103,8 +103,7 @@ protected:
     /// \brief m_colnumber number of column if avalaible for the media
     ///
     int m_colnumber;
-    int m_bpm;
-    QString m_rythm;
+
     ///
     /// \brief m_covertitle : title of the cover
     ///
@@ -304,6 +303,29 @@ protected:
     /// \brief AllocatePage
     ///
     virtual void AllocatePage();
+
+    int m_tempo;
+    QString m_time;
+    QString m_composer;
+    QString m_lyricist;
+    QString m_arranger;
+    QString m_artist;
+    QString m_album;
+    QString m_copyright;
+    int m_year;
+    QString m_duration;
+    QString m_key;
+
+
+    virtual void setDuration(QString duration);
+    virtual void setKey(QString key);
+    virtual void setYear(int year);
+    virtual void setCopyright(QString copyright);
+    virtual void setAlbum(QString album);
+    virtual void setArtist(QString artist);
+    virtual void setArranger(QString arranger);
+    virtual void setLyricist(QString lyricist);
+    virtual void setComposer(QString composer);
 };
 
 #endif // PROCESSOR_H

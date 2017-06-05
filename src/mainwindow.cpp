@@ -40,7 +40,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //ui->textEditCho3File->SetUi(ui);
     QList <int> size;
     size<<700<<100;
     m_labelactivestacked= new QLabel(this);
@@ -293,7 +292,7 @@ void MainWindow::openChoFile( QString filename)
         textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
         ui->textEditCho3File->setTextCursor(textCursor);
         //m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
-        //ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
+        //
 
     }
 }

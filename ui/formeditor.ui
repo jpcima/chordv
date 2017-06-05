@@ -442,7 +442,8 @@ Break</string>
            <item>
             <widget class="QToolButton" name="toolButtonComment">
              <property name="text">
-              <string>Comment</string>
+              <string>Comment
+Regular</string>
              </property>
             </widget>
            </item>
@@ -451,6 +452,14 @@ Break</string>
              <property name="text">
               <string>Comment
 Italic</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QToolButton" name="toolButtonCommentBox">
+             <property name="text">
+              <string>Comment
+Box</string>
              </property>
             </widget>
            </item>
