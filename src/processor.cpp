@@ -61,7 +61,7 @@ void Processor::run()
     QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}",Qt::CaseInsensitive);
     QRegExp SorREX("^ *\\{(?:sor|start_of_refrain)\\}",Qt::CaseInsensitive);
     QRegExp EorREX("^ *\\{(?:eor|end_of_refrain)\\}",Qt::CaseInsensitive);
-
+    QRegExp DefineRex("^\\{define: *([^ ]+) +base-fret +(\\d+) +frets +(\\d+|x) +(\\d+|x) +(\\d+|x) +(\\d+|x) +(\\d+|x) +(\\d+|x)([^}]*)\\}",Qt::CaseInsensitive);
     QRegExp ChordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
     QRegExp TempoREX("^ *\\{(?:tempo): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp TimeREX("^ *\\{(?:time): *([^}]*) *\\}",Qt::CaseInsensitive);
@@ -156,6 +156,15 @@ void Processor::run()
               displayBpm();
             }
 
+        }
+        else if (line.contains(DefineRex))
+        {
+            QString chordname=DefineRex.cap(1);
+            QString basefret=DefineRex.cap(2);
+            QString fret=QString("%1 %2 %3 %4 %5 %6").arg(DefineRex.cap(3))
+                    .arg(DefineRex.cap(4)).arg(DefineRex.cap(5)).arg(DefineRex.cap(6))
+                    .arg(DefineRex.cap(7)).arg(DefineRex.cap(8));
+            qDebug()<<chordname<<basefret<<fret;
         }
         else if ( line.contains(TitleREX) )
         {

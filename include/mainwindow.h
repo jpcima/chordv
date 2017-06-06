@@ -119,6 +119,7 @@ private slots:
     void ZoomIn();
     void ZoomOut();
     void Documentation();
+    void TwoLines2Chordpro();
 };
 
 #endif // MAINWINDOW_H

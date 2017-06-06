@@ -26,7 +26,7 @@ void DialogChooseGoodChord::TryToSave()
 {
     QString name=ui->lineEditNewName->text();
     QString value=ui->widgetNew->getDiagram();
-    QSqlQuery q(QString("SELECT name,value FROM Chords WHERE name='%1'").arg(name));
+    QSqlQuery q(QString("SELECT name,value FROM Chords WHERE name='%1' AND approved=1").arg(name));
     if (q.next())
     {
         QString oldname=q.value("name").toString();

@@ -7,6 +7,7 @@
 #include <QModelIndex>
 #include <QSqlTableModel>
 #include <QTableView>
+#include <QSqlQueryModel>
 
 #include <QPaintEvent>
 
@@ -38,12 +39,17 @@ private slots:
     void SortOnChord(bool checked);
     void SetFilter(QString filter);
     void InsertChord(bool);
+    void ChordClickedNonApproved(QModelIndex index);
+    void Approve();
+    void DeleteApproved();
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;
     QString findName(QString chordstring, QString chordmin);
     QSqlTableModel *m_model;
+    QSqlQueryModel *m_modelapprove;
     int m_index;
+    int m_indexnonapproved;
     void setError(QString message, int linenumber);
 signals:
     void Error(QString message);

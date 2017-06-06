@@ -6,279 +6,225 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>880</width>
-    <height>291</height>
+    <width>1343</width>
+    <height>590</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Chord Definition</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_4">
+  <layout class="QHBoxLayout" name="horizontalLayout_17">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <layout class="QVBoxLayout" name="verticalLayout_11">
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QTabWidget" name="tabWidget">
-         <property name="currentIndex">
-          <number>1</number>
-         </property>
-         <property name="movable">
-          <bool>true</bool>
-         </property>
-         <property name="tabBarAutoHide">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="tabNewChord">
-          <attribute name="title">
-           <string>Chord Definition</string>
-          </attribute>
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QTabWidget" name="tabWidget">
+           <property name="currentIndex">
+            <number>2</number>
+           </property>
+           <property name="movable">
+            <bool>true</bool>
+           </property>
+           <property name="tabBarAutoHide">
+            <bool>true</bool>
+           </property>
+           <widget class="QWidget" name="tabNewChord">
+            <attribute name="title">
+             <string>Chord Definition</string>
+            </attribute>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="Neck" name="neck">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <layout class="QVBoxLayout" name="verticalLayout">
                <item>
-                <widget class="QLabel" name="labelChordName">
-                 <property name="text">
-                  <string>Chord name</string>
+                <widget class="Neck" name="neck">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="lineEditChord">
-                 <property name="readOnly">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QListWidget" name="listWidgetChords">
-                 <property name="maximumSize">
-                  <size>
-                   <width>150</width>
-                   <height>60</height>
-                  </size>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditNotation">
-                 <property name="readOnly">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="lineEditName"/>
-               </item>
-               <item>
-                <widget class="QToolButton" name="toolButtonPlus">
-                 <property name="font">
-                  <font>
-                   <pointsize>20</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>+</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="labelChordsCount">
-                 <property name="text">
-                  <string>0</string>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <item>
+                  <widget class="QLabel" name="labelChordName">
+                   <property name="text">
+                    <string>Chord name</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEditChord">
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QListWidget" name="listWidgetChords">
+                   <property name="maximumSize">
+                    <size>
+                     <width>150</width>
+                     <height>60</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEditNotation">
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEditName"/>
+                 </item>
+                 <item>
+                  <widget class="QToolButton" name="toolButtonPlus">
+                   <property name="font">
+                    <font>
+                     <pointsize>20</pointsize>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>+</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="labelChordsCount">
+                   <property name="text">
+                    <string>0</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
               </layout>
              </item>
             </layout>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="tab_2">
-          <attribute name="title">
-           <string>Chord Management</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_12">
+           </widget>
+           <widget class="QWidget" name="tab_2">
+            <attribute name="title">
+             <string>Chord Management</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_9">
              <item>
-              <widget class="QTableView" name="tableView"/>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_8">
+              <layout class="QHBoxLayout" name="horizontalLayout_12">
                <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                <widget class="QTableView" name="tableView"/>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_8">
                  <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_7">
+                  <layout class="QHBoxLayout" name="horizontalLayout_11">
                    <item>
-                    <widget class="QLabel" name="labelSortON">
-                     <property name="text">
-                      <string>Sort on</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLabel" name="labelFilter">
-                     <property name="text">
-                      <string>Filter</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_6">
-                   <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_9">
+                    <layout class="QVBoxLayout" name="verticalLayout_7">
                      <item>
-                      <widget class="QRadioButton" name="radioButtonChordName">
+                      <widget class="QLabel" name="labelSortON">
                        <property name="text">
-                        <string>Cho&amp;rd </string>
+                        <string>Sort on</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QRadioButton" name="radioButtonFret">
+                      <widget class="QLabel" name="labelFilter">
                        <property name="text">
-                        <string>fret</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QRadioButton" name="radioButtonSortIndex">
-                       <property name="text">
-                        <string>Index</string>
-                       </property>
-                       <property name="checked">
-                        <bool>true</bool>
+                        <string>Filter</string>
                        </property>
                       </widget>
                      </item>
                     </layout>
                    </item>
                    <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_10">
+                    <layout class="QVBoxLayout" name="verticalLayout_6">
                      <item>
-                      <widget class="QLineEdit" name="lineEditFilter"/>
+                      <layout class="QHBoxLayout" name="horizontalLayout_9">
+                       <item>
+                        <widget class="QRadioButton" name="radioButtonChordName">
+                         <property name="text">
+                          <string>Cho&amp;rd </string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="radioButtonFret">
+                         <property name="text">
+                          <string>fret</string>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QRadioButton" name="radioButtonSortIndex">
+                         <property name="text">
+                          <string>Index</string>
+                         </property>
+                         <property name="checked">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
                      </item>
                      <item>
-                      <widget class="QToolButton" name="toolButtonClearFilter">
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                       <property name="icon">
-                        <iconset resource="../Resources/resources.qrc">
-                         <normaloff>:/Image/Images/cross.png</normaloff>:/Image/Images/cross.png</iconset>
-                       </property>
-                       <property name="autoRaise">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
+                      <layout class="QHBoxLayout" name="horizontalLayout_10">
+                       <item>
+                        <widget class="QLineEdit" name="lineEditFilter"/>
+                       </item>
+                       <item>
+                        <widget class="QToolButton" name="toolButtonClearFilter">
+                         <property name="text">
+                          <string>...</string>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="../Resources/resources.qrc">
+                           <normaloff>:/Image/Images/cross.png</normaloff>:/Image/Images/cross.png</iconset>
+                         </property>
+                         <property name="autoRaise">
+                          <bool>true</bool>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
                      </item>
                     </layout>
                    </item>
                   </layout>
                  </item>
-                </layout>
-               </item>
-               <item>
-                <spacer name="verticalSpacer_2">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButtonInsertChord">
-                 <property name="text">
-                  <string>Insert Chord </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="verticalSpacer">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_5">
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_7">
                  <item>
-                  <widget class="QLineEdit" name="lineEditNameIndex"/>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="lineEditValueIndex"/>
-                 </item>
-                </layout>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_8">
-                 <item>
-                  <spacer name="horizontalSpacer_3">
+                  <spacer name="verticalSpacer_2">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>40</width>
-                     <height>20</height>
+                     <width>20</width>
+                     <height>40</height>
                     </size>
                    </property>
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonDelete">
+                  <widget class="QPushButton" name="pushButtonInsertChord">
                    <property name="text">
-                    <string>Delete</string>
+                    <string>Insert Chord </string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonModify">
-                   <property name="text">
-                    <string>Modifiy</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <spacer name="horizontalSpacer_4">
+                  <spacer name="verticalSpacer">
                    <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                    <enum>Qt::Vertical</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>40</width>
-                     <height>20</height>
+                     <width>20</width>
+                     <height>40</height>
                     </size>
                    </property>
                   </spacer>
@@ -286,78 +232,228 @@
                 </layout>
                </item>
                <item>
-                <widget class="ChordDiagram" name="widget" native="true"/>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="tab">
-          <attribute name="title">
-           <string>Chord Inport</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_6">
-             <item>
-              <widget class="QPlainTextEdit" name="plainTextEditImport"/>
-             </item>
-             <item>
-              <layout class="QVBoxLayout" name="verticalLayout_3">
-               <item>
-                <widget class="QLabel" name="label81">
-                 <property name="text">
-                  <string>Copy paste chords in form </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_3">
-                 <property name="text">
-                  <string>chord=relative position 6 ..position 1 </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_2">
-                 <property name="text">
-                  <string>C(III)=3 0 0 3 3 3 0  </string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
-                  <spacer name="horizontalSpacer_2">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <item>
+                    <widget class="QLineEdit" name="lineEditNameIndex"/>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEditValueIndex"/>
+                   </item>
+                  </layout>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonImport">
-                   <property name="text">
-                    <string>Import</string>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButtonDelete">
+                     <property name="text">
+                      <string>Delete</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButtonModify">
+                     <property name="text">
+                      <string>Modifiy</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="ChordDiagram" name="widget" native="true"/>
                  </item>
                 </layout>
                </item>
               </layout>
              </item>
             </layout>
-           </item>
-          </layout>
-         </widget>
-        </widget>
+           </widget>
+           <widget class="QWidget" name="tab_3">
+            <attribute name="title">
+             <string>Approve</string>
+            </attribute>
+            <layout class="QHBoxLayout" name="horizontalLayout_16">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_15">
+               <item>
+                <widget class="QTableView" name="tableViewNonApproved"/>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_13">
+                   <item>
+                    <widget class="QLineEdit" name="lineEditNameNoApproved"/>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEditValueNoApproved"/>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_14">
+                   <item>
+                    <spacer name="horizontalSpacer_5">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButtonApprove">
+                     <property name="text">
+                      <string>Delete</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButtonDeleteApprove">
+                     <property name="text">
+                      <string>Approve</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="ChordDiagram" name="widget_2" native="true"/>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="tab">
+            <attribute name="title">
+             <string>Chord Inport</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <widget class="QPlainTextEdit" name="plainTextEditImport"/>
+               </item>
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <item>
+                  <widget class="QLabel" name="label81">
+                   <property name="text">
+                    <string>Copy paste chords in form </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="text">
+                    <string>chord=relative position 6 ..position 1 </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_2">
+                   <property name="text">
+                    <string>C(III)=3 0 0 3 3 3 0  </string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
+                   <item>
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="pushButtonImport">
+                     <property name="text">
+                      <string>Import</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
        <item>
         <widget class="QPushButton" name="pushButtonCancel">

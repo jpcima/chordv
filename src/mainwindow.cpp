@@ -9,6 +9,7 @@
 #include "dialogreplace.h"
 #include "dialogbar.h"
 #include "dialogdocumentation.h"
+#include "dialogtwolinestochordpro.h"
 
 #include "lyricsconfig.h"
 #include "formconfig.h"
@@ -78,7 +79,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
     connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
-
+    connect(ui->action2Line2chordpro,SIGNAL(triggered(bool)),this,SLOT(TwoLines2Chordpro()));
 
     connect (ui->actionSelectDefinition,SIGNAL(triggered(bool)),this,SLOT(ShowDefinition()));
     connect (ui->actionSelectMemory,SIGNAL(triggered(bool)),this,SLOT(ShowMemoryMode()));
@@ -750,4 +751,10 @@ void MainWindow::Documentation()
     DialogDocumentation *dial= new DialogDocumentation(this);
     dial->show();
 
+}
+
+void MainWindow::TwoLines2Chordpro()
+{
+  DialogTwoLinesToChordPro dial(this);
+  dial.exec();
 }

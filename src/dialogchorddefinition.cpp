@@ -30,14 +30,27 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     m_model->setHeaderData(0,Qt::Horizontal,tr("Name"));
     m_model->setHeaderData(1,Qt::Horizontal,tr("Value"));
     m_model->setHeaderData(2,Qt::Horizontal,tr("Index"));
+    m_model->setHeaderData(2,Qt::Horizontal,tr("Approved"));
+
     m_model->select();
+    m_modelapprove= new QSqlQueryModel(this);
+    m_modelapprove->setHeaderData(0,Qt::Horizontal,tr("Name"));
+    m_modelapprove->setHeaderData(1,Qt::Horizontal,tr("Value"));
+    m_modelapprove->setHeaderData(2,Qt::Horizontal,tr("Index"));
+    ui->tableViewNonApproved->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved = 0");
+    ui->tableViewNonApproved->setModel(m_modelapprove);
+     m_model->setHeaderData(2,Qt::Horizontal,tr("Index"));
     ui->tableView->setModel(m_model);
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::ContiguousSelection);
     ui->pushButtonInsertChord->setVisible(false);
     connect(ui->tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClicked(QModelIndex)));
+    connect (ui->tableViewNonApproved,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClickedNonApproved(QModelIndex)));
     connect (ui->pushButtonModify,SIGNAL(clicked(bool)),this,SLOT(ModifyChord()));
     connect (ui->pushButtonDelete,SIGNAL(clicked(bool)),this,SLOT(DeleteChord()));
+    connect (ui->pushButtonApprove,SIGNAL(clicked(bool)),this,SLOT(Approve()));
+    connect (ui->pushButtonDeleteApprove,SIGNAL(clicked(bool)),this,SLOT(DeleteApproved()));
     connect (ui->radioButtonChordName,SIGNAL(clicked(bool)),this,SLOT(SortOnChord(bool)));
     connect (ui->radioButtonFret,SIGNAL(clicked(bool)),this,SLOT(SortOnFret(bool)));
     connect (ui->radioButtonSortIndex,SIGNAL(clicked(bool)),this,SLOT(SortOnIndex(bool)));
@@ -52,6 +65,7 @@ void DialogChordDefinition::ActiveInsertButton()
     ui->tabWidget->setCurrentIndex(1);
     ui->tabWidget->removeTab(2);
     ui->tabWidget->removeTab(0);
+    ui->tabWidget->removeTab(3);
     this->setWindowTitle(tr("Chord insertion"));
 }
 
@@ -89,10 +103,17 @@ void DialogChordDefinition::SortOnChord( bool checked)
 
 void DialogChordDefinition::ModifyChord()
 {
-    QSqlQuery q(QString("UPDATE Chords SET name='%1', value='%1' WHERE Index='%3'")
+    QSqlQuery q(QString("UPDATE Chords SET name='%1', value='%1' WHERE Id='%3'")
                 .arg(ui->lineEditNameIndex->text()).arg(ui->lineEditValueIndex->text())
                 .arg(m_index));
     m_model->select();
+}
+
+void DialogChordDefinition::Approve()
+{
+    QSqlQuery q(QString("UPDATE Chords SET approve='1' WHERE Id='%3'")
+                               .arg(m_indexnonapproved));
+    m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved IS NULL");
 }
 
 void DialogChordDefinition::DeleteChord()
@@ -105,6 +126,18 @@ void DialogChordDefinition::DeleteChord()
     m_model->select();
 }
 
+
+void DialogChordDefinition::DeleteApproved()
+{
+    foreach ( QModelIndex index, ui->tableViewNonApproved->selectionModel()->selectedIndexes())
+    {
+        QSqlQuery q(QString("DELETE FROM Chords WHERE  Id=%1")
+                    .arg(index.sibling(index.row(),2).data().toString()));
+    }
+    m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved IS NULL");
+
+}
+
 void DialogChordDefinition::ChordClicked(QModelIndex index)
 {
     QString name=index.sibling(index.row(),1).data().toString();
@@ -114,6 +147,18 @@ void DialogChordDefinition::ChordClicked(QModelIndex index)
     ui->widget->setDiagram(ui->lineEditValueIndex->text());
 
 }
+
+
+void DialogChordDefinition::ChordClickedNonApproved(QModelIndex index)
+{
+    QString name=index.sibling(index.row(),1).data().toString();
+    ui->lineEditNameNoApproved->setText(index.sibling(index.row(),0).data().toString());
+    ui->lineEditValueNoApproved->setText(name);
+    m_indexnonapproved=index.sibling(index.row(),2).data().toInt();
+    ui->widget_2->setDiagram(ui->lineEditValueNoApproved->text());
+
+}
+
 
 DialogChordDefinition::~DialogChordDefinition()
 {
@@ -244,6 +289,6 @@ void DialogChordDefinition::AddChord()
         }
     }
     else
-        QSqlQuery qinsert(QString ("INSERT INTO Chords (name,value) VALUES ('%1','%2')").arg(name).arg(value));
+        QSqlQuery qinsert(QString ("INSERT INTO Chords (name,value,approved) VALUES ('%1','%2',1)").arg(name).arg(value));
     m_model->select();
 }

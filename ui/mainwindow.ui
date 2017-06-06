@@ -273,7 +273,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>22</height>
+     <height>36</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -331,6 +331,12 @@
      <addaction name="actionBuildAndViewChord"/>
      <addaction name="actionBuildAndViewMemory"/>
     </widget>
+    <widget class="QMenu" name="menuImport_other_format">
+     <property name="title">
+      <string>Import other format</string>
+     </property>
+     <addaction name="action2Line2chordpro"/>
+    </widget>
     <addaction name="actionProduce_PDF_files"/>
     <addaction name="separator"/>
     <addaction name="actionPreferences"/>
@@ -338,9 +344,12 @@
     <addaction name="separator"/>
     <addaction name="actionChord_defintion"/>
     <addaction name="separator"/>
+    <addaction name="menuImport_other_format"/>
+    <addaction name="separator"/>
     <addaction name="menuLaunch_PDF_Viewer"/>
     <addaction name="menuBuild_PDF"/>
     <addaction name="menuBuild_and_Launch_PDF"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -685,6 +694,11 @@
   <action name="actionForce_configuration_files_to_currrent_project">
    <property name="text">
     <string>Force configuration files to currrent project</string>
+   </property>
+  </action>
+  <action name="action2Line2chordpro">
+   <property name="text">
+    <string>2LinesTochordpro</string>
    </property>
   </action>
  </widget>
