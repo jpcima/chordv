@@ -248,6 +248,7 @@ void FormConfig::InitDefault(Classes c)
     ui->toolButtonCommentItalicFont->setFont(f);
     f.fromString(s->value(QString("%1/CommentBoxFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonCommentBoxFont->setFont(f);
+
     ui->toolButtonChordFont->setColor(QColor(s->value(QString("%1/ChordFontColor").arg(classe),"black").toString()));
     ui->toolButtonCoverFont->setColor(QColor(s->value(QString("%1/CoverFontColor").arg(classe),"black").toString()));
     ui->toolButtonNormalFont->setColor(QColor(s->value(QString("%1/NormalFontColor").arg(classe),"black").toString()));
@@ -255,6 +256,10 @@ void FormConfig::InitDefault(Classes c)
     ui->toolButtonTitleFont->setColor(QColor(s->value(QString("%1/TitleFontColor").arg(classe),"black").toString()));
     ui->toolButtonPageNumberFont->setColor(QColor(s->value(QString("%1/PageNumberFontColor").arg(classe),"black").toString()));
     ui->toolButtonTocFont->setColor(QColor(s->value(QString("%1/TocFontColor").arg(classe),"black").toString()));
+    ui->toolButtonCommentFont->setColor(QColor(s->value(QString("%1/CommentFontColor").arg(classe),"black").toString()));
+    ui->toolButtonCommentItalicFont->setColor(QColor(s->value(QString("%1/CommentItalicFontColor").arg(classe),"black").toString()));
+    ui->toolButtonCommentBoxFont->setColor(QColor(s->value(QString("%1/CommentBoxFontColor").arg(classe),"black").toString()));
+
     ui->toolButtonChordFont->setBackgroundColor(QColor(s->value(QString("%1/ChordFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonCoverFont->setBackgroundColor(QColor(s->value(QString("%1/CoverFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonNormalFont->setBackgroundColor(QColor(s->value(QString("%1/NormalFontBackgroundColor").arg(classe),"white").toString()));
@@ -265,6 +270,7 @@ void FormConfig::InitDefault(Classes c)
     ui->toolButtonCommentItalicFont->setBackgroundColor(QColor(s->value(QString("%1/CommentItalicFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonCommentBoxFont->setBackgroundColor(QColor(s->value(QString("%1/CommentBoxFontBackgroundColor").arg(classe),"white").toString()));
     ui->toolButtonPageNumberFont->setBackgroundColor(QColor(s->value(QString("%1/PageNumberFontBackgroundColor").arg(classe),"white").toString()));
+
     ui->toolButtonCoverImage->setImage(s->value(QString("%1/CoverImage").arg(classe),"").toString());
 
     ui->colorButtonPaperColor->setColor(s->value(QString("%1/PaperColor").arg(classe),"#FFFFFF").toString());

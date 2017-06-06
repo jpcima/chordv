@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>987</width>
-    <height>454</height>
+    <width>1361</width>
+    <height>802</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,477 +15,474 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_8">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_4">
-     <item>
-      <widget class="QTabWidget" name="tabWidget">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>90</height>
-        </size>
-       </property>
-       <property name="currentIndex">
-        <number>4</number>
-       </property>
-       <widget class="QWidget" name="DocHead">
-        <attribute name="title">
-         <string>Doc head</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout">
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="DocHead">
+       <attribute name="title">
+        <string>Doc head</string>
+       </attribute>
+       <widget class="QWidget" name="">
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <item>
-            <widget class="QToolButton" name="toolButtonCT">
-             <property name="toolTip">
-              <string>Cover Title</string>
-             </property>
-             <property name="text">
-              <string>Cover 
+          <widget class="QToolButton" name="toolButtonCT">
+           <property name="toolTip">
+            <string>Cover Title</string>
+           </property>
+           <property name="text">
+            <string>Cover 
 title</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonCS">
-             <property name="toolTip">
-              <string>Cover Subtitle</string>
-             </property>
-             <property name="text">
-              <string>Cover
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QToolButton" name="toolButtonCS">
+           <property name="toolTip">
+            <string>Cover Subtitle</string>
+           </property>
+           <property name="text">
+            <string>Cover
 subtitle</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QCheckBox" name="checkBoxLongShort">
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Long/Short notation in text</string>
-             </property>
-             <property name="text">
-              <string>Long syntax</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+           </property>
+          </widget>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="Songhead">
-        <attribute name="title">
-         <string>Song head</string>
-        </attribute>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QToolButton" name="toolButtonT">
-             <property name="toolTip">
-              <string>Song Title</string>
-             </property>
-             <property name="text">
-              <string>Song 
-title</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonST">
-             <property name="toolTip">
-              <string>Song Sub Titile</string>
-             </property>
-             <property name="text">
-              <string>Song
-subtitle</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line_2">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonTime">
-             <property name="toolTip">
-              <string>4/4 3/4 ...</string>
-             </property>
-             <property name="text">
-              <string>Time</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonTempo">
-             <property name="toolTip">
-              <string>Beat per minute</string>
-             </property>
-             <property name="text">
-              <string>Tempo</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonCol">
-             <property name="toolTip">
-              <string>Column number for this song</string>
-             </property>
-             <property name="text">
-              <string>Column:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonCB">
-             <property name="toolTip">
-              <string>Column break</string>
-             </property>
-             <property name="text">
-              <string>Column
-break</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="Songpart">
-        <attribute name="title">
-         <string>Song Part</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <item>
-            <widget class="QToolButton" name="toolButtonSOC">
-             <property name="toolTip">
-              <string>Start of chorus</string>
-             </property>
-             <property name="text">
-              <string>Start of
-chorus</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonEOC">
-             <property name="toolTip">
-              <string>End of chorus</string>
-             </property>
-             <property name="text">
-              <string>End of
-chorus</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonSOR">
-             <property name="toolTip">
-              <string>Refrain</string>
-             </property>
-             <property name="text">
-              <string>Start of 
-refrain</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonEOR">
-             <property name="toolTip">
-              <string>Refrain</string>
-             </property>
-             <property name="text">
-              <string>End of 
-refrain</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line_5">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonSOV">
-             <property name="toolTip">
-              <string>Refrain</string>
-             </property>
-             <property name="text">
-              <string>Start of 
-verse</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonEOV">
-             <property name="toolTip">
-              <string>Refrain</string>
-             </property>
-             <property name="text">
-              <string>End of 
-verse</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line_6">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonSOG">
-             <property name="toolTip">
-              <string>Refrain</string>
-             </property>
-             <property name="text">
-              <string>Start of 
-grid</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonEOG">
-             <property name="toolTip">
-              <string>Refrain</string>
-             </property>
-             <property name="text">
-              <string>End of 
-grid</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="Line" name="line_7">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonPageBreak">
-             <property name="text">
-              <string>Page
-Break</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="Infos">
-        <attribute name="title">
-         <string>Infos</string>
-        </attribute>
-        <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout">
-           <item>
-            <widget class="QToolButton" name="toolButtonComposer">
-             <property name="text">
-              <string>Composer</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonLyricist">
-             <property name="text">
-              <string>Lyricist</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonArranger">
-             <property name="text">
-              <string>Arranger</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonArtist">
-             <property name="text">
-              <string>Artist</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonAlbum">
-             <property name="text">
-              <string>Album</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonCopyright">
-             <property name="text">
-              <string>Copyright</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonYear">
-             <property name="text">
-              <string>Year</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonDuration">
-             <property name="text">
-              <string>Duration</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonKey">
-             <property name="text">
-              <string>Key</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_5">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </item>
-        </layout>
-       </widget>
-       <widget class="QWidget" name="tab">
-        <attribute name="title">
-         <string>Miscellaneous</string>
-        </attribute>
-        <layout class="QVBoxLayout" name="verticalLayout_3">
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_6">
-           <item>
-            <widget class="QToolButton" name="toolButtonComment">
-             <property name="text">
-              <string>Comment
-Regular</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonCommentItalic">
-             <property name="text">
-              <string>Comment
-Italic</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QToolButton" name="toolButtonCommentBox">
-             <property name="text">
-              <string>Comment
-Box</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
+          <widget class="QCheckBox" name="checkBoxLongShort">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="toolTip">
+            <string>Long/Short notation in text</string>
+           </property>
+           <property name="text">
+            <string>Long syntax</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </widget>
       </widget>
-     </item>
-     <item>
-      <widget class="TextEdit" name="textEdit"/>
-     </item>
-    </layout>
+      <widget class="QWidget" name="Songhead">
+       <attribute name="title">
+        <string>Song head</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QToolButton" name="toolButtonT">
+            <property name="toolTip">
+             <string>Song Title</string>
+            </property>
+            <property name="text">
+             <string>Song 
+title</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonST">
+            <property name="toolTip">
+             <string>Song Sub Titile</string>
+            </property>
+            <property name="text">
+             <string>Song
+subtitle</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonTime">
+            <property name="toolTip">
+             <string>4/4 3/4 ...</string>
+            </property>
+            <property name="text">
+             <string>Time</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonTempo">
+            <property name="toolTip">
+             <string>Beat per minute</string>
+            </property>
+            <property name="text">
+             <string>Tempo</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonCol">
+            <property name="toolTip">
+             <string>Column number for this song</string>
+            </property>
+            <property name="text">
+             <string>Column:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonCB">
+            <property name="toolTip">
+             <string>Column break</string>
+            </property>
+            <property name="text">
+             <string>Column
+break</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Songpart">
+       <attribute name="title">
+        <string>Song Part</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QToolButton" name="toolButtonSOC">
+            <property name="toolTip">
+             <string>Start of chorus</string>
+            </property>
+            <property name="text">
+             <string>Start of
+chorus</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonEOC">
+            <property name="toolTip">
+             <string>End of chorus</string>
+            </property>
+            <property name="text">
+             <string>End of
+chorus</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonSOR">
+            <property name="toolTip">
+             <string>Refrain</string>
+            </property>
+            <property name="text">
+             <string>Start of 
+refrain</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonEOR">
+            <property name="toolTip">
+             <string>Refrain</string>
+            </property>
+            <property name="text">
+             <string>End of 
+refrain</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_5">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonSOV">
+            <property name="toolTip">
+             <string>Refrain</string>
+            </property>
+            <property name="text">
+             <string>Start of 
+verse</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonEOV">
+            <property name="toolTip">
+             <string>Refrain</string>
+            </property>
+            <property name="text">
+             <string>End of 
+verse</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_6">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonSOG">
+            <property name="toolTip">
+             <string>Refrain</string>
+            </property>
+            <property name="text">
+             <string>Start of 
+grid</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonEOG">
+            <property name="toolTip">
+             <string>Refrain</string>
+            </property>
+            <property name="text">
+             <string>End of 
+grid</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line_7">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonPageBreak">
+            <property name="text">
+             <string>Page
+Break</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="Infos">
+       <attribute name="title">
+        <string>Infos</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QToolButton" name="toolButtonComposer">
+            <property name="text">
+             <string>Composer</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonLyricist">
+            <property name="text">
+             <string>Lyricist</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonArranger">
+            <property name="text">
+             <string>Arranger</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonArtist">
+            <property name="text">
+             <string>Artist</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonAlbum">
+            <property name="text">
+             <string>Album</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonCopyright">
+            <property name="text">
+             <string>Copyright</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonYear">
+            <property name="text">
+             <string>Year</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonDuration">
+            <property name="text">
+             <string>Duration</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonKey">
+            <property name="text">
+             <string>Key</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Miscellaneous</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QToolButton" name="toolButtonComment">
+            <property name="text">
+             <string>Comment
+Regular</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonCommentItalic">
+            <property name="text">
+             <string>Comment
+Italic</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButtonCommentBox">
+            <property name="text">
+             <string>Comment
+Box</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="TextEdit" name="textEdit"/>
+    </widget>
    </item>
   </layout>
  </widget>
