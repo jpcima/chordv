@@ -61,6 +61,7 @@ void Processor::run()
     QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}",Qt::CaseInsensitive);
     QRegExp SorREX("^ *\\{(?:sor|start_of_refrain)\\}",Qt::CaseInsensitive);
     QRegExp EorREX("^ *\\{(?:eor|end_of_refrain)\\}",Qt::CaseInsensitive);
+
     QRegExp ChordREX("\\[[^]]+\\]",Qt::CaseInsensitive);
     QRegExp TempoREX("^ *\\{(?:tempo): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp TimeREX("^ *\\{(?:time): *([^}]*) *\\}",Qt::CaseInsensitive);
@@ -73,7 +74,6 @@ void Processor::run()
     QRegExp YearRex("^ *\\{(?:year): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp KeyRex("^ *\\{(?:key): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp DurationRex("^ *\\{(?:key): *([^}]*) *\\}",Qt::CaseInsensitive);
-
     setCoverMade(false);
     m_lineindex=0;
     foreach ( QString line, m_text.split(QRegExp("\n")) )
@@ -423,6 +423,10 @@ void Processor::doColumnBreak(QString line)
 
 void Processor::displayLyrics()
 {
+    QRegExp CommentRex("^ *\\{(?:comment|c): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp CommentItalicRex("^ *\\{(?:comment-italic|ci): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp CommentBoxRex("^ *\\{(?:comment-box|cb): *([^}]*) *\\}",Qt::CaseInsensitive);
+
     BufLyricsNormailisation();
     if ( m_firstline )
     {
@@ -437,6 +441,21 @@ void Processor::displayLyrics()
             text.replace(QRegExp("\\[[^]]+\\]"),"") ;
             if ( isColBreak(text))
                 doColumnBreak(text);
+            else if ( text.contains(CommentRex))
+            {
+                 Text(m_document,CommentRex.cap(1),m_column,m_line,m_uiconfig->toolButtonCommentFont);
+                 NextLine();
+            }
+            else if ( text.contains(CommentItalicRex))
+            {
+                Text(m_document,CommentItalicRex.cap(1),m_column,m_line,m_uiconfig->toolButtonCommentItalicFont);
+                 NextLine();
+            }
+            else if ( text.contains(CommentBoxRex))
+            {
+                TextInBox(m_document,CommentRex.cap(1),m_column,m_line,m_uiconfig->toolButtonCommentBoxFont);
+                 NextLine();
+            }
             else
             {
                 Text(m_document,text,m_column,m_line,m_uiconfig->toolButtonNormalFont);
@@ -920,6 +939,23 @@ double Processor::ImagePosition()
     return m_uiconfig->spuPageHeight->getPdfU()*factor;
 }
 
+double Processor::TextInBox(PdfDocument *doc, QString text, double x, double y, FontButton *fb ,Align align, double scale)
+{
+    PdfFont *pfont=doc->CreateFont(fb->getFont().family().toLatin1());
+    PdfString str(text.toLatin1());
+    double fontsize=fb->getFont().pointSize()*scale;
+    pfont->SetFontSize(fontsize);
+    pfont->SetUnderlined(fb->getFont().underline());
+    pfont->SetStrikeOut(fb->getFont().strikeOut());
+    double widthtext=pfont->GetFontMetrics()->StringWidth(text.toLatin1())*scale;
+    double heighttext=pfont->GetFontSize()*1.1;
+    m_painter.SetColor(fb->getBackgroundColor().redF(),fb->getBackgroundColor().greenF(),fb->getBackgroundColor().blueF());
+    m_painter.Rectangle(x-widthtext*0.1,y-heighttext*0.2,widthtext*1.20,heighttext*1.20);
+    m_painter.Fill();
+    return Text(doc,text,x,y,fb,align,scale);
+
+
+}
 
 double  Processor::Text( PdfDocument *doc, QString text, double x, double y, FontButton *fb ,Align align, double scale)
 {

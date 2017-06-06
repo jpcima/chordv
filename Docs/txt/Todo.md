@@ -42,3 +42,4 @@ Planned features
 PDF :
 ----
   - PDF fonts are not used in pdf but all font are constructed
+  - Conversions QString to PdfString made by toLatin1()... Is it a good choiece for japaneese ?

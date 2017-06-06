@@ -51,6 +51,9 @@ void ProcessorLyrics::displayLyrics()
     {
         int num=0;
         int col=m_column;
+        QRegExp CommentRex("^ *\\{(?:comment|c): *([^}]*) *\\}",Qt::CaseInsensitive);
+        QRegExp CommentItalicRex("^ *\\{(?:comment-italic|ci): *([^}]*) *\\}",Qt::CaseInsensitive);
+        QRegExp CommentBoxRex("^ *\\{(?:comment-box|cb): *([^}]*) *\\}",Qt::CaseInsensitive);
 
         QRegExp chordexp("([^[]*)\\[([^]]*)\\](.*)");
         PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonNormalFont->getFont().family().toLatin1());
@@ -58,6 +61,21 @@ void ProcessorLyrics::displayLyrics()
         if ( ! text.isEmpty() )
         {
           if ( isColBreak(text)) doColumnBreak(text);
+          else if ( text.contains(CommentRex))
+          {
+              Text(m_document,CommentRex.cap(1),m_column,m_line,m_uiconfig->toolButtonCommentFont);
+               NextLine();
+          }
+          else if ( text.contains(CommentItalicRex))
+          {
+              Text(m_document,CommentItalicRex.cap(1),m_column,m_line,m_uiconfig->toolButtonCommentItalicFont);
+               NextLine();
+          }
+          else if ( text.contains(CommentBoxRex))
+          {
+              TextInBox(m_document,CommentRex.cap(1),m_column,m_line,m_uiconfig->toolButtonCommentBoxFont);
+               NextLine();
+          }
           else if ( ! isChorus(text))
           {
 

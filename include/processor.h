@@ -242,6 +242,7 @@ protected:
 
     double Text(PoDoFo::PdfDocument *doc,QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);
 
+    double TextInBox(PoDoFo::PdfDocument *doc, QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);
     virtual void NextLine( int num=0);
     virtual int currentColumn();
     virtual int nextColumn( int current);
@@ -326,6 +327,7 @@ protected:
     virtual void setArranger(QString arranger);
     virtual void setLyricist(QString lyricist);
     virtual void setComposer(QString composer);
+
 };
 
 #endif // PROCESSOR_H
