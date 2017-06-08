@@ -67,11 +67,11 @@ void Language::setLanguageComboBox(QComboBox *ptr)
 
 }
 
-QStringList Language::ListChord(QComboBox *ptr)
+QStringList Language::ListChord(QString lang, QString codelang)
 {
     QSettings s;
     QFileInfo f1(s.fileName());
-    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),ptr->currentText(),ptr->currentData().toString());
+    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),lang,codelang);
     QFile file(filename);
     file.open(QIODevice::ReadOnly|QIODevice::Text);
     QString chords=file.readLine();
@@ -80,11 +80,11 @@ QStringList Language::ListChord(QComboBox *ptr)
     return chords.split(",");
 }
 
-QStringList Language::ListMinor(QComboBox *ptr)
+QStringList Language::ListMinor(QString lang, QString codelang)
 {
     QSettings s;
     QFileInfo f1(s.fileName());
-    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),ptr->currentText(),ptr->currentData().toString());
+    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),lang,codelang);
     QFile file(filename);
     file.open(QIODevice::ReadOnly|QIODevice::Text);
     QString chords=file.readLine();

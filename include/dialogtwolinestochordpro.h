@@ -21,8 +21,6 @@ public:
 private slots:
     void Convert();
     void Demo();
-    void LanguageOutputChanged(QString value);
-    void LanguageInputChanged(QString value);
 private:
     Ui::DialogTwoLinesToChordPro *ui;
     bool isChords(QString line);
@@ -33,7 +31,6 @@ private:
     void ClearMap();
     QString m_minorfrom;
     QString m_minorto;
-    void SetInvisibleIfOnlyOnceChoice(QComboBox *ptr, QLabel *label);
     QString translate(QString chord);
 };
 

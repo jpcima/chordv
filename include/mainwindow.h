@@ -120,6 +120,7 @@ private slots:
     void ZoomOut();
     void Documentation();
     void TwoLines2Chordpro();
+    void ChangeChordLang();
 };
 
 #endif // MAINWINDOW_H

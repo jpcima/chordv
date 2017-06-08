@@ -10,8 +10,8 @@ public:
     static QString getTranslationQmFileName(QString language);
     static void setLanguageComboBox(QComboBox *ptr);
     static QString getTranslationDocFileName(QString language);
-    static QStringList ListChord(QComboBox *ptr);
-    static QStringList ListMinor(QComboBox *ptr);
+    static QStringList ListChord(QString lang, QString codelang);
+    static QStringList ListMinor(QString lang, QString codelang);
 };
 
 #endif // LANGUAGE_H

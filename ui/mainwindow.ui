@@ -333,9 +333,10 @@
     </widget>
     <widget class="QMenu" name="menuImport_other_format">
      <property name="title">
-      <string>Import other format</string>
+      <string>Conversion</string>
      </property>
      <addaction name="action2Line2chordpro"/>
+     <addaction name="actionChangeChordLang"/>
     </widget>
     <addaction name="actionProduce_PDF_files"/>
     <addaction name="separator"/>
@@ -699,6 +700,11 @@
   <action name="action2Line2chordpro">
    <property name="text">
     <string>2LinesTochordpro</string>
+   </property>
+  </action>
+  <action name="actionChangeChordLang">
+   <property name="text">
+    <string>Change  Chord Language</string>
    </property>
   </action>
  </widget>

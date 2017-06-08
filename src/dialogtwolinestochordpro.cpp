@@ -14,18 +14,10 @@ DialogTwoLinesToChordPro::DialogTwoLinesToChordPro(QWidget *parent) :
     f.setFamily("Courier");
     ui->plainTextEdit->setFont(f);
 
-    Language::setLanguageComboBox(ui->comboBoxInputChordLanguage);
-    Language::setLanguageComboBox(ui->comboBoxOutputChordLanguage);
-    ui->comboBoxMinorInput->addItems(Language::ListMinor(ui->comboBoxInputChordLanguage));
-    ui->comboBoxMinorOutput->addItems(Language::ListMinor(ui->comboBoxOutputChordLanguage));
-    SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorInput,ui->labelMinorInput);
-    SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorOutput,ui->labelMinorOutput);
     connect ( ui->pushButtonClose,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect (ui->pushButtonConvert,SIGNAL(clicked(bool)),this,SLOT(Convert()));
     connect(ui->pushButtonClear,SIGNAL(clicked(bool)),ui->plainTextEdit,SLOT(clear()));
     connect(ui->pushButtonDemo,SIGNAL(clicked(bool)),SLOT(Demo()));
-    connect (ui->comboBoxInputChordLanguage,SIGNAL(currentIndexChanged(QString)),this,SLOT(LanguageInputChanged(QString)));
-    connect (ui->comboBoxOutputChordLanguage,SIGNAL(currentIndexChanged(QString)),this,SLOT(LanguageOutputChanged(QString)));
 
    }
 
@@ -35,12 +27,7 @@ DialogTwoLinesToChordPro::~DialogTwoLinesToChordPro()
 }
 
 
-void DialogTwoLinesToChordPro::SetInvisibleIfOnlyOnceChoice( QComboBox *ptr , QLabel *ptrl)
-{
-    ptr->setVisible(ptr->count()>1);
-    ptrl->setVisible(ptr->count()>1);
 
-}
 
 void DialogTwoLinesToChordPro::Convert()
 {
@@ -67,7 +54,7 @@ bool DialogTwoLinesToChordPro::isChords(QString line)
 {
     line.replace(QRegExp(" +")," ");
     QStringList words=line.split(" ");
-    QString chordreg=Language::ListChord(ui->comboBoxInputChordLanguage).join("|");
+    QString chordreg=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputMinor()).join("|");
     chordreg=QString("^(%1)").arg(chordreg);
 
     foreach ( QString word, words)
@@ -80,7 +67,7 @@ bool DialogTwoLinesToChordPro::isChords(QString line)
 
 void DialogTwoLinesToChordPro::ConvertToMap( QString line)
 {
-    QStringList listbeginingchord=Language::ListChord(ui->comboBoxInputChordLanguage);
+    QStringList listbeginingchord=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang());
     for ( int i=0; i< line.count();i++)
     {
         QChar c=line[i];
@@ -122,16 +109,16 @@ QString DialogTwoLinesToChordPro::mixLineAndMap(QString line)
 
 QString DialogTwoLinesToChordPro::translate(QString chord)
 {
-    QString chordreg=Language::ListChord(ui->comboBoxInputChordLanguage).join("|");
-    QStringList chordoutput=Language::ListChord(ui->comboBoxOutputChordLanguage);
+    QString chordreg=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang()).join("|");
+    QStringList chordoutput=Language::ListChord(ui->widget->getOutputLang(),ui->widget->getOutputCodeLang());
     chordreg=QString("^(%1)").arg(chordreg);
     QRegExp reg(chordreg);
     if ( chord.contains(reg))
     {
         QString c=reg.cap(1);
-        int i=Language::ListChord(ui->comboBoxInputChordLanguage).indexOf(c);
+        int i=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang()).indexOf(c);
         chord.replace(c,chordoutput.at(i));
-        chord.replace(ui->comboBoxMinorInput->currentText(),ui->comboBoxMinorOutput->currentText());
+        chord.replace(ui->widget->getInputMinor(),ui->widget->getOutputMinor());
     }
    return chord;
 }
@@ -254,19 +241,5 @@ void DialogTwoLinesToChordPro::Demo()
                           "A#m7                                G#   G#7\n"
                           "Ma plus belle histoire d'amour c'est vous.\n"
 );
-}
-
-void DialogTwoLinesToChordPro::LanguageOutputChanged(QString )
-{
-    ui->comboBoxMinorOutput->clear();
-    ui->comboBoxMinorOutput->addItems(Language::ListMinor(ui->comboBoxOutputChordLanguage));
-    SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorOutput,ui->labelMinorOutput);
-}
-
-void DialogTwoLinesToChordPro::LanguageInputChanged(QString     )
-{
-    ui->comboBoxMinorInput->clear();
-    ui->comboBoxMinorInput->addItems(Language::ListMinor(ui->comboBoxInputChordLanguage));
-    SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorInput,ui->labelMinorInput);
 }
 

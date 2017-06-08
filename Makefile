@@ -91,7 +91,9 @@ SOURCES       = src/main.cpp \
 		src/textedit.cpp \
 		src/dialogdocumentation.cpp \
 		src/formeditor.cpp \
-		src/dialogtwolinestochordpro.cpp build/rcc/qrc_resources.cpp \
+		src/dialogtwolinestochordpro.cpp \
+		src/dialogchangechordname.cpp \
+		src/forminputoutputchord.cpp build/rcc/qrc_resources.cpp \
 		build/moc/moc_mainwindow.cpp \
 		build/moc/moc_formconfig.cpp \
 		build/moc/moc_lyricsconfig.cpp \
@@ -118,7 +120,9 @@ SOURCES       = src/main.cpp \
 		build/moc/moc_textedit.cpp \
 		build/moc/moc_dialogdocumentation.cpp \
 		build/moc/moc_formeditor.cpp \
-		build/moc/moc_dialogtwolinestochordpro.cpp
+		build/moc/moc_dialogtwolinestochordpro.cpp \
+		build/moc/moc_dialogchangechordname.cpp \
+		build/moc/moc_forminputoutputchord.cpp
 OBJECTS       = build/obj/main.o \
 		build/obj/mainwindow.o \
 		build/obj/util.o \
@@ -163,6 +167,8 @@ OBJECTS       = build/obj/main.o \
 		build/obj/dialogdocumentation.o \
 		build/obj/formeditor.o \
 		build/obj/dialogtwolinestochordpro.o \
+		build/obj/dialogchangechordname.o \
+		build/obj/forminputoutputchord.o \
 		build/obj/qrc_resources.o \
 		build/obj/moc_mainwindow.o \
 		build/obj/moc_formconfig.o \
@@ -190,7 +196,9 @@ OBJECTS       = build/obj/main.o \
 		build/obj/moc_textedit.o \
 		build/obj/moc_dialogdocumentation.o \
 		build/obj/moc_formeditor.o \
-		build/obj/moc_dialogtwolinestochordpro.o
+		build/obj/moc_dialogtwolinestochordpro.o \
+		build/obj/moc_dialogchangechordname.o \
+		build/obj/moc_forminputoutputchord.o
 DIST          = Example/deuxdisques.png \
 		Example/Chansons.cho3 \
 		Example/Chansons.chop \
@@ -322,7 +330,9 @@ DIST          = Example/deuxdisques.png \
 		include/textedit.h \
 		include/dialogdocumentation.h \
 		include/formeditor.h \
-		include/dialogtwolinestochordpro.h src/main.cpp \
+		include/dialogtwolinestochordpro.h \
+		include/dialogchangechordname.h \
+		include/forminputoutputchord.h src/main.cpp \
 		src/mainwindow.cpp \
 		src/util.cpp \
 		src/formconfig.cpp \
@@ -365,7 +375,9 @@ DIST          = Example/deuxdisques.png \
 		src/textedit.cpp \
 		src/dialogdocumentation.cpp \
 		src/formeditor.cpp \
-		src/dialogtwolinestochordpro.cpp
+		src/dialogtwolinestochordpro.cpp \
+		src/dialogchangechordname.cpp \
+		src/forminputoutputchord.cpp
 QMAKE_TARGET  = chordV
 DESTDIR       = bin/
 TARGET        = bin/chordV
@@ -374,7 +386,7 @@ TARGET        = bin/chordV
 first: all
 ####### Build rules
 
-$(TARGET): build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h build/ui/ui_dialogdocumentation.h build/ui/ui_formeditor.h build/ui/ui_dialogtwolinestochordpro.h $(OBJECTS)  
+$(TARGET): build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h build/ui/ui_dialogdocumentation.h build/ui/ui_formeditor.h build/ui/ui_dialogtwolinestochordpro.h build/ui/ui_forminputoutputchord.h build/ui/ui_dialogchangechordname.h $(OBJECTS)  
 	@test -d bin/ || mkdir -p bin/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -536,9 +548,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents Resources/resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents include/mainwindow.h include/util.h include/formconfig.h include/lyricsconfig.h include/chordconfig.h include/textconfig.h include/fontchooser.h include/fontbutton.h include/fontdialog.h include/colorbutton.h include/lineedittest.h include/logmessages.h include/editorhighlighter.h include/imagebutton.h include/examplelabel.h include/pagesize.h include/processor.h include/dialogabout.h include/memoryconfig.h include/spinboxunit.h include/dialogconfiguration.h include/settings.h include/processortext.h include/const.h include/verticalspacing.h include/dialogchorddefinition.h include/ChordDetector.h include/neck.h include/dialogsysteminfo.h include/chorddiagram.h include/dialogchoosegoodchord.h include/dialogsearch.h include/dialogreplace.h include/processorlyrics.h include/language.h include/chord.h include/langnotes.h include/pdfviewer.h include/dialogbar.h include/processorchord.h include/textedit.h include/dialogdocumentation.h include/formeditor.h include/dialogtwolinestochordpro.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/util.cpp src/formconfig.cpp src/lyricsconfig.cpp src/chordconfig.cpp src/textconfig.cpp src/fontchooser.cpp src/fontbutton.cpp src/fontdialog.cpp src/colorbutton.cpp src/lineedittest.cpp src/logmessages.cpp src/editorhighlighter.cpp src/imagebutton.cpp src/examplelabel.cpp src/pagesize.cpp src/processor.cpp src/dialogabout.cpp src/memoryconfig.cpp src/spinboxunit.cpp src/dialogconfiguration.cpp src/settings.cpp src/processortext.cpp src/verticalspacing.cpp src/dialogchorddefinition.cpp src/ChordDetector.cpp src/neck.cpp src/dialogsysteminfo.cpp src/chorddiagram.cpp src/dialogchoosegoodchord.cpp src/dialogsearch.cpp src/dialogreplace.cpp src/processorlyrics.cpp src/language.cpp src/chord.cpp src/langnotes.cpp src/pdfviewer.cpp src/dialogbar.cpp src/processorchord.cpp src/textedit.cpp src/dialogdocumentation.cpp src/formeditor.cpp src/dialogtwolinestochordpro.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ui/mainwindow.ui ui/formconfig.ui ui/fontchooser.ui ui/dialogabout.ui ui/dialogconfiguration.ui ui/dialogchorddefinition.ui ui/dialogsysteminfo.ui ui/dialogchoosegoodchord.ui ui/dialogsearch.ui ui/dialogreplace.ui ui/dialogbar.ui ui/dialogdocumentation.ui ui/formeditor.ui ui/dialogtwolinestochordpro.ui $(DISTDIR)/
+	$(COPY_FILE) --parents include/mainwindow.h include/util.h include/formconfig.h include/lyricsconfig.h include/chordconfig.h include/textconfig.h include/fontchooser.h include/fontbutton.h include/fontdialog.h include/colorbutton.h include/lineedittest.h include/logmessages.h include/editorhighlighter.h include/imagebutton.h include/examplelabel.h include/pagesize.h include/processor.h include/dialogabout.h include/memoryconfig.h include/spinboxunit.h include/dialogconfiguration.h include/settings.h include/processortext.h include/const.h include/verticalspacing.h include/dialogchorddefinition.h include/ChordDetector.h include/neck.h include/dialogsysteminfo.h include/chorddiagram.h include/dialogchoosegoodchord.h include/dialogsearch.h include/dialogreplace.h include/processorlyrics.h include/language.h include/chord.h include/langnotes.h include/pdfviewer.h include/dialogbar.h include/processorchord.h include/textedit.h include/dialogdocumentation.h include/formeditor.h include/dialogtwolinestochordpro.h include/dialogchangechordname.h include/forminputoutputchord.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/util.cpp src/formconfig.cpp src/lyricsconfig.cpp src/chordconfig.cpp src/textconfig.cpp src/fontchooser.cpp src/fontbutton.cpp src/fontdialog.cpp src/colorbutton.cpp src/lineedittest.cpp src/logmessages.cpp src/editorhighlighter.cpp src/imagebutton.cpp src/examplelabel.cpp src/pagesize.cpp src/processor.cpp src/dialogabout.cpp src/memoryconfig.cpp src/spinboxunit.cpp src/dialogconfiguration.cpp src/settings.cpp src/processortext.cpp src/verticalspacing.cpp src/dialogchorddefinition.cpp src/ChordDetector.cpp src/neck.cpp src/dialogsysteminfo.cpp src/chorddiagram.cpp src/dialogchoosegoodchord.cpp src/dialogsearch.cpp src/dialogreplace.cpp src/processorlyrics.cpp src/language.cpp src/chord.cpp src/langnotes.cpp src/pdfviewer.cpp src/dialogbar.cpp src/processorchord.cpp src/textedit.cpp src/dialogdocumentation.cpp src/formeditor.cpp src/dialogtwolinestochordpro.cpp src/dialogchangechordname.cpp src/forminputoutputchord.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ui/mainwindow.ui ui/formconfig.ui ui/fontchooser.ui ui/dialogabout.ui ui/dialogconfiguration.ui ui/dialogchorddefinition.ui ui/dialogsysteminfo.ui ui/dialogchoosegoodchord.ui ui/dialogsearch.ui ui/dialogreplace.ui ui/dialogbar.ui ui/dialogdocumentation.ui ui/formeditor.ui ui/dialogtwolinestochordpro.ui ui/forminputoutputchord.ui ui/dialogchangechordname.ui $(DISTDIR)/
 	$(COPY_FILE) --parents translations/fr.ts $(DISTDIR)/
 
 
@@ -581,9 +593,9 @@ build/rcc/qrc_resources.cpp: Resources/resources.qrc \
 		Bd/Chord.db
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name resources Resources/resources.qrc -o build/rcc/qrc_resources.cpp
 
-compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp build/moc/moc_textedit.cpp build/moc/moc_dialogdocumentation.cpp build/moc/moc_formeditor.cpp build/moc/moc_dialogtwolinestochordpro.cpp
+compiler_moc_header_make_all: build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp build/moc/moc_textedit.cpp build/moc/moc_dialogdocumentation.cpp build/moc/moc_formeditor.cpp build/moc/moc_dialogtwolinestochordpro.cpp build/moc/moc_dialogchangechordname.cpp build/moc/moc_forminputoutputchord.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp build/moc/moc_textedit.cpp build/moc/moc_dialogdocumentation.cpp build/moc/moc_formeditor.cpp build/moc/moc_dialogtwolinestochordpro.cpp
+	-$(DEL_FILE) build/moc/moc_mainwindow.cpp build/moc/moc_formconfig.cpp build/moc/moc_lyricsconfig.cpp build/moc/moc_chordconfig.cpp build/moc/moc_textconfig.cpp build/moc/moc_fontchooser.cpp build/moc/moc_fontbutton.cpp build/moc/moc_fontdialog.cpp build/moc/moc_colorbutton.cpp build/moc/moc_imagebutton.cpp build/moc/moc_processor.cpp build/moc/moc_dialogabout.cpp build/moc/moc_memoryconfig.cpp build/moc/moc_spinboxunit.cpp build/moc/moc_dialogconfiguration.cpp build/moc/moc_dialogchorddefinition.cpp build/moc/moc_neck.cpp build/moc/moc_dialogsysteminfo.cpp build/moc/moc_chorddiagram.cpp build/moc/moc_dialogchoosegoodchord.cpp build/moc/moc_dialogsearch.cpp build/moc/moc_dialogreplace.cpp build/moc/moc_dialogbar.cpp build/moc/moc_textedit.cpp build/moc/moc_dialogdocumentation.cpp build/moc/moc_formeditor.cpp build/moc/moc_dialogtwolinestochordpro.cpp build/moc/moc_dialogchangechordname.cpp build/moc/moc_forminputoutputchord.cpp
 build/moc/moc_mainwindow.cpp: include/pdfviewer.h \
 		include/chordconfig.h \
 		include/formconfig.h \
@@ -711,11 +723,19 @@ build/moc/moc_dialogtwolinestochordpro.cpp: include/dialogtwolinestochordpro.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogtwolinestochordpro.h -o build/moc/moc_dialogtwolinestochordpro.cpp
 
+build/moc/moc_dialogchangechordname.cpp: include/dialogchangechordname.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchangechordname.h -o build/moc/moc_dialogchangechordname.cpp
+
+build/moc/moc_forminputoutputchord.cpp: include/forminputoutputchord.h \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/forminputoutputchord.h -o build/moc/moc_forminputoutputchord.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h build/ui/ui_dialogdocumentation.h build/ui/ui_formeditor.h build/ui/ui_dialogtwolinestochordpro.h
+compiler_uic_make_all: build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h build/ui/ui_dialogdocumentation.h build/ui/ui_formeditor.h build/ui/ui_dialogtwolinestochordpro.h build/ui/ui_forminputoutputchord.h build/ui/ui_dialogchangechordname.h
 compiler_uic_clean:
-	-$(DEL_FILE) build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h build/ui/ui_dialogdocumentation.h build/ui/ui_formeditor.h build/ui/ui_dialogtwolinestochordpro.h
+	-$(DEL_FILE) build/ui/ui_mainwindow.h build/ui/ui_formconfig.h build/ui/ui_fontchooser.h build/ui/ui_dialogabout.h build/ui/ui_dialogconfiguration.h build/ui/ui_dialogchorddefinition.h build/ui/ui_dialogsysteminfo.h build/ui/ui_dialogchoosegoodchord.h build/ui/ui_dialogsearch.h build/ui/ui_dialogreplace.h build/ui/ui_dialogbar.h build/ui/ui_dialogdocumentation.h build/ui/ui_formeditor.h build/ui/ui_dialogtwolinestochordpro.h build/ui/ui_forminputoutputchord.h build/ui/ui_dialogchangechordname.h
 build/ui/ui_mainwindow.h: ui/mainwindow.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
 		include/lyricsconfig.h \
@@ -807,6 +827,15 @@ build/ui/ui_formeditor.h: ui/formeditor.ui \
 build/ui/ui_dialogtwolinestochordpro.h: ui/dialogtwolinestochordpro.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogtwolinestochordpro.ui -o build/ui/ui_dialogtwolinestochordpro.h
+
+build/ui/ui_forminputoutputchord.h: ui/forminputoutputchord.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/forminputoutputchord.ui -o build/ui/ui_forminputoutputchord.h
+
+build/ui/ui_dialogchangechordname.h: ui/dialogchangechordname.ui \
+		/usr/lib/x86_64-linux-gnu/qt5/bin/uic \
+		include/forminputoutputchord.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogchangechordname.ui -o build/ui/ui_dialogchangechordname.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1133,8 +1162,19 @@ build/obj/formeditor.o: src/formeditor.cpp include/formeditor.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formeditor.o src/formeditor.cpp
 
 build/obj/dialogtwolinestochordpro.o: src/dialogtwolinestochordpro.cpp include/dialogtwolinestochordpro.h \
-		build/ui/ui_dialogtwolinestochordpro.h
+		build/ui/ui_dialogtwolinestochordpro.h \
+		include/language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogtwolinestochordpro.o src/dialogtwolinestochordpro.cpp
+
+build/obj/dialogchangechordname.o: src/dialogchangechordname.cpp include/dialogchangechordname.h \
+		build/ui/ui_dialogchangechordname.h \
+		include/forminputoutputchord.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchangechordname.o src/dialogchangechordname.cpp
+
+build/obj/forminputoutputchord.o: src/forminputoutputchord.cpp include/forminputoutputchord.h \
+		build/ui/ui_forminputoutputchord.h \
+		include/language.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/forminputoutputchord.o src/forminputoutputchord.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_resources.o build/rcc/qrc_resources.cpp
@@ -1219,6 +1259,12 @@ build/obj/moc_formeditor.o: build/moc/moc_formeditor.cpp
 
 build/obj/moc_dialogtwolinestochordpro.o: build/moc/moc_dialogtwolinestochordpro.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/moc_dialogtwolinestochordpro.o build/moc/moc_dialogtwolinestochordpro.cpp
+
+build/obj/moc_dialogchangechordname.o: build/moc/moc_dialogchangechordname.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/moc_dialogchangechordname.o build/moc/moc_dialogchangechordname.cpp
+
+build/obj/moc_forminputoutputchord.o: build/moc/moc_forminputoutputchord.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/moc_forminputoutputchord.o build/moc/moc_forminputoutputchord.cpp
 
 ####### Install
 
