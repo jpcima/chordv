@@ -21,6 +21,10 @@ public:
     QString getInputMinor();
     QString getOutputMinor();
     QString getOutputCodeLang();
+    void setOutputMinor(int index);
+    void setInputMinor(int index);
+    void setInputLang(int index);
+    void setOutputLang(int index);
     ~FormInputOutputChord();
 
 private slots:

@@ -9,8 +9,8 @@ FormInputOutputChord::FormInputOutputChord(QWidget *parent) :
     ui->setupUi(this);
     Language::setLanguageComboBox(ui->comboBoxInputChordLanguage);
     Language::setLanguageComboBox(ui->comboBoxOutputChordLanguage);
-    ui->comboBoxMinorInput->addItems(Language::ListMinor(ui->comboBoxInputChordLanguage));
-    ui->comboBoxMinorOutput->addItems(Language::ListMinor(ui->comboBoxOutputChordLanguage));
+    ui->comboBoxMinorInput->addItems(Language::ListMinor(getInputLang(),getInputCodeLang()));
+    ui->comboBoxMinorOutput->addItems(Language::ListMinor(getOutputLang(),getOutputCodeLang()));
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorInput,ui->labelMinorInput);
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorOutput,ui->labelMinorOutput);
     connect (ui->comboBoxInputChordLanguage,SIGNAL(currentIndexChanged(QString)),this,SLOT(LanguageInputChanged(QString)));
@@ -31,6 +31,26 @@ QString FormInputOutputChord::getInputCodeLang()
 QString FormInputOutputChord::getOutputCodeLang()
 {
     return ui->comboBoxOutputChordLanguage->currentData().toString();
+}
+
+void FormInputOutputChord::setOutputMinor(int index)
+{
+    ui->comboBoxMinorOutput->setCurrentIndex(index);
+}
+
+void FormInputOutputChord::setInputMinor(int index)
+{
+    ui->comboBoxMinorInput->setCurrentIndex(index);
+}
+
+void FormInputOutputChord::setInputLang(int index)
+{
+    ui->comboBoxInputChordLanguage->setCurrentIndex(index);
+}
+
+void FormInputOutputChord::setOutputLang(int index)
+{
+    ui->comboBoxOutputChordLanguage->setCurrentIndex(index);
 }
 
 QString FormInputOutputChord::getOutputLang()
@@ -66,14 +86,14 @@ void FormInputOutputChord::SetInvisibleIfOnlyOnceChoice( QComboBox *ptr , QLabel
 void FormInputOutputChord::LanguageOutputChanged(QString )
 {
     ui->comboBoxMinorOutput->clear();
-    ui->comboBoxMinorOutput->addItems(Language::ListMinor(ui->comboBoxOutputChordLanguage));
+    ui->comboBoxMinorOutput->addItems(Language::ListMinor(getOutputLang(),getOutputCodeLang()));
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorOutput,ui->labelMinorOutput);
 }
 
 void FormInputOutputChord::LanguageInputChanged(QString     )
 {
     ui->comboBoxMinorInput->clear();
-    ui->comboBoxMinorInput->addItems(Language::ListMinor(ui->comboBoxInputChordLanguage));
+    ui->comboBoxMinorInput->addItems(Language::ListMinor(getInputLang(),getInputCodeLang()));
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorInput,ui->labelMinorInput);
 }
 

@@ -54,7 +54,7 @@ bool DialogTwoLinesToChordPro::isChords(QString line)
 {
     line.replace(QRegExp(" +")," ");
     QStringList words=line.split(" ");
-    QString chordreg=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputMinor()).join("|");
+    QString chordreg=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang()).join("|");
     chordreg=QString("^(%1)").arg(chordreg);
 
     foreach ( QString word, words)
@@ -125,10 +125,10 @@ QString DialogTwoLinesToChordPro::translate(QString chord)
 
 void DialogTwoLinesToChordPro::Demo()
 {
-    ui->comboBoxInputChordLanguage->setCurrentIndex(0);
-    ui->comboBoxMinorInput->setCurrentIndex(1);
-    ui->comboBoxOutputChordLanguage->setCurrentIndex(1);
-    ui->comboBoxMinorOutput->setCurrentIndex(1);
+    ui->widget->setInputLang(0);
+    ui->widget->setInputMinor(1);
+    ui->widget->setOutputLang(1);
+    ui->widget->setOutputMinor(1);
     ui->plainTextEdit->setPlainText("Titre   : Ma plus belle histoire d'amour\n"
 "\n"
                           "------------------------------------------------------------------------------\n"
