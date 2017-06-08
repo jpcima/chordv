@@ -64,7 +64,7 @@ SOURCES += src/main.cpp\
     src/textedit.cpp \
     src/dialogdocumentation.cpp \
     src/formeditor.cpp \
-    dialogtwolinestochordpro.cpp
+    src/dialogtwolinestochordpro.cpp
 
 HEADERS  += include/mainwindow.h \
     include/util.h \
@@ -109,7 +109,7 @@ HEADERS  += include/mainwindow.h \
     include/textedit.h \
     include/dialogdocumentation.h \
     include/formeditor.h \
-    dialogtwolinestochordpro.h
+    include/dialogtwolinestochordpro.h
 
 FORMS    += ui/mainwindow.ui \
     ui/formconfig.ui \
@@ -124,7 +124,7 @@ FORMS    += ui/mainwindow.ui \
     ui/dialogbar.ui \
     ui/dialogdocumentation.ui \
     ui/formeditor.ui \
-    dialogtwolinestochordpro.ui
+    ui/dialogtwolinestochordpro.ui
 
 LIBS += -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
 INCLUDEPATH += /usr/local/include ./include

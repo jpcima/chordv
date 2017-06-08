@@ -288,7 +288,10 @@ le nom avec la cédille exactement comme un français pourrait le lire.
     - fr.qm  : ce fichier contient le fichier ts compilé
     - fr.html : la documentation en langue française dans le format HTML
     - fr.md : la documentation en langue en française dans le format md
-    
+    - fr.chords : contient la liste noms de note dans la langue, avec une note
+    pour chaque ligne. La dernière ligne contient la liste des
+    symboles utilisés dans la langue pour le mode mineur séparés par des ,
+    En français : m,-
 
 ### Traduction du fichier fr.ts
 
@@ -341,6 +344,7 @@ le net)
 ~~~bash
 pandoc --toc --ascii --smart -N --css=pandoc.css  --from=markdown --to=html --output=es.html es.md
 ~~~
+
 
 ### Les images
 

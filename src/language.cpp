@@ -4,6 +4,7 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QComboBox>
+#include <QFile>
 
 QString Language::getTranslationQmFileName(QString language)
 {
@@ -43,6 +44,7 @@ void Language::setLanguageComboBox(QComboBox *ptr)
     QFileInfo fi(s.fileName());
     QString Langpath=fi.absolutePath();
     QString path=Langpath+"/Languages";
+    ptr->clear();
     ptr->addItem(QIcon(":/Image/Images/en.png"),"English","en");
     QFileInfoList filist=QDir(path).entryInfoList(QDir::AllDirs|QDir::NoDotAndDotDot);
     foreach (QFileInfo fi, filist)
@@ -63,4 +65,31 @@ void Language::setLanguageComboBox(QComboBox *ptr)
         }
     }
 
+}
+
+QStringList Language::ListChord(QComboBox *ptr)
+{
+    QSettings s;
+    QFileInfo f1(s.fileName());
+    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),ptr->currentText(),ptr->currentData().toString());
+    QFile file(filename);
+    file.open(QIODevice::ReadOnly|QIODevice::Text);
+    QString chords=file.readLine();
+    chords.chop(1);
+    file.close();
+    return chords.split(",");
+}
+
+QStringList Language::ListMinor(QComboBox *ptr)
+{
+    QSettings s;
+    QFileInfo f1(s.fileName());
+    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),ptr->currentText(),ptr->currentData().toString());
+    QFile file(filename);
+    file.open(QIODevice::ReadOnly|QIODevice::Text);
+    QString chords=file.readLine();
+    QString minor=file.readLine();
+    minor.chop(1);
+    file.close();
+    return minor.split(",");
 }

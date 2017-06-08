@@ -91,7 +91,7 @@ SOURCES       = src/main.cpp \
 		src/textedit.cpp \
 		src/dialogdocumentation.cpp \
 		src/formeditor.cpp \
-		dialogtwolinestochordpro.cpp build/rcc/qrc_resources.cpp \
+		src/dialogtwolinestochordpro.cpp build/rcc/qrc_resources.cpp \
 		build/moc/moc_mainwindow.cpp \
 		build/moc/moc_formconfig.cpp \
 		build/moc/moc_lyricsconfig.cpp \
@@ -322,7 +322,7 @@ DIST          = Example/deuxdisques.png \
 		include/textedit.h \
 		include/dialogdocumentation.h \
 		include/formeditor.h \
-		dialogtwolinestochordpro.h src/main.cpp \
+		include/dialogtwolinestochordpro.h src/main.cpp \
 		src/mainwindow.cpp \
 		src/util.cpp \
 		src/formconfig.cpp \
@@ -365,7 +365,7 @@ DIST          = Example/deuxdisques.png \
 		src/textedit.cpp \
 		src/dialogdocumentation.cpp \
 		src/formeditor.cpp \
-		dialogtwolinestochordpro.cpp
+		src/dialogtwolinestochordpro.cpp
 QMAKE_TARGET  = chordV
 DESTDIR       = bin/
 TARGET        = bin/chordV
@@ -536,9 +536,9 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents Resources/resources.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents include/mainwindow.h include/util.h include/formconfig.h include/lyricsconfig.h include/chordconfig.h include/textconfig.h include/fontchooser.h include/fontbutton.h include/fontdialog.h include/colorbutton.h include/lineedittest.h include/logmessages.h include/editorhighlighter.h include/imagebutton.h include/examplelabel.h include/pagesize.h include/processor.h include/dialogabout.h include/memoryconfig.h include/spinboxunit.h include/dialogconfiguration.h include/settings.h include/processortext.h include/const.h include/verticalspacing.h include/dialogchorddefinition.h include/ChordDetector.h include/neck.h include/dialogsysteminfo.h include/chorddiagram.h include/dialogchoosegoodchord.h include/dialogsearch.h include/dialogreplace.h include/processorlyrics.h include/language.h include/chord.h include/langnotes.h include/pdfviewer.h include/dialogbar.h include/processorchord.h include/textedit.h include/dialogdocumentation.h include/formeditor.h dialogtwolinestochordpro.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/util.cpp src/formconfig.cpp src/lyricsconfig.cpp src/chordconfig.cpp src/textconfig.cpp src/fontchooser.cpp src/fontbutton.cpp src/fontdialog.cpp src/colorbutton.cpp src/lineedittest.cpp src/logmessages.cpp src/editorhighlighter.cpp src/imagebutton.cpp src/examplelabel.cpp src/pagesize.cpp src/processor.cpp src/dialogabout.cpp src/memoryconfig.cpp src/spinboxunit.cpp src/dialogconfiguration.cpp src/settings.cpp src/processortext.cpp src/verticalspacing.cpp src/dialogchorddefinition.cpp src/ChordDetector.cpp src/neck.cpp src/dialogsysteminfo.cpp src/chorddiagram.cpp src/dialogchoosegoodchord.cpp src/dialogsearch.cpp src/dialogreplace.cpp src/processorlyrics.cpp src/language.cpp src/chord.cpp src/langnotes.cpp src/pdfviewer.cpp src/dialogbar.cpp src/processorchord.cpp src/textedit.cpp src/dialogdocumentation.cpp src/formeditor.cpp dialogtwolinestochordpro.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ui/mainwindow.ui ui/formconfig.ui ui/fontchooser.ui ui/dialogabout.ui ui/dialogconfiguration.ui ui/dialogchorddefinition.ui ui/dialogsysteminfo.ui ui/dialogchoosegoodchord.ui ui/dialogsearch.ui ui/dialogreplace.ui ui/dialogbar.ui ui/dialogdocumentation.ui ui/formeditor.ui dialogtwolinestochordpro.ui $(DISTDIR)/
+	$(COPY_FILE) --parents include/mainwindow.h include/util.h include/formconfig.h include/lyricsconfig.h include/chordconfig.h include/textconfig.h include/fontchooser.h include/fontbutton.h include/fontdialog.h include/colorbutton.h include/lineedittest.h include/logmessages.h include/editorhighlighter.h include/imagebutton.h include/examplelabel.h include/pagesize.h include/processor.h include/dialogabout.h include/memoryconfig.h include/spinboxunit.h include/dialogconfiguration.h include/settings.h include/processortext.h include/const.h include/verticalspacing.h include/dialogchorddefinition.h include/ChordDetector.h include/neck.h include/dialogsysteminfo.h include/chorddiagram.h include/dialogchoosegoodchord.h include/dialogsearch.h include/dialogreplace.h include/processorlyrics.h include/language.h include/chord.h include/langnotes.h include/pdfviewer.h include/dialogbar.h include/processorchord.h include/textedit.h include/dialogdocumentation.h include/formeditor.h include/dialogtwolinestochordpro.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/mainwindow.cpp src/util.cpp src/formconfig.cpp src/lyricsconfig.cpp src/chordconfig.cpp src/textconfig.cpp src/fontchooser.cpp src/fontbutton.cpp src/fontdialog.cpp src/colorbutton.cpp src/lineedittest.cpp src/logmessages.cpp src/editorhighlighter.cpp src/imagebutton.cpp src/examplelabel.cpp src/pagesize.cpp src/processor.cpp src/dialogabout.cpp src/memoryconfig.cpp src/spinboxunit.cpp src/dialogconfiguration.cpp src/settings.cpp src/processortext.cpp src/verticalspacing.cpp src/dialogchorddefinition.cpp src/ChordDetector.cpp src/neck.cpp src/dialogsysteminfo.cpp src/chorddiagram.cpp src/dialogchoosegoodchord.cpp src/dialogsearch.cpp src/dialogreplace.cpp src/processorlyrics.cpp src/language.cpp src/chord.cpp src/langnotes.cpp src/pdfviewer.cpp src/dialogbar.cpp src/processorchord.cpp src/textedit.cpp src/dialogdocumentation.cpp src/formeditor.cpp src/dialogtwolinestochordpro.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ui/mainwindow.ui ui/formconfig.ui ui/fontchooser.ui ui/dialogabout.ui ui/dialogconfiguration.ui ui/dialogchorddefinition.ui ui/dialogsysteminfo.ui ui/dialogchoosegoodchord.ui ui/dialogsearch.ui ui/dialogreplace.ui ui/dialogbar.ui ui/dialogdocumentation.ui ui/formeditor.ui ui/dialogtwolinestochordpro.ui $(DISTDIR)/
 	$(COPY_FILE) --parents translations/fr.ts $(DISTDIR)/
 
 
@@ -707,9 +707,9 @@ build/moc/moc_formeditor.cpp: include/formeditor.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/formeditor.h -o build/moc/moc_formeditor.cpp
 
-build/moc/moc_dialogtwolinestochordpro.cpp: dialogtwolinestochordpro.h \
+build/moc/moc_dialogtwolinestochordpro.cpp: include/dialogtwolinestochordpro.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include dialogtwolinestochordpro.h -o build/moc/moc_dialogtwolinestochordpro.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogtwolinestochordpro.h -o build/moc/moc_dialogtwolinestochordpro.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -804,9 +804,9 @@ build/ui/ui_formeditor.h: ui/formeditor.ui \
 		include/editorhighlighter.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/formeditor.ui -o build/ui/ui_formeditor.h
 
-build/ui/ui_dialogtwolinestochordpro.h: dialogtwolinestochordpro.ui \
+build/ui/ui_dialogtwolinestochordpro.h: ui/dialogtwolinestochordpro.ui \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/uic
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic dialogtwolinestochordpro.ui -o build/ui/ui_dialogtwolinestochordpro.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ui/dialogtwolinestochordpro.ui -o build/ui/ui_dialogtwolinestochordpro.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -844,6 +844,7 @@ build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		include/dialogreplace.h \
 		include/dialogbar.h \
 		include/dialogdocumentation.h \
+		include/dialogtwolinestochordpro.h \
 		include/util.h \
 		include/processortext.h \
 		include/processor.h \
@@ -1131,9 +1132,9 @@ build/obj/formeditor.o: src/formeditor.cpp include/formeditor.h \
 		include/dialogbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formeditor.o src/formeditor.cpp
 
-build/obj/dialogtwolinestochordpro.o: dialogtwolinestochordpro.cpp dialogtwolinestochordpro.h \
+build/obj/dialogtwolinestochordpro.o: src/dialogtwolinestochordpro.cpp include/dialogtwolinestochordpro.h \
 		build/ui/ui_dialogtwolinestochordpro.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogtwolinestochordpro.o dialogtwolinestochordpro.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogtwolinestochordpro.o src/dialogtwolinestochordpro.cpp
 
 build/obj/qrc_resources.o: build/rcc/qrc_resources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/qrc_resources.o build/rcc/qrc_resources.cpp

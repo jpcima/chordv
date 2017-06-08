@@ -10,6 +10,8 @@ public:
     QString noteLocale(QString englishnote);
     QString noteEnglish(QString localenote);
     QString note(QString lang, QString note);
+    QStringList EnglishNotes();
+    QStringList LocalNotes();
 private:
     QMap  < QString ,QString > m_note;
 };
