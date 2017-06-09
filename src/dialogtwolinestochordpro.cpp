@@ -54,7 +54,7 @@ bool DialogTwoLinesToChordPro::isChords(QString line)
 {
     line.replace(QRegExp(" +")," ");
     QStringList words=line.split(" ");
-    QString chordreg=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang()).join("|");
+    QString chordreg=Language::ListChord(ui->widget->getInputLang()).join("|");
     chordreg=QString("^(%1)").arg(chordreg);
 
     foreach ( QString word, words)
@@ -67,7 +67,7 @@ bool DialogTwoLinesToChordPro::isChords(QString line)
 
 void DialogTwoLinesToChordPro::ConvertToMap( QString line)
 {
-    QStringList listbeginingchord=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang());
+    QStringList listbeginingchord=Language::ListChord(ui->widget->getInputLang());
     for ( int i=0; i< line.count();i++)
     {
         QChar c=line[i];
@@ -109,14 +109,14 @@ QString DialogTwoLinesToChordPro::mixLineAndMap(QString line)
 
 QString DialogTwoLinesToChordPro::translate(QString chord)
 {
-    QString chordreg=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang()).join("|");
-    QStringList chordoutput=Language::ListChord(ui->widget->getOutputLang(),ui->widget->getOutputCodeLang());
+    QString chordreg=Language::ListChord(ui->widget->getInputLang()).join("|");
+    QStringList chordoutput=Language::ListChord(ui->widget->getOutputLang());
     chordreg=QString("^(%1)").arg(chordreg);
     QRegExp reg(chordreg);
     if ( chord.contains(reg))
     {
         QString c=reg.cap(1);
-        int i=Language::ListChord(ui->widget->getInputLang(),ui->widget->getInputCodeLang()).indexOf(c);
+        int i=Language::ListChord(ui->widget->getInputLang()).indexOf(c);
         chord.replace(c,chordoutput.at(i));
         chord.replace(ui->widget->getInputMinor(),ui->widget->getOutputMinor());
     }

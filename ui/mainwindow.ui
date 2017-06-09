@@ -273,7 +273,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>36</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -699,12 +699,12 @@
   </action>
   <action name="action2Line2chordpro">
    <property name="text">
-    <string>2LinesTochordpro</string>
+    <string>Chords with chord on line above to chordpro format</string>
    </property>
   </action>
   <action name="actionChangeChordLang">
    <property name="text">
-    <string>Change  Chord Language</string>
+    <string>Change  the chords Language of the current song file</string>
    </property>
   </action>
  </widget>

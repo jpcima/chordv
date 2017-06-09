@@ -9,8 +9,8 @@ FormInputOutputChord::FormInputOutputChord(QWidget *parent) :
     ui->setupUi(this);
     Language::setLanguageComboBox(ui->comboBoxInputChordLanguage);
     Language::setLanguageComboBox(ui->comboBoxOutputChordLanguage);
-    ui->comboBoxMinorInput->addItems(Language::ListMinor(getInputLang(),getInputCodeLang()));
-    ui->comboBoxMinorOutput->addItems(Language::ListMinor(getOutputLang(),getOutputCodeLang()));
+    ui->comboBoxMinorInput->addItems(Language::ListMinor(getInputLang()));
+    ui->comboBoxMinorOutput->addItems(Language::ListMinor(getOutputLang()));
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorInput,ui->labelMinorInput);
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorOutput,ui->labelMinorOutput);
     connect (ui->comboBoxInputChordLanguage,SIGNAL(currentIndexChanged(QString)),this,SLOT(LanguageInputChanged(QString)));
@@ -23,15 +23,6 @@ QString FormInputOutputChord::getInputLang()
     return ui->comboBoxInputChordLanguage->currentText();
 }
 
-QString FormInputOutputChord::getInputCodeLang()
-{
-    return ui->comboBoxInputChordLanguage->currentData().toString();
-}
-
-QString FormInputOutputChord::getOutputCodeLang()
-{
-    return ui->comboBoxOutputChordLanguage->currentData().toString();
-}
 
 void FormInputOutputChord::setOutputMinor(int index)
 {
@@ -86,14 +77,14 @@ void FormInputOutputChord::SetInvisibleIfOnlyOnceChoice( QComboBox *ptr , QLabel
 void FormInputOutputChord::LanguageOutputChanged(QString )
 {
     ui->comboBoxMinorOutput->clear();
-    ui->comboBoxMinorOutput->addItems(Language::ListMinor(getOutputLang(),getOutputCodeLang()));
+    ui->comboBoxMinorOutput->addItems(Language::ListMinor(getOutputLang()));
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorOutput,ui->labelMinorOutput);
 }
 
 void FormInputOutputChord::LanguageInputChanged(QString     )
 {
     ui->comboBoxMinorInput->clear();
-    ui->comboBoxMinorInput->addItems(Language::ListMinor(getInputLang(),getInputCodeLang()));
+    ui->comboBoxMinorInput->addItems(Language::ListMinor(getInputLang()));
     SetInvisibleIfOnlyOnceChoice(ui->comboBoxMinorInput,ui->labelMinorInput);
 }
 

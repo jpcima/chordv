@@ -22,6 +22,7 @@ public:
     QString pureNameLocale();
     QString pureNameEnglish();
     static QStringList removeDupplicateWhithoutRytm(QStringList chords,QString lang);
+    static QString translate ( QString chord, QString langfrom, QString minfrom, QString langto, QString minto );
     QString up();
     QString down();
 private:

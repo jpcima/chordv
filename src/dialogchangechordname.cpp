@@ -39,6 +39,7 @@ QString DialogChangeChordName::getFromLang()
 void DialogChangeChordName::Convert()
 {
     m_convert=true;
+    close();
 }
 
 bool DialogChangeChordName::OkDialog()

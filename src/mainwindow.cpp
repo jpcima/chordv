@@ -17,6 +17,7 @@
 #include "textconfig.h"
 #include "memoryconfig.h"
 #include "formconfig.h"
+#include "chord.h"
 
 #include "util.h"
 #include "processortext.h"
@@ -764,9 +765,16 @@ void MainWindow::ChangeChordLang()
 {
  DialogChangeChordName dial(this);
  dial.exec();
+ QStringList out;
  if (dial.OkDialog())
  {
-     //ui->textEditCho3File
- }
-
+   QStringList lines=ui->textEditCho3File->document()->toPlainText().split("\n");
+   foreach (QString line , lines)
+      {
+       line=Language::TranslateLineWithchord(line,dial.getFromLang(),dial.getFromMin(),dial.getToLang(),dial.getToMin());
+       out<<line;
+      }
+   }
+ ui->textEditCho3File->document()->clear();
+ ui->textEditCho3File->document()->setPlainText(out.join("\n"));
 }

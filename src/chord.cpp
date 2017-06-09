@@ -1,6 +1,6 @@
 #include "chord.h"
 #include "langnotes.h"
-
+#include "language.h"
 #include <QApplication>
 #include <QRegExp>
 #include <QSqlQuery>
@@ -131,6 +131,22 @@ QStringList Chord::removeDupplicateWhithoutRytm(QStringList chords,QString lang)
     }
     ret.removeDuplicates();
     return ret;
+}
+
+QString Chord::translate(QString chord, QString langfrom, QString minfrom, QString langto,QString minto)
+{
+    QString chordreg=Language::ListChord(langfrom).join("|");
+    QStringList chordoutput=Language::ListChord(langto);
+    chordreg=QString("^(%1)").arg(chordreg);
+    QRegExp reg(chordreg);
+    if ( chord.contains(reg))
+    {
+        QString c=reg.cap(1);
+        int i=Language::ListChord(langfrom).indexOf(c);
+        chord.replace(c,chordoutput.at(i));
+        chord.replace(minfrom,minto);
+    }
+   return chord;
 }
 
 QString Chord::nameEnglish()

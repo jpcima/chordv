@@ -16,11 +16,9 @@ class FormInputOutputChord : public QWidget
 public:
     explicit FormInputOutputChord(QWidget *parent = 0);
     QString getInputLang();
-    QString getInputCodeLang();
     QString getOutputLang();
     QString getInputMinor();
     QString getOutputMinor();
-    QString getOutputCodeLang();
     void setOutputMinor(int index);
     void setInputMinor(int index);
     void setInputLang(int index);
