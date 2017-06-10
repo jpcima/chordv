@@ -389,6 +389,12 @@ void Processor::displayPageTitle( QString title)
 
 void Processor::displayPageSubtitle(QString subtitle)
 {
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
   m_subtitlenumber++;
   m_subtitle=subtitle;
   if ( m_uiconfig->toolButtonSubtitleFont->getBackgroundColor() != m_uiconfig->colorButtonPaperColor->getColor())
@@ -971,6 +977,12 @@ double Processor::ImagePosition()
 
 double Processor::TextInBox(PdfDocument *doc, QString text, double x, double y, FontButton *fb ,Align align, double scale)
 {
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
     PdfFont *pfont=doc->CreateFont(fb->getFont().family().toLatin1());
     PdfString str(text.toLatin1());
     double fontsize=fb->getFont().pointSize()*scale;
@@ -989,6 +1001,13 @@ double Processor::TextInBox(PdfDocument *doc, QString text, double x, double y, 
 
 double  Processor::Text( PdfDocument *doc, QString text, double x, double y, FontButton *fb ,Align align, double scale)
 {
+
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
     double end=0;
     PdfFont *pfont=doc->CreateFont(fb->getFont().family().toLatin1());
     PdfString str(text.toLatin1());
@@ -1020,6 +1039,12 @@ double  Processor::Text( PdfDocument *doc, QString text, double x, double y, Fon
 
 PdfRect Processor::LineToc(QString text, double width, double x, double y, FontButton *fb, int pagenumber)
 {
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
     QRegExp space("^ +");
     text.replace(space,"").append(" ");
     PdfFont *pfont=m_document->CreateFont(fb->getFont().family().toLatin1());
@@ -1111,6 +1136,12 @@ void Processor::displayChord(QString ch,int &line, int &column,int size, QString
     int sizenonote=steph/4;
     int sizefont=steph;
 
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
     PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonChordFont->getFont().family().toLatin1());
     pfont->SetFontSize(sizefont);
     pfont->SetUnderlined(m_uiconfig->toolButtonChordFont->getFont().underline());
