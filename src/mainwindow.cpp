@@ -43,6 +43,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QSettings s;
     QList <int> size;
     size<<700<<100;
     m_labelactivestacked= new QLabel(this);
@@ -52,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->splitter->setSizes(size);
     ui->actionSelectEditor->setChecked(true);
     Language::setLanguageComboBox( ui->comboBoxChordLanguage);
+    ui->comboBoxMinorNotation->addItems(Language::ListMinor(s.value("InterfaceLanguage").toString()));
     ui->stackedWidget->setCurrentIndex(0);
     m_lastmenu= new QMenu(tr("Last Projects"));
     ui->actionLast_Project=ui->menuFile->insertMenu(ui->actionSave_Current_as_Defaut,m_lastmenu);
@@ -315,6 +317,7 @@ void MainWindow::openProject(QString filename)
     QSettings p(filename,QSettings::IniFormat);
     ui->lineEditCreatorName->setText(p.value("Creator").toString());
     ui->comboBoxChordLanguage->setCurrentIndex(p.value("ChordLang").toInt());
+    ui->comboBoxMinorNotation->setCurrentText(p.value("ChordMinor").toString());
     ui->lineEditWatermark->setText(p.value("Watermark").toString());
     ui->checkBoxChordMode->setChecked(p.value("ChordMode").toBool());
     ui->checkBoxLyricsMode->setChecked(p.value("LyricsMode").toBool());
@@ -365,6 +368,7 @@ void MainWindow::Save(QString filename)
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
+    sf.setValue("ChordMinor",ui->comboBoxMinorNotation->currentText());
     sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
     sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
@@ -398,6 +402,7 @@ void MainWindow::Save(bool)
     sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
     sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
+    sf.setValue("ChordMinor",ui->comboBoxMinorNotation->currentText());
     sf.setValue("Content",ui->textEditCho3File->document()->toPlainText());
     sf.sync();
     ui->widgetChordMode->Save(m_currentprojectfile,FormConfig::Chord);
@@ -764,6 +769,10 @@ void MainWindow::TwoLines2Chordpro()
 void MainWindow::ChangeChordLang()
 {
  DialogChangeChordName dial(this);
+ dial.setFromLang(ui->comboBoxChordLanguage->currentIndex());
+ dial.setFromMin(ui->comboBoxMinorNotation->currentIndex());
+ dial.setToLang(ui->comboBoxChordLanguage->currentIndex());
+ dial.setToMin(ui->comboBoxMinorNotation->currentIndex());
  dial.exec();
  QStringList out;
  if (dial.OkDialog())
@@ -777,4 +786,6 @@ void MainWindow::ChangeChordLang()
    }
  ui->textEditCho3File->document()->clear();
  ui->textEditCho3File->document()->setPlainText(out.join("\n"));
+ ui->comboBoxChordLanguage->setCurrentIndex(dial.getToLangIndex());
+ ui->comboBoxMinorNotation->setCurrentIndex(dial.getToMinIndex());
 }

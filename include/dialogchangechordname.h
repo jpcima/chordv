@@ -18,6 +18,14 @@ public:
     QString getToLang();
     QString getFromMin();
     QString getToMin();
+    int getFromLangIndex();
+    int getToLangIndex();
+    int getToMinIndex();
+    int getFromMinIndex();
+    void setFromLang(int lang);
+    void setToLang(int min);
+    void setFromMin(int lang);
+    void setToMin(int min);
     bool OkDialog();
 private slots:
     void Convert();

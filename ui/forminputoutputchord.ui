@@ -19,7 +19,7 @@
      <item>
       <widget class="QGroupBox" name="groupBoxInput">
        <property name="title">
-        <string>Input file</string>
+        <string>Origin</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
@@ -60,7 +60,7 @@
      <item>
       <widget class="QGroupBox" name="groupBOutput">
        <property name="title">
-        <string>Output file</string>
+        <string>Destination</string>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>

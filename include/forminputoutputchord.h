@@ -19,10 +19,14 @@ public:
     QString getOutputLang();
     QString getInputMinor();
     QString getOutputMinor();
+    int getInputLangIndex();
+    int getOutputLangIndex();
+    int getInputMinorIndex();
+    int getOutputMinorIndex();
     void setOutputMinor(int index);
     void setInputMinor(int index);
     void setInputLang(int index);
-    void setOutputLang(int index);
+    void setOutputLang(int lang);
     ~FormInputOutputChord();
 
 private slots:

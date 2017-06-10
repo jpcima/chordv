@@ -126,7 +126,7 @@ QString DialogTwoLinesToChordPro::translate(QString chord)
 void DialogTwoLinesToChordPro::Demo()
 {
     ui->widget->setInputLang(0);
-    ui->widget->setInputMinor(1);
+    ui->widget->setInputMinor(0);
     ui->widget->setOutputLang(1);
     ui->widget->setOutputMinor(1);
     ui->plainTextEdit->setPlainText("Titre   : Ma plus belle histoire d'amour\n"

@@ -18,7 +18,7 @@
     <normaloff>:/Image/Images/icon.png</normaloff>:/Image/Images/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_7">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
     <item>
      <widget class="QSplitter" name="splitter">
       <property name="orientation">
@@ -26,27 +26,27 @@
       </property>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
-       <widget class="QWidget" name="page">
+       <widget class="QWidget" name="pageEditor">
         <layout class="QHBoxLayout" name="horizontalLayout_14">
          <item>
           <widget class="FormEditor" name="textEditCho3File" native="true"/>
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_2">
-        <layout class="QVBoxLayout" name="verticalLayout_10">
+       <widget class="QWidget" name="pageDefinition">
+        <layout class="QVBoxLayout" name="verticalLayout_5">
          <item>
-          <layout class="QVBoxLayout" name="verticalLayout_11">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
            <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_11">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
              <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <layout class="QVBoxLayout" name="verticalLayout_3">
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_5">
+                <layout class="QHBoxLayout" name="horizontalLayout">
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <layout class="QVBoxLayout" name="verticalLayout">
                    <item>
                     <widget class="QLabel" name="labelCreatorName">
                      <property name="text">
@@ -55,13 +55,6 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEditCreatorName"/>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_3">
-                   <item>
                     <widget class="QLabel" name="labelChordLanguage">
                      <property name="text">
                       <string>Chord Language</string>
@@ -69,135 +62,152 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QComboBox" name="comboBoxChordLanguage"/>
+                    <widget class="QLabel" name="labelChordMinorNotation">
+                     <property name="text">
+                      <string>Chord Minor notation</string>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="checkBoxLyricsMode">
-                   <property name="text">
-                    <string>Lyrics and chords mode book</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBoxChordMode">
-                   <property name="text">
-                    <string>Chords only mode book</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBoxTextMode">
-                   <property name="text">
-                    <string>Text only mode book</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBoxMemoryMode">
-                   <property name="text">
-                    <string>Memory mode book</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_4">
+                  <layout class="QVBoxLayout" name="verticalLayout_2">
                    <item>
-                    <widget class="QLabel" name="labelWatermark">
-                     <property name="text">
-                      <string>Watermark</string>
-                     </property>
-                    </widget>
+                    <widget class="QLineEdit" name="lineEditCreatorName"/>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEditWatermark"/>
+                    <widget class="QComboBox" name="comboBoxChordLanguage"/>
+                   </item>
+                   <item>
+                    <widget class="QComboBox" name="comboBoxMinorNotation"/>
                    </item>
                   </layout>
                  </item>
                 </layout>
                </item>
                <item>
-                <layout class="QVBoxLayout" name="verticalLayout_8">
+                <widget class="QCheckBox" name="checkBoxLyricsMode">
+                 <property name="text">
+                  <string>Lyrics and chords mode book</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="checkBoxChordMode">
+                 <property name="text">
+                  <string>Chords only mode book</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="checkBoxTextMode">
+                 <property name="text">
+                  <string>Text only mode book</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QCheckBox" name="checkBoxMemoryMode">
+                 <property name="text">
+                  <string>Memory mode book</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
-                  <layout class="QVBoxLayout" name="verticalLayout_6">
+                  <widget class="QLabel" name="labelWatermark">
+                   <property name="text">
+                    <string>Watermark</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEditWatermark"/>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <item>
+                <layout class="QVBoxLayout" name="verticalLayout_6">
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_5">
                    <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_5">
-                     <item>
-                      <widget class="QLabel" name="labelProjectName">
-                       <property name="text">
-                        <string>Project name :</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="labelNameProjectName">
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
+                    <widget class="QLabel" name="labelProjectName">
+                     <property name="text">
+                      <string>Project name :</string>
+                     </property>
+                    </widget>
                    </item>
                    <item>
-                    <layout class="QHBoxLayout" name="horizontalLayout_7">
-                     <item>
-                      <widget class="QLabel" name="labelDirProject">
-                       <property name="text">
-                        <string>Project directory :</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="labelNameDirProject">
-                       <property name="text">
-                        <string/>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
+                    <widget class="QLabel" name="labelNameProjectName">
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonMakePDF">
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Make PDF</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButtonMakeAndShowPDF">
-                   <property name="minimumSize">
-                    <size>
-                     <width>100</width>
-                     <height>100</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Make  and show PDF </string>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <item>
+                    <widget class="QLabel" name="labelDirProject">
+                     <property name="text">
+                      <string>Project directory :</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="labelNameDirProject">
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                 </layout>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButtonMakePDF">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Make PDF</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButtonMakeAndShowPDF">
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Make  and show PDF </string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -223,8 +233,8 @@
              </property>
              <property name="sizeHint" stdset="0">
               <size>
-               <width>20</width>
-               <height>40</height>
+               <width>419</width>
+               <height>34</height>
               </size>
              </property>
             </spacer>
@@ -233,28 +243,28 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_3">
+       <widget class="QWidget" name="pageLyricsAndChordMode">
         <layout class="QVBoxLayout" name="verticalLayout_13">
          <item>
           <widget class="LyricsConfig" name="widgetLyricsMode" native="true"/>
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_4">
+       <widget class="QWidget" name="pageChordMpde">
         <layout class="QVBoxLayout" name="verticalLayout_14">
          <item>
           <widget class="ChordConfig" name="widgetChordMode" native="true"/>
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_5">
+       <widget class="QWidget" name="pageTextMode">
         <layout class="QVBoxLayout" name="verticalLayout_15">
          <item>
           <widget class="TextConfig" name="widgetTextMode" native="true"/>
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="page_6">
+       <widget class="QWidget" name="pageMemoryMode">
         <layout class="QVBoxLayout" name="verticalLayout_16">
          <item>
           <widget class="MemoryConfig" name="widgetMemoryMode" native="true"/>

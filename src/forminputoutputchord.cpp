@@ -59,7 +59,25 @@ QString FormInputOutputChord::getOutputMinor()
     return ui->comboBoxMinorOutput->currentText();
 }
 
+int FormInputOutputChord::getInputLangIndex()
+{
+    return ui->comboBoxInputChordLanguage->currentIndex();
+}
 
+int FormInputOutputChord::getOutputLangIndex()
+{
+    return ui->comboBoxOutputChordLanguage->currentIndex();
+}
+
+int FormInputOutputChord::getInputMinorIndex()
+{
+    return ui->comboBoxMinorInput->currentIndex();
+}
+
+int FormInputOutputChord::getOutputMinorIndex()
+{
+    return ui->comboBoxMinorOutput->currentIndex();
+}
 
 FormInputOutputChord::~FormInputOutputChord()
 {
