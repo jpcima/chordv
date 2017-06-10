@@ -268,6 +268,14 @@ void DialogChordDefinition::setError(QString message,int linenumber)
     emit Error(message);
 }
 
+void DialogChordDefinition::paintEvent(QPaintEvent *event)
+{
+    int neckwidht=ui->neck->width();
+    int neckheight=neckwidht/10.0;
+    ui->neck->setMaximumHeight(neckheight);
+
+}
+
 
 void DialogChordDefinition::AddChord()
 {

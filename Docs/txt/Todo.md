@@ -23,6 +23,8 @@ PDF Chord :
 Chord Editor :
 ------------
 
+- restrict neck height
+
 Editor :
 -------
 

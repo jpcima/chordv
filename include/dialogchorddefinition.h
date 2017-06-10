@@ -51,6 +51,7 @@ private:
     int m_index;
     int m_indexnonapproved;
     void setError(QString message, int linenumber);
+    void paintEvent(QPaintEvent *event);
 signals:
     void Error(QString message);
     void ChordToInsert(QString chord);
