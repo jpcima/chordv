@@ -161,16 +161,22 @@ numéros de page. Si la la couleur de font de page n'est pas identique
 
 ![Options générales partie contenue](./img/preferencestextcontent.png)
 
-1.
-2.
-3.
-4.
-5.
-6.
-7. 
-8.
-9.
-10.
+1. Le fichier PDF comporte une couverture
+2. La police de caractères de la couverture est positionnée 
+3. Le titre peut être au tiers de la hauteur, à la moitié ou au 2/3
+4. Sélection d'une image optionnelle pour la couverture
+5. Mode compression de la table des matières activé
+6. Nombre de colonnes de la table des matières
+7. Police de caractères uitilisée pour la table des matières
+8. Caratères utilisés entre le nom du titre et la page dans la table
+des matières
+9. Position de la table des matières, au début, à la fin du document ou 
+pas de table des matières
+10. Extension ajoutée au fichier de sortie
+11. Espacement vertical 
+12. Ouverture du PDF en mode plein écran
+13. Forcer les titres en majuscule
+
 
 ## Les conventions 
 
@@ -238,7 +244,49 @@ de gestion des accords)
 Vous pouvez modifier le tempo par l'emploi de la molette de la souris 
 en maintenant la touche SHIFT appuyée dans l'éditeur.
 
+# Le menu des outils
 
+## Le menu des préférences 
+
+## Gadget des préférences
+
+## Définition des accords 
+
+### Présentation 
+
+La fenêtre de définition des accords se décompose en quatre onglets :
+- La définition de l'accord qui permet de trouver un accord à partir 
+des position des doigts sur le manche 
+- Un module de gestion des accords permettant la visualisation, la 
+modification ou la suppression de chaque accord
+- Un module permettant d'approuver chaque accords non approuvé
+- Un module permettant d'importer une liste d'accods contenus dans un 
+fichier texte
+
+### La définition d'un accord
+
+![Définition de l'accord ](./img/chorddefinition.png)
+
+1. Sélection des cases appuyées sur le manche
+2. sélection des cordes à vides avec un rond non jouées avec une croix
+3. Nom de l'accord choisi
+4. Sélection du choix entre plusieurs noms d'accord possibles
+5. Notation cases
+6. Notation résultante dans le format define
+7. Ajout de l'accord dans la base
+
+### Gestion des accords 
+
+![Gestion des accords ](./img/chordmanagement.png)
+
+
+## Conversion 
+
+## Lancer l'afficheur PDF 
+
+## Construire les fichiers PDF 
+
+## Construire et afficher les fichiers PDF
 
 # Partie technique
 

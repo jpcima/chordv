@@ -160,16 +160,22 @@ To the color of the paper a frame will be drawn around the page number.
 
 ![General options contained part](./img/preferencestextcontent.png)
 
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
+1. The PDF file includes a cover
+2. The font of the cover is positioned
+3. The title may be one-third of the height, half or two-thirds
+4. Selecting an optional image for Coverage
+5. Table of Contents in compressed Mode
+6. Number of columns in table of contents
+7. Typeface used for table of contents
+8. Characters used between the title name and the page in the table
+subjects
+9. Position of the table of contents at the beginning, at the end of the document or
+No table of contents
+10. Extension added to the output file
+11. Vertical Spacing
+12. Opening the PDF in full screen mode
+13. Force titles in uppercase
+
 
 ## Conventions
 
