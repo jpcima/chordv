@@ -3,6 +3,7 @@
 #include "ui_mainwindow.h"
 #include "const.h"
 #include "chord.h"
+#include "chordutil.h"
 
 #include <QRegExp>
 #include <QDebug>
@@ -10,6 +11,7 @@
 #include <QtMath>
 #include <QDir>
 #include <QStringList>
+#include <QSqlQuery>
 
 
 using namespace PoDoFo;
@@ -164,7 +166,26 @@ void Processor::run()
             QString fret=QString("%1 %2 %3 %4 %5 %6").arg(DefineRex.cap(3))
                     .arg(DefineRex.cap(4)).arg(DefineRex.cap(5)).arg(DefineRex.cap(6))
                     .arg(DefineRex.cap(7)).arg(DefineRex.cap(8));
-            qDebug()<<chordname<<basefret<<fret;
+            QSqlQuery select (QString("SELECT * FROM chords WHERE Name='%1'").arg(chordname));
+            if (select.next())
+            {
+                if ( basefret != "0" )
+                {
+                     QString newchordname=QString("%1(%2)").arg(chordname).arg(ChordUtil::toRomain(basefret.toInt()));
+                     QSqlQuery select (QString("SELECT * FROM chords WHERE Name='%1'").arg(newchordname));
+                     if ( ! select.next())
+                     {
+                         QSqlQuery query(QString("INSERT INTO chords (Name, Value, Approved) VALUES ('%1','%2 %3',0)").arg(newchordname).arg(basefret).arg(fret));
+
+                     }
+                }
+            }
+            else
+            {
+                QSqlQuery query(QString("INSERT INTO chords (Name, Value, Approved) VALUES ('%1','%2 %3',0)").arg(chordname).arg(basefret).arg(fret));
+            }
+
+
         }
         else if ( line.contains(TitleREX) )
         {

@@ -119,5 +119,6 @@ QString Language::TranslateLineWithchord(QString line,QString fromlang, QString 
      {
           line.replace("{","[").replace("}","]");
      }
-  return line;
+     return line;
 }
+

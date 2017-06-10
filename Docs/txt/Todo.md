@@ -26,10 +26,28 @@ Chord Editor :
 Editor :
 -------
 
+- Change english to anglais on chord language selection ....
+
+ChordPro format
+---------------
+
+- Discuss or change about [chord:x] for [chord1 / chord ] notation ...
+- Checks format {define: Eb95 base-fret 5 frets 5 6 6 5 6 x } against
+{define: Eb95 base-fret 5 frets 0 1 1 0 1 x }
+
+The discussion is opened with Johan Vromans.
 
 Processor :
 ----------
 
+- On chord define in song automatic include chord in database  in not approved mode
+- Only allow to use approved chords
+
+
+Tools concersion
+-----------------
+
+- add transposition feature per song selection
 
 Planned features
 ------------------
@@ -42,4 +60,4 @@ Planned features
 PDF :
 ----
   - PDF fonts are not used in pdf but all font are constructed
-  - Conversions QString to PdfString made by toLatin1()... Is it a good choiece for japaneese ?
+  - Conversions QString to PdfString made by toLatin1()... Is it a good choice for japaneese ?

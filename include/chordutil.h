@@ -5,15 +5,15 @@
 /// Some utilities
 
 
-class Util
+class ChordUtil
 {
 public:
-    Util();
     static QStringList LastProjects();
     static void MemorizeProject( QString filename);
     static QString getLastDirectory();
     static void setLastDirectory(QString filename);
     static QString toRomain(int i);
+    static QStringList Normalize(QStringList FretAnd6Strings);
 };
 
 #endif // UTIL_H

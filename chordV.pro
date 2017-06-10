@@ -23,7 +23,6 @@ system(/bin/echo -e \\\x23endif // VERSION_H >>include/version.h)
 
 SOURCES += src/main.cpp\
         src/mainwindow.cpp \
-    src/util.cpp \
     src/formconfig.cpp \
     src/lyricsconfig.cpp \
     src/chordconfig.cpp \
@@ -66,10 +65,10 @@ SOURCES += src/main.cpp\
     src/formeditor.cpp \
     src/dialogtwolinestochordpro.cpp \
     src/dialogchangechordname.cpp \
-    src/forminputoutputchord.cpp
+    src/forminputoutputchord.cpp \
+    src/chordutil.cpp
 
 HEADERS  += include/mainwindow.h \
-    include/util.h \
     include/formconfig.h \
     include/lyricsconfig.h \
     include/chordconfig.h \
@@ -113,7 +112,8 @@ HEADERS  += include/mainwindow.h \
     include/formeditor.h \
     include/dialogtwolinestochordpro.h \
     include/dialogchangechordname.h \
-    include/forminputoutputchord.h
+    include/forminputoutputchord.h \
+    include/chordutil.h
 
 FORMS    += ui/mainwindow.ui \
     ui/formconfig.ui \

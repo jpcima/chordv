@@ -66,6 +66,13 @@
                </property>
               </widget>
              </item>
+             <item>
+              <widget class="QLabel" name="labelGitVersion">
+               <property name="text">
+                <string>Git version</string>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
            <item>
@@ -130,6 +137,16 @@
                </property>
               </widget>
              </item>
+             <item>
+              <widget class="QLineEdit" name="lineEditGitVersion">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="readOnly">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
             </layout>
            </item>
           </layout>
@@ -140,7 +157,7 @@
             <string/>
            </property>
            <property name="pixmap">
-            <pixmap>:/Image/Images/gilles.jpg</pixmap>
+            <pixmap resource="../Resources/resources.qrc">:/Image/Images/gilles.jpg</pixmap>
            </property>
           </widget>
          </item>
@@ -220,7 +237,9 @@ p, li { white-space: pre-wrap; }
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Resources/resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButtonClose</sender>

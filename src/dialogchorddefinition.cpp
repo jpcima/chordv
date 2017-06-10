@@ -1,6 +1,6 @@
 #include "dialogchorddefinition.h"
 #include "ui_dialogchorddefinition.h"
-#include "util.h"
+#include "chordutil.h"
 #include "logmessages.h"
 #include "dialogchoosegoodchord.h"
 
@@ -213,7 +213,7 @@ QString DialogChordDefinition::findName( QString chordstring, QString chordname)
     else notemin=0;
 
    chordname.replace(QRegExp("M$"),"").replace(" ","");
-   if ( notemin > 2 ) chordname=QString("%1(%2)").arg(chordname).arg(Util::toRomain(notemin));
+   if ( notemin > 2 ) chordname=QString("%1(%2)").arg(chordname).arg(ChordUtil::toRomain(notemin));
    return QString("%1:%2 %3 %4 %5 %6 %7 %8")
            .arg(chordname).arg(notemin).arg(notes[0])
            .arg(notes[1]).arg(notes[2]).arg(notes[3])

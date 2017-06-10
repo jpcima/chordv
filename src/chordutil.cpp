@@ -1,14 +1,11 @@
-#include "util.h"
+#include "chordutil.h"
 #include <QSettings>
 #include <QFileInfo>
 #include <QDir>
 #include <QDebug>
-Util::Util()
-{
 
-}
 
-QStringList Util::LastProjects()
+QStringList ChordUtil::LastProjects()
 {
     QStringList l;
     QSettings s;
@@ -20,7 +17,7 @@ QStringList Util::LastProjects()
    return l;
 }
 
-void Util::MemorizeProject(QString filename)
+void ChordUtil::MemorizeProject(QString filename)
 {
     if (filename.isEmpty()) return;
     QSettings s;
@@ -43,13 +40,13 @@ void Util::MemorizeProject(QString filename)
 }
 
 
-QString  Util::getLastDirectory()
+QString  ChordUtil::getLastDirectory()
 {
     QSettings s;
     return(s.value("LastOpenedDirectory").toString());
 }
 
-void Util::setLastDirectory(QString filename)
+void ChordUtil::setLastDirectory(QString filename)
 {
     if (filename.isEmpty()) return;
     QSettings s;
@@ -58,7 +55,7 @@ void Util::setLastDirectory(QString filename)
     s.setValue("LastOpenedDirectory",dir);
 }
 
-QString Util::toRomain(int i)
+QString ChordUtil::toRomain(int i)
 {
     if ( i == 1 ) return "I";
     if ( i == 2 ) return "II";
@@ -81,5 +78,10 @@ QString Util::toRomain(int i)
     if ( i == 19 ) return "XIX";
     if ( i == 20 ) return "XX";
     return "I";
+}
+
+QStringList ChordUtil::Normalize(QStringList)
+{
+ return QStringList();
 }
 

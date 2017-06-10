@@ -19,7 +19,7 @@
 #include "formconfig.h"
 #include "chord.h"
 
-#include "util.h"
+#include "chordutil.h"
 #include "processortext.h"
 #include "processorlyrics.h"
 #include "processorchord.h"
@@ -174,8 +174,8 @@ void MainWindow::CurrentAsDefault()
 
 void MainWindow::openChoFile(bool)
 {
-   QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),Util::getLastDirectory(),tr("cho3 file(*.cho3)"));
-   Util::setLastDirectory(file);
+   QString file=QFileDialog::getOpenFileName(this,tr("Open text file"),ChordUtil::getLastDirectory(),tr("cho3 file(*.cho3)"));
+   ChordUtil::setLastDirectory(file);
    openChoFile(file);
 
 }
@@ -183,7 +183,7 @@ void MainWindow::openChoFile(bool)
 void MainWindow::setMenuLastProject()
 {
     m_lastmenu->clear();
-    foreach ( QString l, Util::LastProjects())
+    foreach ( QString l, ChordUtil::LastProjects())
     {
         QAction *a= new QAction(l,this);
         m_lastmenu->addAction(a);
@@ -344,10 +344,10 @@ void MainWindow::openProject ( bool)
 
 {
    QSettings s;
-   QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),Util::getLastDirectory(),"*.chop");
+   QString filename=QFileDialog::getOpenFileName(this,tr("Open conf file"),ChordUtil::getLastDirectory(),"*.chop");
    openProject(filename);
-   Util::setLastDirectory(filename);
-   Util::MemorizeProject(filename);
+   ChordUtil::setLastDirectory(filename);
+   ChordUtil::MemorizeProject(filename);
    setMenuLastProject();
 }
 
@@ -416,7 +416,7 @@ void MainWindow::Save(bool)
 void MainWindow::SaveAs(bool)
 {
     QSettings s;
-    m_currentprojectfile=QFileDialog::getSaveFileName(this,tr("Save project as"),Util::getLastDirectory(),tr("(*.chop)"));
+    m_currentprojectfile=QFileDialog::getSaveFileName(this,tr("Save project as"),ChordUtil::getLastDirectory(),tr("(*.chop)"));
     if (!m_currentprojectfile.isEmpty() )
     {
         if ( m_currentprojectname.isEmpty())
@@ -425,7 +425,7 @@ void MainWindow::SaveAs(bool)
             m_currentprojectname=fi.baseName();
         }
         Save(true);
-        Util::setLastDirectory(m_currentprojectfile);
+        ChordUtil::setLastDirectory(m_currentprojectfile);
     }
 }
 
