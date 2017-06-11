@@ -166,6 +166,13 @@ void ProcessorChord::displayBpm()
 
 void ProcessorChord::DisplayBar(QString ch )
 {
+
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
     m_painter.Rectangle(m_x0 + m_posx * m_w , m_line  , m_w ,  m_h );
     m_painter.Stroke();
     QStringList chords=ch.split("|");
