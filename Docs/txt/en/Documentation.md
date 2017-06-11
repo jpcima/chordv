@@ -244,6 +244,99 @@ Management of chords)
 You can change the tempo by using the mouse wheel
 by holding down the SHIFT key in the editor.
 
+## Chords definition
+
+### Presentation
+
+The chord definition window is divided into four tabs:
+- The definition of the chord which makes it possible to reach chord
+the position of the fingers on the handle
+- A chord management module allowing visualization,
+amendment or deletion of each chord
+- A module to approve each unapproved chord
+- A module for importing a list of accretions contained in a
+text file
+
+### Defining an chord
+
+! [Definition of chord] (./img/chorddefinition.png)
+
+1. Select the boxes on the handle
+2. selection of the empty strings with a round not played with a cross
+3. Name of the chosen chord
+4. Selecting the choice between several possible tuning names
+5. Notation boxes
+6. Resulting notation in the define
+7. Adding the chord to the database
+8. Green if chord is known in the database
+9. Green if chordis approved
+
+### Managing chords
+
+! [Chord management] (./img/chordmanagement.png)
+
+1. This selector lets you choose a chord, you can also
+Restrict or order the list of chords using filters
+3 and 2
+2. chords may be sorted according to the name of the chord, the number
+Fret or index that is the order number of the chord in the database.
+3. The filter makes it possible to restrict the chords presented by choosing
+The first letters of the chord in the English language. The Little Cross
+Next to the edit line allows to erase the name of the fugating chord
+In the filter.
+4. Display of the name of the chord, if this name is modified it can be
+saved. But be careful the name of the deal must be unique. We
+Will distinguish two chord names by the use of parentheses with
+For example a notation in Roman numerals of the fret.
+5. Chord finger display. This fingering can be changed.
+6. Button to delete the chord
+7. Button to modify the current chord with the values
+Entries in boxes 4 and 5
+8. Display of the chord.
+
+
+### chord approval mode
+
+! [Approval of chords] (./img/chordapprovement.png)
+
+Chords can be defined in the song files by
+Example by Directive
+
+~~~
+{Define: Eb95 base-freight 5 frets 5 6 6 5 6 x}
+~~~
+
+Such a chord is automatically included in the database, but
+It will be necessary to approve it so that it is
+operational.
+
+1. This selector lets you choose a chord
+2. The box shows the name of the chord. You can copy this name
+But not modify it
+3. The box shows the fingering of the chord that can be copied but not
+amended.
+4. The chord may be deleted from the base, in which case the
+Deleted from the song file, otherwise it will be inserted again.
+5. The chord may be accepted in the database
+6. This area allows you to view the chord.
+
+
+### Importing chords
+
+! [Import chords] (./img/chordimport.png)
+
+1. By copying a chord list, with one chord per row,
+You can import the database. chords should be
+Be in the form Name = freight
+2. The button will request the actual import
+
+## Conversions
+
+### Chord conversions on 2 lines to chordpro
+
+
+### Change the chord language.
+Google Traduction pour les entreprises :Google Kit du traducteurGadget Traduction
 
 
 # Technical part
