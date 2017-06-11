@@ -20,11 +20,7 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     ui(new Ui::DialogChordDefinition)
 {
     ui->setupUi(this);
-    connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
-    connect (ui->pushButtonImport,SIGNAL(clicked(bool)),this,SLOT(Import()));
-    connect ( ui->neck,SIGNAL(ChordsDetected(QStringList,QString)),this,SLOT(ShowChords(QStringList,QString)));
-    connect (ui->listWidgetChords,SIGNAL(clicked(QModelIndex)),this,SLOT(ShowChord(QModelIndex)));
-    connect (ui->toolButtonPlus,SIGNAL(clicked(bool)),this,SLOT(AddChord()));
+
     m_model=new QSqlTableModel(this);
     m_model->setTable("Chords");
     m_model->setHeaderData(0,Qt::Horizontal,tr("Name"));
@@ -45,6 +41,11 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->tableView->setSelectionMode(QAbstractItemView::ContiguousSelection);
     ui->pushButtonInsertChord->setVisible(false);
+    connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
+    connect (ui->pushButtonImport,SIGNAL(clicked(bool)),this,SLOT(Import()));
+    connect ( ui->neck,SIGNAL(ChordsDetected(QStringList,QString)),this,SLOT(ShowChords(QStringList,QString)));
+    connect (ui->listWidgetChords,SIGNAL(clicked(QModelIndex)),this,SLOT(ShowChord(QModelIndex)));
+    connect (ui->toolButtonPlus,SIGNAL(clicked(bool)),this,SLOT(AddChord()));
     connect(ui->tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClicked(QModelIndex)));
     connect (ui->tableViewNonApproved,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClickedNonApproved(QModelIndex)));
     connect (ui->pushButtonModify,SIGNAL(clicked(bool)),this,SLOT(ModifyChord()));
@@ -205,7 +206,7 @@ QString DialogChordDefinition::findName( QString chordstring, QString chordname)
         {
            if ( notes[j] != "x" )
            {   int n=notes[j].toInt();
-               n-=notemin;
+               n-=notemin-1;
                notes[j]=QString("%1").arg(n);
            }
         }

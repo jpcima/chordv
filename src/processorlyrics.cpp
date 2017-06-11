@@ -40,7 +40,7 @@ void ProcessorLyrics::displayLyrics()
         m_firstline=false;
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*3;
         m_initialhposition=m_line;
-        if (  m_uiconfig->comboBoxChordInText->currentIndex()== FormConfig::DiagramInText && m_BufLyrics.at(0)!= tr("start_of_chorus"))
+        if (  m_uiconfig->comboBoxChordInText->currentIndex()== FormConfig::DiagramInText && !m_BufLyrics.isEmpty() && m_BufLyrics.at(0)!= tr("start_of_chorus"))
           {
             m_initialhposition-=m_uiconfig->spuChordHorizontalSize->getPdfU();
             m_line=m_initialhposition;
@@ -98,7 +98,7 @@ void ProcessorLyrics::displayLyrics()
                 int line1=m_line+num;
                 int col1=col-m_uiconfig->spuChordHorizontalSize->getPdfU()/2;
                 //while ( col1 -m_oldcol <m_uiconfig->spuChordHorizontalSize->getPdfU()/6) col1+=m_uiconfig->spuChordHorizontalSize->getPdfU()/6;
-              addCol(col1,m_uiconfig->spuChordHorizontalSize->getPdfU()/6);
+                addCol(col1,m_uiconfig->spuChordHorizontalSize->getPdfU()/6);
                 displayChord(ch.chord(),line1,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
                 m_oldcol=col1;
                }
@@ -108,6 +108,8 @@ void ProcessorLyrics::displayLyrics()
           {
               num = m_uiconfig->spuChordHorizontalSize->getPdfU();
           }
+          else
+              num= m_uiconfig->toolButtonChordFont->getFont().pointSizeF();
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
           }
           else
