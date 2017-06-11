@@ -53,6 +53,9 @@ void DialogTwoLinesToChordPro::Convert()
 bool DialogTwoLinesToChordPro::isChords(QString line)
 {
     line.replace(QRegExp(" +")," ");
+    line.replace(QRegExp("^ *"),"");
+    line.replace(QRegExp(" *$"),"");
+
     QStringList words=line.split(" ");
     QString chordreg=Language::ListChord(ui->widget->getInputLang()).join("|");
     chordreg=QString("^(%1)").arg(chordreg);
