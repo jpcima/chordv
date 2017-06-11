@@ -35,9 +35,9 @@
             <attribute name="title">
              <string>Chord Definition</string>
             </attribute>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <layout class="QVBoxLayout" name="verticalLayout_16">
              <item>
-              <layout class="QVBoxLayout" name="verticalLayout">
+              <layout class="QVBoxLayout" name="verticalLayout_15">
                <item>
                 <widget class="Neck" name="neck">
                  <property name="sizePolicy">
@@ -51,18 +51,40 @@
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_2">
                  <item>
-                  <widget class="QLabel" name="labelChordName">
-                   <property name="text">
-                    <string>Chord name</string>
-                   </property>
-                  </widget>
+                  <layout class="QVBoxLayout" name="verticalLayout">
+                   <item>
+                    <widget class="QLabel" name="labelChordName">
+                     <property name="text">
+                      <string>Chord name</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="labelTranslatedChordnName">
+                     <property name="text">
+                      <string>Translated chord name</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                  <item>
-                  <widget class="QLineEdit" name="lineEditChord">
-                   <property name="readOnly">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
+                  <layout class="QVBoxLayout" name="verticalLayout_12">
+                   <item>
+                    <widget class="QLineEdit" name="lineEditChord">
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEditTranslatedChord">
+                     <property name="readOnly">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                  <item>
                   <widget class="QListWidget" name="listWidgetChords">
@@ -97,11 +119,46 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="labelChordsCount">
-                   <property name="text">
-                    <string>0</string>
-                   </property>
-                  </widget>
+                  <layout class="QVBoxLayout" name="verticalLayout_13">
+                   <item>
+                    <widget class="QLabel" name="labelInDataBase">
+                     <property name="text">
+                      <string>In database</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="labelApproved">
+                     <property name="text">
+                      <string>Approved</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_14">
+                   <item>
+                    <widget class="QLabel" name="labelFlagDatabase">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap resource="../Resources/resources.qrc">:/Image/Images/task-reject.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="labelFlagApproved">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap resource="../Resources/resources.qrc">:/Image/Images/task-reject.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                 </layout>
                </item>
@@ -239,6 +296,9 @@
                     <widget class="QLineEdit" name="lineEditNameIndex"/>
                    </item>
                    <item>
+                    <widget class="QLineEdit" name="lineEditNameTranaslatedIndex"/>
+                   </item>
+                   <item>
                     <widget class="QLineEdit" name="lineEditValueIndex"/>
                    </item>
                   </layout>
@@ -312,6 +372,9 @@
                   <layout class="QHBoxLayout" name="horizontalLayout_13">
                    <item>
                     <widget class="QLineEdit" name="lineEditNameNoApproved"/>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEditTranslatedNameNoApproved"/>
                    </item>
                    <item>
                     <widget class="QLineEdit" name="lineEditValueNoApproved"/>

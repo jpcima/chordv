@@ -28,6 +28,17 @@
        <item>
         <widget class="QLineEdit" name="lineEditTextToSearch"/>
        </item>
+       <item>
+        <widget class="QToolButton" name="tooButtonErase">
+         <property name="icon">
+          <iconset resource="../Resources/resources.qrc">
+           <normaloff>:/Image/Images/cross.png</normaloff>:/Image/Images/cross.png</iconset>
+         </property>
+         <property name="autoRaise">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
      <item>
@@ -99,6 +110,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -8,6 +8,7 @@
 #include <QSqlTableModel>
 #include <QTableView>
 #include <QSqlQueryModel>
+#include <QLabel>
 
 #include <QPaintEvent>
 
@@ -24,6 +25,7 @@ class DialogChordDefinition : public QDialog
 public:
     explicit DialogChordDefinition(QWidget *parent = 0);
     ~DialogChordDefinition();
+    void SetChordLanguage(QString lang, QString minor);
     void ActiveInsertButton();
 protected slots:
     void ShowChords(QStringList chordnames,QString chortdstring);
@@ -50,8 +52,13 @@ private:
     QSqlQueryModel *m_modelapprove;
     int m_index;
     int m_indexnonapproved;
+    QString m_codelang;
+    QString m_language;
+    QString m_minor;
+
     void setError(QString message, int linenumber);
     void paintEvent(QPaintEvent *event);
+    void setIcon(QLabel *label, bool status);
 signals:
     void Error(QString message);
     void ChordToInsert(QString chord);

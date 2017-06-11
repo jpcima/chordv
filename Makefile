@@ -933,6 +933,8 @@ build/rcc/qrc_resources.cpp: Resources/resources.qrc \
 		Images/fr.png \
 		Images/neck.jpg \
 		Images/en.png \
+		Images/task-reject.png \
+		Images/task-complete.png \
 		Images/warning.png \
 		Images/cross.png \
 		Images/gilles.jpg \
@@ -10502,6 +10504,9 @@ build/obj/dialogchorddefinition.o: src/dialogchorddefinition.cpp include/dialogc
 		../../Qt/5.9/gcc_64/include/QtGui/qinputmethod.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QButtonGroup \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../Qt/5.9/gcc_64/include/QtWidgets/QCheckBox \
+		../../Qt/5.9/gcc_64/include/QtWidgets/qcheckbox.h \
+		../../Qt/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qlayout.h \
@@ -10530,7 +10535,6 @@ build/obj/dialogchorddefinition.o: src/dialogchorddefinition.cpp include/dialogc
 		../../Qt/5.9/gcc_64/include/QtGui/qfontdatabase.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../Qt/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QRadioButton \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qradiobutton.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QSpacerItem \
@@ -10550,6 +10554,14 @@ build/obj/dialogchorddefinition.o: src/dialogchorddefinition.cpp include/dialogc
 		include/logmessages.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QTextEdit \
 		include/dialogchoosegoodchord.h \
+		include/language.h \
+		../../Qt/5.9/gcc_64/include/QtCore/QString \
+		../../Qt/5.9/gcc_64/include/QtWidgets/QComboBox \
+		../../Qt/5.9/gcc_64/include/QtWidgets/qcombobox.h \
+		include/chord.h \
+		include/langnotes.h \
+		../../Qt/5.9/gcc_64/include/QtCore/QMap \
+		../../Qt/5.9/gcc_64/include/QtCore/QRegExp \
 		../../Qt/5.9/gcc_64/include/QtCore/QVector \
 		../../Qt/5.9/gcc_64/include/QtSql/QSqlQuery \
 		../../Qt/5.9/gcc_64/include/QtSql/qsqlquery.h \
@@ -10558,8 +10570,7 @@ build/obj/dialogchorddefinition.o: src/dialogchorddefinition.cpp include/dialogc
 		../../Qt/5.9/gcc_64/include/QtCore/QDebug \
 		../../Qt/5.9/gcc_64/include/QtGui/QTextCursor \
 		../../Qt/5.9/gcc_64/include/QtGui/QTextBlock \
-		../../Qt/5.9/gcc_64/include/QtGui/qtextobject.h \
-		../../Qt/5.9/gcc_64/include/QtCore/QRegExp
+		../../Qt/5.9/gcc_64/include/QtGui/qtextobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchorddefinition.o src/dialogchorddefinition.cpp
 
 build/obj/ChordDetector.o: src/ChordDetector.cpp include/ChordDetector.h \

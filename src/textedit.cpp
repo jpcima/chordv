@@ -22,6 +22,12 @@ void TextEdit::insertPlainText(const QString &text)
     textCursor().insertBlock();
 }
 
+void TextEdit::setChordLanguage(QString language, QString minor)
+{
+    m_chordlang=language;
+    m_chordminor=minor;
+}
+
 //void TextEdit::SetUi(Ui::MainWindow *ptr)
 //{
 //    ui=ptr;
@@ -147,6 +153,7 @@ void TextEdit::ShowChordInclusionDial()
 {
     DialogChordDefinition *dial= new DialogChordDefinition(this);
     dial->ActiveInsertButton();
+    dial->SetChordLanguage(m_chordlang,m_chordminor);
     connect (dial,SIGNAL(ChordToInsert(QString)),this, SLOT(ChordToInsert(QString)));
     dial->exec();
 }

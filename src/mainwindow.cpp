@@ -597,6 +597,7 @@ void MainWindow::Configuration()
 void MainWindow::ChordDefinition()
 {
     DialogChordDefinition * dial = new DialogChordDefinition(this);
+    dial->SetChordLanguage(ui->comboBoxChordLanguage->currentText(),ui->comboBoxMinorNotation->currentText());
     connect (dial,SIGNAL(Error(QString)),this,SLOT(Log(QString)));
     dial->exec();
     delete dial;

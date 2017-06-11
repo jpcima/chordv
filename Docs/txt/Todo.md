@@ -11,8 +11,7 @@ Lyrics mode :
 8 - Diagram in text : respect of column
 9 - Diagram in text : respect of page size
 12 -BreaklIne suppressed in Bologne
-13 : when chord above the line line space not enough
-14 : crash on Chansons Build lyrics and chords with diagram in text
+
 
 PDF Chord :
 ----------

@@ -7,11 +7,13 @@ DialogReplace::DialogReplace(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setAttribute(Qt::WA_DeleteOnClose);
-    ui->lineEditTextToReplace->paste();
     connect (ui->pushButtonClose,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect (ui->pushButtonSearch,SIGNAL(clicked(bool)),this,SLOT(Search()));
     connect (ui->pushButtonSkip,SIGNAL(clicked(bool)),this,SLOT(Search()));
     connect (ui->pushButtonReplace,SIGNAL(clicked(bool)),this,SLOT(Replace()));
+    connect(ui->toolButtonErase1,SIGNAL(clicked(bool)),ui->lineEditTextToReplace,SLOT(clear()));
+    connect(ui->toolButtonErase2,SIGNAL(clicked(bool)),ui->lineEditReplaceWith,SLOT(clear()));
+
 
 }
 

@@ -84,37 +84,43 @@
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="76"/>
+        <location filename="../ui/dialogabout.ui" line="72"/>
+        <source>Git version</source>
+        <translatorcomment>Version git</translatorcomment>
+        <translation>Version git</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogabout.ui" line="83"/>
         <source>Gilles Maire</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="86"/>
+        <location filename="../ui/dialogabout.ui" line="93"/>
         <source>https://sourceforge.net/projects/chordv/</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="96"/>
+        <location filename="../ui/dialogabout.ui" line="103"/>
         <source>http://www.gillesmaire.com</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="106"/>
+        <location filename="../ui/dialogabout.ui" line="113"/>
         <source>http://www.lesjetesdelencre.com</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="116"/>
+        <location filename="../ui/dialogabout.ui" line="123"/>
         <source>GPL 3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="154"/>
+        <location filename="../ui/dialogabout.ui" line="171"/>
         <source>Credit</source>
         <translation>Outils</translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="161"/>
+        <location filename="../ui/dialogabout.ui" line="178"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -174,7 +180,7 @@ Source code sur SourceForge project ChordV
 Site : http://www.gillesmaire.com</translation>
     </message>
     <message>
-        <location filename="../ui/dialogabout.ui" line="200"/>
+        <location filename="../ui/dialogabout.ui" line="217"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
@@ -292,149 +298,155 @@ p, li { white-space: pre-wrap; }
         <translation>Définition de l&apos;accord</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="56"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="58"/>
         <source>Chord name</source>
         <translation>Nom de l&apos;accord</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="95"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="65"/>
+        <source>Translated chord name</source>
+        <translation>Nom traduit</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogchorddefinition.ui" line="117"/>
         <source>+</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="102"/>
-        <source>0</source>
-        <translation></translation>
+        <location filename="../ui/dialogchorddefinition.ui" line="126"/>
+        <source>In database</source>
+        <translation>Dans la base de données </translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="114"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="156"/>
         <source>Chord Management</source>
         <translation>Gestion des accords</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="131"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="173"/>
         <source>Sort on</source>
         <translation>Trier sur</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="138"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="180"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="151"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="193"/>
         <source>Cho&amp;rd </source>
         <translation>L&apos;acco&amp;rd</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="158"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="200"/>
         <source>fret</source>
         <translation>La frette</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="165"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="32"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="39"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="43"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="207"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="29"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="36"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="40"/>
         <source>Index</source>
         <translation>L&apos;index</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="182"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="224"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="215"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="257"/>
         <source>Insert Chord </source>
         <translation>Insérer l&apos;accord</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="264"/>
-        <location filename="../ui/dialogchorddefinition.ui" line="339"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="309"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="387"/>
         <source>Delete</source>
         <translation>Suppression</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="271"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="316"/>
         <source>Modifiy</source>
         <translation>Modification</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="301"/>
         <location filename="../ui/dialogchorddefinition.ui" line="346"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="394"/>
         <source>Approve</source>
         <translation>Approuver</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="376"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="424"/>
         <source>Chord Inport</source>
         <translation>Importation d&apos;accords</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="389"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="437"/>
         <source>Copy paste chords in form </source>
         <translation>Copier coller d&apos;accords dans le formulaire</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="396"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="444"/>
         <source>chord=relative position 6 ..position 1 </source>
         <translation>accord=case position 6 ... position 1</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="403"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="451"/>
         <source>C(III)=3 0 0 3 3 3 0  </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="425"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="473"/>
         <source>Import</source>
         <translation>Importation</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="461"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="509"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="30"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="37"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="27"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="34"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="31"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="38"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="28"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="35"/>
         <source>Value</source>
         <translation>Valeur</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="33"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="139"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="30"/>
         <source>Approved</source>
         <translation>Appouvé</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="69"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="70"/>
         <source>Chord insertion</source>
         <translation>Insertion d&apos;un accord</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="170"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="183"/>
         <source>Undertermined</source>
         <translation>Indéterminé</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="253"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="266"/>
         <source>ERROR line %1 : %2</source>
         <translation>ERREUR ligne %1 : %2</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="256"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="269"/>
         <source>ERROR line %1 :syntax error</source>
         <translation>ERREUR ligne %1 : erreur de syntaxe</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="283"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="304"/>
         <source>Warning : Chord name exist in the database with the same name and same value</source>
         <translation>Attention : l&apos;accord existe déjà dans la base avec le même nom et la même valeur</translation>
     </message>
@@ -1182,179 +1194,179 @@ p, li { white-space: pre-wrap; }
         <translation>Entête du document</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="41"/>
+        <location filename="../ui/formeditor.ui" line="42"/>
         <source>Cover Title</source>
         <translation>Titre couverture</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="44"/>
+        <location filename="../ui/formeditor.ui" line="45"/>
         <source>Cover 
 title</source>
         <translation>Titre
 couverture</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="52"/>
+        <location filename="../ui/formeditor.ui" line="53"/>
         <source>Cover Subtitle</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="55"/>
+        <location filename="../ui/formeditor.ui" line="56"/>
         <source>Cover
 subtitle</source>
         <translation>Sous-titre
 couverture</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="89"/>
+        <location filename="../ui/formeditor.ui" line="90"/>
         <source>Long/Short notation in text</source>
         <translation>Notation Longue/courte dans le texte</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="92"/>
+        <location filename="../ui/formeditor.ui" line="93"/>
         <source>Long syntax</source>
         <translation>Syntaxe longue</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="101"/>
+        <location filename="../ui/formeditor.ui" line="103"/>
         <source>Song head</source>
         <translation>Entête de chanson</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="109"/>
+        <location filename="../ui/formeditor.ui" line="111"/>
         <source>Song Title</source>
         <translation>Titre \nchanson</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="112"/>
+        <location filename="../ui/formeditor.ui" line="114"/>
         <source>Song 
 title</source>
         <translation>Titre
 chanson</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="120"/>
+        <location filename="../ui/formeditor.ui" line="122"/>
         <source>Song Sub Titile</source>
         <translation>Sous-titre\nchanson</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="123"/>
+        <location filename="../ui/formeditor.ui" line="125"/>
         <source>Song
 subtitle</source>
         <translation>Sous-titre
 chanson</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="138"/>
+        <location filename="../ui/formeditor.ui" line="140"/>
         <source>4/4 3/4 ...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="141"/>
+        <location filename="../ui/formeditor.ui" line="143"/>
         <source>Time</source>
         <translation>Temps</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="148"/>
+        <location filename="../ui/formeditor.ui" line="150"/>
         <source>Beat per minute</source>
         <translation>Battements par minute</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="151"/>
+        <location filename="../ui/formeditor.ui" line="153"/>
         <source>Tempo</source>
         <translation>Tempo</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="158"/>
+        <location filename="../ui/formeditor.ui" line="160"/>
         <source>Column number for this song</source>
         <translation>Nombre de colomnes pour cette chanson</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="161"/>
+        <location filename="../ui/formeditor.ui" line="163"/>
         <source>Column:</source>
         <translation>Colonne:</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="175"/>
+        <location filename="../ui/formeditor.ui" line="177"/>
         <source>Column break</source>
         <translation>Changement de colonne</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="178"/>
+        <location filename="../ui/formeditor.ui" line="180"/>
         <source>Column
 break</source>
         <translation>Changerment
 de colonne</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="202"/>
+        <location filename="../ui/formeditor.ui" line="204"/>
         <source>Song Part</source>
         <translation>Corps de la chanson</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="210"/>
+        <location filename="../ui/formeditor.ui" line="212"/>
         <source>Start of chorus</source>
         <translation>Début du chorus</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="213"/>
+        <location filename="../ui/formeditor.ui" line="215"/>
         <source>Start of
 chorus</source>
         <translation>Début de
  chorus</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="221"/>
+        <location filename="../ui/formeditor.ui" line="223"/>
         <source>End of chorus</source>
         <translation>Fin du chorus</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="224"/>
+        <location filename="../ui/formeditor.ui" line="226"/>
         <source>End of
 chorus</source>
         <translation>Fin de
 chorus</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="239"/>
-        <location filename="../ui/formeditor.ui" line="250"/>
-        <location filename="../ui/formeditor.ui" line="268"/>
-        <location filename="../ui/formeditor.ui" line="279"/>
-        <location filename="../ui/formeditor.ui" line="297"/>
-        <location filename="../ui/formeditor.ui" line="308"/>
+        <location filename="../ui/formeditor.ui" line="241"/>
+        <location filename="../ui/formeditor.ui" line="252"/>
+        <location filename="../ui/formeditor.ui" line="270"/>
+        <location filename="../ui/formeditor.ui" line="281"/>
+        <location filename="../ui/formeditor.ui" line="299"/>
+        <location filename="../ui/formeditor.ui" line="310"/>
         <source>Refrain</source>
         <translation>Refrain</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="242"/>
+        <location filename="../ui/formeditor.ui" line="244"/>
         <source>Start of 
 refrain</source>
         <translation>Début du
  refrain</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="253"/>
+        <location filename="../ui/formeditor.ui" line="255"/>
         <source>End of 
 refrain</source>
         <translation>Fin du
  refrain</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="271"/>
+        <location filename="../ui/formeditor.ui" line="273"/>
         <source>Start of 
 verse</source>
         <translation>Début de 
 couplet</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="282"/>
+        <location filename="../ui/formeditor.ui" line="284"/>
         <source>End of 
 verse</source>
         <translation>Fin de
 couplet</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="300"/>
+        <location filename="../ui/formeditor.ui" line="302"/>
         <source>Start of 
 grid</source>
         <translation>Début de 
@@ -1362,90 +1374,90 @@ grille
 </translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="311"/>
+        <location filename="../ui/formeditor.ui" line="313"/>
         <source>End of 
 grid</source>
         <translation>Fin de 
 Grille</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="326"/>
+        <location filename="../ui/formeditor.ui" line="328"/>
         <source>Page
 Break</source>
         <translation>Coupure
 de page</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="350"/>
+        <location filename="../ui/formeditor.ui" line="352"/>
         <source>Infos</source>
         <translation>Informations</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="358"/>
+        <location filename="../ui/formeditor.ui" line="360"/>
         <source>Composer</source>
         <translation>Compositeur</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="365"/>
+        <location filename="../ui/formeditor.ui" line="367"/>
         <source>Lyricist</source>
         <translation>Parolier</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="372"/>
+        <location filename="../ui/formeditor.ui" line="374"/>
         <source>Arranger</source>
         <translation>Arrangeur</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="379"/>
+        <location filename="../ui/formeditor.ui" line="381"/>
         <source>Artist</source>
         <translation>Artiste</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="386"/>
+        <location filename="../ui/formeditor.ui" line="388"/>
         <source>Album</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="393"/>
+        <location filename="../ui/formeditor.ui" line="395"/>
         <source>Copyright</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="400"/>
+        <location filename="../ui/formeditor.ui" line="402"/>
         <source>Year</source>
         <translation>Année</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="407"/>
+        <location filename="../ui/formeditor.ui" line="409"/>
         <source>Duration</source>
         <translation>Durée</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="414"/>
+        <location filename="../ui/formeditor.ui" line="416"/>
         <source>Key</source>
         <translation>Clé</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="437"/>
+        <location filename="../ui/formeditor.ui" line="439"/>
         <source>Miscellaneous</source>
         <translation>Divers</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="445"/>
+        <location filename="../ui/formeditor.ui" line="447"/>
         <source>Comment
 Regular</source>
         <translation>Commentaire
 de base</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="453"/>
+        <location filename="../ui/formeditor.ui" line="455"/>
         <source>Comment
 Italic</source>
         <translation>Commentaires
 en italique</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="461"/>
+        <location filename="../ui/formeditor.ui" line="463"/>
         <source>Comment
 Box</source>
         <translation>Commentaire
@@ -2285,12 +2297,12 @@ chorus</translation>
         <translation>Conversion effectuée pour : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="623"/>
+        <location filename="../src/mainwindow.cpp" line="624"/>
         <source>Cannot write file : %1</source>
         <translation>Ne peut pas écrire dans le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="629"/>
+        <location filename="../src/mainwindow.cpp" line="630"/>
         <source>%1 file exported</source>
         <translation>fichier %1 exporté</translation>
     </message>
@@ -2335,37 +2347,37 @@ chorus</translation>
         <translation type="vanished">Aller à la page %1</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="319"/>
+        <location filename="../src/processor.cpp" line="342"/>
         <source>Chorus :</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="324"/>
+        <location filename="../src/processor.cpp" line="347"/>
         <source>End of chorus</source>
         <translation>Fin du chorus</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="330"/>
+        <location filename="../src/processor.cpp" line="353"/>
         <source>Refrain :</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="335"/>
+        <location filename="../src/processor.cpp" line="358"/>
         <source>End of refrain</source>
         <translation>Fin du refrain</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="870"/>
+        <location filename="../src/processor.cpp" line="910"/>
         <source>Go to last song</source>
         <translation>Aller à la chanson précédente</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="885"/>
+        <location filename="../src/processor.cpp" line="925"/>
         <source>Go to next song</source>
         <translation>Aller à la chanson suivante </translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="901"/>
+        <location filename="../src/processor.cpp" line="941"/>
         <source>Go to table of content</source>
         <translation>Aller à la table des matières</translation>
     </message>
@@ -2448,8 +2460,8 @@ chorus</translation>
         <translation type="vanished">Fin du chorus</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="685"/>
-        <location filename="../src/processor.cpp" line="744"/>
+        <location filename="../src/processor.cpp" line="719"/>
+        <location filename="../src/processor.cpp" line="784"/>
         <source>Table of content</source>
         <translation>Table des matières</translation>
     </message>

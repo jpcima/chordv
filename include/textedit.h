@@ -15,6 +15,7 @@ class TextEdit : public QTextEdit
 public:
     TextEdit(QWidget *parent);
     void insertPlainText(const QString &text);
+    void setChordLanguage( QString language, QString minor);
 protected:
    void wheelEvent(QWheelEvent *e);
    void mouseDoubleClickEvent(QMouseEvent *e);
@@ -29,6 +30,8 @@ private:
    bool ChordUnderCursor();
    void DeleteOldChordInsertNew(QString newchord);
    EditorHighlighter *m_editorhightlighter;
+   QString m_chordlang;
+   QString m_chordminor;
 };
 
 #endif // TEXTEDIT_H

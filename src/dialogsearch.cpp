@@ -7,10 +7,10 @@ DialogSearch::DialogSearch(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setAttribute(Qt::WA_DeleteOnClose);
-    ui->lineEditTextToSearch->paste();
     connect (ui->pushButtonClose,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect (ui->pushButtonSearch,SIGNAL(clicked(bool)),this,SLOT(Search()));
     connect (ui->pushButtonPrevious,SIGNAL(clicked(bool)),this,SLOT(BackwardSearch()));
+    connect (ui->tooButtonErase,SIGNAL(clicked(bool)),ui->lineEditTextToSearch,SLOT(clear()));
 
 }
 

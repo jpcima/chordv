@@ -1,8 +1,11 @@
 #include "dialogchorddefinition.h"
 #include "ui_dialogchorddefinition.h"
+
 #include "chordutil.h"
 #include "logmessages.h"
 #include "dialogchoosegoodchord.h"
+#include "language.h"
+#include "chord.h"
 
 #include <QVector>
 #include <QSqlQuery>
@@ -13,6 +16,7 @@
 #include <QGraphicsScene>
 #include <QRegExp>
 #include <QSqlError>
+#include <QLabel>
 
 
 DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
@@ -20,7 +24,7 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     ui(new Ui::DialogChordDefinition)
 {
     ui->setupUi(this);
-
+    SetChordLanguage("en","-");
     m_model=new QSqlTableModel(this);
     m_model->setTable("Chords");
     m_model->setHeaderData(0,Qt::Horizontal,tr("Name"));
@@ -65,7 +69,6 @@ void DialogChordDefinition::ActiveInsertButton()
     ui->pushButtonInsertChord->setVisible(true);
     ui->tabWidget->setCurrentIndex(1);
     ui->tabWidget->removeTab(2);
-    ui->tabWidget->removeTab(0);
     ui->tabWidget->removeTab(3);
     this->setWindowTitle(tr("Chord insertion"));
 }
@@ -141,9 +144,11 @@ void DialogChordDefinition::DeleteApproved()
 
 void DialogChordDefinition::ChordClicked(QModelIndex index)
 {
-    QString name=index.sibling(index.row(),1).data().toString();
-    ui->lineEditNameIndex->setText(index.sibling(index.row(),0).data().toString());
-    ui->lineEditValueIndex->setText(name);
+    QString name=index.sibling(index.row(),0).data().toString();
+    QString value=index.sibling(index.row(),1).data().toString();
+    ui->lineEditNameIndex->setText(name);
+    ui->lineEditValueIndex->setText(value);
+    ui->lineEditNameTranaslatedIndex->setText ( Chord::translate(name,"English","-",m_language,m_minor));
     m_index=index.sibling(index.row(),2).data().toInt();
     ui->widget->setDiagram(ui->lineEditValueIndex->text());
 
@@ -152,9 +157,11 @@ void DialogChordDefinition::ChordClicked(QModelIndex index)
 
 void DialogChordDefinition::ChordClickedNonApproved(QModelIndex index)
 {
-    QString name=index.sibling(index.row(),1).data().toString();
-    ui->lineEditNameNoApproved->setText(index.sibling(index.row(),0).data().toString());
-    ui->lineEditValueNoApproved->setText(name);
+    QString value=index.sibling(index.row(),1).data().toString();
+    QString name=index.sibling(index.row(),0).data().toString();
+    ui->lineEditNameNoApproved->setText(name);
+    ui->lineEditTranslatedNameNoApproved->setText(Chord::translate(name,"English","-",m_language,m_minor));
+    ui->lineEditValueNoApproved->setText(value);
     m_indexnonapproved=index.sibling(index.row(),2).data().toInt();
     ui->widget_2->setDiagram(ui->lineEditValueNoApproved->text());
 
@@ -166,17 +173,43 @@ DialogChordDefinition::~DialogChordDefinition()
     delete ui;
 }
 
+void DialogChordDefinition::SetChordLanguage(QString lang, QString minor)
+{
+    m_codelang=Language::getCodeLang(lang);
+    m_language=lang;
+    m_minor=minor;
+    bool visible= ! ( m_codelang == "en" && m_minor== "-");
+    ui->lineEditNameTranaslatedIndex->setVisible(visible);
+    ui->lineEditTranslatedNameNoApproved->setVisible(visible);
+    ui->labelTranslatedChordnName->setVisible(visible);
+    ui->lineEditTranslatedChord->setVisible(visible);
+}
+
 void DialogChordDefinition::ShowChords(QStringList chordnames,QString chordstring)
 {
    QString chordmin=tr("Undertermined");
    foreach ( QString chord, chordnames)
        if (chord.length()< chordmin.length() ) chordmin=chord;
    ui->lineEditChord->setText(chordmin);
+   ui->lineEditTranslatedChord->setText(Chord::translate(chordmin,"English","-",m_language,m_minor));
    ui->listWidgetChords->clear();
    ui->listWidgetChords->addItems(chordnames);
    ui->lineEditNotation->setText(chordstring);
    ui->lineEditName->setText(findName(chordstring,chordmin));
+   QStringList list=ui->lineEditName->text().split(":");
+   QString name=list.first();
+   QString value=list.last();
+   QSqlQuery query(QString("SELECT approved FROM chords WHERE Name='%1' and Value='%2'").arg(name).arg(value));
+   bool present=query.next();
+   setIcon(ui->labelFlagDatabase,present);
+   bool approved= present && query.value(0).toString()=="1";
+   setIcon(ui->labelFlagApproved,approved);
+}
 
+void DialogChordDefinition::setIcon(QLabel *label,bool status)
+{
+    if ( status ) label->setPixmap(QPixmap(":/Image/Images/task-complete.png"));
+    else label->setPixmap(QPixmap(":/Image/Images/task-reject.png"));
 }
 
 
@@ -269,7 +302,7 @@ void DialogChordDefinition::setError(QString message,int linenumber)
     emit Error(message);
 }
 
-void DialogChordDefinition::paintEvent(QPaintEvent *event)
+void DialogChordDefinition::paintEvent(QPaintEvent *)
 {
     int neckwidht=ui->neck->width();
     int neckheight=neckwidht/10.0;
