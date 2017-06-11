@@ -166,7 +166,7 @@ void Processor::run()
             QString fret=QString("%1 %2 %3 %4 %5 %6").arg(DefineRex.cap(3))
                     .arg(DefineRex.cap(4)).arg(DefineRex.cap(5)).arg(DefineRex.cap(6))
                     .arg(DefineRex.cap(7)).arg(DefineRex.cap(8));
-            QSqlQuery select (QString("SELECT * FROM chords WHERE Name='%1'").arg(chordname));
+            QSqlQuery select (QString("SELECT * FROM chords WHERE Name='%1' AND Approved=1 ").arg(chordname));
             if (select.next())
             {
                 if ( basefret != "0" )
@@ -182,6 +182,8 @@ void Processor::run()
             }
             else
             {
+                QSqlQuery select (QString("SELECT * FROM chords WHERE Name='%1' AND Approved=0 ").arg(chordname));
+                if (  ! select.next() )
                 QSqlQuery query(QString("INSERT INTO chords (Name, Value, Approved) VALUES ('%1','%2 %3',0)").arg(chordname).arg(basefret).arg(fret));
             }
 
@@ -695,7 +697,12 @@ void Processor::memorizeChords(QString line)
 
 void Processor::addTocAtBegining()
 {
-
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
     PdfPage *toc;
     int pagenumber=0;
     int position =FirstPageNumber();
@@ -757,6 +764,12 @@ void Processor::addTocAtBegining()
 void Processor::addTocAtEnd()
 {
 
+    if ( !m_pageAllocation)
+    {
+       m_page = m_document->CreatePage(*m_dimension);
+       m_painter.SetPage(m_page);
+       m_pageAllocation=true;
+    }
     PdfPage *toc;
     int pagenumber=0;
     m_positiontoc=m_document->GetPageCount();

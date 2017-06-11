@@ -23,7 +23,7 @@
          <item>
           <widget class="QTabWidget" name="tabWidget">
            <property name="currentIndex">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="movable">
             <bool>true</bool>
@@ -334,14 +334,14 @@
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButtonApprove">
+                    <widget class="QPushButton" name="pushButtonDeleteApprove">
                      <property name="text">
                       <string>Delete</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButtonDeleteApprove">
+                    <widget class="QPushButton" name="pushButtonApprove">
                      <property name="text">
                       <string>Approve</string>
                      </property>

@@ -113,7 +113,7 @@ void DialogChordDefinition::Approve()
 {
     QSqlQuery q(QString("UPDATE Chords SET approve='1' WHERE Id='%3'")
                                .arg(m_indexnonapproved));
-    m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved IS NULL");
+    m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved=0");
 }
 
 void DialogChordDefinition::DeleteChord()
@@ -134,7 +134,7 @@ void DialogChordDefinition::DeleteApproved()
         QSqlQuery q(QString("DELETE FROM Chords WHERE  Id=%1")
                     .arg(index.sibling(index.row(),2).data().toString()));
     }
-    m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved IS NULL");
+    m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved=0");
 
 }
 
