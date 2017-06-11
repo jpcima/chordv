@@ -279,8 +279,68 @@ fichier texte
 
 ![Gestion des accords ](./img/chordmanagement.png)
 
+1. Ce sélecteur permet de choisir un accord, on peut également 
+restreindre la liste des accords ou l'ordonner en utilisant les filtres
+3 et 2
+2. Les accords peuvent être triés suivant le nom de l'accord, le numéro 
+de frette ou l'index qui est le numéro d'ordre de l'accord dans la base.
+3. Le filtre permet de restreindre les accords présentés en choisissant
+les premières lettres de l'accord en langue anglaise. La petite croix
+jouxtant la line d'édition permet d'effacer le nom de l'accord fugurant
+dans le filtre.
+4. Afficheur du nom de l'accord, si ce nom est modifié il peut être
+sauvegardé. Mais attention le nom de l'accord doit être unique. On 
+distinguera deux noms d'accords par l'emploin de parenthèses avec 
+par exemple une notation en chiffres romains de la frette.
+5. Afficheur du doigté de l'accord. Ce doigté peut être changé.
+6. Bouton permettant de supprimer l'accord 
+7. Bouton permettant de modifier l'accord courant avec les valeurs 
+entrées dans les cases 4 et 5
+8. Afficheur de l'accord.
 
-## Conversion 
+
+### Mode approbation des accords
+
+![Approbation des accords ](./img/chordapprovement.png)
+
+Les accords peuvent être définis dans les fichiers de chansons par 
+exemple par la directive 
+
+~~~
+{define: Eb95 base-fret 5 frets 5 6 6 5 6 x }
+~~~
+
+Un tel accord ca être automatiquement inclus dans la base, mais 
+il sera nécessaire de l'approuver pour qu'il soit réellement 
+opérationnel. 
+
+1. Ce sélecteur permet de choisir un accord
+2. La case montre le nom de l'accord. On peut copier ce nom 
+mais pas le modifier 
+3. La case montre le doigté de l'accord qui peut être copié mais non 
+modifié.
+4. L'accord peut être supprimé de la base, dans ce cas là il faut le
+supprimé du fichier de chansons, sinon il sera inséré à nouveau.
+5. L'accord peut être accepté dans la base
+6. Cette zone permet de visualiser l'accord.
+
+
+### Importation des accords
+
+![Importation des accords ](./img/chordimport.png)
+
+1. En copiant une liste d'accords, avec un accord par ligne, 
+vous pouvez effectuer une importation de la base. Les accords devront
+être sous la forme Nom=fret case case case case case case
+2. Le bouton demandera l'importation effective
+
+## Conversions
+
+### Conversions accords sur 2 lignes vers chordpro
+
+
+### Changer la langue des accords.
+
 
 ## Lancer l'afficheur PDF 
 
