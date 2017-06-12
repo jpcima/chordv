@@ -5,6 +5,7 @@ all : $(HTML) fr en
 	@pandoc --toc --ascii --smart -N --css=../css/pandoc.css  --from=markdown --to=html --output=../html/$@ $<
 clean:
 	@for i in ../html/*; do rm -rf $$i/* ; done 
+	@for i in ../pdf/*; do rm -rf $$i/* ; done 
 	@rm -f ../html/*.html
 fr:
 	@make -C fr

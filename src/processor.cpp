@@ -732,7 +732,7 @@ void Processor::addTocAtBegining()
          PdfRect rect=LineToc(title,TocColSize(),colinit,m_line,m_uiconfig->toolButtonTocFont,page);
          PdfAnnotation *a=toc->CreateAnnotation(ePdfAnnotation_Link,rect);
          //a->SetContents(tr("Go to page %1").arg(pagenumber+nbpagesintoc-2).toStdString().c_str());
-         PdfDestination dest(m_document->GetPage(page-nbpagesintoc+position));
+         PdfDestination dest(m_document->GetPage(page-nbpagesintoc+position - (m_covermade?0:1)));
          a->SetDestination(dest);
          a->SetFlags( ePdfAnnotationFlags_Hidden);
          pagenumber+=m_tocpages[title];

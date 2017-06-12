@@ -59,3 +59,10 @@ DEPENDPATH +=
 sudo apt-get install pandoc highlight
 ~~~
 
+- To make documentation pdf you need to install xetex
+
+~~~
+sudo apt-get install texlive-xetex
+~~~
+
+
