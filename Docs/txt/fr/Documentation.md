@@ -336,8 +336,44 @@ vous pouvez effectuer une importation de la base. Les accords devront
 
 ## Conversions
 
+Les conversions sont obtenues par les sous menus du menu de conversions 
+dans le menu outil :
+
+![Menu conversion](./img/conversionmenu.png)
+
 ### Conversions accords sur 2 lignes vers chordpro
 
+Ce mode permet de convertir des fichiers textes constitués par 
+des accords au dessus des paroles : 
+
+~~~
+Sim 					 Fa#7
+Elle est à toi cette chanson 
+~~~
+
+La conversion donnera le résultat suivant : 
+
+~~~
+[sim]Elle est à toi cette chan[Fa#7]son 
+~~~
+
+![Menu conversion](./img/twolineconversion.png)
+
+1. Les fichiers étant généralement disponibles sur internet, le mode
+opératoire choisi est de copier coller la chanson vers la zone
+d'édition. Cela se fait par l'emploi des touches CTRL + C, CTRL + V
+2. On peut choisir de convertir les accords et le symbole mineur. 
+Dans l'exemple donné on peut choisir la langue des accords en anglais et
+le symbole - pour le mode mineur, et les accords en français et le mode
+mineur à -. Cela aura pour effet de concertir les accords de D- vers 
+Rém.
+3. Le mode mineur peut être ici - ou m 
+4. La langue destination peut être choisie pour les accords
+5. Le symbole mineur destination peut également être choisi
+6. Le bouton Démonstration permet d'afficher une chanson à convertir
+7. Efface la chanson en cours afin d'en copier une nouvelle
+8. Lance la conversion dont le résultat est afficher en remplacement 
+des donnés converties.
 
 ### Changer la langue des accords.
 

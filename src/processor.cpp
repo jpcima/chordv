@@ -191,7 +191,7 @@ void Processor::run()
         }
         else if ( line.contains(TitleREX) )
         {
-              m_title=TitleREX.cap(1);
+
 
 //            if ( $AnnotationAuth!~/^$/ )
 //            {
@@ -210,7 +210,8 @@ void Processor::run()
             displayChordsForSong();
             displayLyrics();
             m_nbrealpages++;
-            displayPageTitle(m_title);
+            displayPageTitle(TitleREX.cap(1));
+
 
 
 //            $MaxLine=$lyricsline=($ury-$lly)*190/210;

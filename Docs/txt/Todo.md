@@ -1,5 +1,9 @@
+List of bugs
+============
 
-List of bugs and todo
+- Toc wrong when many pages for a song
+
+List of  todo
 ======================
 
 

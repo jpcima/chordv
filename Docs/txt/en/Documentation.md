@@ -259,7 +259,7 @@ text file
 
 ### Defining an chord
 
-! [Definition of chord] (./img/chorddefinition.png)
+![Definition of chord](./img/chorddefinition.png)
 
 1. Select the boxes on the handle
 2. selection of the empty strings with a round not played with a cross
@@ -273,7 +273,7 @@ text file
 
 ### Managing chords
 
-! [Chord management] (./img/chordmanagement.png)
+![Chord management](./img/chordmanagement.png)
 
 1. This selector lets you choose a chord, you can also
 Restrict or order the list of chords using filters
@@ -297,7 +297,7 @@ Entries in boxes 4 and 5
 
 ### chord approval mode
 
-! [Approval of chords] (./img/chordapprovement.png)
+![Approval of chords](./img/chordapprovement.png)
 
 Chords can be defined in the song files by
 Example by Directive
@@ -323,7 +323,7 @@ Deleted from the song file, otherwise it will be inserted again.
 
 ### Importing chords
 
-! [Import chords] (./img/chordimport.png)
+![Import chords](./img/chordimport.png)
 
 1. By copying a chord list, with one chord per row,
 You can import the database. chords should be
