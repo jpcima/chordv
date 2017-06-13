@@ -720,7 +720,7 @@ void Processor::addTocAtBegining()
     Text(m_document,QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4 ;
     int lineinit=m_line;
-    int colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
+    int colinit=m_uiconfig->spuTocHorizontalMargin->getPdfU();
     int currentcol=0;
     int titlenumber=0;
     int nbpagesintoc=1;
@@ -747,14 +747,14 @@ void Processor::addTocAtBegining()
          else
          {
              m_line=lineinit;
-             colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
+             colinit=m_uiconfig->spuTocHorizontalMargin->getPdfU();
              m_tocpages[m_title]++;
              if ( m_pageAllocation)  FinishPage(&m_painter);
              toc=m_document->InsertPage(*m_dimension,position);
              position++;
              m_painter.SetPage(toc);
              m_line=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU();
-             m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
+             m_column=m_uiconfig->spuTocHorizontalMargin->getPdfU();
              m_TocPages<<toc->GetContents();
          }
          titlenumber++;
@@ -785,7 +785,7 @@ void Processor::addTocAtEnd()
     Text(m_document,QObject::tr("Table of content"),m_uiconfig->spuPageWidth->getPdfU()/2,m_line,m_uiconfig->toolButtonTitleFont,center);
     m_line-=m_uiconfig->toolButtonTitleFont->getFont().pointSizeF()*2.4 ;
     int lineinit=m_line;
-    int colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
+    int colinit=m_uiconfig->spuTocHorizontalMargin->getPdfU();
     int currentcol=0;
     int titlenumber=0;
 //    int nbpagesintoc=1;
@@ -813,13 +813,13 @@ void Processor::addTocAtEnd()
          else
          {
              m_line=lineinit;
-             colinit=m_uiconfig->spuHorizontalMargin->getPdfU();
+             colinit=m_uiconfig->spuTocHorizontalMargin->getPdfU();
              m_tocpages[m_title]++;
              if ( m_pageAllocation)  FinishPage(&m_painter);
              toc=m_document->CreatePage(*m_dimension);
              m_painter.SetPage(toc);
              m_line=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU();
-             m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
+             m_column=m_uiconfig->spuTocHorizontalMargin->getPdfU();
              m_TocPages<<toc->GetContents();
          }
          titlenumber++;

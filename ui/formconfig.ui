@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1331</width>
-    <height>725</height>
+    <width>686</width>
+    <height>497</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
@@ -470,158 +470,106 @@
       <attribute name="title">
        <string>Content</string>
       </attribute>
-      <layout class="QVBoxLayout" name="verticalLayout_13">
+      <layout class="QVBoxLayout" name="verticalLayout_23">
        <item>
-        <layout class="QGridLayout" name="gridLayout_2">
-         <item row="0" column="0">
-          <widget class="QGroupBox" name="groupBoxCover">
-           <property name="title">
-            <string>Cover</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_11">
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_25">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_21">
+           <item>
+            <widget class="QGroupBox" name="groupBoxCover">
+             <property name="title">
+              <string>Cover</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_11">
               <item>
-               <widget class="QCheckBox" name="checkBoxCover">
-                <property name="text">
-                 <string>Cover</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_10">
+               <layout class="QVBoxLayout" name="verticalLayout">
                 <item>
-                 <widget class="QLabel" name="labelCoverFont">
+                 <widget class="QCheckBox" name="checkBoxCover">
                   <property name="text">
-                   <string>Cover Font</string>
+                   <string>Cover</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="ExampleLabel" name="labelCoverFontExample">
-                  <property name="text">
-                   <string>Example</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="FontButton" name="toolButtonCoverFont">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_11">
-                <item>
-                 <widget class="QLabel" name="labelTitlePosition">
-                  <property name="text">
-                   <string>Title position from top</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxTitlePosition">
+                 <layout class="QHBoxLayout" name="horizontalLayout_10">
                   <item>
-                   <property name="text">
-                    <string>1/3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>1/2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>2/3</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="QLabel" name="labelCoverImage">
-                  <property name="text">
-                   <string> Image</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="labelCoverViewImage">
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QToolButton" name="toolButtonSuppressCoverImage">
-                  <property name="text">
-                   <string> - </string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="ImageButton" name="toolButtonCoverImage">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="0" column="1" rowspan="2">
-          <widget class="QGroupBox" name="groupBoxChord">
-           <property name="title">
-            <string>Chord</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_14">
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_3">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_15">
-                <item>
-                 <widget class="QLabel" name="labelChordDiagramHSize">
-                  <property name="text">
-                   <string>Chord diagram horizontal size</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="SpinBoxUnit" name="spuChordHorizontalSize" native="true"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QVBoxLayout" name="verticalLayout_12">
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_8">
-                  <item>
-                   <widget class="QLabel" name="labelChordFont">
+                   <widget class="QLabel" name="labelCoverFont">
                     <property name="text">
-                     <string>Chord Font</string>
+                     <string>Cover Font</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="ExampleLabel" name="labelChordFontExample">
+                   <widget class="ExampleLabel" name="labelCoverFontExample">
                     <property name="text">
                      <string>Example</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <widget class="FontButton" name="toolButtonChordFont">
+                   <widget class="FontButton" name="toolButtonCoverFont">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_11">
+                  <item>
+                   <widget class="QLabel" name="labelTitlePosition">
+                    <property name="text">
+                     <string>Title position from top</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxTitlePosition">
+                    <item>
+                     <property name="text">
+                      <string>1/3</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>1/2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>2/3</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout">
+                  <item>
+                   <widget class="QLabel" name="labelCoverImage">
+                    <property name="text">
+                     <string> Image</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="labelCoverViewImage">
+                    <property name="text">
+                     <string/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="toolButtonSuppressCoverImage">
+                    <property name="text">
+                     <string> - </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="ImageButton" name="toolButtonCoverImage">
                     <property name="text">
                      <string>...</string>
                     </property>
@@ -631,251 +579,313 @@
                 </item>
                </layout>
               </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_22">
-                <item>
-                 <widget class="QLabel" name="labelChordLang">
-                  <property name="text">
-                   <string>Chord Lang</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxChordLang"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_23">
-                <item>
-                 <widget class="QLabel" name="labelChordLangInText">
-                  <property name="text">
-                   <string>Chord display</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxChordInText">
-                  <item>
-                   <property name="text">
-                    <string>with diagram in text</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>with name in text but all chords at begining</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>with name in text and no chord at begining</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </item>
              </layout>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="1" column="0" rowspan="2">
-          <widget class="QGroupBox" name="groupBoxToc">
-           <property name="title">
-            <string>Toc</string>
-           </property>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_5">
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxToc">
+             <property name="title">
+              <string>Toc</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_13">
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_24">
                 <item>
-                 <widget class="QLabel" name="labelTocVerticalSpacing">
-                  <property name="text">
-                   <string>Toc vertical spacing</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="VerticalSpacing" name="comboBoxTocVerticalSpacing"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_31">
-                <item>
-                 <widget class="QLabel" name="labelTocColumn">
-                  <property name="text">
-                   <string>Toc column number</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxTocColumnNumber">
+                 <layout class="QVBoxLayout" name="verticalLayout_5">
                   <item>
-                   <property name="text">
-                    <string>1</string>
-                   </property>
+                   <widget class="QLabel" name="labelTocVerticalSpacing">
+                    <property name="text">
+                     <string>Toc vertical spacing</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>2</string>
-                   </property>
+                   <widget class="QLabel" name="labelTocMargin">
+                    <property name="text">
+                     <string>Toc horizontal margin</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>3</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_36">
-                <item>
-                 <widget class="QLabel" name="labelTocFont">
-                  <property name="text">
-                   <string>Toc Font</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="ExampleLabel" name="labelTocFontExample">
-                  <property name="text">
-                   <string>Example</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="FontButton" name="toolButtonTocFont">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_32">
-                <item>
-                 <widget class="QLabel" name="labelTocSpaceCharacter">
-                  <property name="text">
-                   <string>Space character</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxTocSpaceCharacter">
-                  <item>
-                   <property name="text">
-                    <string>. . . .</string>
-                   </property>
+                   <widget class="QLabel" name="labelTocColumn">
+                    <property name="text">
+                     <string>Toc column number</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>- - - -</string>
-                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <item>
+                     <widget class="QLabel" name="labelTocFont">
+                      <property name="text">
+                       <string>Toc Font</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="ExampleLabel" name="labelTocFontExample">
+                      <property name="text">
+                       <string>Example</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </item>
                   <item>
-                   <property name="text">
-                    <string/>
-                   </property>
+                   <widget class="QLabel" name="labelTocSpaceCharacter">
+                    <property name="text">
+                     <string>Space character</string>
+                    </property>
+                   </widget>
                   </item>
-                 </widget>
+                  <item>
+                   <widget class="QLabel" name="label">
+                    <property name="text">
+                     <string>Position </string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_12">
                 <item>
-                 <widget class="QLabel" name="label">
-                  <property name="text">
-                   <string>Position </string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxTocPosition">
+                 <layout class="QVBoxLayout" name="verticalLayout_7">
                   <item>
-                   <property name="text">
-                    <string>No</string>
-                   </property>
+                   <widget class="VerticalSpacing" name="comboBoxTocVerticalSpacing"/>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>At begining</string>
-                   </property>
+                   <widget class="SpinBoxUnit" name="spuTocHorizontalMargin" native="true"/>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>At end</string>
-                   </property>
+                   <widget class="QComboBox" name="comboBoxTocColumnNumber">
+                    <item>
+                     <property name="text">
+                      <string>1</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>2</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3</string>
+                     </property>
+                    </item>
+                   </widget>
                   </item>
-                 </widget>
+                  <item>
+                   <widget class="FontButton" name="toolButtonTocFont">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxTocSpaceCharacter">
+                    <item>
+                     <property name="text">
+                      <string>. . . .</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>- - - -</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string/>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxTocPosition">
+                    <item>
+                     <property name="text">
+                      <string>No</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>At begining</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>At end</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </item>
              </layout>
-            </item>
-           </layout>
-          </widget>
+            </widget>
+           </item>
+          </layout>
          </item>
-         <item row="2" column="1">
-          <widget class="QGroupBox" name="groupBoxMiscellaneousContent">
-           <property name="title">
-            <string>Miscellaneous</string>
-           </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_2">
-            <item>
-             <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_22">
+           <item>
+            <widget class="QGroupBox" name="groupBoxChord">
+             <property name="title">
+              <string>Chord</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_14">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <layout class="QVBoxLayout" name="verticalLayout_3">
                 <item>
-                 <widget class="QLabel" name="labelOutputFileName">
-                  <property name="text">
-                   <string>Output file name</string>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout_15">
+                  <item>
+                   <widget class="QLabel" name="labelChordDiagramHSize">
+                    <property name="text">
+                     <string>Chord diagram horizontal size</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="SpinBoxUnit" name="spuChordHorizontalSize" native="true"/>
+                  </item>
+                 </layout>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lineEditOutFile"/>
+                 <layout class="QVBoxLayout" name="verticalLayout_12">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_8">
+                    <item>
+                     <widget class="QLabel" name="labelChordFont">
+                      <property name="text">
+                       <string>Chord Font</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="ExampleLabel" name="labelChordFontExample">
+                      <property name="text">
+                       <string>Example</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="FontButton" name="toolButtonChordFont">
+                      <property name="text">
+                       <string>...</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_22">
+                  <item>
+                   <widget class="QLabel" name="labelChordLang">
+                    <property name="text">
+                     <string>Chord Lang</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxChordLang"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_23">
+                  <item>
+                   <widget class="QLabel" name="labelChordLangInText">
+                    <property name="text">
+                     <string>Chord display</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxChordInText">
+                    <item>
+                     <property name="text">
+                      <string>with diagram in text</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>with name in text but all chords at begining</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>with name in text and no chord at begining</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_30">
-                <item>
-                 <widget class="QLabel" name="labelVerticalSpacing">
-                  <property name="text">
-                   <string>Text vertical spacing</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="VerticalSpacing" name="comboBoxVerticalSpacing"/>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBoxFullScreenMode">
-                <property name="text">
-                 <string>Open in full screen mode</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="checkBoxTitleInUppercase">
-                <property name="text">
-                 <string>Title in uppercase</string>
-                </property>
-               </widget>
               </item>
              </layout>
-            </item>
-           </layout>
-          </widget>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBoxMiscellaneousContent">
+             <property name="title">
+              <string>Miscellaneous</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_8">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <item>
+                   <widget class="QLabel" name="labelOutputFileName">
+                    <property name="text">
+                     <string>Output file name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEditOutFile"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_30">
+                  <item>
+                   <widget class="QLabel" name="labelVerticalSpacing">
+                    <property name="text">
+                     <string>Text vertical spacing</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="VerticalSpacing" name="comboBoxVerticalSpacing"/>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBoxFullScreenMode">
+                  <property name="text">
+                   <string>Open in full screen mode</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBoxTitleInUppercase">
+                  <property name="text">
+                   <string>Title in uppercase</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>

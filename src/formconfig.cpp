@@ -224,9 +224,10 @@ void FormConfig::InitDefault(Classes c)
     ui->spuChordHorizontalSize->setValue(s->value(QString("%1/ChordHorizontalSize").arg(classe),"2mm").toString());
     ui->spuHorizontalMargin->setValue(s->value(QString("%1/HorizontalMargin").arg(classe),"2mm").toString());
     ui->spuVerticalMargin->setValue(s->value(QString("%1/VerticalMargin").arg(classe),"5mm").toString());
-
     ui->spuPageHeight->setValue(s->value(QString("%1/PageHeight").arg(classe),"297mm").toString());
     ui->spuPageWidth->setValue(s->value(QString("%1/PageWidth").arg(classe),"210mm").toString());
+    ui->spuTocHorizontalMargin->setValue(s->value(QString("%1/TocHorizontalMargin").arg(classe),"10mm").toString());
+
     QFont f;
     f.fromString(s->value(QString("%1/ChordFont").arg(classe),QFont().toString()).toString());
     ui->toolButtonChordFont->setFont(f);
