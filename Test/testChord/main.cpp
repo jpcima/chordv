@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
         QString value=values.last();
         sf.setValue(name,value);
     }
+    if ( outindication.isEmpty()) outindication=file.replace("conf/","").replace(QRegExp("\.chop$"),"");
     sf.setValue("Memory/OutFile","Memory_"+outindication);
     sf.setValue("Lyrics/OutFile","Lyrics_"+outindication);
     sf.setValue("Text/OutFile","Text_"+outindication);

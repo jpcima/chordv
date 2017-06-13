@@ -9,6 +9,7 @@ testChord Lyrics/ChordInText=0 conf/Lyrics.chop
 testChord Lyrics/ChordInText=2 conf/Lyrics.chop
 testChord Lyrics/Cover=0 Lyrics/TocPosition=0 conf/Lyrics.chop
 testChord conf/Chord.chop
+testChord conf/All.chop
 
 
 
