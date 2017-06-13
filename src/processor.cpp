@@ -472,6 +472,7 @@ void Processor::displayLyrics()
         m_firstline=false;
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*3;
         m_initialhposition=m_line;
+
     }
     foreach (QString text,m_BufLyrics)
     {
@@ -530,6 +531,7 @@ void Processor::NextLine(int num )
         m_column = nextColumn(currentColumn()) ;
         m_oldcol=-1000;
         m_line=m_initialhposition;
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
     }
     else
     {

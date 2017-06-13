@@ -4,8 +4,7 @@ List of bugs
 - Toc wrong when many pages for a song
 - Start of other culumns at same line !
 - Shift diagram or chord Name if column1 and column2 are too near
-- Disable col brek on Text, and Lyrics if diagram inline
-
+- Disable col break on Text, and Lyrics if diagram inline
 - nice initialization of each config values
 
 List of  todo
