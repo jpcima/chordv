@@ -31,7 +31,6 @@ void ProcessorLyrics::displayChordsForSong()
  }
 }
 
-
 void ProcessorLyrics::displayLyrics()
 {
     BufLyricsNormailisation();
@@ -94,21 +93,21 @@ void ProcessorLyrics::displayLyrics()
                }
             else
                {
-                num = m_uiconfig->spuChordHorizontalSize->getPdfU();
-                int line1=m_line+num;
+                num = m_uiconfig->spuChordHorizontalSize->getPdfU()+m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
+                //int line1=m_line+num;
                 int col1=col-m_uiconfig->spuChordHorizontalSize->getPdfU()/2;
                 //while ( col1 -m_oldcol <m_uiconfig->spuChordHorizontalSize->getPdfU()/6) col1+=m_uiconfig->spuChordHorizontalSize->getPdfU()/6;
                 addCol(col1,m_uiconfig->spuChordHorizontalSize->getPdfU()/6);
-                displayChord(ch.chord(),line1,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
+                displayChord(ch.chord(),m_line,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
                 m_oldcol=col1;
                }
             text=chordexp.cap(3);
            }
-          if ( (text ==tr("Refrain :") || text ==tr("Chorus :")) && m_uiconfig->comboBoxChordInText->currentIndex()==0)
+          if ( (text ==tr("Refrain :") || text ==tr("Chorus :")) && m_uiconfig->comboBoxChordInText->currentIndex()== FormConfig::DiagramInText)
           {
               num = m_uiconfig->spuChordHorizontalSize->getPdfU();
           }
-          else
+          else if ( m_uiconfig->comboBoxChordInText->currentIndex()!= FormConfig::DiagramInText )
               num= m_uiconfig->toolButtonChordFont->getFont().pointSizeF();
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
           }
@@ -128,7 +127,7 @@ void ProcessorLyrics::displayLyrics()
                   }
                else
                   {
-                   num = m_uiconfig->spuChordHorizontalSize->getPdfU();
+                   num = m_uiconfig->spuChordHorizontalSize->getPdfU()+m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
                    int line1=m_line+num;
                    displayChord(ch.chord(),line1,col,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
                   }

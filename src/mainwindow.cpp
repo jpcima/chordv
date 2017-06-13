@@ -200,8 +200,7 @@ void MainWindow::setChordMode( int i)
     ui->actionSelectChord->setEnabled(i!=0);
     ui->actionBuildChord->setEnabled(i!=0);
     ui->actionViewChord->setEnabled(i!=0);
-
-
+    ui->actionBuildAndViewChord->setEnabled(i!=0);
 }
 
 void MainWindow::setTextMode(int i)
@@ -209,6 +208,7 @@ void MainWindow::setTextMode(int i)
     ui->actionSelectText->setEnabled(i!=0);
     ui->actionBuildText->setEnabled(i!=0);
     ui->actionViewText->setEnabled(i!=0);
+    ui->actionBuildAndViewText->setEnabled(i!=0);
 
 }
 
@@ -217,6 +217,7 @@ void MainWindow::setMemoryMode(int i)
     ui->actionSelectMemory->setEnabled(i!=0);
     ui->actionBuildMemory->setEnabled(i!=0);
     ui->actionViewMemory->setEnabled(i!=0);
+    ui->actionBuildAndViewMemory->setEnabled(i!=0);
 }
 
 void MainWindow::setLyricsMode(int i)
@@ -224,6 +225,7 @@ void MainWindow::setLyricsMode(int i)
     ui->actionSelectLyrics->setEnabled(i!=0);
     ui->actionBuildLyrics->setEnabled(i!=0);
     ui->actionViewLyrics->setEnabled(i!=0);
+    ui->actionBuildAndViewLyrics->setEnabled(i!=0);
 
 }
 
@@ -415,15 +417,12 @@ void MainWindow::Save(bool)
 
 void MainWindow::SaveAs(bool)
 {
-    QSettings s;
     m_currentprojectfile=QFileDialog::getSaveFileName(this,tr("Save project as"),ChordUtil::getLastDirectory(),tr("(*.chop)"));
     if (!m_currentprojectfile.isEmpty() )
     {
-        if ( m_currentprojectname.isEmpty())
-        {
-            QFileInfo fi( m_currentprojectfile);
-            m_currentprojectname=fi.baseName();
-        }
+        QFileInfo fi( m_currentprojectfile);
+        m_currentprojectname=fi.baseName();
+        m_currentprojectdir=fi.absolutePath();
         Save(true);
         ChordUtil::setLastDirectory(m_currentprojectfile);
     }

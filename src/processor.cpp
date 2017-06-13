@@ -521,7 +521,7 @@ bool Processor::isColBreak(QString line)
 
 void Processor::NextLine(int num )
 {
-    if (  m_line - m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2 > m_uiconfig->spuVerticalMargin->getPdfU())
+    if (  m_line - 2*m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2  - 2 * num > m_uiconfig->spuVerticalMargin->getPdfU())
     {
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2+num;
     }

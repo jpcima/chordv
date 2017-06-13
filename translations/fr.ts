@@ -318,135 +318,135 @@ p, li { white-space: pre-wrap; }
         <translation>Dans la base de données </translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="156"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="171"/>
         <source>Chord Management</source>
         <translation>Gestion des accords</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="173"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="188"/>
         <source>Sort on</source>
         <translation>Trier sur</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="180"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="195"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="193"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="208"/>
         <source>Cho&amp;rd </source>
         <translation>L&apos;acco&amp;rd</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="200"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="215"/>
         <source>fret</source>
         <translation>La frette</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="207"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="29"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="36"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="40"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="222"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="32"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="39"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="43"/>
         <source>Index</source>
         <translation>L&apos;index</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="224"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="239"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="257"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="272"/>
         <source>Insert Chord </source>
         <translation>Insérer l&apos;accord</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="309"/>
-        <location filename="../ui/dialogchorddefinition.ui" line="387"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="324"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="402"/>
         <source>Delete</source>
         <translation>Suppression</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="316"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="331"/>
         <source>Modifiy</source>
         <translation>Modification</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="346"/>
-        <location filename="../ui/dialogchorddefinition.ui" line="394"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="361"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="409"/>
         <source>Approve</source>
         <translation>Approuver</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="424"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="439"/>
         <source>Chord Inport</source>
         <translation>Importation d&apos;accords</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="437"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="452"/>
         <source>Copy paste chords in form </source>
         <translation>Copier coller d&apos;accords dans le formulaire</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="444"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="459"/>
         <source>chord=relative position 6 ..position 1 </source>
         <translation>accord=case position 6 ... position 1</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="451"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="466"/>
         <source>C(III)=3 0 0 3 3 3 0  </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="473"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="488"/>
         <source>Import</source>
         <translation>Importation</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="509"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="524"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="27"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="34"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="30"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="37"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="28"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="35"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="31"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="38"/>
         <source>Value</source>
         <translation>Valeur</translation>
     </message>
     <message>
-        <location filename="../ui/dialogchorddefinition.ui" line="139"/>
-        <location filename="../src/dialogchorddefinition.cpp" line="30"/>
+        <location filename="../ui/dialogchorddefinition.ui" line="133"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="33"/>
         <source>Approved</source>
         <translation>Appouvé</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="70"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="73"/>
         <source>Chord insertion</source>
         <translation>Insertion d&apos;un accord</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="183"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="190"/>
         <source>Undertermined</source>
         <translation>Indéterminé</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="266"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="287"/>
         <source>ERROR line %1 : %2</source>
         <translation>ERREUR ligne %1 : %2</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="269"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="290"/>
         <source>ERROR line %1 :syntax error</source>
         <translation>ERREUR ligne %1 : erreur de syntaxe</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="304"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="325"/>
         <source>Warning : Chord name exist in the database with the same name and same value</source>
         <translation>Attention : l&apos;accord existe déjà dans la base avec le même nom et la même valeur</translation>
     </message>
@@ -557,7 +557,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../ui/dialogdocumentation.ui" line="14"/>
         <source>Documentation</source>
-        <translation>Doucumentation</translation>
+        <translation>Documentation</translation>
     </message>
     <message>
         <location filename="../ui/dialogdocumentation.ui" line="43"/>
@@ -573,52 +573,52 @@ p, li { white-space: pre-wrap; }
         <translation>Cherche et remplace</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="26"/>
+        <location filename="../ui/dialogreplace.ui" line="30"/>
         <source>Text to replace</source>
         <translation>Texte à remplacer</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="33"/>
+        <location filename="../ui/dialogreplace.ui" line="37"/>
         <source>Replace with </source>
         <translation>Remplacer par</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="54"/>
+        <location filename="../ui/dialogreplace.ui" line="130"/>
         <source>Search</source>
         <translation>Chercher</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="64"/>
+        <location filename="../ui/dialogreplace.ui" line="140"/>
         <source>Replace</source>
         <translation>Remplacer</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="74"/>
+        <location filename="../ui/dialogreplace.ui" line="150"/>
         <source>Skip</source>
         <translation>Sauter</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="100"/>
+        <location filename="../ui/dialogreplace.ui" line="96"/>
         <source>Backward</source>
         <translation>En arrière</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="107"/>
+        <location filename="../ui/dialogreplace.ui" line="103"/>
         <source>All Document</source>
         <translation>Tout le documennt</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="114"/>
+        <location filename="../ui/dialogreplace.ui" line="110"/>
         <source>Case sensitive</source>
         <translation>Sensible à la casse</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="121"/>
+        <location filename="../ui/dialogreplace.ui" line="117"/>
         <source>Word only</source>
         <translation>Mots uniquement</translation>
     </message>
     <message>
-        <location filename="../ui/dialogreplace.ui" line="145"/>
+        <location filename="../ui/dialogreplace.ui" line="189"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
@@ -627,7 +627,7 @@ p, li { white-space: pre-wrap; }
     <name>DialogSearch</name>
     <message>
         <location filename="../ui/dialogsearch.ui" line="14"/>
-        <location filename="../ui/dialogsearch.ui" line="62"/>
+        <location filename="../ui/dialogsearch.ui" line="73"/>
         <source>Search</source>
         <translation>Chercher</translation>
     </message>
@@ -637,22 +637,22 @@ p, li { white-space: pre-wrap; }
         <translation>Texte à chercher</translation>
     </message>
     <message>
-        <location filename="../ui/dialogsearch.ui" line="38"/>
+        <location filename="../ui/dialogsearch.ui" line="49"/>
         <source>Case sentitive</source>
         <translation>Sensible à la casse</translation>
     </message>
     <message>
-        <location filename="../ui/dialogsearch.ui" line="45"/>
+        <location filename="../ui/dialogsearch.ui" line="56"/>
         <source>Word only</source>
         <translation>Mot uniquement</translation>
     </message>
     <message>
-        <location filename="../ui/dialogsearch.ui" line="52"/>
+        <location filename="../ui/dialogsearch.ui" line="63"/>
         <source>Previous</source>
         <translation>Précédent</translation>
     </message>
     <message>
-        <location filename="../ui/dialogsearch.ui" line="89"/>
+        <location filename="../ui/dialogsearch.ui" line="100"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
@@ -2347,37 +2347,37 @@ chorus</translation>
         <translation type="vanished">Aller à la page %1</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="342"/>
+        <location filename="../src/processor.cpp" line="343"/>
         <source>Chorus :</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="347"/>
+        <location filename="../src/processor.cpp" line="348"/>
         <source>End of chorus</source>
         <translation>Fin du chorus</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="353"/>
+        <location filename="../src/processor.cpp" line="354"/>
         <source>Refrain :</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="358"/>
+        <location filename="../src/processor.cpp" line="359"/>
         <source>End of refrain</source>
         <translation>Fin du refrain</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="910"/>
+        <location filename="../src/processor.cpp" line="911"/>
         <source>Go to last song</source>
         <translation>Aller à la chanson précédente</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="925"/>
+        <location filename="../src/processor.cpp" line="926"/>
         <source>Go to next song</source>
         <translation>Aller à la chanson suivante </translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="941"/>
+        <location filename="../src/processor.cpp" line="942"/>
         <source>Go to table of content</source>
         <translation>Aller à la table des matières</translation>
     </message>
@@ -2460,8 +2460,8 @@ chorus</translation>
         <translation type="vanished">Fin du chorus</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="719"/>
-        <location filename="../src/processor.cpp" line="784"/>
+        <location filename="../src/processor.cpp" line="720"/>
+        <location filename="../src/processor.cpp" line="785"/>
         <source>Table of content</source>
         <translation>Table des matières</translation>
     </message>
