@@ -174,5 +174,3 @@
     RCC_DIR = build/rcc
     UI_DIR = build/ui
 
-    SUBDIRS = test
-

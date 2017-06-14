@@ -90,6 +90,7 @@ void DialogConfiguration::InitSettings()
     ui->comboBoxUnit->setCurrentText(s.value("Unit","mm").toString());
     ui->lineEditCreatoName->setText(s.value("CreatorName","").toString());
     ui->lineEditPDFReaderName->setText(s.value("PDFReader","").toString());
+    ui->checkBoxOpenLastFileOnStart->setChecked(s.value("OpenLastFileOnStart",false).toBool());
 }
 
 void DialogConfiguration::Save()
@@ -99,9 +100,11 @@ void DialogConfiguration::Save()
    s.setValue("Unit",ui->comboBoxUnit->currentText());
    s.setValue("CreatorName",ui->lineEditCreatoName->text());
    s.setValue("PDFReader",ui->lineEditPDFReaderName->text());
+   s.setValue("OpenLastFileOnStart",ui->checkBoxOpenLastFileOnStart->isChecked());
    ui->memoryConfig->Save(s.fileName(),FormConfig::Memory);
    ui->chordConfig->Save(s.fileName(),FormConfig::Chord);
    ui->textConfig->Save(s.fileName(),FormConfig::Text);
    ui->lyricsConfig->Save(s.fileName(),FormConfig::Lyrics);
+
    close();
 }

@@ -3,6 +3,7 @@
 
 #include "processor.h"
 #include "mainwindow.h"
+#include "fontbutton.h"
 #include <podofo/podofo.h>
 #include <podofo/podofo-base.h>
 
@@ -16,6 +17,7 @@ private:
     void includeEor(){}
     void includeEoc(){}
     void doColumnBreak(QString line);
+    void Drawline(double pos, int num, FontButton *ptr);
 };
 
 #endif // PROCESSORLYRICS_H

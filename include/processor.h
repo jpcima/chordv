@@ -281,7 +281,6 @@ protected:
     /// \param line the line read
     ///
     void memorizeChords(QString line);
-    int m_oldcol;
     int m_subtitlenumber;
 signals:
     void PDFMade( QString file);

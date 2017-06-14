@@ -437,6 +437,10 @@ void Processor::newPage()
     m_page = m_document->CreatePage(*m_dimension);
     m_painter.SetPage(m_page);
     m_line=m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU();
+    if ( m_mode == "lyrics" && m_uiconfig->comboBoxChordInText->currentIndex()==FormConfig::DiagramInText)
+    {
+        m_line-=m_uiconfig->spuChordHorizontalSize->getPdfU();
+    }
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
     m_pageAllocation=true;
  }
@@ -529,13 +533,11 @@ void Processor::NextLine(int num )
     else if ( m_colnumber > 1 && currentColumn() < m_colnumber  )
    {
         m_column = nextColumn(currentColumn()) ;
-        m_oldcol=-1000;
         m_line=m_initialhposition;
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
     }
     else
     {
-        m_oldcol=-1000;
         if (m_tocpages.count() != 0)
         {
             m_tocpages[m_title]++;

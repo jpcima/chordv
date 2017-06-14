@@ -9926,6 +9926,9 @@ build/obj/dialogconfiguration.o: src/dialogconfiguration.cpp include/dialogconfi
 		../../Qt/5.9/gcc_64/include/QtGui/qinputmethod.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QButtonGroup \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qbuttongroup.h \
+		../../Qt/5.9/gcc_64/include/QtWidgets/QCheckBox \
+		../../Qt/5.9/gcc_64/include/QtWidgets/qcheckbox.h \
+		../../Qt/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qlayout.h \
@@ -9946,7 +9949,6 @@ build/obj/dialogconfiguration.o: src/dialogconfiguration.cpp include/dialogconfi
 		../../Qt/5.9/gcc_64/include/QtGui/qtextoption.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QPushButton \
 		../../Qt/5.9/gcc_64/include/QtWidgets/qpushbutton.h \
-		../../Qt/5.9/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QSpacerItem \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QTabWidget \
 		../../Qt/5.9/gcc_64/include/QtWidgets/QToolButton \

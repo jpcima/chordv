@@ -5,6 +5,8 @@ List of bugs
 - Shift diagram or chord Name if column1 and column2 are too near
 - Disable col break on Text, and Lyrics if diagram inline
 - nice initialization of each config values
+- Chorus on many colums
+- New page init begining line correctly
 
 List of  todo
 ======================

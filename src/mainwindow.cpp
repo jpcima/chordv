@@ -120,6 +120,11 @@ MainWindow::MainWindow(QWidget *parent) :
         }
         openProject(file);
     }
+    else
+        if ( ! s.value("LastOpenedFile","").toString().isEmpty() && s.value("OpenLastFileOnStart","").toBool() )
+        {
+            openProject(s.value("LastOpenedFile","").toString());
+        }
     if ( testMode())
     {
         ProducePDF();
@@ -262,9 +267,11 @@ void MainWindow::InitProject()
     QString file=getFileInArg();
     if ( file.isEmpty())
     {
-        m_currentprojectdir=s.value("LastOpenedDirectory","").toString();
-        m_currentprojectname="";
-        m_currentprojectfile="" ;
+
+
+            m_currentprojectdir=s.value("LastOpenedDirectory","").toString();
+            m_currentprojectname="";
+            m_currentprojectfile="" ;
     }
     else
     {
@@ -284,6 +291,7 @@ void MainWindow::openChoFile( QString filename)
 {
     QSettings s;
     QFile file(filename);
+
     ui->textEditCho3File->clear();
     ui->pushButtonMakePDF->setDisabled(true);
     if ( ! s.value("PDFReader").isNull() ) ui->pushButtonMakeAndShowPDF->setDisabled(true);
@@ -306,12 +314,12 @@ void MainWindow::openChoFile( QString filename)
 
 void MainWindow::openProject(QString filename)
 {
-
+    QSettings s;
     ui->log->clear();
     QFileInfo fi(filename);
     m_currentprojectname=fi.baseName();
     m_currentprojectdir=fi.absolutePath();
-
+    s.setValue("LastOpenedFile",filename);
     QDir::setCurrent(m_currentprojectdir);
     m_currentprojectfile=filename;
     ui->labelNameProjectName->setText(m_currentprojectname);

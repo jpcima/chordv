@@ -19,7 +19,7 @@
      <item>
       <widget class="QTabWidget" name="tabWidget">
        <property name="currentIndex">
-        <number>0</number>
+        <number>5</number>
        </property>
        <widget class="QWidget" name="tab">
         <attribute name="title">
@@ -191,7 +191,21 @@
         </attribute>
         <layout class="QVBoxLayout" name="verticalLayout_7">
          <item>
-          <widget class="QWidget" name="widget" native="true"/>
+          <widget class="QWidget" name="widget" native="true">
+           <widget class="QCheckBox" name="checkBoxOpenLastFileOnStart">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>20</y>
+              <width>221</width>
+              <height>23</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>Open last file on start </string>
+            </property>
+           </widget>
+          </widget>
          </item>
         </layout>
        </widget>
