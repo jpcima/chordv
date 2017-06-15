@@ -75,7 +75,8 @@ void ProcessorLyrics::displayLyrics()
               TextInBox(m_document,CommentRex.cap(1),m_column,m_line,m_uiconfig->toolButtonCommentBoxFont);
                NextLine();
           }
-          else if ( ! isChorus(text))
+          else
+              //if ( ! isChorus(text))
           {
           int positionchord=0;
           while  ( text.indexOf(chordexp)!=-1)
@@ -126,29 +127,29 @@ void ProcessorLyrics::displayLyrics()
                   num= m_uiconfig->toolButtonChordFont->getFont().pointSizeF();
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
           }
-          else // chorus
-          {
-           while  ( text.indexOf(chordexp)!=-1)
-           {
-               Chord ch(chordexp.cap(2),m_uimainwindow->comboBoxChordLanguage->currentData().toString());
-               if (  m_uiconfig->comboBoxChordInText->currentIndex()!= FormConfig::DiagramInText)
-                  {
-                   num=m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
-                   QString c1=m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale();
-                   Text(m_document,c1,col,m_line,m_uiconfig->toolButtonChordFont);
-                   //int col2=col+cfont->GetFontMetrics()->StringWidth(PdfString ((c1+"  ").toLatin1()));
-                   //col+=col2 ;
-                    addCol(col,cfont->GetFontMetrics()->StringWidth(PdfString ((c1+"  ").toLatin1())));
-                  }
-               else
-                  {
-                   num = m_uiconfig->spuChordHorizontalSize->getPdfU()+m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
-                   int line1=m_line+num;
-                   displayChord(ch.chord(),line1,col,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
-                  }
-               text=chordexp.cap(3);
-           }
-          }
+//          else // chorus
+//          {
+//           while  ( text.indexOf(chordexp)!=-1)
+//           {
+//               Chord ch(chordexp.cap(2),m_uimainwindow->comboBoxChordLanguage->currentData().toString());
+//               if (  m_uiconfig->comboBoxChordInText->currentIndex()!= FormConfig::DiagramInText)
+//                  {
+//                   num=m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
+//                   QString c1=m_uiconfig->comboBoxChordLang->currentData().toString()=="en"?ch.nameEnglish():ch.nameLocale();
+//                   Text(m_document,c1,col,m_line,m_uiconfig->toolButtonChordFont);
+//                   //int col2=col+cfont->GetFontMetrics()->StringWidth(PdfString ((c1+"  ").toLatin1()));
+//                   //col+=col2 ;
+//                    addCol(col,cfont->GetFontMetrics()->StringWidth(PdfString ((c1+"  ").toLatin1())));
+//                  }
+//               else
+//                  {
+//                   num = m_uiconfig->spuChordHorizontalSize->getPdfU()+m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
+//                   int line1=m_line+num;
+//                   displayChord(ch.chord(),line1,col,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
+//                  }
+//               text=chordexp.cap(3);
+//           }
+//          }
         }
         NextLine(num);
     }
