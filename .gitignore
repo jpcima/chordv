@@ -1,4 +1,5 @@
 *.pro.user
+*.pdf
 Makefile
 build
 bin
