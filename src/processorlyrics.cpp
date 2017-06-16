@@ -105,25 +105,14 @@ void ProcessorLyrics::displayLyrics()
                {
                 num = m_uiconfig->spuChordHorizontalSize->getPdfU()+m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
                 int col1=col-m_uiconfig->spuChordHorizontalSize->getPdfU()/2;
-                positionchord=col1;
-                 m_painter.Circle(col ,m_line,3);
-                 m_painter.Fill(true);
-//                 m_painter.Circle(positionchord ,m_line-4,5);
-//                 m_painter.Fill(true);
-                 m_painter.Circle(col1 ,m_line+4,2);
-                 m_painter.Circle(col2 ,m_line+8,4);
-                // int  ll= m_uiconfig->spuChordHorizontalSize->getPdfU()/2.0;
-                //int d=col - m_uiconfig->spuChordHorizontalSize->getPdfU()/2.0;
-                if( col2  > positionchord)
+                if( col1  <= col2)
                 {
-                    positionchord=col2;
-                    
-                    positionchord+=m_uiconfig->spuChordHorizontalSize->getPdfU();
+                    col1=col2;
+
                 }
                 int l=m_line+m_uiconfig->spuChordHorizontalSize->getPdfU();
-                displayChord(ch.chord(),l,positionchord,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
-                positionchord=col+m_uiconfig->spuChordHorizontalSize->getPdfU()/2.0;
-                col2=col+m_uiconfig->spuChordHorizontalSize->getPdfU()/2;
+                displayChord(ch.chord(),l,col1,m_uiconfig->spuChordHorizontalSize->getPdfU(),m_uiconfig->comboBoxChordLang->currentData().toString());
+                col2=col1;
                 //+m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
                }
             text=chordexp.cap(3);

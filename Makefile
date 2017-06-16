@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = chordVv0.1
-DISTDIR = /home/gilles/Developpements/chordV/build/obj/chordVv0.1
+DISTDIR = /home/gilles/Developpements/chordv/build/obj/chordVv0.1
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -L/Libraries/lib/src -L/usr/local/lib -L/usr/lib -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz -lm -lpng -lcrypto -lssl -lQt5Widgets -lQt5Gui -lQt5Sql -lQt5Core -lGL -lpthread 
@@ -251,6 +251,10 @@ DIST          = Example/deuxdisques.png \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -415,6 +419,10 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri \
@@ -483,6 +491,10 @@ Makefile: chordV.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64/qmake.co
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_platformsupport_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_printsupport_private.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qml.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_qmltest.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quick.pri:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_quickwidgets.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_sql_private.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/modules/qt_lib_testlib.pri:
@@ -591,47 +603,47 @@ build/moc/moc_mainwindow.cpp: include/pdfviewer.h \
 		include/formconfig.h \
 		include/mainwindow.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o build/moc/moc_mainwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/mainwindow.h -o build/moc/moc_mainwindow.cpp
 
 build/moc/moc_formconfig.cpp: include/formconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/formconfig.h -o build/moc/moc_formconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/formconfig.h -o build/moc/moc_formconfig.cpp
 
 build/moc/moc_lyricsconfig.cpp: include/formconfig.h \
 		include/lyricsconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/lyricsconfig.h -o build/moc/moc_lyricsconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/lyricsconfig.h -o build/moc/moc_lyricsconfig.cpp
 
 build/moc/moc_chordconfig.cpp: include/formconfig.h \
 		include/chordconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/chordconfig.h -o build/moc/moc_chordconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/chordconfig.h -o build/moc/moc_chordconfig.cpp
 
 build/moc/moc_textconfig.cpp: include/formconfig.h \
 		include/textconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/textconfig.h -o build/moc/moc_textconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/textconfig.h -o build/moc/moc_textconfig.cpp
 
 build/moc/moc_fontchooser.cpp: include/fontdialog.h \
 		include/fontchooser.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontchooser.h -o build/moc/moc_fontchooser.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontchooser.h -o build/moc/moc_fontchooser.cpp
 
 build/moc/moc_fontbutton.cpp: include/fontbutton.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontbutton.h -o build/moc/moc_fontbutton.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontbutton.h -o build/moc/moc_fontbutton.cpp
 
 build/moc/moc_fontdialog.cpp: include/fontdialog.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontdialog.h -o build/moc/moc_fontdialog.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/fontdialog.h -o build/moc/moc_fontdialog.cpp
 
 build/moc/moc_colorbutton.cpp: include/colorbutton.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/colorbutton.h -o build/moc/moc_colorbutton.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/colorbutton.h -o build/moc/moc_colorbutton.cpp
 
 build/moc/moc_imagebutton.cpp: include/imagebutton.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/imagebutton.h -o build/moc/moc_imagebutton.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/imagebutton.h -o build/moc/moc_imagebutton.cpp
 
 build/moc/moc_processor.cpp: include/pagesize.h \
 		include/formconfig.h \
@@ -641,56 +653,56 @@ build/moc/moc_processor.cpp: include/pagesize.h \
 		include/chordconfig.h \
 		include/processor.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/processor.h -o build/moc/moc_processor.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/processor.h -o build/moc/moc_processor.cpp
 
 build/moc/moc_dialogabout.cpp: include/dialogabout.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogabout.h -o build/moc/moc_dialogabout.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogabout.h -o build/moc/moc_dialogabout.cpp
 
 build/moc/moc_memoryconfig.cpp: include/formconfig.h \
 		include/memoryconfig.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/memoryconfig.h -o build/moc/moc_memoryconfig.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/memoryconfig.h -o build/moc/moc_memoryconfig.cpp
 
 build/moc/moc_spinboxunit.cpp: include/spinboxunit.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/spinboxunit.h -o build/moc/moc_spinboxunit.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/spinboxunit.h -o build/moc/moc_spinboxunit.cpp
 
 build/moc/moc_dialogconfiguration.cpp: include/dialogconfiguration.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogconfiguration.h -o build/moc/moc_dialogconfiguration.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogconfiguration.h -o build/moc/moc_dialogconfiguration.cpp
 
 build/moc/moc_dialogchorddefinition.cpp: include/dialogchorddefinition.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchorddefinition.h -o build/moc/moc_dialogchorddefinition.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchorddefinition.h -o build/moc/moc_dialogchorddefinition.cpp
 
 build/moc/moc_neck.cpp: include/neck.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/neck.h -o build/moc/moc_neck.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/neck.h -o build/moc/moc_neck.cpp
 
 build/moc/moc_dialogsysteminfo.cpp: include/dialogsysteminfo.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogsysteminfo.h -o build/moc/moc_dialogsysteminfo.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogsysteminfo.h -o build/moc/moc_dialogsysteminfo.cpp
 
 build/moc/moc_chorddiagram.cpp: include/chorddiagram.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/chorddiagram.h -o build/moc/moc_chorddiagram.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/chorddiagram.h -o build/moc/moc_chorddiagram.cpp
 
 build/moc/moc_dialogchoosegoodchord.cpp: include/dialogchoosegoodchord.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchoosegoodchord.h -o build/moc/moc_dialogchoosegoodchord.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchoosegoodchord.h -o build/moc/moc_dialogchoosegoodchord.cpp
 
 build/moc/moc_dialogsearch.cpp: include/dialogsearch.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogsearch.h -o build/moc/moc_dialogsearch.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogsearch.h -o build/moc/moc_dialogsearch.cpp
 
 build/moc/moc_dialogreplace.cpp: include/dialogreplace.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogreplace.h -o build/moc/moc_dialogreplace.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogreplace.h -o build/moc/moc_dialogreplace.cpp
 
 build/moc/moc_dialogbar.cpp: include/dialogbar.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogbar.h -o build/moc/moc_dialogbar.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogbar.h -o build/moc/moc_dialogbar.cpp
 
 build/moc/moc_textedit.cpp: include/mainwindow.h \
 		include/pdfviewer.h \
@@ -699,27 +711,27 @@ build/moc/moc_textedit.cpp: include/mainwindow.h \
 		include/editorhighlighter.h \
 		include/textedit.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/textedit.h -o build/moc/moc_textedit.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/textedit.h -o build/moc/moc_textedit.cpp
 
 build/moc/moc_dialogdocumentation.cpp: include/dialogdocumentation.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogdocumentation.h -o build/moc/moc_dialogdocumentation.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogdocumentation.h -o build/moc/moc_dialogdocumentation.cpp
 
 build/moc/moc_formeditor.cpp: include/formeditor.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/formeditor.h -o build/moc/moc_formeditor.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/formeditor.h -o build/moc/moc_formeditor.cpp
 
 build/moc/moc_dialogtwolinestochordpro.cpp: include/dialogtwolinestochordpro.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogtwolinestochordpro.h -o build/moc/moc_dialogtwolinestochordpro.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogtwolinestochordpro.h -o build/moc/moc_dialogtwolinestochordpro.cpp
 
 build/moc/moc_dialogchangechordname.cpp: include/dialogchangechordname.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchangechordname.h -o build/moc/moc_dialogchangechordname.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/dialogchangechordname.h -o build/moc/moc_dialogchangechordname.cpp
 
 build/moc/moc_forminputoutputchord.cpp: include/forminputoutputchord.h \
 		/usr/lib/x86_64-linux-gnu/qt5/bin/moc
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordV -I/home/gilles/Developpements/chordV/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordV/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/forminputoutputchord.h -o build/moc/moc_forminputoutputchord.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/gilles/Developpements/chordv -I/home/gilles/Developpements/chordv/Libraries/src/podofo-0.9.5/src -I/usr/local/include -I/home/gilles/Developpements/chordv/include -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtSql -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/6 -I/usr/include/x86_64-linux-gnu/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/x86_64-linux-gnu/6/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/6/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include include/forminputoutputchord.h -o build/moc/moc_forminputoutputchord.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -851,11 +863,6 @@ build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		include/chordconfig.h \
 		include/formconfig.h \
 		build/ui/ui_mainwindow.h \
-		include/formeditor.h \
-		include/logmessages.h \
-		include/lyricsconfig.h \
-		include/memoryconfig.h \
-		include/textconfig.h \
 		include/dialogabout.h \
 		include/dialogconfiguration.h \
 		include/dialogchorddefinition.h \
@@ -866,6 +873,9 @@ build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		include/dialogdocumentation.h \
 		include/dialogtwolinestochordpro.h \
 		include/dialogchangechordname.h \
+		include/lyricsconfig.h \
+		include/textconfig.h \
+		include/memoryconfig.h \
 		include/chord.h \
 		include/langnotes.h \
 		include/chordutil.h \
@@ -876,24 +886,15 @@ build/obj/mainwindow.o: src/mainwindow.cpp include/mainwindow.h \
 		include/processorlyrics.h \
 		include/processorchord.h \
 		include/settings.h \
+		include/logmessages.h \
 		include/language.h \
-		build/ui/ui_formconfig.h \
-		include/verticalspacing.h \
-		include/colorbutton.h \
-		include/examplelabel.h \
-		include/imagebutton.h \
-		include/spinboxunit.h
+		build/ui/ui_formconfig.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/mainwindow.o src/mainwindow.cpp
 
 build/obj/formconfig.o: src/formconfig.cpp include/formconfig.h \
 		build/ui/ui_formconfig.h \
-		include/verticalspacing.h \
 		include/colorbutton.h \
 		include/examplelabel.h \
-		include/fontbutton.h \
-		include/imagebutton.h \
-		include/pagesize.h \
-		include/spinboxunit.h \
 		include/settings.h \
 		include/language.h \
 		include/const.h
@@ -913,8 +914,7 @@ build/obj/textconfig.o: src/textconfig.cpp include/textconfig.h \
 
 build/obj/fontchooser.o: src/fontchooser.cpp include/fontchooser.h \
 		include/fontdialog.h \
-		build/ui/ui_fontchooser.h \
-		include/colorbutton.h
+		build/ui/ui_fontchooser.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/fontchooser.o src/fontchooser.cpp
 
 build/obj/fontbutton.o: src/fontbutton.cpp include/fontbutton.h \
@@ -955,17 +955,7 @@ build/obj/processor.o: src/processor.cpp include/processor.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
-		include/verticalspacing.h \
-		include/colorbutton.h \
-		include/examplelabel.h \
-		include/imagebutton.h \
-		include/spinboxunit.h \
 		build/ui/ui_mainwindow.h \
-		include/formeditor.h \
-		include/logmessages.h \
-		include/lyricsconfig.h \
-		include/memoryconfig.h \
-		include/textconfig.h \
 		include/const.h \
 		include/chord.h \
 		include/langnotes.h \
@@ -986,11 +976,6 @@ build/obj/spinboxunit.o: src/spinboxunit.cpp include/spinboxunit.h
 
 build/obj/dialogconfiguration.o: src/dialogconfiguration.cpp include/dialogconfiguration.h \
 		build/ui/ui_dialogconfiguration.h \
-		include/chordconfig.h \
-		include/formconfig.h \
-		include/lyricsconfig.h \
-		include/memoryconfig.h \
-		include/textconfig.h \
 		include/spinboxunit.h \
 		include/settings.h \
 		include/language.h
@@ -1007,12 +992,7 @@ build/obj/processortext.o: src/processortext.cpp include/processortext.h \
 		include/mainwindow.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
-		build/ui/ui_formconfig.h \
-		include/verticalspacing.h \
-		include/colorbutton.h \
-		include/examplelabel.h \
-		include/imagebutton.h \
-		include/spinboxunit.h
+		build/ui/ui_formconfig.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processortext.o src/processortext.cpp
 
 build/obj/verticalspacing.o: src/verticalspacing.cpp include/verticalspacing.h
@@ -1020,8 +1000,6 @@ build/obj/verticalspacing.o: src/verticalspacing.cpp include/verticalspacing.h
 
 build/obj/dialogchorddefinition.o: src/dialogchorddefinition.cpp include/dialogchorddefinition.h \
 		build/ui/ui_dialogchorddefinition.h \
-		include/chorddiagram.h \
-		include/neck.h \
 		include/chordutil.h \
 		include/logmessages.h \
 		include/dialogchoosegoodchord.h \
@@ -1046,8 +1024,7 @@ build/obj/chorddiagram.o: src/chorddiagram.cpp include/chorddiagram.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/chorddiagram.o src/chorddiagram.cpp
 
 build/obj/dialogchoosegoodchord.o: src/dialogchoosegoodchord.cpp include/dialogchoosegoodchord.h \
-		build/ui/ui_dialogchoosegoodchord.h \
-		include/chorddiagram.h
+		build/ui/ui_dialogchoosegoodchord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchoosegoodchord.o src/dialogchoosegoodchord.cpp
 
 build/obj/dialogsearch.o: src/dialogsearch.cpp include/dialogsearch.h \
@@ -1067,17 +1044,7 @@ build/obj/processorlyrics.o: src/processorlyrics.cpp include/processorlyrics.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
-		include/verticalspacing.h \
-		include/colorbutton.h \
-		include/examplelabel.h \
-		include/imagebutton.h \
-		include/spinboxunit.h \
 		build/ui/ui_mainwindow.h \
-		include/formeditor.h \
-		include/logmessages.h \
-		include/lyricsconfig.h \
-		include/memoryconfig.h \
-		include/textconfig.h \
 		include/chord.h \
 		include/langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorlyrics.o src/processorlyrics.cpp
@@ -1111,17 +1078,7 @@ build/obj/processorchord.o: src/processorchord.cpp include/processorchord.h \
 		include/pdfviewer.h \
 		include/chordconfig.h \
 		build/ui/ui_formconfig.h \
-		include/verticalspacing.h \
-		include/colorbutton.h \
-		include/examplelabel.h \
-		include/imagebutton.h \
-		include/spinboxunit.h \
 		build/ui/ui_mainwindow.h \
-		include/formeditor.h \
-		include/logmessages.h \
-		include/lyricsconfig.h \
-		include/memoryconfig.h \
-		include/textconfig.h \
 		include/chord.h \
 		include/langnotes.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/processorchord.o src/processorchord.cpp
@@ -1133,11 +1090,6 @@ build/obj/textedit.o: src/textedit.cpp include/textedit.h \
 		include/formconfig.h \
 		include/editorhighlighter.h \
 		build/ui/ui_mainwindow.h \
-		include/formeditor.h \
-		include/logmessages.h \
-		include/lyricsconfig.h \
-		include/memoryconfig.h \
-		include/textconfig.h \
 		include/chord.h \
 		include/langnotes.h \
 		include/dialogchorddefinition.h
@@ -1150,24 +1102,16 @@ build/obj/dialogdocumentation.o: src/dialogdocumentation.cpp include/dialogdocum
 
 build/obj/formeditor.o: src/formeditor.cpp include/formeditor.h \
 		build/ui/ui_formeditor.h \
-		include/textedit.h \
-		include/mainwindow.h \
-		include/pdfviewer.h \
-		include/chordconfig.h \
-		include/formconfig.h \
-		include/editorhighlighter.h \
 		include/dialogbar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/formeditor.o src/formeditor.cpp
 
 build/obj/dialogtwolinestochordpro.o: src/dialogtwolinestochordpro.cpp include/dialogtwolinestochordpro.h \
 		build/ui/ui_dialogtwolinestochordpro.h \
-		include/forminputoutputchord.h \
 		include/language.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogtwolinestochordpro.o src/dialogtwolinestochordpro.cpp
 
 build/obj/dialogchangechordname.o: src/dialogchangechordname.cpp include/dialogchangechordname.h \
-		build/ui/ui_dialogchangechordname.h \
-		include/forminputoutputchord.h
+		build/ui/ui_dialogchangechordname.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o build/obj/dialogchangechordname.o src/dialogchangechordname.cpp
 
 build/obj/forminputoutputchord.o: src/forminputoutputchord.cpp include/forminputoutputchord.h \
