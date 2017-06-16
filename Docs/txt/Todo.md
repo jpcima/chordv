@@ -2,7 +2,6 @@ List of bugs
 ============
 
 - Toc wrong when many pages for a song
-- Shift diagram or chord Name if column1 and column2 are too near
 - Disable col break on Text, and Lyrics if diagram inline
 - nice initialization of each config values
 - Chorus on many colums

@@ -357,7 +357,7 @@ La conversion donnera le résultat suivant :
 [sim]Elle est à toi cette chan[Fa#7]son 
 ~~~
 
-![Menu conversion](./img/twolineconversion.png)
+![Conversion format deux lignes vers chord](./img/twolineconversion.png)
 
 1. Les fichiers étant généralement disponibles sur internet, le mode
 opératoire choisi est de copier coller la chanson vers la zone
@@ -377,6 +377,16 @@ des donnés converties.
 
 ### Changer la langue des accords.
 
+![Conversion de la langue des accords](./img/chordlanguageconversion.png)
+
+1. Choisir la langue d'origine ( en général elle est positionnée
+automatiquement)
+2. Choisir la lettre pour signifier que l'accord dans la langue 
+d'origine est mineur
+3. Choisir la langue vers laquelle on souhaite convertir les noms d'accord
+4. Choisir la lettre pour signifier que l'accord dans la langue à convertir
+est mineur
+5. Cliquer sur convertir
 
 ## Lancer l'afficheur PDF 
 

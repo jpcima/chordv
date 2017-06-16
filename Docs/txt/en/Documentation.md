@@ -336,8 +336,18 @@ Be in the form Name = freight
 
 
 ### Change the chord language.
-Google Traduction pour les entreprises :Google Kit du traducteurGadget Traduction
 
+
+![Conversion de la langue des accords](./img/chordlanguageconversion.png)
+
+1. Choisir la langue d'origine ( en général elle est positionnée
+automatiquement)
+2. Choisir la lettre pour signifier que l'accord dans la langue 
+d'origine est mineur
+3. Choisir la langue vers laquelle on souhaite convertir les noms d'accord
+4. Choisir la lettre pour signifier que l'accord dans la langue à convertir
+est mineur
+5. Cliquer sur convertir
 
 # Technical part
 

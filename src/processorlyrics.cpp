@@ -98,7 +98,7 @@ void ProcessorLyrics::displayLyrics()
                     Drawline(positionchord,num,m_uiconfig->toolButtonChordFont);
                     col= positionchord;//if ( ! isChorus(text))
                 }
-                   Text(m_document,c1,col,m_line+num,m_uiconfig->toolButtonChordFont);
+                     Text(m_document,c1,col,m_line+num,m_uiconfig->toolButtonChordFont);
                    positionchord=col+lenght;
                }
             else
