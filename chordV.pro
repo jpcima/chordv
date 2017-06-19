@@ -66,7 +66,8 @@
         src/dialogtwolinestochordpro.cpp \
         src/dialogchangechordname.cpp \
         src/forminputoutputchord.cpp \
-        src/chordutil.cpp
+        src/chordutil.cpp \
+    src/normalizelist.cpp
 
     HEADERS  += include/mainwindow.h \
         include/formconfig.h \
@@ -113,7 +114,8 @@
         include/dialogtwolinestochordpro.h \
         include/dialogchangechordname.h \
         include/forminputoutputchord.h \
-        include/chordutil.h
+        include/chordutil.h \
+    include/normalizelist.h
 
     FORMS    += ui/mainwindow.ui \
         ui/formconfig.ui \
