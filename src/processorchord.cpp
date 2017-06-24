@@ -144,12 +144,11 @@ void ProcessorChord::includeSoc()
 
 void ProcessorChord::displayBpm()
 {
-    m_subtitlenumber++;
     if ( m_uiconfig->toolButtonSubtitleFont->getBackgroundColor() != m_uiconfig->colorButtonPaperColor->getColor())
     {
       m_painter.SetColor(m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().blueF());
       m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
-                          m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()-m_subtitlenumber*m_uiconfig->toolButtonSubtitleFont->getFont().pointSize(),//*1.4-1,
+                          m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()-m_uiconfig->toolButtonSubtitleFont->getFont().pointSize(),//*1.4-1,
                           m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
                           m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
       m_painter.Fill();

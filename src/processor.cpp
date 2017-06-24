@@ -40,11 +40,11 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_text=m_uimainwindow->textEditCho3File->document()->toPlainText();
     m_nbrealpages=0;
     m_mode="generic";
-    m_subtitlenumber=0;
     m_covertitleexist=false;
     m_covertsubtitleexist=false;
     m_time="4/4";
     m_tempo=120;
+    m_subtitle.clear();
 }
 
 
@@ -150,14 +150,7 @@ void Processor::run()
         }
         else if ( line.contains(SubTitleREX) )
         {
-            m_subtitle=SubTitleREX.cap(1);
-            displayPageSubtitle(m_subtitle) ;
-            if ( m_subtitlenumber==0)
-            {
-              displayRytm();
-              displayBpm();
-            }
-
+            m_subtitle<<SubTitleREX.cap(1);
         }
         else if (line.contains(DefineRex))
         {
@@ -192,7 +185,6 @@ void Processor::run()
         else if ( line.contains(TitleREX) )
         {
 
-
 //            if ( $AnnotationAuth!~/^$/ )
 //            {
 //              my ($llx,$lly,$urx,$ury)=$pagechords->get_mediabox();
@@ -201,11 +193,18 @@ void Processor::run()
 //              $ant->text($AnnotationAuth);
 //              $AnnotationAuth="";
 //            }
+
             if ( m_covertitleexist && ! getCoverMade()  && m_uiconfig->checkBoxCover->isChecked())
             {
                  Cover(getCoverTitle(),getCoverSubtitle());
                  setCoverMade(true);
                  m_nbrealpages=0;
+            }
+            else
+            {
+                foreach ( QString title,m_subtitle) displayPageSubtitle(title) ;
+                displayRytm();
+                displayBpm();
             }
             displayChordsForSong();
             displayLyrics();
@@ -218,10 +217,13 @@ void Processor::run()
 //            $lyricscol=$llx+Util::convert(${Config}->{LyricsBook}->{MarginHorizontal});
               m_BufLyrics.clear();
               m_BufChords.clear();
+              m_subtitle.clear();
 //            $CurrentColor=$Config->{ChordBook}->{NormalColor};
 //            $vmargin=Util::convert($Config->{"LyricsBook"}->{MarginVertical});
 //            $vmargin=$ury-$ury*192/200;
               setCompress(false);
+              m_tempo=120;
+              m_time=QString("4/4");
         }
         else if ( line.contains(SocREX) )
         {
@@ -386,25 +388,23 @@ void Processor::displayPageTitle( QString title)
                m_line,
                m_uiconfig->toolButtonTitleFont,center);
     m_firstline=true;
-    m_subtitlenumber=0;
     m_line-=m_uiconfig->toolButtonSubtitleFont->getFont().pointSize()/1.8;
 }
 
 void Processor::displayPageSubtitle(QString subtitle)
 {
+    int subtitlenumber=m_subtitle.count();
     if ( !m_pageAllocation)
     {
        m_page = m_document->CreatePage(*m_dimension);
        m_painter.SetPage(m_page);
        m_pageAllocation=true;
     }
-  m_subtitlenumber++;
-  m_subtitle=subtitle;
   if ( m_uiconfig->toolButtonSubtitleFont->getBackgroundColor() != m_uiconfig->colorButtonPaperColor->getColor())
   {
     m_painter.SetColor(m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().redF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().greenF(),m_uiconfig->toolButtonSubtitleFont->getBackgroundColor().blueF());
     m_painter.Rectangle(m_uiconfig->spuHorizontalMargin->getPdfU(),
-                        m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()-m_subtitlenumber*m_uiconfig->toolButtonSubtitleFont->getFont().pointSize(),//*1.4-1,
+                        m_uiconfig->spuPageHeight->getPdfU()-m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()-subtitlenumber*m_uiconfig->toolButtonSubtitleFont->getFont().pointSize(),//*1.4-1,
                         m_uiconfig->spuPageWidth->getPdfU()-2*m_uiconfig->spuHorizontalMargin->getPdfU(),
                         m_uiconfig->toolButtonSubtitleFont->getFont().pointSize());
     m_painter.Fill();

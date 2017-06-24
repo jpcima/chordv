@@ -48,7 +48,7 @@ public:
     // virtual e section
     virtual void newPage();
     virtual void displayPageTitle(QString titile);
-    virtual void displayPageSubtitle( QString subtitle )  ;
+    virtual void displayPageSubtitle( QString subtitles )  ;
     virtual void displayLyrics();
     virtual void Cover(QString title, QString subtitle);
     virtual void doChords();
@@ -115,7 +115,7 @@ protected:
     ///
     /// \brief m_subtitle subtitle of the cover
     ///
-    QString m_subtitle;
+    QStringList m_subtitle;
     ///
     /// \brief m_title title of song
     ///
@@ -281,7 +281,6 @@ protected:
     /// \param line the line read
     ///
     void memorizeChords(QString line);
-    int m_subtitlenumber;
 signals:
     void PDFMade( QString file);
 protected:
