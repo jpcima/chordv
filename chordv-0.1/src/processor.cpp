@@ -383,6 +383,7 @@ void Processor::displayPageTitle( QString title)
                         m_uiconfig->toolButtonTitleFont->getFont().pointSize());
       m_painter.Fill();
     }
+    if ( m_uiconfig->checkBoxTitleInUppercase->isChecked()) title=title.toUpper();
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU()-m_uiconfig->toolButtonTitleFont->getFont().pointSize()/1.4;//*0.8;
     Text(m_document,title,m_uiconfig->spuPageWidth->getPdfU()/2,
                m_line,
@@ -526,15 +527,16 @@ bool Processor::isColBreak(QString line)
 
 void Processor::NextLine(int num )
 {
-    if (  m_line - 2*m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2  - 2 * num > m_uiconfig->spuVerticalMargin->getPdfU())
+    double vs=m_uiconfig->comboBoxVerticalSpacing->currentData().toDouble();
+    if (  m_line - 2*m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*vs  - 2 * num > m_uiconfig->spuVerticalMargin->getPdfU())
     {
-        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2+num;
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*vs+num;
     }
     else if ( m_colnumber > 1 && currentColumn() < m_colnumber  )
    {
         m_column = nextColumn(currentColumn()) ;
         m_line=m_initialhposition;
-        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*1.2;
+        m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*vs;
     }
     else
     {
@@ -1010,7 +1012,8 @@ double Processor::TextInBox(PdfDocument *doc, QString text, double x, double y, 
     double widthtext=pfont->GetFontMetrics()->StringWidth(text.toLatin1())*scale;
     double heighttext=pfont->GetFontSize()*1.1;
     m_painter.SetColor(fb->getBackgroundColor().redF(),fb->getBackgroundColor().greenF(),fb->getBackgroundColor().blueF());
-    m_painter.Rectangle(x-widthtext*0.1,y-heighttext*0.2,widthtext*1.20,heighttext*1.20);
+    double vs=m_uiconfig->comboBoxVerticalSpacing->currentData().toDouble();
+    m_painter.Rectangle(x-widthtext*0.1,y-heighttext*0.2,widthtext*vs,heighttext*vs);
     m_painter.Fill();
     return Text(doc,text,x,y,fb,align,scale);
 
