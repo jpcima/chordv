@@ -134,9 +134,8 @@
         ui/forminputoutputchord.ui \
         ui/dialogchangechordname.ui
 
-    LIBS += -L/Libraries/lib/src -L/usr/local/lib -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
-    INCLUDEPATH += Libraries/src/podofo-0.9.5/src /usr/local/include ./include
-    DEPENDPATH += /usr/local/include
+    LIBS += -L/Libraries/lib/src -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+    INCLUDEPATH = Libraries/src/podofo-0.9.5/src  ./include
 
 
     TRANSLATIONS=translations/fr.ts
