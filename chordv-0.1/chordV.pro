@@ -134,7 +134,7 @@
         ui/forminputoutputchord.ui \
         ui/dialogchangechordname.ui
 
-    LIBS += -L/Libraries/lib/src -L/usr/lib -lpodofo  -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+    LIBS += -L/Libraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
     INCLUDEPATH = Libraries/src/podofo-0.9.5/src  ./include
 
 
