@@ -1,22 +1,5 @@
 # Compilation installation
 
-## Podofo library installation 9.8
-
-### Linux Debian
-
-  - In a shell script
-
-~~~bash
-sudo apt-get install libpodofo-dev
-~~~
-  - In the pro file add
-
-~~~qmake
-LIBS +=
-INCLUDEPATH +=
-DEPENDPATH +=
-~~~
-
 ## Podofo compilation from sources
 
 ### Install dependancies
@@ -30,24 +13,13 @@ DEPENDPATH +=
 ### Compilation
 
 ~~~
-    svn co http://svn.code.sf.net/p/podofo/code/podofo/trunk podofo
-    cd podofo
-    mkdir podofo-build
-    cd podofo-build
-    cmake ../podofo
-    make
-    su
-    make install
+    cd Libraries/src
+    ./build.sh
 ~~~
 
-### add in pro file
+### Notes on pro file
 
-~~~
-    LIBS += -L/usr/local/lib -lpodofo -lz -lfreetype -lfontconfig -lidn -ljpeg -lcrypto -lssl
-    INCLUDEPATH += /usr/local/include
-    DEPENDPATH += /usr/local/include
-~~~
-
+-
 ## Documentation generation
 
   - The documentation is generated in HTML format with pandoc

@@ -56,7 +56,7 @@ void ProcessorLyrics::displayLyrics()
 
         QRegExp chordexp("([^[]*)\\[([^]]*)\\](.*)");
         PdfFont *pfont=m_document->CreateFont(m_uiconfig->toolButtonNormalFont->getFont().family().toLatin1());
-        PdfFont *cfont=m_document->CreateFont(m_uiconfig->toolButtonChordFont->getFont().family().toLatin1());
+        //PdfFont *cfont=m_document->CreateFont(m_uiconfig->toolButtonChordFont->getFont().family().toLatin1());
         if ( ! text.isEmpty() )
         {
           if ( isColBreak(text)) doColumnBreak(text);
