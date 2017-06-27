@@ -1,14 +1,24 @@
 # Compilation installation
 
+## Get chordV 
+
+
+~~~bash
+sudo apt-get install git 
+git clone https://git.code.sf.net/p/chordv/code chordv-code
+~~~
+
 ## Podofo compilation from sources
 
-### Install dependancies
+### Install dependancies on Ubuntu 17.04
 
 ~~~bash
     sudo apt-get install -y subversion cmake
     sudo apt-get install -y libz-dev libfreetype6-dev libfontconfig1-dev libjpeg-dev libssl-dev libcrypto++9v5-dev libtiff5-dev
     sudo apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev
 ~~~
+
+### Install dependancis n Ubuntu 16.04 LTS
 
 ### Compilation
 
@@ -38,3 +48,5 @@ sudo apt-get install texlive-xetex
 ~~~
 
 
+
+### 
