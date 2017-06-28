@@ -20,6 +20,12 @@ git clone https://git.code.sf.net/p/chordv/code chordv-code
 
 ### Install dependancis n Ubuntu 16.04 LTS
 
+~~~bash
+    sudo apt-get install -y subversion cmake
+    sudo apt-get install -y libz-dev libfreetype6-dev libfontconfig1-dev libjpeg-dev libssl-dev libcrypto++-dev libtiff5-dev
+    sudo apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev
+~~~
+
 ### Compilation
 
 ~~~
