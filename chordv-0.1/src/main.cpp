@@ -38,8 +38,8 @@ int main(int argc, char *argv[])
         QDir dir(fi.absolutePath());
         dir.mkdir("Languages");
         dir.mkdir("Languages/Français");
-        QFile::copy(":/Lang/fr.qm",langfrfilename);
-        QFile::copy(":/Lang/fr.ts",langfrfilename2);
+        QFile::copy(":/Lang/translations/fr.qm",langfrfilename);
+        QFile::copy(":/Lang/translations/fr.ts",langfrfilename2);
         QFile::copy(":/Image/Images/fr.png",langfrfilename3);
     }
     QTranslator *tr=0;

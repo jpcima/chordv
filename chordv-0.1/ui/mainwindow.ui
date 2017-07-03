@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>951</width>
-    <height>682</height>
+    <height>703</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -283,7 +283,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>22</height>
+     <height>36</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -296,6 +296,7 @@
     <addaction name="actionOpen_Song_File"/>
     <addaction name="actionExport_tho_cho3_file"/>
     <addaction name="separator"/>
+    <addaction name="actionClose"/>
     <addaction name="actionQuit"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
@@ -715,6 +716,11 @@
   <action name="actionChangeChordLang">
    <property name="text">
     <string>Change  the chords Language of the current song file</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
    </property>
   </action>
  </widget>

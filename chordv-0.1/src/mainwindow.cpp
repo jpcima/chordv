@@ -28,6 +28,7 @@
 #include "language.h"
 #include "pdfviewer.h"
 
+
 #include <QDebug>
 #include <QFileDialog>
 #include <QSettings>
@@ -37,6 +38,8 @@
 #include <QInputDialog>
 #include <QShortcut>
 #include "ui_formconfig.h"
+#include <QMessageBox>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -70,6 +73,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionExport_tho_cho3_file,SIGNAL(triggered(bool)),this,SLOT(ExportCho3File()));
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
+    connect(ui->actionClose,SIGNAL(triggered(bool)),this,SLOT(Close()));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
     connect(ui->actionChord_defintion,SIGNAL(triggered(bool)),this,SLOT(ChordDefinition()));
@@ -107,6 +111,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViewLastBuildPdf()));
     connect (ui->actionDocumentation,SIGNAL(triggered(bool)),this,SLOT(Documentation()));
     connect(ui->stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(ShowStacked(int)));
+    connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(AskSaveOnQuit()));
 
 
     QString file=getFileInArg();
@@ -133,8 +138,22 @@ MainWindow::MainWindow(QWidget *parent) :
 
   }
 
+void MainWindow::AskSaveOnQuit()
+{
+    if ( m_initialbuffer!= ui->textEditCho3File->document()->toPlainText())
+    {
+        int i = QMessageBox::warning(this,tr("Buffer as changed"),tr("Do you want to save ? "),
+                          QMessageBox::Yes,QMessageBox::No   );
+        if ( i==QMessageBox::Yes)
+            SaveAs(true);
 
+    }
+}
 
+void MainWindow::Close()
+{
+    AskSaveOnQuit();
+}
 
 QString MainWindow::getFileInArg()
 {
@@ -345,7 +364,8 @@ void MainWindow::openProject(QString filename)
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
     ui->widgetTextMode->setProjectPath(m_currentprojectdir);
-    ui->textEditCho3File->setText(p.value("Content").toString());
+    m_initialbuffer=p.value("Content").toString();
+    ui->textEditCho3File->setText(m_initialbuffer);
     //ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
 
 }
@@ -388,6 +408,7 @@ void MainWindow::Save(QString filename)
     ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
     ui->widgetTextMode->Save(filename,FormConfig::Text);
     ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
+    m_initialbuffer=ui->textEditCho3File->document()->toPlainText();
 }
 
 QString MainWindow::getRelativeFilename( QString chofilename )
@@ -400,7 +421,6 @@ QString MainWindow::getRelativeFilename( QString chofilename )
 void MainWindow::Save(bool)
 {
     ui->log->clear();
-    QSettings s;
     if ( m_currentprojectname.isEmpty())
         SaveAs(true);
     else m_currentprojectfile=m_currentprojectdir+"/"+m_currentprojectname+".chop";
@@ -419,7 +439,6 @@ void MainWindow::Save(bool)
     ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);
     ui->widgetTextMode->Save(m_currentprojectfile,FormConfig::Text);
     ui->widgetMemoryMode->Save(m_currentprojectfile,FormConfig::Memory);
-
 }
 
 
@@ -465,8 +484,6 @@ void MainWindow::ProducePDF()
 void MainWindow::ProducePDFAndShow()
 {
    ProducePDF();
-
-
 }
 
 

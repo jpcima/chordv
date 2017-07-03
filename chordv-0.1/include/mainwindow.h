@@ -59,8 +59,11 @@ private:
     QLabel *m_labelactivestacked;
     QStringList m_liststacked;
 
+    QString m_initialbuffer;
+
 public slots:
     void ChangeLanguage(QString );
+
 private slots:
     void newProject(bool);
     void openProject(bool);
@@ -81,7 +84,7 @@ private slots:
     void PreferencesAsOrigine();
     void CurrentAsDefault();
     void Info(QString info);
-
+    void Close();
     void ProducePDFAndShow();
     void PDFReaderChanged();
     void ConversionDone(QString filename);
@@ -121,6 +124,7 @@ private slots:
     void Documentation();
     void TwoLines2Chordpro();
     void ChangeChordLang();
+    void AskSaveOnQuit();
 };
 
 #endif // MAINWINDOW_H

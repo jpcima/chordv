@@ -28,11 +28,6 @@ void TextEdit::setChordLanguage(QString language, QString minor)
     m_chordminor=minor;
 }
 
-//void TextEdit::SetUi(Ui::MainWindow *ptr)
-//{
-//    ui=ptr;
-//}
-
 void TextEdit::wheelEvent(QWheelEvent *e)
 {
     if(e->modifiers().testFlag(Qt::ControlModifier))
