@@ -120,7 +120,7 @@ MainWindow::MainWindow(QWidget *parent) :
         QFileInfo fi(file) ;
         if ( ! fi.exists())
         {
-            qInfo()<<tr("%1 does'nt exit. Bye !") ;
+            qDebug()<<tr("%1 does'nt exit. Bye !") ;
             exit(1);
         }
         openProject(file);

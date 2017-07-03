@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     if  (! fidb.exists())
         QFile::copy(":/Base/Bd/Chord.db",databasefile);
     QFileInfo filang(langfrfilename);
-              if (! filang.exists())
+    if (! filang.exists())
     {
         QDir dir(fi.absolutePath());
         dir.mkdir("Languages");
