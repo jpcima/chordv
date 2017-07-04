@@ -153,6 +153,10 @@ void MainWindow::AskSaveOnQuit()
 void MainWindow::Close()
 {
     AskSaveOnQuit();
+    ui->textEditCho3File->clear();
+    m_initialbuffer.clear();
+    InitDefault();
+
 }
 
 QString MainWindow::getFileInArg()
@@ -182,12 +186,17 @@ void MainWindow::PreferencesAsOrigine()
     QFile file(s.fileName());
 
     file.remove();
+    InitDefault();
+    // TODO restore global elem.
+
+}
+
+void MainWindow::InitDefault()
+{
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
     ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
-    // TODO restore global elem.
-
 }
 
 void MainWindow::CurrentAsDefault()
@@ -634,6 +643,7 @@ void MainWindow::ChangeLanguage(QString )
     ui->widgetLyricsMode->Retranslate();
     ui->widgetMemoryMode->Retranslate();
     ui->widgetTextMode->Retranslate();
+    ui->textEditCho3File->retranslate();
 }
 
 

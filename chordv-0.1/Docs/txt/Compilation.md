@@ -26,33 +26,30 @@ git clone https://git.code.sf.net/p/chordv/code chordv-code
     sudo apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev
 ~~~
 
-### Compilation
+### Compile documentation 
+
+~~~bash 
+sudo apt-get install pandoc highlight texlive-xetex
+cd Docs
+make 
+~~~
+
+### Install /usr/share/chordV dir
+
+~~~bash
+sudo ./install
+~~~
+
+### Librairy Podofo compilation
 
 ~~~
     cd Libraries/src
     ./build.sh
 ~~~
 
-### Notes on pro file
-
--
-## Documentation generation
-
-  - The documentation is generated in HTML format with pandoc
-
-  - You need ot install pandoc by :
-
+### Chord V compilation 
 
 ~~~bash
-sudo apt-get install pandoc highlight
+qmake
+make
 ~~~
-
-- To make documentation pdf you need to install xetex
-
-~~~
-sudo apt-get install texlive-xetex
-~~~
-
-
-
-### 

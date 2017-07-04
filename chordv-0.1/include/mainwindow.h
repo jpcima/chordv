@@ -61,6 +61,7 @@ private:
 
     QString m_initialbuffer;
 
+    void InitDefault();
 public slots:
     void ChangeLanguage(QString );
 

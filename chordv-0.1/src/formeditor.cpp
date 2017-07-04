@@ -88,6 +88,11 @@ void FormEditor::insertPlainText(QString text)
     ui->textEdit->insertPlainText(text);
 }
 
+void FormEditor::retranslate()
+{
+    ui->retranslateUi(this);
+}
+
 void FormEditor::zoomIn()
 {
     ui->textEdit->zoomIn();

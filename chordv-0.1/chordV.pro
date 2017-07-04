@@ -8,11 +8,8 @@
     TEMPLATE = app
 
     linux{
-    target.path = /usr/bin
-    INSTALLS += target
-    VERSION=$$system(git tag -l | head -1)
-    FULLVERSION=$$system(git log -1 --format=format:%H)
-    DATEUS=$$system(date +%Y/%m/%d)
+    DEFINES += "DATADIR=\\\"/usr/share/chordV\\\""
+    DEFINES += "BINDIR=\\\"/usr/bin\\\""
     system(/bin/echo -e \\\x23ifndef VERSION_H >include/version.h)
     system(/bin/echo -e \\\x23define VERSION_H>>include/version.h)
     system(/bin/echo -e \\\x23define VERSION \\\"$$VERSION\\\">>include/version.h)
@@ -20,7 +17,6 @@
     system(/bin/echo -e \\\x23define DATEUS \\\"$$DATEUS\\\" >> include/version.h)
     system(/bin/echo -e \\\x23endif // VERSION_H >>include/version.h)
     }
-
     SOURCES += src/main.cpp\
             src/mainwindow.cpp \
         src/formconfig.cpp \

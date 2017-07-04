@@ -26,6 +26,7 @@ DialogSystemInfo::DialogSystemInfo(QWidget *parent) :
     ui->lineEditDateCompilation->setText(DATEUS);
     QSqlDatabase base=QSqlDatabase::database();
     ui->lineEditDatabase->setText(base.databaseName());
+    ui->lineEditLanguageDir->setText(DATADIR);
 }
 
 DialogSystemInfo::~DialogSystemInfo()

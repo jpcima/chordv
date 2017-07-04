@@ -2,26 +2,32 @@
 # for developpers only 
 # copy database and language files in .config/ChordV directory
 
-
+if [ `whoami` != "root" ]
+then
+	echo "you must be root to nstall"
+	exit 0
+fi
 CONF=~/.config/ChordV
-LANGFILE=$CONF/Languages/Français
-mkdir -p $LANGFILE
-mkdir -p ~/.config/ChordV/Languages/English
+ENGFILE=/usr/share/chordV/Languages/English
+LANGFILE=/usr/share/chordV/Languages/Français
+mkdir -p $LANGFILE 
+mkdir -p $ENGFILE
+mkdir -p ~/.config/ChordV
 
 
 cp translations/fr.qm $LANGFILE
 cp translations/fr.ts $LANGFILE
 cp Images/fr.png $LANGFILE
-cp Images/en.png ~/.config/ChordV/Languages/English/
-#cp Bd/Chord.db $CONF
+cp Images/en.png $ENGFILE
 cp Docs/html/fr/Documentation.html $LANGFILE/fr.html
-cp Docs/txt/en/Documentation.md ~/.config/ChordV/Languages/English/en.md
-echo "Do,Ré,Mi,Fa,Sol,La,Si\n-,m\n" >$LANGFILE/fr.chords
-echo "C,D,E,F,G,A,B\n-,m\n" >~/.config/ChordV/Languages/English/en.chords
-
-
+cp Docs/html/en/Documentation.html $ENGFILE/en.html
+cp Docs/txt/fr/Documentation.md $LANGFILE/fr.md
+cp Docs/txt/en/Documentation.md  $ENGFILE/en.md
 cp -r Docs/html/fr/img $LANGFILE
-cp Docs/html/en/Documentation.html ~/.config/ChordV/Languages/English/en.html
-cp Docs/txt/en/Documentation.md ~/.config/ChordV/Languages/English/en.md
-cp -r Docs/html/en/img ~/.config/ChordV/Languages/English
+cp -r Docs/html/en/img $ENGFILE
+echo "Do,Ré,Mi,Fa,Sol,La,Si\n-,m\n" >$LANGFILE/fr.chords
+echo "C,D,E,F,G,A,B\n-,m\n" >$ENGFILE/en.chords
+
+
+
 
