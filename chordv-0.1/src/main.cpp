@@ -22,14 +22,16 @@ int main(int argc, char *argv[])
     // in .config directory
     QSettings s;
 
+    QString filename= s.fileName();
+    QFileInfo fi(filename);
+    QString databasefile=fi.absolutePath()+"/Chord.db";
 
     QFileInfo fidb(databasefile);
     if  (! fidb.exists())
         QFile::copy(":/Base/Bd/Chord.db",databasefile);
 
-    QString filename= s.fileName();
-    QFileInfo fi(filename);
-    QString databasefile=fi.absolutePath()+"/Chord.db";
+    databasefile=fi.absolutePath()+"/Chord.db";
+
 
 
     QTranslator *tr=0;
