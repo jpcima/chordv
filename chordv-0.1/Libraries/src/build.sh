@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PODOFO=podofo-0.9.5
+PODOFO=podofo-0.9.3
 
 tar xzvf ${PODOFO}.tar.gz
 mkdir -p build

@@ -49,6 +49,7 @@ void Language::setLanguageComboBox(QComboBox *ptr)
             QString qmfile=list.at(0).absoluteFilePath();
             QString pngfile=qmfile.replace(QRegExp("\\.chords$"),".png");
             QFileInfo fi(pngfile);
+
             QString lang=fi.baseName();
             ptr->addItem(QIcon(pngfile),name,lang);
         }

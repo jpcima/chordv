@@ -50,6 +50,7 @@ sudo ./install
 ### Chord V compilation 
 
 ~~~bash
+cd ../..
 qmake
 make
 ~~~
