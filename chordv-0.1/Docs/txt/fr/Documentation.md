@@ -426,8 +426,9 @@ est mineur
 ### Présentation
 
  Vous n'avez pas besoin des codes sources pour traduire le logiciel.
- Si vous vous rendez dans le menu système de l'application, vous
-trouverez le chemin du fichier de configuration par exemple :
+ Si vous vous rendez dans le menu système de l'application via 
+Aide/Informations Systèmes, vous
+trouverez le chemin des fichiers langues par exemple :
 
 ~~~bash
 /home/gilles/.config/ChordV/ChordV.conf
@@ -492,7 +493,7 @@ en
 ~~~
 
 Une fois le fichier traduit, vous pouvez le convertir en format html
-via la commande (après avoir récupérer la feuille de style css sur 
+via la commande (après avoir récupéré la feuille de style css sur 
 le net)
 
 ~~~bash
