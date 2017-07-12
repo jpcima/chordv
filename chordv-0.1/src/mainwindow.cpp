@@ -11,6 +11,7 @@
 #include "dialogdocumentation.h"
 #include "dialogtwolinestochordpro.h"
 #include "dialogchangechordname.h"
+#include "dialogtranspose.h"
 
 #include "lyricsconfig.h"
 #include "formconfig.h"
@@ -18,6 +19,7 @@
 #include "memoryconfig.h"
 #include "formconfig.h"
 #include "chord.h"
+
 
 #include "chordutil.h"
 #include "processortext.h"
@@ -89,6 +91,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     connect(ui->action2Line2chordpro,SIGNAL(triggered(bool)),this,SLOT(TwoLines2Chordpro()));
     connect(ui->actionChangeChordLang,SIGNAL(triggered(bool)),this,SLOT(ChangeChordLang()));
+    connect(ui->actionTranspose_chords,SIGNAL(triggered(bool)),this,SLOT(TransposeChords()));
     connect (ui->actionSelectDefinition,SIGNAL(triggered(bool)),this,SLOT(ShowDefinition()));
     connect (ui->actionSelectMemory,SIGNAL(triggered(bool)),this,SLOT(ShowMemoryMode()));
     connect (ui->actionSelectText,SIGNAL(triggered(bool)),this,SLOT(ShowTextMode()));
@@ -459,6 +462,9 @@ void MainWindow::SaveAs(bool)
         QFileInfo fi( m_currentprojectfile);
         m_currentprojectname=fi.baseName();
         m_currentprojectdir=fi.absolutePath();
+        QDir::setCurrent(m_currentprojectdir);
+        ui->labelNameProjectName->setText(m_currentprojectname);
+        ui->labelNameDirProject->setText(m_currentprojectdir);
         Save(true);
         ChordUtil::setLastDirectory(m_currentprojectfile);
     }
@@ -823,4 +829,12 @@ void MainWindow::ChangeChordLang()
  ui->textEditCho3File->document()->setPlainText(out.join("\n"));
  ui->comboBoxChordLanguage->setCurrentIndex(dial.getToLangIndex());
  ui->comboBoxMinorNotation->setCurrentIndex(dial.getToMinIndex());
+}
+
+
+void MainWindow::TransposeChords()
+{
+   DialogTranspose dial(this);
+   connect(&dial,SIGNAL(AskChange(int,bool,int)),ui->textEditCho3File,SLOT(TransposeChord(int,bool,int)));
+   dial.exec();
 }

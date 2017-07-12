@@ -63,7 +63,8 @@
         src/dialogchangechordname.cpp \
         src/forminputoutputchord.cpp \
         src/chordutil.cpp \
-    src/normalizelist.cpp
+    src/normalizelist.cpp \
+    src/dialogtranspose.cpp
 
     HEADERS  += include/mainwindow.h \
         include/formconfig.h \
@@ -111,7 +112,8 @@
         include/dialogchangechordname.h \
         include/forminputoutputchord.h \
         include/chordutil.h \
-    include/normalizelist.h
+    include/normalizelist.h \
+    include/dialogtranspose.h
 
     FORMS    += ui/mainwindow.ui \
         ui/formconfig.ui \
@@ -128,7 +130,8 @@
         ui/formeditor.ui \
         ui/dialogtwolinestochordpro.ui \
         ui/forminputoutputchord.ui \
-        ui/dialogchangechordname.ui
+        ui/dialogchangechordname.ui \
+    ui/dialogtranspose.ui
 
     LIBS += -LLibraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
     INCLUDEPATH = Libraries/include  ./include

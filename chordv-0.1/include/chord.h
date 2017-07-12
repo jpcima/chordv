@@ -25,6 +25,7 @@ public:
     static QString translate ( QString chord, QString langfrom, QString minfrom, QString langto, QString minto );
     QString up();
     QString down();
+    QString transpose(int degre, bool parentheses, QString minfrom, QString minto);
 private:
     QString m_originalchord;
     int m_nbbar; // 2 : from D7x2
@@ -38,6 +39,8 @@ private:
     QString m_nameEnglish; //D7
     LangNotes m_notes;
     QString m_lang;
+    QStringList m_ring;
+    QMap <QString,int> m_rang;
 };
 
 #endif // CHORD_H

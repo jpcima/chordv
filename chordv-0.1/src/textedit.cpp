@@ -153,6 +153,11 @@ void TextEdit::ShowChordInclusionDial()
     dial->exec();
 }
 
+void TextEdit::TransPoseChord(int degre, bool par, int range)
+{
+
+}
+
 void TextEdit::ChordToInsert(QString chord)
 {
     QTextCursor tc=textCursor();

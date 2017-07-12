@@ -15,8 +15,13 @@ public:
     explicit DialogTranspose(QWidget *parent = 0);
     ~DialogTranspose();
 
+private slots:
+    void ChangeValue(int i);
+    void Apply();
 private:
     Ui::DialogTranspose *ui;
+signals:
+    void AskChange(int val, bool parenthesis, int Range);
 };
 
 #endif // DIALOGTRANSPOSE_H

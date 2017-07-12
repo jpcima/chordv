@@ -26,16 +26,18 @@ PDF Chord :
 
 - arrow next not working ....
 - Toc has no margin.... define margin for toc ?
-
+- No % on line begining
 
 Chord Editor :
 ------------
+
 
 
 Editor :
 -------
 
 - Change english to anglais on chord language selection ....
+- When  Save as change project name
 
 ChordPro format
 ---------------

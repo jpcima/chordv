@@ -348,6 +348,7 @@
      </property>
      <addaction name="action2Line2chordpro"/>
      <addaction name="actionChangeChordLang"/>
+     <addaction name="actionTranspose_chords"/>
     </widget>
     <addaction name="actionProduce_PDF_files"/>
     <addaction name="separator"/>
@@ -721,6 +722,11 @@
   <action name="actionClose">
    <property name="text">
     <string>Close</string>
+   </property>
+  </action>
+  <action name="actionTranspose_chords">
+   <property name="text">
+    <string>Transpose chords</string>
    </property>
   </action>
  </widget>

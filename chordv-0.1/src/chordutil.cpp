@@ -77,7 +77,34 @@ QString ChordUtil::toRomain(int i)
     if ( i == 18 ) return "XVIII";
     if ( i == 19 ) return "XIX";
     if ( i == 20 ) return "XX";
-    return "I";
+    return "";
+}
+
+
+int ChordUtil::fromRomain (QString i)
+{
+
+    if ( i == "I" ) return 1;
+    if ( i == "II" ) return 2;
+    if ( i == "III" ) return 3;
+    if ( i == "IV" ) return 4;
+    if ( i == "V" ) return 5;
+    if ( i == "VI" ) return 6;
+    if ( i == "VII" ) return 7;
+    if ( i == "VIII" ) return 8;
+    if ( i == "IX" ) return 9;
+    if ( i == "X" ) return 10;
+    if ( i == "XI") return 11;
+    if ( i == "XII" ) return 12;
+    if ( i == "XIII" ) return 13;
+    if ( i == "XIV" ) return 14;
+    if ( i == "XV" ) return 15;
+    if ( i == "XVI") return 16;
+    if ( i == "XVII" ) return 17;
+    if ( i == "XVIII" ) return 18;
+    if ( i == "XIX" ) return 19;
+    if ( i == "XX" ) return 20;
+    return 0;
 }
 
 QStringList ChordUtil::Normalize(QStringList)

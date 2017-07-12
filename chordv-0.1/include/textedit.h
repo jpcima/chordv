@@ -23,6 +23,7 @@ protected:
 private slots:
    void ChordToInsert(QString chord);
    void ShowChordInclusionDial();
+   void TransPoseChord(int degre, bool par, int range);
 private:
    //Ui::MainWindow *ui;
    QString ChordBeatUpDown(QString chord,bool up);

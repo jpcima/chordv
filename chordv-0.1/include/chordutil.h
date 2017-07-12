@@ -14,6 +14,7 @@ public:
     static void setLastDirectory(QString filename);
     static QString toRomain(int i);
     static QStringList Normalize(QStringList FretAnd6Strings);
+    static int fromRomain(QString i);
 };
 
 #endif // UTIL_H

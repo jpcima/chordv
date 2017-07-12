@@ -126,6 +126,7 @@ private slots:
     void TwoLines2Chordpro();
     void ChangeChordLang();
     void AskSaveOnQuit();
+    void TransposeChords();
 };
 
 #endif // MAINWINDOW_H

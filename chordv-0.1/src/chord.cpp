@@ -1,6 +1,9 @@
 #include "chord.h"
+
 #include "langnotes.h"
 #include "language.h"
+#include "chordutil.h"
+
 #include <QApplication>
 #include <QRegExp>
 #include <QSqlQuery>
@@ -14,6 +17,14 @@
 Chord::Chord(QString chord, QString lang):QString(chord)
 {
  m_originalchord=chord;
+ m_ring<<"A"<<"A#"<<"B"<<"C"<<"C#"<<"D"<<"D#"<<"E"<<"F"<<"F#"<<"G"<<"G#";
+ int i=0;
+ foreach (QString r, m_ring)m_rang[r]=i++;
+ m_rang["Bb"]=1;
+ m_rang["Db"]=4;
+ m_rang["Eb"]=6;
+ m_rang["Gb"]=9;
+ m_rang["Ab"]=11;
  m_nbbeat=0;
  m_nbbar=1;
  m_lang=lang;
@@ -95,6 +106,7 @@ QString Chord::fret()
 QString Chord::ToEnglish(QString  chord)
 {
    chord.replace ("m","-");
+
    if ( chord.startsWith(m_notes.noteLocale("A"))) chord.replace(m_notes.noteLocale("A"),"A");
    else if ( chord.startsWith(m_notes.noteLocale("B"))) chord.replace(m_notes.noteLocale("B"),"B");
    else if ( chord.startsWith(m_notes.noteLocale("C"))) chord.replace(m_notes.noteLocale("C"),"C");
@@ -168,10 +180,38 @@ QString Chord::up()
 
 QString Chord::down()
 {
-
     if ( m_nbbar >=3 ) return QString("%1x%2").arg(m_purechordLocale).arg(m_nbbar-1);
     else if ( m_nbbar==2 ) return m_purechordLocale;
     else if ( m_nbbar==1 ) return QString("%1:2").arg(m_purechordLocale);
     else if (m_nbbeat==2) return QString("%1:4").arg(m_purechordLocale );
     else return (m_originalchord);
+}
+
+
+QString Chord::transpose(int degre, bool parentheses, QString minfrom, QString minto)
+{
+ QString nameenglish=m_nameEnglish;
+ QRegExp regexp("(^[A-G][#b]?)");
+ QString ind="A";
+ if ( nameenglish.indexOf(regexp) )
+     ind=QString("%1%2").arg(regexp.cap(1),regexp.cap(2));
+ int id=(m_rang[ind]+degre)%12;
+ QRegExp reg2(QString("^%1").arg(ind));
+ nameenglish.replace(reg2,m_ring.at(id));
+ QString nameret;
+ if (m_lang=="en")
+    nameret=nameenglish;
+ else
+     nameret=translate(nameenglish,"en",minfrom,m_lang,minto);
+ QRegExp regpar("(\\([^)]+\\))");
+ if ( ! nameret.contains(regpar)) return nameret;
+ else if ( !parentheses )nameret.replace(regpar,"");
+ else
+   {
+     QString romain=regpar.cap(1);
+     int i=ChordUtil::fromRomain(romain);
+
+     nameret.replace(regpar,QString("(%1)").arg(i+degre%20));
+   }
+ return nameret;
 }
