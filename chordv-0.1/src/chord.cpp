@@ -18,7 +18,8 @@ Chord::Chord(QString chord, QString lang):QString(chord)
 {
  m_originalchord=chord;
  m_ring<<"A"<<"A#"<<"B"<<"C"<<"C#"<<"D"<<"D#"<<"E"<<"F"<<"F#"<<"G"<<"G#";
- int i=0;
+ int i;
+ i=0;
  foreach (QString r, m_ring)m_rang[r]=i++;
  m_rang["Bb"]=1;
  m_rang["Db"]=4;
