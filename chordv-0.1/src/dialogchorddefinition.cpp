@@ -41,16 +41,24 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     m_modelapprove->setQuery("select Name,Value,Id FROM chords where approved = 0");
     ui->tableViewNonApproved->setModel(m_modelapprove);
      m_model->setHeaderData(2,Qt::Horizontal,tr("Index"));
-    ui->tableView->setModel(m_model);
-    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->tableView->setSelectionMode(QAbstractItemView::ContiguousSelection);
+    ui->tableViewChordDefinition->setModel(m_model);
+    ui->tableViewChordDefinition->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->tableViewChordDefinition->setSelectionMode(QAbstractItemView::ContiguousSelection);
     ui->pushButtonInsertChord->setVisible(false);
+
+
+    QItemSelectionModel *sm = ui->tableViewChordDefinition->selectionModel();
+    connect(sm, SIGNAL(currentRowChanged(QModelIndex,QModelIndex)),
+            this, SLOT(currentRowChanged(QModelIndex,QModelIndex)));
     connect ( ui->pushButtonCancel,SIGNAL(clicked(bool)),this,SLOT(close()));
     connect (ui->pushButtonImport,SIGNAL(clicked(bool)),this,SLOT(Import()));
     connect ( ui->neck,SIGNAL(ChordsDetected(QStringList,QString)),this,SLOT(ShowChords(QStringList,QString)));
     connect (ui->listWidgetChords,SIGNAL(clicked(QModelIndex)),this,SLOT(ShowChord(QModelIndex)));
+    connect (ui->listWidgetChords,SIGNAL(activated(QModelIndex)),this,SLOT(ShowChord(QModelIndex)));
+
     connect (ui->toolButtonPlus,SIGNAL(clicked(bool)),this,SLOT(AddChord()));
-    connect(ui->tableView,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClicked(QModelIndex)));
+    connect(ui->tableViewChordDefinition,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClicked(QModelIndex)));
+
     connect (ui->tableViewNonApproved,SIGNAL(clicked(QModelIndex)),this,SLOT(ChordClickedNonApproved(QModelIndex)));
     connect (ui->pushButtonModify,SIGNAL(clicked(bool)),this,SLOT(ModifyChord()));
     connect (ui->pushButtonDelete,SIGNAL(clicked(bool)),this,SLOT(DeleteChord()));
@@ -62,6 +70,14 @@ DialogChordDefinition::DialogChordDefinition(QWidget *parent) :
     connect (ui->toolButtonClearFilter,SIGNAL(clicked(bool)),ui->lineEditFilter,SLOT(clear()));
     connect (ui->lineEditFilter,SIGNAL(textChanged(QString)),this,SLOT(SetFilter(QString)));
     connect (ui->pushButtonInsertChord,SIGNAL(clicked(bool)),this,SLOT(InsertChord(bool)));
+}
+
+
+void DialogChordDefinition::currentRowChanged(QModelIndex index ,QModelIndex )
+{
+
+    ChordClicked( index);
+
 }
 
 void DialogChordDefinition::ActiveInsertButton()
@@ -122,7 +138,7 @@ void DialogChordDefinition::Approve()
 
 void DialogChordDefinition::DeleteChord()
 {
-    foreach ( QModelIndex index, ui->tableView->selectionModel()->selectedIndexes())
+    foreach ( QModelIndex index, ui->tableViewChordDefinition->selectionModel()->selectedIndexes())
     {
         QSqlQuery q(QString("DELETE FROM Chords WHERE  Id=%1")
                     .arg(index.sibling(index.row(),2).data().toString()));
