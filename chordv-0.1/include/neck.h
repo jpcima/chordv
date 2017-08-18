@@ -23,6 +23,7 @@ private:
     void SizeString(int string);
     void DrawCircle(int fret);
     void mousePressEvent(QMouseEvent *event);
+    void wheelEvent(QWheelEvent *event);
     void DrawNotes();
     void DrawNoNote(int x,int y);
     ///
@@ -93,5 +94,6 @@ private:
 signals:
     void ChordsDetected(QStringList chordname,QString notes);
 };
+
 
 #endif // NECK_H

@@ -242,7 +242,7 @@ QString DialogChordDefinition::findName( QString chordstring, QString chordname)
         {
             int note=string.toInt();
             if ( note < notemin) notemin = note;
-            notes[i]=QString("%1").arg(note);
+                    notes[i]=QString("%1").arg(note);
             ok =true;
         }
         else notes[i]="x";
