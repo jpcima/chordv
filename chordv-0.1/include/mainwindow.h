@@ -18,7 +18,15 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+    ///
+    /// Brief : Main window generated in first by Qt completed by needed tools
+    ///
+    ///
 public:
+    ///
+    /// \brief MainWindow : main window created by designer
+    /// \param parent : always
+    ///
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void setTranstator(QTranslator *tr) { m_translator= tr;}
@@ -31,6 +39,10 @@ private:
     QTranslator *m_translator;
     void setMenuLastProject();
     void InitProject();
+    ///
+    /// \brief openchoFile : open a chord file
+    /// \param filename : the name of file to open
+    ///
     void openchoFile(QString filename);
     ///
     /// \brief Save : save the current project in a file name
