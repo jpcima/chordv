@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>478</width>
-    <height>330</height>
+    <width>946</width>
+    <height>534</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,9 +35,16 @@
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="labelNameProgramArguments_2">
+          <widget class="QLabel" name="labelNameProgramLocation">
            <property name="text">
             <string>Program Location</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="labelNameLanguageDir">
+           <property name="text">
+            <string>Language dir</string>
            </property>
           </widget>
          </item>
@@ -103,6 +110,13 @@
          </item>
          <item>
           <widget class="QLineEdit" name="lineEditLocation">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineEditLanguageDir">
            <property name="readOnly">
             <bool>true</bool>
            </property>

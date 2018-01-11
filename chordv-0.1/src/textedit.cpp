@@ -28,11 +28,6 @@ void TextEdit::setChordLanguage(QString language, QString minor)
     m_chordminor=minor;
 }
 
-//void TextEdit::SetUi(Ui::MainWindow *ptr)
-//{
-//    ui=ptr;
-//}
-
 void TextEdit::wheelEvent(QWheelEvent *e)
 {
     if(e->modifiers().testFlag(Qt::ControlModifier))
@@ -156,6 +151,11 @@ void TextEdit::ShowChordInclusionDial()
     dial->SetChordLanguage(m_chordlang,m_chordminor);
     connect (dial,SIGNAL(ChordToInsert(QString)),this, SLOT(ChordToInsert(QString)));
     dial->exec();
+}
+
+void TextEdit::TransPoseChord(int degre, bool par, int range)
+{
+
 }
 
 void TextEdit::ChordToInsert(QString chord)

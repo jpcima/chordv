@@ -25,7 +25,7 @@ public:
     QTextDocument *document();
     void copy();
     void insertPlainText(QString text);
-
+    void retranslate();
     bool find(QString text, QTextDocument::FindFlags flag);
 public slots:
     void zoomIn();

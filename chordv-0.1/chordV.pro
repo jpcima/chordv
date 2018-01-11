@@ -8,11 +8,8 @@
     TEMPLATE = app
 
     linux{
-    target.path = /usr/bin
-    INSTALLS += target
-    VERSION=$$system(git tag -l | head -1)
-    FULLVERSION=$$system(git log -1 --format=format:%H)
-    DATEUS=$$system(date +%Y/%m/%d)
+    DEFINES += "DATADIR=\\\"/usr/share/chordV\\\""
+    DEFINES += "BINDIR=\\\"/usr/bin\\\""
     system(/bin/echo -e \\\x23ifndef VERSION_H >include/version.h)
     system(/bin/echo -e \\\x23define VERSION_H>>include/version.h)
     system(/bin/echo -e \\\x23define VERSION \\\"$$VERSION\\\">>include/version.h)
@@ -20,7 +17,6 @@
     system(/bin/echo -e \\\x23define DATEUS \\\"$$DATEUS\\\" >> include/version.h)
     system(/bin/echo -e \\\x23endif // VERSION_H >>include/version.h)
     }
-
     SOURCES += src/main.cpp\
             src/mainwindow.cpp \
         src/formconfig.cpp \
@@ -67,7 +63,8 @@
         src/dialogchangechordname.cpp \
         src/forminputoutputchord.cpp \
         src/chordutil.cpp \
-    src/normalizelist.cpp
+    src/normalizelist.cpp \
+    src/dialogtranspose.cpp
 
     HEADERS  += include/mainwindow.h \
         include/formconfig.h \
@@ -115,7 +112,8 @@
         include/dialogchangechordname.h \
         include/forminputoutputchord.h \
         include/chordutil.h \
-    include/normalizelist.h
+    include/normalizelist.h \
+    include/dialogtranspose.h
 
     FORMS    += ui/mainwindow.ui \
         ui/formconfig.ui \
@@ -132,10 +130,12 @@
         ui/formeditor.ui \
         ui/dialogtwolinestochordpro.ui \
         ui/forminputoutputchord.ui \
-        ui/dialogchangechordname.ui
+        ui/dialogchangechordname.ui \
+    ui/dialogtranspose.ui
 
-    LIBS += -L/Libraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
-    INCLUDEPATH = Libraries/src/podofo-0.9.5/src  ./include
+ #    LIBS += -LLibraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+    LIBS += -LLibraries/lib -L/usr/lib -Bdynamic -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+    INCLUDEPATH = Libraries/include  ./include
 
 
     TRANSLATIONS=translations/fr.ts

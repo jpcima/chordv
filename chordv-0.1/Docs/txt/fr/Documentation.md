@@ -268,12 +268,23 @@ fichier texte
 ![Définition de l'accord ](./img/chorddefinition.png)
 
 1. Sélection des cases appuyées sur le manche
-2. sélection des cordes à vides avec un rond non jouées avec une croix
+2. Sélection des cordes à vides avec un rond non jouées avec une croix
 3. Nom de l'accord choisi
 4. Sélection du choix entre plusieurs noms d'accord possibles
 5. Notation cases
 6. Notation résultante dans le format define
 7. Ajout de l'accord dans la base
+
+
+### Utilisation de la souris
+
+- Par un click sur le bouton gauche de la souris on sélectionne
+   - soit une corde entre deux fret
+   - soit une corde à vide en cliquant en haut du manche
+- Par un click sur le bouton droit on sélectionne la même fret appuyée
+toutes les cordes afin de pouvoir définir des barrés
+- Par l'utilisation de la molette de la souris on monte ou baisse les
+cordes appuyées.
 
 ### Gestion des accords 
 
@@ -426,8 +437,9 @@ est mineur
 ### Présentation
 
  Vous n'avez pas besoin des codes sources pour traduire le logiciel.
- Si vous vous rendez dans le menu système de l'application, vous
-trouverez le chemin du fichier de configuration par exemple :
+ Si vous vous rendez dans le menu système de l'application via 
+Aide/Informations Systèmes, vous
+trouverez le chemin des fichiers langues par exemple :
 
 ~~~bash
 /home/gilles/.config/ChordV/ChordV.conf
@@ -492,7 +504,7 @@ en
 ~~~
 
 Une fois le fichier traduit, vous pouvez le convertir en format html
-via la commande (après avoir récupérer la feuille de style css sur 
+via la commande (après avoir récupéré la feuille de style css sur 
 le net)
 
 ~~~bash

@@ -1,8 +1,4 @@
 <RCC>
-    <qresource prefix="/Lang">
-        <file>../translations/fr.qm</file>
-        <file>../translations/fr.ts</file>
-    </qresource>
     <qresource prefix="/Image">
         <file>../Images/icon.png</file>
         <file>../Images/neck.jpg</file>

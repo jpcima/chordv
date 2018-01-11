@@ -44,6 +44,7 @@ private slots:
     void ChordClickedNonApproved(QModelIndex index);
     void Approve();
     void DeleteApproved();
+    void currentRowChanged(QModelIndex index1, QModelIndex index2);
 private:
     Ui::DialogChordDefinition *ui;
     QHash <QString, QString> m_chords;

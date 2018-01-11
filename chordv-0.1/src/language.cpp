@@ -10,17 +10,15 @@
 QString Language::getTranslationQmFileName(QString language)
 {
     if (language=="English") return QString();
-    QSettings s;
-    QFileInfo f1(s.fileName());
-    return QString("%1/Languages/%2/%3.qm").arg(f1.absolutePath(),language,Language::getCodeLang(language));
+    QString datadir(DATADIR);
+    return QString("%1/Languages/%2/%3.qm").arg(datadir,language,Language::getCodeLang(language));
 }
 
 
 QString Language::getTranslationDocFileName(QString language)
 {
-    QSettings s;
-    QFileInfo f1(s.fileName());
-    QString dirname=f1.absolutePath()+"/Languages/"+language;
+    QString datadir(DATADIR);
+    QString dirname=datadir+"/Languages/"+language;
     QDir d(dirname);
     QStringList filter;
     filter<<"*.html";
@@ -34,10 +32,8 @@ QString Language::getTranslationDocFileName(QString language)
 
 void Language::setLanguageComboBox(QComboBox *ptr)
 {
-    QSettings s;
-    QFileInfo fi(s.fileName());
-    QString Langpath=fi.absolutePath();
-    QString path=Langpath+"/Languages";
+    QString datadir(DATADIR);
+    QString path=datadir+"/Languages";
     ptr->clear();
     QFileInfoList filist=QDir(path).entryInfoList(QDir::AllDirs|QDir::NoDotAndDotDot);
     foreach (QFileInfo fi, filist)
@@ -53,6 +49,7 @@ void Language::setLanguageComboBox(QComboBox *ptr)
             QString qmfile=list.at(0).absoluteFilePath();
             QString pngfile=qmfile.replace(QRegExp("\\.chords$"),".png");
             QFileInfo fi(pngfile);
+
             QString lang=fi.baseName();
             ptr->addItem(QIcon(pngfile),name,lang);
         }
@@ -62,10 +59,9 @@ void Language::setLanguageComboBox(QComboBox *ptr)
 
 QStringList Language::ListChord(QString lang)
 {
-    QSettings s;
-    QFileInfo f1(s.fileName());
+    QString datadir(DATADIR);
     QString codelang=Language::getCodeLang(lang);
-    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),lang,codelang);
+    QString filename=QString("%1/Languages/%2/%3.chords").arg(datadir,lang,codelang);
     QFile file(filename);
     file.open(QIODevice::ReadOnly|QIODevice::Text);
     QString chords=file.readLine();
@@ -76,10 +72,9 @@ QStringList Language::ListChord(QString lang)
 
 QStringList Language::ListMinor(QString lang)
 {
-    QSettings s;
-    QFileInfo f1(s.fileName());
+    QString datadir(DATADIR);
     QString codelang=Language::getCodeLang(lang);
-    QString filename=QString("%1/Languages/%2/%3.chords").arg(f1.absolutePath(),lang,codelang);
+    QString filename=QString("%1/Languages/%2/%3.chords").arg(datadir,lang,codelang);
     QFile file(filename);
     file.open(QIODevice::ReadOnly|QIODevice::Text);
     QString minor=file.readLine();
@@ -92,9 +87,8 @@ QStringList Language::ListMinor(QString lang)
 QString Language::getCodeLang(QString language)
 {
     QString lang;
-    QSettings s;
-    QFileInfo fi(s.fileName());
-    QString path=QString("%1/Languages/%2").arg(fi.absolutePath(),language);
+     QString datadir(DATADIR);
+    QString path=QString("%1/Languages/%2").arg(datadir,language);
     QFileInfoList filist=QDir(path).entryInfoList(QDir::AllEntries|QDir::NoDotAndDotDot);
     foreach (QFileInfo fi, filist)
     {

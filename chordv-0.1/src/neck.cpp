@@ -31,11 +31,31 @@ void Neck::mousePressEvent(QMouseEvent *event)
     {
         QPointF point=this->mapToScene(event->pos());
         int string=(int)(point.y()*6/height()+1);
-        int fret=(int)(point.x()*23/width()+1);
+        int fret=(int)(point.x()*22/width()+1);
         if ( m_chord[string-1] == 0 ) m_chord[string-1]=-1;
         else m_chord[string-1]=fret;
         DrawNeck();
     }
+    else if ( event->button() == Qt::RightButton)
+    {
+         QPointF point=this->mapToScene(event->pos());
+         int fret=(int)(point.x()*23/width()+1);
+         for ( int string = 0 ; string <=5  ; string ++)
+             m_chord[string]=fret;
+          DrawNeck();
+    }
+}
+
+void Neck::wheelEvent(QWheelEvent *event)
+{
+    if ( event->delta() > 0 )
+        for ( int string = 0 ; string <=5  ; string ++)
+           { if ( m_chord[string] <22 )m_chord[string]= m_chord[string]+1;}
+    else
+        for ( int string = 0 ; string <=5  ; string ++)
+           {if ( m_chord[string] >1) m_chord[string]= m_chord[string]-1; }
+    DrawNeck();
+
 }
 
 void Neck::resizeEvent(QResizeEvent *)

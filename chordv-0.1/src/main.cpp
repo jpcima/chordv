@@ -10,6 +10,7 @@
 #include <version.h>
 #include <language.h>
 
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -18,30 +19,21 @@ int main(int argc, char *argv[])
     a.setApplicationVersion(QString("%1/%2").arg(VERSION).arg(FULLVERSION));
 
     // Installation of DataBase include in ressource and chordV-fr file
-    // in .config/IGNU/directory
-
+    // in .config directory
     QSettings s;
 
     QString filename= s.fileName();
     QFileInfo fi(filename);
     QString databasefile=fi.absolutePath()+"/Chord.db";
-    QString langfrfilename=fi.absolutePath()+"/Languages/Français/fr.qm";
-    QString langfrfilename2=fi.absolutePath()+"/Languages/Français/fr.ts";
-    QString langfrfilename3=fi.absolutePath()+"/Languages/Français/fr.png";
 
     QFileInfo fidb(databasefile);
     if  (! fidb.exists())
         QFile::copy(":/Base/Bd/Chord.db",databasefile);
-    QFileInfo filang(langfrfilename);
-              if (! filang.exists())
-    {
-        QDir dir(fi.absolutePath());
-        dir.mkdir("Languages");
-        dir.mkdir("Languages/Français");
-        QFile::copy(":/Lang/fr.qm",langfrfilename);
-        QFile::copy(":/Lang/fr.ts",langfrfilename2);
-        QFile::copy(":/Image/Images/fr.png",langfrfilename3);
-    }
+
+    databasefile=fi.absolutePath()+"/Chord.db";
+
+
+
     QTranslator *tr=0;
 
     QString lang=s.value("InterfaceLanguage").toString();

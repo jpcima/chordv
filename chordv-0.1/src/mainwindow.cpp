@@ -11,6 +11,7 @@
 #include "dialogdocumentation.h"
 #include "dialogtwolinestochordpro.h"
 #include "dialogchangechordname.h"
+#include "dialogtranspose.h"
 
 #include "lyricsconfig.h"
 #include "formconfig.h"
@@ -18,6 +19,7 @@
 #include "memoryconfig.h"
 #include "formconfig.h"
 #include "chord.h"
+
 
 #include "chordutil.h"
 #include "processortext.h"
@@ -28,6 +30,7 @@
 #include "language.h"
 #include "pdfviewer.h"
 
+
 #include <QDebug>
 #include <QFileDialog>
 #include <QSettings>
@@ -37,6 +40,8 @@
 #include <QInputDialog>
 #include <QShortcut>
 #include "ui_formconfig.h"
+#include <QMessageBox>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -70,6 +75,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionExport_tho_cho3_file,SIGNAL(triggered(bool)),this,SLOT(ExportCho3File()));
     connect(ui->actionSave,SIGNAL(triggered(bool)),this,SLOT(Save(bool)));
     connect(ui->actionSave_As,SIGNAL(triggered(bool)),this,SLOT(SaveAs(bool)));
+    connect(ui->actionClose,SIGNAL(triggered(bool)),this,SLOT(Close()));
     connect(ui->actionQuit,SIGNAL(triggered(bool)),this,SLOT(close()));
     connect(ui->actionPreferences,SIGNAL(triggered(bool)),this,SLOT(Configuration()));
     connect(ui->actionChord_defintion,SIGNAL(triggered(bool)),this,SLOT(ChordDefinition()));
@@ -85,6 +91,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     connect(ui->action2Line2chordpro,SIGNAL(triggered(bool)),this,SLOT(TwoLines2Chordpro()));
     connect(ui->actionChangeChordLang,SIGNAL(triggered(bool)),this,SLOT(ChangeChordLang()));
+    connect(ui->actionTranspose_chords,SIGNAL(triggered(bool)),this,SLOT(TransposeChords()));
     connect (ui->actionSelectDefinition,SIGNAL(triggered(bool)),this,SLOT(ShowDefinition()));
     connect (ui->actionSelectMemory,SIGNAL(triggered(bool)),this,SLOT(ShowMemoryMode()));
     connect (ui->actionSelectText,SIGNAL(triggered(bool)),this,SLOT(ShowTextMode()));
@@ -107,6 +114,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionViewLastbuilt,SIGNAL(triggered(bool)),this,SLOT(ViewLastBuildPdf()));
     connect (ui->actionDocumentation,SIGNAL(triggered(bool)),this,SLOT(Documentation()));
     connect(ui->stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(ShowStacked(int)));
+    connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(AskSaveOnQuit()));
 
 
     QString file=getFileInArg();
@@ -115,7 +123,7 @@ MainWindow::MainWindow(QWidget *parent) :
         QFileInfo fi(file) ;
         if ( ! fi.exists())
         {
-            qInfo()<<tr("%1 does'nt exit. Bye !") ;
+            qDebug()<<tr("%1 does'nt exit. Bye !") ;
             exit(1);
         }
         openProject(file);
@@ -133,8 +141,26 @@ MainWindow::MainWindow(QWidget *parent) :
 
   }
 
+void MainWindow::AskSaveOnQuit()
+{
+    if ( m_initialbuffer!= ui->textEditCho3File->document()->toPlainText())
+    {
+        int i = QMessageBox::warning(this,tr("Buffer as changed"),tr("Do you want to save ? "),
+                          QMessageBox::Yes,QMessageBox::No   );
+        if ( i==QMessageBox::Yes)
+            SaveAs(true);
 
+    }
+}
 
+void MainWindow::Close()
+{
+    AskSaveOnQuit();
+    ui->textEditCho3File->clear();
+    m_initialbuffer.clear();
+    InitDefault();
+
+}
 
 QString MainWindow::getFileInArg()
 {
@@ -163,12 +189,17 @@ void MainWindow::PreferencesAsOrigine()
     QFile file(s.fileName());
 
     file.remove();
+    InitDefault();
+    // TODO restore global elem.
+
+}
+
+void MainWindow::InitDefault()
+{
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
     ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
     ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
-    // TODO restore global elem.
-
 }
 
 void MainWindow::CurrentAsDefault()
@@ -345,7 +376,8 @@ void MainWindow::openProject(QString filename)
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
     ui->widgetTextMode->setProjectPath(m_currentprojectdir);
-    ui->textEditCho3File->setText(p.value("Content").toString());
+    m_initialbuffer=p.value("Content").toString();
+    ui->textEditCho3File->setText(m_initialbuffer);
     //ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
 
 }
@@ -388,6 +420,7 @@ void MainWindow::Save(QString filename)
     ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
     ui->widgetTextMode->Save(filename,FormConfig::Text);
     ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
+    m_initialbuffer=ui->textEditCho3File->document()->toPlainText();
 }
 
 QString MainWindow::getRelativeFilename( QString chofilename )
@@ -400,7 +433,6 @@ QString MainWindow::getRelativeFilename( QString chofilename )
 void MainWindow::Save(bool)
 {
     ui->log->clear();
-    QSettings s;
     if ( m_currentprojectname.isEmpty())
         SaveAs(true);
     else m_currentprojectfile=m_currentprojectdir+"/"+m_currentprojectname+".chop";
@@ -419,7 +451,6 @@ void MainWindow::Save(bool)
     ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);
     ui->widgetTextMode->Save(m_currentprojectfile,FormConfig::Text);
     ui->widgetMemoryMode->Save(m_currentprojectfile,FormConfig::Memory);
-
 }
 
 
@@ -431,6 +462,9 @@ void MainWindow::SaveAs(bool)
         QFileInfo fi( m_currentprojectfile);
         m_currentprojectname=fi.baseName();
         m_currentprojectdir=fi.absolutePath();
+        QDir::setCurrent(m_currentprojectdir);
+        ui->labelNameProjectName->setText(m_currentprojectname);
+        ui->labelNameDirProject->setText(m_currentprojectdir);
         Save(true);
         ChordUtil::setLastDirectory(m_currentprojectfile);
     }
@@ -465,8 +499,6 @@ void MainWindow::ProducePDF()
 void MainWindow::ProducePDFAndShow()
 {
    ProducePDF();
-
-
 }
 
 
@@ -617,6 +649,7 @@ void MainWindow::ChangeLanguage(QString )
     ui->widgetLyricsMode->Retranslate();
     ui->widgetMemoryMode->Retranslate();
     ui->widgetTextMode->Retranslate();
+    ui->textEditCho3File->retranslate();
 }
 
 
@@ -796,4 +829,12 @@ void MainWindow::ChangeChordLang()
  ui->textEditCho3File->document()->setPlainText(out.join("\n"));
  ui->comboBoxChordLanguage->setCurrentIndex(dial.getToLangIndex());
  ui->comboBoxMinorNotation->setCurrentIndex(dial.getToMinIndex());
+}
+
+
+void MainWindow::TransposeChords()
+{
+   DialogTranspose dial(this);
+   connect(&dial,SIGNAL(AskChange(int,bool,int)),ui->textEditCho3File,SLOT(TransposeChord(int,bool,int)));
+   dial.exec();
 }
