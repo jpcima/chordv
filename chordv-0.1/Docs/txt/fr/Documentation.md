@@ -215,7 +215,8 @@ et des messages de succès étiquetés en vert.
 souris vers le haut ou le bas vous montez ou descendez la durée d'un 
 accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant 
 la molette vers soi.
-
+6. Un navigateur table des matière permettant de se rendre directement à
+la chanson désirée
 
 ### Le langage à balise de chord pro 
 

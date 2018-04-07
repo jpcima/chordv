@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     a.setOrganizationName("ChordV");
     a.setApplicationName("ChordV");
-    a.setApplicationVersion(QString("%1/%2").arg(VERSION).arg(FULLVERSION));
+    a.setApplicationVersion(QString("%1").arg(VERSIONWORK));
 
     // Installation of DataBase include in ressource and chordV-fr file
     // in .config directory

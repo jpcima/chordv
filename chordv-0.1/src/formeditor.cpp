@@ -49,7 +49,7 @@ FormEditor::FormEditor(QWidget *parent) :
     connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
     connect(ui->textEdit,SIGNAL(textChanged()),this,SLOT(TocUpdate()));
     connect(ui->tableWidgetToc,SIGNAL(clicked(QModelIndex)),this,SLOT(TocToText(QModelIndex)));
-    connect (m_dialognewsong,SIGNAL(InsertSong(QString,QString,bool,int)),this,SLOT(InsertSong(QString,QString,bool,int)));
+    connect (m_dialognewsong,SIGNAL(InsertSong(QString,QString,bool,int,int,int,int)),this,SLOT(InsertSong(QString,QString,bool,int,int,int,int)));
 }
 
 
@@ -399,7 +399,7 @@ void FormEditor::InsertCompress()
         m_dialognewsong->show();
     }
 
-    void FormEditor::InsertSong(QString title,QString subtitle,bool compressed,int column)
+    void FormEditor::InsertSong(QString title,QString subtitle,bool compressed,int column,int time1, int time2, int tempo)
     {
         QRegExp text;
         if ( ui->checkBoxLongShort->isChecked() )
@@ -468,8 +468,12 @@ void FormEditor::InsertCompress()
         if ( column > 1)
         {
             t=QString("{columns:%1}\n").arg(column);
-            ui->textEdit->textCursor().insertText(t);
+            ui->textEdit->insertPlainText(t);
         }
+        t =QString("{time:%1/%2}").arg(time1).arg(time2);
+        ui->textEdit->insertPlainText(t);
+        t =QString("{tempo:%1}\n").arg(tempo);
+        ui->textEdit->insertPlainText(t);
         ui->textEdit->insertPlainText("\n\n");
 
     }

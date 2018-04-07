@@ -6,7 +6,7 @@ DialogAbout::DialogAbout(QWidget *parent) :
     ui(new Ui::DialogAbout)
 {
     ui->setupUi(this);
-    ui->lineEditVersion->setText(QString(VERSION));
+    ui->lineEditVersion->setText(QString(VERSIONWORK));
     ui->textBrowserCredit->setOpenLinks(false);
 }
 

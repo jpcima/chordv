@@ -10,12 +10,12 @@
     linux{
     DEFINES += "DATADIR=\\\"/usr/share/chordV\\\""
     DEFINES += "BINDIR=\\\"/usr/bin\\\""
-    system(/bin/echo -e \\\x23ifndef VERSION_H >include/version.h)
-    system(/bin/echo -e \\\x23define VERSION_H>>include/version.h)
-    system(/bin/echo -e \\\x23define VERSION \\\"$$VERSION\\\">>include/version.h)
-    system(/bin/echo -e \\\x23define FULLVERSION \\\"$$FULLVERSION\\\" >>include/version.h)
-    system(/bin/echo -e \\\x23define DATEUS \\\"$$DATEUS\\\" >> include/version.h)
-    system(/bin/echo -e \\\x23endif // VERSION_H >>include/version.h)
+    DATEBUILD=$$system(date +"%Y/%m/%d")
+    GIT=$$system(git log -n 1 --format="%H")
+    VERSIONWORK=$$system(  git tag | tail -n 1 )
+    system(/bin/echo -e \\\x23define VERSIONWORK \\\"$$VERSIONWORK\\\" >include/version.h)
+    system(/bin/echo -e \\\x23define DATEBUILD \\\"$$DATEBUILD\\\" >>include/version.h)
+    system(/bin/echo -e \\\x23define GIT \\\"$$GIT\\\" >> include/version.h)
     }
     SOURCES += src/main.cpp\
             src/mainwindow.cpp \
@@ -115,6 +115,7 @@
         include/chordutil.h \
     include/normalizelist.h \
     include/dialogtranspose.h \
+    include/version.h \
     include/dialognewsong.h
 
     FORMS    += ui/mainwindow.ui \

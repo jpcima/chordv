@@ -31,8 +31,11 @@ signals:
     /// \param subtitle : subtitle
     /// \param compress : compress true or false
     /// \param columns : number of columns for the song
+    /// \param tempo : the tempo or beat per minute default 120
+    /// \param time1 : default 4 :  4 / 4 the second 4 is time2
+    /// \param time2 : see time1
     ///
-    void InsertSong(QString title, QString subtitle, bool compress, int columns);
+    void InsertSong(QString title, QString subtitle, bool compress, int columns, int tempo, int time1 , int time2);
 private slots:
     ///
     /// \brief ActiveInsertButton set or unset insert button : enable only if title is not empty

@@ -215,6 +215,7 @@ and success messages labeled green.
 Mouse up or down you go up or down the duration of a
 chord. Thus we pass from [Do#x2] to [Do#] and then to [Do:2] by turning
 the wheel to yourself.
+6. A table of content browser to go directly on choosen title
 
 
 ### The chord pro tag language

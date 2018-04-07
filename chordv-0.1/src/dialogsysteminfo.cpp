@@ -22,8 +22,8 @@ DialogSystemInfo::DialogSystemInfo(QWidget *parent) :
     QString version=versionlist.at(0);
     QString gitversion=versionlist.count()>1?versionlist.at(1):"";
     ui->lineEditVersion->setText(version);
-    ui->lineEditGitVersion->setText(gitversion);
-    ui->lineEditDateCompilation->setText(DATEUS);
+    ui->lineEditGitVersion->setText(GIT);
+    ui->lineEditDateCompilation->setText(DATEBUILD);
     QSqlDatabase base=QSqlDatabase::database();
     ui->lineEditDatabase->setText(base.databaseName());
     ui->lineEditLanguageDir->setText(DATADIR);

@@ -25,6 +25,7 @@ void DialogNewSong::ActiveInsertButton()
 
 void DialogNewSong::Insert()
 {
-    emit InsertSong(ui->lineEditTitle->text(),ui->lineEditSubtitle->text(),ui->checkBoxCompress->isChecked(),ui->spinBoxColumn->value());
+    emit InsertSong(ui->lineEditTitle->text(),ui->lineEditSubtitle->text(),ui->checkBoxCompress->isChecked(),ui->spinBoxColumn->value(),
+            ui->spinBoxTime1->value(),ui->spinBoxTime2->value(),ui->spinBoxTempo->value());
     close();
 }

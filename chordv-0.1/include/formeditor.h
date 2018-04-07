@@ -76,7 +76,17 @@ private slots:
     void TocUpdate();
     void TocToText(QModelIndex);
     void InsertNewSong();
-    void InsertSong(QString title, QString subtitle, bool compressed, int column);
+    ///
+    /// \brief InsertSong Insert so from dialogNewSong
+    /// \param title : title of song
+    /// \param subtitle : subtitle of song
+    /// \param compressed : compressed (true/false)
+    /// \param column : number of column ( no output for default 1)
+    /// \param time1 : time1 for time1/time2
+    /// \param time2 : time2 for time1/time2
+    /// \param tempp : beat per minute
+    ///
+    void InsertSong(QString title, QString subtitle, bool compressed, int column, int time1, int time2,int tempo);
 };
 
 #endif // FORMEDITOR_H
