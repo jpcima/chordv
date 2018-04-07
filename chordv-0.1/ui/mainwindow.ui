@@ -26,7 +26,7 @@
       </property>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="pageEditor">
         <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -283,7 +283,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>36</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

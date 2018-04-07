@@ -5,6 +5,9 @@
 #include <QTextCursor>
 #include <QTextDocument>
 #include <QToolButton>
+#include <QModelIndex>
+#include "dialognewsong.h"
+
 
 namespace Ui {
 class FormEditor;
@@ -34,7 +37,9 @@ private:
     Ui::FormEditor *ui;
     void ReplaceLongShort(QString a, QString b);
     QString m_buffreplace;
-
+    void resizeEvent(QResizeEvent *event);
+    DialogNewSong *m_dialognewsong;
+    void Init();
 private slots:
     void InsertTempo();
     void InsertTime();
@@ -68,6 +73,10 @@ private slots:
     void InsertSOG();
     void InsertEOG();
     void InsertCommentBox();
+    void TocUpdate();
+    void TocToText(QModelIndex);
+    void InsertNewSong();
+    void InsertSong(QString title, QString subtitle, bool compressed, int column);
 };
 
 #endif // FORMEDITOR_H

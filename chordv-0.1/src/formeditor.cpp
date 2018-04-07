@@ -3,14 +3,19 @@
 
 #include "dialogbar.h"
 
+
 #include <QInputDialog>
 #include <QDebug>
+#include <QHeaderView>
+#include <QTextCursor>
 
 FormEditor::FormEditor(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FormEditor)
 {
     ui->setupUi(this);
+
+    Init();
     connect(ui->toolButtonCB,SIGNAL(clicked(bool)),this,SLOT(InsertCB()));
     connect(ui->toolButtonCol,SIGNAL(clicked(bool)),this,SLOT(InsertCol()));
     connect(ui->toolButtonTempo,SIGNAL(clicked(bool)),this,SLOT(InsertTempo()));
@@ -40,10 +45,25 @@ FormEditor::FormEditor(QWidget *parent) :
     connect(ui->toolButtonComment,SIGNAL(clicked(bool)),this,SLOT(InsertComment()));
     connect(ui->toolButtonCommentItalic,SIGNAL(clicked(bool)),this,SLOT(InsertCommentItalic()));
     connect(ui->toolButtonCommentBox,SIGNAL(clicked(bool)),this,SLOT(InsertCommentBox()));
-
+    connect(ui->toolButtonInsertNewSong,SIGNAL(clicked(bool)),this,SLOT(InsertNewSong()));
     connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
+    connect(ui->textEdit,SIGNAL(textChanged()),this,SLOT(TocUpdate()));
+    connect(ui->tableWidgetToc,SIGNAL(clicked(QModelIndex)),this,SLOT(TocToText(QModelIndex)));
+    connect (m_dialognewsong,SIGNAL(InsertSong(QString,QString,bool,int)),this,SLOT(InsertSong(QString,QString,bool,int)));
 }
 
+
+void FormEditor::Init()
+{
+    ui->splitterHorizontal->setStretchFactor(0,3);
+    ui->splitterHorizontal->setStretchFactor(1,1);
+    ui->tableWidgetToc->setColumnCount(1);
+    QStringList list;
+    list<<tr("Songs list");
+    ui->tableWidgetToc->setHorizontalHeaderLabels(list);
+    ui->tableWidgetToc->horizontalHeader()->setStretchLastSection(true);
+    m_dialognewsong= new DialogNewSong(this);
+}
 
 
 void FormEditor::clear()
@@ -218,14 +238,19 @@ void FormEditor::InsertCol()
 
 void FormEditor::ReplaceLongShort(  QString a, QString b)
 {
-
     if ( ui->checkBoxLongShort->isChecked())
                  m_buffreplace.replace(a,b,Qt::CaseInsensitive);
              else
                  m_buffreplace.replace(b,a,Qt::CaseInsensitive);
-
 }
-    void FormEditor::InsertCompress()
+
+void FormEditor::resizeEvent(QResizeEvent *)
+{
+  ui->tableWidgetToc->setColumnWidth(0,ui->tableWidgetToc->width());
+}
+
+
+void FormEditor::InsertCompress()
     {
         ui->textEdit->insertPlainText("{compress}");
 
@@ -340,3 +365,111 @@ void FormEditor::ReplaceLongShort(  QString a, QString b)
         ui->textEdit->setText(m_buffreplace);
     }
 
+    void FormEditor::TocUpdate()
+    {
+        ui->tableWidgetToc->clear();
+        ui->tableWidgetToc->setRowCount(0);
+        QStringList text=ui->textEdit->toPlainText().split('\n');
+        QRegExp Title("^\\{(title|t):([^}]+)\\}$",Qt::CaseInsensitive);
+        foreach ( QString t,text)
+        {
+            if ( t.contains(Title))
+            {
+                ui->tableWidgetToc->setRowCount(ui->tableWidgetToc->rowCount()+1);
+                ui->tableWidgetToc->setItem(ui->tableWidgetToc->rowCount()-1,0,
+                                                  new QTableWidgetItem(Title.cap(2)));
+            }
+        }
+    }
+
+    void FormEditor::TocToText(QModelIndex index)
+    {
+        QString text=index.data().toString();
+        if ( ui->checkBoxLongShort->isChecked() )
+            text=QString("{title:%1}").arg(text);
+        else
+            text=QString("{t:%1}").arg(text);
+        if ( ! ui->textEdit->find(text) ) {}
+        ui->textEdit->find(text,QTextDocument::FindBackward);
+    }
+
+
+    void FormEditor::InsertNewSong()
+    {
+        m_dialognewsong->show();
+    }
+
+    void FormEditor::InsertSong(QString title,QString subtitle,bool compressed,int column)
+    {
+        QRegExp text;
+        if ( ui->checkBoxLongShort->isChecked() )
+            text=QRegExp("^\\{ *title: *([^}]+)\\}$");
+        else
+            text=QRegExp("^\\{ *t: *([^}]+)\\}$");
+        ui->textEdit->moveCursor(QTextCursor::Start);
+        int line=0;
+        bool found=false;
+        foreach ( QString t, ui->textEdit->toPlainText().split("\n"))
+        {
+           if ( t.contains(text) )
+           {
+               QString tt=text.cap(1).toLower();
+               tt.remove(QRegExp("^ +"));
+               tt.replace("à","a");tt.replace("ä","a");tt.replace("â","a");
+               tt.replace("é","e");tt.replace("è","e");tt.replace("ë","e");tt.replace("ê","e");
+               tt.replace("ï","i"); tt.replace("î","i");
+               tt.replace("ô","o");tt.replace("ö","o");
+               tt.replace("û","u");tt.replace("ü","u");tt.replace("ù","u");
+               tt.replace("ç","c");
+               if ( tt > title.toLower())
+                 {
+                   found =true ;
+                   break;
+                 }
+           }
+           line++;
+        }
+        QTextCursor cursor;
+        if ( found )
+         {
+          cursor= QTextCursor(ui->textEdit->document()->findBlockByLineNumber(line-1));
+          ui->textEdit->setTextCursor(cursor);
+         }
+        else
+           ui->textEdit->moveCursor(QTextCursor::End);
+
+        QString t;
+        if ( ui->checkBoxLongShort->isChecked() )
+            t=QString("{title:%1}").arg(title);
+        else
+            t=QString("{t:%2}").arg(title);
+
+        cursor.movePosition(QTextCursor::StartOfLine);
+        cursor.movePosition(QTextCursor::Up,QTextCursor::MoveAnchor,2);
+        if ( ui->checkBoxLongShort->isChecked() )
+            ui->textEdit->textCursor().insertText("{new_Song}\n");
+        else
+            ui->textEdit->textCursor().insertText("{ns}\n");
+        ui->textEdit->textCursor().insertText(t+"\n");
+
+        if ( !subtitle.isEmpty())
+        {
+            if ( ui->checkBoxLongShort->isChecked() )
+                t=QString("{subtitle:%1}").arg(subtitle);
+            else
+                t=QString("{st:%2}").arg(subtitle);
+            ui->textEdit->insertPlainText(t);
+        }
+        if ( compressed)
+        {
+            t="{compress}\n";
+            ui->textEdit->textCursor().insertText(t);
+        }
+        if ( column > 1)
+        {
+            t=QString("{columns:%1}\n").arg(column);
+            ui->textEdit->textCursor().insertText(t);
+        }
+        ui->textEdit->insertPlainText("\n\n");
+
+    }

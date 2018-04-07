@@ -192,8 +192,9 @@ DialogChordDefinition::~DialogChordDefinition()
 void DialogChordDefinition::SetChordLanguage(QString lang, QString minor)
 {
     m_codelang=Language::getCodeLang(lang);
-    m_language=lang;
-    m_minor=minor;
+    if ( ! lang.isEmpty())m_language=lang;
+
+    if ( ! minor.isEmpty())m_minor=minor;
     bool visible= ! ( m_codelang == "en" && m_minor== "-");
     ui->lineEditNameTranaslatedIndex->setVisible(visible);
     ui->lineEditTranslatedNameNoApproved->setVisible(visible);
