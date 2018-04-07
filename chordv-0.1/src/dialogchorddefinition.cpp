@@ -164,7 +164,7 @@ void DialogChordDefinition::ChordClicked(QModelIndex index)
     QString value=index.sibling(index.row(),1).data().toString();
     ui->lineEditNameIndex->setText(name);
     ui->lineEditValueIndex->setText(value);
-    ui->lineEditNameTranaslatedIndex->setText ( Chord::translate(name,"English","-",m_language,m_minor));
+    ui->lineEditNameTranaslatedIndex->setText ( Chord::translate(name,"en","-",m_language,m_minor));
     m_index=index.sibling(index.row(),2).data().toInt();
     ui->widget->setDiagram(ui->lineEditValueIndex->text());
 

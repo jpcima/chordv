@@ -6,40 +6,182 @@
 #include <QRegExp>
 #include <QStringList>
 
+///
+/// \brief The Chord class
+/// Manipulate the chords in D,D6,D7m,D7-,D7(V) on the Vth fret, D7x2 : on two bear, D7:2 on 1/2 bar
+///
 class Chord : public QString
 {
 public:
-    Chord(QString chord,QString lang);
+    ///
+    /// \brief Chord chord is defined by a chordname and the language name for the chord
+    /// \param chord : chordname for example D7(III)x2
+    /// \param codelang : en, fr
+    ///
+    Chord(QString chord,QString codelang="en");
+    ///
+    /// \brief chord
+    /// \return the original name given in constructor
+    ///
     QString chord();
+    ///
+    /// \brief removeRytm
+    /// \return the name of the chord without :2 or x2 and translated in locale
+    ///
+    ///
     QString removeRytm();
+    ///
+    /// \brief nbBar
+    /// \return the number after the x
+    ///
     int nbBar();
+    ///
+    /// \brief nbBeat
+    /// \return  the number after the :
+    ///
     int nbBeat();
+    ///
+    /// \brief toStrings
+    /// \return the chords on string for example x x 0 2 1 2
+    ///
+    ///
     QStringList toStrings();
+    ///
+    /// \brief fret
+    /// \return  fret number : 0 1 etc...
+    ///
     QString fret();
+    ///
+    /// \brief ToEnglish
+    /// \param chord in locale
+    /// \return the chord name translated
+    ///
     QString ToEnglish(QString chord);
+    ///
+    /// \brief nameEnglish
+    /// \return the english chord name
+    ///
     QString nameEnglish();
+    ///
+    /// \brief nameLocale
+    /// \return the locale chord name
+    ///
     QString nameLocale();
+    ///
+    /// \brief pureNameLocale
+    /// \return
+    ///
     QString pureNameLocale();
+    ///
+    /// \brief pureNameEnglish
+    /// \return  same as nameLocale but without beat, bar and degre
+    /// D7(V)x2  become Re7
+    ///
     QString pureNameEnglish();
-    static QStringList removeDupplicateWhithoutRytm(QStringList chords,QString lang);
-    static QString translate ( QString chord, QString langfrom, QString minfrom, QString langto, QString minto );
+    ///
+    /// \brief removeDupplicateWhithoutRytm
+    /// \param chords list of names of chord
+    /// \param language : Englisd, French ...
+    /// \return : suppress the dupplicate chords after removing the :2 x2
+    ///
+    static QStringList removeDupplicateWhithoutRytm(QStringList chords,QString codelang);
+    ///
+    /// \brief translate
+    /// \param chord : a chord name
+    /// \param langcodefrom :  code from language : fr or en
+    /// \param minfrom : symbol for minor : m or -
+    /// \param langto : code for language : fr or en
+    /// \param minto : symbol for minor : for example m
+    /// \return the chord translated
+    ///
+    static QString translate ( QString chord, QString langcodefrom, QString minfrom, QString langto, QString minto );
+    ///
+    /// \brief up the name of the chord on the next fret
+    /// \return
+    ///
     QString up();
+    ///
+    /// \brief down the name of the chord on tne previous fret
+    /// \return
+    ///
     QString down();
+    ///
+    /// \brief transpose : transpose a chord
+    /// \param degre : number of fret
+    /// \param parentheses : true of false : false you will not get the fret
+    /// \param minfrom : minor symbol from
+    /// \param minto : minor symbol to
+    /// \return  : the transposed chord
+    ///
     QString transpose(int degre, bool parentheses, QString minfrom, QString minto);
 private:
+    ///
+    /// \brief m_originalchord : is the original chord name given to constuctor
+    /// It can be :
+    ///
     QString m_originalchord;
-    int m_nbbar; // 2 : from D7x2
-    int m_nbbeat; // 2 : from D7:2
-    QString m_purechordLocale; // Ré7(III)
-    QString m_purechordEnglish; // D7(III)
-
-    QStringList m_chordonstrings; //  x x 0 2 1 2
-    QString m_fret; // 0 1 ...
-    QString m_nameLocale; // Ré7
-    QString m_nameEnglish; //D7
+    ///
+    /// \brief m_nbbar
+    /// 2 : from D7x2
+    ///
+    int m_nbbar;
+    ///
+    /// \brief m_nbbeat
+    /// 2 : from D7:2
+    ///
+    int m_nbbeat;
+    ///
+    /// \brief m_purechordLocale
+    /// Translated chord
+    /// Ré7(III)
+    ///
+    QString m_purechordLocale;
+    ///
+    /// \brief m_purechordEnglish
+    /// chord in engliosh name
+    /// D7(III)
+    ///
+    QString m_purechordEnglish;
+    ///
+    /// \brief m_chordonstrings
+    /// x x 0 2 1 2 notation
+    ///
+    QStringList m_chordonstrings;
+    ///
+    /// \brief m_fret
+    /// fret number : 0 1 ...
+    ///
+    QString m_fret;
+    ///
+    /// \brief m_nameLocale
+    /// Name of chord in locale Ré7
+    ///
+    QString m_nameLocale;
+    ///
+    /// \brief m_nameEnglish
+    ///  Name in english : D7
+    ///
+    QString m_nameEnglish;
+    ///
+    /// \brief m_notes
+    ///
     LangNotes m_notes;
+    ///
+    /// \brief m_lang
+    /// is the language : English or Français
+    ///
     QString m_lang;
+    ///
+    /// \brief m_ring is a string list with all note :
+    /// m_ring<<"A"<<"A#"<<"B"<<"C"<<"C#"<<"D"<<"D#"<<"E"<<"F"<<"F#"<<"G"<<"G#";
     QStringList m_ring;
+    ///
+    /// \brief m_rang
+    ///rang is a map with note in key and value as value
+    /// m_rang[A#]=1
+    /// m_rang[Bb=1
+    /// m_rang[B]=2
+    ///
     QMap <QString,int> m_rang;
 };
 

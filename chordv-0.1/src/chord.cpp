@@ -133,13 +133,13 @@ QString Chord::pureNameEnglish()
     return m_purechordEnglish;
 }
 
-QStringList Chord::removeDupplicateWhithoutRytm(QStringList chords,QString lang)
+QStringList Chord::removeDupplicateWhithoutRytm(QStringList chords,QString codelang)
 {
     QStringList ret;
     foreach ( QString ch, chords)
     {
-        Chord c(ch,lang);
-        if ( lang=="en") ret<<c.pureNameEnglish();
+        Chord c(ch,codelang);
+        if ( codelang=="en") ret<<c.pureNameEnglish();
         else ret<<c.pureNameLocale();
     }
     ret.removeDuplicates();
