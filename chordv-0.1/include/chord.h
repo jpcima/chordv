@@ -88,13 +88,13 @@ public:
     ///
     /// \brief translate
     /// \param chord : a chord name
-    /// \param langcodefrom :  code from language : fr or en
+    /// \param codelangfrom :  code from language : fr or en
     /// \param minfrom : symbol for minor : m or -
-    /// \param langto : code for language : fr or en
+    /// \param codelangto : code for language : fr or en
     /// \param minto : symbol for minor : for example m
     /// \return the chord translated
     ///
-    static QString translate ( QString chord, QString langcodefrom, QString minfrom, QString langto, QString minto );
+    static QString translate ( QString chord, QString codelangfrom, QString minfrom, QString codelangto, QString minto );
     ///
     /// \brief up the name of the chord on the next fret
     /// \return

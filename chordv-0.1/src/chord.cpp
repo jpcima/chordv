@@ -146,16 +146,16 @@ QStringList Chord::removeDupplicateWhithoutRytm(QStringList chords,QString codel
     return ret;
 }
 
-QString Chord::translate(QString chord, QString langfrom, QString minfrom, QString langto,QString minto)
+QString Chord::translate(QString chord, QString codelangfrom, QString minfrom, QString codelangto,QString minto)
 {
-    QString chordreg=Language::ListChord(langfrom).join("|");
-    QStringList chordoutput=Language::ListChord(langto);
+    QString chordreg=Language::ListNotes(codelangfrom).join("|");
+    QStringList chordoutput=Language::ListNotes(codelangto);
     chordreg=QString("^(%1)").arg(chordreg);
     QRegExp reg(chordreg);
     if ( chord.contains(reg))
     {
         QString c=reg.cap(1);
-        int i=Language::ListChord(langfrom).indexOf(c);
+        int i=Language::ListNotes(codelangfrom).indexOf(c);
         chord.replace(c,chordoutput.at(i));
         chord.replace(minfrom,minto);
     }

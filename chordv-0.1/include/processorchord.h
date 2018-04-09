@@ -39,7 +39,7 @@ private:
     QMap <QString, int >m_beats;
     QStringList m_subbar;
     PoDoFo::PdfFont *m_chordfont;
-    bool CompleteBeats(QStringList listchord,int nbbeat);
+    bool CompleteBeats(QStringList ListNotes,int nbbeat);
     void DisplayBar(QString ch);
     void SubBar2Bar();
 };

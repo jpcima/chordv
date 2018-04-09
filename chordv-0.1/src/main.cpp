@@ -9,6 +9,8 @@
 #include <QDir>
 #include <version.h>
 #include <language.h>
+#include <QMap>
+
 
 
 int main(int argc, char *argv[])
@@ -18,6 +20,7 @@ int main(int argc, char *argv[])
     a.setApplicationName("ChordV");
     a.setApplicationVersion(QString("%1").arg(VERSIONWORK));
 
+    Language::InitLanguage();
     // Installation of DataBase include in ressource and chordV-fr file
     // in .config directory
     QSettings s;

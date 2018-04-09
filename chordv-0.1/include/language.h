@@ -26,7 +26,10 @@
 class Language
 {
 public:
-
+    ///
+    /// \brief InitLanguage init the static QMap LanguageToCode and CodeToLanguage
+    ///
+    static void InitLanguage();
     ///
     /// \brief getTranslationQmFileName from language file name ( English for example ) return for
     /// example /usr/share/chordV/Languages/English/en.qm (the Qt application translation file)
@@ -46,11 +49,11 @@ public:
     /// \return  the code en, fr ...
     static QString getTranslationDocFileName(QString language);
     ///
-    /// \brief ListChord return the list of notes for the language given
+    /// \brief ListNotes return the list of notes for the language given
     /// \param language : for example English
     /// \return  : C,D,E,F,G,A,B,C or Do,Ré,Mi,Fa,Sol,La,Si
     ///
-    static QStringList ListChord(QString language);
+    static QStringList ListNotes(QString language);
     ///
     /// \brief ListMinor return list of suymbol in preference order for minor
     /// \param language : for example English
@@ -58,11 +61,17 @@ public:
     ///
     static QStringList ListMinor(QString language);
     ///
-    /// \brief getCodeLang : return code lang (en) form language. The code lang is given by the name of html fist file ( en.html)
+    /// \brief getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist file ( en.html)
     /// \param language : for example English
     /// \return en or en
     ///
     static QString getCodeLang(QString language);
+    ///
+    /// \brief getLanguage return Français for codelang fr
+    /// \param codelang : fr or en
+    /// \return  Français or English
+    ///
+    static QString getLanguage(QString codelang);
     ///
     /// \brief TranslateLineWithchord translate a line containing chords from a language to an other one, ie converts all the chord between [ ]
     /// For example : Yellow [D] Submarine => Yellow [Ré] submarine

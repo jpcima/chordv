@@ -6,6 +6,27 @@
 #include <QComboBox>
 #include <QFile>
 #include <QDebug>
+#include <QMap>
+
+static QMap <QString, QString > Code2Language;
+static QMap <QString, QString > Language2Code;
+
+
+void Language::InitLanguage()
+{
+    QString datadir(DATADIR);
+    QString path=QString("%1/Languages").arg(datadir);
+    QFileInfoList filist=QDir(path).entryInfoList(QDir::AllEntries|QDir::NoDotAndDotDot);
+    foreach (QFileInfo fi, filist)
+    {
+        QStringList filter;
+        filter << "*.chords";
+        QFileInfoList chordlist=QDir(fi.filePath()).entryInfoList(filter);
+        Code2Language[chordlist.at(0).baseName()]=fi.fileName();
+        Language2Code[fi.fileName()]=chordlist.at(0).baseName();
+    }
+
+}
 
 QString Language::getTranslationQmFileName(QString language)
 {
@@ -57,7 +78,7 @@ void Language::setLanguageComboBox(QComboBox *ptr)
 
 }
 
-QStringList Language::ListChord(QString lang)
+QStringList Language::ListNotes(QString lang)
 {
     QString datadir(DATADIR);
     QString codelang=Language::getCodeLang(lang);
@@ -86,17 +107,14 @@ QStringList Language::ListMinor(QString lang)
 
 QString Language::getCodeLang(QString language)
 {
-    QString lang;
-     QString datadir(DATADIR);
-    QString path=QString("%1/Languages/%2").arg(datadir,language);
-    QFileInfoList filist=QDir(path).entryInfoList(QDir::AllEntries|QDir::NoDotAndDotDot);
-    foreach (QFileInfo fi, filist)
-    {
-        if ( fi.filePath().endsWith(".chords") )
-             lang = fi.baseName();
-    }
-    return lang;
+    return Language2Code[language];
 }
+
+QString Language::getLanguage(QString codelang)
+{
+    return Code2Language[codelang];
+}
+
 
 QString Language::TranslateLineWithchord(QString line,QString fromlang, QString frommin, QString tolang, QString tomin)
 {

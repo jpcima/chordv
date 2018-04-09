@@ -18,10 +18,7 @@ DialogSystemInfo::DialogSystemInfo(QWidget *parent) :
     ui->lineEditProgramArguments->setText(l.join(" "));
     ui->lineEditPid->setText(QString("%1").arg(qApp->applicationPid()));
     ui->lineEditLocation->setText(qApp->applicationDirPath());
-    QStringList versionlist=qApp->applicationVersion().split("/");
-    QString version=versionlist.at(0);
-    QString gitversion=versionlist.count()>1?versionlist.at(1):"";
-    ui->lineEditVersion->setText(version);
+    ui->lineEditVersion->setText(VERSIONWORK);
     ui->lineEditGitVersion->setText(GIT);
     ui->lineEditDateCompilation->setText(DATEBUILD);
     QSqlDatabase base=QSqlDatabase::database();
