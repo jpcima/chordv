@@ -32,7 +32,7 @@
         <translation type="vanished">Sol</translation>
     </message>
     <message>
-        <location filename="../src/chord.cpp" line="55"/>
+        <location filename="../src/chord.cpp" line="67"/>
         <source>not found</source>
         <translation>non trouvé</translation>
     </message>
@@ -426,27 +426,27 @@ p, li { white-space: pre-wrap; }
         <translation>Appouvé</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="73"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="89"/>
         <source>Chord insertion</source>
         <translation>Insertion d&apos;un accord</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="190"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="207"/>
         <source>Undertermined</source>
         <translation>Indéterminé</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="287"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="304"/>
         <source>ERROR line %1 : %2</source>
         <translation>ERREUR ligne %1 : %2</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="290"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="307"/>
         <source>ERROR line %1 :syntax error</source>
         <translation>ERREUR ligne %1 : erreur de syntaxe</translation>
     </message>
     <message>
-        <location filename="../src/dialogchorddefinition.cpp" line="325"/>
+        <location filename="../src/dialogchorddefinition.cpp" line="342"/>
         <source>Warning : Chord name exist in the database with the same name and same value</source>
         <translation>Attention : l&apos;accord existe déjà dans la base avec le même nom et la même valeur</translation>
     </message>
@@ -459,12 +459,12 @@ p, li { white-space: pre-wrap; }
         <translation>Configuration</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="26"/>
+        <location filename="../ui/dialogconfiguration.ui" line="24"/>
         <source>General</source>
         <translation>Général</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="40"/>
+        <location filename="../ui/dialogconfiguration.ui" line="38"/>
         <source> Interface language</source>
         <translation>Langue du logiciel </translation>
     </message>
@@ -477,77 +477,77 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">French</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="54"/>
+        <location filename="../ui/dialogconfiguration.ui" line="52"/>
         <source>Preferred units</source>
         <translation>Système d&apos;unité favori</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="62"/>
+        <location filename="../ui/dialogconfiguration.ui" line="60"/>
         <source>mm</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="67"/>
+        <location filename="../ui/dialogconfiguration.ui" line="65"/>
         <source>cm</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="72"/>
+        <location filename="../ui/dialogconfiguration.ui" line="70"/>
         <source>in</source>
         <translation>pc</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="84"/>
+        <location filename="../ui/dialogconfiguration.ui" line="82"/>
         <source>PDF Reader program</source>
         <translation>Programme de lecture PDF</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="94"/>
+        <location filename="../ui/dialogconfiguration.ui" line="92"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="105"/>
+        <location filename="../ui/dialogconfiguration.ui" line="103"/>
         <source>Creator name</source>
         <translation>Nom de l&apos;auteur</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="150"/>
+        <location filename="../ui/dialogconfiguration.ui" line="148"/>
         <source>Lyrics mode</source>
         <translation>Mode carnet de chant</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="160"/>
+        <location filename="../ui/dialogconfiguration.ui" line="158"/>
         <source>Chord mode</source>
         <translation>Mode accords</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="170"/>
+        <location filename="../ui/dialogconfiguration.ui" line="168"/>
         <source>Text mode</source>
         <translation>Mode texte</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="180"/>
+        <location filename="../ui/dialogconfiguration.ui" line="178"/>
         <source>Memory mode</source>
         <translation>Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="190"/>
+        <location filename="../ui/dialogconfiguration.ui" line="188"/>
         <source>Editor</source>
         <translation>Éditeur</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="205"/>
+        <location filename="../ui/dialogconfiguration.ui" line="197"/>
         <source>Open last file on start </source>
         <translation>Ouvrir le dernier fichier lu au démarrage</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="232"/>
+        <location filename="../ui/dialogconfiguration.ui" line="226"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../ui/dialogconfiguration.ui" line="239"/>
+        <location filename="../ui/dialogconfiguration.ui" line="233"/>
         <source>Save</source>
         <translation>Sauver</translation>
     </message>
@@ -568,6 +568,59 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/dialogdocumentation.ui" line="43"/>
         <source>Close</source>
         <translation>Fermer</translation>
+    </message>
+</context>
+<context>
+    <name>DialogNewSong</name>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="14"/>
+        <source>Insert song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="28"/>
+        <source>Title</source>
+        <translation type="unfinished">Titre</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="35"/>
+        <source>Subtitle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="42"/>
+        <source>Tempo</source>
+        <translation type="unfinished">Tempo</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="49"/>
+        <source>Time</source>
+        <translation type="unfinished">Temps</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="56"/>
+        <source>Column</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="118"/>
+        <source>/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="188"/>
+        <source>Compressed</source>
+        <translation type="unfinished">Compressé</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="212"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Annuler</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialognewsong.ui" line="219"/>
+        <source>Insert</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -724,6 +777,59 @@ p, li { white-space: pre-wrap; }
         <location filename="../ui/dialogsysteminfo.ui" line="189"/>
         <source>Close</source>
         <translation>Fermer</translation>
+    </message>
+</context>
+<context>
+    <name>DialogTranspose</name>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="14"/>
+        <source>Chord transposition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="24"/>
+        <source>Chroma to transpose</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="53"/>
+        <source>Don&apos;t use parentheses names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="62"/>
+        <source>On</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="70"/>
+        <source>Only current chord</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="75"/>
+        <source>Only current line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="80"/>
+        <source>Only current song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="85"/>
+        <source>WholeDocument</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="110"/>
+        <source>Close</source>
+        <translation type="unfinished">Fermer</translation>
+    </message>
+    <message>
+        <location filename="../ui/dialogtranspose.ui" line="117"/>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1403,98 +1509,108 @@ Break</source>
 de page</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="352"/>
+        <location filename="../ui/formeditor.ui" line="359"/>
         <source>Infos</source>
         <translation>Informations</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="360"/>
+        <location filename="../ui/formeditor.ui" line="367"/>
         <source>Composer</source>
         <translation>Compositeur</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="367"/>
+        <location filename="../ui/formeditor.ui" line="374"/>
         <source>Lyricist</source>
         <translation>Parolier</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="374"/>
+        <location filename="../ui/formeditor.ui" line="381"/>
         <source>Arranger</source>
         <translation>Arrangeur</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="381"/>
+        <location filename="../ui/formeditor.ui" line="388"/>
         <source>Artist</source>
         <translation>Artiste</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="388"/>
+        <location filename="../ui/formeditor.ui" line="395"/>
         <source>Album</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="395"/>
+        <location filename="../ui/formeditor.ui" line="402"/>
         <source>Copyright</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="402"/>
+        <location filename="../ui/formeditor.ui" line="409"/>
         <source>Year</source>
         <translation>Année</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="409"/>
+        <location filename="../ui/formeditor.ui" line="416"/>
         <source>Duration</source>
         <translation>Durée</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="416"/>
+        <location filename="../ui/formeditor.ui" line="423"/>
         <source>Key</source>
         <translation>Clé</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="439"/>
+        <location filename="../ui/formeditor.ui" line="446"/>
         <source>Miscellaneous</source>
         <translation>Divers</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="447"/>
+        <location filename="../ui/formeditor.ui" line="454"/>
         <source>Comment
 Regular</source>
         <translation>Commentaire
 de base</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="455"/>
+        <location filename="../ui/formeditor.ui" line="462"/>
         <source>Comment
 Italic</source>
         <translation>Commentaires
 en italique</translation>
     </message>
     <message>
-        <location filename="../ui/formeditor.ui" line="463"/>
+        <location filename="../ui/formeditor.ui" line="470"/>
         <source>Comment
 Box</source>
         <translation>Commentaire
 en boîte</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="213"/>
+        <location filename="../ui/formeditor.ui" line="485"/>
+        <source>Insert new song</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/formeditor.cpp" line="62"/>
+        <source>Songs list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/formeditor.cpp" line="233"/>
         <source>Enter columns number</source>
         <translation>Entrer le nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="213"/>
+        <location filename="../src/formeditor.cpp" line="233"/>
         <source>Column number</source>
         <translation>Nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="297"/>
+        <location filename="../src/formeditor.cpp" line="322"/>
         <source>Enter tempo</source>
         <translation>Entrer le tempo</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="297"/>
+        <location filename="../src/formeditor.cpp" line="322"/>
         <source>Beats per minute</source>
         <translation>Battements par minute</translation>
     </message>
@@ -1675,7 +1791,7 @@ en boîte</translation>
         <translation type="vanished">Mode accords</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="54"/>
+        <location filename="../src/mainwindow.cpp" line="56"/>
         <source>Text mode</source>
         <translation>Mode texte</translation>
     </message>
@@ -1684,7 +1800,7 @@ en boîte</translation>
         <translation type="vanished">Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="54"/>
+        <location filename="../src/mainwindow.cpp" line="56"/>
         <source>Editor</source>
         <translation>Éditeur</translation>
     </message>
@@ -1759,17 +1875,17 @@ en boîte</translation>
         <translation type="vanished">Lancer l&apos;afficheur PDF</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="368"/>
+        <location filename="../ui/mainwindow.ui" line="369"/>
         <source>&amp;Help</source>
         <translation>&amp;Aide</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="376"/>
+        <location filename="../ui/mainwindow.ui" line="377"/>
         <source>&amp;Edition</source>
         <translation>&amp;Édition</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="386"/>
+        <location filename="../ui/mainwindow.ui" line="387"/>
         <source>Window</source>
         <translation>Fenêtres</translation>
     </message>
@@ -1778,17 +1894,17 @@ en boîte</translation>
         <translation type="vanished">Importer un fichier cho3</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="504"/>
+        <location filename="../ui/mainwindow.ui" line="505"/>
         <source>&amp;Find</source>
         <translation>&amp;Chercher</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="512"/>
+        <location filename="../ui/mainwindow.ui" line="513"/>
         <source>&amp;Replace</source>
         <translation>&amp;Remplacer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="54"/>
+        <location filename="../src/mainwindow.cpp" line="56"/>
         <source>Global definitions</source>
         <translation>Définitions globales</translation>
     </message>
@@ -1801,7 +1917,7 @@ en boîte</translation>
         <translation type="vanished">Textes et accords</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="568"/>
+        <location filename="../ui/mainwindow.ui" line="569"/>
         <source>1</source>
         <translation>1</translation>
     </message>
@@ -1814,13 +1930,13 @@ en boîte</translation>
         <translation type="vanished">Tout sélectionner</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="576"/>
+        <location filename="../ui/mainwindow.ui" line="577"/>
         <source>F9</source>
         <oldsource>F4</oldsource>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="655"/>
+        <location filename="../ui/mainwindow.ui" line="656"/>
         <source>Export to &amp;cho3 file</source>
         <translation>Exporter vers un fichier &amp;cho3</translation>
     </message>
@@ -1829,12 +1945,12 @@ en boîte</translation>
         <translation type="vanished">Texte</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="584"/>
+        <location filename="../ui/mainwindow.ui" line="585"/>
         <source>F5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="663"/>
+        <location filename="../ui/mainwindow.ui" line="664"/>
         <source>Shift+F6</source>
         <translation></translation>
     </message>
@@ -1843,17 +1959,17 @@ en boîte</translation>
         <translation type="vanished">Textes et accords</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="592"/>
+        <location filename="../ui/mainwindow.ui" line="593"/>
         <source>F6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="671"/>
+        <location filename="../ui/mainwindow.ui" line="672"/>
         <source>Shift+F7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="679"/>
+        <location filename="../ui/mainwindow.ui" line="680"/>
         <source>Shift+F9</source>
         <translation></translation>
     </message>
@@ -1862,7 +1978,7 @@ en boîte</translation>
         <translation type="vanished">Accords</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="600"/>
+        <location filename="../ui/mainwindow.ui" line="601"/>
         <source>F7</source>
         <translation></translation>
     </message>
@@ -1871,27 +1987,27 @@ en boîte</translation>
         <translation type="vanished">Aide mémoire</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="608"/>
+        <location filename="../ui/mainwindow.ui" line="609"/>
         <source>F8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="616"/>
+        <location filename="../ui/mainwindow.ui" line="617"/>
         <source>Ctrl+F5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="624"/>
+        <location filename="../ui/mainwindow.ui" line="625"/>
         <source>Ctrl+F6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="632"/>
+        <location filename="../ui/mainwindow.ui" line="633"/>
         <source>Ctrl+F7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="640"/>
+        <location filename="../ui/mainwindow.ui" line="641"/>
         <source>Ctrl+F8</source>
         <translation></translation>
     </message>
@@ -1904,7 +2020,7 @@ en boîte</translation>
         <translation type="vanished">Dernier construit</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="414"/>
+        <location filename="../ui/mainwindow.ui" line="415"/>
         <source>&amp;New Project</source>
         <translation>&amp;Nouveau projet</translation>
     </message>
@@ -2011,197 +2127,202 @@ chorus</translation>
         <translation>Conversion</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="419"/>
+        <location filename="../ui/mainwindow.ui" line="420"/>
         <source>&amp;Open Project</source>
         <translation>&amp;Ouvrir un projet</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="424"/>
+        <location filename="../ui/mainwindow.ui" line="425"/>
         <source>&amp;Quit</source>
         <translation>&amp;Quitter</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="429"/>
+        <location filename="../ui/mainwindow.ui" line="430"/>
         <source>&amp;Save Current as Defaut</source>
         <translation>&amp;Sauvegarder l&apos;état actuel comme par défaut</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="434"/>
+        <location filename="../ui/mainwindow.ui" line="435"/>
         <source>Sa&amp;ve</source>
         <translation>Sau&amp;vegarder</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="437"/>
+        <location filename="../ui/mainwindow.ui" line="438"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="442"/>
+        <location filename="../ui/mainwindow.ui" line="443"/>
         <source>Sav&amp;e As</source>
         <translation>Sau&amp;vegarder comme</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="447"/>
+        <location filename="../ui/mainwindow.ui" line="448"/>
         <source>Documentation</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="450"/>
+        <location filename="../ui/mainwindow.ui" line="451"/>
         <source>F1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="455"/>
+        <location filename="../ui/mainwindow.ui" line="456"/>
         <source>&amp;About</source>
         <translation>&amp;À propos</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="460"/>
+        <location filename="../ui/mainwindow.ui" line="461"/>
         <source>Last Project</source>
         <translation>Dernier projet</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="465"/>
+        <location filename="../ui/mainwindow.ui" line="466"/>
         <source>&amp;Last Projects</source>
         <translation>&amp;Derniers projets</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="473"/>
+        <location filename="../ui/mainwindow.ui" line="474"/>
         <source>&amp;Produce PDF files</source>
         <translation>&amp;Produire un fichier PDF</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="478"/>
+        <location filename="../ui/mainwindow.ui" line="479"/>
         <source>Pr&amp;eferences</source>
         <translation>Préfér&amp;ences</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="481"/>
+        <location filename="../ui/mainwindow.ui" line="482"/>
         <source>Ctrl+O</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="486"/>
+        <location filename="../ui/mainwindow.ui" line="487"/>
         <source>&amp;Import cho3 File</source>
         <translation>&amp;Importer un fichier cho3</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="523"/>
+        <location filename="../ui/mainwindow.ui" line="524"/>
         <source>&amp;Global definitions</source>
         <translation>Définitions &amp;globales</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="531"/>
+        <location filename="../ui/mainwindow.ui" line="532"/>
         <source>&amp;Text only mode</source>
         <translation>Mode &amp;texte</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="539"/>
+        <location filename="../ui/mainwindow.ui" line="540"/>
         <source>&amp;Lyrics and chord mode</source>
         <translation>Mode &amp;accords et textes</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="547"/>
+        <location filename="../ui/mainwindow.ui" line="548"/>
         <source>&amp;Chord mode</source>
         <translation>Mode a&amp;ccords</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="555"/>
+        <location filename="../ui/mainwindow.ui" line="556"/>
         <source>&amp;Memory mode</source>
         <translation>Mode aide &amp;mémoire</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="563"/>
+        <location filename="../ui/mainwindow.ui" line="564"/>
         <source>&amp;Editor</source>
         <translation>&amp;Editeur</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="573"/>
+        <location filename="../ui/mainwindow.ui" line="574"/>
         <source>&amp;Build All</source>
         <translation>&amp;Construire tout</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="581"/>
-        <location filename="../ui/mainwindow.ui" line="613"/>
-        <location filename="../ui/mainwindow.ui" line="660"/>
+        <location filename="../ui/mainwindow.ui" line="582"/>
+        <location filename="../ui/mainwindow.ui" line="614"/>
+        <location filename="../ui/mainwindow.ui" line="661"/>
         <source>&amp;Text</source>
         <translation>&amp;Texte</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="589"/>
-        <location filename="../ui/mainwindow.ui" line="621"/>
-        <location filename="../ui/mainwindow.ui" line="668"/>
+        <location filename="../ui/mainwindow.ui" line="590"/>
+        <location filename="../ui/mainwindow.ui" line="622"/>
+        <location filename="../ui/mainwindow.ui" line="669"/>
         <source>&amp;Lyrics</source>
         <translation>&amp;Paroles et accords</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="597"/>
-        <location filename="../ui/mainwindow.ui" line="629"/>
-        <location filename="../ui/mainwindow.ui" line="684"/>
+        <location filename="../ui/mainwindow.ui" line="598"/>
+        <location filename="../ui/mainwindow.ui" line="630"/>
+        <location filename="../ui/mainwindow.ui" line="685"/>
         <source>&amp;Chord</source>
         <translation>A&amp;ccords</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="605"/>
-        <location filename="../ui/mainwindow.ui" line="637"/>
-        <location filename="../ui/mainwindow.ui" line="676"/>
+        <location filename="../ui/mainwindow.ui" line="606"/>
+        <location filename="../ui/mainwindow.ui" line="638"/>
+        <location filename="../ui/mainwindow.ui" line="677"/>
         <source>&amp;Memory</source>
         <translation>Aide &amp;mémoire</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="645"/>
+        <location filename="../ui/mainwindow.ui" line="646"/>
         <source>&amp;Reset Preferences as Origin</source>
         <translation>&amp;Remettre les préférences comme à l&apos;origine</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="650"/>
+        <location filename="../ui/mainwindow.ui" line="651"/>
         <source>Last &amp;built</source>
         <translation>&amp;Dernière construciton</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="687"/>
+        <location filename="../ui/mainwindow.ui" line="688"/>
         <source>Shift+F8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="692"/>
+        <location filename="../ui/mainwindow.ui" line="693"/>
         <source>&amp;Zoom +</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="695"/>
+        <location filename="../ui/mainwindow.ui" line="696"/>
         <source>Ctrl++</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="700"/>
+        <location filename="../ui/mainwindow.ui" line="701"/>
         <source>Z&amp;oom - </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="703"/>
+        <location filename="../ui/mainwindow.ui" line="704"/>
         <source>Ctrl+-</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="708"/>
+        <location filename="../ui/mainwindow.ui" line="709"/>
         <source>Force configuration files to currrent project</source>
         <translation>Forcer la configuration générale sur le modèle du prohet courant</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="713"/>
+        <location filename="../ui/mainwindow.ui" line="714"/>
         <source>Chords with chord on line above to chordpro format</source>
         <translation>Format avec accord sur la ligne au dessus vers format chordpro</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="718"/>
+        <location filename="../ui/mainwindow.ui" line="719"/>
         <source>Change  the chords Language of the current song file</source>
         <translation>Changer le language des accords du fichier courant</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="723"/>
+        <location filename="../ui/mainwindow.ui" line="724"/>
         <source>Close</source>
         <translation type="unfinished">Fermer</translation>
+    </message>
+    <message>
+        <location filename="../ui/mainwindow.ui" line="729"/>
+        <source>Transpose chords</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2LinesTochordpro</source>
@@ -2220,72 +2341,72 @@ chorus</translation>
         <translation type="vanished">&amp;Remettre les options à l&apos;état usine</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="491"/>
+        <location filename="../ui/mainwindow.ui" line="492"/>
         <source>&amp;Chord definition</source>
         <translation>Définition de l&apos;a&amp;ccord</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="494"/>
+        <location filename="../ui/mainwindow.ui" line="495"/>
         <source>F3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="499"/>
+        <location filename="../ui/mainwindow.ui" line="500"/>
         <source>&amp;System Info</source>
         <translation>Informations &amp;systèmes</translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="507"/>
+        <location filename="../ui/mainwindow.ui" line="508"/>
         <source>Ctrl+F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/mainwindow.ui" line="515"/>
+        <location filename="../ui/mainwindow.ui" line="516"/>
         <source>Ctrl+R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="61"/>
+        <location filename="../src/mainwindow.cpp" line="63"/>
         <source>Last Projects</source>
         <translation>Derniers projets</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="123"/>
+        <location filename="../src/mainwindow.cpp" line="126"/>
         <source>%1 does&apos;nt exit. Bye !</source>
         <translation>%1 n&apos;existe pas. Au revoir !</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="145"/>
+        <location filename="../src/mainwindow.cpp" line="148"/>
         <source>Buffer as changed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="145"/>
+        <location filename="../src/mainwindow.cpp" line="148"/>
         <source>Do you want to save ? </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="210"/>
+        <location filename="../src/mainwindow.cpp" line="213"/>
         <source>Open text file</source>
         <translation>Ouvrir un fichier texte</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="210"/>
+        <location filename="../src/mainwindow.cpp" line="213"/>
         <source>cho3 file(*.cho3)</source>
         <translation>Fichier cho3 (*.cho3)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="327"/>
+        <location filename="../src/mainwindow.cpp" line="330"/>
         <source>Cannot open file : %1</source>
         <translation>Ne peut ouvrir le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="386"/>
+        <location filename="../src/mainwindow.cpp" line="389"/>
         <source>Open conf file</source>
         <translation>Ouvrir un fichier conf</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="456"/>
+        <location filename="../src/mainwindow.cpp" line="459"/>
         <source>(*.chop)</source>
         <translation></translation>
     </message>
@@ -2298,22 +2419,22 @@ chorus</translation>
         <translation type="vanished">Fichier non sauvegardé : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="54"/>
+        <location filename="../src/mainwindow.cpp" line="56"/>
         <source>Text and chord Mode</source>
         <translation>Mode texte et accord</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="54"/>
+        <location filename="../src/mainwindow.cpp" line="56"/>
         <source>Chord Mode</source>
         <translation>Mode accords</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="54"/>
+        <location filename="../src/mainwindow.cpp" line="56"/>
         <source>Memory Mode</source>
         <translation>Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="456"/>
+        <location filename="../src/mainwindow.cpp" line="459"/>
         <source>Save project as</source>
         <translation>Suvegarder le projet</translation>
     </message>
@@ -2322,17 +2443,17 @@ chorus</translation>
         <translation type="vanished">Sauvegarder comme (*.chop)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="600"/>
+        <location filename="../src/mainwindow.cpp" line="606"/>
         <source>Conversion done for : %1</source>
         <translation>Conversion effectuée pour : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="658"/>
+        <location filename="../src/mainwindow.cpp" line="664"/>
         <source>Cannot write file : %1</source>
         <translation>Ne peut pas écrire dans le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="664"/>
+        <location filename="../src/mainwindow.cpp" line="670"/>
         <source>%1 file exported</source>
         <translation>fichier %1 exporté</translation>
     </message>
@@ -2511,27 +2632,27 @@ chorus</translation>
         <translation>pc</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="53"/>
+        <location filename="../src/main.cpp" line="56"/>
         <source>Database %1 not found. You will not be able to design chords !</source>
         <translation>La base de données %1 n&apos;a pas été trouvée. Vous ne serez pas en mesure de gérer les accords !</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="140"/>
+        <location filename="../src/formeditor.cpp" line="160"/>
         <source>Enter title</source>
         <translation>Entrer un titre</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="140"/>
+        <location filename="../src/formeditor.cpp" line="160"/>
         <source>Title</source>
         <translation>Titre</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="145"/>
+        <location filename="../src/formeditor.cpp" line="165"/>
         <source>Enter sub title</source>
         <translation>Entrez un sous titre</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="145"/>
+        <location filename="../src/formeditor.cpp" line="165"/>
         <source>Sub Title</source>
         <translation>Sous-titre</translation>
     </message>
@@ -2544,134 +2665,134 @@ chorus</translation>
         <translation type="vanished">Nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="314"/>
+        <location filename="../src/formeditor.cpp" line="339"/>
         <source>Enter  cover subtitle</source>
         <translation>Entrer le sous-titre de la couverture</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="314"/>
+        <location filename="../src/formeditor.cpp" line="339"/>
         <source>Cover Subtitle</source>
         <translation>Sous-titre couverture</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="238"/>
+        <location filename="../src/formeditor.cpp" line="263"/>
         <source>Enter cover title</source>
         <translation>Entrer le titre de la couverture</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="150"/>
+        <location filename="../src/formeditor.cpp" line="170"/>
         <source>Enter album</source>
         <translation>Entrer le nom de l&apos;album</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="150"/>
+        <location filename="../src/formeditor.cpp" line="170"/>
         <source>Album</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="155"/>
+        <location filename="../src/formeditor.cpp" line="175"/>
         <source>Enter artist</source>
         <translation>Entrer le nom de l&apos;artiste</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="155"/>
+        <location filename="../src/formeditor.cpp" line="175"/>
         <source>Artist</source>
         <translation>Artiste</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="160"/>
+        <location filename="../src/formeditor.cpp" line="180"/>
         <source>Enter composer</source>
         <translation>Entrer le nom du compositeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="160"/>
+        <location filename="../src/formeditor.cpp" line="180"/>
         <source>Composer</source>
         <translation>Compositeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="165"/>
+        <location filename="../src/formeditor.cpp" line="185"/>
         <source>Enter lyricist</source>
         <translation>Entrer le nom du parolier</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="165"/>
+        <location filename="../src/formeditor.cpp" line="185"/>
         <source>Lyricist</source>
         <translation>Parolier</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="169"/>
+        <location filename="../src/formeditor.cpp" line="189"/>
         <source>Enter arranger</source>
         <translation>Entrer le nom de l&apos;arrangeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="169"/>
+        <location filename="../src/formeditor.cpp" line="189"/>
         <source>Arranger</source>
         <translation>Arrangeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="176"/>
+        <location filename="../src/formeditor.cpp" line="196"/>
         <source>Enter copyright</source>
         <translation>Entrer le Copyright</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="176"/>
+        <location filename="../src/formeditor.cpp" line="196"/>
         <source>Copyright</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="181"/>
+        <location filename="../src/formeditor.cpp" line="201"/>
         <source>Enter year</source>
         <translation>Entrer l&apos;année</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="181"/>
+        <location filename="../src/formeditor.cpp" line="201"/>
         <source>Year</source>
         <translation>Année</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="186"/>
+        <location filename="../src/formeditor.cpp" line="206"/>
         <source>Enter key</source>
         <translation>Entrer la clé</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="186"/>
+        <location filename="../src/formeditor.cpp" line="206"/>
         <source>Key</source>
         <translation>Clé</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="191"/>
+        <location filename="../src/formeditor.cpp" line="211"/>
         <source>Enter duration</source>
         <translation>Entrer la durée</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="191"/>
+        <location filename="../src/formeditor.cpp" line="211"/>
         <source>Duration</source>
         <translation>Durée</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="196"/>
-        <location filename="../src/formeditor.cpp" line="201"/>
-        <location filename="../src/formeditor.cpp" line="206"/>
+        <location filename="../src/formeditor.cpp" line="216"/>
+        <location filename="../src/formeditor.cpp" line="221"/>
+        <location filename="../src/formeditor.cpp" line="226"/>
         <source>Enter comment</source>
         <translation>Entrer un commentaire</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="196"/>
+        <location filename="../src/formeditor.cpp" line="216"/>
         <source>Comment</source>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="201"/>
+        <location filename="../src/formeditor.cpp" line="221"/>
         <source>Comment italic</source>
         <translation>Commentaire en italique</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="206"/>
+        <location filename="../src/formeditor.cpp" line="226"/>
         <source>Comment box</source>
         <translation>Commentaire en boîte</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="238"/>
+        <location filename="../src/formeditor.cpp" line="263"/>
         <source>Cover title</source>
         <translation>Titre de la couverture</translation>
     </message>

@@ -32,7 +32,9 @@ QString Language::getTranslationQmFileName(QString language)
 {
     if (language=="English") return QString();
     QString datadir(DATADIR);
-    return QString("%1/Languages/%2/%3.qm").arg(datadir,language,Language::getCodeLang(language));
+    QString ret=QString("%1/Languages/%2/%3.qm").arg(datadir,language,Language::getCodeLang(language));
+    qDebug()<<ret;
+    return ret;
 }
 
 
@@ -78,11 +80,11 @@ void Language::setLanguageComboBox(QComboBox *ptr)
 
 }
 
-QStringList Language::ListNotes(QString lang)
+QStringList Language::ListNotes(QString language)
 {
     QString datadir(DATADIR);
-    QString codelang=Language::getCodeLang(lang);
-    QString filename=QString("%1/Languages/%2/%3.chords").arg(datadir,lang,codelang);
+    QString codelang=Language::getCodeLang(language);
+    QString filename=QString("%1/Languages/%2/%3.chords").arg(datadir,language,codelang);
     QFile file(filename);
     file.open(QIODevice::ReadOnly|QIODevice::Text);
     QString chords=file.readLine();

@@ -164,7 +164,7 @@ void DialogChordDefinition::ChordClicked(QModelIndex index)
     QString value=index.sibling(index.row(),1).data().toString();
     ui->lineEditNameIndex->setText(name);
     ui->lineEditValueIndex->setText(value);
-    ui->lineEditNameTranaslatedIndex->setText ( Chord::translate(name,"en","-",m_language,m_minor));
+    ui->lineEditNameTranaslatedIndex->setText ( Chord::translate(name,"en","-",Language::getCodeLang(m_language),m_minor));
     m_index=index.sibling(index.row(),2).data().toInt();
     ui->widget->setDiagram(ui->lineEditValueIndex->text());
 
@@ -176,7 +176,7 @@ void DialogChordDefinition::ChordClickedNonApproved(QModelIndex index)
     QString value=index.sibling(index.row(),1).data().toString();
     QString name=index.sibling(index.row(),0).data().toString();
     ui->lineEditNameNoApproved->setText(name);
-    ui->lineEditTranslatedNameNoApproved->setText(Chord::translate(name,"en","-",m_language,m_minor));
+    ui->lineEditTranslatedNameNoApproved->setText(Chord::translate(name,"en","-",Language::getCodeLang(m_language),m_minor));
     ui->lineEditValueNoApproved->setText(value);
     m_indexnonapproved=index.sibling(index.row(),2).data().toInt();
     ui->widget_2->setDiagram(ui->lineEditValueNoApproved->text());
@@ -208,7 +208,7 @@ void DialogChordDefinition::ShowChords(QStringList chordnames,QString chordstrin
    foreach ( QString chord, chordnames)
        if (chord.length()< chordmin.length() ) chordmin=chord;
    ui->lineEditChord->setText(chordmin);
-   ui->lineEditTranslatedChord->setText(Chord::translate(chordmin,"en","-",m_language,m_minor));
+   ui->lineEditTranslatedChord->setText(Chord::translate(chordmin,"en","-",Language::getCodeLang(m_language),m_minor));
    ui->listWidgetChords->clear();
    ui->listWidgetChords->addItems(chordnames);
    ui->lineEditNotation->setText(chordstring);
