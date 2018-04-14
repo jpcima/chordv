@@ -12,7 +12,12 @@
 #include <QMap>
 
 
-
+///
+/// \brief main the main program for ChordV
+/// \param argc
+/// \param argv
+/// \return
+///
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

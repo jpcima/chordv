@@ -14,6 +14,31 @@ namespace Ui {
 class MainWindow;
 }
 
+/// \mainpage General documentation for ChordV developpers
+/// \section Introduction
+///
+/// ChordV allow to edit song booklet with lyrics and text of song, or only chords
+/// output, or only Luyrics output
+/// All feature are accessible from the MainWindow.
+/// All the MainWindow features are accessible from Menu
+/// There are many mode :
+/// - Edition mode where users can enter text, chords and lyrics
+/// - Lyrics mode where users can define the Lyrics mode booklets
+/// - Text mode where users can define the Text booklets
+/// - Text and Chors mode where users can define the options for the Text and chord booklets
+/// In preferences dialog option you can design the general booklet definition and change
+/// the behaviour for each booklet from the behaviour defined in option.
+/// \section Edition
+///
+/// \section "Chord mode"
+///
+///
+
+
+
+///
+/// \brief The MainWindow class
+///
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

@@ -9,11 +9,13 @@
         <file>../Images/cross.png</file>
         <file>../Images/task-complete.png</file>
         <file>../Images/task-reject.png</file>
+        <file>../Images/logo.svg</file>
     </qresource>
     <qresource prefix="/Base">
         <file>../Bd/Chord.db</file>
     </qresource>
     <qresource prefix="/">
         <file>../Images/warning.png</file>
+        <file>../Images/logo.svg</file>
     </qresource>
 </RCC>

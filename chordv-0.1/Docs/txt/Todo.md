@@ -31,6 +31,9 @@ PDF Chord :
 Chord Editor :
 ------------
 
+- Tool Tip for toolbuttons
+- Make ne new Icon for chordV
+- To doxygen documentation
 
 
 Editor :

@@ -177,6 +177,8 @@ void ChordDetector::round(QStringList &list,int i)
       list[list.count()-1]= temp;
 }
 
+// Calculate All chord fo all the first note possible.
+// The chord given is then given by tblSciType record in chordV Database
 void ChordDetector::CalculateAllChords(QStringList list,int first)
 {
           if ((list.count() - first) <= 1){
