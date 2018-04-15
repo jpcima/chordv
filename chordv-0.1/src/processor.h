@@ -239,7 +239,6 @@ protected:
     /// \param align : Processor::left Processor::center or Processor::right
     /// \param scale : 1 no scale >1 will grow the default font <1 decrease the default font
     /// \return return the x position of the end of text
-
     double Text(PoDoFo::PdfDocument *doc,QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);
 
     double TextInBox(PoDoFo::PdfDocument *doc, QString text, double x, double y, FontButton *fb, Align align=left, double scale=1);

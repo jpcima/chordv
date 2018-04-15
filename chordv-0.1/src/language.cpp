@@ -126,7 +126,7 @@ QString Language::TranslateLineWithchord(QString line,QString fromlang, QString 
      {
           accolade=true;
           QString newchord=regchord.cap(1).replace("[","").replace("]","");
-          newchord=Chord::translate(newchord,fromlang,frommin,tolang,tomin);
+          newchord=Chord::translate(newchord,Language::getCodeLang(fromlang),frommin,Language::getCodeLang(tolang),tomin);
           line.replace(regchord.cap(1),QString("{%1}").arg(newchord));
      }
      if ( accolade)
@@ -135,4 +135,6 @@ QString Language::TranslateLineWithchord(QString line,QString fromlang, QString 
      }
      return line;
 }
+
+
 

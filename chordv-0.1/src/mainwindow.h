@@ -82,18 +82,17 @@ private:
     QString getRelativeFilename(QString chofilename);
     void ActualizeProject(QString file);
     QString m_pdffilename;
-
-
     bool m_found;
     void setChecked(int i);
     QString getPdfFileName(QString  text);
     QLabel *m_labelactivestacked;
     QStringList m_liststacked;
-
     QString m_initialbuffer;
-
     void InitDefault();
 public slots:
+    ///
+    /// \brief ChangeLanguage retranslate all the child window and tha main window
+    ///
     void ChangeLanguage(QString );
 
 private slots:
@@ -120,7 +119,6 @@ private slots:
     void ProducePDFAndShow();
     void PDFReaderChanged();
     void ConversionDone(QString filename);
-
     void ChordDefinition();
     void SystemInfo();
     void Search();

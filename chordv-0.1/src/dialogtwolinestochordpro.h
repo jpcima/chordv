@@ -11,7 +11,7 @@ class DialogTwoLinesToChordPro;
 }
 
 ///
-/// \brief The DialogTwoLinesToChordPro class is an utility ton convert song in two lines :
+/// \brief The DialogTwoLinesToChordPro class is an utility to convert song in two lines :
 ///
 /// C             D
 /// Hello how are you

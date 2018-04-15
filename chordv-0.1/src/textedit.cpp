@@ -156,6 +156,7 @@ void TextEdit::ShowChordInclusionDial()
 void TextEdit::TransPoseChord(int degre, bool par, int range)
 {
   Q_UNUSED(degre)
+    qWarning()<<"transpose";
   Q_UNUSED(par)
   Q_UNUSED(range)
 }

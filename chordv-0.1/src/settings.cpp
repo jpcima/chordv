@@ -14,7 +14,6 @@ QVariant Settings::value(QString key, QVariant defaut)
 {
     if (this->QSettings::value(key).isValid() )
     {
-        QVariant ret=QSettings::value(key);
         return QSettings::value(key);
     }
     else

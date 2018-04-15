@@ -2,6 +2,8 @@
 #include "ui_formeditor.h"
 
 #include "dialogbar.h"
+#include "language.h"
+#include "chord.h"
 
 
 #include <QInputDialog>
@@ -478,3 +480,49 @@ void FormEditor::InsertCompress()
         ui->textEdit->insertPlainText("\n\n");
 
     }
+
+void FormEditor::TransposeChord(int numberofchroma, bool parenthesistyle, int range)
+{
+   // ui->textEdit->TransposeChord(numberofchroma,parenthesistyle,range);
+    if ( range == ChordUnderTheCurser )
+         {
+
+         }
+    else if (range == AllChordInLine )
+         {
+
+         }
+    else if ( range == AllChordInSong)
+         {
+
+         }
+    else if ( range == AllChordInFile )
+         {
+             QStringList out;
+             QStringList lines=document()->toPlainText().split("\n");
+             foreach (QString line , lines)
+                {
+                 line=TransposeLineWithChord(line,numberofchroma,parenthesistyle);
+                 out<<line;
+                }
+         }
+}
+
+QString FormEditor::TransposeLineWithChord( QString line, int numberofchroma, bool parenthesis)
+{
+    bool accolade=false;
+    QRegExp regchord("(\\[[^]]+\\])");
+    while ( line.indexOf(regchord)!=-1)
+      {
+           accolade=true;
+           QString newchord=regchord.cap(1).replace("[","").replace("]","");
+           Chord chord(newchord);
+           QString transposed=chord.transpose(numberofchroma,parenthesis,"-","-");
+           line.replace(regchord.cap(1),QString("{%1}").arg(transposed));
+      }
+      if ( accolade)
+      {
+           line.replace("{","[").replace("}","]");
+      }
+      return line;
+}

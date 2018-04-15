@@ -32,7 +32,7 @@ Chord Editor :
 ------------
 
 - To doxygen documentation (background job)
-
+- Transpose Chord language not written
 
 Editor :
 -------

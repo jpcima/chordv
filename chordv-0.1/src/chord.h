@@ -81,7 +81,7 @@ public:
     ///
     /// \brief removeDupplicateWhithoutRytm
     /// \param chords list of names of chord
-    /// \param language : Englisd, French ...
+    /// \param codelang : en,fr ...
     /// \return : suppress the dupplicate chords after removing the :2 x2
     ///
     static QStringList removeDupplicateWhithoutRytm(QStringList chords,QString codelang);

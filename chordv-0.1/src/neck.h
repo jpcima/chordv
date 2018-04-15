@@ -3,10 +3,20 @@
 
 #include <QGraphicsView>
 
+///
+/// \brief The Neck class is derivated of graphicsView to allow to show a guitar neck
+/// and analyse the string touched to calculate chord.
+///
+///  The result is given by the signal ChordsDetected(QStringList chordname,QString notes);
+///
 class Neck : public QGraphicsView
 {
     Q_OBJECT
 public:
+    ///
+    /// \brief Neck neck constructor complient with widget promotion in QtDesigner
+    /// \param parent parent of the widget
+    ///
     Neck(QWidget *parent);
 private:
     QGraphicsScene *m_scene;
@@ -92,6 +102,12 @@ private:
     ///
     QString toString();
 signals:
+    ///
+    /// \brief ChordsDetected the chords detected are send as a signal with the list of chordnames, and
+    /// the notes in x0101000 notation
+    /// \param chordname : list of chordnames
+    /// \param notes  : notes
+    ///
     void ChordsDetected(QStringList chordname,QString notes);
 };
 

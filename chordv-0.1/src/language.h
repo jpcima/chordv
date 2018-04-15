@@ -73,7 +73,8 @@ public:
     ///
     static QString getLanguage(QString codelang);
     ///
-    /// \brief TranslateLineWithchord translate a line containing chords from a language to an other one, ie converts all the chord between [ ]
+    /// \brief TranslateLineWithchord translate a line containing chords from a
+    /// language to an other one, ie converts all the chord between [ ]
     /// For example : Yellow [D] Submarine => Yellow [Ré] submarine
     /// \param line : the line to be translated
     /// \param fromlanguage : for example English
@@ -82,7 +83,7 @@ public:
     /// \param tomin : minor mode after translation for example m
     /// \return
     ///
-    static QString TranslateLineWithchord(QString line, QString fromlanguage, QString frommin, QString tolangugage, QString tomin);
+    static QString TranslateLineWithchord(QString line, QString fromlanguage, QString frommin, QString tolanguage, QString tomin);
 };
 
 #endif // LANGUAGE_H

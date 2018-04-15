@@ -6,12 +6,20 @@
 namespace Ui {
 class DialogTranspose;
 }
-
+///
+/// \brief The DialogTranspose class is a Dialog class to ask how many chroma negative or positive the user wants to transpose.
+/// It ask if the chord has to be with parenthesis or no and ask if just the current chord has to print translated, all the chord in the current line,
+/// all the chord on the current song or all the chord of the current booklet.
+///
 class DialogTranspose : public QDialog
 {
     Q_OBJECT
 
 public:
+    ///
+    /// \brief DialogTranspose the QDialog constructor
+    /// \param parent
+    ///
     explicit DialogTranspose(QWidget *parent = 0);
     ~DialogTranspose();
 
@@ -21,7 +29,13 @@ private slots:
 private:
     Ui::DialogTranspose *ui;
 signals:
-    void AskChange(int val, bool parenthesis, int Range);
+    ///
+    /// \brief AskChange ask change with halftonenumber, parenthesis yes or no, and range defined as just the current chord has to print translated, all the chord in the current line,
+    /// all the chord on the current song or all the chord of the current booklet.
+    /// \param halftonenumber
+    /// \param parenthesis
+    /// \param Range
+    void AskChange(int halftonenumber, bool parenthesis, int Range);
 };
 
 #endif // DIALOGTRANSPOSE_H

@@ -23,6 +23,11 @@ class FormEditor : public QWidget
     Q_OBJECT
 
 public:
+    enum Range { ChordUnderTheCurser, /// Action only on chord under the cursor
+                 AllChordInLine, /// Action on all chord in the current line
+                 AllChordInSong, /// Action on all chord in song
+                 AllChordInFile /// Action on all chord in booklet
+               };
     ///
     /// \brief FormEditor is usable aa a promotable widget
     /// \param parent
@@ -87,6 +92,12 @@ private:
     void resizeEvent(QResizeEvent *event);
     DialogNewSong *m_dialognewsong;
     void Init();
+    ///
+    /// \brief TransposeLineWithChord transpose all the chord in a line
+    /// \param line line of song with 0 to n chords
+    /// \param numberofchroma : number of chroma
+    /// \param parenthesis : parenthesis true of false
+    QString TransposeLineWithChord(QString line, int numberofchroma, bool parenthesis);
 private slots:
     void InsertTempo();
     void InsertTime();
@@ -134,6 +145,7 @@ private slots:
     /// \param tempp : beat per minute
     ///
     void InsertSong(QString title, QString subtitle, bool compressed, int column, int time1, int time2,int tempo);
+    void TransposeChord(int numberofchroma, bool parenthesistyle, int range);
 };
 
 #endif // FORMEDITOR_H

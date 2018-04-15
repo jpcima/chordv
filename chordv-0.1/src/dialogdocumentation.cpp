@@ -1,4 +1,4 @@
-#include "include/dialogdocumentation.h"
+#include "dialogdocumentation.h"
 #include "ui_dialogdocumentation.h"
 
 #include "language.h"

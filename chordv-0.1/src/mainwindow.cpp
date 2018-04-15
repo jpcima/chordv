@@ -807,6 +807,9 @@ void MainWindow::TwoLines2Chordpro()
   dial.exec();
 }
 
+///
+/// \brief MainWindow::ChangeChordLang change the chord lang for the current Edited file
+///
 void MainWindow::ChangeChordLang()
 {
  DialogChangeChordName dial(this);
@@ -837,4 +840,5 @@ void MainWindow::TransposeChords()
    DialogTranspose dial(this);
    connect(&dial,SIGNAL(AskChange(int,bool,int)),ui->textEditCho3File,SLOT(TransposeChord(int,bool,int)));
    dial.exec();
+
 }
