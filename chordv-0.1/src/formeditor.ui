@@ -607,6 +607,9 @@ Box</string>
        <property name="sortingEnabled">
         <bool>true</bool>
        </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
       </widget>
      </widget>
     </widget>

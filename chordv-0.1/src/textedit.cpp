@@ -155,7 +155,9 @@ void TextEdit::ShowChordInclusionDial()
 
 void TextEdit::TransPoseChord(int degre, bool par, int range)
 {
-  Q
+  Q_UNUSED(degre)
+  Q_UNUSED(par)
+  Q_UNUSED(range)
 }
 
 void TextEdit::ChordToInsert(QString chord)
