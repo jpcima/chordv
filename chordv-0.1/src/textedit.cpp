@@ -16,10 +16,10 @@ TextEdit::TextEdit(QWidget *parent ): QTextEdit(parent)
     m_editorhightlighter = new EditorHighlighter(document());
 }
 
-void TextEdit::insertPlainText(const QString &text)
+void TextEdit::insertPlainText(const QString &text, bool carriagereturn)
 {
     textCursor().insertText(text);
-    textCursor().insertBlock();
+    if (  carriagereturn )    textCursor().insertBlock();
 }
 
 void TextEdit::setChordLanguage(QString language, QString minor)

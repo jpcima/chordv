@@ -7,11 +7,18 @@ namespace Ui {
 class DialogReplace;
 }
 
+///
+/// \brief The DialogReplace class allo to search and replace words in Editor
+///
 class DialogReplace : public QDialog
 {
     Q_OBJECT
 
 public:
+    ///
+    /// \brief DialogReplace show a replace dialog to allow to search and replace inside Editor
+    /// \param parent
+    ///
     explicit DialogReplace(QWidget *parent = 0);
     ~DialogReplace();
 

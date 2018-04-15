@@ -14,7 +14,7 @@ class TextEdit : public QTextEdit
     Q_OBJECT
 public:
     TextEdit(QWidget *parent);
-    void insertPlainText(const QString &text);
+    void insertPlainText(const QString &text, bool carriagereturn = true);
     void setChordLanguage( QString language, QString minor);
 protected:
    void wheelEvent(QWheelEvent *e);

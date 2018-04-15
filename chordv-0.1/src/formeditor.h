@@ -8,7 +8,6 @@
 #include <QModelIndex>
 #include "dialognewsong.h"
 
-
 namespace Ui {
 class FormEditor;
 }
@@ -64,8 +63,9 @@ public:
     ///
     /// \brief insertPlainText insert text in QCursor of editor
     /// \param text QString  to insert
+    /// \param addcariagereturn bool to force to add a carriage return
     ///
-    void insertPlainText(QString text);
+    void insertPlainText(QString text, bool addcariagereturn=true);
     ///
     /// \brief retranslate retranslate the UI
     ///

@@ -103,9 +103,10 @@ void FormEditor::copy()
     ui->textEdit->copy();
 }
 
-void FormEditor::insertPlainText(QString text)
+
+void FormEditor::insertPlainText(QString text, bool addcarriagereturn)
 {
-    ui->textEdit->insertPlainText(text);
+    ui->textEdit->insertPlainText(text,addcarriagereturn);
 }
 
 void FormEditor::retranslate()

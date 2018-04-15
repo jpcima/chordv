@@ -1561,8 +1561,7 @@ couplet</translation>
         <source>Start of 
 grid</source>
         <translation>Début de 
-grille
-</translation>
+grille</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="333"/>

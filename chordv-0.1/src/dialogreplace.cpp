@@ -1,5 +1,6 @@
 #include "dialogreplace.h"
 #include "ui_dialogreplace.h"
+#include <QDebug>
 
 DialogReplace::DialogReplace(QWidget *parent) :
     QDialog(parent),
@@ -31,5 +32,6 @@ void DialogReplace::Search()
 
 void DialogReplace::Replace()
 {
+   qWarning()<<ui->lineEditReplaceWith->text();
    emit Replace(ui->lineEditTextToReplace->text(),ui->lineEditReplaceWith->text(),ui->checkBoxAllDocument->isChecked(),ui->checkBoxBackward->isChecked(),ui->checkBoxWordOnly->isChecked(),ui->checkBoxBackward->isChecked());
 }

@@ -31,8 +31,7 @@ PDF Chord :
 Chord Editor :
 ------------
 
-- Tool Tip for toolbuttons
-- To doxygen documentation
+- To doxygen documentation (background job)
 
 
 Editor :

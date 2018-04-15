@@ -727,7 +727,7 @@ void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool cases
         while ( m_found )
         {
          ui->textEditCho3File->textCursor().clearSelection();
-         ui->textEditCho3File->insertPlainText(textto);
+         ui->textEditCho3File->insertPlainText(textto,false);
          if ( back ) SearchBack(textfrom,casesensitive,wordonly);
          else Search(textfrom,casesensitive,wordonly);
         }
@@ -735,7 +735,7 @@ void MainWindow::Replace ( QString textfrom, QString textto,bool all, bool cases
     else
     {
         ui->textEditCho3File->textCursor().clearSelection();
-        ui->textEditCho3File->insertPlainText(textto);
+        ui->textEditCho3File->insertPlainText(textto,false);
         if ( back ) SearchBack(textfrom,casesensitive,wordonly);
         else Search(textfrom,casesensitive,wordonly);
     }
