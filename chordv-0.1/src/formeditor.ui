@@ -26,6 +26,9 @@
         <height>16777215</height>
        </size>
       </property>
+      <property name="toolTip">
+       <string/>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -33,13 +36,16 @@
        <attribute name="title">
         <string>Doc head</string>
        </attribute>
+       <attribute name="toolTip">
+        <string>Document header informations</string>
+       </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <widget class="QToolButton" name="toolButtonCT">
             <property name="toolTip">
-             <string>Cover Title</string>
+             <string>Define a title for the booklet</string>
             </property>
             <property name="text">
              <string>Cover 
@@ -50,7 +56,7 @@ title</string>
           <item>
            <widget class="QToolButton" name="toolButtonCS">
             <property name="toolTip">
-             <string>Cover Subtitle</string>
+             <string>Define a subtitle for the booklet</string>
             </property>
             <property name="text">
              <string>Cover
@@ -102,13 +108,27 @@ subtitle</string>
        <attribute name="title">
         <string>Song head</string>
        </attribute>
+       <attribute name="toolTip">
+        <string>Song header informations</string>
+       </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
+           <widget class="QToolButton" name="toolButtonInsertNewSong">
+            <property name="toolTip">
+             <string>Insert a new song in alphabetic order in the list of songs</string>
+            </property>
+            <property name="text">
+             <string>Insert
+new song</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="toolButtonT">
             <property name="toolTip">
-             <string>Song Title</string>
+             <string>Define a song title</string>
             </property>
             <property name="text">
              <string>Song 
@@ -119,7 +139,7 @@ title</string>
           <item>
            <widget class="QToolButton" name="toolButtonST">
             <property name="toolTip">
-             <string>Song Sub Titile</string>
+             <string>Define a song subtitle</string>
             </property>
             <property name="text">
              <string>Song
@@ -174,7 +194,7 @@ subtitle</string>
           <item>
            <widget class="QToolButton" name="toolButtonCB">
             <property name="toolTip">
-             <string>Column break</string>
+             <string>Insert a column break</string>
             </property>
             <property name="text">
              <string>Column
@@ -203,13 +223,16 @@ break</string>
        <attribute name="title">
         <string>Song Part</string>
        </attribute>
+       <attribute name="toolTip">
+        <string>Song part informations</string>
+       </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <item>
            <widget class="QToolButton" name="toolButtonSOC">
             <property name="toolTip">
-             <string>Start of chorus</string>
+             <string>Insert start of chorus</string>
             </property>
             <property name="text">
              <string>Start of
@@ -220,7 +243,7 @@ chorus</string>
           <item>
            <widget class="QToolButton" name="toolButtonEOC">
             <property name="toolTip">
-             <string>End of chorus</string>
+             <string>Insert end of chorus</string>
             </property>
             <property name="text">
              <string>End of
@@ -238,7 +261,7 @@ chorus</string>
           <item>
            <widget class="QToolButton" name="toolButtonSOR">
             <property name="toolTip">
-             <string>Refrain</string>
+             <string>Insert start of refrain</string>
             </property>
             <property name="text">
              <string>Start of 
@@ -249,7 +272,7 @@ refrain</string>
           <item>
            <widget class="QToolButton" name="toolButtonEOR">
             <property name="toolTip">
-             <string>Refrain</string>
+             <string>Insert end of refrain</string>
             </property>
             <property name="text">
              <string>End of 
@@ -267,7 +290,7 @@ refrain</string>
           <item>
            <widget class="QToolButton" name="toolButtonSOV">
             <property name="toolTip">
-             <string>Refrain</string>
+             <string>Insert start of verse</string>
             </property>
             <property name="text">
              <string>Start of 
@@ -278,7 +301,7 @@ verse</string>
           <item>
            <widget class="QToolButton" name="toolButtonEOV">
             <property name="toolTip">
-             <string>Refrain</string>
+             <string>Insert end of verse</string>
             </property>
             <property name="text">
              <string>End of 
@@ -296,7 +319,7 @@ verse</string>
           <item>
            <widget class="QToolButton" name="toolButtonSOG">
             <property name="toolTip">
-             <string>Refrain</string>
+             <string>Insert start of grid</string>
             </property>
             <property name="text">
              <string>Start of 
@@ -307,7 +330,7 @@ grid</string>
           <item>
            <widget class="QToolButton" name="toolButtonEOG">
             <property name="toolTip">
-             <string>Refrain</string>
+             <string>Insert end of grid</string>
             </property>
             <property name="text">
              <string>End of 
@@ -324,6 +347,9 @@ grid</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonPageBreak">
+            <property name="toolTip">
+             <string>Insert a page break</string>
+            </property>
             <property name="text">
              <string>Page
 Break</string>
@@ -358,11 +384,17 @@ Break</string>
        <attribute name="title">
         <string>Infos</string>
        </attribute>
+       <attribute name="toolTip">
+        <string>Song other informations</string>
+       </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QToolButton" name="toolButtonComposer">
+            <property name="toolTip">
+             <string>Insert the song composer</string>
+            </property>
             <property name="text">
              <string>Composer</string>
             </property>
@@ -370,6 +402,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonLyricist">
+            <property name="toolTip">
+             <string>Insert the song lyricist</string>
+            </property>
             <property name="text">
              <string>Lyricist</string>
             </property>
@@ -377,6 +412,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonArranger">
+            <property name="toolTip">
+             <string>Insert the song arranger</string>
+            </property>
             <property name="text">
              <string>Arranger</string>
             </property>
@@ -384,6 +422,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonArtist">
+            <property name="toolTip">
+             <string>Insert the song artist</string>
+            </property>
             <property name="text">
              <string>Artist</string>
             </property>
@@ -391,6 +432,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonAlbum">
+            <property name="toolTip">
+             <string>Insert the name of album</string>
+            </property>
             <property name="text">
              <string>Album</string>
             </property>
@@ -398,6 +442,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonCopyright">
+            <property name="toolTip">
+             <string>Insert the copyright</string>
+            </property>
             <property name="text">
              <string>Copyright</string>
             </property>
@@ -405,6 +452,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonYear">
+            <property name="toolTip">
+             <string>Insert the year</string>
+            </property>
             <property name="text">
              <string>Year</string>
             </property>
@@ -412,6 +462,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonDuration">
+            <property name="toolTip">
+             <string>Insert the duration</string>
+            </property>
             <property name="text">
              <string>Duration</string>
             </property>
@@ -419,6 +472,9 @@ Break</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonKey">
+            <property name="toolTip">
+             <string>Insert a key</string>
+            </property>
             <property name="text">
              <string>Key</string>
             </property>
@@ -445,11 +501,17 @@ Break</string>
        <attribute name="title">
         <string>Miscellaneous</string>
        </attribute>
+       <attribute name="toolTip">
+        <string>Other informations in comment style</string>
+       </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
           <item>
            <widget class="QToolButton" name="toolButtonComment">
+            <property name="toolTip">
+             <string>Insert a regular comment</string>
+            </property>
             <property name="text">
              <string>Comment
 Regular</string>
@@ -458,6 +520,9 @@ Regular</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonCommentItalic">
+            <property name="toolTip">
+             <string>Insert a comment in italic</string>
+            </property>
             <property name="text">
              <string>Comment
 Italic</string>
@@ -466,6 +531,9 @@ Italic</string>
           </item>
           <item>
            <widget class="QToolButton" name="toolButtonCommentBox">
+            <property name="toolTip">
+             <string>Insert a comment in a box</string>
+            </property>
             <property name="text">
              <string>Comment
 Box</string>
@@ -476,13 +544,6 @@ Box</string>
            <widget class="Line" name="line_17">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QToolButton" name="toolButtonInsertNewSong">
-            <property name="text">
-             <string>Insert new song</string>
             </property>
            </widget>
           </item>

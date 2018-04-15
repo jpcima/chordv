@@ -10,11 +10,25 @@ namespace Ui {
 class DialogTwoLinesToChordPro;
 }
 
+///
+/// \brief The DialogTwoLinesToChordPro class is an utility ton convert song in two lines :
+///
+/// C             D
+/// Hello how are you
+///
+/// to chord in one line :
+/// [C] Hello how are [D]you
+///
+
 class DialogTwoLinesToChordPro : public QDialog
 {
     Q_OBJECT
 
 public:
+    ///
+    /// \brief DialogTwoLinesToChordPro the dialog windows
+    /// \param parent
+    ///
     explicit DialogTwoLinesToChordPro(QWidget *parent = 0);
     ~DialogTwoLinesToChordPro();
 

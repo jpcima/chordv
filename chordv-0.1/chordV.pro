@@ -13,9 +13,10 @@
     DATEBUILD=$$system(date +"%Y/%m/%d")
     GIT=$$system(git log -n 1 --format="%H")
     VERSIONWORK=$$system(  git tag | tail -n 1 )
-    system(/bin/echo -e \\\x23define VERSIONWORK \\\"$$VERSIONWORK\\\" >include/version.h)
-    system(/bin/echo -e \\\x23define DATEBUILD \\\"$$DATEBUILD\\\" >>include/version.h)
-    system(/bin/echo -e \\\x23define GIT \\\"$$GIT\\\" >> include/version.h)
+    system(/bin/echo -e \\\x23define VERSIONWORK \\\"$$VERSIONWORK\\\" >src/version.h)
+    system(/bin/echo -e \\\x23define DATEBUILD \\\"$$DATEBUILD\\\" >>src/version.h)
+    system(/bin/echo -e \\\x23define GIT \\\"$$GIT\\\" >> src/version.h)
+    system(doxygen doxyfile.conf)
     }
     SOURCES += src/main.cpp\
             src/mainwindow.cpp \
@@ -63,83 +64,83 @@
         src/dialogchangechordname.cpp \
         src/forminputoutputchord.cpp \
         src/chordutil.cpp \
-    src/normalizelist.cpp \
-    src/dialogtranspose.cpp \
-    src/dialognewsong.cpp
+        src/normalizelist.cpp \
+        src/dialogtranspose.cpp \
+        src/dialognewsong.cpp
 
-    HEADERS  += include/mainwindow.h \
-        include/formconfig.h \
-        include/lyricsconfig.h \
-        include/chordconfig.h \
-        include/textconfig.h \
-        include/fontchooser.h \
-        include/fontbutton.h \
-        include/fontdialog.h \
-        include/colorbutton.h \
-        include/lineedittest.h \
-        include/logmessages.h \
-        include/editorhighlighter.h \
-        include/imagebutton.h \
-        include/examplelabel.h \
-        include/pagesize.h \
-        include/processor.h \
-        include/dialogabout.h \
-        include/memoryconfig.h \
-        include/spinboxunit.h \
-        include/dialogconfiguration.h \
-        include/settings.h \
-        include/processortext.h \
-        include/const.h \
-        include/verticalspacing.h \
-        include/dialogchorddefinition.h \
-        include/ChordDetector.h \
-        include/neck.h \
-        include/dialogsysteminfo.h \
-        include/chorddiagram.h \
-        include/dialogchoosegoodchord.h \
-        include/dialogsearch.h \
-        include/dialogreplace.h \
-        include/processorlyrics.h \
-        include/language.h \
-        include/chord.h \
-        include/langnotes.h \
-        include/pdfviewer.h \
-        include/dialogbar.h \
-        include/processorchord.h \
-        include/textedit.h \
-        include/dialogdocumentation.h \
-        include/formeditor.h \
-        include/dialogtwolinestochordpro.h \
-        include/dialogchangechordname.h \
-        include/forminputoutputchord.h \
-        include/chordutil.h \
-    include/normalizelist.h \
-    include/dialogtranspose.h \
-    include/version.h \
-    include/dialognewsong.h
+    HEADERS  += src/mainwindow.h \
+        src/formconfig.h \
+        src/lyricsconfig.h \
+        src/chordconfig.h \
+        src/textconfig.h \
+        src/fontchooser.h \
+        src/fontbutton.h \
+        src/fontdialog.h \
+        src/colorbutton.h \
+        src/lineedittest.h \
+        src/logmessages.h \
+        src/editorhighlighter.h \
+        src/imagebutton.h \
+        src/examplelabel.h \
+        src/pagesize.h \
+        src/processor.h \
+        src/dialogabout.h \
+        src/memoryconfig.h \
+        src/spinboxunit.h \
+        src/dialogconfiguration.h \
+        src/settings.h \
+        src/processortext.h \
+        src/const.h \
+        src/verticalspacing.h \
+        src/dialogchorddefinition.h \
+        src/ChordDetector.h \
+        src/neck.h \
+        src/dialogsysteminfo.h \
+        src/chorddiagram.h \
+        src/dialogchoosegoodchord.h \
+        src/dialogsearch.h \
+        src/dialogreplace.h \
+        src/processorlyrics.h \
+        src/language.h \
+        src/chord.h \
+        src/langnotes.h \
+        src/pdfviewer.h \
+        src/dialogbar.h \
+        src/processorchord.h \
+        src/textedit.h \
+        src/dialogdocumentation.h \
+        src/formeditor.h \
+        src/dialogtwolinestochordpro.h \
+        src/dialogchangechordname.h \
+        src/forminputoutputchord.h \
+        src/chordutil.h \
+        src/normalizelist.h \
+        src/dialogtranspose.h \
+        src/version.h \
+        src/dialognewsong.h
 
-    FORMS    += ui/mainwindow.ui \
-        ui/formconfig.ui \
-        ui/fontchooser.ui \
-        ui/dialogabout.ui \
-        ui/dialogconfiguration.ui \
-        ui/dialogchorddefinition.ui \
-        ui/dialogsysteminfo.ui \
-        ui/dialogchoosegoodchord.ui \
-        ui/dialogsearch.ui \
-        ui/dialogreplace.ui \
-        ui/dialogbar.ui \
-        ui/dialogdocumentation.ui \
-        ui/formeditor.ui \
-        ui/dialogtwolinestochordpro.ui \
-        ui/forminputoutputchord.ui \
-        ui/dialogchangechordname.ui \
-    ui/dialogtranspose.ui \
-    ui/dialognewsong.ui
+    FORMS    += src/mainwindow.ui \
+        src/formconfig.ui \
+        src/fontchooser.ui \
+        src/dialogabout.ui \
+        src/dialogconfiguration.ui \
+        src/dialogchorddefinition.ui \
+        src/dialogsysteminfo.ui \
+        src/dialogchoosegoodchord.ui \
+        src/dialogsearch.ui \
+        src/dialogreplace.ui \
+        src/dialogbar.ui \
+        src/dialogdocumentation.ui \
+        src/formeditor.ui \
+        src/dialogtwolinestochordpro.ui \
+        src/forminputoutputchord.ui \
+        src/dialogchangechordname.ui \
+        src/dialogtranspose.ui \
+        src/dialognewsong.ui
 
  #    LIBS += -LLibraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
     LIBS += -LLibraries/lib -L/usr/lib -Bdynamic -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
-    INCLUDEPATH = Libraries/include  ./include
+    INCLUDEPATH = Libraries/include  ./src
 
 
     TRANSLATIONS=translations/fr.ts

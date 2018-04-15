@@ -13,22 +13,69 @@ namespace Ui {
 class FormEditor;
 }
 
+///
+/// \brief The FormEditor class manage
+/// - some toolbuttons in a tabWidget
+/// - the editor of song in a TextEdit (dérived QTextEdit)
+/// - a list of all songs title in the document in QTableWidget
+///
 class FormEditor : public QWidget
 {
     Q_OBJECT
 
 public:
+    ///
+    /// \brief FormEditor is usable aa a promotable widget
+    /// \param parent
+    ///
     explicit FormEditor(QWidget *parent = 0);
     ~FormEditor();
+    ///
+    /// \brief clear remove all the information in the Editor and in the list of all titles
+    ///
     void clear();
+    ///
+    /// \brief append append text to Editor
+    ///
     void append(QString);
+    ///
+    /// return the textCursor of the Editor
+    ///
     QTextCursor textCursor();
+    ///
+    /// \brief setTextCursor set the TextCursor of the Editor
+    /// \param textcursor
+    ///
     void setTextCursor(QTextCursor textcursor);
+    ///
+    /// \brief setText set the text of the Editor
+    /// \param text the QTextCursor
+    ///
     void setText(QString text);
+    ////
+    /// \brief documen return the QTextDocument of Editor
+    /// \return QTextDocument
+    ///
     QTextDocument *document();
+    ///
+    /// \brief copy the Editor
+    ///
     void copy();
+    ///
+    /// \brief insertPlainText insert text in QCursor of editor
+    /// \param text QString  to insert
+    ///
     void insertPlainText(QString text);
+    ///
+    /// \brief retranslate retranslate the UI
+    ///
     void retranslate();
+    ///
+    /// \brief find find text with the flag
+    /// \param text text to find
+    /// \param flag of QTextDocument::FindFlags
+    /// \return
+    ///
     bool find(QString text, QTextDocument::FindFlags flag);
 public slots:
     void zoomIn();

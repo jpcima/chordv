@@ -15,7 +15,7 @@ class MainWindow;
 }
 
 /// \mainpage General documentation for ChordV developpers
-/// \section Introduction
+/// \section Introduction Introduction
 ///
 /// ChordV allow to edit song booklet with lyrics and text of song, or only chords
 /// output, or only Luyrics output
@@ -28,9 +28,15 @@ class MainWindow;
 /// - Text and Chors mode where users can define the options for the Text and chord booklets
 /// In preferences dialog option you can design the general booklet definition and change
 /// the behaviour for each booklet from the behaviour defined in option.
-/// \section Edition
 ///
-/// \section "Chord mode"
+/// \subsection Convention Convention
+///
+/// - **language** : is always the name of the language in the language. For example Français or English
+/// - **codelang** : is always te code lang for a language. For example fr or en
+///
+/// \section Edition Edition Mode
+///
+/// \section Configuration Configuration Mode
 ///
 ///
 
