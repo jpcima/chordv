@@ -1,0 +1,226 @@
+.TH "FormConfig" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FormConfig \- The \fBFormConfig\fP class manage the display of configuration of attributes : (Color, Fonts, \&.\&.\&.) for the definition of each booklet\&. It is used in Preference and also on each project\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <formconfig\&.h>\fP
+.PP
+Inherits QWidget\&.
+.PP
+Inherited by \fBChordConfig\fP, \fBLyricsConfig\fP, \fBMemoryConfig\fP, and \fBTextConfig\fP\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBClasses\fP { \fBChord\fP, \fBLyrics\fP, \fBMemory\fP, \fBText\fP }
+.RI "Classes is different for each style of booklet\&. ""
+.br
+.ti -1c
+.RI "enum \fBChordInclusion\fP { \fBDiagramInText\fP, \fBChordAtBeginingAndChordNameInText\fP, \fBNoChordAtBeginingAndChordNameInText\fP }
+.RI "ChordInclusion has different capabilities for Text and Lyrics\&. ""
+.br
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBsendLog\fP (QString message)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFormConfig\fP (QWidget *parent=0)"
+.br
+.RI "\fBFormConfig\fP constructor complient with QtDesigner allowing promotion of QWidget\&. "
+.ti -1c
+.RI "\fB~FormConfig\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetValue\fP (QString var, QVariant value)"
+.br
+.RI "setValue allow to set a Value for an object it is based on the name of the object for example comboBoxName => Name is extracted and QSettings is used to Name value The object types analyzed are \fBSpinBoxUnit\fP,\fBFontButton\fP,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton "
+.ti -1c
+.RI "void \fBSave\fP (QString filename, \fBClasses\fP section)"
+.br
+.RI "Save all the \fBSpinBoxUnit\fP,\fBFontButton\fP,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name presented in setValue in a filename given in argument\&. The value is the classname : \fBChord\fP, Memory, Lyrics or Text\&. "
+.ti -1c
+.RI "void \fBInitDefault\fP (\fBClasses\fP classe)"
+.br
+.RI "InitDefault init all the \fBSpinBoxUnit\fP,\fBFontButton\fP,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name with the values given but preference QDialog\&. "
+.ti -1c
+.RI "virtual Ui::FormConfig * \fBgetUi\fP ()"
+.br
+.RI "getUi this virtual function return the ui used on each derived class "
+.ti -1c
+.RI "void \fBSetConfigFromFile\fP (QString FileName)"
+.br
+.RI "SetConfigFromFile\&. "
+.ti -1c
+.RI "void \fBSetConfigFromInit\fP ()"
+.br
+.ti -1c
+.RI "QString \fBclasse2String\fP (\fBClasses\fP name)"
+.br
+.ti -1c
+.RI "void \fBRetranslate\fP ()"
+.br
+.ti -1c
+.RI "void \fBdisableGroup\fP (QString group)"
+.br
+.ti -1c
+.RI "void \fBsetProjectPath\fP (QString path)"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBdisableWidgets\fP (QRegExp value)"
+.br
+.ti -1c
+.RI "void \fBInitComboBoxChordInclusion\fP (QStringList list)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBFormConfig\fP class manage the display of configuration of attributes : (Color, Fonts, \&.\&.\&.) for the definition of each booklet\&. It is used in Preference and also on each project\&. 
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBFormConfig::ChordInclusion\fP"
+
+.PP
+ChordInclusion has different capabilities for Text and Lyrics\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIDiagramInText \fP\fP
+Diagram are included in Text\&. 
+.TP
+\fB\fIChordAtBeginingAndChordNameInText \fP\fP
+Diagram are include at begining and in Text\&. 
+.TP
+\fB\fINoChordAtBeginingAndChordNameInText \fP\fP
+No diagram at beginin but in text\&. 
+.SS "enum \fBFormConfig::Classes\fP"
+
+.PP
+Classes is different for each style of booklet\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIChord \fP\fP
+\fBFormConfig\fP is \fBChord\fP oriented\&. 
+.TP
+\fB\fILyrics \fP\fP
+\fBFormConfig\fP is Lyrics oriented\&. 
+.TP
+\fB\fIMemory \fP\fP
+\fBFormConfig\fP is Memory oriented\&. 
+.TP
+\fB\fIText \fP\fP
+\fBFormConfig\fP is Text only oriented\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FormConfig::FormConfig (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBFormConfig\fP constructor complient with QtDesigner allowing promotion of QWidget\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparent\fP 
+.RE
+.PP
+
+.SS "FormConfig::~FormConfig ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QString FormConfig::classe2String (\fBClasses\fP name)"
+
+.SS "void FormConfig::disableGroup (QString group)"
+
+.SS "void FormConfig::disableWidgets (QRegExp value)\fC [protected]\fP"
+
+.SS "virtual Ui::FormConfig* FormConfig::getUi ()\fC [inline]\fP, \fC [virtual]\fP"
+
+.PP
+getUi this virtual function return the ui used on each derived class 
+.PP
+\fBReturns:\fP
+.RS 4
+the Ui::FormConfig pointer on the child class 
+.RE
+.PP
+
+.SS "void FormConfig::InitComboBoxChordInclusion (QStringList list)\fC [protected]\fP"
+
+.SS "void FormConfig::InitDefault (\fBClasses\fP classe)"
+
+.PP
+InitDefault init all the \fBSpinBoxUnit\fP,\fBFontButton\fP,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name with the values given but preference QDialog\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIclasse\fP : Classes enum representing the section in \fBSettings\fP save fi 
+.RE
+.PP
+
+.SS "void FormConfig::Retranslate ()"
+
+.SS "void FormConfig::Save (QString filename, \fBClasses\fP section)"
+
+.PP
+Save all the \fBSpinBoxUnit\fP,\fBFontButton\fP,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name presented in setValue in a filename given in argument\&. The value is the classname : \fBChord\fP, Memory, Lyrics or Text\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP : the QString filename to save the value 
+.br
+\fIsection\fP : Classes enum representing the section in \fBSettings\fP save file 
+.RE
+.PP
+
+.SS "void FormConfig::sendLog (QString message)\fC [signal]\fP"
+
+.SS "void FormConfig::SetConfigFromFile (QString FileName)"
+
+.PP
+SetConfigFromFile\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIFileName\fP 
+.RE
+.PP
+
+.SS "void FormConfig::SetConfigFromInit ()"
+
+.SS "void FormConfig::setProjectPath (QString path)"
+
+.SS "void FormConfig::setValue (QString var, QVariant value)"
+
+.PP
+setValue allow to set a Value for an object it is based on the name of the object for example comboBoxName => Name is extracted and QSettings is used to Name value The object types analyzed are \fBSpinBoxUnit\fP,\fBFontButton\fP,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvar\fP the name of object for example comboBoxName 
+.br
+\fIvalue\fP : value given to Name extracted for comboBox 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

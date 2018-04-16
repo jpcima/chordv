@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$class_processor.html" title="Processor" alt="" coords="124,56,205,83"/>
+<area shape="rect" id="node3" href="$class_processor_chord.html" title="ProcessorChord" alt="" coords="253,5,369,32"/>
+<area shape="rect" id="node4" href="$class_processor_lyrics.html" title="ProcessorLyrics" alt="" coords="253,56,369,83"/>
+<area shape="rect" id="node5" href="$class_processor_text.html" title="ProcessorText" alt="" coords="258,107,365,133"/>
+</map>

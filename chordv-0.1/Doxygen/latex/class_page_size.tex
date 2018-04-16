@@ -1,0 +1,181 @@
+\section{Page\+Size Class Reference}
+\label{class_page_size}\index{Page\+Size@{Page\+Size}}
+
+
+The \doxyref{Page\+Size}{p.}{class_page_size} class is a Q\+Combobox derived type containing list of format like A4 A4 B2 ... the method get the size.  
+
+
+
+
+{\ttfamily \#include $<$pagesize.\+h$>$}
+
+
+
+Inheritance diagram for Page\+Size\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{class_page_size__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Page\+Size\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=153pt]{class_page_size__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Page\+Size} (Q\+Widget $\ast$parent)
+\begin{DoxyCompactList}\small\item\em \doxyref{Page\+Size}{p.}{class_page_size} is a Qt\+Designer complient Widget. \end{DoxyCompactList}\item 
+Q\+String \textbf{ get\+Unit} ()
+\begin{DoxyCompactList}\small\item\em get\+Unit return unit of Q\+Combo\+Box \end{DoxyCompactList}\item 
+double \textbf{ get\+Width} ()
+\begin{DoxyCompactList}\small\item\em get\+Width return the Width in mm unit \end{DoxyCompactList}\item 
+double \textbf{ get\+Height} ()
+\begin{DoxyCompactList}\small\item\em get\+Height return the Height in mm unit \end{DoxyCompactList}\item 
+void \textbf{ set\+Current\+Text} (const Q\+String \&text)
+\begin{DoxyCompactList}\small\item\em set\+Current\+Text \+: set custom text \end{DoxyCompactList}\item 
+Q\+String \textbf{ find\+Size} (double w, double h, bool \&landscape)
+\begin{DoxyCompactList}\small\item\em find\+Size from width and height return format and landscape or portrait orientation \end{DoxyCompactList}\item 
+void \textbf{ set\+Current\+Text\+By\+Value} (Q\+String value)
+\begin{DoxyCompactList}\small\item\em set\+Current\+Text\+By\+Value set the current text positionned by value \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Page\+Size}{p.}{class_page_size} class is a Q\+Combobox derived type containing list of format like A4 A4 B2 ... the method get the size. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_page_size_ac5d93e9b23fa1bdb0c34f27f1c0fbe01}} 
+\index{Page\+Size@{Page\+Size}!Page\+Size@{Page\+Size}}
+\index{Page\+Size@{Page\+Size}!Page\+Size@{Page\+Size}}
+\subsubsection{Page\+Size()}
+{\footnotesize\ttfamily Page\+Size\+::\+Page\+Size (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+\doxyref{Page\+Size}{p.}{class_page_size} is a Qt\+Designer complient Widget. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_page_size_a6bc25d001797e9472475a43f4a4fad13}} 
+\index{Page\+Size@{Page\+Size}!find\+Size@{find\+Size}}
+\index{find\+Size@{find\+Size}!Page\+Size@{Page\+Size}}
+\subsubsection{find\+Size()}
+{\footnotesize\ttfamily Q\+String Page\+Size\+::find\+Size (\begin{DoxyParamCaption}\item[{double}]{w,  }\item[{double}]{h,  }\item[{bool \&}]{landscape }\end{DoxyParamCaption})}
+
+
+
+find\+Size from width and height return format and landscape or portrait orientation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em w} & \+:double for width paper size \\
+\hline
+{\em h} & \+: double for height paper size \\
+\hline
+{\em landscape} & \+: return true if landscape \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Q\+String format (for example A4) 
+\end{DoxyReturn}
+\mbox{\label{class_page_size_a773157a8fb1e177878167d0ed99f1a10}} 
+\index{Page\+Size@{Page\+Size}!get\+Height@{get\+Height}}
+\index{get\+Height@{get\+Height}!Page\+Size@{Page\+Size}}
+\subsubsection{get\+Height()}
+{\footnotesize\ttfamily double Page\+Size\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Height return the Height in mm unit 
+
+\begin{DoxyReturn}{Returns}
+double height 
+\end{DoxyReturn}
+\mbox{\label{class_page_size_a502d707dce2756543d14442fa95e916d}} 
+\index{Page\+Size@{Page\+Size}!get\+Unit@{get\+Unit}}
+\index{get\+Unit@{get\+Unit}!Page\+Size@{Page\+Size}}
+\subsubsection{get\+Unit()}
+{\footnotesize\ttfamily Q\+String Page\+Size\+::get\+Unit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Unit return unit of Q\+Combo\+Box 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{class_page_size_a4a3fd9a4a4fec6906ab59eda11470645}} 
+\index{Page\+Size@{Page\+Size}!get\+Width@{get\+Width}}
+\index{get\+Width@{get\+Width}!Page\+Size@{Page\+Size}}
+\subsubsection{get\+Width()}
+{\footnotesize\ttfamily double Page\+Size\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Width return the Width in mm unit 
+
+\begin{DoxyReturn}{Returns}
+double width 
+\end{DoxyReturn}
+\mbox{\label{class_page_size_a797bf348c152e742af7963d1f81bf334}} 
+\index{Page\+Size@{Page\+Size}!set\+Current\+Text@{set\+Current\+Text}}
+\index{set\+Current\+Text@{set\+Current\+Text}!Page\+Size@{Page\+Size}}
+\subsubsection{set\+Current\+Text()}
+{\footnotesize\ttfamily void Page\+Size\+::set\+Current\+Text (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{text }\end{DoxyParamCaption})}
+
+
+
+set\+Current\+Text \+: set custom text 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & in Q\+String \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_page_size_a797bf348c152e742af7963d1f81bf334_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_page_size_a90b5818b536879b85e0203416e77e7bd}} 
+\index{Page\+Size@{Page\+Size}!set\+Current\+Text\+By\+Value@{set\+Current\+Text\+By\+Value}}
+\index{set\+Current\+Text\+By\+Value@{set\+Current\+Text\+By\+Value}!Page\+Size@{Page\+Size}}
+\subsubsection{set\+Current\+Text\+By\+Value()}
+{\footnotesize\ttfamily void Page\+Size\+::set\+Current\+Text\+By\+Value (\begin{DoxyParamCaption}\item[{Q\+String}]{value }\end{DoxyParamCaption})}
+
+
+
+set\+Current\+Text\+By\+Value set the current text positionned by value 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_page_size_a90b5818b536879b85e0203416e77e7bd_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\textbf{ pagesize.\+h}\item 
+src/\textbf{ pagesize.\+cpp}\end{DoxyCompactItemize}

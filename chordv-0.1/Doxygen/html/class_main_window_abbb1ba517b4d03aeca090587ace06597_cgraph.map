@@ -1,0 +1,19 @@
+<map id="MainWindow::ChangeLanguage" name="MainWindow::ChangeLanguage">
+<area shape="rect" id="node2" href="$class_dialog_change_chord_name.html#a3b2ae74d078fe1f55f2eac9b762483da" title="setFromLang set the index of FromLang combobox " alt="" coords="284,5,459,47"/>
+<area shape="rect" id="node3" href="$class_dialog_change_chord_name.html#a3f04e432b9099cdff2f07993f5d85811" title="setFromMin idem with Minor letter " alt="" coords="284,71,459,112"/>
+<area shape="rect" id="node4" href="$class_dialog_change_chord_name.html#a90911cedcaff309a89161d18cca28227" title="setToLang set tje index of ToFrom combobox " alt="" coords="284,136,459,177"/>
+<area shape="rect" id="node5" href="$class_dialog_change_chord_name.html#a5694384c88af005f6a8a949cfa43153c" title="setToMin same as above with To record " alt="" coords="284,201,459,243"/>
+<area shape="rect" id="node6" href="$class_dialog_change_chord_name.html#af61986ce1cd8973a004d5d75e3e5e50c" title="OkDialog the dialog return ok (true) or cancel(false) " alt="" coords="284,267,459,308"/>
+<area shape="rect" id="node7" href="$class_language.html#a258144a64b5054ef6c3956c211aa1ac3" title="TranslateLineWithchord translate a line containing chords from a language to an other one..." alt="" coords="260,333,483,359"/>
+<area shape="rect" id="node13" href="$class_dialog_change_chord_name.html#ad7b50213d9f354cb647dbd096441da13" title="getFromLang after change return from language " alt="" coords="284,384,459,425"/>
+<area shape="rect" id="node14" href="$class_dialog_change_chord_name.html#aabf4fd401905585a53a2adf0b33440f7" title="getFromMin after change return Minor notation for from conversion. Exampele m or &#45; ..." alt="" coords="284,449,459,491"/>
+<area shape="rect" id="node15" href="$class_dialog_change_chord_name.html#a5626a4b248559874f30d04b71b11e11d" title="getToLang after change return to language " alt="" coords="284,515,459,556"/>
+<area shape="rect" id="node16" href="$class_dialog_change_chord_name.html#af7cd951023ca7af6a50cab16f06fdc00" title="getToMin after change return Minor notation for to conversion. Exampele m or &#45; " alt="" coords="284,580,459,621"/>
+<area shape="rect" id="node17" href="$class_dialog_change_chord_name.html#a2c7835cdfb841f3c9d375e44511ac5cc" title="getToLangIndex return index of ToLang Combobox " alt="" coords="284,645,459,687"/>
+<area shape="rect" id="node18" href="$class_dialog_change_chord_name.html#aefc1211f4d9920f6d4e3124ec12c35d3" title="getToMinIndex return index of ToLang Combobox " alt="" coords="284,711,459,752"/>
+<area shape="rect" id="node8" href="$class_chord.html#ad68a4f58d3dd18f09ea9bf7536e89284" title="translate " alt="" coords="531,295,645,322"/>
+<area shape="rect" id="node10" href="$class_language.html#a7e5a46954fabb52fc1382dabd303d785" title="getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist fi..." alt="" coords="901,295,1064,322"/>
+<area shape="rect" id="node9" href="$class_language.html#a16affca2c35e415180b932f16e3f46af" title="ListNotes return the list of notes for the language given. " alt="" coords="702,219,845,246"/>
+<area shape="rect" id="node11" href="$class_language.html#a957552ed9ba8f9f01a822d3a566ff383" title="getLanguage return Français for codelang fr " alt="" coords="693,270,853,297"/>
+<area shape="rect" id="node12" href="$class_chord.html#adb32e210a420399a1ceffa3ad8f0dab7" title="chord " alt="" coords="725,321,822,347"/>
+</map>

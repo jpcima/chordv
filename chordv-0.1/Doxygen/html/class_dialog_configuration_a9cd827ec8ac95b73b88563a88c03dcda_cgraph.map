@@ -1,0 +1,5 @@
+<map id="DialogConfiguration::DialogConfiguration" name="DialogConfiguration::DialogConfiguration">
+<area shape="rect" id="node2" href="$class_language.html#a316a8c37186abde8e674bc137ddffe0e" title="setLanguageComboBox : populate a QComboBox with all the available languages " alt="" coords="197,5,423,32"/>
+<area shape="rect" id="node3" href="$class_dialog_configuration.html#a89a10340bee6aaedae8111875e4d955f" title="DialogConfiguration\l::InitSettings" alt="" coords="242,57,378,98"/>
+<area shape="rect" id="node4" href="$class_settings.html#aebcfa974e45f460240daa6b7c1ce6089" title="value return the value with a default value " alt="" coords="471,64,580,91"/>
+</map>

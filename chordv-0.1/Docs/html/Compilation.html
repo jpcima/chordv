@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="../css/pandoc.css" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#compilation-installation"><span class="toc-section-number">1</span> Compilation installation</a><ul>
+<li><a href="#get-chordv"><span class="toc-section-number">1.1</span> Get chordV</a></li>
+<li><a href="#podofo-compilation-from-sources"><span class="toc-section-number">1.2</span> Podofo compilation from sources</a><ul>
+<li><a href="#install-dependancies-on-ubuntu-17.04"><span class="toc-section-number">1.2.1</span> Install dependancies on Ubuntu 17.04</a></li>
+<li><a href="#install-dependancis-n-ubuntu-16.04-lts"><span class="toc-section-number">1.2.2</span> Install dependancis n Ubuntu 16.04 LTS</a></li>
+<li><a href="#compile-documentation"><span class="toc-section-number">1.2.3</span> Compile documentation</a></li>
+<li><a href="#install-usrsharechordv-dir"><span class="toc-section-number">1.2.4</span> Install /usr/share/chordV dir</a></li>
+<li><a href="#librairy-podofo-compilation"><span class="toc-section-number">1.2.5</span> Librairy Podofo compilation</a></li>
+<li><a href="#chord-v-compilation"><span class="toc-section-number">1.2.6</span> Chord V compilation</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="compilation-installation"><span class="header-section-number">1</span> Compilation installation</h1>
+<h2 id="get-chordv"><span class="header-section-number">1.1</span> Get chordV</h2>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install git 
+<span class="fu">git</span> clone https://git.code.sf.net/p/chordv/code chordv-code</code></pre></div>
+<h2 id="podofo-compilation-from-sources"><span class="header-section-number">1.2</span> Podofo compilation from sources</h2>
+<h3 id="install-dependancies-on-ubuntu-17.04"><span class="header-section-number">1.2.1</span> Install dependancies on Ubuntu 17.04</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">    <span class="fu">sudo</span> apt-get install -y subversion cmake
+    <span class="fu">sudo</span> apt-get install -y libz-dev libfreetype6-dev libfontconfig1-dev libjpeg-dev libssl-dev libcrypto++9v5-dev libtiff5-dev
+    <span class="fu">sudo</span> apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev</code></pre></div>
+<h3 id="install-dependancis-n-ubuntu-16.04-lts"><span class="header-section-number">1.2.2</span> Install dependancis n Ubuntu 16.04 LTS</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">    <span class="fu">sudo</span> apt-get install -y subversion cmake
+    <span class="fu">sudo</span> apt-get install -y libz-dev libfreetype6-dev libfontconfig1-dev libjpeg-dev libssl-dev libcrypto++-dev libtiff5-dev
+    <span class="fu">sudo</span> apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev</code></pre></div>
+<h3 id="compile-documentation"><span class="header-section-number">1.2.3</span> Compile documentation</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> apt-get install pandoc highlight texlive-xetex
+<span class="bu">cd</span> Docs
+<span class="fu">make</span> </code></pre></div>
+<h3 id="install-usrsharechordv-dir"><span class="header-section-number">1.2.4</span> Install /usr/share/chordV dir</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">sudo</span> ./install</code></pre></div>
+<h3 id="librairy-podofo-compilation"><span class="header-section-number">1.2.5</span> Librairy Podofo compilation</h3>
+<pre><code>    cd Libraries/src
+    ./build.sh</code></pre>
+<h3 id="chord-v-compilation"><span class="header-section-number">1.2.6</span> Chord V compilation</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="bu">cd</span> ../..
+<span class="fu">qmake</span>
+<span class="fu">make</span></code></pre></div>
+</body>
+</html>

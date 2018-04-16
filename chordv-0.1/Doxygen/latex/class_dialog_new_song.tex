@@ -1,0 +1,111 @@
+\section{Dialog\+New\+Song Class Reference}
+\label{class_dialog_new_song}\index{Dialog\+New\+Song@{Dialog\+New\+Song}}
+
+
+The \doxyref{Dialog\+New\+Song}{p.}{class_dialog_new_song} class this Dialog ask title, sybtitel, compress output yes or no, and column number for a song it provide a S\+I\+G\+N\+AL whe you clik on Insert button.  
+
+
+
+
+{\ttfamily \#include $<$dialognewsong.\+h$>$}
+
+
+
+Inheritance diagram for Dialog\+New\+Song\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{class_dialog_new_song__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Dialog\+New\+Song\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=167pt]{class_dialog_new_song__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Insert\+Song} (Q\+String title, Q\+String subtitle, bool compress, int columns, int tempo, int time1, int time2)
+\begin{DoxyCompactList}\small\item\em Insert\+Song signal sent when Insert button is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Dialog\+New\+Song} (Q\+Widget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em \doxyref{Dialog\+New\+Song}{p.}{class_dialog_new_song} \+: classic constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Dialog\+New\+Song} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Dialog\+New\+Song}{p.}{class_dialog_new_song} class this Dialog ask title, sybtitel, compress output yes or no, and column number for a song it provide a S\+I\+G\+N\+AL whe you clik on Insert button. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_dialog_new_song_a0b8f3bdb5a14b76d90fc2b652407c8eb}} 
+\index{Dialog\+New\+Song@{Dialog\+New\+Song}!Dialog\+New\+Song@{Dialog\+New\+Song}}
+\index{Dialog\+New\+Song@{Dialog\+New\+Song}!Dialog\+New\+Song@{Dialog\+New\+Song}}
+\subsubsection{Dialog\+New\+Song()}
+{\footnotesize\ttfamily Dialog\+New\+Song\+::\+Dialog\+New\+Song (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxyref{Dialog\+New\+Song}{p.}{class_dialog_new_song} \+: classic constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \+: parent window \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_dialog_new_song_ae450c4fa2d4501cd4eb6be4093c593d1}} 
+\index{Dialog\+New\+Song@{Dialog\+New\+Song}!````~Dialog\+New\+Song@{$\sim$\+Dialog\+New\+Song}}
+\index{````~Dialog\+New\+Song@{$\sim$\+Dialog\+New\+Song}!Dialog\+New\+Song@{Dialog\+New\+Song}}
+\subsubsection{$\sim$\+Dialog\+New\+Song()}
+{\footnotesize\ttfamily Dialog\+New\+Song\+::$\sim$\+Dialog\+New\+Song (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_dialog_new_song_ad932a09d06c3d5e8ca9a7d6965c6e7c5}} 
+\index{Dialog\+New\+Song@{Dialog\+New\+Song}!Insert\+Song@{Insert\+Song}}
+\index{Insert\+Song@{Insert\+Song}!Dialog\+New\+Song@{Dialog\+New\+Song}}
+\subsubsection{Insert\+Song}
+{\footnotesize\ttfamily void Dialog\+New\+Song\+::\+Insert\+Song (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{subtitle,  }\item[{bool}]{compress,  }\item[{int}]{columns,  }\item[{int}]{tempo,  }\item[{int}]{time1,  }\item[{int}]{time2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Insert\+Song signal sent when Insert button is clicked. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & \+: title of song \\
+\hline
+{\em subtitle} & \+: subtitle \\
+\hline
+{\em compress} & \+: compress true or false \\
+\hline
+{\em columns} & \+: number of columns for the song \\
+\hline
+{\em tempo} & \+: the tempo or beat per minute default 120 \\
+\hline
+{\em time1} & \+: default 4 \+: 4 / 4 the second 4 is time2 \\
+\hline
+{\em time2} & \+: see time1 \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_dialog_new_song_ad932a09d06c3d5e8ca9a7d6965c6e7c5_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\textbf{ dialognewsong.\+h}\item 
+src/\textbf{ dialognewsong.\+cpp}\end{DoxyCompactItemize}

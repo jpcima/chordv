@@ -1,0 +1,1643 @@
+\section{Processor Class Reference}
+\label{class_processor}\index{Processor@{Processor}}
+
+
+{\ttfamily \#include $<$processor.\+h$>$}
+
+
+
+Inheritance diagram for Processor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Processor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=141pt]{class_processor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Align} \{ \textbf{ left}, 
+\textbf{ center}, 
+\textbf{ right}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ P\+D\+F\+Made} (Q\+String file)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Processor} (Ui\+::\+Main\+Window $\ast$ui1, Ui\+::\+Form\+Config $\ast$ui2)
+\item 
+void \textbf{ run} ()
+\item 
+\textbf{ $\sim$\+Processor} ()
+\item 
+void \textbf{ process} ()
+\item 
+void \textbf{ set\+Compress} (bool compress)
+\item 
+virtual void \textbf{ set\+Col\+Number} (int columber)
+\item 
+virtual void \textbf{ set\+Bpm} (int bpm)
+\item 
+virtual void \textbf{ set\+Rytm} (Q\+String rythm)
+\item 
+virtual bool \textbf{ is\+Chorus} (Q\+String text)
+\item 
+void \textbf{ set\+Cover\+Made} (bool status)
+\item 
+bool \textbf{ get\+Cover\+Made} ()
+\item 
+virtual void \textbf{ set\+Cover\+Title} (Q\+String covertitle)
+\item 
+Q\+String \textbf{ get\+Cover\+Title} ()
+\item 
+virtual void \textbf{ set\+Cover\+Subtitle} (Q\+String coversubtitle)
+\item 
+Q\+String \textbf{ get\+Cover\+Subtitle} ()
+\item 
+void \textbf{ set\+Soc\+Mode} (bool socmode)
+\item 
+void \textbf{ set\+Refrain} (bool refrain)
+\item 
+virtual void \textbf{ new\+Page} ()
+\item 
+virtual void \textbf{ display\+Page\+Title} (Q\+String titile)
+\item 
+virtual void \textbf{ display\+Page\+Subtitle} (Q\+String subtitles)
+\item 
+virtual void \textbf{ display\+Lyrics} ()
+\item 
+virtual void \textbf{ Cover} (Q\+String title, Q\+String subtitle)
+\item 
+virtual void \textbf{ do\+Chords} ()
+\item 
+virtual void \textbf{ display\+Chords\+For\+Song} ()
+\item 
+virtual void \textbf{ set\+Col\+Break} (Q\+String line)
+\item 
+virtual void \textbf{ do\+Column\+Break} (Q\+String line)
+\item 
+virtual void \textbf{ save} ()
+\item 
+virtual void \textbf{ add\+Footer} ()
+\item 
+virtual void \textbf{ make\+Page\+Number} ()
+\begin{DoxyCompactList}\small\item\em make\+Page\+Number display page number on each page \end{DoxyCompactList}\item 
+virtual Po\+Do\+Fo\+::\+Pdf\+Rect \textbf{ Page\+Size} (double \textbf{ left}=0, double bottom=0, double width=210, double height=297)
+\item 
+void \textbf{ include\+Info} (Q\+String author=\char`\"{}\char`\"{}, Q\+String title=\char`\"{}\char`\"{}, Q\+String subtitle=\char`\"{}\char`\"{}, Q\+String date=Q\+Date\+::current\+Date().to\+String(\char`\"{}dd/MM/aaaa\char`\"{}))
+\item 
+virtual int \textbf{ calc\+Column} ()
+\item 
+virtual int \textbf{ calc\+Line} ()
+\item 
+virtual void \textbf{ Following\+Line} ()
+\item 
+virtual void \textbf{ include\+Chorus} (Q\+String text)
+\item 
+virtual void \textbf{ include\+Soc} ()
+\item 
+virtual void \textbf{ include\+Eoc} ()
+\item 
+virtual void \textbf{ include\+Refrain} (Q\+String text)
+\item 
+virtual void \textbf{ include\+Sor} ()
+\item 
+virtual void \textbf{ include\+Eor} ()
+\item 
+virtual Q\+String \textbf{ Category} ()
+\begin{DoxyCompactList}\small\item\em m\+\_\+category category in config file (file.\+conf) Chordbook,Lyrics\+Book,Memory\+Mode,Text\+Book \end{DoxyCompactList}\item 
+double \textbf{ mm} (int value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \textbf{ Title\+Position} ()
+\item 
+double \textbf{ Image\+Position} ()
+\item 
+double \textbf{ Text} (Po\+Do\+Fo\+::\+Pdf\+Document $\ast$doc, Q\+String text, double x, double y, \textbf{ Font\+Button} $\ast$fb, \textbf{ Align} align=\textbf{ left}, double scale=1)
+\begin{DoxyCompactList}\small\item\em Text. \end{DoxyCompactList}\item 
+double \textbf{ Text\+In\+Box} (Po\+Do\+Fo\+::\+Pdf\+Document $\ast$doc, Q\+String text, double x, double y, \textbf{ Font\+Button} $\ast$fb, \textbf{ Align} align=\textbf{ left}, double scale=1)
+\item 
+virtual void \textbf{ Next\+Line} (int num=0)
+\item 
+virtual int \textbf{ current\+Column} ()
+\item 
+virtual int \textbf{ next\+Column} (int current)
+\item 
+virtual Po\+Do\+Fo\+::\+Pdf\+Rect \textbf{ Line\+Toc} (Q\+String text, double width, double x, double y, \textbf{ Font\+Button} $\ast$fb, int pagenumber)
+\begin{DoxyCompactList}\small\item\em Line\+Toc print each line in toc. \end{DoxyCompactList}\item 
+int \textbf{ Toc\+Col\+Size} ()
+\item 
+void \textbf{ savemem} ()
+\item 
+void \textbf{ open\+Existing\+File} ()
+\item 
+int \textbf{ Nb\+Pages\+In\+Toc} (int nb\+Normal\+Pages)
+\begin{DoxyCompactList}\small\item\em Nb\+Pages\+In\+Toc return the number in toc. \end{DoxyCompactList}\item 
+void \textbf{ Finish\+Page} (Po\+Do\+Fo\+::\+Pdf\+Painter $\ast$painter)
+\begin{DoxyCompactList}\small\item\em Finish\+Page replace painter.\+Finish\+Page, usefull to add watermark. \end{DoxyCompactList}\item 
+void \textbf{ add\+Toc\+At\+Begining} ()
+\item 
+void \textbf{ add\+Toc\+At\+End} ()
+\item 
+int \textbf{ First\+Page\+Number} ()
+\item 
+int \textbf{ Nb\+Page\+Cover} ()
+\item 
+void \textbf{ memorize\+Chords} (Q\+String line)
+\begin{DoxyCompactList}\small\item\em memorize\+Chords memorize \doxyref{Chord}{p.}{class_chord} for the song in m\+\_\+\+Buf\+Chords; \end{DoxyCompactList}\item 
+virtual void \textbf{ add\+Toc} ()
+\begin{DoxyCompactList}\small\item\em add\+Toc add toc \end{DoxyCompactList}\item 
+virtual void \textbf{ add\+Link\+In\+Toc} ()
+\begin{DoxyCompactList}\small\item\em add\+Link\+In\+Toc add link in toc \end{DoxyCompactList}\item 
+void \textbf{ display\+Chord} (Q\+String chord, int \&line, int \&column, int size, Q\+String lang)
+\item 
+virtual void \textbf{ display\+Rytm} ()
+\item 
+virtual void \textbf{ display\+Bpm} ()
+\item 
+bool \textbf{ is\+Col\+Break} (Q\+String line)
+\item 
+void \textbf{ Buf\+Lyrics\+Normailisation} ()
+\item 
+void \textbf{ add\+Col} (int \&col, int num)
+\item 
+virtual void \textbf{ Allocate\+Page} ()
+\begin{DoxyCompactList}\small\item\em Allocate\+Page. \end{DoxyCompactList}\item 
+virtual void \textbf{ set\+Duration} (Q\+String duration)
+\item 
+virtual void \textbf{ set\+Key} (Q\+String key)
+\item 
+virtual void \textbf{ set\+Year} (int year)
+\item 
+virtual void \textbf{ set\+Copyright} (Q\+String copyright)
+\item 
+virtual void \textbf{ set\+Album} (Q\+String album)
+\item 
+virtual void \textbf{ set\+Artist} (Q\+String artist)
+\item 
+virtual void \textbf{ set\+Arranger} (Q\+String arranger)
+\item 
+virtual void \textbf{ set\+Lyricist} (Q\+String lyricist)
+\item 
+virtual void \textbf{ set\+Composer} (Q\+String composer)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ m\+\_\+compress}
+\begin{DoxyCompactList}\small\item\em m\+\_\+compress allow to compress lines to fill a page \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+covermade}
+\begin{DoxyCompactList}\small\item\em m\+\_\+covermade true if the cover is made \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+covertitleexist}
+\begin{DoxyCompactList}\small\item\em m\+\_\+covertitleexist true if there is a cover title is present in doc \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+covertsubtitleexist}
+\begin{DoxyCompactList}\small\item\em m\+\_\+covertsubtitleexisttrue if there is a subtitlecover is present in doc \end{DoxyCompactList}\item 
+int \textbf{ m\+\_\+colnumber}
+\begin{DoxyCompactList}\small\item\em m\+\_\+colnumber number of column if avalaible for the media \end{DoxyCompactList}\item 
+Q\+String \textbf{ m\+\_\+covertitle}
+\begin{DoxyCompactList}\small\item\em m\+\_\+covertitle \+: title of the cover \end{DoxyCompactList}\item 
+Q\+String \textbf{ m\+\_\+coversubtitle}
+\begin{DoxyCompactList}\small\item\em m\+\_\+coversubtitle subtile of the cover \end{DoxyCompactList}\item 
+Q\+String\+List \textbf{ m\+\_\+subtitle}
+\begin{DoxyCompactList}\small\item\em m\+\_\+subtitle subtitle of the cover \end{DoxyCompactList}\item 
+Q\+String \textbf{ m\+\_\+title}
+\begin{DoxyCompactList}\small\item\em m\+\_\+title title of song \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+chorus}
+\begin{DoxyCompactList}\small\item\em m\+\_\+chorus \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+refrain}
+\begin{DoxyCompactList}\small\item\em m\+\_\+refrain this is refrain ? \end{DoxyCompactList}\item 
+Q\+String \textbf{ m\+\_\+file}
+\begin{DoxyCompactList}\small\item\em m\+\_\+file dir where product the output file \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+firstline}
+\item 
+Q\+String \textbf{ m\+\_\+text}
+\item 
+double \textbf{ m\+\_\+initialhposition}
+\item 
+Ui\+::\+Form\+Config $\ast$ \textbf{ m\+\_\+uiconfig}
+\begin{DoxyCompactList}\small\item\em m\+\_\+uiconfig a pointer on type of processor include widget \end{DoxyCompactList}\item 
+Ui\+::\+Main\+Window $\ast$ \textbf{ m\+\_\+uimainwindow}
+\begin{DoxyCompactList}\small\item\em m\+\_\+uimainwindow a pointer on mainwindow to get all the common informations \end{DoxyCompactList}\item 
+Po\+Do\+Fo\+::\+Pdf\+Streamed\+Document $\ast$ \textbf{ m\+\_\+document}
+\begin{DoxyCompactList}\small\item\em m\+\_\+document pointer on document open in creation mode \end{DoxyCompactList}\item 
+Po\+Do\+Fo\+::\+Pdf\+Mem\+Document $\ast$ \textbf{ m\+\_\+mdocument}
+\begin{DoxyCompactList}\small\item\em m\+\_\+mdocument pointer on document open in addition mode \end{DoxyCompactList}\item 
+Po\+Do\+Fo\+::\+Pdf\+Page $\ast$ \textbf{ m\+\_\+page}
+\begin{DoxyCompactList}\small\item\em m\+\_\+page pointer on Pdf\+Page \end{DoxyCompactList}\item 
+Po\+Do\+Fo\+::\+Pdf\+Painter \textbf{ m\+\_\+painter}
+\begin{DoxyCompactList}\small\item\em m\+\_\+painter pointer on Pdf\+Painter \end{DoxyCompactList}\item 
+Po\+Do\+Fo\+::\+Pdf\+Rect $\ast$ \textbf{ m\+\_\+dimension}
+\begin{DoxyCompactList}\small\item\em m\+\_\+dimension pointer current dimention \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+document\+Allocation}
+\begin{DoxyCompactList}\small\item\em m\+\_\+document\+Allocation m\+\_\+document received a new ( delete to be done ) \end{DoxyCompactList}\item 
+bool \textbf{ m\+\_\+page\+Allocation}
+\begin{DoxyCompactList}\small\item\em m\+\_\+page\+Allocation m\+\_\+page recevived a new ( delete to be done ) \end{DoxyCompactList}\item 
+Q\+Map$<$ Q\+String, int $>$ \textbf{ m\+\_\+tocpages}
+\begin{DoxyCompactList}\small\item\em m\+\_\+tocpages number of pages per song ( sorted in stupid alphabetic order) \end{DoxyCompactList}\item 
+Q\+String\+List \textbf{ m\+\_\+toc}
+\begin{DoxyCompactList}\small\item\em m\+\_\+toc list of song in incremental order \end{DoxyCompactList}\item 
+int \textbf{ m\+\_\+line}
+\begin{DoxyCompactList}\small\item\em m\+\_\+line y current line printed \end{DoxyCompactList}\item 
+int \textbf{ m\+\_\+lineindex}
+\item 
+int \textbf{ m\+\_\+column}
+\begin{DoxyCompactList}\small\item\em m\+\_\+column x current column printed \end{DoxyCompactList}\item 
+Q\+String\+List \textbf{ m\+\_\+\+Buf\+Lyrics}
+\begin{DoxyCompactList}\small\item\em m\+\_\+\+Buf\+Lyrics buffer with lyrics \end{DoxyCompactList}\item 
+Q\+String\+List \textbf{ m\+\_\+\+Buf\+Chords}
+\begin{DoxyCompactList}\small\item\em m\+\_\+\+Buf\+Chords buffer with chords \end{DoxyCompactList}\item 
+Q\+List$<$ Po\+Do\+Fo\+::\+Pdf\+Object $\ast$ $>$ \textbf{ m\+\_\+\+Normal\+Pages}
+\begin{DoxyCompactList}\small\item\em m\+\_\+\+Normal\+Pages pages for annotation links not in toc \end{DoxyCompactList}\item 
+Q\+List$<$ Po\+Do\+Fo\+::\+Pdf\+Object $\ast$ $>$ \textbf{ m\+\_\+\+Toc\+Pages}
+\begin{DoxyCompactList}\small\item\em m\+\_\+\+Toc\+Pages pages for annotation links in toc \end{DoxyCompactList}\item 
+Q\+String \textbf{ m\+\_\+projectpath}
+\item 
+int \textbf{ m\+\_\+nbrealpages}
+\item 
+int \textbf{ m\+\_\+positiontoc}
+\item 
+Q\+String \textbf{ m\+\_\+mode}
+\begin{DoxyCompactList}\small\item\em m\+\_\+mode \+: generic, text, lyrics, memory, chord \end{DoxyCompactList}\item 
+int \textbf{ m\+\_\+tempo}
+\item 
+Q\+String \textbf{ m\+\_\+time}
+\item 
+Q\+String \textbf{ m\+\_\+composer}
+\item 
+Q\+String \textbf{ m\+\_\+lyricist}
+\item 
+Q\+String \textbf{ m\+\_\+arranger}
+\item 
+Q\+String \textbf{ m\+\_\+artist}
+\item 
+Q\+String \textbf{ m\+\_\+album}
+\item 
+Q\+String \textbf{ m\+\_\+copyright}
+\item 
+int \textbf{ m\+\_\+year}
+\item 
+Q\+String \textbf{ m\+\_\+duration}
+\item 
+Q\+String \textbf{ m\+\_\+key}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\label{class_processor_a107c19dc35f276c54c47eb8c57a2cd35}} 
+\index{Processor@{Processor}!Align@{Align}}
+\index{Align@{Align}!Processor@{Processor}}
+\subsubsection{Align}
+{\footnotesize\ttfamily enum \textbf{ Processor\+::\+Align}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{left@{left}!Processor@{Processor}}\index{Processor@{Processor}!left@{left}}}\mbox{\label{class_processor_a107c19dc35f276c54c47eb8c57a2cd35a3e8dc29ff3df1388eee5f70b5f54299e}} 
+left&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{center@{center}!Processor@{Processor}}\index{Processor@{Processor}!center@{center}}}\mbox{\label{class_processor_a107c19dc35f276c54c47eb8c57a2cd35ac4bceeb8780aacfea657b3e312962af3}} 
+center&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{right@{right}!Processor@{Processor}}\index{Processor@{Processor}!right@{right}}}\mbox{\label{class_processor_a107c19dc35f276c54c47eb8c57a2cd35a9f97570538eed7e536a795eed9d92402}} 
+right&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_processor_a02933c6d7cb5ec1f0ebea273c584e7b9}} 
+\index{Processor@{Processor}!Processor@{Processor}}
+\index{Processor@{Processor}!Processor@{Processor}}
+\subsubsection{Processor()}
+{\footnotesize\ttfamily Processor\+::\+Processor (\begin{DoxyParamCaption}\item[{Ui\+::\+Main\+Window $\ast$}]{ui1,  }\item[{Ui\+::\+Form\+Config $\ast$}]{ui2 }\end{DoxyParamCaption})}
+
+\mbox{\label{class_processor_acf37952c5b420d4e903a512571678692}} 
+\index{Processor@{Processor}!````~Processor@{$\sim$\+Processor}}
+\index{````~Processor@{$\sim$\+Processor}!Processor@{Processor}}
+\subsubsection{$\sim$\+Processor()}
+{\footnotesize\ttfamily Processor\+::$\sim$\+Processor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_processor_a950b15ef154b38cdda1d9612a1273136}} 
+\index{Processor@{Processor}!add\+Col@{add\+Col}}
+\index{add\+Col@{add\+Col}!Processor@{Processor}}
+\subsubsection{add\+Col()}
+{\footnotesize\ttfamily void Processor\+::add\+Col (\begin{DoxyParamCaption}\item[{int \&}]{col,  }\item[{int}]{num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a950b15ef154b38cdda1d9612a1273136_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ad169df3c76d9c0c1326531d5e7ba73a1}} 
+\index{Processor@{Processor}!add\+Footer@{add\+Footer}}
+\index{add\+Footer@{add\+Footer}!Processor@{Processor}}
+\subsubsection{add\+Footer()}
+{\footnotesize\ttfamily void Processor\+::add\+Footer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_ad169df3c76d9c0c1326531d5e7ba73a1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a2b359e16c4fc2ff1b39bf9e901422754}} 
+\index{Processor@{Processor}!add\+Link\+In\+Toc@{add\+Link\+In\+Toc}}
+\index{add\+Link\+In\+Toc@{add\+Link\+In\+Toc}!Processor@{Processor}}
+\subsubsection{add\+Link\+In\+Toc()}
+{\footnotesize\ttfamily void Processor\+::add\+Link\+In\+Toc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+add\+Link\+In\+Toc add link in toc 
+
+\mbox{\label{class_processor_ac6fc58bb6dc1d517634f925555038079}} 
+\index{Processor@{Processor}!add\+Toc@{add\+Toc}}
+\index{add\+Toc@{add\+Toc}!Processor@{Processor}}
+\subsubsection{add\+Toc()}
+{\footnotesize\ttfamily void Processor\+::add\+Toc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+add\+Toc add toc 
+
+\mbox{\label{class_processor_a06dacc122de6dc26608ea9ca4a1fc3ae}} 
+\index{Processor@{Processor}!add\+Toc\+At\+Begining@{add\+Toc\+At\+Begining}}
+\index{add\+Toc\+At\+Begining@{add\+Toc\+At\+Begining}!Processor@{Processor}}
+\subsubsection{add\+Toc\+At\+Begining()}
+{\footnotesize\ttfamily void Processor\+::add\+Toc\+At\+Begining (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ad8f80ada30c770dce456e60a42d6d702}} 
+\index{Processor@{Processor}!add\+Toc\+At\+End@{add\+Toc\+At\+End}}
+\index{add\+Toc\+At\+End@{add\+Toc\+At\+End}!Processor@{Processor}}
+\subsubsection{add\+Toc\+At\+End()}
+{\footnotesize\ttfamily void Processor\+::add\+Toc\+At\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ae06c5b2d0466e2a1e0b061a56709dd62}} 
+\index{Processor@{Processor}!Allocate\+Page@{Allocate\+Page}}
+\index{Allocate\+Page@{Allocate\+Page}!Processor@{Processor}}
+\subsubsection{Allocate\+Page()}
+{\footnotesize\ttfamily void Processor\+::\+Allocate\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Allocate\+Page. 
+
+\mbox{\label{class_processor_addad5da93e393bc5eb49abd3d9e646b6}} 
+\index{Processor@{Processor}!Buf\+Lyrics\+Normailisation@{Buf\+Lyrics\+Normailisation}}
+\index{Buf\+Lyrics\+Normailisation@{Buf\+Lyrics\+Normailisation}!Processor@{Processor}}
+\subsubsection{Buf\+Lyrics\+Normailisation()}
+{\footnotesize\ttfamily void Processor\+::\+Buf\+Lyrics\+Normailisation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_addad5da93e393bc5eb49abd3d9e646b6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a15db395afa661130fbfcc4710472fa60}} 
+\index{Processor@{Processor}!calc\+Column@{calc\+Column}}
+\index{calc\+Column@{calc\+Column}!Processor@{Processor}}
+\subsubsection{calc\+Column()}
+{\footnotesize\ttfamily int Processor\+::calc\+Column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a15db395afa661130fbfcc4710472fa60_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a86f0f04e2a0cd4ae28145b849e82c95c}} 
+\index{Processor@{Processor}!calc\+Line@{calc\+Line}}
+\index{calc\+Line@{calc\+Line}!Processor@{Processor}}
+\subsubsection{calc\+Line()}
+{\footnotesize\ttfamily int Processor\+::calc\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a86f0f04e2a0cd4ae28145b849e82c95c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ade8c65e47d10fd9e004061a6e71136d2}} 
+\index{Processor@{Processor}!Category@{Category}}
+\index{Category@{Category}!Processor@{Processor}}
+\subsubsection{Category()}
+{\footnotesize\ttfamily Q\+String Processor\+::\+Category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+m\+\_\+category category in config file (file.\+conf) Chordbook,Lyrics\+Book,Memory\+Mode,Text\+Book 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_ade8c65e47d10fd9e004061a6e71136d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a2945b880ab40a2c1e608e1332deb2cc6}} 
+\index{Processor@{Processor}!Cover@{Cover}}
+\index{Cover@{Cover}!Processor@{Processor}}
+\subsubsection{Cover()}
+{\footnotesize\ttfamily void Processor\+::\+Cover (\begin{DoxyParamCaption}\item[{Q\+String}]{title,  }\item[{Q\+String}]{subtitle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_processor_a2945b880ab40a2c1e608e1332deb2cc6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a832b5ae3bdbbacdf9e5d2674b1439dfc}} 
+\index{Processor@{Processor}!current\+Column@{current\+Column}}
+\index{current\+Column@{current\+Column}!Processor@{Processor}}
+\subsubsection{current\+Column()}
+{\footnotesize\ttfamily int Processor\+::current\+Column (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a832b5ae3bdbbacdf9e5d2674b1439dfc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ab2c35acc07dd9983c16dfcf61d47b95d}} 
+\index{Processor@{Processor}!display\+Bpm@{display\+Bpm}}
+\index{display\+Bpm@{display\+Bpm}!Processor@{Processor}}
+\subsubsection{display\+Bpm()}
+{\footnotesize\ttfamily void Processor\+::display\+Bpm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a4526fb69a441b0655b48340224101bb7}} 
+\index{Processor@{Processor}!display\+Chord@{display\+Chord}}
+\index{display\+Chord@{display\+Chord}!Processor@{Processor}}
+\subsubsection{display\+Chord()}
+{\footnotesize\ttfamily void Processor\+::display\+Chord (\begin{DoxyParamCaption}\item[{Q\+String}]{chord,  }\item[{int \&}]{line,  }\item[{int \&}]{column,  }\item[{int}]{size,  }\item[{Q\+String}]{lang }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{class_processor_a4526fb69a441b0655b48340224101bb7_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a4526fb69a441b0655b48340224101bb7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a20ddc767019deed4a5c77d6c0e7d8b70}} 
+\index{Processor@{Processor}!display\+Chords\+For\+Song@{display\+Chords\+For\+Song}}
+\index{display\+Chords\+For\+Song@{display\+Chords\+For\+Song}!Processor@{Processor}}
+\subsubsection{display\+Chords\+For\+Song()}
+{\footnotesize\ttfamily void Processor\+::display\+Chords\+For\+Song (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a20ddc767019deed4a5c77d6c0e7d8b70_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_af4b97ea4e7d9509f833dfb93624b4c88}} 
+\index{Processor@{Processor}!display\+Lyrics@{display\+Lyrics}}
+\index{display\+Lyrics@{display\+Lyrics}!Processor@{Processor}}
+\subsubsection{display\+Lyrics()}
+{\footnotesize\ttfamily void Processor\+::display\+Lyrics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_af4b97ea4e7d9509f833dfb93624b4c88_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a86be3193e521bb13535c5b419f87478d}} 
+\index{Processor@{Processor}!display\+Page\+Subtitle@{display\+Page\+Subtitle}}
+\index{display\+Page\+Subtitle@{display\+Page\+Subtitle}!Processor@{Processor}}
+\subsubsection{display\+Page\+Subtitle()}
+{\footnotesize\ttfamily void Processor\+::display\+Page\+Subtitle (\begin{DoxyParamCaption}\item[{Q\+String}]{subtitles }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a86be3193e521bb13535c5b419f87478d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a87df24dfc6cf0a19a5faa04ea8a037f2}} 
+\index{Processor@{Processor}!display\+Page\+Title@{display\+Page\+Title}}
+\index{display\+Page\+Title@{display\+Page\+Title}!Processor@{Processor}}
+\subsubsection{display\+Page\+Title()}
+{\footnotesize\ttfamily void Processor\+::display\+Page\+Title (\begin{DoxyParamCaption}\item[{Q\+String}]{titile }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a87df24dfc6cf0a19a5faa04ea8a037f2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ad3e08f2a297e1be8bcf2acc148f70f0d}} 
+\index{Processor@{Processor}!display\+Rytm@{display\+Rytm}}
+\index{display\+Rytm@{display\+Rytm}!Processor@{Processor}}
+\subsubsection{display\+Rytm()}
+{\footnotesize\ttfamily void Processor\+::display\+Rytm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a1901a57a7c74a4d638b70fdaf40f47f1}} 
+\index{Processor@{Processor}!do\+Chords@{do\+Chords}}
+\index{do\+Chords@{do\+Chords}!Processor@{Processor}}
+\subsubsection{do\+Chords()}
+{\footnotesize\ttfamily void Processor\+::do\+Chords (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a1901a57a7c74a4d638b70fdaf40f47f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a24a0afe8534382d629803958b3de8ee4}} 
+\index{Processor@{Processor}!do\+Column\+Break@{do\+Column\+Break}}
+\index{do\+Column\+Break@{do\+Column\+Break}!Processor@{Processor}}
+\subsubsection{do\+Column\+Break()}
+{\footnotesize\ttfamily void Processor\+::do\+Column\+Break (\begin{DoxyParamCaption}\item[{Q\+String}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a24a0afe8534382d629803958b3de8ee4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_abba12fce4bf6e0a508dfc4cd886457d3}} 
+\index{Processor@{Processor}!Finish\+Page@{Finish\+Page}}
+\index{Finish\+Page@{Finish\+Page}!Processor@{Processor}}
+\subsubsection{Finish\+Page()}
+{\footnotesize\ttfamily void Processor\+::\+Finish\+Page (\begin{DoxyParamCaption}\item[{Po\+Do\+Fo\+::\+Pdf\+Painter $\ast$}]{painter }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Finish\+Page replace painter.\+Finish\+Page, usefull to add watermark. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & painter on the current page \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_processor_a19614e1c54d9a3344353164477c0b623}} 
+\index{Processor@{Processor}!First\+Page\+Number@{First\+Page\+Number}}
+\index{First\+Page\+Number@{First\+Page\+Number}!Processor@{Processor}}
+\subsubsection{First\+Page\+Number()}
+{\footnotesize\ttfamily int Processor\+::\+First\+Page\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_affb123bf60cd1dbd6cd04628511bc992}} 
+\index{Processor@{Processor}!Following\+Line@{Following\+Line}}
+\index{Following\+Line@{Following\+Line}!Processor@{Processor}}
+\subsubsection{Following\+Line()}
+{\footnotesize\ttfamily void Processor\+::\+Following\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_affb123bf60cd1dbd6cd04628511bc992_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a313b4d9a35c38d0dcaac0303953d60a7}} 
+\index{Processor@{Processor}!get\+Cover\+Made@{get\+Cover\+Made}}
+\index{get\+Cover\+Made@{get\+Cover\+Made}!Processor@{Processor}}
+\subsubsection{get\+Cover\+Made()}
+{\footnotesize\ttfamily bool Processor\+::get\+Cover\+Made (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a313b4d9a35c38d0dcaac0303953d60a7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a3e18d20f27db9c2d0aa27b6d8e191665}} 
+\index{Processor@{Processor}!get\+Cover\+Subtitle@{get\+Cover\+Subtitle}}
+\index{get\+Cover\+Subtitle@{get\+Cover\+Subtitle}!Processor@{Processor}}
+\subsubsection{get\+Cover\+Subtitle()}
+{\footnotesize\ttfamily Q\+String Processor\+::get\+Cover\+Subtitle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_processor_a3e18d20f27db9c2d0aa27b6d8e191665_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a317ac8e314335d0fb6b2674a7085718d}} 
+\index{Processor@{Processor}!get\+Cover\+Title@{get\+Cover\+Title}}
+\index{get\+Cover\+Title@{get\+Cover\+Title}!Processor@{Processor}}
+\subsubsection{get\+Cover\+Title()}
+{\footnotesize\ttfamily Q\+String Processor\+::get\+Cover\+Title (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a317ac8e314335d0fb6b2674a7085718d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ad14d3feb1cfbab0f9b4eac6383d1ba2e}} 
+\index{Processor@{Processor}!Image\+Position@{Image\+Position}}
+\index{Image\+Position@{Image\+Position}!Processor@{Processor}}
+\subsubsection{Image\+Position()}
+{\footnotesize\ttfamily double Processor\+::\+Image\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a585f92a4634e8533582617ee2301f449}} 
+\index{Processor@{Processor}!include\+Chorus@{include\+Chorus}}
+\index{include\+Chorus@{include\+Chorus}!Processor@{Processor}}
+\subsubsection{include\+Chorus()}
+{\footnotesize\ttfamily void Processor\+::include\+Chorus (\begin{DoxyParamCaption}\item[{Q\+String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a585f92a4634e8533582617ee2301f449_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ab5e0a70c787ff316d02d1257e279debd}} 
+\index{Processor@{Processor}!include\+Eoc@{include\+Eoc}}
+\index{include\+Eoc@{include\+Eoc}!Processor@{Processor}}
+\subsubsection{include\+Eoc()}
+{\footnotesize\ttfamily void Processor\+::include\+Eoc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_ab5e0a70c787ff316d02d1257e279debd_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a2bdc202be78df934f1915c5d8c747022}} 
+\index{Processor@{Processor}!include\+Eor@{include\+Eor}}
+\index{include\+Eor@{include\+Eor}!Processor@{Processor}}
+\subsubsection{include\+Eor()}
+{\footnotesize\ttfamily void Processor\+::include\+Eor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a2bdc202be78df934f1915c5d8c747022_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a0343bf27ba272193009ff7fee14c11d6}} 
+\index{Processor@{Processor}!include\+Info@{include\+Info}}
+\index{include\+Info@{include\+Info}!Processor@{Processor}}
+\subsubsection{include\+Info()}
+{\footnotesize\ttfamily void Processor\+::include\+Info (\begin{DoxyParamCaption}\item[{Q\+String}]{author = {\ttfamily \char`\"{}\char`\"{}},  }\item[{Q\+String}]{title = {\ttfamily \char`\"{}\char`\"{}},  }\item[{Q\+String}]{subtitle = {\ttfamily \char`\"{}\char`\"{}},  }\item[{Q\+String}]{date = {\ttfamily QDate\+:\+:currentDate().toString(\char`\"{}dd/MM/aaaa\char`\"{})} }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a0343bf27ba272193009ff7fee14c11d6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a10160053dee22724c7522abf2ac796be}} 
+\index{Processor@{Processor}!include\+Refrain@{include\+Refrain}}
+\index{include\+Refrain@{include\+Refrain}!Processor@{Processor}}
+\subsubsection{include\+Refrain()}
+{\footnotesize\ttfamily void Processor\+::include\+Refrain (\begin{DoxyParamCaption}\item[{Q\+String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a10160053dee22724c7522abf2ac796be_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a900134afc5ca8212e05cd2dc4d7edb33}} 
+\index{Processor@{Processor}!include\+Soc@{include\+Soc}}
+\index{include\+Soc@{include\+Soc}!Processor@{Processor}}
+\subsubsection{include\+Soc()}
+{\footnotesize\ttfamily void Processor\+::include\+Soc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a900134afc5ca8212e05cd2dc4d7edb33_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a056b22292874a9ad7c3fc920e57d4d4b}} 
+\index{Processor@{Processor}!include\+Sor@{include\+Sor}}
+\index{include\+Sor@{include\+Sor}!Processor@{Processor}}
+\subsubsection{include\+Sor()}
+{\footnotesize\ttfamily void Processor\+::include\+Sor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a056b22292874a9ad7c3fc920e57d4d4b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_aa9b504f2443db1decd0ddd20be4a70db}} 
+\index{Processor@{Processor}!is\+Chorus@{is\+Chorus}}
+\index{is\+Chorus@{is\+Chorus}!Processor@{Processor}}
+\subsubsection{is\+Chorus()}
+{\footnotesize\ttfamily bool Processor\+::is\+Chorus (\begin{DoxyParamCaption}\item[{Q\+String}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_aefbd9b0c11e2c4bb292181e5ac551ce5}} 
+\index{Processor@{Processor}!is\+Col\+Break@{is\+Col\+Break}}
+\index{is\+Col\+Break@{is\+Col\+Break}!Processor@{Processor}}
+\subsubsection{is\+Col\+Break()}
+{\footnotesize\ttfamily bool Processor\+::is\+Col\+Break (\begin{DoxyParamCaption}\item[{Q\+String}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_aefbd9b0c11e2c4bb292181e5ac551ce5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a93c62b426c68721839648c8f1bb1f83d}} 
+\index{Processor@{Processor}!Line\+Toc@{Line\+Toc}}
+\index{Line\+Toc@{Line\+Toc}!Processor@{Processor}}
+\subsubsection{Line\+Toc()}
+{\footnotesize\ttfamily Pdf\+Rect Processor\+::\+Line\+Toc (\begin{DoxyParamCaption}\item[{Q\+String}]{text,  }\item[{double}]{width,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{\textbf{ Font\+Button} $\ast$}]{fb,  }\item[{int}]{pagenumber }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Line\+Toc print each line in toc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \+: text to print \\
+\hline
+{\em width} & \+: width limited to print \\
+\hline
+{\em x} & \+: x point to print \\
+\hline
+{\em y} & \+: y point to print \\
+\hline
+{\em fb} & \+: font button where to find font to print \\
+\hline
+{\em pagenumber} & \+: the page number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a rectangle of region. Used by annotation link in toc 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a93c62b426c68721839648c8f1bb1f83d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a7b22ff2d10a13e5fdc5ad9fa3a598538}} 
+\index{Processor@{Processor}!make\+Page\+Number@{make\+Page\+Number}}
+\index{make\+Page\+Number@{make\+Page\+Number}!Processor@{Processor}}
+\subsubsection{make\+Page\+Number()}
+{\footnotesize\ttfamily void Processor\+::make\+Page\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+make\+Page\+Number display page number on each page 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a7b22ff2d10a13e5fdc5ad9fa3a598538_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a7b22ff2d10a13e5fdc5ad9fa3a598538_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_aa9939745e8deb3432a27f8426ffcbd82}} 
+\index{Processor@{Processor}!memorize\+Chords@{memorize\+Chords}}
+\index{memorize\+Chords@{memorize\+Chords}!Processor@{Processor}}
+\subsubsection{memorize\+Chords()}
+{\footnotesize\ttfamily void Processor\+::memorize\+Chords (\begin{DoxyParamCaption}\item[{Q\+String}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+memorize\+Chords memorize \doxyref{Chord}{p.}{class_chord} for the song in m\+\_\+\+Buf\+Chords; 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & the line read \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_processor_ac7bb954c380bc88b5a2c52027c0cd246}} 
+\index{Processor@{Processor}!mm@{mm}}
+\index{mm@{mm}!Processor@{Processor}}
+\subsubsection{mm()}
+{\footnotesize\ttfamily double Processor\+::mm (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{class_processor_ac7bb954c380bc88b5a2c52027c0cd246_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ac68ba8270af83ca5ad9432beb14c3f85}} 
+\index{Processor@{Processor}!Nb\+Page\+Cover@{Nb\+Page\+Cover}}
+\index{Nb\+Page\+Cover@{Nb\+Page\+Cover}!Processor@{Processor}}
+\subsubsection{Nb\+Page\+Cover()}
+{\footnotesize\ttfamily int Processor\+::\+Nb\+Page\+Cover (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a3488a82cab37dc1001410b49d25aeda7}} 
+\index{Processor@{Processor}!Nb\+Pages\+In\+Toc@{Nb\+Pages\+In\+Toc}}
+\index{Nb\+Pages\+In\+Toc@{Nb\+Pages\+In\+Toc}!Processor@{Processor}}
+\subsubsection{Nb\+Pages\+In\+Toc()}
+{\footnotesize\ttfamily int Processor\+::\+Nb\+Pages\+In\+Toc (\begin{DoxyParamCaption}\item[{int}]{nb\+Normal\+Pages }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Nb\+Pages\+In\+Toc return the number in toc. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\label{class_processor_a4f9e60f75a9599421ebbb1cd158096ce}} 
+\index{Processor@{Processor}!new\+Page@{new\+Page}}
+\index{new\+Page@{new\+Page}!Processor@{Processor}}
+\subsubsection{new\+Page()}
+{\footnotesize\ttfamily void Processor\+::new\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a4f9e60f75a9599421ebbb1cd158096ce_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_aa8c236b69b3e14b1c01002483076ca42}} 
+\index{Processor@{Processor}!next\+Column@{next\+Column}}
+\index{next\+Column@{next\+Column}!Processor@{Processor}}
+\subsubsection{next\+Column()}
+{\footnotesize\ttfamily int Processor\+::next\+Column (\begin{DoxyParamCaption}\item[{int}]{current }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_aa8c236b69b3e14b1c01002483076ca42_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a6fee2ded8ed6d094465a41ee666299d2}} 
+\index{Processor@{Processor}!Next\+Line@{Next\+Line}}
+\index{Next\+Line@{Next\+Line}!Processor@{Processor}}
+\subsubsection{Next\+Line()}
+{\footnotesize\ttfamily void Processor\+::\+Next\+Line (\begin{DoxyParamCaption}\item[{int}]{num = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a6fee2ded8ed6d094465a41ee666299d2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a3265964a3e70c5e72e750c56fabfe11a}} 
+\index{Processor@{Processor}!open\+Existing\+File@{open\+Existing\+File}}
+\index{open\+Existing\+File@{open\+Existing\+File}!Processor@{Processor}}
+\subsubsection{open\+Existing\+File()}
+{\footnotesize\ttfamily void Processor\+::open\+Existing\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a770904ce3729c0bdadddec2625dba434}} 
+\index{Processor@{Processor}!Page\+Size@{Page\+Size}}
+\index{Page\+Size@{Page\+Size}!Processor@{Processor}}
+\subsubsection{Page\+Size()}
+{\footnotesize\ttfamily Pdf\+Rect Processor\+::\+Page\+Size (\begin{DoxyParamCaption}\item[{double}]{left = {\ttfamily 0},  }\item[{double}]{bottom = {\ttfamily 0},  }\item[{double}]{width = {\ttfamily 210},  }\item[{double}]{height = {\ttfamily 297} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a770904ce3729c0bdadddec2625dba434_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_aa51ecd0134097fdc3430dcbe5a3e60c6}} 
+\index{Processor@{Processor}!P\+D\+F\+Made@{P\+D\+F\+Made}}
+\index{P\+D\+F\+Made@{P\+D\+F\+Made}!Processor@{Processor}}
+\subsubsection{P\+D\+F\+Made}
+{\footnotesize\ttfamily void Processor\+::\+P\+D\+F\+Made (\begin{DoxyParamCaption}\item[{Q\+String}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\label{class_processor_a4d5b69863bf9e8adaebef21f090421c0}} 
+\index{Processor@{Processor}!process@{process}}
+\index{process@{process}!Processor@{Processor}}
+\subsubsection{process()}
+{\footnotesize\ttfamily void Processor\+::process (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\label{class_processor_a073f5e9ea6a3557c217d67ab392e5852}} 
+\index{Processor@{Processor}!run@{run}}
+\index{run@{run}!Processor@{Processor}}
+\subsubsection{run()}
+{\footnotesize\ttfamily void Processor\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{class_processor_a073f5e9ea6a3557c217d67ab392e5852_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=337pt]{class_processor_a073f5e9ea6a3557c217d67ab392e5852_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a06e2648558fc17a36e8401b8b877b9ac}} 
+\index{Processor@{Processor}!save@{save}}
+\index{save@{save}!Processor@{Processor}}
+\subsubsection{save()}
+{\footnotesize\ttfamily void Processor\+::save (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_processor_a06e2648558fc17a36e8401b8b877b9ac_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a54825542f6b7fd2bf4d5a03c66ac4607}} 
+\index{Processor@{Processor}!savemem@{savemem}}
+\index{savemem@{savemem}!Processor@{Processor}}
+\subsubsection{savemem()}
+{\footnotesize\ttfamily void Processor\+::savemem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a8f15db1857d051ccdcac6a95c3213755}} 
+\index{Processor@{Processor}!set\+Album@{set\+Album}}
+\index{set\+Album@{set\+Album}!Processor@{Processor}}
+\subsubsection{set\+Album()}
+{\footnotesize\ttfamily void Processor\+::set\+Album (\begin{DoxyParamCaption}\item[{Q\+String}]{album }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a1ad609378813eb348a96c968ef41d5ce}} 
+\index{Processor@{Processor}!set\+Arranger@{set\+Arranger}}
+\index{set\+Arranger@{set\+Arranger}!Processor@{Processor}}
+\subsubsection{set\+Arranger()}
+{\footnotesize\ttfamily void Processor\+::set\+Arranger (\begin{DoxyParamCaption}\item[{Q\+String}]{arranger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_aa2a4125bb7f1c51fb2711864e2b84277}} 
+\index{Processor@{Processor}!set\+Artist@{set\+Artist}}
+\index{set\+Artist@{set\+Artist}!Processor@{Processor}}
+\subsubsection{set\+Artist()}
+{\footnotesize\ttfamily void Processor\+::set\+Artist (\begin{DoxyParamCaption}\item[{Q\+String}]{artist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a9d9f278a21b98746187d5e2c160641e2}} 
+\index{Processor@{Processor}!set\+Bpm@{set\+Bpm}}
+\index{set\+Bpm@{set\+Bpm}!Processor@{Processor}}
+\subsubsection{set\+Bpm()}
+{\footnotesize\ttfamily void Processor\+::set\+Bpm (\begin{DoxyParamCaption}\item[{int}]{bpm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a57a6425e90df15c4cc884ba567c50767}} 
+\index{Processor@{Processor}!set\+Col\+Break@{set\+Col\+Break}}
+\index{set\+Col\+Break@{set\+Col\+Break}!Processor@{Processor}}
+\subsubsection{set\+Col\+Break()}
+{\footnotesize\ttfamily void Processor\+::set\+Col\+Break (\begin{DoxyParamCaption}\item[{Q\+String}]{line }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a57a6425e90df15c4cc884ba567c50767_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a8f25a2ae8884c46ae4e3f806974f4dae}} 
+\index{Processor@{Processor}!set\+Col\+Number@{set\+Col\+Number}}
+\index{set\+Col\+Number@{set\+Col\+Number}!Processor@{Processor}}
+\subsubsection{set\+Col\+Number()}
+{\footnotesize\ttfamily void Processor\+::set\+Col\+Number (\begin{DoxyParamCaption}\item[{int}]{columber }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a6e922825a94279db5a809b503ad32067}} 
+\index{Processor@{Processor}!set\+Composer@{set\+Composer}}
+\index{set\+Composer@{set\+Composer}!Processor@{Processor}}
+\subsubsection{set\+Composer()}
+{\footnotesize\ttfamily void Processor\+::set\+Composer (\begin{DoxyParamCaption}\item[{Q\+String}]{composer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a4811dbccc9804d7e07fe96b5d303bad1}} 
+\index{Processor@{Processor}!set\+Compress@{set\+Compress}}
+\index{set\+Compress@{set\+Compress}!Processor@{Processor}}
+\subsubsection{set\+Compress()}
+{\footnotesize\ttfamily void Processor\+::set\+Compress (\begin{DoxyParamCaption}\item[{bool}]{compress }\end{DoxyParamCaption})}
+
+\mbox{\label{class_processor_a4b02d6a36a99af6cd8c583878e221deb}} 
+\index{Processor@{Processor}!set\+Copyright@{set\+Copyright}}
+\index{set\+Copyright@{set\+Copyright}!Processor@{Processor}}
+\subsubsection{set\+Copyright()}
+{\footnotesize\ttfamily void Processor\+::set\+Copyright (\begin{DoxyParamCaption}\item[{Q\+String}]{copyright }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a2aa6fa9cfd29d3d1da83035f9afb4c41}} 
+\index{Processor@{Processor}!set\+Cover\+Made@{set\+Cover\+Made}}
+\index{set\+Cover\+Made@{set\+Cover\+Made}!Processor@{Processor}}
+\subsubsection{set\+Cover\+Made()}
+{\footnotesize\ttfamily void Processor\+::set\+Cover\+Made (\begin{DoxyParamCaption}\item[{bool}]{status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\label{class_processor_af0bbc7f73a3b6585a0381adad932e8e4}} 
+\index{Processor@{Processor}!set\+Cover\+Subtitle@{set\+Cover\+Subtitle}}
+\index{set\+Cover\+Subtitle@{set\+Cover\+Subtitle}!Processor@{Processor}}
+\subsubsection{set\+Cover\+Subtitle()}
+{\footnotesize\ttfamily void Processor\+::set\+Cover\+Subtitle (\begin{DoxyParamCaption}\item[{Q\+String}]{coversubtitle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_af0bbc7f73a3b6585a0381adad932e8e4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a02f25b59cee82ba6e5871739c7132be3}} 
+\index{Processor@{Processor}!set\+Cover\+Title@{set\+Cover\+Title}}
+\index{set\+Cover\+Title@{set\+Cover\+Title}!Processor@{Processor}}
+\subsubsection{set\+Cover\+Title()}
+{\footnotesize\ttfamily void Processor\+::set\+Cover\+Title (\begin{DoxyParamCaption}\item[{Q\+String}]{covertitle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a02f25b59cee82ba6e5871739c7132be3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a7d3c88714c15ef0cc02b74c8b1d58e62}} 
+\index{Processor@{Processor}!set\+Duration@{set\+Duration}}
+\index{set\+Duration@{set\+Duration}!Processor@{Processor}}
+\subsubsection{set\+Duration()}
+{\footnotesize\ttfamily void Processor\+::set\+Duration (\begin{DoxyParamCaption}\item[{Q\+String}]{duration }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_aae0e5a3770972b057006766b785ede39}} 
+\index{Processor@{Processor}!set\+Key@{set\+Key}}
+\index{set\+Key@{set\+Key}!Processor@{Processor}}
+\subsubsection{set\+Key()}
+{\footnotesize\ttfamily void Processor\+::set\+Key (\begin{DoxyParamCaption}\item[{Q\+String}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a5d90e761a30f6092cad85db2f57cbddc}} 
+\index{Processor@{Processor}!set\+Lyricist@{set\+Lyricist}}
+\index{set\+Lyricist@{set\+Lyricist}!Processor@{Processor}}
+\subsubsection{set\+Lyricist()}
+{\footnotesize\ttfamily void Processor\+::set\+Lyricist (\begin{DoxyParamCaption}\item[{Q\+String}]{lyricist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a0fffafe53f838ef08443d136d487a581}} 
+\index{Processor@{Processor}!set\+Refrain@{set\+Refrain}}
+\index{set\+Refrain@{set\+Refrain}!Processor@{Processor}}
+\subsubsection{set\+Refrain()}
+{\footnotesize\ttfamily void Processor\+::set\+Refrain (\begin{DoxyParamCaption}\item[{bool}]{refrain }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a0fffafe53f838ef08443d136d487a581_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a497101b4a4938d72c678f9a8f25319d1}} 
+\index{Processor@{Processor}!set\+Rytm@{set\+Rytm}}
+\index{set\+Rytm@{set\+Rytm}!Processor@{Processor}}
+\subsubsection{set\+Rytm()}
+{\footnotesize\ttfamily void Processor\+::set\+Rytm (\begin{DoxyParamCaption}\item[{Q\+String}]{rythm }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_a82a7bc0ca3d8305338e14811dc25900f}} 
+\index{Processor@{Processor}!set\+Soc\+Mode@{set\+Soc\+Mode}}
+\index{set\+Soc\+Mode@{set\+Soc\+Mode}!Processor@{Processor}}
+\subsubsection{set\+Soc\+Mode()}
+{\footnotesize\ttfamily void Processor\+::set\+Soc\+Mode (\begin{DoxyParamCaption}\item[{bool}]{socmode }\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a82a7bc0ca3d8305338e14811dc25900f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a479cfc5901af896a3003d0f0c62245ee}} 
+\index{Processor@{Processor}!set\+Year@{set\+Year}}
+\index{set\+Year@{set\+Year}!Processor@{Processor}}
+\subsubsection{set\+Year()}
+{\footnotesize\ttfamily void Processor\+::set\+Year (\begin{DoxyParamCaption}\item[{int}]{year }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+\mbox{\label{class_processor_ab4c424b1c1574e957d300b40e0edff20}} 
+\index{Processor@{Processor}!Text@{Text}}
+\index{Text@{Text}!Processor@{Processor}}
+\subsubsection{Text()}
+{\footnotesize\ttfamily double Processor\+::\+Text (\begin{DoxyParamCaption}\item[{Po\+Do\+Fo\+::\+Pdf\+Document $\ast$}]{doc,  }\item[{Q\+String}]{text,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{\textbf{ Font\+Button} $\ast$}]{fb,  }\item[{\textbf{ Align}}]{align = {\ttfamily \textbf{ left}},  }\item[{double}]{scale = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+{\em x} & \+: if left it is the start of print, if center it is the center point, it left it is end of print \\
+\hline
+{\em y} & \+: the y point \\
+\hline
+{\em fb} & \+: Button\+Font containing informations about Font, color etc... \\
+\hline
+{\em align} & \+: \doxyref{Processor\+::left}{p.}{class_processor_a107c19dc35f276c54c47eb8c57a2cd35a3e8dc29ff3df1388eee5f70b5f54299e} \doxyref{Processor\+::center}{p.}{class_processor_a107c19dc35f276c54c47eb8c57a2cd35ac4bceeb8780aacfea657b3e312962af3} or \doxyref{Processor\+::right}{p.}{class_processor_a107c19dc35f276c54c47eb8c57a2cd35a9f97570538eed7e536a795eed9d92402} \\
+\hline
+{\em scale} & \+: 1 no scale $>$1 will grow the default font $<$1 decrease the default font \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the x position of the end of text 
+\end{DoxyReturn}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_ab4c424b1c1574e957d300b40e0edff20_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{class_processor_ab4c424b1c1574e957d300b40e0edff20_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_a579466417cab4ca3204a14c5bbc7391a}} 
+\index{Processor@{Processor}!Text\+In\+Box@{Text\+In\+Box}}
+\index{Text\+In\+Box@{Text\+In\+Box}!Processor@{Processor}}
+\subsubsection{Text\+In\+Box()}
+{\footnotesize\ttfamily double Processor\+::\+Text\+In\+Box (\begin{DoxyParamCaption}\item[{Po\+Do\+Fo\+::\+Pdf\+Document $\ast$}]{doc,  }\item[{Q\+String}]{text,  }\item[{double}]{x,  }\item[{double}]{y,  }\item[{\textbf{ Font\+Button} $\ast$}]{fb,  }\item[{\textbf{ Align}}]{align = {\ttfamily \textbf{ left}},  }\item[{double}]{scale = {\ttfamily 1} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a579466417cab4ca3204a14c5bbc7391a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_processor_a579466417cab4ca3204a14c5bbc7391a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_processor_ae9a292ceab4a0db0ee101c6a1b7b1db2}} 
+\index{Processor@{Processor}!Title\+Position@{Title\+Position}}
+\index{Title\+Position@{Title\+Position}!Processor@{Processor}}
+\subsubsection{Title\+Position()}
+{\footnotesize\ttfamily double Processor\+::\+Title\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a9eaaecc180fb524acdb9a9d7767cb4c3}} 
+\index{Processor@{Processor}!Toc\+Col\+Size@{Toc\+Col\+Size}}
+\index{Toc\+Col\+Size@{Toc\+Col\+Size}!Processor@{Processor}}
+\subsubsection{Toc\+Col\+Size()}
+{\footnotesize\ttfamily int Processor\+::\+Toc\+Col\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{class_processor_a6b1e0a789da92111efa62141b67c7f2c}} 
+\index{Processor@{Processor}!m\+\_\+album@{m\+\_\+album}}
+\index{m\+\_\+album@{m\+\_\+album}!Processor@{Processor}}
+\subsubsection{m\+\_\+album}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+album\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ad584af963a356b360ace672931cef52a}} 
+\index{Processor@{Processor}!m\+\_\+arranger@{m\+\_\+arranger}}
+\index{m\+\_\+arranger@{m\+\_\+arranger}!Processor@{Processor}}
+\subsubsection{m\+\_\+arranger}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+arranger\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ad0ad08086c95eb5280c75047eca466f6}} 
+\index{Processor@{Processor}!m\+\_\+artist@{m\+\_\+artist}}
+\index{m\+\_\+artist@{m\+\_\+artist}!Processor@{Processor}}
+\subsubsection{m\+\_\+artist}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+artist\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a24ffe3588f7f1b8dcccd7061fe83654f}} 
+\index{Processor@{Processor}!m\+\_\+\+Buf\+Chords@{m\+\_\+\+Buf\+Chords}}
+\index{m\+\_\+\+Buf\+Chords@{m\+\_\+\+Buf\+Chords}!Processor@{Processor}}
+\subsubsection{m\+\_\+\+Buf\+Chords}
+{\footnotesize\ttfamily Q\+String\+List Processor\+::m\+\_\+\+Buf\+Chords\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+\+Buf\+Chords buffer with chords 
+
+\mbox{\label{class_processor_a0cba3078d761f42c11ab90ca38ad3d32}} 
+\index{Processor@{Processor}!m\+\_\+\+Buf\+Lyrics@{m\+\_\+\+Buf\+Lyrics}}
+\index{m\+\_\+\+Buf\+Lyrics@{m\+\_\+\+Buf\+Lyrics}!Processor@{Processor}}
+\subsubsection{m\+\_\+\+Buf\+Lyrics}
+{\footnotesize\ttfamily Q\+String\+List Processor\+::m\+\_\+\+Buf\+Lyrics\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+\+Buf\+Lyrics buffer with lyrics 
+
+\mbox{\label{class_processor_ada1e27350d81d6ee5c2924f8b4130779}} 
+\index{Processor@{Processor}!m\+\_\+chorus@{m\+\_\+chorus}}
+\index{m\+\_\+chorus@{m\+\_\+chorus}!Processor@{Processor}}
+\subsubsection{m\+\_\+chorus}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+chorus\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+chorus 
+
+\mbox{\label{class_processor_aef9eb91d6274ac9bbcbeca15cc39165e}} 
+\index{Processor@{Processor}!m\+\_\+colnumber@{m\+\_\+colnumber}}
+\index{m\+\_\+colnumber@{m\+\_\+colnumber}!Processor@{Processor}}
+\subsubsection{m\+\_\+colnumber}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+colnumber\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+colnumber number of column if avalaible for the media 
+
+\mbox{\label{class_processor_a7fdef808e812381d482eadfe2c37c892}} 
+\index{Processor@{Processor}!m\+\_\+column@{m\+\_\+column}}
+\index{m\+\_\+column@{m\+\_\+column}!Processor@{Processor}}
+\subsubsection{m\+\_\+column}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+column\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+column x current column printed 
+
+\mbox{\label{class_processor_af5f599560a0fc1c044e4dcc985dfcc02}} 
+\index{Processor@{Processor}!m\+\_\+composer@{m\+\_\+composer}}
+\index{m\+\_\+composer@{m\+\_\+composer}!Processor@{Processor}}
+\subsubsection{m\+\_\+composer}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+composer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a85df1425fbfd4f39ae545a06b9fef2e1}} 
+\index{Processor@{Processor}!m\+\_\+compress@{m\+\_\+compress}}
+\index{m\+\_\+compress@{m\+\_\+compress}!Processor@{Processor}}
+\subsubsection{m\+\_\+compress}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+compress\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+compress allow to compress lines to fill a page 
+
+\mbox{\label{class_processor_a026edea095fb89d8fdea949ec9d85718}} 
+\index{Processor@{Processor}!m\+\_\+copyright@{m\+\_\+copyright}}
+\index{m\+\_\+copyright@{m\+\_\+copyright}!Processor@{Processor}}
+\subsubsection{m\+\_\+copyright}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+copyright\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ab14489bd4f3fc59e9fd70f7744d641ff}} 
+\index{Processor@{Processor}!m\+\_\+covermade@{m\+\_\+covermade}}
+\index{m\+\_\+covermade@{m\+\_\+covermade}!Processor@{Processor}}
+\subsubsection{m\+\_\+covermade}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+covermade\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+covermade true if the cover is made 
+
+\mbox{\label{class_processor_a73973cc952a8f2e5c54a25b28d18829b}} 
+\index{Processor@{Processor}!m\+\_\+coversubtitle@{m\+\_\+coversubtitle}}
+\index{m\+\_\+coversubtitle@{m\+\_\+coversubtitle}!Processor@{Processor}}
+\subsubsection{m\+\_\+coversubtitle}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+coversubtitle\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+coversubtitle subtile of the cover 
+
+\mbox{\label{class_processor_abd77cde059794aa622b226bc601677ea}} 
+\index{Processor@{Processor}!m\+\_\+covertitle@{m\+\_\+covertitle}}
+\index{m\+\_\+covertitle@{m\+\_\+covertitle}!Processor@{Processor}}
+\subsubsection{m\+\_\+covertitle}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+covertitle\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+covertitle \+: title of the cover 
+
+\mbox{\label{class_processor_a52db6284e1a85e2f347219c958f918eb}} 
+\index{Processor@{Processor}!m\+\_\+covertitleexist@{m\+\_\+covertitleexist}}
+\index{m\+\_\+covertitleexist@{m\+\_\+covertitleexist}!Processor@{Processor}}
+\subsubsection{m\+\_\+covertitleexist}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+covertitleexist\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+covertitleexist true if there is a cover title is present in doc 
+
+\mbox{\label{class_processor_a23f4d9018db266c63059f23f2b4fb6dd}} 
+\index{Processor@{Processor}!m\+\_\+covertsubtitleexist@{m\+\_\+covertsubtitleexist}}
+\index{m\+\_\+covertsubtitleexist@{m\+\_\+covertsubtitleexist}!Processor@{Processor}}
+\subsubsection{m\+\_\+covertsubtitleexist}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+covertsubtitleexist\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+covertsubtitleexisttrue if there is a subtitlecover is present in doc 
+
+\mbox{\label{class_processor_a61a1e430aad704ca6ba9cff14e3be339}} 
+\index{Processor@{Processor}!m\+\_\+dimension@{m\+\_\+dimension}}
+\index{m\+\_\+dimension@{m\+\_\+dimension}!Processor@{Processor}}
+\subsubsection{m\+\_\+dimension}
+{\footnotesize\ttfamily Po\+Do\+Fo\+::\+Pdf\+Rect$\ast$ Processor\+::m\+\_\+dimension\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+dimension pointer current dimention 
+
+\mbox{\label{class_processor_a216092f3c0e9ea445550fb260ee8dc83}} 
+\index{Processor@{Processor}!m\+\_\+document@{m\+\_\+document}}
+\index{m\+\_\+document@{m\+\_\+document}!Processor@{Processor}}
+\subsubsection{m\+\_\+document}
+{\footnotesize\ttfamily Po\+Do\+Fo\+::\+Pdf\+Streamed\+Document$\ast$ Processor\+::m\+\_\+document\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+document pointer on document open in creation mode 
+
+\mbox{\label{class_processor_a9a7d7397a9faa1e2ef50f25a39439079}} 
+\index{Processor@{Processor}!m\+\_\+document\+Allocation@{m\+\_\+document\+Allocation}}
+\index{m\+\_\+document\+Allocation@{m\+\_\+document\+Allocation}!Processor@{Processor}}
+\subsubsection{m\+\_\+document\+Allocation}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+document\+Allocation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+document\+Allocation m\+\_\+document received a new ( delete to be done ) 
+
+\mbox{\label{class_processor_aa9046f0a8bed76f4540786c9a61f0f8b}} 
+\index{Processor@{Processor}!m\+\_\+duration@{m\+\_\+duration}}
+\index{m\+\_\+duration@{m\+\_\+duration}!Processor@{Processor}}
+\subsubsection{m\+\_\+duration}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+duration\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a58b05d1758d440e6de48e8d88690c50d}} 
+\index{Processor@{Processor}!m\+\_\+file@{m\+\_\+file}}
+\index{m\+\_\+file@{m\+\_\+file}!Processor@{Processor}}
+\subsubsection{m\+\_\+file}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+file\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+file dir where product the output file 
+
+\mbox{\label{class_processor_a728efb0fa093b29f7df9d04f80fb3ee0}} 
+\index{Processor@{Processor}!m\+\_\+firstline@{m\+\_\+firstline}}
+\index{m\+\_\+firstline@{m\+\_\+firstline}!Processor@{Processor}}
+\subsubsection{m\+\_\+firstline}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+firstline\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ae204deeccb02600ba51dd3676c33d5c1}} 
+\index{Processor@{Processor}!m\+\_\+initialhposition@{m\+\_\+initialhposition}}
+\index{m\+\_\+initialhposition@{m\+\_\+initialhposition}!Processor@{Processor}}
+\subsubsection{m\+\_\+initialhposition}
+{\footnotesize\ttfamily double Processor\+::m\+\_\+initialhposition\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a78df992978b662b9876bb0917981da71}} 
+\index{Processor@{Processor}!m\+\_\+key@{m\+\_\+key}}
+\index{m\+\_\+key@{m\+\_\+key}!Processor@{Processor}}
+\subsubsection{m\+\_\+key}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+key\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a7e40155e460bd66cbc788ee1044cfa01}} 
+\index{Processor@{Processor}!m\+\_\+line@{m\+\_\+line}}
+\index{m\+\_\+line@{m\+\_\+line}!Processor@{Processor}}
+\subsubsection{m\+\_\+line}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+line\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+line y current line printed 
+
+\mbox{\label{class_processor_a2f81e3d471c86bb1aa538a7b596902ae}} 
+\index{Processor@{Processor}!m\+\_\+lineindex@{m\+\_\+lineindex}}
+\index{m\+\_\+lineindex@{m\+\_\+lineindex}!Processor@{Processor}}
+\subsubsection{m\+\_\+lineindex}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+lineindex\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a3ec36c06ee5ec02a9e39c963d1ce8d0e}} 
+\index{Processor@{Processor}!m\+\_\+lyricist@{m\+\_\+lyricist}}
+\index{m\+\_\+lyricist@{m\+\_\+lyricist}!Processor@{Processor}}
+\subsubsection{m\+\_\+lyricist}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+lyricist\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a31133ebfb412daa3891cfe3e80e709ad}} 
+\index{Processor@{Processor}!m\+\_\+mdocument@{m\+\_\+mdocument}}
+\index{m\+\_\+mdocument@{m\+\_\+mdocument}!Processor@{Processor}}
+\subsubsection{m\+\_\+mdocument}
+{\footnotesize\ttfamily Po\+Do\+Fo\+::\+Pdf\+Mem\+Document$\ast$ Processor\+::m\+\_\+mdocument\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+mdocument pointer on document open in addition mode 
+
+\mbox{\label{class_processor_a0eca129676f2d96e3e97bd9e9b28fc93}} 
+\index{Processor@{Processor}!m\+\_\+mode@{m\+\_\+mode}}
+\index{m\+\_\+mode@{m\+\_\+mode}!Processor@{Processor}}
+\subsubsection{m\+\_\+mode}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+mode\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+mode \+: generic, text, lyrics, memory, chord 
+
+\mbox{\label{class_processor_aec25a06fa837d747f43a538e2778c64c}} 
+\index{Processor@{Processor}!m\+\_\+nbrealpages@{m\+\_\+nbrealpages}}
+\index{m\+\_\+nbrealpages@{m\+\_\+nbrealpages}!Processor@{Processor}}
+\subsubsection{m\+\_\+nbrealpages}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+nbrealpages\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ae94e23a2b8de72e13609a1f22405ade4}} 
+\index{Processor@{Processor}!m\+\_\+\+Normal\+Pages@{m\+\_\+\+Normal\+Pages}}
+\index{m\+\_\+\+Normal\+Pages@{m\+\_\+\+Normal\+Pages}!Processor@{Processor}}
+\subsubsection{m\+\_\+\+Normal\+Pages}
+{\footnotesize\ttfamily Q\+List$<$Po\+Do\+Fo\+::\+Pdf\+Object $\ast$$>$ Processor\+::m\+\_\+\+Normal\+Pages\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+\+Normal\+Pages pages for annotation links not in toc 
+
+\mbox{\label{class_processor_a1242a0d2749b203b1b03eacee9f67176}} 
+\index{Processor@{Processor}!m\+\_\+page@{m\+\_\+page}}
+\index{m\+\_\+page@{m\+\_\+page}!Processor@{Processor}}
+\subsubsection{m\+\_\+page}
+{\footnotesize\ttfamily Po\+Do\+Fo\+::\+Pdf\+Page$\ast$ Processor\+::m\+\_\+page\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+page pointer on Pdf\+Page 
+
+\mbox{\label{class_processor_a574393ffedaae8e2908860aadfdb9977}} 
+\index{Processor@{Processor}!m\+\_\+page\+Allocation@{m\+\_\+page\+Allocation}}
+\index{m\+\_\+page\+Allocation@{m\+\_\+page\+Allocation}!Processor@{Processor}}
+\subsubsection{m\+\_\+page\+Allocation}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+page\+Allocation\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+page\+Allocation m\+\_\+page recevived a new ( delete to be done ) 
+
+\mbox{\label{class_processor_ad3f345c9fa32e328e2a6ebce96d061dc}} 
+\index{Processor@{Processor}!m\+\_\+painter@{m\+\_\+painter}}
+\index{m\+\_\+painter@{m\+\_\+painter}!Processor@{Processor}}
+\subsubsection{m\+\_\+painter}
+{\footnotesize\ttfamily Po\+Do\+Fo\+::\+Pdf\+Painter Processor\+::m\+\_\+painter\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+painter pointer on Pdf\+Painter 
+
+\mbox{\label{class_processor_a7779faa4e95a1df04494d2f272e1d981}} 
+\index{Processor@{Processor}!m\+\_\+positiontoc@{m\+\_\+positiontoc}}
+\index{m\+\_\+positiontoc@{m\+\_\+positiontoc}!Processor@{Processor}}
+\subsubsection{m\+\_\+positiontoc}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+positiontoc\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_aae6157e67ca93f219b9443bb5cbe21d9}} 
+\index{Processor@{Processor}!m\+\_\+projectpath@{m\+\_\+projectpath}}
+\index{m\+\_\+projectpath@{m\+\_\+projectpath}!Processor@{Processor}}
+\subsubsection{m\+\_\+projectpath}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+projectpath\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_ad59c515b113ef25f15f58ad3e2cd9cf1}} 
+\index{Processor@{Processor}!m\+\_\+refrain@{m\+\_\+refrain}}
+\index{m\+\_\+refrain@{m\+\_\+refrain}!Processor@{Processor}}
+\subsubsection{m\+\_\+refrain}
+{\footnotesize\ttfamily bool Processor\+::m\+\_\+refrain\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+refrain this is refrain ? 
+
+\mbox{\label{class_processor_a772526220c954aad6cc8b587230825eb}} 
+\index{Processor@{Processor}!m\+\_\+subtitle@{m\+\_\+subtitle}}
+\index{m\+\_\+subtitle@{m\+\_\+subtitle}!Processor@{Processor}}
+\subsubsection{m\+\_\+subtitle}
+{\footnotesize\ttfamily Q\+String\+List Processor\+::m\+\_\+subtitle\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+subtitle subtitle of the cover 
+
+\mbox{\label{class_processor_af1eef6fd6c4363096064e925d029ff3e}} 
+\index{Processor@{Processor}!m\+\_\+tempo@{m\+\_\+tempo}}
+\index{m\+\_\+tempo@{m\+\_\+tempo}!Processor@{Processor}}
+\subsubsection{m\+\_\+tempo}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+tempo\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a66b9133ed286ab2aae7b60544485cf62}} 
+\index{Processor@{Processor}!m\+\_\+text@{m\+\_\+text}}
+\index{m\+\_\+text@{m\+\_\+text}!Processor@{Processor}}
+\subsubsection{m\+\_\+text}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+text\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_aa6c8526f86b2e203da224f2d76d40919}} 
+\index{Processor@{Processor}!m\+\_\+time@{m\+\_\+time}}
+\index{m\+\_\+time@{m\+\_\+time}!Processor@{Processor}}
+\subsubsection{m\+\_\+time}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+time\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\label{class_processor_a9012498c806b62b55dfa782b0e86fede}} 
+\index{Processor@{Processor}!m\+\_\+title@{m\+\_\+title}}
+\index{m\+\_\+title@{m\+\_\+title}!Processor@{Processor}}
+\subsubsection{m\+\_\+title}
+{\footnotesize\ttfamily Q\+String Processor\+::m\+\_\+title\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+title title of song 
+
+\mbox{\label{class_processor_a8d701ba9e50cab21e68f1bda86c2f202}} 
+\index{Processor@{Processor}!m\+\_\+toc@{m\+\_\+toc}}
+\index{m\+\_\+toc@{m\+\_\+toc}!Processor@{Processor}}
+\subsubsection{m\+\_\+toc}
+{\footnotesize\ttfamily Q\+String\+List Processor\+::m\+\_\+toc\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+toc list of song in incremental order 
+
+\mbox{\label{class_processor_ada7d4bdab5b4500d393ba8d3b6c61044}} 
+\index{Processor@{Processor}!m\+\_\+tocpages@{m\+\_\+tocpages}}
+\index{m\+\_\+tocpages@{m\+\_\+tocpages}!Processor@{Processor}}
+\subsubsection{m\+\_\+tocpages}
+{\footnotesize\ttfamily Q\+Map$<$Q\+String,int$>$ Processor\+::m\+\_\+tocpages\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+tocpages number of pages per song ( sorted in stupid alphabetic order) 
+
+\mbox{\label{class_processor_a2c9c4c0e665a51d40711c36c5dcfe40d}} 
+\index{Processor@{Processor}!m\+\_\+\+Toc\+Pages@{m\+\_\+\+Toc\+Pages}}
+\index{m\+\_\+\+Toc\+Pages@{m\+\_\+\+Toc\+Pages}!Processor@{Processor}}
+\subsubsection{m\+\_\+\+Toc\+Pages}
+{\footnotesize\ttfamily Q\+List$<$Po\+Do\+Fo\+::\+Pdf\+Object $\ast$$>$ Processor\+::m\+\_\+\+Toc\+Pages\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+\+Toc\+Pages pages for annotation links in toc 
+
+\mbox{\label{class_processor_a5549a2c29c0270370803370ca2dddb95}} 
+\index{Processor@{Processor}!m\+\_\+uiconfig@{m\+\_\+uiconfig}}
+\index{m\+\_\+uiconfig@{m\+\_\+uiconfig}!Processor@{Processor}}
+\subsubsection{m\+\_\+uiconfig}
+{\footnotesize\ttfamily Ui\+::\+Form\+Config$\ast$ Processor\+::m\+\_\+uiconfig\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+uiconfig a pointer on type of processor include widget 
+
+\mbox{\label{class_processor_a939c850f5cfb026dbdd36906ae237926}} 
+\index{Processor@{Processor}!m\+\_\+uimainwindow@{m\+\_\+uimainwindow}}
+\index{m\+\_\+uimainwindow@{m\+\_\+uimainwindow}!Processor@{Processor}}
+\subsubsection{m\+\_\+uimainwindow}
+{\footnotesize\ttfamily Ui\+::\+Main\+Window$\ast$ Processor\+::m\+\_\+uimainwindow\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+m\+\_\+uimainwindow a pointer on mainwindow to get all the common informations 
+
+\mbox{\label{class_processor_a03239f7619c6b947b384a7fc2d162e41}} 
+\index{Processor@{Processor}!m\+\_\+year@{m\+\_\+year}}
+\index{m\+\_\+year@{m\+\_\+year}!Processor@{Processor}}
+\subsubsection{m\+\_\+year}
+{\footnotesize\ttfamily int Processor\+::m\+\_\+year\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\textbf{ processor.\+h}\item 
+src/\textbf{ processor.\+cpp}\end{DoxyCompactItemize}

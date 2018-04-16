@@ -1,0 +1,13 @@
+<map id="FormEditor::~FormEditor" name="FormEditor::~FormEditor">
+<area shape="rect" id="node2" href="$class_dialog_bar.html#a40c3cce878287b420ca96df210b684dc" title="canceled the dialog was canceled " alt="" coords="262,5,401,32"/>
+<area shape="rect" id="node3" href="$class_dialog_bar.html#ad2c63d251ea55533849837c9ec22ada1" title="return value like 4/4 or 3/4 " alt="" coords="272,56,391,83"/>
+<area shape="rect" id="node4" href="$class_form_editor.html#a60efb176950924262d8bd840160a6c99" title="documen return the QTextDocument of Editor " alt="" coords="256,107,407,133"/>
+<area shape="rect" id="node5" href="$class_chord.html#ac9f58e7a65e814970f69365dd3f5f2f9" title="transpose : transpose a chord " alt="" coords="270,157,393,184"/>
+<area shape="rect" id="node12" href="$class_language.html#a258144a64b5054ef6c3956c211aa1ac3" title="TranslateLineWithchord translate a line containing chords from a language to an other one..." alt="" coords="220,208,443,235"/>
+<area shape="rect" id="node6" href="$class_chord.html#ad68a4f58d3dd18f09ea9bf7536e89284" title="translate " alt="" coords="511,171,626,197"/>
+<area shape="rect" id="node11" href="$class_chord_util.html#a0dbc0ac64daf39840647ac3607b96c7c" title="fromRomain convert from I to 1, from V to 5, from IX to 9 " alt="" coords="491,120,647,147"/>
+<area shape="rect" id="node7" href="$class_language.html#a16affca2c35e415180b932f16e3f46af" title="ListNotes return the list of notes for the language given. " alt="" coords="703,81,846,108"/>
+<area shape="rect" id="node9" href="$class_language.html#a957552ed9ba8f9f01a822d3a566ff383" title="getLanguage return Français for codelang fr " alt="" coords="695,132,855,159"/>
+<area shape="rect" id="node10" href="$class_chord.html#adb32e210a420399a1ceffa3ad8f0dab7" title="chord " alt="" coords="726,183,823,209"/>
+<area shape="rect" id="node8" href="$class_language.html#a7e5a46954fabb52fc1382dabd303d785" title="getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist fi..." alt="" coords="903,157,1065,184"/>
+</map>

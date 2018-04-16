@@ -1,0 +1,79 @@
+.TH "DialogNewSong" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DialogNewSong \- The \fBDialogNewSong\fP class this Dialog ask title, sybtitel, compress output yes or no, and column number for a song it provide a SIGNAL whe you clik on Insert button\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <dialognewsong\&.h>\fP
+.PP
+Inherits QDialog\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBInsertSong\fP (QString title, QString subtitle, bool compress, int columns, int tempo, int time1, int time2)"
+.br
+.RI "InsertSong signal sent when Insert button is clicked\&. "
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDialogNewSong\fP (QWidget *parent=0)"
+.br
+.RI "\fBDialogNewSong\fP : classic constructor\&. "
+.ti -1c
+.RI "\fB~DialogNewSong\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBDialogNewSong\fP class this Dialog ask title, sybtitel, compress output yes or no, and column number for a song it provide a SIGNAL whe you clik on Insert button\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "DialogNewSong::DialogNewSong (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBDialogNewSong\fP : classic constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparent\fP : parent window 
+.RE
+.PP
+
+.SS "DialogNewSong::~DialogNewSong ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void DialogNewSong::InsertSong (QString title, QString subtitle, bool compress, int columns, int tempo, int time1, int time2)\fC [signal]\fP"
+
+.PP
+InsertSong signal sent when Insert button is clicked\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItitle\fP : title of song 
+.br
+\fIsubtitle\fP : subtitle 
+.br
+\fIcompress\fP : compress true or false 
+.br
+\fIcolumns\fP : number of columns for the song 
+.br
+\fItempo\fP : the tempo or beat per minute default 120 
+.br
+\fItime1\fP : default 4 : 4 / 4 the second 4 is time2 
+.br
+\fItime2\fP : see time1 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

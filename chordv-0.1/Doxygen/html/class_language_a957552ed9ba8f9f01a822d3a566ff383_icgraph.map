@@ -1,0 +1,12 @@
+<map id="Language::getLanguage" name="Language::getLanguage">
+<area shape="rect" id="node2" href="$class_chord.html#ad68a4f58d3dd18f09ea9bf7536e89284" title="translate " alt="" coords="213,97,328,123"/>
+<area shape="rect" id="node3" href="$class_chord.html#ac9f58e7a65e814970f69365dd3f5f2f9" title="transpose : transpose a chord " alt="" coords="426,71,549,98"/>
+<area shape="rect" id="node5" href="$class_dialog_chord_definition.html#a0c0c9122565ddcac862ca32851a52963" title="DialogChordDefinition\l::ActiveInsertButton" alt="" coords="413,5,562,47"/>
+<area shape="rect" id="node7" href="$class_dialog_chord_definition.html#af02305bf92afaf24d635e9a73f21d087" title="DialogChordDefinition\l::ShowChords" alt="" coords="413,173,562,215"/>
+<area shape="rect" id="node9" href="$class_language.html#a258144a64b5054ef6c3956c211aa1ac3" title="TranslateLineWithchord translate a line containing chords from a language to an other one..." alt="" coords="376,122,599,149"/>
+<area shape="rect" id="node4" href="$class_form_editor.html#ab641dcb968c5f85fb08753b1f72d949d" title="FormEditor::~FormEditor" alt="" coords="667,71,833,98"/>
+<area shape="rect" id="node6" href="$class_text_edit.html#a6f1d15fb7513d987fbd78b504b9313de" title="TextEdit::mouseDoubleClick\lEvent" alt="" coords="655,5,845,47"/>
+<area shape="rect" id="node8" href="$class_dialog_chord_definition.html#a01f03ae795540807e783a8a0e0afa9a2" title="DialogChordDefinition\l::DialogChordDefinition" alt="" coords="671,173,829,215"/>
+<area shape="rect" id="node10" href="$class_main_window.html#abbb1ba517b4d03aeca090587ace06597" title="ChangeLanguage retranslate all the child window and tha main window. " alt="" coords="647,122,853,149"/>
+<area shape="rect" id="node11" href="$class_main_window.html#ae98d00a93bc118200eeef9f9bba1dba7" title="MainWindow::~MainWindow" alt="" coords="901,122,1089,149"/>
+</map>

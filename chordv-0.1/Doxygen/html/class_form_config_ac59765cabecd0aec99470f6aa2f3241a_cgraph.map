@@ -1,0 +1,10 @@
+<map id="FormConfig::setValue" name="FormConfig::setValue">
+<area shape="rect" id="node2" href="$class_spin_box_unit.html#adf75b09693d547fcc1c482b0c5f1b76c" title="SpinBoxUnit::setValue" alt="" coords="216,5,371,32"/>
+<area shape="rect" id="node4" href="$class_font_button.html#aa2f4eaee347ab77fba75488d56ea0e39" title="FontButton::setFont" alt="" coords="224,56,363,83"/>
+<area shape="rect" id="node5" href="$class_font_button.html#ac02ddf47305040121eff5578890b2a2b" title="FontButton::setColor" alt="" coords="222,107,365,133"/>
+<area shape="rect" id="node6" href="$class_font_button.html#a0f22d5f2a30eadcc208850f5504dd321" title="FontButton::setBackground\lColor" alt="" coords="203,158,384,199"/>
+<area shape="rect" id="node7" href="$class_image_button.html#a52670140c59eecfe20bc091464fe937e" title="ImageButton::setImage" alt="" coords="214,224,373,251"/>
+<area shape="rect" id="node8" href="$class_page_size.html#a797bf348c152e742af7963d1f81bf334" title="setCurrentText : set custom text " alt="" coords="207,275,380,301"/>
+<area shape="rect" id="node9" href="$class_color_button.html#a2a564d30044197785035be7babfbf66b" title="setColor set the color of the button " alt="" coords="219,325,367,352"/>
+<area shape="rect" id="node3" href="$class_spin_box_unit.html#a9dca5b0d9c3042681cca0d645cd6d9ac" title="SpinBoxUnit::string2unit" alt="" coords="432,5,595,32"/>
+</map>

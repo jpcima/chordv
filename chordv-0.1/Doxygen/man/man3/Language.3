@@ -1,0 +1,213 @@
+.TH "Language" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Language \- The \fBLanguage\fP class manage the translation files\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <language\&.h>\fP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBInitLanguage\fP ()"
+.br
+.RI "InitLanguage init the static QMap LanguageToCode and CodeToLanguage\&. "
+.ti -1c
+.RI "static QString \fBgetTranslationQmFileName\fP (QString language)"
+.br
+.RI "getTranslationQmFileName from language file name ( English for example ) return for example /usr/share/chordV/Languages/English/en\&.qm (the Qt application translation file) "
+.ti -1c
+.RI "static void \fBsetLanguageComboBox\fP (QComboBox *ptr)"
+.br
+.RI "setLanguageComboBox : populate a QComboBox with all the available languages "
+.ti -1c
+.RI "static QString \fBgetTranslationDocFileName\fP (QString language)"
+.br
+.RI "getTranslationDocFileName : return from a language File ( French) the code of language (fr) the program look for the name of the html file for example fr\&.html ( be care take the first html file in dir) "
+.ti -1c
+.RI "static QStringList \fBListNotes\fP (QString language)"
+.br
+.RI "ListNotes return the list of notes for the language given\&. "
+.ti -1c
+.RI "static QStringList \fBListMinor\fP (QString language)"
+.br
+.RI "ListMinor return list of suymbol in preference order for minor\&. "
+.ti -1c
+.RI "static QString \fBgetCodeLang\fP (QString language)"
+.br
+.RI "getCodeLang : return code lang (en) from language\&. The code lang is given by the name of html fist file ( en\&.html) "
+.ti -1c
+.RI "static QString \fBgetLanguage\fP (QString codelang)"
+.br
+.RI "getLanguage return Français for codelang fr "
+.ti -1c
+.RI "static QString \fBTranslateLineWithchord\fP (QString line, QString fromlanguage, QString frommin, QString tolanguage, QString tomin)"
+.br
+.RI "TranslateLineWithchord translate a line containing chords from a language to an other one, ie converts all the chord between [ ] For example : Yellow [D] Submarine => Yellow [Ré] submarine\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBLanguage\fP class manage the translation files\&. 
+
+Translation files are stored in DATADIR/Languages/English/ directory On Linux DATADIR is /usr/share/chordV All the languages are in the directories English, Français etc \&.\&.\&. The file you have to provide are
+.IP "\(bu" 2
+img : directory containing the documentation images
+.IP "\(bu" 2
+en\&.html : documentation in html format ( automatic conversion by markdown) (fr\&.html for french)
+.IP "\(bu" 2
+en\&.md : mardown language file (fr\&.md for french)
+.IP "\(bu" 2
+en\&.chord : a chord translation file containing
+.IP "  \(bu" 4
+all the notes from C to B , separated C,D,E,F,G,A,B
+.IP "  \(bu" 4
+translaton for minor : -,m : to ne more EXPLAINED
+.PP
+
+.PP
+.PP
+en is called LanguageCode or code English : is called \fBLanguage\fP 
+.SH "Member Function Documentation"
+.PP 
+.SS "QString Language::getCodeLang (QString language)\fC [static]\fP"
+
+.PP
+getCodeLang : return code lang (en) from language\&. The code lang is given by the name of html fist file ( en\&.html) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlanguage\fP : for example English 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+en or en 
+.RE
+.PP
+
+.SS "QString Language::getLanguage (QString codelang)\fC [static]\fP"
+
+.PP
+getLanguage return Français for codelang fr 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcodelang\fP : fr or en 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Français or English 
+.RE
+.PP
+
+.SS "QString Language::getTranslationDocFileName (QString language)\fC [static]\fP"
+
+.PP
+getTranslationDocFileName : return from a language File ( French) the code of language (fr) the program look for the name of the html file for example fr\&.html ( be care take the first html file in dir) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlanguage\fP : language name English, Français \&.\&.\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the code en, fr \&.\&.\&. 
+.RE
+.PP
+
+.SS "QString Language::getTranslationQmFileName (QString language)\fC [static]\fP"
+
+.PP
+getTranslationQmFileName from language file name ( English for example ) return for example /usr/share/chordV/Languages/English/en\&.qm (the Qt application translation file) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlanguage\fP : language English, Français \&.\&.\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+return the complete path and file name of qm laguage file 
+.RE
+.PP
+
+.SS "void Language::InitLanguage ()\fC [static]\fP"
+
+.PP
+InitLanguage init the static QMap LanguageToCode and CodeToLanguage\&. 
+.SS "QStringList Language::ListMinor (QString language)\fC [static]\fP"
+
+.PP
+ListMinor return list of suymbol in preference order for minor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlanguage\fP : for example English 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-,m 
+.RE
+.PP
+
+.SS "QStringList Language::ListNotes (QString language)\fC [static]\fP"
+
+.PP
+ListNotes return the list of notes for the language given\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlanguage\fP : for example English 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: C,D,E,F,G,A,B,C or Do,Ré,Mi,Fa,Sol,La,Si 
+.RE
+.PP
+
+.SS "void Language::setLanguageComboBox (QComboBox * ptr)\fC [static]\fP"
+
+.PP
+setLanguageComboBox : populate a QComboBox with all the available languages 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIptr\fP : pointer on QComboBox object 
+.RE
+.PP
+
+.SS "QString Language::TranslateLineWithchord (QString line, QString fromlanguage, QString frommin, QString tolanguage, QString tomin)\fC [static]\fP"
+
+.PP
+TranslateLineWithchord translate a line containing chords from a language to an other one, ie converts all the chord between [ ] For example : Yellow [D] Submarine => Yellow [Ré] submarine\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIline\fP : the line to be translated 
+.br
+\fIfromlanguage\fP : for example English 
+.br
+\fIfrommin\fP : minor mode for example - 
+.br
+\fItolanguage\fP : for example Français 
+.br
+\fItomin\fP : minor mode after translation for example m 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

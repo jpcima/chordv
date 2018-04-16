@@ -1,0 +1,12 @@
+<map id="src/fontbutton.h" name="src/fontbutton.h">
+<area shape="rect" id="node2" href="$fontbutton_8cpp.html" title="src/fontbutton.cpp" alt="" coords="63,80,190,107"/>
+<area shape="rect" id="node3" href="$processor_8h.html" title="src/processor.h" alt="" coords="303,80,415,107"/>
+<area shape="rect" id="node7" href="$processorlyrics_8h.html" title="src/processorlyrics.h" alt="" coords="119,155,262,181"/>
+<area shape="rect" id="node4" href="$processortext_8h.html" title="src/processortext.h" alt="" coords="455,155,590,181"/>
+<area shape="rect" id="node9" href="$processorchord_8h.html" title="src/processorchord.h" alt="" coords="287,155,431,181"/>
+<area shape="rect" id="node11" href="$processor_8cpp.html" title="src/processor.cpp" alt="" coords="614,155,741,181"/>
+<area shape="rect" id="node5" href="$mainwindow_8cpp.html" title="src/mainwindow.cpp" alt="" coords="371,229,512,256"/>
+<area shape="rect" id="node6" href="$processortext_8cpp.html" title="src/processortext.cpp" alt="" coords="537,229,685,256"/>
+<area shape="rect" id="node8" href="$processorlyrics_8cpp.html" title="src/processorlyrics.cpp" alt="" coords="5,229,163,256"/>
+<area shape="rect" id="node10" href="$processorchord_8cpp.html" title="src/processorchord.cpp" alt="" coords="187,229,346,256"/>
+</map>

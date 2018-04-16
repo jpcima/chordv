@@ -1,0 +1,217 @@
+.TH "FormEditor" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+FormEditor \- The \fBFormEditor\fP class manage\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <formeditor\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRange\fP { \fBChordUnderTheCurser\fP, \fBAllChordInLine\fP, \fBAllChordInSong\fP, \fBAllChordInFile\fP }"
+.br
+.in -1c
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBzoomIn\fP ()"
+.br
+.ti -1c
+.RI "void \fBzoomOut\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFormEditor\fP (QWidget *parent=0)"
+.br
+.RI "\fBFormEditor\fP is usable aa a promotable widget\&. "
+.ti -1c
+.RI "\fB~FormEditor\fP ()"
+.br
+.ti -1c
+.RI "void \fBclear\fP ()"
+.br
+.RI "clear remove all the information in the Editor and in the list of all titles "
+.ti -1c
+.RI "void \fBappend\fP (QString)"
+.br
+.RI "append append text to Editor "
+.ti -1c
+.RI "QTextCursor \fBtextCursor\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetTextCursor\fP (QTextCursor textcursor)"
+.br
+.RI "setTextCursor set the TextCursor of the Editor "
+.ti -1c
+.RI "void \fBsetText\fP (QString text)"
+.br
+.RI "setText set the text of the Editor "
+.ti -1c
+.RI "QTextDocument * \fBdocument\fP ()"
+.br
+.RI "documen return the QTextDocument of Editor "
+.ti -1c
+.RI "void \fBcopy\fP ()"
+.br
+.RI "copy the Editor "
+.ti -1c
+.RI "void \fBinsertPlainText\fP (QString text, bool addcariagereturn=true)"
+.br
+.RI "insertPlainText insert text in QCursor of editor "
+.ti -1c
+.RI "void \fBretranslate\fP ()"
+.br
+.RI "retranslate retranslate the UI "
+.ti -1c
+.RI "bool \fBfind\fP (QString text, QTextDocument::FindFlags flag)"
+.br
+.RI "find find text with the flag "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBFormEditor\fP class manage\&. 
+
+
+.IP "\(bu" 2
+some toolbuttons in a tabWidget
+.IP "\(bu" 2
+the editor of song in a \fBTextEdit\fP (dérived QTextEdit)
+.IP "\(bu" 2
+a list of all songs title in the document in QTableWidget 
+.PP
+
+.SH "Member Enumeration Documentation"
+.PP 
+.SS "enum \fBFormEditor::Range\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIChordUnderTheCurser \fP\fP
+.TP
+\fB\fIAllChordInLine \fP\fP
+Action only on chord under the cursor\&. 
+.TP
+\fB\fIAllChordInSong \fP\fP
+Action on all chord in the current line\&. 
+.TP
+\fB\fIAllChordInFile \fP\fP
+Action on all chord in song\&. Action on all chord in booklet 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "FormEditor::FormEditor (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBFormEditor\fP is usable aa a promotable widget\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparent\fP 
+.RE
+.PP
+
+.SS "FormEditor::~FormEditor ()"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void FormEditor::append (QString value)"
+
+.PP
+append append text to Editor 
+.SS "void FormEditor::clear ()"
+
+.PP
+clear remove all the information in the Editor and in the list of all titles 
+.SS "void FormEditor::copy ()"
+
+.PP
+copy the Editor 
+.SS "QTextDocument * FormEditor::document ()"
+
+.PP
+documen return the QTextDocument of Editor 
+.PP
+\fBReturns:\fP
+.RS 4
+QTextDocument 
+.RE
+.PP
+
+.SS "bool FormEditor::find (QString text, QTextDocument::FindFlags flag)"
+
+.PP
+find find text with the flag 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItext\fP text to find 
+.br
+\fIflag\fP of QTextDocument::FindFlags 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.SS "void FormEditor::insertPlainText (QString text, bool addcariagereturn = \fCtrue\fP)"
+
+.PP
+insertPlainText insert text in QCursor of editor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItext\fP QString to insert 
+.br
+\fIaddcariagereturn\fP bool to force to add a carriage return 
+.RE
+.PP
+
+.SS "void FormEditor::retranslate ()"
+
+.PP
+retranslate retranslate the UI 
+.SS "void FormEditor::setText (QString text)"
+
+.PP
+setText set the text of the Editor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItext\fP the QTextCursor 
+.RE
+.PP
+
+.SS "void FormEditor::setTextCursor (QTextCursor textcursor)"
+
+.PP
+setTextCursor set the TextCursor of the Editor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItextcursor\fP 
+.RE
+.PP
+
+.SS "QTextCursor FormEditor::textCursor ()"
+return the textCursor of the Editor 
+.SS "void FormEditor::zoomIn ()\fC [slot]\fP"
+
+.SS "void FormEditor::zoomOut ()\fC [slot]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

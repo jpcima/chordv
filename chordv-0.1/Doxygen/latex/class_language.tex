@@ -1,0 +1,321 @@
+\section{Language Class Reference}
+\label{class_language}\index{Language@{Language}}
+
+
+The \doxyref{Language}{p.}{class_language} class manage the translation files.  
+
+
+
+
+{\ttfamily \#include $<$language.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \textbf{ Init\+Language} ()
+\begin{DoxyCompactList}\small\item\em Init\+Language init the static Q\+Map Language\+To\+Code and Code\+To\+Language. \end{DoxyCompactList}\item 
+static Q\+String \textbf{ get\+Translation\+Qm\+File\+Name} (Q\+String language)
+\begin{DoxyCompactList}\small\item\em get\+Translation\+Qm\+File\+Name from language file name ( English for example ) return for example /usr/share/chord\+V/\+Languages/\+English/en.qm (the Qt application translation file) \end{DoxyCompactList}\item 
+static void \textbf{ set\+Language\+Combo\+Box} (Q\+Combo\+Box $\ast$ptr)
+\begin{DoxyCompactList}\small\item\em set\+Language\+Combo\+Box \+: populate a Q\+Combo\+Box with all the available languages \end{DoxyCompactList}\item 
+static Q\+String \textbf{ get\+Translation\+Doc\+File\+Name} (Q\+String language)
+\begin{DoxyCompactList}\small\item\em get\+Translation\+Doc\+File\+Name \+: return from a language File ( French) the code of language (fr) the program look for the name of the html file for example fr.\+html ( be care take the first html file in dir) \end{DoxyCompactList}\item 
+static Q\+String\+List \textbf{ List\+Notes} (Q\+String language)
+\begin{DoxyCompactList}\small\item\em List\+Notes return the list of notes for the language given. \end{DoxyCompactList}\item 
+static Q\+String\+List \textbf{ List\+Minor} (Q\+String language)
+\begin{DoxyCompactList}\small\item\em List\+Minor return list of suymbol in preference order for minor. \end{DoxyCompactList}\item 
+static Q\+String \textbf{ get\+Code\+Lang} (Q\+String language)
+\begin{DoxyCompactList}\small\item\em get\+Code\+Lang \+: return code lang (en) from language. The code lang is given by the name of html fist file ( en.\+html) \end{DoxyCompactList}\item 
+static Q\+String \textbf{ get\+Language} (Q\+String codelang)
+\begin{DoxyCompactList}\small\item\em get\+Language return Français for codelang fr \end{DoxyCompactList}\item 
+static Q\+String \textbf{ Translate\+Line\+Withchord} (Q\+String line, Q\+String fromlanguage, Q\+String frommin, Q\+String tolanguage, Q\+String tomin)
+\begin{DoxyCompactList}\small\item\em Translate\+Line\+Withchord translate a line containing chords from a language to an other one, ie converts all the chord between [ ] For example \+: Yellow [D] Submarine =$>$ Yellow [Ré] submarine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Language}{p.}{class_language} class manage the translation files. 
+
+Translation files are stored in D\+A\+T\+A\+D\+I\+R/\+Languages/\+English/ directory On Linux D\+A\+T\+A\+D\+IR is /usr/share/chordV All the languages are in the directories English, Français etc ... The file you have to provide are
+\begin{DoxyItemize}
+\item img \+: directory containing the documentation images
+\item en.\+html \+: documentation in html format ( automatic conversion by markdown) (fr.\+html for french)
+\item en.\+md \+: mardown language file (fr.\+md for french)
+\item en.\+chord \+: a chord translation file containing
+\begin{DoxyItemize}
+\item all the notes from C to B , separated C,D,E,F,G,A,B
+\item translaton for minor \+: -\/,m \+: to ne more E\+X\+P\+L\+A\+I\+N\+ED
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+en is called Language\+Code or code English \+: is called \doxyref{Language}{p.}{class_language} 
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_language_a7e5a46954fabb52fc1382dabd303d785}} 
+\index{Language@{Language}!get\+Code\+Lang@{get\+Code\+Lang}}
+\index{get\+Code\+Lang@{get\+Code\+Lang}!Language@{Language}}
+\subsubsection{get\+Code\+Lang()}
+{\footnotesize\ttfamily Q\+String Language\+::get\+Code\+Lang (\begin{DoxyParamCaption}\item[{Q\+String}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get\+Code\+Lang \+: return code lang (en) from language. The code lang is given by the name of html fist file ( en.\+html) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em language} & \+: for example English \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+en or en 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a7e5a46954fabb52fc1382dabd303d785_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_a957552ed9ba8f9f01a822d3a566ff383}} 
+\index{Language@{Language}!get\+Language@{get\+Language}}
+\index{get\+Language@{get\+Language}!Language@{Language}}
+\subsubsection{get\+Language()}
+{\footnotesize\ttfamily Q\+String Language\+::get\+Language (\begin{DoxyParamCaption}\item[{Q\+String}]{codelang }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get\+Language return Français for codelang fr 
+
+
+\begin{DoxyParams}{Parameters}
+{\em codelang} & \+: fr or en \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Français or English 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a957552ed9ba8f9f01a822d3a566ff383_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_a0f1e278dae20a82a8505787eb577e34b}} 
+\index{Language@{Language}!get\+Translation\+Doc\+File\+Name@{get\+Translation\+Doc\+File\+Name}}
+\index{get\+Translation\+Doc\+File\+Name@{get\+Translation\+Doc\+File\+Name}!Language@{Language}}
+\subsubsection{get\+Translation\+Doc\+File\+Name()}
+{\footnotesize\ttfamily Q\+String Language\+::get\+Translation\+Doc\+File\+Name (\begin{DoxyParamCaption}\item[{Q\+String}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get\+Translation\+Doc\+File\+Name \+: return from a language File ( French) the code of language (fr) the program look for the name of the html file for example fr.\+html ( be care take the first html file in dir) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em language} & \+: language name English, Français ... \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the code en, fr ... 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a0f1e278dae20a82a8505787eb577e34b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_a860901fd51ba331a0515624c404b922d}} 
+\index{Language@{Language}!get\+Translation\+Qm\+File\+Name@{get\+Translation\+Qm\+File\+Name}}
+\index{get\+Translation\+Qm\+File\+Name@{get\+Translation\+Qm\+File\+Name}!Language@{Language}}
+\subsubsection{get\+Translation\+Qm\+File\+Name()}
+{\footnotesize\ttfamily Q\+String Language\+::get\+Translation\+Qm\+File\+Name (\begin{DoxyParamCaption}\item[{Q\+String}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+get\+Translation\+Qm\+File\+Name from language file name ( English for example ) return for example /usr/share/chord\+V/\+Languages/\+English/en.qm (the Qt application translation file) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em language} & \+: language English, Français ... \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+return the complete path and file name of qm laguage file 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a860901fd51ba331a0515624c404b922d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a860901fd51ba331a0515624c404b922d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_a3e4fa1411d494416806fdd45e3e88a08}} 
+\index{Language@{Language}!Init\+Language@{Init\+Language}}
+\index{Init\+Language@{Init\+Language}!Language@{Language}}
+\subsubsection{Init\+Language()}
+{\footnotesize\ttfamily void Language\+::\+Init\+Language (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Init\+Language init the static Q\+Map Language\+To\+Code and Code\+To\+Language. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_language_a3e4fa1411d494416806fdd45e3e88a08_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_ae92ee6d153f6e2143b154f041e88fb26}} 
+\index{Language@{Language}!List\+Minor@{List\+Minor}}
+\index{List\+Minor@{List\+Minor}!Language@{Language}}
+\subsubsection{List\+Minor()}
+{\footnotesize\ttfamily Q\+String\+List Language\+::\+List\+Minor (\begin{DoxyParamCaption}\item[{Q\+String}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+List\+Minor return list of suymbol in preference order for minor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em language} & \+: for example English \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/,m 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_language_ae92ee6d153f6e2143b154f041e88fb26_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_ae92ee6d153f6e2143b154f041e88fb26_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_a16affca2c35e415180b932f16e3f46af}} 
+\index{Language@{Language}!List\+Notes@{List\+Notes}}
+\index{List\+Notes@{List\+Notes}!Language@{Language}}
+\subsubsection{List\+Notes()}
+{\footnotesize\ttfamily Q\+String\+List Language\+::\+List\+Notes (\begin{DoxyParamCaption}\item[{Q\+String}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+List\+Notes return the list of notes for the language given. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em language} & \+: for example English \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: C,D,E,F,G,A,B,C or Do,Ré,Mi,Fa,Sol,La,Si 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_language_a16affca2c35e415180b932f16e3f46af_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a16affca2c35e415180b932f16e3f46af_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_a316a8c37186abde8e674bc137ddffe0e}} 
+\index{Language@{Language}!set\+Language\+Combo\+Box@{set\+Language\+Combo\+Box}}
+\index{set\+Language\+Combo\+Box@{set\+Language\+Combo\+Box}!Language@{Language}}
+\subsubsection{set\+Language\+Combo\+Box()}
+{\footnotesize\ttfamily void Language\+::set\+Language\+Combo\+Box (\begin{DoxyParamCaption}\item[{Q\+Combo\+Box $\ast$}]{ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+set\+Language\+Combo\+Box \+: populate a Q\+Combo\+Box with all the available languages 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & \+: pointer on Q\+Combo\+Box object \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a316a8c37186abde8e674bc137ddffe0e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_language_a258144a64b5054ef6c3956c211aa1ac3}} 
+\index{Language@{Language}!Translate\+Line\+Withchord@{Translate\+Line\+Withchord}}
+\index{Translate\+Line\+Withchord@{Translate\+Line\+Withchord}!Language@{Language}}
+\subsubsection{Translate\+Line\+Withchord()}
+{\footnotesize\ttfamily Q\+String Language\+::\+Translate\+Line\+Withchord (\begin{DoxyParamCaption}\item[{Q\+String}]{line,  }\item[{Q\+String}]{fromlanguage,  }\item[{Q\+String}]{frommin,  }\item[{Q\+String}]{tolanguage,  }\item[{Q\+String}]{tomin }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Translate\+Line\+Withchord translate a line containing chords from a language to an other one, ie converts all the chord between [ ] For example \+: Yellow [D] Submarine =$>$ Yellow [Ré] submarine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & \+: the line to be translated \\
+\hline
+{\em fromlanguage} & \+: for example English \\
+\hline
+{\em frommin} & \+: minor mode for example -\/ \\
+\hline
+{\em tolanguage} & \+: for example Français \\
+\hline
+{\em tomin} & \+: minor mode after translation for example m \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a258144a64b5054ef6c3956c211aa1ac3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_language_a258144a64b5054ef6c3956c211aa1ac3_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\textbf{ language.\+h}\item 
+src/\textbf{ language.\+cpp}\end{DoxyCompactItemize}

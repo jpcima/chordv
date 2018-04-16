@@ -1,0 +1,75 @@
+.TH "Settings" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Settings \- The \fBSettings\fP class derivate the QSettings class by forcing INI format when constructor is called whith a file name\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <settings\&.h>\fP
+.PP
+Inherits QSettings\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSettings\fP ()"
+.br
+.RI "\fBSettings\fP constructor\&. "
+.ti -1c
+.RI "\fBSettings\fP (QString filename)"
+.br
+.RI "\fBSettings\fP constructor by transtypage\&. "
+.ti -1c
+.RI "QVariant \fBvalue\fP (QString key, QVariant defaut)"
+.br
+.RI "value return the value with a default value "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBSettings\fP class derivate the QSettings class by forcing INI format when constructor is called whith a file name\&. 
+
+Also it allow a default value in value\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Settings::Settings ()"
+
+.PP
+\fBSettings\fP constructor\&. 
+.SS "Settings::Settings (QString filename)"
+
+.PP
+\fBSettings\fP constructor by transtypage\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QVariant Settings::value (QString key, QVariant defaut)"
+
+.PP
+value return the value with a default value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIkey\fP : the key as a string 
+.br
+\fIdefaut\fP : the default value as a variant 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the result value 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

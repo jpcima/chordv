@@ -1,0 +1,102 @@
+\section{Neck Class Reference}
+\label{class_neck}\index{Neck@{Neck}}
+
+
+The \doxyref{Neck}{p.}{class_neck} class is derivated of graphics\+View to allow to show a guitar neck and analyse the string touched to calculate chord.  
+
+
+
+
+{\ttfamily \#include $<$neck.\+h$>$}
+
+
+
+Inheritance diagram for Neck\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_neck__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Neck\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{class_neck__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Chords\+Detected} (Q\+String\+List chordname, Q\+String notes)
+\begin{DoxyCompactList}\small\item\em Chords\+Detected the chords detected are send as a signal with the list of chordnames, and the notes in x0101000 notation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Neck} (Q\+Widget $\ast$parent)
+\begin{DoxyCompactList}\small\item\em \doxyref{Neck}{p.}{class_neck} neck constructor complient with widget promotion in Qt\+Designer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Neck}{p.}{class_neck} class is derivated of graphics\+View to allow to show a guitar neck and analyse the string touched to calculate chord. 
+
+The result is given by the signal \doxyref{Chords\+Detected(\+Q\+String\+List chordname,\+Q\+String notes)}{p.}{class_neck_aae3d5c98018bd3b368084a29b564c38c}; 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_neck_a5c80ea6ffe2a277173675defac54cae4}} 
+\index{Neck@{Neck}!Neck@{Neck}}
+\index{Neck@{Neck}!Neck@{Neck}}
+\subsubsection{Neck()}
+{\footnotesize\ttfamily Neck\+::\+Neck (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent }\end{DoxyParamCaption})}
+
+
+
+\doxyref{Neck}{p.}{class_neck} neck constructor complient with widget promotion in Qt\+Designer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & parent of the widget \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_neck_a5c80ea6ffe2a277173675defac54cae4_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_neck_aae3d5c98018bd3b368084a29b564c38c}} 
+\index{Neck@{Neck}!Chords\+Detected@{Chords\+Detected}}
+\index{Chords\+Detected@{Chords\+Detected}!Neck@{Neck}}
+\subsubsection{Chords\+Detected}
+{\footnotesize\ttfamily void Neck\+::\+Chords\+Detected (\begin{DoxyParamCaption}\item[{Q\+String\+List}]{chordname,  }\item[{Q\+String}]{notes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Chords\+Detected the chords detected are send as a signal with the list of chordnames, and the notes in x0101000 notation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chordname} & \+: list of chordnames \\
+\hline
+{\em notes} & \+: notes \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{class_neck_aae3d5c98018bd3b368084a29b564c38c_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\textbf{ neck.\+h}\item 
+src/\textbf{ neck.\+cpp}\end{DoxyCompactItemize}

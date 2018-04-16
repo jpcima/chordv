@@ -1,0 +1,23 @@
+<map id="ProcessorLyrics::ProcessorLyrics" name="ProcessorLyrics::ProcessorLyrics">
+<area shape="rect" id="node2" href="$class_processor.html#a6fee2ded8ed6d094465a41ee666299d2" title="Processor::NextLine" alt="" coords="293,5,434,32"/>
+<area shape="rect" id="node3" href="$class_chord.html#ac5b55bda5f701f89695918c19e8caadc" title="removeDupplicateWhithoutRytm " alt="" coords="236,56,491,83"/>
+<area shape="rect" id="node6" href="$class_processor.html#a4526fb69a441b0655b48340224101bb7" title="Processor::displayChord" alt="" coords="281,107,446,133"/>
+<area shape="rect" id="node10" href="$class_processor.html#addad5da93e393bc5eb49abd3d9e646b6" title="Processor::BufLyricsNormailisation" alt="" coords="250,157,477,184"/>
+<area shape="rect" id="node11" href="$class_processor.html#aefbd9b0c11e2c4bb292181e5ac551ce5" title="Processor::isColBreak" alt="" coords="287,208,440,235"/>
+<area shape="rect" id="node12" href="$class_processor.html#ab4c424b1c1574e957d300b40e0edff20" title="Text. " alt="" coords="306,259,421,285"/>
+<area shape="rect" id="node13" href="$class_font_button.html#a18daa6762546617e893779676fa27528" title="FontButton::getFont" alt="" coords="560,309,699,336"/>
+<area shape="rect" id="node17" href="$class_processor.html#a579466417cab4ca3204a14c5bbc7391a" title="Processor::TextInBox" alt="" coords="289,360,438,387"/>
+<area shape="rect" id="node19" href="$class_processor.html#a950b15ef154b38cdda1d9612a1273136" title="Processor::addCol" alt="" coords="298,411,429,437"/>
+<area shape="rect" id="node20" href="$class_processor.html#a832b5ae3bdbbacdf9e5d2674b1439dfc" title="Processor::currentColumn" alt="" coords="276,461,451,488"/>
+<area shape="rect" id="node21" href="$class_processor.html#aa8c236b69b3e14b1c01002483076ca42" title="Processor::nextColumn" alt="" coords="284,512,443,539"/>
+<area shape="rect" id="node22" href="$class_processor.html#a4f9e60f75a9599421ebbb1cd158096ce" title="Processor::newPage" alt="" coords="292,563,435,589"/>
+<area shape="rect" id="node4" href="$class_chord.html#ac327ecc38a5359f06dab03b874120987" title="pureNameEnglish " alt="" coords="545,5,713,32"/>
+<area shape="rect" id="node5" href="$class_chord.html#aec2d95d7b27de1aed99c4e7fde68b9e0" title="pureNameLocale " alt="" coords="548,56,711,83"/>
+<area shape="rect" id="node7" href="$class_chord.html#a168ef9c9f97eb6a37d2adfc451b0adf9" title="fret " alt="" coords="587,208,671,235"/>
+<area shape="rect" id="node8" href="$class_chord.html#a2f6e790c26dde21eb22f0500c7593b6a" title="nameLocale " alt="" coords="562,107,697,133"/>
+<area shape="rect" id="node9" href="$class_chord.html#ae5f32095442d1a7cf07251a29b0575b4" title="toStrings " alt="" coords="571,157,688,184"/>
+<area shape="rect" id="node14" href="$class_font_button.html#ab9be25fd2dcc721b7f8101742ff7bb25" title="FontButton::getTextColor" alt="" coords="545,259,714,285"/>
+<area shape="rect" id="node15" href="$class_font_button.html#a80b6351f60a519835af20f9234fccf4c" title="FontButton::SelectedFont" alt="" coords="768,233,939,260"/>
+<area shape="rect" id="node16" href="$class_font_button.html#aa2f4eaee347ab77fba75488d56ea0e39" title="FontButton::setFont" alt="" coords="784,284,923,311"/>
+<area shape="rect" id="node18" href="$class_font_button.html#aa2eecd501e1bb491eef1109d5bd23289" title="FontButton::getBackground\lColor" alt="" coords="539,361,720,402"/>
+</map>

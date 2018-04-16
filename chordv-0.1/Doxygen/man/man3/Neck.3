@@ -1,0 +1,66 @@
+.TH "Neck" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Neck \- The \fBNeck\fP class is derivated of graphicsView to allow to show a guitar neck and analyse the string touched to calculate chord\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <neck\&.h>\fP
+.PP
+Inherits QGraphicsView\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBChordsDetected\fP (QStringList chordname, QString notes)"
+.br
+.RI "ChordsDetected the chords detected are send as a signal with the list of chordnames, and the notes in x0101000 notation\&. "
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBNeck\fP (QWidget *parent)"
+.br
+.RI "\fBNeck\fP neck constructor complient with widget promotion in QtDesigner\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBNeck\fP class is derivated of graphicsView to allow to show a guitar neck and analyse the string touched to calculate chord\&. 
+
+The result is given by the signal \fBChordsDetected(QStringList chordname,QString notes)\fP; 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Neck::Neck (QWidget * parent)"
+
+.PP
+\fBNeck\fP neck constructor complient with widget promotion in QtDesigner\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparent\fP parent of the widget 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void Neck::ChordsDetected (QStringList chordname, QString notes)\fC [signal]\fP"
+
+.PP
+ChordsDetected the chords detected are send as a signal with the list of chordnames, and the notes in x0101000 notation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchordname\fP : list of chordnames 
+.br
+\fInotes\fP : notes 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

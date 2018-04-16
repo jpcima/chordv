@@ -1,0 +1,16 @@
+<map id="src/chordconfig.h" name="src/chordconfig.h">
+<area shape="rect" id="node2" href="$chordconfig_8cpp.html" title="src/chordconfig.cpp" alt="" coords="149,80,285,107"/>
+<area shape="rect" id="node3" href="$mainwindow_8h.html" title="src/mainwindow.h" alt="" coords="309,80,436,107"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="src/main.cpp" alt="" coords="31,155,128,181"/>
+<area shape="rect" id="node5" href="$mainwindow_8cpp.html" title="src/mainwindow.cpp" alt="" coords="178,304,319,331"/>
+<area shape="rect" id="node6" href="$processor_8h.html" title="src/processor.h" alt="" coords="363,155,475,181"/>
+<area shape="rect" id="node7" href="$processortext_8h.html" title="src/processortext.h" alt="" coords="44,229,179,256"/>
+<area shape="rect" id="node9" href="$processorlyrics_8h.html" title="src/processorlyrics.h" alt="" coords="255,229,397,256"/>
+<area shape="rect" id="node11" href="$processorchord_8h.html" title="src/processorchord.h" alt="" coords="573,229,717,256"/>
+<area shape="rect" id="node12" href="$processorchord_8cpp.html" title="src/processorchord.cpp" alt="" coords="620,304,779,331"/>
+<area shape="rect" id="node14" href="$textedit_8h.html" title="src/textedit.h" alt="" coords="794,155,893,181"/>
+<area shape="rect" id="node13" href="$processor_8cpp.html" title="src/processor.cpp" alt="" coords="421,229,548,256"/>
+<area shape="rect" id="node8" href="$processortext_8cpp.html" title="src/processortext.cpp" alt="" coords="5,304,153,331"/>
+<area shape="rect" id="node10" href="$processorlyrics_8cpp.html" title="src/processorlyrics.cpp" alt="" coords="343,304,501,331"/>
+<area shape="rect" id="node15" href="$textedit_8cpp.html" title="src/textedit.cpp" alt="" coords="791,229,903,256"/>
+</map>

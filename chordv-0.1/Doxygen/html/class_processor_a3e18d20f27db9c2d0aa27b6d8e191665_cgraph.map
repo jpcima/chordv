@@ -1,0 +1,30 @@
+<map id="Processor::getCoverSubtitle" name="Processor::getCoverSubtitle">
+<area shape="rect" id="node2" href="$class_processor.html#a82a7bc0ca3d8305338e14811dc25900f" title="Processor::setSocMode" alt="" coords="261,5,423,32"/>
+<area shape="rect" id="node3" href="$class_processor.html#a0fffafe53f838ef08443d136d487a581" title="Processor::setRefrain" alt="" coords="267,56,417,83"/>
+<area shape="rect" id="node4" href="$class_processor.html#a4f9e60f75a9599421ebbb1cd158096ce" title="Processor::newPage" alt="" coords="271,107,413,133"/>
+<area shape="rect" id="node5" href="$class_processor.html#a87df24dfc6cf0a19a5faa04ea8a037f2" title="Processor::displayPageTitle" alt="" coords="249,157,435,184"/>
+<area shape="rect" id="node6" href="$class_processor.html#a86be3193e521bb13535c5b419f87478d" title="Processor::displayPageSubtitle" alt="" coords="240,208,444,235"/>
+<area shape="rect" id="node7" href="$class_processor.html#af4b97ea4e7d9509f833dfb93624b4c88" title="Processor::displayLyrics" alt="" coords="259,259,425,285"/>
+<area shape="rect" id="node8" href="$class_processor.html#a2945b880ab40a2c1e608e1332deb2cc6" title="Processor::Cover" alt="" coords="280,309,404,336"/>
+<area shape="rect" id="node9" href="$class_processor.html#a1901a57a7c74a4d638b70fdaf40f47f1" title="Processor::doChords" alt="" coords="269,360,415,387"/>
+<area shape="rect" id="node10" href="$class_processor.html#a20ddc767019deed4a5c77d6c0e7d8b70" title="Processor::displayChords\lForSong" alt="" coords="256,411,428,453"/>
+<area shape="rect" id="node11" href="$class_processor.html#a57a6425e90df15c4cc884ba567c50767" title="Processor::setColBreak" alt="" coords="261,477,423,504"/>
+<area shape="rect" id="node12" href="$class_processor.html#a24a0afe8534382d629803958b3de8ee4" title="Processor::doColumnBreak" alt="" coords="251,528,433,555"/>
+<area shape="rect" id="node13" href="$class_processor.html#a06e2648558fc17a36e8401b8b877b9ac" title="Processor::save" alt="" coords="283,579,401,605"/>
+<area shape="rect" id="node14" href="$class_processor.html#ad169df3c76d9c0c1326531d5e7ba73a1" title="Processor::addFooter" alt="" coords="269,629,415,656"/>
+<area shape="rect" id="node15" href="$class_processor.html#a7b22ff2d10a13e5fdc5ad9fa3a598538" title="makePageNumber display page number on each page " alt="" coords="243,680,441,707"/>
+<area shape="rect" id="node17" href="$class_processor.html#a770904ce3729c0bdadddec2625dba434" title="Processor::PageSize" alt="" coords="269,731,415,757"/>
+<area shape="rect" id="node18" href="$class_processor.html#a0343bf27ba272193009ff7fee14c11d6" title="Processor::includeInfo" alt="" coords="266,781,418,808"/>
+<area shape="rect" id="node19" href="$class_processor.html#a15db395afa661130fbfcc4710472fa60" title="Processor::calcColumn" alt="" coords="263,832,421,859"/>
+<area shape="rect" id="node20" href="$class_processor.html#a86f0f04e2a0cd4ae28145b849e82c95c" title="Processor::calcLine" alt="" coords="273,883,411,909"/>
+<area shape="rect" id="node21" href="$class_processor.html#affb123bf60cd1dbd6cd04628511bc992" title="Processor::FollowingLine" alt="" coords="258,933,426,960"/>
+<area shape="rect" id="node22" href="$class_processor.html#a585f92a4634e8533582617ee2301f449" title="Processor::includeChorus" alt="" coords="256,984,428,1011"/>
+<area shape="rect" id="node23" href="$class_processor.html#a900134afc5ca8212e05cd2dc4d7edb33" title="Processor::includeSoc" alt="" coords="265,1035,419,1061"/>
+<area shape="rect" id="node24" href="$class_processor.html#ab5e0a70c787ff316d02d1257e279debd" title="Processor::includeEoc" alt="" coords="265,1085,419,1112"/>
+<area shape="rect" id="node25" href="$class_processor.html#a10160053dee22724c7522abf2ac796be" title="Processor::includeRefrain" alt="" coords="256,1136,428,1163"/>
+<area shape="rect" id="node26" href="$class_processor.html#a056b22292874a9ad7c3fc920e57d4d4b" title="Processor::includeSor" alt="" coords="267,1187,417,1213"/>
+<area shape="rect" id="node27" href="$class_processor.html#a2bdc202be78df934f1915c5d8c747022" title="Processor::includeEor" alt="" coords="267,1237,417,1264"/>
+<area shape="rect" id="node28" href="$class_processor.html#ade8c65e47d10fd9e004061a6e71136d2" title="m_category category in config file (file.conf) Chordbook,LyricsBook,MemoryMode,TextBook ..." alt="" coords="271,1288,413,1315"/>
+<area shape="rect" id="node29" href="$class_processor.html#ac7bb954c380bc88b5a2c52027c0cd246" title="Processor::mm" alt="" coords="287,1339,397,1365"/>
+<area shape="rect" id="node16" href="$class_const.html#a98e1b38ae4383cbf79afef6431e71332" title="getPageNumber return No Center or Outsde from 0 1 or 2 parameter " alt="" coords="492,680,651,707"/>
+</map>

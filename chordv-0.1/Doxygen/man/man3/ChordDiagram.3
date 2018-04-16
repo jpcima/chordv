@@ -1,0 +1,73 @@
+.TH "ChordDiagram" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ChordDiagram \- The \fBChordDiagram\fP class is a widget class usable in designer to show chords in Qtt Designer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <chorddiagram\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBChordDiagram\fP (QWidget *parent=0)"
+.br
+.RI "\fBChordDiagram\fP the constructor with QWidget *parent who give the parent widget compliant to Graphic Designer of QtCreator\&. "
+.ti -1c
+.RI "void \fBsetDiagram\fP (QString diagram)"
+.br
+.RI "setDiagram when Widget is positionned give the name of the chord\&. "
+.ti -1c
+.RI "QString \fBgetDiagram\fP ()"
+.br
+.RI "getDiagram return the diagram name in 52x122x form "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBChordDiagram\fP class is a widget class usable in designer to show chords in Qtt Designer\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ChordDiagram::ChordDiagram (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+\fBChordDiagram\fP the constructor with QWidget *parent who give the parent widget compliant to Graphic Designer of QtCreator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIparent\fP : pointer on the parent 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QString ChordDiagram::getDiagram ()"
+
+.PP
+getDiagram return the diagram name in 52x122x form 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "void ChordDiagram::setDiagram (QString diagram)"
+
+.PP
+setDiagram when Widget is positionned give the name of the chord\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdiagram\fP is given in 52x122x form 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

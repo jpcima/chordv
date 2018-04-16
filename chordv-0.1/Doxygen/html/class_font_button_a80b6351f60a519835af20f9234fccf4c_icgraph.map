@@ -1,0 +1,9 @@
+<map id="FontButton::SelectedFont" name="FontButton::SelectedFont">
+<area shape="rect" id="node2" href="$class_font_button.html#a674ba43dfae18d276d2c0da64c5f9e24" title="FontButton::FontButton" alt="" coords="229,5,388,32"/>
+<area shape="rect" id="node3" href="$class_font_button.html#ab9be25fd2dcc721b7f8101742ff7bb25" title="FontButton::getTextColor" alt="" coords="224,56,393,83"/>
+<area shape="rect" id="node4" href="$class_form_config.html#a1808ed19dd754ed9528ab78f78025490" title="Save all the SpinBoxUnit,FontButton,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name presented in setValue in a filename given in argument. The value is the classname : Chord, Memory, Lyrics or Text. " alt="" coords="445,5,573,32"/>
+<area shape="rect" id="node5" href="$class_processor.html#ab4c424b1c1574e957d300b40e0edff20" title="Text. " alt="" coords="451,56,566,83"/>
+<area shape="rect" id="node8" href="$class_processor.html#a93c62b426c68721839648c8f1bb1f83d" title="LineToc print each line in toc. " alt="" coords="441,107,576,133"/>
+<area shape="rect" id="node6" href="$class_processor_chord.html#a613315d2ab2ae077c53090f2104c5887" title="ProcessorChord::Processor\lChord" alt="" coords="624,17,807,58"/>
+<area shape="rect" id="node7" href="$class_processor_lyrics.html#a1f20f635b481a8e8c8f3848142bc36fa" title="ProcessorLyrics::Processor\lLyrics" alt="" coords="624,82,807,123"/>
+</map>

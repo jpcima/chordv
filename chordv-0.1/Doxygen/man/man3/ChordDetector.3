@@ -1,0 +1,64 @@
+.TH "ChordDetector" 3 "Sun Apr 15 2018" "Version 0.1" "Chord V" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ChordDetector \- The \fBChordDetector\fP class allow to detect a chord from listNotes\&. It is used on guitar neck to transform a list of notes to QStringList of chords given by the method \fBdetectChord()\fP; The list of notes given to constructor are for example A, E, F The algorythm is given buy the tblscitype of the ChordV database\&. The ChordV Database containes two tables : tblscitype and Chords\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ChordDetector\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBChordDetector\fP (QStringList listNotes)"
+.br
+.RI "\fBChordDetector\fP the constuctor is called with list of notes given as a QStringList, for example A,E,F\&. "
+.ti -1c
+.RI "QStringList \fBdetectChord\fP ()"
+.br
+.RI "detectChord return the list of chord found\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBChordDetector\fP class allow to detect a chord from listNotes\&. It is used on guitar neck to transform a list of notes to QStringList of chords given by the method \fBdetectChord()\fP; The list of notes given to constructor are for example A, E, F The algorythm is given buy the tblscitype of the ChordV database\&. The ChordV Database containes two tables : tblscitype and Chords\&. 
+
+
+.IP "\(bu" 2
+\fBtblscitype\fP allows ot find txtcode of chord from interval
+.IP "\(bu" 2
+\fBchords\fP keep chords with A7(IV) or A6 notation and the correspondance 4212222 or 0x02020 
+.PP
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "ChordDetector::ChordDetector (QStringList listNotes)"
+
+.PP
+\fBChordDetector\fP the constuctor is called with list of notes given as a QStringList, for example A,E,F\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistNotes\fP : QStringList with all notes found on the neck\&. Th duplicated notes are removed\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "QStringList ChordDetector::detectChord ()"
+
+.PP
+detectChord return the list of chord found\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Chord V from the source code\&.

@@ -1,0 +1,15 @@
+<map id="FormConfig::Save" name="FormConfig::Save">
+<area shape="rect" id="node2" href="$class_form_config.html#a986ef7c09a6ef7ce15442e91aae03075" title="FormConfig::classe2String" alt="" coords="183,5,361,32"/>
+<area shape="rect" id="node3" href="$class_font_button.html#a18daa6762546617e893779676fa27528" title="FontButton::getFont" alt="" coords="203,56,341,83"/>
+<area shape="rect" id="node4" href="$class_font_button.html#ab9be25fd2dcc721b7f8101742ff7bb25" title="FontButton::getTextColor" alt="" coords="187,107,357,133"/>
+<area shape="rect" id="node7" href="$class_font_button.html#aa2eecd501e1bb491eef1109d5bd23289" title="FontButton::getBackground\lColor" alt="" coords="181,158,363,199"/>
+<area shape="rect" id="node8" href="$class_color_button.html#ac849d69aa9efec941b3a0604820577bc" title="getColor get the color of the button " alt="" coords="198,224,346,251"/>
+<area shape="rect" id="node10" href="$class_image_button.html#a62c9c71fe771559c40cddbf851545883" title="ImageButton::getImage" alt="" coords="193,275,351,301"/>
+<area shape="rect" id="node11" href="$class_spin_box_unit.html#adf75b09693d547fcc1c482b0c5f1b76c" title="SpinBoxUnit::setValue" alt="" coords="195,325,349,352"/>
+<area shape="rect" id="node13" href="$class_spin_box_unit.html#ad675bafd62ecdf9ebf74e943ac635a1d" title="SpinBoxUnit::valueunit" alt="" coords="195,376,349,403"/>
+<area shape="rect" id="node14" href="$class_example_label.html#a66dd209c3cc1d295c20b4d7c0450e60b" title="ExampleLabel::setColor" alt="" coords="191,427,353,453"/>
+<area shape="rect" id="node5" href="$class_font_button.html#a80b6351f60a519835af20f9234fccf4c" title="FontButton::SelectedFont" alt="" coords="411,81,581,108"/>
+<area shape="rect" id="node6" href="$class_font_button.html#aa2f4eaee347ab77fba75488d56ea0e39" title="FontButton::setFont" alt="" coords="427,132,565,159"/>
+<area shape="rect" id="node9" href="$class_color_button.html#a2a564d30044197785035be7babfbf66b" title="setColor set the color of the button " alt="" coords="422,224,570,251"/>
+<area shape="rect" id="node12" href="$class_spin_box_unit.html#a9dca5b0d9c3042681cca0d645cd6d9ac" title="SpinBoxUnit::string2unit" alt="" coords="415,325,577,352"/>
+</map>

@@ -1,0 +1,480 @@
+\section{Chord Class Reference}
+\label{class_chord}\index{Chord@{Chord}}
+
+
+The \doxyref{Chord}{p.}{class_chord} class Manipulate the chords in D,D6,D7m,D7-\/,D7(\+V) on the Vth fret, D7x2 \+: on two bear, D7\+:2 on 1/2 bar.  
+
+
+
+
+{\ttfamily \#include $<$chord.\+h$>$}
+
+
+
+Inheritance diagram for Chord\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=130pt]{class_chord__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Chord\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=130pt]{class_chord__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Chord} (Q\+String \textbf{ chord}, Q\+String codelang=\char`\"{}en\char`\"{})
+\begin{DoxyCompactList}\small\item\em \doxyref{Chord}{p.}{class_chord} chord is defined by a chordname and the language name for the chord. \end{DoxyCompactList}\item 
+Q\+String \textbf{ chord} ()
+\begin{DoxyCompactList}\small\item\em chord \end{DoxyCompactList}\item 
+Q\+String \textbf{ remove\+Rytm} ()
+\begin{DoxyCompactList}\small\item\em remove\+Rytm \end{DoxyCompactList}\item 
+int \textbf{ nb\+Bar} ()
+\begin{DoxyCompactList}\small\item\em nb\+Bar \end{DoxyCompactList}\item 
+int \textbf{ nb\+Beat} ()
+\begin{DoxyCompactList}\small\item\em nb\+Beat \end{DoxyCompactList}\item 
+Q\+String\+List \textbf{ to\+Strings} ()
+\begin{DoxyCompactList}\small\item\em to\+Strings \end{DoxyCompactList}\item 
+Q\+String \textbf{ fret} ()
+\begin{DoxyCompactList}\small\item\em fret \end{DoxyCompactList}\item 
+Q\+String \textbf{ To\+English} (Q\+String \textbf{ chord})
+\begin{DoxyCompactList}\small\item\em To\+English. \end{DoxyCompactList}\item 
+Q\+String \textbf{ name\+English} ()
+\begin{DoxyCompactList}\small\item\em name\+English \end{DoxyCompactList}\item 
+Q\+String \textbf{ name\+Locale} ()
+\begin{DoxyCompactList}\small\item\em name\+Locale \end{DoxyCompactList}\item 
+Q\+String \textbf{ pure\+Name\+Locale} ()
+\begin{DoxyCompactList}\small\item\em pure\+Name\+Locale \end{DoxyCompactList}\item 
+Q\+String \textbf{ pure\+Name\+English} ()
+\begin{DoxyCompactList}\small\item\em pure\+Name\+English \end{DoxyCompactList}\item 
+Q\+String \textbf{ up} ()
+\begin{DoxyCompactList}\small\item\em up the name of the chord on the next fret \end{DoxyCompactList}\item 
+Q\+String \textbf{ down} ()
+\begin{DoxyCompactList}\small\item\em down the name of the chord on tne previous fret \end{DoxyCompactList}\item 
+Q\+String \textbf{ transpose} (int degre, bool parentheses, Q\+String minfrom, Q\+String minto)
+\begin{DoxyCompactList}\small\item\em transpose \+: transpose a chord \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Q\+String\+List \textbf{ remove\+Dupplicate\+Whithout\+Rytm} (Q\+String\+List chords, Q\+String codelang)
+\begin{DoxyCompactList}\small\item\em remove\+Dupplicate\+Whithout\+Rytm \end{DoxyCompactList}\item 
+static Q\+String \textbf{ translate} (Q\+String \textbf{ chord}, Q\+String codelangfrom, Q\+String minfrom, Q\+String codelangto, Q\+String minto)
+\begin{DoxyCompactList}\small\item\em translate \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \doxyref{Chord}{p.}{class_chord} class Manipulate the chords in D,D6,D7m,D7-\/,D7(\+V) on the Vth fret, D7x2 \+: on two bear, D7\+:2 on 1/2 bar. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_chord_ac61d5711e773d1d8203a6ee3d854142c}} 
+\index{Chord@{Chord}!Chord@{Chord}}
+\index{Chord@{Chord}!Chord@{Chord}}
+\subsubsection{Chord()}
+{\footnotesize\ttfamily Chord\+::\+Chord (\begin{DoxyParamCaption}\item[{Q\+String}]{chord,  }\item[{Q\+String}]{codelang = {\ttfamily \char`\"{}en\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+\doxyref{Chord}{p.}{class_chord} chord is defined by a chordname and the language name for the chord. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chord} & \+: chordname for example D7(\+I\+I\+I)x2 \\
+\hline
+{\em codelang} & \+: en, fr \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ac61d5711e773d1d8203a6ee3d854142c_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_chord_adb32e210a420399a1ceffa3ad8f0dab7}} 
+\index{Chord@{Chord}!chord@{chord}}
+\index{chord@{chord}!Chord@{Chord}}
+\subsubsection{chord()}
+{\footnotesize\ttfamily Q\+String Chord\+::chord (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+chord 
+
+\begin{DoxyReturn}{Returns}
+the original name given in constructor 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_adb32e210a420399a1ceffa3ad8f0dab7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_a050ab41985c8a9895e108379d811f604}} 
+\index{Chord@{Chord}!down@{down}}
+\index{down@{down}!Chord@{Chord}}
+\subsubsection{down()}
+{\footnotesize\ttfamily Q\+String Chord\+::down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+down the name of the chord on tne previous fret 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_chord_a050ab41985c8a9895e108379d811f604_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_a168ef9c9f97eb6a37d2adfc451b0adf9}} 
+\index{Chord@{Chord}!fret@{fret}}
+\index{fret@{fret}!Chord@{Chord}}
+\subsubsection{fret()}
+{\footnotesize\ttfamily Q\+String Chord\+::fret (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fret 
+
+\begin{DoxyReturn}{Returns}
+fret number \+: 0 1 etc... 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_a168ef9c9f97eb6a37d2adfc451b0adf9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_a77af1b87e77e540cb48ed29a1ff8079f}} 
+\index{Chord@{Chord}!name\+English@{name\+English}}
+\index{name\+English@{name\+English}!Chord@{Chord}}
+\subsubsection{name\+English()}
+{\footnotesize\ttfamily Q\+String Chord\+::name\+English (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+name\+English 
+
+\begin{DoxyReturn}{Returns}
+the english chord name 
+\end{DoxyReturn}
+\mbox{\label{class_chord_a2f6e790c26dde21eb22f0500c7593b6a}} 
+\index{Chord@{Chord}!name\+Locale@{name\+Locale}}
+\index{name\+Locale@{name\+Locale}!Chord@{Chord}}
+\subsubsection{name\+Locale()}
+{\footnotesize\ttfamily Q\+String Chord\+::name\+Locale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+name\+Locale 
+
+\begin{DoxyReturn}{Returns}
+the locale chord name 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_a2f6e790c26dde21eb22f0500c7593b6a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_a63e1e1b11f68987319ce657cefc537a1}} 
+\index{Chord@{Chord}!nb\+Bar@{nb\+Bar}}
+\index{nb\+Bar@{nb\+Bar}!Chord@{Chord}}
+\subsubsection{nb\+Bar()}
+{\footnotesize\ttfamily int Chord\+::nb\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+nb\+Bar 
+
+\begin{DoxyReturn}{Returns}
+the number after the x 
+\end{DoxyReturn}
+\mbox{\label{class_chord_aa567ff9785ed505138a28926e8d5c608}} 
+\index{Chord@{Chord}!nb\+Beat@{nb\+Beat}}
+\index{nb\+Beat@{nb\+Beat}!Chord@{Chord}}
+\subsubsection{nb\+Beat()}
+{\footnotesize\ttfamily int Chord\+::nb\+Beat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+nb\+Beat 
+
+\begin{DoxyReturn}{Returns}
+the number after the \+: 
+\end{DoxyReturn}
+\mbox{\label{class_chord_ac327ecc38a5359f06dab03b874120987}} 
+\index{Chord@{Chord}!pure\+Name\+English@{pure\+Name\+English}}
+\index{pure\+Name\+English@{pure\+Name\+English}!Chord@{Chord}}
+\subsubsection{pure\+Name\+English()}
+{\footnotesize\ttfamily Q\+String Chord\+::pure\+Name\+English (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+pure\+Name\+English 
+
+\begin{DoxyReturn}{Returns}
+same as name\+Locale but without beat, bar and degre D7(\+V)x2 become Re7 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ac327ecc38a5359f06dab03b874120987_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_aec2d95d7b27de1aed99c4e7fde68b9e0}} 
+\index{Chord@{Chord}!pure\+Name\+Locale@{pure\+Name\+Locale}}
+\index{pure\+Name\+Locale@{pure\+Name\+Locale}!Chord@{Chord}}
+\subsubsection{pure\+Name\+Locale()}
+{\footnotesize\ttfamily Q\+String Chord\+::pure\+Name\+Locale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+pure\+Name\+Locale 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_aec2d95d7b27de1aed99c4e7fde68b9e0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_ac5b55bda5f701f89695918c19e8caadc}} 
+\index{Chord@{Chord}!remove\+Dupplicate\+Whithout\+Rytm@{remove\+Dupplicate\+Whithout\+Rytm}}
+\index{remove\+Dupplicate\+Whithout\+Rytm@{remove\+Dupplicate\+Whithout\+Rytm}!Chord@{Chord}}
+\subsubsection{remove\+Dupplicate\+Whithout\+Rytm()}
+{\footnotesize\ttfamily Q\+String\+List Chord\+::remove\+Dupplicate\+Whithout\+Rytm (\begin{DoxyParamCaption}\item[{Q\+String\+List}]{chords,  }\item[{Q\+String}]{codelang }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+remove\+Dupplicate\+Whithout\+Rytm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chords} & list of names of chord \\
+\hline
+{\em codelang} & \+: en,fr ... \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: suppress the dupplicate chords after removing the \+:2 x2 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ac5b55bda5f701f89695918c19e8caadc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ac5b55bda5f701f89695918c19e8caadc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_ae9137152a3c9c3ac2e4f4dec85957d32}} 
+\index{Chord@{Chord}!remove\+Rytm@{remove\+Rytm}}
+\index{remove\+Rytm@{remove\+Rytm}!Chord@{Chord}}
+\subsubsection{remove\+Rytm()}
+{\footnotesize\ttfamily Q\+String Chord\+::remove\+Rytm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+remove\+Rytm 
+
+\begin{DoxyReturn}{Returns}
+the name of the chord without \+:2 or x2 and translated in locale 
+\end{DoxyReturn}
+\mbox{\label{class_chord_ab54e7ef5f62c8e872a59ed5d8a8b68d8}} 
+\index{Chord@{Chord}!To\+English@{To\+English}}
+\index{To\+English@{To\+English}!Chord@{Chord}}
+\subsubsection{To\+English()}
+{\footnotesize\ttfamily Q\+String Chord\+::\+To\+English (\begin{DoxyParamCaption}\item[{Q\+String}]{chord }\end{DoxyParamCaption})}
+
+
+
+To\+English. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chord} & in locale \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the chord name translated 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_chord_ab54e7ef5f62c8e872a59ed5d8a8b68d8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{class_chord_ab54e7ef5f62c8e872a59ed5d8a8b68d8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_ae5f32095442d1a7cf07251a29b0575b4}} 
+\index{Chord@{Chord}!to\+Strings@{to\+Strings}}
+\index{to\+Strings@{to\+Strings}!Chord@{Chord}}
+\subsubsection{to\+Strings()}
+{\footnotesize\ttfamily Q\+String\+List Chord\+::to\+Strings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+to\+Strings 
+
+\begin{DoxyReturn}{Returns}
+the chords on string for example x x 0 2 1 2 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ae5f32095442d1a7cf07251a29b0575b4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_ad68a4f58d3dd18f09ea9bf7536e89284}} 
+\index{Chord@{Chord}!translate@{translate}}
+\index{translate@{translate}!Chord@{Chord}}
+\subsubsection{translate()}
+{\footnotesize\ttfamily Q\+String Chord\+::translate (\begin{DoxyParamCaption}\item[{Q\+String}]{chord,  }\item[{Q\+String}]{codelangfrom,  }\item[{Q\+String}]{minfrom,  }\item[{Q\+String}]{codelangto,  }\item[{Q\+String}]{minto }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+translate 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chord} & \+: a chord name \\
+\hline
+{\em codelangfrom} & \+: code from language \+: fr or en \\
+\hline
+{\em minfrom} & \+: symbol for minor \+: m or -\/ \\
+\hline
+{\em codelangto} & \+: code for language \+: fr or en \\
+\hline
+{\em minto} & \+: symbol for minor \+: for example m \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the chord translated 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ad68a4f58d3dd18f09ea9bf7536e89284_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ad68a4f58d3dd18f09ea9bf7536e89284_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_ac9f58e7a65e814970f69365dd3f5f2f9}} 
+\index{Chord@{Chord}!transpose@{transpose}}
+\index{transpose@{transpose}!Chord@{Chord}}
+\subsubsection{transpose()}
+{\footnotesize\ttfamily Q\+String Chord\+::transpose (\begin{DoxyParamCaption}\item[{int}]{degre,  }\item[{bool}]{parentheses,  }\item[{Q\+String}]{minfrom,  }\item[{Q\+String}]{minto }\end{DoxyParamCaption})}
+
+
+
+transpose \+: transpose a chord 
+
+
+\begin{DoxyParams}{Parameters}
+{\em degre} & \+: number of fret \\
+\hline
+{\em parentheses} & \+: true of false \+: false you will not get the fret \\
+\hline
+{\em minfrom} & \+: minor symbol from \\
+\hline
+{\em minto} & \+: minor symbol to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: the transposed chord 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_chord_ac9f58e7a65e814970f69365dd3f5f2f9_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_chord_ac9f58e7a65e814970f69365dd3f5f2f9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\label{class_chord_a67abd19a0206c062752eca1190db9280}} 
+\index{Chord@{Chord}!up@{up}}
+\index{up@{up}!Chord@{Chord}}
+\subsubsection{up()}
+{\footnotesize\ttfamily Q\+String Chord\+::up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+up the name of the chord on the next fret 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{class_chord_a67abd19a0206c062752eca1190db9280_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\textbf{ chord.\+h}\item 
+src/\textbf{ chord.\+cpp}\end{DoxyCompactItemize}

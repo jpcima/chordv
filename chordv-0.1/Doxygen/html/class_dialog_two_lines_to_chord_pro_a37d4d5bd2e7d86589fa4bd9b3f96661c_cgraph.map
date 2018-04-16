@@ -1,0 +1,4 @@
+<map id="DialogTwoLinesToChordPro::~DialogTwoLinesToChordPro" name="DialogTwoLinesToChordPro::~DialogTwoLinesToChordPro">
+<area shape="rect" id="node2" href="$class_language.html#a16affca2c35e415180b932f16e3f46af" title="ListNotes return the list of notes for the language given. " alt="" coords="255,13,397,39"/>
+<area shape="rect" id="node3" href="$class_language.html#a7e5a46954fabb52fc1382dabd303d785" title="getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist fi..." alt="" coords="445,13,608,39"/>
+</map>
