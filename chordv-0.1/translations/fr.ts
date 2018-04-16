@@ -1734,27 +1734,27 @@ Box</source>
 en boîte</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="62"/>
+        <location filename="../src/formeditor.cpp" line="64"/>
         <source>Songs list</source>
         <translation>Liste des chansons</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="233"/>
+        <location filename="../src/formeditor.cpp" line="236"/>
         <source>Enter columns number</source>
         <translation>Entrer le nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="233"/>
+        <location filename="../src/formeditor.cpp" line="236"/>
         <source>Column number</source>
         <translation>Nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="322"/>
+        <location filename="../src/formeditor.cpp" line="325"/>
         <source>Enter tempo</source>
         <translation>Entrer le tempo</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="322"/>
+        <location filename="../src/formeditor.cpp" line="325"/>
         <source>Beats per minute</source>
         <translation>Battements par minute</translation>
     </message>
@@ -2466,7 +2466,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="729"/>
         <source>Transpose chords</source>
-        <translation>Trasnsposer les accords</translation>
+        <translation type="unfinished">Transposer les accords</translation>
     </message>
     <message>
         <source>2LinesTochordpro</source>
@@ -2781,22 +2781,22 @@ chorus</translation>
         <translation>La base de données %1 n&apos;a pas été trouvée. Vous ne serez pas en mesure de gérer les accords !</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="160"/>
+        <location filename="../src/formeditor.cpp" line="163"/>
         <source>Enter title</source>
         <translation>Entrer un titre</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="160"/>
+        <location filename="../src/formeditor.cpp" line="163"/>
         <source>Title</source>
         <translation>Titre</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="165"/>
+        <location filename="../src/formeditor.cpp" line="168"/>
         <source>Enter sub title</source>
         <translation>Entrez un sous titre</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="165"/>
+        <location filename="../src/formeditor.cpp" line="168"/>
         <source>Sub Title</source>
         <translation>Sous-titre</translation>
     </message>
@@ -2809,134 +2809,134 @@ chorus</translation>
         <translation type="vanished">Nombre de colonnes</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="339"/>
+        <location filename="../src/formeditor.cpp" line="342"/>
         <source>Enter  cover subtitle</source>
         <translation>Entrer le sous-titre de la couverture</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="339"/>
+        <location filename="../src/formeditor.cpp" line="342"/>
         <source>Cover Subtitle</source>
         <translation>Sous-titre couverture</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="263"/>
+        <location filename="../src/formeditor.cpp" line="266"/>
         <source>Enter cover title</source>
         <translation>Entrer le titre de la couverture</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="170"/>
+        <location filename="../src/formeditor.cpp" line="173"/>
         <source>Enter album</source>
         <translation>Entrer le nom de l&apos;album</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="170"/>
+        <location filename="../src/formeditor.cpp" line="173"/>
         <source>Album</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="175"/>
+        <location filename="../src/formeditor.cpp" line="178"/>
         <source>Enter artist</source>
         <translation>Entrer le nom de l&apos;artiste</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="175"/>
+        <location filename="../src/formeditor.cpp" line="178"/>
         <source>Artist</source>
         <translation>Artiste</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="180"/>
+        <location filename="../src/formeditor.cpp" line="183"/>
         <source>Enter composer</source>
         <translation>Entrer le nom du compositeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="180"/>
+        <location filename="../src/formeditor.cpp" line="183"/>
         <source>Composer</source>
         <translation>Compositeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="185"/>
+        <location filename="../src/formeditor.cpp" line="188"/>
         <source>Enter lyricist</source>
         <translation>Entrer le nom du parolier</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="185"/>
+        <location filename="../src/formeditor.cpp" line="188"/>
         <source>Lyricist</source>
         <translation>Parolier</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="189"/>
+        <location filename="../src/formeditor.cpp" line="192"/>
         <source>Enter arranger</source>
         <translation>Entrer le nom de l&apos;arrangeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="189"/>
+        <location filename="../src/formeditor.cpp" line="192"/>
         <source>Arranger</source>
         <translation>Arrangeur</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="196"/>
+        <location filename="../src/formeditor.cpp" line="199"/>
         <source>Enter copyright</source>
         <translation>Entrer le Copyright</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="196"/>
+        <location filename="../src/formeditor.cpp" line="199"/>
         <source>Copyright</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="201"/>
+        <location filename="../src/formeditor.cpp" line="204"/>
         <source>Enter year</source>
         <translation>Entrer l&apos;année</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="201"/>
+        <location filename="../src/formeditor.cpp" line="204"/>
         <source>Year</source>
         <translation>Année</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="206"/>
+        <location filename="../src/formeditor.cpp" line="209"/>
         <source>Enter key</source>
         <translation>Entrer la clé</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="206"/>
+        <location filename="../src/formeditor.cpp" line="209"/>
         <source>Key</source>
         <translation>Clé</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="211"/>
+        <location filename="../src/formeditor.cpp" line="214"/>
         <source>Enter duration</source>
         <translation>Entrer la durée</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="211"/>
+        <location filename="../src/formeditor.cpp" line="214"/>
         <source>Duration</source>
         <translation>Durée</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="216"/>
-        <location filename="../src/formeditor.cpp" line="221"/>
-        <location filename="../src/formeditor.cpp" line="226"/>
+        <location filename="../src/formeditor.cpp" line="219"/>
+        <location filename="../src/formeditor.cpp" line="224"/>
+        <location filename="../src/formeditor.cpp" line="229"/>
         <source>Enter comment</source>
         <translation>Entrer un commentaire</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="216"/>
+        <location filename="../src/formeditor.cpp" line="219"/>
         <source>Comment</source>
         <translation>Commentaire</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="221"/>
+        <location filename="../src/formeditor.cpp" line="224"/>
         <source>Comment italic</source>
         <translation>Commentaire en italique</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="226"/>
+        <location filename="../src/formeditor.cpp" line="229"/>
         <source>Comment box</source>
         <translation>Commentaire en boîte</translation>
     </message>
     <message>
-        <location filename="../src/formeditor.cpp" line="263"/>
+        <location filename="../src/formeditor.cpp" line="266"/>
         <source>Cover title</source>
         <translation>Titre de la couverture</translation>
     </message>
