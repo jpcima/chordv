@@ -138,8 +138,8 @@ MainWindow::MainWindow(QWidget *parent) :
         ProducePDF();
         exit(0);
     }
-
-  }
+    qDebug()<< Chord::getCodeLang("[A7(II)x2]");
+}
 
 void MainWindow::AskSaveOnQuit()
 {

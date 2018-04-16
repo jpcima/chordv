@@ -136,5 +136,16 @@ QString Language::TranslateLineWithchord(QString line,QString fromlang, QString 
      return line;
 }
 
+QStringList Language::ListLanguage()
+{
+   return Language2Code.keys();
+}
+
+QStringList Language::ListCodeLang()
+{
+
+    return Code2Language.keys();
+}
+
 
 

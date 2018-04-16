@@ -84,6 +84,17 @@ public:
     /// \return
     ///
     static QString TranslateLineWithchord(QString line, QString fromlanguage, QString frommin, QString tolanguage, QString tomin);
+    ///
+    /// \brief ListLanguage return the list of available languages ( English, Français ..)
+    /// \return a QStringList
+    ///
+    static QStringList ListLanguage();
+    ///
+    /// \brief ListCodeLang return the list of available codelang (en,fr)
+    /// \return a QStringList
+    ///
+    static QStringList ListCodeLang();
+
 };
 
 #endif // LANGUAGE_H

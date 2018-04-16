@@ -216,3 +216,23 @@ QString Chord::transpose(int degre, bool parentheses, QString minfrom, QString m
    }
  return nameret;
 }
+
+QStringList Chord::getCodeLang(QString chord)
+{
+    chord.replace("[","");
+    chord.replace("]","");
+    chord.replace(QRegExp("\\([^)]+\\)"),"");
+    chord.replace(QRegExp("[x:][0-9]+$"),"");
+    chord.replace(QRegExp("[#b°0-9+M]"),"");
+
+
+    QStringList ret;
+    ret<<chord;
+    return ret;
+
+}
+
+QString Chord::getMinor(QString chord)
+{
+    return "-";
+}

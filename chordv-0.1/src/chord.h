@@ -114,6 +114,26 @@ public:
     /// \return  : the transposed chord
     ///
     QString transpose(int degre, bool parentheses, QString minfrom, QString minto);
+    ///
+    /// \brief GetCodeLang get the all codelang possible for a chorname to be in
+    /// For example : getCodeLang("[D7x2]") return ("en")
+    /// getCodeLang("[Lam]") return ("fr")
+    /// QStringList can be empty if no codelang is found or can contains many codelang if the chord
+    /// correspond to many languages.
+    /// \param chord : a QString like [A(III)] [A] or [Dx2] or [Lam:2] always given between brakets
+    /// \return the list of codelangs found
+    ///
+    static QStringList getCodeLang( QString chord);
+    ///
+    /// \brief getMinor return the minor codelang if found
+    /// For example : getCodeLang("[D7x2]") return ("")
+    /// getCodeLang("[D7mx2]") return "m"
+    /// getCodeLang("[D7-x2]") return "-"
+    /// \param chord a QString like [A(III)] [A] or [Dx2] or [Lam:2] always given between brakets
+    /// \return the QString for minor code or nothing
+    ///
+    static QString getMinor( QString chord);
+
 private:
     ///
     /// \brief m_originalchord : is the original chord name given to constuctor
@@ -183,6 +203,8 @@ private:
     /// m_rang[B]=2
     ///
     QMap <QString,int> m_rang;
+
 };
+
 
 #endif // CHORD_H
