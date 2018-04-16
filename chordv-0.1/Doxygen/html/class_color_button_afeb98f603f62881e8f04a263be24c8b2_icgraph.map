@@ -1,7 +1,0 @@
-<map id="ColorButton::ColorChanged" name="ColorButton::ColorChanged">
-<area shape="rect" id="node2" href="$class_color_button.html#a2a564d30044197785035be7babfbf66b" title="setColor set the color of the button " alt="" coords="236,56,384,83"/>
-<area shape="rect" id="node4" href="$class_color_button.html#ac849d69aa9efec941b3a0604820577bc" title="getColor get the color of the button " alt="" coords="442,107,590,133"/>
-<area shape="rect" id="node3" href="$class_color_button.html#a128b21900f22efdc9d71d0bffa0b64f8" title="ColorButton construtor with the parent widget argument allowing to use in QtDesigner. " alt="" coords="432,5,600,32"/>
-<area shape="rect" id="node6" href="$class_form_config.html#ac59765cabecd0aec99470f6aa2f3241a" title="setValue allow to set a Value for an object it is based on the name of the object for example comboBo..." alt="" coords="441,56,591,83"/>
-<area shape="rect" id="node5" href="$class_form_config.html#a1808ed19dd754ed9528ab78f78025490" title="Save all the SpinBoxUnit,FontButton,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name presented in setValue in a filename given in argument. The value is the classname : Chord, Memory, Lyrics or Text. " alt="" coords="648,107,776,133"/>
-</map>

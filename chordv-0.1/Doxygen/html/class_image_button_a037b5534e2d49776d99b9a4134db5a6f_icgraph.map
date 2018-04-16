@@ -1,5 +1,0 @@
-<map id="ImageButton::ImageSelelected" name="ImageButton::ImageSelelected">
-<area shape="rect" id="node2" href="$class_image_button.html#a80036bed71d46411aa0e6c74f1635087" title="ImageButton::ImageButton" alt="" coords="255,5,433,32"/>
-<area shape="rect" id="node3" href="$class_image_button.html#a52670140c59eecfe20bc091464fe937e" title="ImageButton::setImage" alt="" coords="265,56,423,83"/>
-<area shape="rect" id="node4" href="$class_form_config.html#ac59765cabecd0aec99470f6aa2f3241a" title="setValue allow to set a Value for an object it is based on the name of the object for example comboBo..." alt="" coords="481,56,631,83"/>
-</map>

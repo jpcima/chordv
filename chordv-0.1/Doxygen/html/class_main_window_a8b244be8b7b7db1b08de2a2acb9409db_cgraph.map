@@ -1,8 +1,0 @@
-<map id="MainWindow::MainWindow" name="MainWindow::MainWindow">
-<area shape="rect" id="node2" href="$class_language.html#a316a8c37186abde8e674bc137ddffe0e" title="setLanguageComboBox : populate a QComboBox with all the available languages " alt="" coords="233,5,459,32"/>
-<area shape="rect" id="node3" href="$class_language.html#ae92ee6d153f6e2143b154f041e88fb26" title="ListMinor return list of suymbol in preference order for minor. " alt="" coords="277,56,415,83"/>
-<area shape="rect" id="node5" href="$class_chord_util.html#abeb08c9c5ca31ea82eda4fca8ee791ff" title="getLastDirectory retrieve the name of the last directory opened. It is useful to memorize the last di..." alt="" coords="255,107,437,133"/>
-<area shape="rect" id="node6" href="$class_chord_util.html#a485337752434b4eb052b34af6f385f65" title="setLastDirectory set the last directory opened. See getLastDirectory() " alt="" coords="255,157,437,184"/>
-<area shape="rect" id="node7" href="$class_chord_util.html#a5e1db6203bf99d5e6c5a1cf262797b01" title="LastProjects give the list of lastProjects used to add in MainWindow the list of last project opened..." alt="" coords="267,208,425,235"/>
-<area shape="rect" id="node4" href="$class_language.html#a7e5a46954fabb52fc1382dabd303d785" title="getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist fi..." alt="" coords="507,56,669,83"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="FormConfig::classe2String" name="FormConfig::classe2String">
-<area shape="rect" id="node2" href="$class_form_config.html#a06fbd228dd625817c6efa0b0261f97e3" title="InitDefault init all the SpinBoxUnit,FontButton,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name with the values given but preference QDialog. " alt="" coords="231,81,389,108"/>
-<area shape="rect" id="node7" href="$class_form_config.html#a1808ed19dd754ed9528ab78f78025490" title="Save all the SpinBoxUnit,FontButton,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name presented in setValue in a filename given in argument. The value is the classname : Chord, Memory, Lyrics or Text. " alt="" coords="246,132,374,159"/>
-<area shape="rect" id="node3" href="$class_chord_config.html#a650f5c9d66d1c5e8a86c376b58dd0232" title="ChordConfig::ChordConfig" alt="" coords="449,5,625,32"/>
-<area shape="rect" id="node4" href="$class_lyrics_config.html#ab8f6a699a7c15a192d1d145c5c3aa772" title="LyricsConfig::LyricsConfig" alt="" coords="449,56,625,83"/>
-<area shape="rect" id="node5" href="$class_memory_config.html#a3ae65268c623f5596fcef230cdc5340a" title="MemoryConfig::MemoryConfig" alt="" coords="437,107,637,133"/>
-<area shape="rect" id="node6" href="$class_text_config.html#a596b03b4b1bcd9dc8037d7463f37513e" title="TextConfig::TextConfig" alt="" coords="458,157,617,184"/>
-</map>

@@ -1,4 +1,0 @@
-<map id="DialogConfiguration::~DialogConfiguration" name="DialogConfiguration::~DialogConfiguration">
-<area shape="rect" id="node2" href="$class_language.html#a860901fd51ba331a0515624c404b922d" title="getTranslationQmFileName from language file name ( English for example ) return for example /usr/shar..." alt="" coords="205,5,373,47"/>
-<area shape="rect" id="node3" href="$class_language.html#a7e5a46954fabb52fc1382dabd303d785" title="getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist fi..." alt="" coords="421,13,584,39"/>
-</map>

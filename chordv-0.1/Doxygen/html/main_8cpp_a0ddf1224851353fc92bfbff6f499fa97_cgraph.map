@@ -1,6 +1,0 @@
-<map id="main" name="main">
-<area shape="rect" id="node2" href="$class_language.html#a3e4fa1411d494416806fdd45e3e88a08" title="InitLanguage init the static QMap LanguageToCode and CodeToLanguage. " alt="" coords="115,5,275,32"/>
-<area shape="rect" id="node3" href="$class_language.html#a860901fd51ba331a0515624c404b922d" title="getTranslationQmFileName from language file name ( English for example ) return for example /usr/shar..." alt="" coords="111,57,279,98"/>
-<area shape="rect" id="node5" href="$class_main_window.html#a72128b086c06fdc0f157bc18dff695cd" title="MainWindow::setTranstator" alt="" coords="104,123,287,149"/>
-<area shape="rect" id="node4" href="$class_language.html#a7e5a46954fabb52fc1382dabd303d785" title="getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist fi..." alt="" coords="335,64,497,91"/>
-</map>

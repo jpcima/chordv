@@ -1,7 +1,0 @@
-<map id="ProcessorChord::ProcessorChord" name="ProcessorChord::ProcessorChord">
-<area shape="rect" id="node2" href="$class_processor.html#ab4c424b1c1574e957d300b40e0edff20" title="Text. " alt="" coords="236,31,351,57"/>
-<area shape="rect" id="node3" href="$class_font_button.html#a18daa6762546617e893779676fa27528" title="FontButton::getFont" alt="" coords="414,5,553,32"/>
-<area shape="rect" id="node4" href="$class_font_button.html#ab9be25fd2dcc721b7f8101742ff7bb25" title="FontButton::getTextColor" alt="" coords="399,56,568,83"/>
-<area shape="rect" id="node5" href="$class_font_button.html#a80b6351f60a519835af20f9234fccf4c" title="FontButton::SelectedFont" alt="" coords="616,31,787,57"/>
-<area shape="rect" id="node6" href="$class_font_button.html#aa2f4eaee347ab77fba75488d56ea0e39" title="FontButton::setFont" alt="" coords="632,81,771,108"/>
-</map>

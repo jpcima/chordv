@@ -1,6 +1,0 @@
-<map id="Processor::Text" name="Processor::Text">
-<area shape="rect" id="node2" href="$class_font_button.html#a18daa6762546617e893779676fa27528" title="FontButton::getFont" alt="" coords="183,5,322,32"/>
-<area shape="rect" id="node3" href="$class_font_button.html#ab9be25fd2dcc721b7f8101742ff7bb25" title="FontButton::getTextColor" alt="" coords="168,56,337,83"/>
-<area shape="rect" id="node4" href="$class_font_button.html#a80b6351f60a519835af20f9234fccf4c" title="FontButton::SelectedFont" alt="" coords="385,31,556,57"/>
-<area shape="rect" id="node5" href="$class_font_button.html#aa2f4eaee347ab77fba75488d56ea0e39" title="FontButton::setFont" alt="" coords="401,81,540,108"/>
-</map>

@@ -1,7 +1,0 @@
-<map id="Language::TranslateLineWithchord" name="Language::TranslateLineWithchord">
-<area shape="rect" id="node2" href="$class_chord.html#ad68a4f58d3dd18f09ea9bf7536e89284" title="translate " alt="" coords="276,56,391,83"/>
-<area shape="rect" id="node3" href="$class_language.html#a16affca2c35e415180b932f16e3f46af" title="ListNotes return the list of notes for the language given. " alt="" coords="447,5,590,32"/>
-<area shape="rect" id="node5" href="$class_language.html#a957552ed9ba8f9f01a822d3a566ff383" title="getLanguage return Français for codelang fr " alt="" coords="439,56,599,83"/>
-<area shape="rect" id="node6" href="$class_chord.html#adb32e210a420399a1ceffa3ad8f0dab7" title="chord " alt="" coords="470,107,567,133"/>
-<area shape="rect" id="node4" href="$class_language.html#a7e5a46954fabb52fc1382dabd303d785" title="getCodeLang : return code lang (en) from language. The code lang is given by the name of html fist fi..." alt="" coords="647,5,809,32"/>
-</map>

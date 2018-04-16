@@ -1,6 +1,0 @@
-<map id="FormConfig" name="FormConfig">
-<area shape="rect" id="node3" href="$class_chord_config.html" title="ChordConfig" alt="" coords="5,155,100,181"/>
-<area shape="rect" id="node4" href="$class_lyrics_config.html" title="LyricsConfig" alt="" coords="124,155,219,181"/>
-<area shape="rect" id="node5" href="$class_memory_config.html" title="MemoryConfig" alt="" coords="243,155,350,181"/>
-<area shape="rect" id="node6" href="$class_text_config.html" title="TextConfig" alt="" coords="375,155,461,181"/>
-</map>

@@ -4,5 +4,7 @@ Makefile
 build
 bin
 code
+Doxygen/
+podofo/
 
 

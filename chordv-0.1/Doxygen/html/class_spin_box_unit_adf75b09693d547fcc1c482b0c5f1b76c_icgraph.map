@@ -1,5 +1,0 @@
-<map id="SpinBoxUnit::setValue" name="SpinBoxUnit::setValue">
-<area shape="rect" id="node2" href="$class_form_config.html#ac59765cabecd0aec99470f6aa2f3241a" title="setValue allow to set a Value for an object it is based on the name of the object for example comboBo..." alt="" coords="208,5,357,32"/>
-<area shape="rect" id="node3" href="$class_form_config.html#a1808ed19dd754ed9528ab78f78025490" title="Save all the SpinBoxUnit,FontButton,Font, FontColor,FontBackgroundColor,Cover,comboBox, spinBox,doubleSpinBox,Image,MediaBox,colorButton extracted name presented in setValue in a filename given in argument. The value is the classname : Chord, Memory, Lyrics or Text. " alt="" coords="219,56,347,83"/>
-<area shape="rect" id="node4" href="$class_spin_box_unit.html#a3773434f37fdc0c53995f78a41c7f9c3" title="SpinBoxUnit::getUnit" alt="" coords="210,107,355,133"/>
-</map>
