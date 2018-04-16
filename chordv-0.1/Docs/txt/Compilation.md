@@ -54,3 +54,9 @@ cd ../..
 qmake
 make
 ~~~
+
+## Install Doxygen
+
+~~~bash
+sudo apt install doxygen doxygen-gui graphviz
+~~~
