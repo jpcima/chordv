@@ -1,4 +1,4 @@
-#include "chord.h"
+﻿#include "chord.h"
 
 #include "langnotes.h"
 #include "language.h"
@@ -189,7 +189,7 @@ QString Chord::down()
 }
 
 
-QString Chord::transpose(int degre, bool parentheses, QString minfrom, QString minto)
+QString Chord::transpose1(int degre, bool parentheses, QString minfrom, QString minto)
 {
  QString nameenglish=m_nameEnglish;
  QRegExp regexp("(^[A-G][#b]?)");
@@ -221,18 +221,39 @@ QStringList Chord::getCodeLang(QString chord)
 {
     chord.replace("[","");
     chord.replace("]","");
-    chord.replace(QRegExp("\\([^)]+\\)"),"");
-    chord.replace(QRegExp("[x:][0-9]+$"),"");
-    chord.replace(QRegExp("[#b°0-9+M]"),"");
-
-
     QStringList ret;
-    ret<<chord;
-    return ret;
+    foreach ( QString lang, Language::ListLanguage())
+    {
+        foreach ( QString note, Language::ListNotes(lang) )
+        {
 
+            if (chord.startsWith(note))
+                ret <<Language::getCodeLang(lang) ;
+        }
+    }
+    return ret;
 }
+
+QString Chord::getNote(QString chord)
+{
+    chord.replace("[","");
+    chord.replace("]","");
+    QStringList ret;
+    foreach ( QString lang, Language::ListLanguage())
+    {
+        foreach ( QString note, Language::ListNotes(lang) )
+        {
+
+            if (chord.startsWith(note))
+                return note;
+        }
+    }
+    return "";
+}
+
 
 QString Chord::getMinor(QString chord)
 {
     return "-";
 }
+

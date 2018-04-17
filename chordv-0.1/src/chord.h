@@ -113,7 +113,7 @@ public:
     /// \param minto : minor symbol to
     /// \return  : the transposed chord
     ///
-    QString transpose(int degre, bool parentheses, QString minfrom, QString minto);
+    QString transpose1(int degre, bool parentheses, QString minfrom, QString minto);
     ///
     /// \brief GetCodeLang get the all codelang possible for a chorname to be in
     /// For example : getCodeLang("[D7x2]") return ("en")
@@ -133,7 +133,13 @@ public:
     /// \return the QString for minor code or nothing
     ///
     static QString getMinor( QString chord);
-
+    ///
+    /// \brief getNote return the note from a chord for example
+    /// getNote("[D6]") return D
+    /// \param chord the chord given with or without [ ]
+    /// \return QString for the note
+    ///
+    static QString getNote(QString chord);
 private:
     ///
     /// \brief m_originalchord : is the original chord name given to constuctor

@@ -517,7 +517,7 @@ QString FormEditor::TransposeLineWithChord( QString line, int numberofchroma, bo
            accolade=true;
            QString newchord=regchord.cap(1).replace("[","").replace("]","");
            Chord chord(newchord);
-           QString transposed=chord.transpose(numberofchroma,parenthesis,"-","-");
+           QString transposed=chord.transpose1(numberofchroma,parenthesis,"-","-");
            line.replace(regchord.cap(1),QString("{%1}").arg(transposed));
       }
       if ( accolade)

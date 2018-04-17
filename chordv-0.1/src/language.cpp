@@ -7,6 +7,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QMap>
+#include <QStringList>
 
 static QMap <QString, QString > Code2Language;
 static QMap <QString, QString > Language2Code;

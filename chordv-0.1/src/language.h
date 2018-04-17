@@ -94,7 +94,5 @@ public:
     /// \return a QStringList
     ///
     static QStringList ListCodeLang();
-
 };
-
 #endif // LANGUAGE_H
