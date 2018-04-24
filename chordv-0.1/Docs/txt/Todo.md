@@ -23,7 +23,6 @@ Lyrics mode :
 PDF Chord :
 ----------
 
-
 - Toc has no margin.... define margin for toc ?
 - No % on line begining
 

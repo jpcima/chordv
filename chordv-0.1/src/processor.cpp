@@ -1079,7 +1079,7 @@ PdfRect Processor::LineToc(QString text, double width, double x, double y, FontB
     {
         text.chop(1);
     }
-    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2    ").arg(text,point).toLatin1())<= width)
+    while ( pfont->GetFontMetrics()->StringWidth(QString("%1%2    ").arg(text,point).toLatin1())<= width-m_uiconfig->spuTocHorizontalMargin->getPdfU()*2)
     {
         odd=odd?false:true;
         QString c;
@@ -1094,7 +1094,7 @@ PdfRect Processor::LineToc(QString text, double width, double x, double y, FontB
     m_painter.Fill(true);
     m_painter.DrawText(x,y,PdfString(text.toLatin1()));
     PdfRect rect(x,y,x+width+fb->getFont().pointSizeF(),fb->getFont().pointSizeF());
-    Text(m_document,QString("%1").arg(pagenumber),x+width+fb->getFont().pointSize(),y,fb,right);
+    Text(m_document,QString("%1").arg(pagenumber),x+width+fb->getFont().pointSize()-2*m_uiconfig->spuTocHorizontalMargin->getPdfU(),y,fb,right);
     return rect;
 }
 
