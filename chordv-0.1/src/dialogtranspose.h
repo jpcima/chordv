@@ -33,9 +33,8 @@ signals:
     /// \brief AskChange ask change with halftonenumber, parenthesis yes or no, and range defined as just the current chord has to print translated, all the chord in the current line,
     /// all the chord on the current song or all the chord of the current booklet.
     /// \param halftonenumber
-    /// \param parenthesis
     /// \param Range
-    void AskChange(int halftonenumber, bool parenthesis, int Range);
+    void AskChange(int halftonenumber, int Range);
 };
 
 #endif // DIALOGTRANSPOSE_H

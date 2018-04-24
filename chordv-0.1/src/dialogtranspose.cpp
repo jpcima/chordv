@@ -30,7 +30,7 @@ void DialogTranspose::ChangeValue(int i)
 
 void DialogTranspose::Apply()
 {
-    emit AskChange( ui->spinBoxChorma->value(),!ui->checkBoxNoParenthese->isChecked(),ui->comboBoxRange->currentIndex());
+    emit AskChange( ui->spinBoxChorma->value(),ui->comboBoxRange->currentIndex());
 }
 
 

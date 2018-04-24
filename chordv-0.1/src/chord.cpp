@@ -162,6 +162,20 @@ QString Chord::translate(QString chord, QString codelangfrom, QString minfrom, Q
    return chord;
 }
 
+QString Chord::translate(QString chord, QString codelangfrom,  QString codelangto)
+{
+    QString chordreg=Language::ListNotes(Language::getLanguage(codelangfrom)).join("|");
+    QStringList chordoutput=Language::ListNotes(Language::getLanguage(codelangto));
+    chordreg=QString("^(%1)").arg(chordreg);
+    QRegExp reg(chordreg);
+    if ( chord.contains(reg))
+    {
+        QString c=reg.cap(1);
+        int i=Language::ListNotes(Language::getLanguage(codelangfrom)).indexOf(c);
+        chord.replace(c,chordoutput.at(i));
+    }
+    return chord;
+}
 QString Chord::nameEnglish()
 {
     return m_nameEnglish;
@@ -189,32 +203,31 @@ QString Chord::down()
 }
 
 
-QString Chord::transpose1(int degre, bool parentheses, QString minfrom, QString minto)
+QString Chord::transpose(QString ChordInEnglish , int degre )
 {
- QString nameenglish=m_nameEnglish;
- QRegExp regexp("(^[A-G][#b]?)");
- QString ind="A";
- if ( nameenglish.indexOf(regexp) )
-     ind=QString("%1%2").arg(regexp.cap(1),regexp.cap(2));
- int id=(m_rang[ind]+degre)%12;
- QRegExp reg2(QString("^%1").arg(ind));
- nameenglish.replace(reg2,m_ring.at(id));
- QString nameret;
- if (m_lang=="en")
-    nameret=nameenglish;
- else
-     nameret=translate(nameenglish,"en",minfrom,m_lang,minto);
- QRegExp regpar("(\\([^)]+\\))");
- if ( ! nameret.contains(regpar)) return nameret;
- else if ( !parentheses )nameret.replace(regpar,"");
- else
-   {
-     QString romain=regpar.cap(1);
-     int i=ChordUtil::fromRomain(romain);
-
-     nameret.replace(regpar,QString("(%1)").arg(i+degre%20));
-   }
- return nameret;
+ if (degre<0) degre+=12;
+ QMap <QString,int> rang;
+ QStringList ring;
+ ring<<"A"<<"A#"<<"B"<<"C"<<"C#"<<"D"<<"D#"<<"E"<<"F"<<"F#"<<"G"<<"G#";
+ int i;
+ i=0;
+ foreach (QString r, ring)rang[r]=i++;
+ rang["Bb"]=1;
+ rang["Db"]=4;
+ rang["Eb"]=6;
+ rang["Gb"]=9;
+ rang["Ab"]=11;
+ QRegExp regexp("^([A-G][#b]?)");
+ QString ind;
+ QString rest;
+ if ( ChordInEnglish.contains(regexp) )
+    {
+     ind=regexp.cap(1);
+     rest=ChordInEnglish.replace(regexp,"");
+    }
+ int id=(rang[ind]+degre)%12;
+ QString ret=ring.at(id)+rest;
+ return ret;
 }
 
 QStringList Chord::getCodeLang(QString chord)

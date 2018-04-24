@@ -33,6 +33,11 @@ public:
     /// \param parent
     ///
     explicit FormEditor(QWidget *parent = 0);
+    ///
+    /// \brief setChordLanguage set the m_chordlangage
+    /// \param language
+    ///
+    void setChordLanguage(QString language){ m_chordlanguage=language; }
     ~FormEditor();
     ///
     /// \brief clear remove all the information in the Editor and in the list of all titles
@@ -89,6 +94,7 @@ private:
     Ui::FormEditor *ui;
     void ReplaceLongShort(QString a, QString b);
     QString m_buffreplace;
+    QString m_chordlanguage;
     void resizeEvent(QResizeEvent *event);
     DialogNewSong *m_dialognewsong;
     void Init();
@@ -96,8 +102,8 @@ private:
     /// \brief TransposeLineWithChord transpose all the chord in a line
     /// \param line line of song with 0 to n chords
     /// \param numberofchroma : number of chroma
-    /// \param parenthesis : parenthesis true of false
-    QString TransposeLineWithChord(QString line, int numberofchroma, bool parenthesis);
+    /// \return the Line transposed
+    QString TransposeLineWithChord(QString line, int numberofchroma);
 private slots:
     void InsertTempo();
     void InsertTime();
@@ -145,7 +151,7 @@ private slots:
     /// \param tempp : beat per minute
     ///
     void InsertSong(QString title, QString subtitle, bool compressed, int column, int time1, int time2,int tempo);
-    void TransposeChord(int numberofchroma, bool parenthesistyle, int range);
+    void TransposeChord(int numberofchroma,  int range);
 };
 
 #endif // FORMEDITOR_H

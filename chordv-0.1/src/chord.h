@@ -86,7 +86,7 @@ public:
     ///
     static QStringList removeDupplicateWhithoutRytm(QStringList chords,QString codelang);
     ///
-    /// \brief translate
+    /// \brief translate a chord name from codelangfrom to codelangto
     /// \param chord : a chord name
     /// \param codelangfrom :  code from language : fr or en
     /// \param minfrom : symbol for minor : m or -
@@ -95,6 +95,16 @@ public:
     /// \return the chord translated
     ///
     static QString translate ( QString chord, QString codelangfrom, QString minfrom, QString codelangto, QString minto );
+    ///
+    /// \brief translate translate chord name from chodelangfrom to chodelangto
+    /// This translate function keep unchanged the minor symbol
+    /// \param chord : a chord name
+    /// \param codelangfrom : code lang from
+    /// \param codelangto : code lang to
+    /// \return  the chord translated
+    ///
+    QString translate(QString chord, QString codelangfrom, QString codelangto);
+
     ///
     /// \brief up the name of the chord on the next fret
     /// \return
@@ -113,7 +123,7 @@ public:
     /// \param minto : minor symbol to
     /// \return  : the transposed chord
     ///
-    QString transpose1(int degre, bool parentheses, QString minfrom, QString minto);
+    static QString transpose(QString chordinenglish,int degre);
     ///
     /// \brief GetCodeLang get the all codelang possible for a chorname to be in
     /// For example : getCodeLang("[D7x2]") return ("en")
@@ -140,6 +150,7 @@ public:
     /// \return QString for the note
     ///
     static QString getNote(QString chord);
+
 private:
     ///
     /// \brief m_originalchord : is the original chord name given to constuctor

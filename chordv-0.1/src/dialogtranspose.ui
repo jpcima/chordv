@@ -48,13 +48,6 @@
       </layout>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBoxNoParenthese">
-       <property name="text">
-        <string>Don't use parentheses names</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_3">
        <item>
         <widget class="QLabel" name="labelRange">

@@ -838,7 +838,8 @@ void MainWindow::ChangeChordLang()
 void MainWindow::TransposeChords()
 {
    DialogTranspose dial(this);
-   connect(&dial,SIGNAL(AskChange(int,bool,int)),ui->textEditCho3File,SLOT(TransposeChord(int,bool,int)));
+   ui->textEditCho3File->setChordLanguage(ui->comboBoxChordLanguage->currentText());
+   connect(&dial,SIGNAL(AskChange(int,int)),ui->textEditCho3File,SLOT(TransposeChord(int,int)));
    dial.exec();
 
 }

@@ -481,48 +481,66 @@ void FormEditor::InsertCompress()
 
     }
 
-void FormEditor::TransposeChord(int numberofchroma, bool parenthesistyle, int range)
+void FormEditor::TransposeChord(int numberofchroma, int range)
 {
-   // ui->textEdit->TransposeChord(numberofchroma,parenthesistyle,range);
     if ( range == ChordUnderTheCurser )
          {
-
+            QTextCursor cursor=textCursor();
+            QString words=cursor.selectedText();
+            cursor.removeSelectedText();
+            words=TransposeLineWithChord(words,numberofchroma);
+            cursor.insertText(words);
          }
     else if (range == AllChordInLine )
          {
-
+           QTextCursor cursor = textCursor();
+           cursor.select(QTextCursor::LineUnderCursor);
+           QString line=cursor.selectedText();
+           cursor.removeSelectedText();
+           line=TransposeLineWithChord(line,numberofchroma);
+           cursor.insertText(line);
          }
     else if ( range == AllChordInSong)
          {
-
-         }
+            QTextCursor cursor = document()->find(QRegExp("^\\{(t|title):"),textCursor(),QTextDocument::FindBackward);
+            cursor.movePosition(QTextCursor::NextBlock);
+            QString line;
+            do
+            {
+              cursor.movePosition(QTextCursor::NextBlock,QTextCursor::KeepAnchor);
+              line=cursor.selectedText();
+              cursor.removeSelectedText();
+              line=TransposeLineWithChord(line,numberofchroma);
+              cursor.insertText(line);
+            }
+            while ( ! cursor.atEnd() && ! line.contains(QRegExp("^\\{(t|title):")));
+          }
     else if ( range == AllChordInFile )
          {
-             QStringList out;
              QStringList lines=document()->toPlainText().split("\n");
+             document()->clear();
              foreach (QString line , lines)
                 {
-                 line=TransposeLineWithChord(line,numberofchroma,parenthesistyle);
-                 out<<line;
+                 line=TransposeLineWithChord(line,numberofchroma);
+                 insertPlainText(line);
                 }
          }
 }
 
-QString FormEditor::TransposeLineWithChord( QString line, int numberofchroma, bool parenthesis)
+QString FormEditor::TransposeLineWithChord( QString line, int numberofchroma)
 {
-    bool accolade=false;
     QRegExp regchord("(\\[[^]]+\\])");
     while ( line.indexOf(regchord)!=-1)
       {
-           accolade=true;
            QString newchord=regchord.cap(1).replace("[","").replace("]","");
            Chord chord(newchord);
-           QString transposed=chord.transpose1(numberofchroma,parenthesis,"-","-");
-           line.replace(regchord.cap(1),QString("{%1}").arg(transposed));
+           if (m_chordlanguage != "English")
+                   newchord=chord.translate(newchord,Language::getCodeLang(m_chordlanguage),"en");
+           QString transposed=Chord::transpose(newchord,numberofchroma);
+           if (m_chordlanguage != "English")
+                   transposed=chord.translate(transposed,"en",Language::getCodeLang(m_chordlanguage)) ;
+           line.replace(regchord.cap(1),QString("&lt;%1&gt;").arg(transposed));
       }
-      if ( accolade)
-      {
-           line.replace("{","[").replace("}","]");
-      }
+      line.replace("&lt;","[").replace("&gt;","]");
       return line;
 }
