@@ -804,12 +804,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogtranspose.ui" line="70"/>
         <source>Only current chord</source>
-        <translation>Seulent l&apos;accord courant</translation>
+        <translation>Seulement sur l&apos;accord courant</translation>
     </message>
     <message>
         <location filename="../src/dialogtranspose.ui" line="75"/>
         <source>Only current line</source>
-        <translation>Seulent sur la ligne courante</translation>
+        <translation>Seulement sur la ligne courante</translation>
     </message>
     <message>
         <location filename="../src/dialogtranspose.ui" line="80"/>

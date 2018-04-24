@@ -50,8 +50,17 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    ///
+    /// \brief MainWindow classical constructor for the main Window
+    /// \param parent  the parent window
+    ///
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    ///
+    /// \brief setTranstator allow to keep the translator applied to
+    /// mainwindow to be able to remove it in case of retranslation
+    /// \param tr  : translator name
+    ///
     void setTranstator(QTranslator *tr) { m_translator= tr;}
 private:
     Ui::MainWindow *ui;

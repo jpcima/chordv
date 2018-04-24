@@ -21,9 +21,6 @@ class Processor : public QObject
 {
     Q_OBJECT
 
-
-
-
 public:
     enum Align {left,center,right};
     Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
@@ -47,11 +44,33 @@ public:
 
     // virtual e section
     virtual void newPage();
-    virtual void displayPageTitle(QString titile);
-    virtual void displayPageSubtitle( QString subtitles )  ;
+    ///
+    /// \brief displayPageTitle display the title on each page
+    /// \param title : QString for the title of page
+    ///
+    virtual void displayPageTitle(QString title);
+    ///
+    /// \brief displayPageSubtitle display the subtitle on each page
+    /// \param subtitle : QStgring for the subtitle of page
+    ///
+    virtual void displayPageSubtitle( QString subtitle )  ;
+    ///
+    /// \brief displayLyrics display the lyrics
+    ///
     virtual void displayLyrics();
+    ///
+    /// \brief Cover display the cover with title and subtitle
+    /// \param title : QString for title
+    /// \param subtitle : QString for subtitle
+    ///
     virtual void Cover(QString title, QString subtitle);
+    ///
+    /// \brief doChords display chords
+    ///
     virtual void doChords();
+    ///
+    /// \brief displayChordsForSong
+    ///
     virtual void displayChordsForSong();
     virtual void setColBreak(QString line);
     virtual void doColumnBreak(QString line);
@@ -59,6 +78,10 @@ public:
     virtual void addFooter();
     ///
     /// \brief makePageNumber display page number on each page
+    /// the page number are made following the enumerations :
+    ///  - PageNumber { No, Center, Outside }
+    ///  - PageStyle { Number, NumberAndTiret, NumberDivideByPageNUmber, NumberAndArrows}
+    ///  - Plex { Simplex, Duplex}
     ///
     virtual void makePageNumber();
     virtual PoDoFo::PdfRect PageSize(double left=0, double bottom=0, double width=210, double height=297);
@@ -66,11 +89,31 @@ public:
     virtual int calcColumn();
     virtual int calcLine();
     virtual void FollowingLine();
+    ///
+    /// \brief includeChorus Include chorus
+    /// \param text : chords for the chorus
+    ///
     virtual void includeChorus(QString text);
+    ///
+    /// \brief includeSoc include start of chorus
+    ///
     virtual void includeSoc();
+    ////
+    /// \brief includeEoc include end of chorus
+    ///
     virtual void includeEoc();
+    ///
+    /// \brief includeRefrain include refrain
+    /// \param text QString for refrain
+    ///
     virtual void includeRefrain(QString text);
+    ///
+    /// \brief includeSor include Start of Refrain
+    ///
     virtual void includeSor();
+    ///
+    /// \brief includeEor include End of Refrain
+    ///
     virtual void includeEor();
     ///
     /// \brief m_category category in config file  (file.conf) Chordbook,LyricsBook,MemoryMode,TextBook

@@ -914,8 +914,8 @@ void Processor::makePageNumber()
                 m_painter.Fill();
                 PdfRect rect1(x-1.5*m_uiconfig->toolButtonTocFont->getFont().pointSize(),y,m_uiconfig->toolButtonTocFont->getFont().pointSize(),m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
                 PdfAnnotation *a1=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect1);
-                a1->SetContents(tr("Go to last song").toStdString().c_str());
-                PdfDestination dest1(m_document->GetPage(nbpage-2));
+                a1->SetContents(tr("Go to last page").toStdString().c_str());
+                PdfDestination dest1(m_document->GetPage(nbpage-1));
                 a1->SetDestination(dest1);
                 a1->SetFlags( ePdfAnnotationFlags_Hidden);
               }
@@ -929,8 +929,8 @@ void Processor::makePageNumber()
                 m_painter.Fill();
                 PdfRect rect2(x+widthtext,y,m_uiconfig->toolButtonTocFont->getFont().pointSize(),m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF());
                 PdfAnnotation *a2=pdfp->CreateAnnotation(ePdfAnnotation_Link,rect2);
-                a2->SetContents(tr("Go to next song").toStdString().c_str());
-                PdfDestination dest2(m_document->GetPage(nbpage));
+                a2->SetContents(tr("Go to next page").toStdString().c_str());
+                PdfDestination dest2(m_document->GetPage(nbpage+1));
                 a2->SetDestination(dest2);
                 a2->SetFlags( ePdfAnnotationFlags_Hidden);
               }

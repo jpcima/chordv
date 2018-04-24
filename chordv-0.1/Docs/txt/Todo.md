@@ -1,7 +1,6 @@
 List of bugs
 ============
 
-- Toc wrong when many pages for a song
 - Disable col break on Text, and Lyrics if diagram inline
 - nice initialization of each config values
 - Chorus on many colums
@@ -24,7 +23,7 @@ Lyrics mode :
 PDF Chord :
 ----------
 
-- arrow next not working ....
+
 - Toc has no margin.... define margin for toc ?
 - No % on line begining
 
@@ -32,7 +31,7 @@ Chord Editor :
 ------------
 
 - To doxygen documentation (background job)
-- Transpose Chord language not written
+
 
 Editor :
 -------

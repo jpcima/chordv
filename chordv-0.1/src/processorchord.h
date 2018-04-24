@@ -14,10 +14,25 @@ class ProcessorChord : public Processor
 public:
     ProcessorChord(Ui::MainWindow *ui1, Ui::FormConfig *ui2);
 private:
+    ///
+    /// \brief displayLyrics display lyrics
+    ///
     void displayLyrics();
+    ///
+    /// \brief displayBpm display Beat per minute
+    ///
     void displayBpm();
+    ///
+    /// \brief displayPageSubtitle display page subtile
+    ///
     void displayPageSubtitle(QString ){}
+    ///
+    /// \brief includeSoc include Start of Chorus
+    ///
     void includeSoc();
+    ///
+    /// \brief includeSor include Start of Refrain
+    ///
     void includeSor();
     int m_nbBeatPerBar;
     void doColumnBreak(QString){}
