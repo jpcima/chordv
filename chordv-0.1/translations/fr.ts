@@ -792,42 +792,41 @@ p, li { white-space: pre-wrap; }
         <translation>Demi-ton à transposer</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="53"/>
         <source>Don&apos;t use parentheses names</source>
-        <translation>Ne pas utiliser les noms avec parenthèses</translation>
+        <translation type="vanished">Ne pas utiliser les noms avec parenthèses</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="62"/>
+        <location filename="../src/dialogtranspose.ui" line="55"/>
         <source>On</source>
         <translation>Appliqué à</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="70"/>
+        <location filename="../src/dialogtranspose.ui" line="63"/>
         <source>Only current chord</source>
         <translation>Seulement sur l&apos;accord courant</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="75"/>
+        <location filename="../src/dialogtranspose.ui" line="68"/>
         <source>Only current line</source>
         <translation>Seulement sur la ligne courante</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="80"/>
+        <location filename="../src/dialogtranspose.ui" line="73"/>
         <source>Only current song</source>
         <translation>Seulement sur la chanson courante</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="85"/>
+        <location filename="../src/dialogtranspose.ui" line="78"/>
         <source>WholeDocument</source>
         <translation>Sur tout le document</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="110"/>
+        <location filename="../src/dialogtranspose.ui" line="103"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
     <message>
-        <location filename="../src/dialogtranspose.ui" line="117"/>
+        <location filename="../src/dialogtranspose.ui" line="110"/>
         <source>Apply</source>
         <translation>Appliquer</translation>
     </message>
@@ -2466,7 +2465,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="729"/>
         <source>Transpose chords</source>
-        <translation type="unfinished">Transposer les accords</translation>
+        <translation>Transposer les accords</translation>
     </message>
     <message>
         <source>2LinesTochordpro</source>
@@ -2663,13 +2662,22 @@ chorus</translation>
     </message>
     <message>
         <location filename="../src/processor.cpp" line="917"/>
-        <source>Go to last song</source>
-        <translation>Aller à la chanson précédente</translation>
+        <source>Go to last page</source>
+        <translatorcomment>Aller à la page précédente</translatorcomment>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/processor.cpp" line="932"/>
+        <source>Go to next page</source>
+        <translation>Aller à la page suivante</translation>
+    </message>
+    <message>
+        <source>Go to last song</source>
+        <translation type="vanished">Aller à la chanson précédente</translation>
+    </message>
+    <message>
         <source>Go to next song</source>
-        <translation>Aller à la chanson suivante </translation>
+        <translation type="vanished">Aller à la chanson suivante </translation>
     </message>
     <message>
         <location filename="../src/processor.cpp" line="948"/>
