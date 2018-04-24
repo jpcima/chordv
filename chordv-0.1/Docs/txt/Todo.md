@@ -53,10 +53,9 @@ Processor :
 ----------
 
 
-Tools concersion
+Tools conversion
 -----------------
 
-- add transposition feature per song selection
 
 Planned features
 ------------------
