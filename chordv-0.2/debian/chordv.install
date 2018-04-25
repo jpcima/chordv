@@ -1,6 +1,6 @@
 Bd/Chord.db /usr/share/chordv
 bin/chordV usr/bin/ 
-Images/logo.svg /usr/share/chordv/chordv.svg
+Images/chordv.svg /usr/share/chordv/
 Install/chordv.desktop /usr/share/applications/
 translations/fr.qm /usr/share/chordV/Languages/Français
 translations/fr.chords /usr/share/chordV/Languages/Français

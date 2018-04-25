@@ -1,5 +1,5 @@
-9e3b7bbdc151131613f6c100cc62667a  usr/bin/chordV
-b9ef3ff08341363be5baabe0436413da  usr/share/applications/chordv.desktop
+031fca5ff7d2fb3e363c30ae1e920a1f  usr/bin/chordV
+d4ba6b38a2df95d9950a8b0b3871aff9  usr/share/applications/chordv.desktop
 781efc5a127cc47725f381d9f74b7c84  usr/share/chordV/Languages/English/en.chords
 c74df8590ee211f37bbb17a864fa53d1  usr/share/chordV/Languages/English/en.html/Documentation.html
 395c9c1cb35a00ef2d9454bb2b910d0c  usr/share/chordV/Languages/English/en.md/Documentation.md
@@ -38,7 +38,7 @@ c8a5eff8cc8aabf6096c2b4b87969594  usr/share/chordV/Languages/Français/img/menup
 9a4325642e660813cf6435dffa44ba79  usr/share/chordV/Languages/Français/img/preferencetext.png
 5ec98776727180ddc88cfae2e6ed64ea  usr/share/chordV/Languages/Français/img/twolineconversion.png
 c6e54955984056a7349d263348e67c67  usr/share/chordv/Chord.db
-ad217f26a415e5b145177573ad3945ae  usr/share/chordv/chordv.svg/logo.svg
+ad217f26a415e5b145177573ad3945ae  usr/share/chordv/chordv.svg
 dcb7f5b2ef50227289b34027628c3c20  usr/share/doc/chordv/README.Debian
 dbe161822c74eb3885d2cedbf1472bb4  usr/share/doc/chordv/changelog.gz
 55e7232ff32c264df61b1db40f2cad5e  usr/share/doc/chordv/copyright
