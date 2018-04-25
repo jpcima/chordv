@@ -1,0 +1,12 @@
+chordv (0.2) UNRELEASED; urgency=medium
+
+  * bug corrections ( see git log ) 
+
+ -- Gilles Maire <gilles@formation-OptiPlex-7020>  Wed, 25 Apr 2018 14:05:57 +0200
+
+chordv (0.1) unstable; urgency=medium
+
+  * Initial Release.
+
+ -- Gilles Maire <gilles@gillesmaire.com>  Sun, 25 Jun 2017 19:12:52 +0200
+

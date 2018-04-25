@@ -1,0 +1,17 @@
+Bd/Chord.db /usr/share/chordv
+bin/chordV usr/bin/ 
+Images/logo.svg /usr/share/chordv/chordv.svg
+Install/chordv.desktop /usr/share/applications/
+translations/fr.qm /usr/share/chordV/Languages/Français
+translations/fr.chords /usr/share/chordV/Languages/Français
+translations/en.chords /usr/share/chordV/Languages/English
+translations/fr.ts /usr/share/chordV/Languages/Français
+Images/fr.png /usr/share/chordV/Languages/Français
+Images/en.png /usr/share/chordV/Languages/English
+Docs/html/fr/Documentation.html /usr/share/chordV/Languages/Français/fr.html
+Docs/html/en/Documentation.html /usr/share/chordV/Languages/English/en.html
+Docs/txt/fr/Documentation.md /usr/share/chordV/Languages/Français/fr.md
+Docs/txt/en/Documentation.md /usr/share/chordV/Languages/English/en.md
+Docs/html/fr/img /usr/share/chordV/Languages/Français
+Docs/html/en/img /usr/share/chordV/Languages/English
+

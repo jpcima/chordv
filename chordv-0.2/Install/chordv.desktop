@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=0.2
+Encoding=UTF-8
+Name=chordv
+GenericName=chordv
+Comment=chord generator for song
+Exec=chordv
+Icon=/usr/share/chordv/chordv.svg
+Terminal=false
+Type=Application
+Categories=Application;Office;
+Name[fr_FR]=chordv                       
