@@ -19,7 +19,6 @@ Lyrics mode
 PDF Chord :
 ----------
 
-- Toc has no margin.... define margin for toc ?
 - No % on line begining
 
 Chord Editor :
@@ -61,5 +60,4 @@ Planned features
 
 PDF :
 ----
-  - PDF fonts are not used in pdf but all font are constructed
-  - Conversions QString to PdfString made by toLatin1()... Is it a good choice for japaneese ?
+    - Conversions QString to PdfString made by toLatin1()... Is it a good choice for japaneese ?
