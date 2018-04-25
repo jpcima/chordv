@@ -1,0 +1,16 @@
+./Bd/Chord.db
+./bin/chordV
+./Images/logo.svg
+./Install/chordv.desktop
+./translations/fr.qm
+./translations/fr.chords
+./translations/en.chords
+./translations/fr.ts
+./Images/fr.png
+./Images/en.png
+./Docs/html/fr/Documentation.html
+./Docs/html/en/Documentation.html
+./Docs/txt/fr/Documentation.md
+./Docs/txt/en/Documentation.md
+./Docs/html/fr/img
+./Docs/html/en/img

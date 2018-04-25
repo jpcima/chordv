@@ -1,0 +1,13 @@
+Package: chordv-dbgsym
+Package-Type: ddeb
+Source: chordv
+Version: 0.2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Gilles Maire <gilles@gillesmaire.com>
+Installed-Size: 8448
+Depends: chordv (= 0.2)
+Section: debug
+Priority: optional
+Description: debug symbols for chordv
+Build-Ids: b88665ce4b2cf362f31fb4f6f8a77a0d25c7528e

@@ -1,0 +1,3 @@
+#define VERSIONWORK "v0.1"
+#define DATEBUILD "2018/04/10"
+#define GIT "5ef93f729017e91df9e03d352626b411fc2856f8"

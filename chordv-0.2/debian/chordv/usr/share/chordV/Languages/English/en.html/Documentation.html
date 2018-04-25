@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Gilles Maire" />
+  <title>Chord V user documentation</title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="../../css/pandoc.css" type="text/css" />
+</head>
+<body>
+<div id="header">
+<h1 class="title">Chord V user documentation</h1>
+<h2 class="author">Gilles Maire</h2>
+<h3 class="date">juin 2017</h3>
+</div>
+<div id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="#presentation"><span class="toc-section-number">1.1</span> Presentation</a></li>
+<li><a href="#batch-mode-and-graphic-mode"><span class="toc-section-number">1.2</span> Batch mode and graphic mode</a></li>
+</ul></li>
+<li><a href="#software-preferences"><span class="toc-section-number">2</span> Software preferences</a><ul>
+<li><a href="#the-general-preferences"><span class="toc-section-number">2.1</span> The general preferences</a></li>
+<li><a href="#the-preferences-menu"><span class="toc-section-number">2.2</span> The preferences menu</a></li>
+<li><a href="#general-preferences"><span class="toc-section-number">2.3</span> General preferences</a></li>
+<li><a href="#the-options-for-each-booklet-mode"><span class="toc-section-number">2.4</span> The options for each booklet mode</a><ul>
+<li><a href="#common-options-on-the-document-tab"><span class="toc-section-number">2.4.1</span> Common options on the Document tab</a></li>
+<li><a href="#common-options-on-the-content-tab"><span class="toc-section-number">2.4.2</span> Common options on the Content tab</a></li>
+</ul></li>
+<li><a href="#conventions"><span class="toc-section-number">2.5</span> Conventions</a><ul>
+<li><a href="#select-fonts"><span class="toc-section-number">2.5.1</span> Select fonts</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#the-edit-window"><span class="toc-section-number">3</span> The edit window</a><ul>
+<li><a href="#presentation-1"><span class="toc-section-number">3.1</span> Presentation</a><ul>
+<li><a href="#the-edit-window-1"><span class="toc-section-number">3.1.1</span> The Edit Window</a></li>
+<li><a href="#the-chord-pro-tag-language"><span class="toc-section-number">3.1.2</span> The chord pro tag language</a></li>
+</ul></li>
+<li><a href="#inserting-chords-in-the-editor"><span class="toc-section-number">3.2</span> Inserting chords in the editor</a></li>
+<li><a href="#chords-definition"><span class="toc-section-number">3.3</span> Chords definition</a><ul>
+<li><a href="#presentation-2"><span class="toc-section-number">3.3.1</span> Presentation</a></li>
+<li><a href="#defining-an-chord"><span class="toc-section-number">3.3.2</span> Defining an chord</a></li>
+<li><a href="#managing-chords"><span class="toc-section-number">3.3.3</span> Managing chords</a></li>
+<li><a href="#chord-approval-mode"><span class="toc-section-number">3.3.4</span> chord approval mode</a></li>
+<li><a href="#importing-chords"><span class="toc-section-number">3.3.5</span> Importing chords</a></li>
+</ul></li>
+<li><a href="#conversions"><span class="toc-section-number">3.4</span> Conversions</a><ul>
+<li><a href="#chord-conversions-on-2-lines-to-chordpro"><span class="toc-section-number">3.4.1</span> Chord conversions on 2 lines to chordpro</a></li>
+<li><a href="#change-the-chord-language."><span class="toc-section-number">3.4.2</span> Change the chord language.</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#technical-part"><span class="toc-section-number">4</span> Technical part</a><ul>
+<li><a href="#keyboard-shortcuts---mouse-actions"><span class="toc-section-number">4.1</span> Keyboard shortcuts - Mouse actions</a><ul>
+<li><a href="#keyboard-shortcuts"><span class="toc-section-number">4.1.1</span> Keyboard shortcuts</a></li>
+</ul></li>
+<li><a href="#translation-of-the-software-into-a-language"><span class="toc-section-number">4.2</span> Translation of the software into a language</a><ul>
+<li><a href="#presentation-3"><span class="toc-section-number">4.2.1</span> Presentation</a></li>
+<li><a href="#translation-of-the-file-fr.ts"><span class="toc-section-number">4.2.2</span> Translation of the file fr.ts</a></li>
+</ul></li>
+<li><a href="#documentation-of-chord-v"><span class="toc-section-number">4.3</span> Documentation of Chord V</a></li>
+<li><a href="#presentation-4"><span class="toc-section-number">4.4</span> Presentation</a><ul>
+<li><a href="#translation-process"><span class="toc-section-number">4.4.1</span> Translation Process</a></li>
+<li><a href="#images"><span class="toc-section-number">4.4.2</span> Images</a></li>
+</ul></li>
+<li><a href="#compatibility-chordpro"><span class="toc-section-number">4.5</span> Compatibility Chordpro</a><ul>
+<li><a href="#introduction-1"><span class="toc-section-number">4.5.1</span> Introduction</a></li>
+<li><a href="#compatibility-chordpro-2ii"><span class="toc-section-number">4.5.2</span> Compatibility ChordPro 2ii</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
+<h2 id="presentation"><span class="header-section-number">1.1</span> Presentation</h2>
+<ul>
+<li>ChordV allows you to produce different types of PDF files for list of songs</li>
+<li>ChordV provides:
+<ul>
+<li>a text editor with syntactic colorization and insertion of Tags in cho format</li>
+<li>an chords manager and a guitar chord basis To add or insert chords</li>
+<li>four processors to generate a book containing the Lyrics without the chords, a book with Chords and lyrics, a book with chord grids</li>
+</ul></li>
+<li>For each of the modes, the options management makes it possible to Appropriate settings</li>
+<li>** Text: ** in this mode, the lyrics alone appear, without No chord representation</li>
+<li>** Lyrics: ** In this mode, text and chords are displayed.</li>
+<li>** Chords: ** in this mode, chords are not displayed. It is Useful for accompanying musicians.</li>
+<li><p>** Memory: ** in this mode, only the beginning of the text are displayed</p></li>
+<li><p>ChordV uses a very efficient and simple tag language:</p></li>
+</ul>
+<pre><code>{title:Let it be}
+
+{subtitle: Lyrics ansd music :  Paul McCartney, John Lennon}
+{Subtitle: Apple Label}
+{columns:1 }
+When I  [C] find myself in  [G]  times of trouble
+Am Mother  [G] Mary  [F]  comes to me
+[C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]
+And  [C] in my hour of  [G]  darkness
+She is  [Am] standing  [G] right in   [F]  front of me
+[C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]</code></pre>
+<h2 id="batch-mode-and-graphic-mode"><span class="header-section-number">1.2</span> Batch mode and graphic mode</h2>
+<ul>
+<li>Without any argument chordV is launched with a GUI</li>
+<li>With the -t chordV argument does not start the GUI and will produce the PDFs for the default configuration</li>
+<li>You can also run chordV with a file.chop argument to open it automatically at startup.</li>
+</ul>
+<h1 id="software-preferences"><span class="header-section-number">2</span> Software preferences</h1>
+<h2 id="the-general-preferences"><span class="header-section-number">2.1</span> The general preferences</h2>
+<ul>
+<li>Preferences allow you to set options for all songbooks to allow a collection of book with the same aspect</li>
+<li>Imagine that you want to build a collection of songs from Beatle&#8217;s song, a collection of David Bowie songs and a collection of Jango Renhardt chords . For each of these collections, you can choose You may wish to define the same formats for each of them, or at least some common options in fonts characters or other. It is in the preferences that you can these global options, even if they can be adapted to each artists thereafter</li>
+<li>It should be noted that there are shortcuts of preferences called Preferably gadgets.</li>
+<li>One allows you to return to the initial choices of the software at Cases where your tests are not satisfactory</li>
+<li>One allows you to set a setting for an artist like the Default setting in the future.</li>
+</ul>
+<h2 id="the-preferences-menu"><span class="header-section-number">2.2</span> The preferences menu</h2>
+<ul>
+<li>Preferences are accessed via the Preferences menu or by the shortcut Keyboard CTRL + O as shown in the following figure</li>
+</ul>
+<div class="figure">
+<img src="./img/menupreferences.png" alt="Preferences menu" />
+<p class="caption">Preferences menu</p>
+</div>
+<h2 id="general-preferences"><span class="header-section-number">2.3</span> General preferences</h2>
+<div class="figure">
+<img src="./img/preferencegeneral.png" alt="General options" />
+<p class="caption">General options</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>You can choose the language of the software. If your language is not in the list, you can make a translation file (See part # (translation-of-software-in-a-language))</li>
+<li>Select the measurement system that is most convenient for you cm, mm and inch</li>
+<li>ChordV launches a PDF reader when you want to view the delivered generated by the application. In this area, the name of the program</li>
+<li>The name of the booklet author can be entered here. It will be used in the production of documents.</li>
+</ol>
+<h2 id="the-options-for-each-booklet-mode"><span class="header-section-number">2.4</span> The options for each booklet mode</h2>
+<p>These options are not necessarily exactly the same for each booklet, indeed in text mode the font of the chords does not exist since in this mode the chords do not exist. We will separate the presentation of the common and specific options in each mode.</p>
+<p>There are two tabs, one called Document, and the other one for each of the</p>
+<h3 id="common-options-on-the-document-tab"><span class="header-section-number">2.4.1</span> Common options on the Document tab</h3>
+<div class="figure">
+<img src="./img/preferencetext.png" alt="General options" />
+<p class="caption">General options</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Width selection area. If you put values &#8203;&#8203;here Corresponding to an existing format, this format will be displayed in the</li>
+<li></li>
+<li>Height selection area. If you put values &#8203;&#8203;here Corresponding to an existing format, this format will be displayed in the</li>
+<li>This field allows you to choose a PDF format by an IS0 name. Yes You select a format from this menu, you will see the sizes Displayed in zones 1 and 2</li>
+<li>Italian inverses the heights and widths</li>
+<li>Select the default font for the document. Refer To the documentation relating to [Font Selection] (# Font Selection)</li>
+<li>Select the font for the titles on each page. If you select a background color (Refer to To the documentation relating to [Font Selection] (# font-selection), a color frame Selected will frame the title over the entire width of the page.</li>
+<li>Select the subtitle font for each subtitle. page. If you select a background color (Refer to To the documentation relating to [Font Selection] (# font-selection), a color frame Selected will frame the title over the entire width of the page.</li>
+<li>Selects 1-sided or 2-sided. If you select the Duplex mode, page numbers if they are offset to the right Will be eccentric to the left one page out of two.</li>
+<li>By specifying the color of the paper, the frame colors of the titles And subtitles if they are of this color will not be drawn. This avoids erasing characters that could be set under the framework.</li>
+<li>This field is used to number the pages with the number on the right, Center or left</li>
+<li>Selects the page numbering style 1, - 1 - or 1 / n</li>
+<li>This area allows you to choose the typeface of the Page numbers. If the font color is not the same To the color of the paper a frame will be drawn around the page number.</li>
+<li>Sets the horizontal margin</li>
+<li>Set the vertical margin</li>
+</ol>
+<h3 id="common-options-on-the-content-tab"><span class="header-section-number">2.4.2</span> Common options on the Content tab</h3>
+<div class="figure">
+<img src="./img/preferencestextcontent.png" alt="General options contained part" />
+<p class="caption">General options contained part</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>The PDF file includes a cover</li>
+<li>The font of the cover is positioned</li>
+<li>The title may be one-third of the height, half or two-thirds</li>
+<li>Selecting an optional image for Coverage</li>
+<li>Table of Contents in compressed Mode</li>
+<li>Number of columns in table of contents</li>
+<li>Typeface used for table of contents</li>
+<li>Characters used between the title name and the page in the table subjects</li>
+<li>Position of the table of contents at the beginning, at the end of the document or No table of contents</li>
+<li>Extension added to the output file</li>
+<li>Vertical Spacing</li>
+<li>Opening the PDF in full screen mode</li>
+<li>Force titles in uppercase</li>
+</ol>
+<h2 id="conventions"><span class="header-section-number">2.5</span> Conventions</h2>
+<h3 id="select-fonts"><span class="header-section-number">2.5.1</span> Select fonts</h3>
+<div class="figure">
+<img src="./img/fontselection.png" alt="Font Selection" />
+<p class="caption">Font Selection</p>
+</div>
+<p>Select fonts to select the font family Its size, its style and all the traditional options To which are added: - the background color - the color of the font Selecting a color will change the color of the button to Show you the color it contains An explanation of background color is required.</p>
+<h1 id="the-edit-window"><span class="header-section-number">3</span> The edit window</h1>
+<h2 id="presentation-1"><span class="header-section-number">3.1</span> Presentation</h2>
+<h3 id="the-edit-window-1"><span class="header-section-number">3.1.1</span> The Edit Window</h3>
+<div class="figure">
+<img src="./img/editor.png" alt="The editing window" />
+<p class="caption">The editing window</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>The edit menu allows you to access the replace functions and zoom the font. Next to the menu items keyboard shortcuts.</li>
+<li>The icons are used to insert the Hedging Notes, the and all the information that is highlighted in purple in the figure.</li>
+<li>The text box allows you to enter the songs in chord pro</li>
+<li>The log section displays error messages labeled in red and success messages labeled green.</li>
+<li>When you select a chord, by pressing the Mouse up or down you go up or down the duration of a chord. Thus we pass from [Do#x2] to [Do#] and then to [Do:2] by turning the wheel to yourself.</li>
+<li>A table of content browser to go directly on choosen title</li>
+</ol>
+<h3 id="the-chord-pro-tag-language"><span class="header-section-number">3.1.2</span> The chord pro tag language</h3>
+<p>It may be strange that modern software does not WysiWyg interface, that looks like the output paper. Actually ChordV takes only one input format and is capable of to generate a text booklet, a booklet of text and chords, a booklet with chords grids and memory aid. In what mode He choose to work? We chose the tag mode that a pivot format.</p>
+<p>In addition this pivot format is written in the chord pro language of the extensions useful to the program. So you can load in ChordV all chord pro files available in the resources music of the net.</p>
+<h2 id="inserting-chords-in-the-editor"><span class="header-section-number">3.2</span> Inserting chords in the editor</h2>
+<p>By double clicking on the text the chord inclusion window you allows you to select a chord by pressing the insert button the chord. This action may also be supported by the the F4 key (while the F3 key is used to enter the Management of chords)</p>
+<p>You can change the tempo by using the mouse wheel by holding down the SHIFT key in the editor.</p>
+<h2 id="chords-definition"><span class="header-section-number">3.3</span> Chords definition</h2>
+<h3 id="presentation-2"><span class="header-section-number">3.3.1</span> Presentation</h3>
+<p>The chord definition window is divided into four tabs: - The definition of the chord which makes it possible to reach chord the position of the fingers on the handle - A chord management module allowing visualization, amendment or deletion of each chord - A module to approve each unapproved chord - A module for importing a list of accretions contained in a text file</p>
+<h3 id="defining-an-chord"><span class="header-section-number">3.3.2</span> Defining an chord</h3>
+<div class="figure">
+<img src="./img/chorddefinition.png" alt="Definition of chord" />
+<p class="caption">Definition of chord</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Select the boxes on the handle</li>
+<li>selection of the empty strings with a round not played with a cross</li>
+<li>Name of the chosen chord</li>
+<li>Selecting the choice between several possible tuning names</li>
+<li>Notation boxes</li>
+<li>Resulting notation in the define</li>
+<li>Adding the chord to the database</li>
+<li>Green if chord is known in the database</li>
+<li>Green if chordis approved</li>
+</ol>
+<h3 id="managing-chords"><span class="header-section-number">3.3.3</span> Managing chords</h3>
+<div class="figure">
+<img src="./img/chordmanagement.png" alt="Chord management" />
+<p class="caption">Chord management</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>This selector lets you choose a chord, you can also Restrict or order the list of chords using filters 3 and 2</li>
+<li>chords may be sorted according to the name of the chord, the number Fret or index that is the order number of the chord in the database.</li>
+<li>The filter makes it possible to restrict the chords presented by choosing The first letters of the chord in the English language. The Little Cross Next to the edit line allows to erase the name of the fugating chord In the filter.</li>
+<li>Display of the name of the chord, if this name is modified it can be saved. But be careful the name of the deal must be unique. We Will distinguish two chord names by the use of parentheses with For example a notation in Roman numerals of the fret.</li>
+<li>Chord finger display. This fingering can be changed.</li>
+<li>Button to delete the chord</li>
+<li>Button to modify the current chord with the values Entries in boxes 4 and 5</li>
+<li>Display of the chord.</li>
+</ol>
+<h3 id="chord-approval-mode"><span class="header-section-number">3.3.4</span> chord approval mode</h3>
+<div class="figure">
+<img src="./img/chordapprovement.png" alt="Approval of chords" />
+<p class="caption">Approval of chords</p>
+</div>
+<p>Chords can be defined in the song files by Example by Directive</p>
+<pre><code>{Define: Eb95 base-freight 5 frets 5 6 6 5 6 x}</code></pre>
+<p>Such a chord is automatically included in the database, but It will be necessary to approve it so that it is operational.</p>
+<ol style="list-style-type: decimal">
+<li>This selector lets you choose a chord</li>
+<li>The box shows the name of the chord. You can copy this name But not modify it</li>
+<li>The box shows the fingering of the chord that can be copied but not amended.</li>
+<li>The chord may be deleted from the base, in which case the Deleted from the song file, otherwise it will be inserted again.</li>
+<li>The chord may be accepted in the database</li>
+<li>This area allows you to view the chord.</li>
+</ol>
+<h3 id="importing-chords"><span class="header-section-number">3.3.5</span> Importing chords</h3>
+<div class="figure">
+<img src="./img/chordimport.png" alt="Import chords" />
+<p class="caption">Import chords</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>By copying a chord list, with one chord per row, You can import the database. chords should be Be in the form Name = freight</li>
+<li>The button will request the actual import</li>
+</ol>
+<h2 id="conversions"><span class="header-section-number">3.4</span> Conversions</h2>
+<h3 id="chord-conversions-on-2-lines-to-chordpro"><span class="header-section-number">3.4.1</span> Chord conversions on 2 lines to chordpro</h3>
+<h3 id="change-the-chord-language."><span class="header-section-number">3.4.2</span> Change the chord language.</h3>
+<div class="figure">
+<img src="./img/chordlanguageconversion.png" alt="Conversion de la langue des accords" />
+<p class="caption">Conversion de la langue des accords</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Choisir la langue d&#8217;origine ( en g&#233;n&#233;ral elle est positionn&#233;e automatiquement)</li>
+<li>Choisir la lettre pour signifier que l&#8217;accord dans la langue d&#8217;origine est mineur</li>
+<li>Choisir la langue vers laquelle on souhaite convertir les noms d&#8217;accord</li>
+<li>Choisir la lettre pour signifier que l&#8217;accord dans la langue &#224; convertir est mineur</li>
+<li>Cliquer sur convertir</li>
+</ol>
+<h1 id="technical-part"><span class="header-section-number">4</span> Technical part</h1>
+<h2 id="keyboard-shortcuts---mouse-actions"><span class="header-section-number">4.1</span> Keyboard shortcuts - Mouse actions</h2>
+<h3 id="keyboard-shortcuts"><span class="header-section-number">4.1.1</span> Keyboard shortcuts</h3>
+<table style="width:85%;">
+<caption>Keyboard shortcuts</caption>
+<colgroup>
+<col width="18%" />
+<col width="22%" />
+<col width="18%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Shortcuts</th>
+<th align="center">Action</th>
+<th align="center">Shortcut</th>
+<th align="center">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">CTRL + F</td>
+<td align="center">Search</td>
+<td align="center">F1</td>
+<td align="center">Documentation</td>
+</tr>
+<tr class="even">
+<td align="center">CTRL + O</td>
+<td align="center">Preferences</td>
+<td align="center">F2</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">CTRL + R</td>
+<td align="center">Replace</td>
+<td align="center">F3</td>
+<td align="center">Define chords</td>
+</tr>
+<tr class="even">
+<td align="center">CTRL + S</td>
+<td align="center">Save</td>
+<td align="center">F4</td>
+<td align="center">Insert chord</td>
+</tr>
+<tr class="odd">
+<td align="center">CTRL + +</td>
+<td align="center">Zoom +</td>
+<td align="center">F5</td>
+<td align="center">Produce PDF in text mode</td>
+</tr>
+<tr class="even">
+<td align="center">CTRL + -</td>
+<td align="center">Zomr -</td>
+<td align="center">F6</td>
+<td align="center">Produce PDF in text and lyrics mode</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">F7</td>
+<td align="center">Produce PDF in grid mode</td>
+</tr>
+</tbody>
+</table>
+<h2 id="translation-of-the-software-into-a-language"><span class="header-section-number">4.2</span> Translation of the software into a language</h2>
+<h3 id="presentation-3"><span class="header-section-number">4.2.1</span> Presentation</h3>
+<ul>
+<li>You do not need the source codes to translate the software.</li>
+<li>If you go to the system menu of the application, you Find the path of the configuration file for example:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">/home/gilles/.config/ChordV/ChordV.conf</span></code></pre></div>
+<ul>
+<li>in the /home/gilles/.config/ChordV/ directory are the files languages &#8203;&#8203;in the Languages &#8203;&#8203;containing languages written with the name in the translated language. For French it will be found whe name with the cedille exactly as a French could read it.</li>
+<li>Inside the French repertory there are three files
+<ul>
+<li>fr.png: this file is a flag of the language in png format</li>
+<li>fr.ts: this file is the file containing the translation pairs</li>
+<li>fr.qm: this file contains the compiled ts file</li>
+<li>fr.html : the documentation of software translated</li>
+</ul></li>
+</ul>
+<h3 id="translation-of-the-file-fr.ts"><span class="header-section-number">4.2.2</span> Translation of the file fr.ts</h3>
+<ul>
+<li>Create a language directory with the name for example Espa&#241;ol</li>
+<li>Copy the file fr.png to es.pgn</li>
+<li>You can download the linguist program and open the file fr.png</li>
+<li>In linguist save the es.ts file and activate the menu File / Publish ts.qm will be created</li>
+<li>Do not forget to write to the author of the software to Es.ts file so that it is included in the next software distribution</li>
+</ul>
+<h2 id="documentation-of-chord-v"><span class="header-section-number">4.3</span> Documentation of Chord V</h2>
+<h2 id="presentation-4"><span class="header-section-number">4.4</span> Presentation</h2>
+<p>The documentation is accessible in the software via the help menu To the Documentation item.</p>
+<p>This documentation has been automatically From the Markdown to HTML format via the Pandoc program.</p>
+<p>The documentation file is located in the directory cited part <a href="#translation-of-the-software-into-a-language">Translation of the software into a language</a> (# translation-of-software-in-a-language)</p>
+<h3 id="translation-process"><span class="header-section-number">4.4.1</span> Translation Process</h3>
+<p>If you wish to translate the software documentation, you must The md file in the desired language, convert it via a translator Automatic and correct it.</p>
+<p>Beware because the translator tends to transform the codes Md style</p>
+<div class="sourceCode"><pre class="sourceCode md"><code class="sourceCode markdown">! <span class="ot">[The editing window] (./img/ editor.png)</span></code></pre></div>
+<p>in</p>
+<div class="sourceCode"><pre class="sourceCode md"><code class="sourceCode markdown">! <span class="ot">[The editing window] (./img/editor.png)</span></code></pre></div>
+<p>Once the file is translated, you can convert it to html format Via the command (after retrieving the css style sheet on the Internet)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">Pandoc</span> --toc --ascii --smart -N --css = pandoc.css --from = markdown --to = html --output = es.html es.md</code></pre></div>
+<h3 id="images"><span class="header-section-number">4.4.2</span> Images</h3>
+<p>The images are to be included in the img directory of the / es languages &#8203;&#8203;directory, They come from screenshots. If you use gimp you can use The plugin drawnumbers which allows to produce the red pellets.</p>
+<p>It is available at [Draw-number] (xhttp: //www.gillesmaire.com/tiki-index.php page = draw-numbers?)</p>
+<h2 id="compatibility-chordpro"><span class="header-section-number">4.5</span> Compatibility Chordpro</h2>
+<h3 id="introduction-1"><span class="header-section-number">4.5.1</span> Introduction</h3>
+<p>Chord V is designed to produce 4 types of documents at the same time and some chord pro tags are designed for a single use. So we do not want to output the same format for each of the documents, knowing that the booklets of words are perhaps intended to a printed file and the tuning grid files may be be for PDF files for a reader or tablet.</p>
+<p>Chord reads Chordpro &#8203;&#8203;files and knows how to extract ChordPro compatible file.</p>
+<p>Some tags are not used because replaced by the graphical interface.</p>
+<h3 id="compatibility-chordpro-2ii"><span class="header-section-number">4.5.2</span> Compatibility ChordPro 2ii</h3>
+<table style="width:64%;">
+<caption>: List of commands chordpro &#8203;&#8203;2ii</caption>
+<colgroup>
+<col width="38%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">ChordPro 2ii</th>
+<th align="right">Chord V</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">{New_song} {ns}</td>
+<td align="right">Read but replaced by title</td>
+</tr>
+<tr class="even">
+<td align="left">{Title} {t}</td>
+<td align="right">X</td>
+</tr>
+<tr class="odd">
+<td align="left">{Subtitle} {st}</td>
+<td align="right">X</td>
+</tr>
+<tr class="even">
+<td align="left">{Comment: text} {c: text}</td>
+<td align="right">X</td>
+</tr>
+<tr class="odd">
+<td align="left">{Comment_italic: text} {ci:</td>
+<td align="right">text} X</td>
+</tr>
+<tr class="even">
+<td align="left">{Comment_box: text} {cb: tex</td>
+<td align="right">t} X</td>
+</tr>
+<tr class="odd">
+<td align="left">{Start_of_chorus} {soc}</td>
+<td align="right">X</td>
+</tr>
+<tr class="even">
+<td align="left">{End_of_chorus} {eoc}</td>
+<td align="right">X</td>
+</tr>
+<tr class="odd">
+<td align="left">{Start_of_tab} {sot}</td>
+<td align="right">nOn</td>
+</tr>
+<tr class="even">
+<td align="left">{End_of_tab} {eot}</td>
+<td align="right">nOn</td>
+</tr>
+<tr class="odd">
+<td align="left">{Define &#8230;} biEntot</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">{Textfont: fontname} {tf: fo</td>
+<td align="right">ntname} Graphical interface</td>
+</tr>
+<tr class="odd">
+<td align="left">{Textsize: fontsize} {ts: fo</td>
+<td align="right">ntsize} graphic interface</td>
+</tr>
+<tr class="even">
+<td align="left">{Chordfont: fontname} {cf: f</td>
+<td align="right">ontname} Graphical interface</td>
+</tr>
+<tr class="odd">
+<td align="left">{Chordsize: fontsize} {cs: f</td>
+<td align="right">ontsize} graphic interface</td>
+</tr>
+<tr class="even">
+<td align="left">{No_grid} {ng}</td>
+<td align="right">nOn</td>
+</tr>
+<tr class="odd">
+<td align="left">{Grid} {g}</td>
+<td align="right">nOn</td>
+</tr>
+<tr class="even">
+<td align="left">{Titles: flush}</td>
+<td align="right">nOn</td>
+</tr>
+<tr class="odd">
+<td align="left">{New_page} {np}</td>
+<td align="right">ASAP</td>
+</tr>
+<tr class="even">
+<td align="left">{New_physical_page} {npp}</td>
+<td align="right">nOn</td>
+</tr>
+<tr class="odd">
+<td align="left">{Columns: number} {col: numb</td>
+<td align="right">er} X</td>
+</tr>
+<tr class="even">
+<td align="left">{Column_break} {colb}</td>
+<td align="right">X</td>
+</tr>
+<tr class="odd">
+<td align="left">{Pageize: type} {papersize:</td>
+<td align="right">type} Graphical interface</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
