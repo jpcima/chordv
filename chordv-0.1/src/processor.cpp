@@ -17,6 +17,7 @@
 using namespace PoDoFo;
 
 
+
 Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
 {
     m_uiconfig=ui2;
@@ -528,7 +529,8 @@ bool Processor::isColBreak(QString line)
 void Processor::NextLine(int num )
 {
     double vs=m_uiconfig->comboBoxVerticalSpacing->currentData().toDouble();
-    if (  m_line - 2*m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*vs  - 2 * num > m_uiconfig->spuVerticalMargin->getPdfU())
+    if (  m_line - 2*m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*vs  - 2 * num >
+          m_uiconfig->spuVerticalMargin->getPdfU())
     {
         m_line-=m_uiconfig->toolButtonNormalFont->getFont().pointSizeF()*vs+num;
     }

@@ -13,12 +13,7 @@ List of  todo
 Lyrics mode
 ------------
 
-1 - Not enough space when no chord on line (perhaps the main problem)
 2 - End of chorus to keep or delete
-6 - On jean le Libertin chord problem
-8 - Diagram in text : respect of column
-9 - Diagram in text : respect of page size
-12 -BreaklIne suppressed in Bologne
 
 
 PDF Chord :

@@ -9,7 +9,7 @@
 
 ///
 /// \brief The ProcessorLyrics class allows to print lyrics and chord on booklet
-/// the chord can be printed with their name or with the diagram of chord inside text
+/// the chord can be printed with its name or with the diagram of chord inside text
 ///
 class ProcessorLyrics : public Processor
 {

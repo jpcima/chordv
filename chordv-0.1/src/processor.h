@@ -14,8 +14,13 @@
 #include <podofo/podofo.h>
 #include <podofo/podofo-base.h>
 
-
-
+///
+/// \brief Processor::Processor is the parent class for chordprocessor, lyricsprocessor
+/// and textprocessor. This class is in charge to make PDF common for all of the booklet modes.
+/// \param ui1 : a pointer on UI::MainWindow with all the MainWindow graphics elements
+/// \param ui2 : a pointer on UI::FormConfig containing a the FormConfig repeated and modified
+/// for each type of booklet
+///
 class Processor : public QObject
 
 {

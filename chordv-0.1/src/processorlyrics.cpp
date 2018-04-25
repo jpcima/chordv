@@ -45,7 +45,7 @@ void ProcessorLyrics::displayLyrics()
             m_line=m_initialhposition;
           }
     }
-
+    int lastnum=0;
     foreach (QString text,m_BufLyrics)
     {
         int num=0;
@@ -101,7 +101,7 @@ void ProcessorLyrics::displayLyrics()
                      Text(m_document,c1,col,m_line+num,m_uiconfig->toolButtonChordFont);
                    positionchord=col+lenght;
                }
-            else
+            else // Diagram in text
                {
                 num = m_uiconfig->spuChordHorizontalSize->getPdfU()+m_uiconfig->toolButtonChordFont->getFont().pointSizeF()*1.2;
                 int col1=col-m_uiconfig->spuChordHorizontalSize->getPdfU()/2;
@@ -124,7 +124,9 @@ void ProcessorLyrics::displayLyrics()
           Text(m_document,text,col,m_line,m_uiconfig->toolButtonNormalFont);
           }
         }
+        if ( num ==0 && ! text.replace(" ","").isEmpty() && text!=tr("Refrain :") &&!text.contains(QRegExp("^\\{(Column_break|colb)"))) num=lastnum;
         NextLine(num);
+        lastnum=num;
     }
 }
 
