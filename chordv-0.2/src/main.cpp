@@ -34,9 +34,8 @@ int main(int argc, char *argv[])
     QFileInfo fi(filename);
 
     QString databasefile=fi.absolutePath()+"/Chord.db";
-    qWarning()<<fi.absolutePath();
-    QDir dir(fi.absoluteFilePath());
-    if ( ! dir.exists() ) dir.mkpath(fi.absoluteFilePath());
+    QDir dir(fi.absolutePath());
+    if ( ! dir.exists() ) dir.mkpath(fi.absolutePath());
     QFileInfo fidb(databasefile);
     if  (! fidb.exists())
         QFile::copy(":/Base/Bd/Chord.db",databasefile);

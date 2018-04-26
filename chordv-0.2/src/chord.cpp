@@ -251,7 +251,6 @@ QString Chord::getNote(QString chord)
 {
     chord.replace("[","");
     chord.replace("]","");
-    QStringList ret;
     foreach ( QString lang, Language::ListLanguage())
     {
         foreach ( QString note, Language::ListNotes(lang) )
@@ -265,7 +264,7 @@ QString Chord::getNote(QString chord)
 }
 
 
-QString Chord::getMinor(QString chord)
+QString Chord::getMinor(QString )
 {
     return "-";
 }

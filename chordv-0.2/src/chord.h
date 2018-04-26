@@ -117,10 +117,8 @@ public:
     QString down();
     ///
     /// \brief transpose : transpose a chord
+    /// \param chordinenglish : the chord in english language
     /// \param degre : number of fret
-    /// \param parentheses : true of false : false you will not get the fret
-    /// \param minfrom : minor symbol from
-    /// \param minto : minor symbol to
     /// \return  : the transposed chord
     ///
     static QString transpose(QString chordinenglish,int degre);
@@ -131,7 +129,6 @@ public:
     /// QStringList can be empty if no codelang is found or can contains many codelang if the chord
     /// correspond to many languages.
     /// \param chord : a QString like [A(III)] [A] or [Dx2] or [Lam:2] always given between brakets
-    /// \param degre : number of degre to transpose
     /// \return the list of codelangs found
     ///
     static QStringList getCodeLang( QString chord);

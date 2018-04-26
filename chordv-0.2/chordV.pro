@@ -139,8 +139,8 @@
         src/dialognewsong.ui
 
  #    LIBS += -LLibraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
-    LIBS += -LLibraries/lib -L/usr/lib -Bdynamic -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
-    INCLUDEPATH = Libraries/include  ./src
+    LIBS += -Bdynamic -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+    INCLUDEPATH = ./src
 
 
     TRANSLATIONS=translations/fr.ts
@@ -168,7 +168,8 @@
         Docs/img/fr/fontselection.png \
         Docs/img/fr/preferencetext.png \
         Docs/img/fr/preferencestextcontent.png \
-        Docs/img/fr/editor.png
+        Docs/img/fr/editor.png \
+    Install/README.md
 
     RESOURCES += \
         Resources/resources.qrc

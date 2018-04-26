@@ -2,17 +2,27 @@ How make installers
 ===================
 
 
-
-Linux Debian 
+Linux Debian
 ------------
 
 - Installation for debian 
 - debhelper and dh-make must be installed
 
 ~~~bash
-sudo apt-get install debhelper dh-make
+apt-get install debhelper dh-make
 ~~~
 
+- Qt must be installed
+
+~~~bash
+apt install qtdeclarative-dev qt5-default qtdevtool5-dev-tools
+~~~
+
+- LibPodof must be installed
+
+~~~bash
+apt install libpodofo-0.9 libpodofo-dev
+~~~
 
 - The Debian rep contains incormations ( control, changes, etc).
 - on each distribution you have to maintains this files
@@ -36,6 +46,7 @@ dch -v 3.0
 - after
 
 ~~~
+apt install pandoc texlive-xetex
 cd Docs
 make
 cd ../translations
@@ -44,6 +55,7 @@ lrelease fr.ts
 
 
 ~~~bash
+cd ..
 dpkg-buildpackage -uc -us
 ~~~
 

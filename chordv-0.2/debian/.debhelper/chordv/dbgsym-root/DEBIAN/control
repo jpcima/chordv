@@ -5,9 +5,9 @@ Version: 0.2
 Auto-Built-Package: debug-symbols
 Architecture: amd64
 Maintainer: Gilles Maire <gilles@gillesmaire.com>
-Installed-Size: 8444
+Installed-Size: 8448
 Depends: chordv (= 0.2)
 Section: debug
-Priority: extra
-Description: Debug symbols for chordv
-Build-Ids: c9c54d364bb1961026a332102e00ec1a45be6618
+Priority: optional
+Description: debug symbols for chordv
+Build-Ids: 7ab64076fa3600651b3451c0f00389fb28b6d400

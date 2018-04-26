@@ -280,7 +280,8 @@ protected:
     double ImagePosition();
     ///
     /// \brief Text
-    /// \param text
+    /// \param doc :
+    /// \param text :
     /// \param x : if left it is the start of print, if center it is the center point, it left it is end of print
     /// \param y : the y point
     /// \param fb : ButtonFont containing informations about Font, color etc...
