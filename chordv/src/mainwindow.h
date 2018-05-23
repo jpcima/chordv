@@ -165,6 +165,7 @@ private slots:
     void ChangeChordLang();
     void AskSaveOnQuit();
     void TransposeChords();
+    void LoadDemoFile();
 };
 
 #endif // MAINWINDOW_H

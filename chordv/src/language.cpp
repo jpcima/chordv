@@ -52,6 +52,18 @@ QString Language::getTranslationDocFileName(QString language)
     else return QString();
 }
 
+QString Language::getTranslationDemoFileName(QString language)
+{
+    QString datadir(DATADIR);
+    QString dirname=datadir+"/Languages/"+language;
+    QDir d(dirname);
+    QStringList filter;
+    filter<<"*.demo";
+    QFileInfoList fi=d.entryInfoList(filter);
+    if (fi.count()>=1)
+        return fi.at(0).absoluteFilePath();
+    else return QString();
+}
 
 
 void Language::setLanguageComboBox(QComboBox *ptr)

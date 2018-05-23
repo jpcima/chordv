@@ -115,6 +115,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionDocumentation,SIGNAL(triggered(bool)),this,SLOT(Documentation()));
     connect(ui->stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(ShowStacked(int)));
     connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(AskSaveOnQuit()));
+    connect (ui->actionLoad_demo_file,SIGNAL(triggered(bool)),this,SLOT(LoadDemoFile()));
 
 
     QString file=getFileInArg();
@@ -841,5 +842,16 @@ void MainWindow::TransposeChords()
    ui->textEditCho3File->setChordLanguage(ui->comboBoxChordLanguage->currentText());
    connect(&dial,SIGNAL(AskChange(int,int)),ui->textEditCho3File,SLOT(TransposeChord(int,int)));
    dial.exec();
+}
+
+void MainWindow::LoadDemoFile()
+{
+    QSettings s;
+    QString language=s.value("InterfaceLanguage").toString();
+    if (language.isEmpty()) language="English";
+
+    QString filename=Language::getTranslationDemoFileName(language);
+    openProject(filename);
 
 }
+

@@ -94,5 +94,11 @@ public:
     /// \return a QStringList
     ///
     static QStringList ListCodeLang();
+    ///
+    /// \brief getTranslationDemoFileName return  the name of demo file
+    /// \param language
+    /// \return
+    ///
+    static QString getTranslationDemoFileName(QString language);
 };
 #endif // LANGUAGE_H

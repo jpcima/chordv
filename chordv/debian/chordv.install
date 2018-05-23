@@ -14,4 +14,6 @@ Docs/txt/fr/fr.md /usr/share/chordV/Languages/Français
 Docs/txt/en/en.md /usr/share/chordV/Languages/English
 Docs/html/fr/img /usr/share/chordV/Languages/Français
 Docs/html/en/img /usr/share/chordV/Languages/English
+Example/fr.demo /usr/share/chordV/Languages/Français
+Example/en.demo /usr/share/chordV/Languages/English
 
