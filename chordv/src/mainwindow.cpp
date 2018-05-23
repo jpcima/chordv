@@ -17,7 +17,6 @@
 #include "formconfig.h"
 #include "textconfig.h"
 #include "memoryconfig.h"
-#include "formconfig.h"
 #include "chord.h"
 
 
@@ -199,7 +198,6 @@ void MainWindow::InitDefault()
 {
     ui->widgetChordMode->InitDefault(FormConfig::Chord);
     ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
-    ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
 }
 
@@ -371,9 +369,6 @@ void MainWindow::openProject(QString filename)
     ui->widgetLyricsMode->SetConfigFromFile(filename);
     ui->widgetLyricsMode->InitDefault(FormConfig::Lyrics);
     ui->widgetLyricsMode->setProjectPath(m_currentprojectdir);
-    ui->widgetMemoryMode->SetConfigFromFile(filename);
-    ui->widgetMemoryMode->InitDefault(FormConfig::Memory);
-    ui->widgetMemoryMode->setProjectPath(m_currentprojectdir);
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault(FormConfig::Text);
     ui->widgetTextMode->setProjectPath(m_currentprojectdir);
@@ -420,7 +415,6 @@ void MainWindow::Save(QString filename)
     ui->widgetChordMode->Save(filename,FormConfig::Chord);
     ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
     ui->widgetTextMode->Save(filename,FormConfig::Text);
-    ui->widgetMemoryMode->Save(filename,FormConfig::Memory);
     m_initialbuffer=ui->textEditCho3File->document()->toPlainText();
 }
 
@@ -451,7 +445,6 @@ void MainWindow::Save(bool)
     ui->widgetChordMode->Save(m_currentprojectfile,FormConfig::Chord);
     ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);
     ui->widgetTextMode->Save(m_currentprojectfile,FormConfig::Text);
-    ui->widgetMemoryMode->Save(m_currentprojectfile,FormConfig::Memory);
 }
 
 
@@ -648,7 +641,6 @@ void MainWindow::ChangeLanguage(QString )
     ui->retranslateUi(this);
     ui->widgetChordMode->Retranslate();
     ui->widgetLyricsMode->Retranslate();
-    ui->widgetMemoryMode->Retranslate();
     ui->widgetTextMode->Retranslate();
     ui->textEditCho3File->retranslate();
 }

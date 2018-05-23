@@ -101,7 +101,6 @@ void DialogConfiguration::Save()
    s.setValue("CreatorName",ui->lineEditCreatoName->text());
    s.setValue("PDFReader",ui->lineEditPDFReaderName->text());
    s.setValue("OpenLastFileOnStart",ui->checkBoxOpenLastFileOnStart->isChecked());
-   ui->memoryConfig->Save(s.fileName(),FormConfig::Memory);
    ui->chordConfig->Save(s.fileName(),FormConfig::Chord);
    ui->textConfig->Save(s.fileName(),FormConfig::Text);
    ui->lyricsConfig->Save(s.fileName(),FormConfig::Lyrics);
