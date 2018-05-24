@@ -278,70 +278,7 @@
                <item>
                 <layout class="QVBoxLayout" name="verticalLayout_10">
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_3">
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_9">
-                     <item>
-                      <widget class="QLabel" name="labelFontMemory">
-                       <property name="text">
-                        <string>Memory font</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="labelPositionMemory">
-                       <property name="text">
-                        <string>Position</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_7">
-                     <item>
-                      <widget class="FontButton" name="toolButtonFontMemory">
-                       <property name="text">
-                        <string>...</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QComboBox" name="comboBoxPositionMemory">
-                       <item>
-                        <property name="text">
-                         <string>Top</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Middle</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>Bottom</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBoxFullScreenMemory">
-                   <property name="text">
-                    <string>Full screen</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBoxScrollingTextMemory">
-                   <property name="text">
-                    <string>Scrolling text</string>
-                   </property>
-                  </widget>
+                  <widget class="FormMemoryInfo" name="widgetMemory" native="true"/>
                  </item>
                 </layout>
                </item>
@@ -884,9 +821,10 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>FontButton</class>
-   <extends>QToolButton</extends>
-   <header>fontbutton.h</header>
+   <class>FormMemoryInfo</class>
+   <extends>QWidget</extends>
+   <header>formmemoryinfo.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

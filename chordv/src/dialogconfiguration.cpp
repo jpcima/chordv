@@ -91,10 +91,6 @@ void DialogConfiguration::InitSettings()
     ui->lineEditCreatoName->setText(s.value("CreatorName","").toString());
     ui->lineEditPDFReaderName->setText(s.value("PDFReader","").toString());
     ui->checkBoxOpenLastFileOnStart->setChecked(s.value("OpenLastFileOnStart",false).toBool());
-    ui->checkBoxFullScreenMemory->setChecked(s.value("FullScreenBoxMemory",false).toBool());
-    ui->checkBoxScrollingTextMemory->setChecked(s.value("ScrollingTextMemory",false).toBool());
-    ui->comboBoxPositionMemory->setCurrentIndex(s.value("PositionMemory",0).toInt());
-//    ui->toolButtonFontMemory->set->setColor(s.value);
 }
 
 void DialogConfiguration::Save()
@@ -105,12 +101,11 @@ void DialogConfiguration::Save()
    s.setValue("CreatorName",ui->lineEditCreatoName->text());
    s.setValue("PDFReader",ui->lineEditPDFReaderName->text());
    s.setValue("OpenLastFileOnStart",ui->checkBoxOpenLastFileOnStart->isChecked());
-   s.setValue("FullScreenBoxMemory", ui->checkBoxFullScreenMemory->isChecked());
-   s.setValue("ScrollingTextMemory", ui->checkBoxScrollingTextMemory->isChecked());
-   s.setValue("PositionMemory",ui->comboBoxPositionMemory->currentIndex());
+
    ui->chordConfig->Save(s.fileName(),FormConfig::Chord);
    ui->textConfig->Save(s.fileName(),FormConfig::Text);
    ui->lyricsConfig->Save(s.fileName(),FormConfig::Lyrics);
+   ui->widgetMemory->Save();
 
    close();
 }
