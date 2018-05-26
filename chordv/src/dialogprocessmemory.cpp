@@ -7,7 +7,7 @@
 #include <QRegExp>
 #include <QTimer>
 
-DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background):
+DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background, bool fullScreen):
 QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
@@ -19,11 +19,19 @@ ui(new Ui::DialogProcessMemory)
     m_countrythm=1;
     QRect rect=qApp->desktop()->geometry();
     QFontMetrics fm(font);
-    int H2=fm.height();
-    if (position ==0 ) setGeometry(0,0,rect.width(),2*H2);
-    else if  ( position==1 ) setGeometry(0,rect.height()/2-H2,rect.width(),H2*2);
-    else setGeometry(0,rect.height()-H2*2,rect.width(),H2*2);
+    if ( fullScreen )
+    {
+        setGeometry(0,0,rect.width(),rect.height());
+    }
+    else
+    {
+       int H2=fm.height();
+       if (position ==0 ) setGeometry(0,0,rect.width(),2*H2);
+       else if  ( position==1 ) setGeometry(0,rect.height()/2-H2,rect.width(),H2*2);
+       else setGeometry(0,rect.height()-H2*2,rect.width(),H2*2);
+    }
     if ( ! m_showrythm ) ui->labelTimeBullet->setVisible(false);
+
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     setStyleSheet(QString("background-color:%1;color:%2;").arg(m_backgroundcolor.name()).arg(m_textcolor.name()));
     ui->labelText1->setFont(m_font);
@@ -198,7 +206,7 @@ int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
             bool ok;
             int nb=chord2.cap(1).toInt(&ok);
             if ( ok )
-            if (chord.contains(chord2)) number+=nb;
+               number+=nb;
             else number+=timeup;
         }
         else number+=timeup;

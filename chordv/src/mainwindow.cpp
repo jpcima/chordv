@@ -884,7 +884,8 @@ void MainWindow::LaunchMemory()
                                                           ui->widgetMemory->getPosition(),
                                                           title,ui->widgetMemory->getShowRythm(),
                                                           ui->widgetMemory->getFont(),
-                                                          ui->widgetMemory->getTextColor(),ui->widgetMemory->getBackgroundColor()
+                                                          ui->widgetMemory->getTextColor(),ui->widgetMemory->getBackgroundColor(),
+                                                          ui->widgetMemory->getFullscreenMode()
                                                           );
 
     memory->exec();
