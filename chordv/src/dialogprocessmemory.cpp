@@ -5,24 +5,44 @@
 #include <QDesktopWidget>
 #include <QDebug>
 #include <QRegExp>
+#include <QTimer>
 
-DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool scrolling,  QFont font, QColor text, QColor background):
+DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background):
 QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
     ui->setupUi(this);
+    m_font=font;
+    m_showrythm=showrythm;
+    m_textcolor=textcolor;
+    m_backgroundcolor=background;
+    m_countrythm=1;
     QRect rect=qApp->desktop()->geometry();
     QFontMetrics fm(font);
     int H2=fm.height();
     if (position ==0 ) setGeometry(0,0,rect.width(),2*H2);
     else if  ( position==1 ) setGeometry(0,rect.height()/2-H2,rect.width(),H2*2);
     else setGeometry(0,rect.height()-H2*2,rect.width(),H2*2);
-
+    if ( ! m_showrythm ) ui->labelTimeBullet->setVisible(false);
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    setStyleSheet(QString("background-color:%1;").arg(background.name()));
+    setStyleSheet(QString("background-color:%1;color:%2;").arg(m_backgroundcolor.name()).arg(m_textcolor.name()));
+    ui->labelText1->setFont(m_font);
+    ui->labelText2->setFont(m_font);
     m_nblinecouplet=0;
     m_nblinerefrain=0;
     getInfo(songs,title);
+    m_indice=0;
+    m_timer=0;
+    m_timerclearrythm=0;
+    displaySong();
+    if ( m_showrythm)
+    {
+        m_timerrythm = new QTimer ;
+        connect(m_timerrythm, SIGNAL(timeout()), this, SLOT(showRythm()));
+        m_timerrythm->setInterval(m_msecPerBar);
+        qDebug()<<m_msecPerBar;
+        m_timerrythm->start();
+    }
 }
 
 DialogProcessMemory::~DialogProcessMemory()
@@ -42,10 +62,9 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
     QRegExp OtherREX("^ *\\{");
     QStringList buf=songs.split("\n");
     bool found=false;
-    int tempo=120;
-     m_msecPerBar=MillisecondPerBeat(tempo);
-    int timeup=4;
-    int timedown=4;
+    m_tempo=120;
+    m_msecPerBar=MillisecondPerBeat(m_tempo);
+    m_timeup=4;
     bool chorus=false;
     bool refrain=false;
     bool firstcouplet=false;
@@ -53,6 +72,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
     bool refrainmade=false;
     int coupletindex=0;
     m_nblyrics=0;
+    ui->labelText1->setFont(m_font);
     foreach ( QString line, buf)
     {
         if ( line.contains(TitleREX))
@@ -65,13 +85,12 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
         {
             if ( line.contains(TempoREX))
             {
-                tempo=TempoREX.cap(1).toInt();
-                 m_msecPerBar=MillisecondPerBeat(tempo);
+                m_tempo=TempoREX.cap(1).toInt();
+                m_msecPerBar=MillisecondPerBeat(m_tempo);
             }
             else if ( line.contains(TimeREX))
             {
-                timeup=TimeREX.cap(1).toInt();
-                timedown=TimeREX.cap(2).toInt();
+                m_timeup=TimeREX.cap(1).toInt();
             }
             else if (line.contains(SocREX))
                 chorus=true;
@@ -105,11 +124,16 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                 }
             }
             else if (chorus)
-                qWarning()<<"chorus"<<line ;
+            {
+             m_nblyrics++;
+             int nbbeat=getNumberOfBeat(line,m_timeup);
+             m_lyrics[m_nblyrics]="...";
+             m_seconds[m_nblyrics]=m_msecPerBar*nbbeat;
+            }
             else if ( refrain )
             {
                 m_nblinerefrain++;
-                int nbbeat=getNumberOfBeat(line,timeup);
+                int nbbeat=getNumberOfBeat(line,m_timeup);
                 m_refrainnbbeat[m_nblinerefrain]=nbbeat;
                 m_refrain<<line;
                 m_nblyrics++;
@@ -124,7 +148,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                 {
                     firstcouplet=true;
                     m_nblinecouplet++;
-                    int nbbeat=getNumberOfBeat(line,timeup);
+                    int nbbeat=getNumberOfBeat(line,m_timeup);
                     m_coupletnbbeat[m_nblinecouplet]=nbbeat;
                     m_nblyrics++;
                     m_lyrics[m_nblyrics]=line;
@@ -142,17 +166,12 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
            }
         }
     }
-    foreach ( int i, m_lyrics.keys())
-    {
-        qWarning()<<m_lyrics[i];
-        qWarning()<<m_seconds[i];
-    }
 
 }
 
 int DialogProcessMemory::MillisecondPerBeat( int tempo )
 {
-    return 6000  / tempo;
+    return 60000  / tempo;
 }
 
 int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
@@ -185,4 +204,53 @@ int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
         else number+=timeup;
     }
     return number;
+}
+
+
+void DialogProcessMemory::displaySong()
+{
+    m_indice++;
+    if (m_timer!=0) delete(m_timer);
+    if ( m_indice <= m_nblyrics)
+        displayLine();
+    else
+    {
+        QTimer *timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(close()));
+        timer->start(3000);
+    }
+}
+
+void DialogProcessMemory::displayLine()
+{
+    ui->labelText1->setText(m_lyrics[m_indice]);
+    if ( m_indice+1 <= m_nblyrics) ui->labelText2->setText(m_lyrics[m_indice+1]);
+    else ui->labelText2->setText(">");
+    if ( m_indice != m_nblyrics)
+    {
+      m_timer = new QTimer;
+      connect(m_timer, SIGNAL(timeout()), this, SLOT(displaySong()));
+      m_timer->start(m_seconds[m_indice]);
+    }
+}
+
+void DialogProcessMemory::showRythm()
+{
+    if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap("../Images/redbull.png"));
+    else ui->labelTimeBullet->setPixmap(QPixmap("../Images/greenbull.png"));
+    m_countrythm++;
+    if ( m_timerclearrythm != 0 ) delete m_timerclearrythm;
+    qWarning()<<m_indice<<m_nblyrics;
+    if (  m_indice <= m_nblyrics)
+    {
+       m_timerclearrythm = new QTimer;
+       connect(m_timerclearrythm, SIGNAL(timeout()), this, SLOT(eraseBull()));
+       m_timerclearrythm->start(300);
+    }
+    else delete m_timerrythm;
+}
+
+void DialogProcessMemory::eraseBull()
+{
+    ui->labelTimeBullet->setPixmap(QPixmap());
 }

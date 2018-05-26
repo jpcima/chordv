@@ -10,6 +10,8 @@
         <file>../Images/task-complete.png</file>
         <file>../Images/task-reject.png</file>
         <file>../Images/logo.svg</file>
+        <file>../Images/greenbull.png</file>
+        <file>../Images/redbull.png</file>
     </qresource>
     <qresource prefix="/Base">
         <file>../Bd/Chord.db</file>

@@ -882,7 +882,7 @@ void MainWindow::LaunchMemory()
     this->hide();
     DialogProcessMemory *memory = new DialogProcessMemory(this,ui->textEditCho3File->document()->toPlainText(),
                                                           ui->widgetMemory->getPosition(),
-                                                          title,ui->widgetMemory->getScrollingText(),
+                                                          title,ui->widgetMemory->getShowRythm(),
                                                           ui->widgetMemory->getFont(),
                                                           ui->widgetMemory->getTextColor(),ui->widgetMemory->getBackgroundColor()
                                                           );

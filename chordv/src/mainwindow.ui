@@ -609,6 +609,9 @@
    <property name="text">
     <string>&amp;Memory mode</string>
    </property>
+   <property name="shortcut">
+    <string>F8</string>
+   </property>
   </action>
   <action name="actionSelectEditor">
    <property name="checkable">

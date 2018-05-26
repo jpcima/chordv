@@ -54,7 +54,7 @@ public:
     /// \brief getScrollingText return selected text color
     /// \return
     ///
-    bool getScrollingText();
+    bool getShowRythm();
     ///
     /// \brief getFullscreenMode return true if scrolling text is asked
     /// \return

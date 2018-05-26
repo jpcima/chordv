@@ -76,9 +76,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QCheckBox" name="checkBoxScrollingTextMemory">
+      <widget class="QCheckBox" name="checkBoxShowRythmTextMemory">
        <property name="text">
-        <string>Scrolling text</string>
+        <string>Show rythm</string>
        </property>
       </widget>
      </item>

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 #include <QMap>
+#include <QTimer>
+
 
 namespace Ui {
 class DialogProcessMemory;
@@ -13,13 +15,20 @@ class DialogProcessMemory : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool scrolling, QFont font, QColor text, QColor background);
+    explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, QFont font, QColor text, QColor background);
     ~DialogProcessMemory();
 
+private slots:
+    void displaySong();
+    void showRythm();
+    void eraseBull();
 private:
     Ui::DialogProcessMemory *ui;
     int m_tempo;
-    int m_time;
+    int m_timeup;
+    QTimer *m_timer;
+    QTimer *m_timerrythm;
+    QTimer *m_timerclearrythm;
     QMap <int,int> m_seconds;
     QMap <int,QString> m_lyrics;
     QStringList m_refrain;
@@ -28,8 +37,13 @@ private:
     int m_nblinecouplet;
     int m_nblinerefrain;
     int m_nblyrics;
-
+    bool m_showrythm;
+    QFont m_font;
+    QColor m_textcolor;
+    QColor m_backgroundcolor;
     int m_msecPerBar;
+    int m_indice;
+    int m_countrythm;
     ///
     /// \brief getInfo get all the information in song file, about the song named title
     /// \param songs : the whole songs buffer
@@ -45,6 +59,7 @@ private:
     ///
     int MillisecondPerBeat(int tempo);
     int getNumberOfBeat(QString &line, int timeup);
+    void displayLine();
 };
 
 #endif // DIALOGPROCESSMEMORY_H

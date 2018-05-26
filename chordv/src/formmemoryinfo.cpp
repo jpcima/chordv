@@ -17,7 +17,7 @@ void FormMemoryInfo::Init()
 {
     QSettings s;
     ui->checkBoxFullScreenMemory->setChecked(s.value("Memory/FullScreenBoxMemory",false).toBool());
-    ui->checkBoxScrollingTextMemory->setChecked(s.value("Memory/ScrollingTextMemory",false).toBool());
+    ui->checkBoxShowRythmTextMemory->setChecked(s.value("Memory/ShowRythmMemory",false).toBool());
     ui->comboBoxPositionMemory->setCurrentIndex(s.value("Memory/PositionMemory",0).toInt());
     ui->toolButtonFontMemory->setColor(QColor(s.value("Memory/FontColor","black").toString()));
     ui->toolButtonFontMemory->setBackgroundColor(QColor(s.value("Memory/BackgroundColor","white").toString()));
@@ -32,7 +32,7 @@ void FormMemoryInfo::Save()
 {
     QSettings s;
     s.setValue("Memory/FullScreenBoxMemory", ui->checkBoxFullScreenMemory->isChecked());
-    s.setValue("Memory/ScrollingTextMemory", ui->checkBoxScrollingTextMemory->isChecked());
+    s.setValue("Memory/ShowRythmMemory", ui->checkBoxShowRythmTextMemory->isChecked());
     s.setValue("Memory/PositionMemory",ui->comboBoxPositionMemory->currentIndex());
     s.setValue("Memory/Font",ui->toolButtonFontMemory->getFont().toString());
     s.setValue("Memory/FontColor",ui->toolButtonFontMemory->getTextColor().name());
@@ -55,9 +55,9 @@ QColor FormMemoryInfo::getTextColor()
     return ui->toolButtonFontMemory->getTextColor();
 }
 
-bool FormMemoryInfo::getScrollingText()
+bool FormMemoryInfo::getShowRythm()
 {
-    return ui->checkBoxScrollingTextMemory->isChecked();
+    return ui->checkBoxShowRythmTextMemory->isChecked();
 }
 
 bool FormMemoryInfo::getFullscreenMode()
