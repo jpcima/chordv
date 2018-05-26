@@ -33,9 +33,11 @@ ui(new Ui::DialogProcessMemory)
     if ( ! m_showrythm ) ui->labelTimeBullet->setVisible(false);
 
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    setStyleSheet(QString("background-color:%1;color:%2;").arg(m_backgroundcolor.name()).arg(m_textcolor.name()));
+    setStyleSheet(QString("background-color:%1").arg(m_backgroundcolor.name()));
     ui->labelText1->setFont(m_font);
+    ui->labelText1->setStyleSheet(QString("color:%1;").arg(m_textcolor.name()));
     ui->labelText2->setFont(m_font);
+    ui->labelText2->setStyleSheet(QString("color:%1;").arg(getColorBetween(m_backgroundcolor, m_textcolor).name()));
     if ( ! twolines) ui->labelText2->setVisible(false);
     m_nblinecouplet=0;
     m_nblinerefrain=0;
@@ -264,4 +266,13 @@ void DialogProcessMemory::showRythm()
 void DialogProcessMemory::eraseBull()
 {
     ui->labelTimeBullet->setPixmap(QPixmap());
+}
+
+
+QColor DialogProcessMemory::getColorBetween(QColor color1, QColor color2)
+{
+    int r1,g1,b1,r2,g2,b2;
+    color1.getRgb(&r1,&g1,&b1);
+    color2.getRgb(&r2,&g2,&b2);
+    return QColor((r1+r2)/2,(g1+g2)/2,(b1+b2)/2);
 }

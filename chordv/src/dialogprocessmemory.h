@@ -60,6 +60,7 @@ private:
     int MillisecondPerBeat(int tempo);
     int getNumberOfBeat(QString &line, int timeup);
     void displayLine();
+    QColor getColorBetween(QColor color1, QColor color2);
 };
 
 #endif // DIALOGPROCESSMEMORY_H
