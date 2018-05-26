@@ -66,6 +66,7 @@ public:
     ///
     int getPosition();
 
+    bool getShowTwoLines();
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
 };

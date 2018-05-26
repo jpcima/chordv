@@ -7,7 +7,7 @@
 #include <QRegExp>
 #include <QTimer>
 
-DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background, bool fullScreen):
+DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines):
 QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
@@ -36,6 +36,7 @@ ui(new Ui::DialogProcessMemory)
     setStyleSheet(QString("background-color:%1;color:%2;").arg(m_backgroundcolor.name()).arg(m_textcolor.name()));
     ui->labelText1->setFont(m_font);
     ui->labelText2->setFont(m_font);
+    if ( ! twolines) ui->labelText2->setVisible(false);
     m_nblinecouplet=0;
     m_nblinerefrain=0;
     getInfo(songs,title);
