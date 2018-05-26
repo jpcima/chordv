@@ -12,6 +12,7 @@ QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
     ui->setupUi(this);
+    m_stop=false;
     m_font=font;
     m_showrythm=showrythm;
     m_textcolor=textcolor;
@@ -54,6 +55,7 @@ ui(new Ui::DialogProcessMemory)
         qDebug()<<m_msecPerBar;
         m_timerrythm->start();
     }
+    connect (this,SIGNAL(rejected()),this,SLOT(Close()));
 }
 
 DialogProcessMemory::~DialogProcessMemory()
@@ -253,7 +255,6 @@ void DialogProcessMemory::showRythm()
     else ui->labelTimeBullet->setPixmap(QPixmap("../Images/greenbull.png"));
     m_countrythm++;
     if ( m_timerclearrythm != 0 ) delete m_timerclearrythm;
-    qWarning()<<m_indice<<m_nblyrics;
     if (  m_indice <= m_nblyrics)
     {
        m_timerclearrythm = new QTimer;
@@ -275,4 +276,12 @@ QColor DialogProcessMemory::getColorBetween(QColor color1, QColor color2)
     color1.getRgb(&r1,&g1,&b1);
     color2.getRgb(&r2,&g2,&b2);
     return QColor((r1+r2)/2,(g1+g2)/2,(b1+b2)/2);
+}
+
+
+void DialogProcessMemory::Close()
+{
+    delete m_timer;
+    delete m_timerclearrythm;
+    delete m_timerrythm;
 }

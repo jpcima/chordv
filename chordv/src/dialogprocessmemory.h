@@ -22,8 +22,10 @@ private slots:
     void displaySong();
     void showRythm();
     void eraseBull();
+    void Close();
 private:
     Ui::DialogProcessMemory *ui;
+    bool m_stop;
     int m_tempo;
     int m_timeup;
     QTimer *m_timer;
