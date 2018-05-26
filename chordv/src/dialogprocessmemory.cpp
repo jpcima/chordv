@@ -224,6 +224,8 @@ void DialogProcessMemory::displaySong()
         displayLine();
     else
     {
+        delete m_timerclearrythm;
+        delete m_timerrythm;
         QTimer *timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(close()));
         timer->start(3000);
