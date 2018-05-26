@@ -69,6 +69,7 @@ public:
     bool getShowTwoLines();
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
+    void SetUnsetPosition();
 };
 
 #endif // FORMMEMORYINFO_H

@@ -9,7 +9,9 @@ FormMemoryInfo::FormMemoryInfo(QWidget *parent) :
 {
     ui->setupUi(this);
     Init();
+    SetUnsetPosition();
     connect (ui->toolButtonFontMemory,SIGNAL(sendSelectedFont(QFont,QColor,QColor)), this,SLOT(ShowSelectedFont(QFont,QColor,QColor)));
+    connect (ui->checkBoxFullScreenMemory,SIGNAL(clicked(bool)),this,SLOT(SetUnsetPosition()));
 
 }
 
@@ -86,4 +88,10 @@ void FormMemoryInfo::ShowSelectedFont(QFont font,QColor textcolor,QColor backgro
 {
     ui->labelExample->setFont(font);
     ui->labelExample->setStyleSheet(QString("QLabel { background-color: %1; color: %2;}").arg(backgroundcolor.name()).arg(textcolor.name()));
+}
+
+
+void FormMemoryInfo::SetUnsetPosition()
+{
+  ui ->comboBoxPositionMemory->setDisabled(ui->checkBoxFullScreenMemory->isChecked());
 }

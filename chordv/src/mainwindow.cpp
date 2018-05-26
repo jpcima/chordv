@@ -868,6 +868,7 @@ void MainWindow::SetTocInMemoryMode(QStringList toc)
         ui->tableWidgetToc->setItem(i,0, new QTableWidgetItem(elem));
         i++;
     }
+    ui->tableWidgetToc->clearSelection();
 }
 
 
