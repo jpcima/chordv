@@ -12,6 +12,7 @@
 #include "dialogtwolinestochordpro.h"
 #include "dialogchangechordname.h"
 #include "dialogtranspose.h"
+#include "dialogprocessmemory.h"
 
 #include "lyricsconfig.h"
 #include "formconfig.h"
@@ -40,6 +41,9 @@
 #include <QShortcut>
 #include "ui_formconfig.h"
 #include <QMessageBox>
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QFontMetrics>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -115,8 +119,15 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->stackedWidget,SIGNAL(currentChanged(int)),this,SLOT(ShowStacked(int)));
     connect(qApp,SIGNAL(aboutToQuit()),this,SLOT(AskSaveOnQuit()));
     connect (ui->actionLoad_demo_file,SIGNAL(triggered(bool)),this,SLOT(LoadDemoFile()));
+    connect( ui->textEditCho3File,SIGNAL(Toc(QStringList)),this,SLOT(SetTocInMemoryMode(QStringList)));
+    connect (ui->pushButtonLaunchMemory,SIGNAL(clicked(bool)),this,SLOT(LaunchMemory()));
 
-
+    ui->tableWidgetToc->setColumnCount(1);
+    ui->tableWidgetToc->setColumnWidth(0,65532);
+    ui->tableWidgetToc->setSelectionMode(QAbstractItemView::SingleSelection);
+    QStringList list;
+    list<<tr("Songs list");
+    ui->tableWidgetToc->setHorizontalHeaderLabels(list);
     QString file=getFileInArg();
     if ( ! file.isEmpty() )
     {
@@ -847,3 +858,35 @@ void MainWindow::LoadDemoFile()
 
 }
 
+void MainWindow::SetTocInMemoryMode(QStringList toc)
+{
+    ui->tableWidgetToc->clear();
+    ui->tableWidgetToc->setRowCount(toc.count());
+    int i=0;
+    foreach ( QString elem , toc)
+    {
+        ui->tableWidgetToc->setItem(i,0, new QTableWidgetItem(elem));
+        i++;
+    }
+}
+
+
+void MainWindow::LaunchMemory()
+{
+    if ( ui->tableWidgetToc->selectedItems().count()==0)
+    {
+        QMessageBox::warning(this,tr("No title selected"),tr("You must select a title"));
+        return;
+    }
+    QString title= ui->tableWidgetToc->selectedItems().at(0)->text();
+    this->hide();
+    DialogProcessMemory *memory = new DialogProcessMemory(this,ui->textEditCho3File->document()->toPlainText(),
+                                                          ui->widgetMemory->getPosition(),
+                                                          title,ui->widgetMemory->getScrollingText(),
+                                                          ui->widgetMemory->getFont(),
+                                                          ui->widgetMemory->getTextColor(),ui->widgetMemory->getBackgroundColor()
+                                                          );
+
+    memory->exec();
+    this->show();
+}

@@ -66,7 +66,8 @@
         src/normalizelist.cpp \
         src/dialogtranspose.cpp \
         src/dialognewsong.cpp \
-    src/formmemoryinfo.cpp
+    src/formmemoryinfo.cpp \
+    src/dialogprocessmemory.cpp
 
     HEADERS  += src/mainwindow.h \
         src/formconfig.h \
@@ -118,7 +119,8 @@
         src/dialogtranspose.h \
         src/version.h \
         src/dialognewsong.h \
-    src/formmemoryinfo.h
+    src/formmemoryinfo.h \
+    src/dialogprocessmemory.h
 
     FORMS    += src/mainwindow.ui \
         src/formconfig.ui \
@@ -138,7 +140,8 @@
         src/dialogchangechordname.ui \
         src/dialogtranspose.ui \
         src/dialognewsong.ui \
-    src/formmemoryinfo.ui
+    src/formmemoryinfo.ui \
+    src/dialogprocessmemory.ui
 
  #    LIBS += -LLibraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
     LIBS += -Bdynamic -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl

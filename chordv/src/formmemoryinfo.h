@@ -35,6 +35,37 @@ public:
     /// \brief Save save all the records in setting file
     ///
     void Save();
+    ///
+    /// \brief getFont return selected Font
+    /// \return
+    ///
+    QFont getFont();
+    ///
+    /// \brief getBackgroundColor return selected background color
+    /// \return
+    ///
+    QColor getBackgroundColor();
+    ///
+    /// \brief getTextColor return selected font color
+    /// \return
+    ///
+    QColor getTextColor();
+    ///
+    /// \brief getScrollingText return selected text color
+    /// \return
+    ///
+    bool getScrollingText();
+    ///
+    /// \brief getFullscreenMode return true if scrolling text is asked
+    /// \return
+    ///
+    bool getFullscreenMode();
+    ///
+    /// \brief getPosition return 0 if top position asked, 1 for middle, 2 for bottom
+    /// \return
+    ///
+    int getPosition();
+
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
 };

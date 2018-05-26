@@ -374,6 +374,7 @@ void FormEditor::InsertCompress()
         ui->tableWidgetToc->setRowCount(0);
         QStringList text=ui->textEdit->toPlainText().split('\n');
         QRegExp Title("^\\{(title|t):([^}]+)\\}$",Qt::CaseInsensitive);
+        QStringList toc;
         foreach ( QString t,text)
         {
             if ( t.contains(Title))
@@ -381,8 +382,10 @@ void FormEditor::InsertCompress()
                 ui->tableWidgetToc->setRowCount(ui->tableWidgetToc->rowCount()+1);
                 ui->tableWidgetToc->setItem(ui->tableWidgetToc->rowCount()-1,0,
                                                   new QTableWidgetItem(Title.cap(2)));
+                toc<<Title.cap(2);
             }
         }
+        emit Toc(toc);
     }
 
     void FormEditor::TocToText(QModelIndex index)

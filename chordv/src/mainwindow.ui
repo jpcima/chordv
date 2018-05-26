@@ -315,7 +315,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="pushButtonLaunchMemory">
                <property name="text">
                 <string>Launch</string>
                </property>

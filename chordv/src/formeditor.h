@@ -152,6 +152,8 @@ private slots:
     ///
     void InsertSong(QString title, QString subtitle, bool compressed, int column, int time1, int time2,int tempo);
     void TransposeChord(int numberofchroma,  int range);
+signals:
+    void Toc(QStringList);
 };
 
 #endif // FORMEDITOR_H

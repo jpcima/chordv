@@ -58,7 +58,7 @@ QString Language::getTranslationDemoFileName(QString language)
     QString dirname=datadir+"/Languages/"+language;
     QDir d(dirname);
     QStringList filter;
-    filter<<"*.demo";
+    filter<<"*.chop";
     QFileInfoList fi=d.entryInfoList(filter);
     if (fi.count()>=1)
         return fi.at(0).absoluteFilePath();

@@ -166,6 +166,8 @@ private slots:
     void AskSaveOnQuit();
     void TransposeChords();
     void LoadDemoFile();
+    void SetTocInMemoryMode(QStringList toc);
+    void LaunchMemory();
 };
 
 #endif // MAINWINDOW_H

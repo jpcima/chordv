@@ -40,6 +40,37 @@ void FormMemoryInfo::Save()
 
 }
 
+QFont FormMemoryInfo::getFont()
+{
+    return ui->toolButtonFontMemory->getFont();
+}
+
+QColor FormMemoryInfo::getBackgroundColor()
+{
+    return ui->toolButtonFontMemory->getBackgroundColor();
+}
+
+QColor FormMemoryInfo::getTextColor()
+{
+    return ui->toolButtonFontMemory->getTextColor();
+}
+
+bool FormMemoryInfo::getScrollingText()
+{
+    return ui->checkBoxScrollingTextMemory->isChecked();
+}
+
+bool FormMemoryInfo::getFullscreenMode()
+{
+    return ui->checkBoxFullScreenMemory->isChecked();
+}
+
+int FormMemoryInfo::getPosition()
+{
+    return ui->comboBoxPositionMemory->currentIndex();
+}
+
+
 FormMemoryInfo::~FormMemoryInfo()
 {
     delete ui;
