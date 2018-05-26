@@ -7,7 +7,7 @@
 #include <QRegExp>
 #include <QTimer>
 
-DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines):
+DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines, double advance):
 QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
@@ -18,6 +18,7 @@ ui(new Ui::DialogProcessMemory)
     m_textcolor=textcolor;
     m_backgroundcolor=background;
     m_countrythm=1;
+    m_advance=advance;
     QRect rect=qApp->desktop()->geometry();
     QFontMetrics fm(font);
     if ( fullScreen )

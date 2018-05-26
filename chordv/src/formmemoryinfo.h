@@ -67,6 +67,7 @@ public:
     int getPosition();
 
     bool getShowTwoLines();
+    double getAdvance();
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
     void SetUnsetPosition();

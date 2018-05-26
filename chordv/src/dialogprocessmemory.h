@@ -15,7 +15,7 @@ class DialogProcessMemory : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, QFont font, QColor text, QColor background,bool fullscreen, bool twolines);
+    explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance);
     ~DialogProcessMemory();
 
 private slots:
@@ -28,6 +28,7 @@ private:
     bool m_stop;
     int m_tempo;
     int m_timeup;
+    double m_advance;
     QTimer *m_timer;
     QTimer *m_timerrythm;
     QTimer *m_timerclearrythm;

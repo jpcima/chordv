@@ -24,10 +24,10 @@ void FormMemoryInfo::Init()
     ui->comboBoxPositionMemory->setCurrentIndex(s.value("Memory/Position",0).toInt());
     ui->toolButtonFontMemory->setColor(QColor(s.value("Memory/FontColor","black").toString()));
     ui->toolButtonFontMemory->setBackgroundColor(QColor(s.value("Memory/BackgroundColor","white").toString()));
+    ui->doubleSpinBoxAdvance->setValue(s.value("Memory/Advance").toDouble());
     QFont f;
     f.fromString(s.value("Memory/Font").toString());
     ui->toolButtonFontMemory->setFont(f);
-
     ShowSelectedFont(ui->toolButtonFontMemory->getFont(),ui->toolButtonFontMemory->getTextColor(),ui->toolButtonFontMemory->getBackgroundColor());
 }
 
@@ -41,6 +41,7 @@ void FormMemoryInfo::Save()
     s.setValue("Memory/Font",ui->toolButtonFontMemory->getFont().toString());
     s.setValue("Memory/FontColor",ui->toolButtonFontMemory->getTextColor().name());
     s.setValue("Memory/BackgroundColor",ui->toolButtonFontMemory->getBackgroundColor().name());
+    s.setValue("Memory/Advance",ui->doubleSpinBoxAdvance->value());
 
 }
 
@@ -78,6 +79,12 @@ bool FormMemoryInfo::getShowTwoLines()
 {
      return ui->checkBoxTwoLines->isChecked();
 }
+
+double FormMemoryInfo::getAdvance()
+{
+     return ui->doubleSpinBoxAdvance->value();
+}
+
 
 FormMemoryInfo::~FormMemoryInfo()
 {
