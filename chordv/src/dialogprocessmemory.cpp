@@ -234,16 +234,17 @@ int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
 void DialogProcessMemory::displaySong()
 {
     m_indice++;
-    if (m_timerlyrics!=0) delete(m_timerlyrics);
-    if ( m_indice <= m_nblyrics)
+    if (m_timerlyrics!=0) m_timerlyrics->stop();
+    if ( ! m_stop )
         displayLine();
     else
     {
-        delete m_timerclearrythm;
-        delete m_timerrythm;
+        m_timerclearrythm->stop();
+        m_timerrythm->stop();
+        qWarning()<<"c'st ini";
         m_timerend = new QTimer(this);
         connect(m_timerend, SIGNAL(timeout()), this, SLOT(close()));
-        m_timerend->start(3000);
+        m_timerend->start(1000);
     }
 }
 
@@ -251,17 +252,24 @@ void DialogProcessMemory::displayLine()
 {
     ui->labelText1->setText(m_lyrics[m_indice]);
     if ( m_indice+1 <= m_nblyrics) ui->labelText2->setText(m_lyrics[m_indice+1]);
-    else ui->labelText2->setText(tr("<End>"));
-    if ( m_indice != m_nblyrics)
+    else
+      ui->labelText2->setText("");
+    if ( m_indice <= m_nblyrics)
     {
       m_timerlyrics = new QTimer;
       connect(m_timerlyrics, SIGNAL(timeout()), this, SLOT(displaySong()));
       m_timerlyrics->start(m_seconds[m_indice]);
     }
+    else
+    {
+        m_stop=true;
+        displaySong();
+    }
 }
 
 void DialogProcessMemory::showRythm()
 {
+
     if ( m_click )
     {
        if (m_accentuedfirst && m_countrythm % m_timeup == 1) m_player->setMedia(QUrl("qrc:/sound/2.wav"));
@@ -272,7 +280,7 @@ void DialogProcessMemory::showRythm()
     if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/redbull.png"));
     else ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/greenbull.png"));
     m_countrythm++;
-    if ( m_timerclearrythm != 0 ) delete m_timerclearrythm;
+    if ( m_timerclearrythm != 0 )  delete m_timerclearrythm;
     if (  m_indice <= m_nblyrics)
     {
        m_timerclearrythm = new QTimer;
@@ -280,6 +288,7 @@ void DialogProcessMemory::showRythm()
        m_timerclearrythm->start(300);
     }
     else delete m_timerrythm;
+
 }
 
 void DialogProcessMemory::eraseBull()

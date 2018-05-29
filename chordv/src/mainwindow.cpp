@@ -355,6 +355,7 @@ void MainWindow::openProject(QString filename)
     QFileInfo fi(filename);
     m_currentprojectname=fi.baseName();
     m_currentprojectdir=fi.absolutePath();
+    if (! m_demofile)
     s.setValue("LastOpenedFile",filename);
     QDir::setCurrent(m_currentprojectdir);
     m_currentprojectfile=filename;
