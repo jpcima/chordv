@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QMap>
 #include <QTimer>
+#include <QMediaPlayer>
 
 
 namespace Ui {
@@ -15,7 +16,8 @@ class DialogProcessMemory : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance);
+    explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, bool click, int volume, bool firstaccentued,
+                                 QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance, int timebefore);
     ~DialogProcessMemory();
 
 private slots:
@@ -28,10 +30,15 @@ private:
     bool m_stop;
     int m_tempo;
     int m_timeup;
+    bool m_click;
+    bool m_accentuedfirst;
+    int m_volume;
+    bool m_timebefore;
     double m_advance;
-    QTimer *m_timer;
+    QTimer *m_timerend;
     QTimer *m_timerrythm;
     QTimer *m_timerclearrythm;
+    QTimer *m_timerlyrics;
     QMap <int,int> m_seconds;
     QMap <int,QString> m_lyrics;
     QStringList m_refrain;
@@ -47,6 +54,7 @@ private:
     int m_msecPerBar;
     int m_indice;
     int m_countrythm;
+    QMediaPlayer *m_player;
     ///
     /// \brief getInfo get all the information in song file, about the song named title
     /// \param songs : the whole songs buffer
@@ -64,6 +72,7 @@ private:
     int getNumberOfBeat(QString &line, int timeup);
     void displayLine();
     QColor getColorBetween(QColor color1, QColor color2);
+    void DeleteAllTimers();
 };
 
 #endif // DIALOGPROCESSMEMORY_H

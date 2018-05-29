@@ -11,15 +11,23 @@ FormMemoryInfo::FormMemoryInfo(QWidget *parent) :
     Init();
     SetUnsetPosition();
     SetUnsetAdvance(ui->spinBoxTimeBeforeStart->value());
+    SetUnsetClick();
     connect (ui->toolButtonFontMemory,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),
              this,SLOT(ShowSelectedFont(QFont,QColor,QColor)));
     connect (ui->checkBoxFullScreenMemory,SIGNAL(clicked(bool)),this,SLOT(SetUnsetPosition()));
     connect (ui->spinBoxTimeBeforeStart,SIGNAL(valueChanged(int)),this,SLOT(SetUnsetAdvance(int)));
+    connect (ui->checkBoxClick,SIGNAL(clicked(bool)),this,SLOT(SetUnsetClick()));
 }
 
 void FormMemoryInfo::SetUnsetAdvance(int time)
 {
     ui->doubleSpinBoxAdvance->setDisabled(time<=0);
+}
+
+void FormMemoryInfo::SetUnsetClick()
+{
+    ui->checkBoxMarkFirst->setEnabled(ui->checkBoxClick->isChecked());
+    ui->horizontalSliderVolume->setEnabled((ui->checkBoxClick->isChecked()));
 }
 
 void FormMemoryInfo::Init()
@@ -33,6 +41,9 @@ void FormMemoryInfo::Init()
     ui->toolButtonFontMemory->setBackgroundColor(QColor(s.value("Memory/BackgroundColor","white").toString()));
     ui->doubleSpinBoxAdvance->setValue(s.value("Memory/Advance").toDouble());
     ui->spinBoxTimeBeforeStart->setValue(s.value("Memory/TimeBeforeStart").toInt());
+    ui->horizontalSliderVolume->setValue(s.value("Memory/Volume").toInt());
+    ui->checkBoxClick->setChecked(s.value("Memory/Click",false).toBool());
+    ui->checkBoxMarkFirst->setChecked(s.value("Memory/MarkFirstClick",false).toBool());
     QFont f;
     f.fromString(s.value("Memory/Font").toString());
     ui->toolButtonFontMemory->setFont(f);
@@ -51,6 +62,10 @@ void FormMemoryInfo::Save()
     s.setValue("Memory/BackgroundColor",ui->toolButtonFontMemory->getBackgroundColor().name());
     s.setValue("Memory/Advance",ui->doubleSpinBoxAdvance->value());
     s.setValue("Memory/TimeBeforeStart",ui->spinBoxTimeBeforeStart->value());
+    s.setValue("Memory/Volume",ui->horizontalSliderVolume->value());
+    s.setValue("Memory/Click",ui->checkBoxClick->isChecked());
+    s.setValue("Memory/MarkFirstClick",ui->checkBoxMarkFirst->isChecked());
+
 }
 
 QFont FormMemoryInfo::getFont()
@@ -71,6 +86,26 @@ QColor FormMemoryInfo::getTextColor()
 bool FormMemoryInfo::getShowRythm()
 {
     return ui->checkBoxShowRythmTextMemory->isChecked();
+}
+
+bool FormMemoryInfo::getClick()
+{
+    return ui->checkBoxClick->isChecked();
+}
+
+bool FormMemoryInfo::getAccentuedFirst()
+{
+    return ui->checkBoxMarkFirst->isChecked();
+}
+
+int FormMemoryInfo::getVolume()
+{
+    return ui->horizontalSliderVolume->value();
+}
+
+int FormMemoryInfo::getDelay()
+{
+    return ui->spinBoxTimeBeforeStart->value();
 }
 
 bool FormMemoryInfo::getFullscreenMode()

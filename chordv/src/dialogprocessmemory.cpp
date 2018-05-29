@@ -7,11 +7,14 @@
 #include <QRegExp>
 #include <QTimer>
 
-DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,  QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines, double advance):
+DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,
+                                         bool click, int volume, bool accentuedfirst ,QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines, double advance,
+                                         int timebefore):
 QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
     ui->setupUi(this);
+    m_player= new QMediaPlayer;
     m_stop=false;
     m_font=font;
     m_showrythm=showrythm;
@@ -19,6 +22,10 @@ ui(new Ui::DialogProcessMemory)
     m_backgroundcolor=background;
     m_countrythm=1;
     m_advance=advance;
+    m_timebefore=timebefore;
+    m_volume=volume;
+    m_click=click;
+    m_accentuedfirst=accentuedfirst;
     QRect rect=qApp->desktop()->geometry();
     QFontMetrics fm(font);
     if ( fullScreen )
@@ -45,10 +52,12 @@ ui(new Ui::DialogProcessMemory)
     m_nblinerefrain=0;
     getInfo(songs,title);
     m_indice=0;
-    m_timer=0;
+    m_timerend=0;
     m_timerclearrythm=0;
+    m_timerrythm=0;
+    m_timerlyrics=0;
     displaySong();
-    if ( m_showrythm)
+    if ( m_showrythm || m_click)
     {
         m_timerrythm = new QTimer ;
         connect(m_timerrythm, SIGNAL(timeout()), this, SLOT(showRythm()));
@@ -61,6 +70,7 @@ ui(new Ui::DialogProcessMemory)
 
 DialogProcessMemory::~DialogProcessMemory()
 {
+    delete m_player;
     delete ui;
 }
 
@@ -224,16 +234,16 @@ int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
 void DialogProcessMemory::displaySong()
 {
     m_indice++;
-    if (m_timer!=0) delete(m_timer);
+    if (m_timerlyrics!=0) delete(m_timerlyrics);
     if ( m_indice <= m_nblyrics)
         displayLine();
     else
     {
         delete m_timerclearrythm;
         delete m_timerrythm;
-        QTimer *timer = new QTimer(this);
-        connect(timer, SIGNAL(timeout()), this, SLOT(close()));
-        timer->start(3000);
+        m_timerend = new QTimer(this);
+        connect(m_timerend, SIGNAL(timeout()), this, SLOT(close()));
+        m_timerend->start(3000);
     }
 }
 
@@ -241,17 +251,24 @@ void DialogProcessMemory::displayLine()
 {
     ui->labelText1->setText(m_lyrics[m_indice]);
     if ( m_indice+1 <= m_nblyrics) ui->labelText2->setText(m_lyrics[m_indice+1]);
-    else ui->labelText2->setText(">");
+    else ui->labelText2->setText(tr("<End>"));
     if ( m_indice != m_nblyrics)
     {
-      m_timer = new QTimer;
-      connect(m_timer, SIGNAL(timeout()), this, SLOT(displaySong()));
-      m_timer->start(m_seconds[m_indice]);
+      m_timerlyrics = new QTimer;
+      connect(m_timerlyrics, SIGNAL(timeout()), this, SLOT(displaySong()));
+      m_timerlyrics->start(m_seconds[m_indice]);
     }
 }
 
 void DialogProcessMemory::showRythm()
 {
+    if ( m_click )
+    {
+       if (m_accentuedfirst && m_countrythm % m_timeup == 1) m_player->setMedia(QUrl("qrc:/sound/2.wav"));
+       else  m_player->setMedia(QUrl("qrc:/sound/1.wav"));
+       m_player->setVolume(m_volume);
+       m_player->play();
+    }
     if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/redbull.png"));
     else ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/greenbull.png"));
     m_countrythm++;
@@ -282,7 +299,17 @@ QColor DialogProcessMemory::getColorBetween(QColor color1, QColor color2)
 
 void DialogProcessMemory::Close()
 {
-    delete m_timer;
-    delete m_timerclearrythm;
-    delete m_timerrythm;
+    DeleteAllTimers();
+}
+
+void DialogProcessMemory::DeleteAllTimers()
+{
+    if (m_timerclearrythm) delete m_timerclearrythm;
+    if ( m_timerrythm) delete m_timerrythm;
+    if ( m_timerlyrics) delete m_timerlyrics;
+    if ( m_timerend) delete m_timerend;
+    m_timerclearrythm=0;
+    m_timerrythm=0;
+    m_timerlyrics=0;
+    m_timerend=0;
 }

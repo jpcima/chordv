@@ -68,10 +68,15 @@ public:
 
     bool getShowTwoLines();
     double getAdvance();
+    bool getClick();
+    bool getAccentuedFirst();
+    int getVolume();
+    int getDelay();
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
     void SetUnsetPosition();
     void SetUnsetAdvance(int time);
+    void SetUnsetClick();
 };
 
 #endif // FORMMEMORYINFO_H

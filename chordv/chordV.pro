@@ -4,7 +4,7 @@
     #
     #-------------------------------------------------
 
-    QT       += core gui sql widgets
+    QT       += core gui sql widgets multimedia
     TEMPLATE = app
 
     linux{

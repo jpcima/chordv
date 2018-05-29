@@ -655,10 +655,9 @@ p, li { white-space: pre-wrap; }
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.ui" line="49"/>
-        <location filename="../src/dialogprocessmemory.ui" line="56"/>
-        <source>&gt;</source>
-        <translation></translation>
+        <location filename="../src/dialogprocessmemory.cpp" line="248"/>
+        <source>&lt;End&gt;</source>
+        <translation>&lt;Fin&gt;</translation>
     </message>
 </context>
 <context>
@@ -1842,89 +1841,128 @@ en boîte</translation>
         <translation>Formulaire</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="26"/>
+        <location filename="../src/formmemoryinfo.ui" line="34"/>
         <source>Memory font</source>
         <translation>Police de caractères du mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="33"/>
+        <location filename="../src/formmemoryinfo.ui" line="41"/>
         <source>Position</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="40"/>
+        <location filename="../src/formmemoryinfo.ui" line="175"/>
+        <source>Time adjustment</source>
+        <translation>Décalage pour permettre la lecture</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="185"/>
         <source>Advance lyrics </source>
         <translatorcomment>Avance de l&apos;affichage des paroles</translatorcomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="51"/>
+        <location filename="../src/formmemoryinfo.ui" line="52"/>
         <source>Allow to choose font and font color to display on the monitoring screen</source>
         <translation>Perùet de choisir une police ainsi que sa couleur pour l&apos;affichage dans l&apos;écran de monitoring des paroles</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="54"/>
+        <location filename="../src/formmemoryinfo.ui" line="22"/>
+        <source>Lyrics look</source>
+        <translation>Aspect des paroles</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="55"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="61"/>
+        <location filename="../src/formmemoryinfo.ui" line="62"/>
         <source>If not fullScreen mode is selected, allows to choose if window will be in top, bottom or in middle o the screen</source>
         <translation>Si le mode plein écran n&apos;est pas sélectionné, permet de choisir si la fenêtre de monitoring des paroles sera en haut, au milieu ou en bas de l&apos;écran</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="65"/>
+        <location filename="../src/formmemoryinfo.ui" line="66"/>
         <source>Top</source>
         <translation>En haut</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="70"/>
+        <location filename="../src/formmemoryinfo.ui" line="71"/>
         <source>Middle</source>
         <translation>Au milieu</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="75"/>
+        <location filename="../src/formmemoryinfo.ui" line="76"/>
         <source>Bottom</source>
         <translation>En bas</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="88"/>
+        <location filename="../src/formmemoryinfo.ui" line="120"/>
+        <source>Rythm render</source>
+        <translation>Rendu du rythme</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="131"/>
+        <source>Show rythm with bullet</source>
+        <translation>Afficher des bullets sur chaque temps</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="138"/>
+        <source>Click</source>
+        <translation>Métronome</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="147"/>
+        <source>Volume</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="163"/>
+        <source>Mark fist</source>
+        <translation>Marquer le premier temps</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="192"/>
+        <source>Time added before start</source>
+        <translation>Délai ajouté avant de commencer</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="211"/>
         <source>sec</source>
         <translatorcomment>sec.</translatorcomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="101"/>
+        <location filename="../src/formmemoryinfo.ui" line="88"/>
         <source>Show monitoring window in fullscreen mode</source>
         <translation>Affiche la fenêtre aide mémoire des paroles en mode plein écran</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="104"/>
+        <location filename="../src/formmemoryinfo.ui" line="91"/>
         <source>Full screen</source>
         <translation>Plein écran</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="111"/>
+        <location filename="../src/formmemoryinfo.ui" line="128"/>
         <source>Show bullet changing with rythm</source>
         <translation>Affiche des pastilles de suivi du rythme</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="114"/>
         <source>Show rythm</source>
-        <translation>Affiche le rythtme</translation>
+        <translation type="vanished">Affiche le rythtme</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="121"/>
+        <location filename="../src/formmemoryinfo.ui" line="98"/>
         <source>Show one line or two lines</source>
         <translation>Affiche une ligne ou deux lignes</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="124"/>
+        <location filename="../src/formmemoryinfo.ui" line="101"/>
         <source>Two lines displayed</source>
         <translation>Deux lignes sont affichées</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="131"/>
+        <location filename="../src/formmemoryinfo.ui" line="108"/>
         <source>Example </source>
         <translation>Exemple </translation>
     </message>
@@ -2065,7 +2103,7 @@ en boîte</translation>
         <translation type="vanished">Mode accords</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="59"/>
+        <location filename="../src/mainwindow.cpp" line="60"/>
         <source>Text mode</source>
         <translation>Mode texte</translation>
     </message>
@@ -2074,7 +2112,7 @@ en boîte</translation>
         <translation type="vanished">Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="59"/>
+        <location filename="../src/mainwindow.cpp" line="60"/>
         <source>Editor</source>
         <translation>Éditeur</translation>
     </message>
@@ -2178,7 +2216,7 @@ en boîte</translation>
         <translation>&amp;Remplacer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="59"/>
+        <location filename="../src/mainwindow.cpp" line="60"/>
         <source>Global definitions</source>
         <translation>Définitions globales</translation>
     </message>
@@ -2376,7 +2414,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="377"/>
         <source>&amp;Launch PDF Viewer</source>
-        <translation type="unfinished">&amp;Lancer l&apos;afficheur PDF</translation>
+        <translation>&amp;Lancer l&apos;afficheur PDF</translation>
     </message>
     <message>
         <source>Build and Launch PDF</source>
@@ -2708,62 +2746,62 @@ chorus</translation>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="66"/>
+        <location filename="../src/mainwindow.cpp" line="67"/>
         <source>Last Projects</source>
         <translation>Derniers projets</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="127"/>
+        <location filename="../src/mainwindow.cpp" line="128"/>
         <source>Songs list</source>
         <translation>Liste des chansons</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="135"/>
+        <location filename="../src/mainwindow.cpp" line="136"/>
         <source>%1 does&apos;nt exit. Bye !</source>
         <translation>%1 n&apos;existe pas. Au revoir !</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="157"/>
+        <location filename="../src/mainwindow.cpp" line="158"/>
         <source>Buffer as changed</source>
         <translation>Le contenu édité à changé</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="157"/>
+        <location filename="../src/mainwindow.cpp" line="158"/>
         <source>Do you want to save ? </source>
         <translation>Voulez vous sauvegarder ?.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="221"/>
+        <location filename="../src/mainwindow.cpp" line="222"/>
         <source>Open text file</source>
         <translation>Ouvrir un fichier texte</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="221"/>
+        <location filename="../src/mainwindow.cpp" line="222"/>
         <source>cho3 file(*.cho3)</source>
         <translation>Fichier cho3 (*.cho3)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="336"/>
+        <location filename="../src/mainwindow.cpp" line="337"/>
         <source>Cannot open file : %1</source>
         <translation>Ne peut ouvrir le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="390"/>
+        <location filename="../src/mainwindow.cpp" line="391"/>
         <source>Open conf file</source>
         <translation>Ouvrir un fichier conf</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="458"/>
+        <location filename="../src/mainwindow.cpp" line="461"/>
         <source>(*.chop)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="870"/>
+        <location filename="../src/mainwindow.cpp" line="873"/>
         <source>No title selected</source>
         <translation>Pas de titre sélectionné</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="870"/>
+        <location filename="../src/mainwindow.cpp" line="873"/>
         <source>You must select a title</source>
         <translation>Vous devez sélectionner un titre</translation>
     </message>
@@ -2776,22 +2814,22 @@ chorus</translation>
         <translation type="vanished">Fichier non sauvegardé : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="59"/>
+        <location filename="../src/mainwindow.cpp" line="60"/>
         <source>Text and chord Mode</source>
         <translation>Mode texte et accord</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="59"/>
+        <location filename="../src/mainwindow.cpp" line="60"/>
         <source>Chord Mode</source>
         <translation>Mode accords</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="59"/>
+        <location filename="../src/mainwindow.cpp" line="60"/>
         <source>Memory Mode</source>
         <translation>Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="458"/>
+        <location filename="../src/mainwindow.cpp" line="461"/>
         <source>Save project as</source>
         <translation>Suvegarder le projet</translation>
     </message>
@@ -2800,17 +2838,17 @@ chorus</translation>
         <translation type="vanished">Sauvegarder comme (*.chop)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="602"/>
+        <location filename="../src/mainwindow.cpp" line="605"/>
         <source>Conversion done for : %1</source>
         <translation>Conversion effectuée pour : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="659"/>
+        <location filename="../src/mainwindow.cpp" line="662"/>
         <source>Cannot write file : %1</source>
         <translation>Ne peut pas écrire dans le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="665"/>
+        <location filename="../src/mainwindow.cpp" line="668"/>
         <source>%1 file exported</source>
         <translation>fichier %1 exporté</translation>
     </message>

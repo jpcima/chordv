@@ -875,14 +875,21 @@ void MainWindow::LaunchMemory()
     }
     QString title= ui->tableWidgetToc->selectedItems().at(0)->text();
     this->hide();
-    DialogProcessMemory *memory = new DialogProcessMemory(this,ui->textEditCho3File->document()->toPlainText(),
+    DialogProcessMemory *memory = new DialogProcessMemory(this,
+                                                          ui->textEditCho3File->document()->toPlainText(),
                                                           ui->widgetMemory->getPosition(),
-                                                          title,ui->widgetMemory->getShowRythm(),
+                                                          title,
+                                                          ui->widgetMemory->getShowRythm(),
+                                                          ui->widgetMemory->getClick(),
+                                                          ui->widgetMemory->getVolume(),
+                                                          ui->widgetMemory->getAccentuedFirst(),
                                                           ui->widgetMemory->getFont(),
-                                                          ui->widgetMemory->getTextColor(),ui->widgetMemory->getBackgroundColor(),
+                                                          ui->widgetMemory->getTextColor(),
+                                                          ui->widgetMemory->getBackgroundColor(),
                                                           ui->widgetMemory->getFullscreenMode(),
                                                           ui->widgetMemory->getShowTwoLines(),
-                                                          ui->widgetMemory->getAdvance()
+                                                          ui->widgetMemory->getAdvance(),
+                                                          ui->widgetMemory->getDelay()
                                                           );
 
     memory->exec();
