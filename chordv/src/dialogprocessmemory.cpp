@@ -328,7 +328,8 @@ void DialogProcessMemory::DeleteAllTimers()
 void DialogProcessMemory::keyPressEvent(QKeyEvent *event)
 {
     if (event->key()==Qt::Key_Space )
-    if (! m_pause)
+    {
+     if (! m_pause)
        {
         m_timerrythm->stop();
         m_timerlyrics->stop();
@@ -339,4 +340,6 @@ void DialogProcessMemory::keyPressEvent(QKeyEvent *event)
      m_timerlyrics->start();
     }
     m_pause=!m_pause;
+    }
+    QDialog::keyPressEvent(event);
 }
