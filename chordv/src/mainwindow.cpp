@@ -89,8 +89,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionZoomOut,SIGNAL(triggered(bool)),this,SLOT(ZoomOut()));
     connect(ui->actionReplace,SIGNAL(triggered(bool)),this,SLOT(Replace()));
     connect (ui->actionSystem_Info,SIGNAL(triggered(bool)),this,SLOT(SystemInfo()));
-    connect(ui->pushButtonMakePDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDF()));
-    connect(ui->pushButtonMakeAndShowPDF,SIGNAL(clicked(bool)),this,SLOT(ProducePDFAndShow()));
     connect(ui->actionAbout,SIGNAL(triggered()),this,SLOT(About()));
     connect(ui->action2Line2chordpro,SIGNAL(triggered(bool)),this,SLOT(TwoLines2Chordpro()));
     connect(ui->actionChangeChordLang,SIGNAL(triggered(bool)),this,SLOT(ChangeChordLang()));
@@ -334,14 +332,10 @@ void MainWindow::openChoFile( QString filename)
     QFile file(filename);
 
     ui->textEditCho3File->clear();
-    ui->pushButtonMakePDF->setDisabled(true);
-    if ( ! s.value("PDFReader").isNull() ) ui->pushButtonMakeAndShowPDF->setDisabled(true);
     if ( filename.isEmpty()) return;
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) ui->log->Error(QString(tr("Cannot open file : %1").arg(filename)));
     else
     {
-        ui->pushButtonMakePDF->setDisabled(false);
-        ui->pushButtonMakeAndShowPDF->setDisabled(false);
         QTextStream in(&file);
         ui->textEditCho3File->append(in.readAll());
         QTextCursor textCursor = ui->textEditCho3File->textCursor();
@@ -501,10 +495,7 @@ void MainWindow::ProducePDF()
 }
 
 
-void MainWindow::ProducePDFAndShow()
-{
-   ProducePDF();
-}
+
 
 
 void MainWindow::BuildTextPdf()

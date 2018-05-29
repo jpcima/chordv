@@ -26,7 +26,7 @@
       </property>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>5</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="pageEditor">
         <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -183,32 +183,6 @@
                  </item>
                 </layout>
                </item>
-               <item>
-                <widget class="QPushButton" name="pushButtonMakePDF">
-                 <property name="minimumSize">
-                  <size>
-                   <width>100</width>
-                   <height>100</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Make PDF</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButtonMakeAndShowPDF">
-                 <property name="minimumSize">
-                  <size>
-                   <width>100</width>
-                   <height>100</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string>Make  and show PDF </string>
-                 </property>
-                </widget>
-               </item>
               </layout>
              </item>
              <item>
@@ -359,7 +333,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -417,7 +391,7 @@
     </widget>
     <widget class="QMenu" name="menuImport_other_format">
      <property name="title">
-      <string>Conversion</string>
+      <string>C&amp;onversion</string>
      </property>
      <addaction name="action2Line2chordpro"/>
      <addaction name="actionChangeChordLang"/>
@@ -519,7 +493,7 @@
   </action>
   <action name="actionDocumentation">
    <property name="text">
-    <string>Documentation</string>
+    <string>&amp;Documentation</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -783,32 +757,32 @@
   </action>
   <action name="actionForce_configuration_files_to_currrent_project">
    <property name="text">
-    <string>Force configuration files to currrent project</string>
+    <string>&amp;Force configuration files to currrent project</string>
    </property>
   </action>
   <action name="action2Line2chordpro">
    <property name="text">
-    <string>Chords with chord on line above to chordpro format</string>
+    <string>&amp;Chords with chord on line above to chordpro format</string>
    </property>
   </action>
   <action name="actionChangeChordLang">
    <property name="text">
-    <string>Change  the chords Language of the current song file</string>
+    <string>Change  the chords &amp;Language of the current song file</string>
    </property>
   </action>
   <action name="actionClose">
    <property name="text">
-    <string>Close</string>
+    <string>C&amp;lose</string>
    </property>
   </action>
   <action name="actionTranspose_chords">
    <property name="text">
-    <string>Transpose chords</string>
+    <string>&amp;Transpose chords</string>
    </property>
   </action>
   <action name="actionLoad_demo_file">
    <property name="text">
-    <string>Load demo file</string>
+    <string>&amp;Load demo file</string>
    </property>
   </action>
  </widget>

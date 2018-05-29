@@ -98,6 +98,7 @@ private:
     QStringList m_liststacked;
     QString m_initialbuffer;
     void InitDefault();
+    void ProducePDF();
 public slots:
     ///
     /// \brief ChangeLanguage retranslate all the child window and tha main window
@@ -116,7 +117,6 @@ private slots:
     void SaveAs(bool);
     void LastProjectOpen(QAction *action);
     void openProject(QString filename);
-    void ProducePDF();
     void About();
     void Configuration();
     void openChoFile(QString filename);
@@ -125,7 +125,6 @@ private slots:
     void CurrentAsDefault();
     void Info(QString info);
     void Close();
-    void ProducePDFAndShow();
     void PDFReaderChanged();
     void ConversionDone(QString filename);
     void ChordDefinition();
