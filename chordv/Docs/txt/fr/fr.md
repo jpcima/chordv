@@ -26,7 +26,8 @@ réglages idoines
    - **Lyrics :** dans ce mode, le texte et les accords sont affichés.
    - **Accords :** dans ce mode, les accords ne sont affichés. Il est 
    utile pour les musiciens d'accompagnement.
-   - **Mémoire :** dans ce mode, seul le début du texte sont affichés
+   - **Mémoire :** dans ce mode, un monitoring des paroles est proposé
+   pour permettre le suivi des paroles
 
 - ChordV utilise un langage de balises très efficace et simple:
 
@@ -176,6 +177,46 @@ pas de table des matières
 11. Espacement vertical 
 12. Ouverture du PDF en mode plein écran
 13. Forcer les titres en majuscule
+
+
+### Les préférences du mode mémoire
+
+Le mode aide mémoire ou monitoring des paroles permet d'afficher 
+les paroles en suivant les informations du fichier de chanson, notamment
+- les balises {tempo:xx} qui donnent le tempo de chaque chanson. Si 
+la balise tempo est absente d'un morceau, elle sera arbritrairement
+forcée à la valeur 120
+- à la balise time de la forme x/y qui indique le nombre de temps de
+chaque mesure. Si cette balise est absente, elle sera arbitrairement 
+forcée à la valeur 4/4
+
+![Options générales mode mémoire](./img/ConfigurationMemory.png)
+
+1. Permet de sélectionner la police de caractères ainsi que sa couleur 
+et la couleur du fond telle qu'elle apparait dans la zone 5
+2. Permet d'indiquer si la fenêtre de monitoring sera en haut de l'écran,
+au milieu ou à droite. Si le mode plein écran est sélectionné ce mode
+ne sera plus accessible. Ce mode est destiné au mode enregistrement d'une
+chanson quand le chanteur veut suivre la progresssion de son enregistrement
+sur son logiciel d'enregistrement
+3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse projeter
+une vidéo et ou des images pendant que la musique est activée avec le mode 
+image en bas de l'écran.
+4. Deux lignes sont affichée, la ligne plus brillante sur les paroles en 
+cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
+n'est pas sélectionné, une seule ligne est affichée.
+5. Rendu de la police de caractères
+6. Chaque temps est matérialisé par l'affichage d'une bulle rouge pour
+le premier temps et d'une bulle verte pour les autres temps.
+7. Un click sonore est activé sur chaque temps
+8. Réglage du volume du click
+9. Le premier temps sonore est plus marqué que les autres temps
+10. Avance de l'affichage, réglage de l'avance de l'affichage du temps
+sur les paroles pour permettre au chanteur de lire légèrement à l'avance
+11. Nombre de mesures avant de démarrer l'enregistrement.
+
+
+3. Mode plein écran 
 
 
 ## Les conventions 
@@ -415,9 +456,36 @@ courante, sur la chanson courante ou sur tout le fichier
 
 ## Lancer l'afficheur PDF 
 
+ChordV lance l'afficheur PDF que vous avez positionné dans les préférences
+
+Cette option est disponible dans le menu outils
+
 ## Construire les fichiers PDF 
 
+La construction d'un fichier PDF est presque instantanée. Elle est 
+intégrée au logiciel.
+
+Cette option est disponible dans le menu outils
+
 ## Construire et afficher les fichiers PDF
+
+Ce mode construit un fichier PDF et lance son affichage.
+
+Cette option est disponible dans le menu outils
+
+## Mode mémo
+
+Pour entrer dans le mode mémo actionner le menu Fenêtres/Mode Aide mémoire
+
+![Transposer les accords](./img/LyricsMonitoring.png)
+
+1. On sélectionne la chanson, ce qui présuppose qu'une chanson soit
+ouverte
+2. On peut modifier les valeurs qui sont par défaut positionnées aux
+valeurs par défaut définie dans le menu Outils/Préférence
+3. On lance le monitoring par le bouton 3
+4. La touche ESCAPE permet de quitter le monitoring, la barre d'espace 
+d'activer la pause ou de quitter la pause.
 
 # Partie technique
 
@@ -439,7 +507,7 @@ courante, sur la chanson courante ou sur tout le fichier
   CTRL + +    Zoomer +          F5          PDF texte       
   
   CTRL + -    Zommer -          F6          PDF accord+text 
-  
+    
   CTRL + -    Zommer -          F7          PDF grille      
   
 -------------------------------------------------------------
