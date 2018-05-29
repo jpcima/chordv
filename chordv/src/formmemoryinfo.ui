@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
+    <width>338</width>
     <height>478</height>
    </rect>
   </property>
@@ -192,7 +192,7 @@
             <item>
              <widget class="QLabel" name="labelTimeAddedBeforeStart">
               <property name="text">
-               <string>Time added before start</string>
+               <string>Number of bars before to start</string>
               </property>
              </widget>
             </item>
@@ -207,13 +207,6 @@
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
                <widget class="QSpinBox" name="spinBoxTimeBeforeStart"/>
-              </item>
-              <item>
-               <widget class="QLabel" name="labelSeconds">
-                <property name="text">
-                 <string>sec</string>
-                </property>
-               </widget>
               </item>
              </layout>
             </item>

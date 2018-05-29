@@ -17,7 +17,7 @@ class DialogProcessMemory : public QDialog
 
 public:
     explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, bool click, int volume, bool firstaccentued,
-                                 QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance, int timebefore);
+                                 QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance, int nbbarsbefore);
     ~DialogProcessMemory();
 
 private slots:
@@ -25,6 +25,7 @@ private slots:
     void showRythm();
     void eraseBull();
     void Close();
+    void WaitBeforeStart();
 private:
     Ui::DialogProcessMemory *ui;
     bool m_stop;
@@ -34,12 +35,13 @@ private:
     bool m_click;
     bool m_accentuedfirst;
     int m_volume;
-    bool m_timebefore;
+    int m_timebefore;
     double m_advance;
     QTimer *m_timerend;
     QTimer *m_timerrythm;
     QTimer *m_timerclearrythm;
     QTimer *m_timerlyrics;
+    QTimer *m_timerbefore;
     QMap <int,int> m_seconds;
     QMap <int,QString> m_lyrics;
     QStringList m_refrain;

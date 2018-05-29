@@ -7,10 +7,11 @@
 #include <QRegExp>
 #include <QTimer>
 #include <QKeyEvent>
+#include <QFontMetrics>
 
 DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,
                                          bool click, int volume, bool accentuedfirst ,QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines, double advance,
-                                         int timebefore):
+                                         int nbbarsbefore):
 QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
@@ -24,7 +25,7 @@ ui(new Ui::DialogProcessMemory)
     m_backgroundcolor=background;
     m_countrythm=1;
     m_advance=advance;
-    m_timebefore=timebefore;
+    m_timebefore=nbbarsbefore;
     m_volume=volume;
     m_click=click;
     m_accentuedfirst=accentuedfirst;
@@ -58,16 +59,22 @@ ui(new Ui::DialogProcessMemory)
     m_timerclearrythm=0;
     m_timerrythm=0;
     m_timerlyrics=0;
-    displaySong();
     if ( m_showrythm || m_click)
     {
         m_timerrythm = new QTimer ;
         connect(m_timerrythm, SIGNAL(timeout()), this, SLOT(showRythm()));
         m_timerrythm->setInterval(m_msecPerBar);
-        qDebug()<<m_msecPerBar;
         m_timerrythm->start();
     }
     connect (this,SIGNAL(rejected()),this,SLOT(Close()));
+    qDebug()<<m_timebefore*MillisecondPerBeat(m_tempo)*m_timeup;
+    qDebug()<<MillisecondPerBeat(m_tempo)<<m_timeup<<m_timebefore;
+    QTimer::singleShot(m_timebefore*MillisecondPerBeat(m_tempo)*m_timeup-1000*m_advance, this, SLOT(WaitBeforeStart()));
+}
+
+void DialogProcessMemory::WaitBeforeStart()
+{
+    displaySong();
 }
 
 DialogProcessMemory::~DialogProcessMemory()
@@ -99,6 +106,8 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
     int coupletindex=0;
     m_nblyrics=0;
     ui->labelText1->setFont(m_font);
+    bool firstline=true;
+    bool tocomplete=false;
     foreach ( QString line, buf)
     {
         if ( line.contains(TitleREX))
@@ -159,6 +168,18 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
             else if ( refrain )
             {
                 m_nblinerefrain++;
+                if ( firstline )
+                {
+                    QRegExp splitREX("^([^[]+)(.*)");
+                    if ( line.contains(splitREX))
+                    {
+                       m_nblyrics++;
+                       m_lyrics[m_nblyrics]=splitREX.cap(1);
+                       line=splitREX.cap(2);
+                       tocomplete=true;
+                    }
+                }
+                firstline=false;
                 int nbbeat=getNumberOfBeat(line,m_timeup);
                 m_refrainnbbeat[m_nblinerefrain]=nbbeat;
                 m_refrain<<line;
@@ -174,6 +195,18 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                 {
                     firstcouplet=true;
                     m_nblinecouplet++;
+                    if ( firstline )
+                    {
+                        QRegExp splitREX("^([^[]+)(.*)");
+                        if ( line.contains(splitREX))
+                        {
+                           m_nblyrics++;
+                           m_lyrics[m_nblyrics]=splitREX.cap(1);
+                           line=splitREX.cap(2);
+                           tocomplete=true;
+                        }
+                    }
+                    firstline=false;
                     int nbbeat=getNumberOfBeat(line,m_timeup);
                     m_coupletnbbeat[m_nblinecouplet]=nbbeat;
                     m_nblyrics++;
@@ -191,6 +224,14 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                  }
            }
         }
+    }
+    if ( tocomplete )
+    {
+        QFontMetrics fm(m_font);
+
+        while ( fm.width(m_lyrics[1])< fm.width(m_lyrics[2]))
+            m_lyrics[1]=" "+m_lyrics[1];
+        m_seconds[1]=m_seconds[2];
     }
 
 }
@@ -274,8 +315,8 @@ void DialogProcessMemory::showRythm()
 
     if ( m_click )
     {
-       if (m_accentuedfirst && m_countrythm % m_timeup == 1) m_player->setMedia(QUrl("qrc:/sound/2.wav"));
-       else  m_player->setMedia(QUrl("qrc:/sound/1.wav"));
+       if (m_accentuedfirst && m_countrythm % m_timeup == 1) m_player->setMedia(QUrl("qrc:/sound/1.wav"));
+       else  m_player->setMedia(QUrl("qrc:/sound/2.wav"));
        m_player->setVolume(m_volume);
        m_player->play();
     }
