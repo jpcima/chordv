@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QRegExp>
 #include <QTimer>
+#include <QKeyEvent>
 
 DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,
                                          bool click, int volume, bool accentuedfirst ,QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines, double advance,
@@ -16,6 +17,7 @@ ui(new Ui::DialogProcessMemory)
     ui->setupUi(this);
     m_player= new QMediaPlayer;
     m_stop=false;
+    m_pause=false;
     m_font=font;
     m_showrythm=showrythm;
     m_textcolor=textcolor;
@@ -321,4 +323,20 @@ void DialogProcessMemory::DeleteAllTimers()
     m_timerrythm=0;
     m_timerlyrics=0;
     m_timerend=0;
+}
+
+void DialogProcessMemory::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key()==Qt::Key_Space )
+    if (! m_pause)
+       {
+        m_timerrythm->stop();
+        m_timerlyrics->stop();
+       }
+    else
+    {
+     m_timerrythm->start();
+     m_timerlyrics->start();
+    }
+    m_pause=!m_pause;
 }

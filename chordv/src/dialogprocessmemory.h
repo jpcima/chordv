@@ -28,6 +28,7 @@ private slots:
 private:
     Ui::DialogProcessMemory *ui;
     bool m_stop;
+    bool m_pause;
     int m_tempo;
     int m_timeup;
     bool m_click;
@@ -73,6 +74,7 @@ private:
     void displayLine();
     QColor getColorBetween(QColor color1, QColor color2);
     void DeleteAllTimers();
+    void keyPressEvent(QKeyEvent *);
 };
 
 #endif // DIALOGPROCESSMEMORY_H
