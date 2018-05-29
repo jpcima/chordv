@@ -99,6 +99,7 @@ private:
     QString m_initialbuffer;
     void InitDefault();
     void ProducePDF();
+    bool m_demofile;
 public slots:
     ///
     /// \brief ChangeLanguage retranslate all the child window and tha main window

@@ -54,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QSettings s;
     QList <int> size;
     size<<700<<100;
+    m_demofile=false;
     m_labelactivestacked= new QLabel(this);
     ui->statusBar->addWidget(m_labelactivestacked);
     m_liststacked<<tr("Editor")<<tr("Global definitions")<<tr("Text and chord Mode")<<tr("Chord Mode")<<tr("Text mode")<<tr("Memory Mode");
@@ -157,7 +158,7 @@ void MainWindow::AskSaveOnQuit()
         int i = QMessageBox::warning(this,tr("Buffer as changed"),tr("Do you want to save ? "),
                           QMessageBox::Yes,QMessageBox::No   );
         if ( i==QMessageBox::Yes)
-            SaveAs(true);
+            Save(true);
 
     }
 }
@@ -421,6 +422,7 @@ void MainWindow::Save(QString filename)
     ui->widgetLyricsMode->Save(filename,FormConfig::Lyrics);
     ui->widgetTextMode->Save(filename,FormConfig::Text);
     m_initialbuffer=ui->textEditCho3File->document()->toPlainText();
+    m_demofile=false;
 }
 
 QString MainWindow::getRelativeFilename( QString chofilename )
@@ -433,7 +435,7 @@ QString MainWindow::getRelativeFilename( QString chofilename )
 void MainWindow::Save(bool)
 {
     ui->log->clear();
-    if ( m_currentprojectname.isEmpty())
+    if ( m_currentprojectname.isEmpty() || m_demofile )
         SaveAs(true);
     else m_currentprojectfile=m_currentprojectdir+"/"+m_currentprojectname+".chop";
     QSettings sf(m_currentprojectfile,QSettings::IniFormat);
@@ -450,6 +452,7 @@ void MainWindow::Save(bool)
     ui->widgetChordMode->Save(m_currentprojectfile,FormConfig::Chord);
     ui->widgetLyricsMode->Save(m_currentprojectfile,FormConfig::Lyrics);
     ui->widgetTextMode->Save(m_currentprojectfile,FormConfig::Text);
+    m_initialbuffer=ui->textEditCho3File->document()->toPlainText();
 }
 
 
@@ -846,7 +849,7 @@ void MainWindow::LoadDemoFile()
 
     QString filename=Language::getTranslationDemoFileName(language);
     openProject(filename);
-
+    m_demofile=true;
 }
 
 void MainWindow::SetTocInMemoryMode(QStringList toc)

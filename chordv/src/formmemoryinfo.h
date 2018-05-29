@@ -71,6 +71,7 @@ public:
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
     void SetUnsetPosition();
+    void SetUnsetAdvance(int time);
 };
 
 #endif // FORMMEMORYINFO_H

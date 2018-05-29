@@ -252,8 +252,8 @@ void DialogProcessMemory::displayLine()
 
 void DialogProcessMemory::showRythm()
 {
-    if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap("../Images/redbull.png"));
-    else ui->labelTimeBullet->setPixmap(QPixmap("../Images/greenbull.png"));
+    if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/redbull.png"));
+    else ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/greenbull.png"));
     m_countrythm++;
     if ( m_timerclearrythm != 0 ) delete m_timerclearrythm;
     if (  m_indice <= m_nblyrics)

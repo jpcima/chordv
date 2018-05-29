@@ -21,9 +21,6 @@
        <property name="text">
         <string/>
        </property>
-       <property name="pixmap">
-        <pixmap resource="../Resources/resources.qrc">:/Image/Images/redbull.png</pixmap>
-       </property>
       </widget>
      </item>
      <item>
@@ -46,14 +43,14 @@
          <item>
           <widget class="QLabel" name="labelText1">
            <property name="text">
-            <string>&gt;</string>
+            <string/>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="labelText2">
            <property name="text">
-            <string>&gt;</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -78,8 +75,6 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../Resources/resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

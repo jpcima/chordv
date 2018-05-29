@@ -10,9 +10,16 @@ FormMemoryInfo::FormMemoryInfo(QWidget *parent) :
     ui->setupUi(this);
     Init();
     SetUnsetPosition();
-    connect (ui->toolButtonFontMemory,SIGNAL(sendSelectedFont(QFont,QColor,QColor)), this,SLOT(ShowSelectedFont(QFont,QColor,QColor)));
+    SetUnsetAdvance(ui->spinBoxTimeBeforeStart->value());
+    connect (ui->toolButtonFontMemory,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),
+             this,SLOT(ShowSelectedFont(QFont,QColor,QColor)));
     connect (ui->checkBoxFullScreenMemory,SIGNAL(clicked(bool)),this,SLOT(SetUnsetPosition()));
+    connect (ui->spinBoxTimeBeforeStart,SIGNAL(valueChanged(int)),this,SLOT(SetUnsetAdvance(int)));
+}
 
+void FormMemoryInfo::SetUnsetAdvance(int time)
+{
+    ui->doubleSpinBoxAdvance->setDisabled(time<=0);
 }
 
 void FormMemoryInfo::Init()
@@ -25,6 +32,7 @@ void FormMemoryInfo::Init()
     ui->toolButtonFontMemory->setColor(QColor(s.value("Memory/FontColor","black").toString()));
     ui->toolButtonFontMemory->setBackgroundColor(QColor(s.value("Memory/BackgroundColor","white").toString()));
     ui->doubleSpinBoxAdvance->setValue(s.value("Memory/Advance").toDouble());
+    ui->spinBoxTimeBeforeStart->setValue(s.value("Memory/TimeBeforeStart").toInt());
     QFont f;
     f.fromString(s.value("Memory/Font").toString());
     ui->toolButtonFontMemory->setFont(f);
@@ -42,7 +50,7 @@ void FormMemoryInfo::Save()
     s.setValue("Memory/FontColor",ui->toolButtonFontMemory->getTextColor().name());
     s.setValue("Memory/BackgroundColor",ui->toolButtonFontMemory->getBackgroundColor().name());
     s.setValue("Memory/Advance",ui->doubleSpinBoxAdvance->value());
-
+    s.setValue("Memory/TimeBeforeStart",ui->spinBoxTimeBeforeStart->value());
 }
 
 QFont FormMemoryInfo::getFont()
