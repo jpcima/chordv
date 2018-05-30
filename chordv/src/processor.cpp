@@ -875,8 +875,8 @@ void Processor::makePageNumber()
         QString page=QString(pattern).arg(nbpage);
 
         double  widthtext=m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*page.length();
-        int x;
-        int y;
+        int x=0;
+        int y=0;
         if (  m_uiconfig->spuHorizontalMargin->getPdfU() < m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF() )
             y= m_uiconfig->toolButtonPageNumberFont->getFont().pointSizeF()*3;
         else
