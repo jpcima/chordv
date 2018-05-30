@@ -1,6 +1,6 @@
 % Documentation utilisateur de chord V
 % Gilles Maire 
-% juin 2017
+% Mai 2018 
 
 
 # Introduction 

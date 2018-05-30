@@ -1,8 +1,18 @@
-chordv (0.2) UNRELEASED; urgency=medium
+chordv (0.4) UNRELEASED; urgency=medium
 
+  [ Gilles Maire ]
   * bug corrections ( see git log ) 
 
- -- Gilles Maire <gilles@formation-OptiPlex-7020>  Wed, 25 Apr 2018 14:05:57 +0200
+  [ Gilles Maire ]
+  * Memory mode 
+
+
+  [ gilles ]
+  * Documentation for Memory mode
+  * Test Memory mode 
+  * save bug corrected 
+
+ -- gilles <gilles@gillesmaire.com>  Wed, 30 May 2018 10:36:31 +0200
 
 chordv (0.1) unstable; urgency=medium
 

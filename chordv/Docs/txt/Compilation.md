@@ -10,7 +10,7 @@ git clone https://git.code.sf.net/p/chordv/code chordv-code
 
 ## Podofo compilation from sources
 
-### Install dependancies on Ubuntu 17.04
+### Install dependancies on Ubuntu 1.04
 
 ~~~bash
     sudo apt-get install -y subversion cmake
@@ -18,7 +18,7 @@ git clone https://git.code.sf.net/p/chordv/code chordv-code
     sudo apt-get install -y libcppunit-dev liblua50-dev libidn11-dev lua5.1-dev
 ~~~
 
-### Install dependancis n Ubuntu 16.04 LTS
+### Install dependancies on Ubuntu 16.04 LTS
 
 ~~~bash
     sudo apt-get install -y subversion cmake
