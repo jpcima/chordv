@@ -14,7 +14,7 @@ mkdir -p $LANGFILE
 mkdir -p $ENGFILE
 mkdir -p ~/.config/ChordV
 
-
+lrelease translations/fr.qm
 cp translations/fr.qm $LANGFILE
 cp translations/fr.ts $LANGFILE
 cp Images/fr.png $LANGFILE

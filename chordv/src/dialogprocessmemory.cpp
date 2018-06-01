@@ -320,17 +320,20 @@ void DialogProcessMemory::showRythm()
        m_player->setVolume(m_volume);
        m_player->play();
     }
-    if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/redbull.png"));
-    else ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/greenbull.png"));
+    if ( m_showrythm )
+    {
+        if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/redbull.png"));
+        else ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/greenbull.png"));
+    }
     m_countrythm++;
     if ( m_timerclearrythm != 0 )  delete m_timerclearrythm;
-    if (  m_indice <= m_nblyrics)
+    if (  m_showrythm &&  m_indice <= m_nblyrics)
     {
        m_timerclearrythm = new QTimer;
        connect(m_timerclearrythm, SIGNAL(timeout()), this, SLOT(eraseBull()));
        m_timerclearrythm->start(300);
     }
-    else delete m_timerrythm;
+    else if ( m_showrythm ) delete m_timerrythm;
 
 }
 
@@ -371,14 +374,14 @@ void DialogProcessMemory::keyPressEvent(QKeyEvent *event)
     if (event->key()==Qt::Key_Space )
     {
      if (! m_pause)
-       {
-        m_timerrythm->stop();
-        m_timerlyrics->stop();
-       }
+     {
+      if ( m_timerrythm ) m_timerrythm->stop();
+      if ( m_timerlyrics) m_timerlyrics->stop();
+     }
     else
     {
-     m_timerrythm->start();
-     m_timerlyrics->start();
+      if ( m_timerrythm )m_timerrythm->start();
+      if ( m_timerlyrics)m_timerlyrics->start();
     }
     m_pause=!m_pause;
     }
