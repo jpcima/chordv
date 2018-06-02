@@ -397,7 +397,7 @@ void FormEditor::InsertCompress()
         else
             text=QString("{t:%1}").arg(text);
         if ( ! ui->textEdit->find(text) ) {}
-        ui->textEdit->find(text);
+        ui->textEdit->find(text,QTextDocument::FindBackward);
         QTextCursor tc=ui->textEdit->textCursor();
 
     }

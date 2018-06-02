@@ -7,6 +7,8 @@ DialogAbout::DialogAbout(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEditVersion->setText(QString(VERSIONWORK));
+    ui->lineEditGitVersion->setText(QString(GIT));
+    ui->lineEditDate->setText(QString(DATEBUILD));
     ui->textBrowserCredit->setOpenLinks(false);
 }
 
