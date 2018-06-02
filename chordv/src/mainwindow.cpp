@@ -121,6 +121,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect( ui->textEditCho3File,SIGNAL(Toc(QStringList)),this,SLOT(SetTocInMemoryMode(QStringList)));
     connect (ui->pushButtonLaunchMemory,SIGNAL(clicked(bool)),this,SLOT(LaunchMemory()));
     connect (ui->widgetMemory,SIGNAL(SynchroMode(bool)),this,SLOT(SetSynchroDisplay(bool)));
+    connect (ui->textEditCho3File,SIGNAL(SongSelected(QString)),this,SLOT(SelectSongInMemory(QString)));
     ui->tableWidgetToc->setColumnCount(1);
     ui->tableWidgetToc->setColumnWidth(0,65532);
     ui->tableWidgetToc->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -863,12 +864,12 @@ void MainWindow::SetTocInMemoryMode(QStringList toc)
         ui->tableWidgetToc->setItem(i,0, new QTableWidgetItem(elem));
         i++;
     }
-    ui->tableWidgetToc->clearSelection();
 }
 
 
 void MainWindow::LaunchMemory()
 {
+
     if ( ui->tableWidgetToc->selectedItems().count()==0)
     {
         QMessageBox::warning(this,tr("No title selected"),tr("You must select a title"));
@@ -906,4 +907,15 @@ void MainWindow::SetSynchroDisplay(bool val)
         ui->labelESCAPEPAUSE->setText(tr("< ESCAPE >  to abort monitoring window"));
     else
         ui->labelESCAPEPAUSE->setText(tr("< ESCAPE >  to abort monitoring window\n< PAUSE> to pause unpause"));
+}
+
+
+void MainWindow::SelectSongInMemory(QString song)
+{
+   ui->tableWidgetToc->selectionModel()->clearSelection();
+     QList<QTableWidgetItem*> list=ui->tableWidgetToc->findItems(song,Qt::MatchExactly);
+     if ( !list.empty() )
+     {
+         list.at(0)->setSelected(true);
+      }
 }

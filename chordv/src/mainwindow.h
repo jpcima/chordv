@@ -169,6 +169,7 @@ private slots:
     void SetTocInMemoryMode(QStringList toc);
     void LaunchMemory();
     void SetSynchroDisplay(bool val);
+    void SelectSongInMemory(QString song);
 };
 
 #endif // MAINWINDOW_H

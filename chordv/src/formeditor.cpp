@@ -391,14 +391,16 @@ void FormEditor::InsertCompress()
 
     void FormEditor::TocToText(QModelIndex index)
     {
-        QString text=index.data().toString();
+        QString text1=index.data().toString();
+        QString text;
         if ( ui->checkBoxLongShort->isChecked() )
-            text=QString("{title:%1}").arg(text);
+            text=QString("{title:%1}").arg(text1);
         else
-            text=QString("{t:%1}").arg(text);
+            text=QString("{t:%1}").arg(text1);
         if ( ! ui->textEdit->find(text) ) {}
         ui->textEdit->find(text,QTextDocument::FindBackward);
         QTextCursor tc=ui->textEdit->textCursor();
+        emit SongSelected(text1);
 
     }
 

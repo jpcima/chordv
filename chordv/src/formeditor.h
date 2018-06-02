@@ -154,6 +154,7 @@ private slots:
     void TransposeChord(int numberofchroma,  int range);
 signals:
     void Toc(QStringList);
+    void SongSelected(QString);
 };
 
 #endif // FORMEDITOR_H
