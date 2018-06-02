@@ -5,6 +5,8 @@
 #include <QMap>
 #include <QTimer>
 #include <QMediaPlayer>
+#include <jack/jack.h>
+#include <jack/transport.h>
 
 
 namespace Ui {
@@ -17,8 +19,9 @@ class DialogProcessMemory : public QDialog
 
 public:
     explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, bool click, int volume, bool firstaccentued,
-                                 QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance, int nbbarsbefore);
+                                 QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance, int nbbarsbefore, bool jacksynchro);
     ~DialogProcessMemory();
+    bool getJackConnected() { return m_jacksynchro ;}
 
 private slots:
     void displaySong();
@@ -26,14 +29,18 @@ private slots:
     void eraseBull();
     void Close();
     void WaitBeforeStart();
+    void JackMessages();
 private:
+    enum State{NotStarted,Running,Paused,Finished};
     Ui::DialogProcessMemory *ui;
     bool m_stop;
+    bool m_firststart;
     bool m_pause;
     int m_tempo;
     int m_timeup;
     bool m_click;
     bool m_accentuedfirst;
+    State m_status;
     int m_volume;
     int m_timebefore;
     double m_advance;
@@ -42,6 +49,7 @@ private:
     QTimer *m_timerclearrythm;
     QTimer *m_timerlyrics;
     QTimer *m_timerbefore;
+    QTimer *m_timeline;
     QMap <int,int> m_seconds;
     QMap <int,QString> m_lyrics;
     QStringList m_refrain;
@@ -51,13 +59,18 @@ private:
     int m_nblinerefrain;
     int m_nblyrics;
     bool m_showrythm;
+    bool m_jacksynchro;
     QFont m_font;
     QColor m_textcolor;
     QColor m_backgroundcolor;
-    int m_msecPerBar;
     int m_indice;
     int m_countrythm;
+    int m_period;
+    int m_millisecondperbeat;
+    int m_time;
     QMediaPlayer *m_player;
+    jack_client_t *m_jackclient;
+
     ///
     /// \brief getInfo get all the information in song file, about the song named title
     /// \param songs : the whole songs buffer
@@ -71,12 +84,13 @@ private:
     /// \param timedown : int for timedown : 3/4 timedown is 4
     /// \return : the number of second for a bar
     ///
-    int MillisecondPerBeat(int tempo);
     int getNumberOfBeat(QString &line, int timeup);
     void displayLine();
     QColor getColorBetween(QColor color1, QColor color2);
     void DeleteAllTimers();
     void keyPressEvent(QKeyEvent *);
+    void PauseFlipFlop();
+    void Start();
 };
 
 #endif // DIALOGPROCESSMEMORY_H

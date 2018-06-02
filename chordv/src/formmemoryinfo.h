@@ -65,18 +65,21 @@ public:
     /// \return
     ///
     int getPosition();
-
     bool getShowTwoLines();
     double getAdvance();
     bool getClick();
     bool getAccentuedFirst();
     int getVolume();
     int getDelay();
+    bool getJackSyncrhro();
+    void setJackSynchro(bool val);
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
     void SetUnsetPosition();
     void SetUnsetAdvance(int time);
     void SetUnsetClick();
+signals:
+    void SynchroMode(bool);
 };
 
 #endif // FORMMEMORYINFO_H

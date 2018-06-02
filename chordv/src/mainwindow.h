@@ -168,6 +168,7 @@ private slots:
     void LoadDemoFile();
     void SetTocInMemoryMode(QStringList toc);
     void LaunchMemory();
+    void SetSynchroDisplay(bool val);
 };
 
 #endif // MAINWINDOW_H

@@ -8,10 +8,12 @@
 #include <QTimer>
 #include <QKeyEvent>
 #include <QFontMetrics>
+#include <QMessageBox>
+
 
 DialogProcessMemory::DialogProcessMemory(QWidget *parent, QString songs, int position,QString title,  bool showrythm,
                                          bool click, int volume, bool accentuedfirst ,QFont font, QColor textcolor, QColor background, bool fullScreen, bool twolines, double advance,
-                                         int nbbarsbefore):
+                                         int nbbeatbefore, bool jacksynchro):
 QDialog(parent),
 ui(new Ui::DialogProcessMemory)
 {
@@ -19,16 +21,19 @@ ui(new Ui::DialogProcessMemory)
     m_player= new QMediaPlayer;
     m_stop=false;
     m_pause=false;
+    m_jacksynchro=jacksynchro;
     m_font=font;
     m_showrythm=showrythm;
     m_textcolor=textcolor;
     m_backgroundcolor=background;
     m_countrythm=1;
     m_advance=advance;
-    m_timebefore=nbbarsbefore;
+    m_timebefore=nbbeatbefore;
     m_volume=volume;
     m_click=click;
+    m_firststart=true;
     m_accentuedfirst=accentuedfirst;
+    m_status=NotStarted;
     QRect rect=qApp->desktop()->geometry();
     QFontMetrics fm(font);
     if ( fullScreen )
@@ -44,7 +49,7 @@ ui(new Ui::DialogProcessMemory)
     }
     if ( ! m_showrythm ) ui->labelTimeBullet->setVisible(false);
 
-    setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     setStyleSheet(QString("background-color:%1").arg(m_backgroundcolor.name()));
     ui->labelText1->setFont(m_font);
     ui->labelText1->setStyleSheet(QString("color:%1;").arg(m_textcolor.name()));
@@ -54,22 +59,90 @@ ui(new Ui::DialogProcessMemory)
     m_nblinecouplet=0;
     m_nblinerefrain=0;
     getInfo(songs,title);
+    m_period=m_millisecondperbeat/4;
     m_indice=0;
     m_timerend=0;
     m_timerclearrythm=0;
     m_timerrythm=0;
     m_timerlyrics=0;
-    if ( m_showrythm || m_click)
+    m_time=0;
+    m_jackclient=0;
+
+
+    if ( m_jacksynchro)
+    {
+        jack_status_t  status;
+        if ((m_jackclient = jack_client_open ("chordVJack", JackNoStartServer,&status)) == 0) {
+             QMessageBox::warning(0,tr("Jack not found"),tr("Jack seems to not be launched ! \n(Try to launch Jack manually without QJackCtl)"));
+             m_jacksynchro=false;
+            }
+        else
+        {
+            if (jack_activate (m_jackclient) ){
+                QMessageBox::warning(0,tr("Jack problem"),tr("Jack cannot be activated !"));
+                m_jacksynchro=false;
+                }
+            else
+            {
+                m_timeline = new QTimer;
+                connect(m_timeline, SIGNAL(timeout()), this, SLOT(JackMessages()));
+                m_timeline->setInterval(m_period);
+                m_timeline->start();
+            }
+        }
+    }
+    if (  m_showrythm || m_click )
     {
         m_timerrythm = new QTimer ;
         connect(m_timerrythm, SIGNAL(timeout()), this, SLOT(showRythm()));
-        m_timerrythm->setInterval(m_msecPerBar);
-        m_timerrythm->start();
+        m_timerrythm->setInterval(m_millisecondperbeat);
+        if ( ! m_jacksynchro )
+            m_timerrythm->start();
+        else m_pause=true;
     }
     connect (this,SIGNAL(rejected()),this,SLOT(Close()));
-    qDebug()<<m_timebefore*MillisecondPerBeat(m_tempo)*m_timeup;
-    qDebug()<<MillisecondPerBeat(m_tempo)<<m_timeup<<m_timebefore;
-    QTimer::singleShot(m_timebefore*MillisecondPerBeat(m_tempo)*m_timeup-1000*m_advance, this, SLOT(WaitBeforeStart()));
+    if ( ! m_jacksynchro ) Start();
+
+}
+
+void DialogProcessMemory::Start()
+{
+    QTimer::singleShot(m_timebefore*m_millisecondperbeat*m_timeup-1000*m_advance, this, SLOT(WaitBeforeStart()));
+}
+
+
+void DialogProcessMemory::JackMessages()
+{
+    jack_position_t current;
+    jack_transport_state_t transport_state;
+    jack_nframes_t frame_time;
+    transport_state = jack_transport_query (m_jackclient, &current);
+    frame_time = jack_frame_time (m_jackclient);
+    switch (transport_state) {
+        case JackTransportStopped:
+            if (m_status==Running)
+            {
+                m_status=Paused;
+                if ( m_timerrythm ) m_timerrythm->stop();
+                if ( m_timerlyrics) m_timerlyrics->stop();
+            }
+            break;
+        case JackTransportRolling:
+            if (m_firststart) Start();
+            m_firststart=false;
+            if (m_status!=Running)
+            {
+                m_status=Running;
+                if ( m_timerrythm ) m_timerrythm->start();
+                if ( m_timerlyrics) m_timerlyrics->start();
+            }
+            break;
+        case JackTransportStarting:
+            qWarning()<<"state: Starting";
+            break;
+        default:
+            qWarning()<<"state: [unknown]";
+        }
 }
 
 void DialogProcessMemory::WaitBeforeStart()
@@ -80,7 +153,9 @@ void DialogProcessMemory::WaitBeforeStart()
 DialogProcessMemory::~DialogProcessMemory()
 {
     delete m_player;
+    if (m_jackclient) delete m_jackclient;
     delete ui;
+
 }
 
 void DialogProcessMemory::getInfo( QString songs,QString title)
@@ -96,7 +171,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
     QStringList buf=songs.split("\n");
     bool found=false;
     m_tempo=120;
-    m_msecPerBar=MillisecondPerBeat(m_tempo);
+    m_millisecondperbeat=60000/m_tempo;
     m_timeup=4;
     bool chorus=false;
     bool refrain=false;
@@ -121,7 +196,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
             if ( line.contains(TempoREX))
             {
                 m_tempo=TempoREX.cap(1).toInt();
-                m_msecPerBar=MillisecondPerBeat(m_tempo);
+                m_millisecondperbeat=60000/m_tempo;
             }
             else if ( line.contains(TimeREX))
             {
@@ -153,7 +228,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                   {
                       m_nblyrics++;
                       m_lyrics[m_nblyrics]=ref;
-                      m_seconds[m_nblyrics]=m_refrainnbbeat[index]*m_msecPerBar;
+                      m_seconds[m_nblyrics]=m_refrainnbbeat[index]*m_millisecondperbeat;
                       index++;
                   }
                 }
@@ -163,7 +238,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
              m_nblyrics++;
              int nbbeat=getNumberOfBeat(line,m_timeup);
              m_lyrics[m_nblyrics]="...";
-             m_seconds[m_nblyrics]=m_msecPerBar*nbbeat;
+             m_seconds[m_nblyrics]=m_millisecondperbeat*nbbeat;
             }
             else if ( refrain )
             {
@@ -185,7 +260,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                 m_refrain<<line;
                 m_nblyrics++;
                 m_lyrics[m_nblyrics]=line;
-                m_seconds[m_nblyrics]=m_msecPerBar*nbbeat;
+                m_seconds[m_nblyrics]=m_millisecondperbeat*nbbeat;
                 refrainexist=true;
                 refrainmade=true;
             }
@@ -211,7 +286,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                     m_coupletnbbeat[m_nblinecouplet]=nbbeat;
                     m_nblyrics++;
                     m_lyrics[m_nblyrics]=line;
-                    m_seconds[m_nblyrics]=m_msecPerBar*nbbeat;
+                    m_seconds[m_nblyrics]=m_millisecondperbeat*nbbeat;
                     coupletindex=0;
                 }
                 else
@@ -219,7 +294,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                     coupletindex++;
                     m_nblyrics++;
                     m_lyrics[m_nblyrics]=line;
-                    m_seconds[m_nblyrics]=m_coupletnbbeat[coupletindex]*m_msecPerBar;
+                    m_seconds[m_nblyrics]=m_coupletnbbeat[coupletindex]*m_millisecondperbeat;
                     refrainmade=false;
                  }
            }
@@ -234,11 +309,6 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
         m_seconds[1]=m_seconds[2];
     }
 
-}
-
-int DialogProcessMemory::MillisecondPerBeat( int tempo )
-{
-    return 60000  / tempo;
 }
 
 int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
@@ -284,7 +354,6 @@ void DialogProcessMemory::displaySong()
     {
         m_timerclearrythm->stop();
         m_timerrythm->stop();
-        qWarning()<<"c'st ini";
         m_timerend = new QTimer(this);
         connect(m_timerend, SIGNAL(timeout()), this, SLOT(close()));
         m_timerend->start(1000);
@@ -371,19 +440,27 @@ void DialogProcessMemory::DeleteAllTimers()
 
 void DialogProcessMemory::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key()==Qt::Key_Space )
+    if ( ! m_jacksynchro)
     {
-     if (! m_pause)
-     {
-      if ( m_timerrythm ) m_timerrythm->stop();
-      if ( m_timerlyrics) m_timerlyrics->stop();
-     }
-    else
-    {
-      if ( m_timerrythm )m_timerrythm->start();
-      if ( m_timerlyrics)m_timerlyrics->start();
-    }
-    m_pause=!m_pause;
+        if (event->key()==Qt::Key_Space )
+        {
+        PauseFlipFlop();
+        }
     }
     QDialog::keyPressEvent(event);
+}
+
+void DialogProcessMemory::PauseFlipFlop()
+{
+    if (! m_pause)
+    {
+     if ( m_timerrythm ) m_timerrythm->stop();
+     if ( m_timerlyrics) m_timerlyrics->stop();
+    }
+   else
+   {
+     if ( m_timerrythm )m_timerrythm->start();
+     if ( m_timerlyrics)m_timerlyrics->start();
+   }
+   m_pause=!m_pause;
 }

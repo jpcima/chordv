@@ -144,7 +144,7 @@
     src/dialogprocessmemory.ui
 
  #    LIBS += -LLibraries/lib -L/usr/lib -Wl,-Bstatic -lpodofo -Wl,-Bdynamic -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
-    LIBS += -Bdynamic -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl
+    LIBS += -Bdynamic -lpodofo -lfreetype -lfontconfig -lidn -ljpeg -ltiff -lz  -lm -lpng -lcrypto -lssl -ljack
     INCLUDEPATH = ./src
 
 

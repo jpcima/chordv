@@ -289,7 +289,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label">
+              <widget class="QLabel" name="labelESCAPEPAUSE">
                <property name="text">
                 <string>&lt; ESCAPE &gt;  to abort monitoring window
 &lt; PAUSE&gt; to pause unpause</string>
@@ -311,8 +311,14 @@
              </item>
              <item>
               <widget class="QPushButton" name="pushButtonLaunchMemory">
+               <property name="toolTip">
+                <string>F10</string>
+               </property>
                <property name="text">
                 <string>Launch</string>
+               </property>
+               <property name="shortcut">
+                <string>F10</string>
                </property>
               </widget>
              </item>
@@ -614,6 +620,9 @@
    </property>
    <property name="text">
     <string>&amp;Editor</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
    </property>
   </action>
   <action name="action1">

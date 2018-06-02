@@ -17,6 +17,7 @@ FormMemoryInfo::FormMemoryInfo(QWidget *parent) :
     connect (ui->checkBoxFullScreenMemory,SIGNAL(clicked(bool)),this,SLOT(SetUnsetPosition()));
     connect (ui->spinBoxTimeBeforeStart,SIGNAL(valueChanged(int)),this,SLOT(SetUnsetAdvance(int)));
     connect (ui->checkBoxClick,SIGNAL(clicked(bool)),this,SLOT(SetUnsetClick()));
+    connect (ui->checkBoxJackSynchronisation,SIGNAL(clicked(bool)),this,SIGNAL(SynchroMode(bool)));
 }
 
 void FormMemoryInfo::SetUnsetAdvance(int time)
@@ -44,7 +45,7 @@ void FormMemoryInfo::Init()
     ui->horizontalSliderVolume->setValue(s.value("Memory/Volume",50).toInt());
     ui->checkBoxClick->setChecked(s.value("Memory/Click",true).toBool());
     ui->checkBoxMarkFirst->setChecked(s.value("Memory/MarkFirstClick",true).toBool());
-    //ui->checkBoxJackSynchronisation
+    ui->checkBoxJackSynchronisation->setChecked(s.value("Memory/JackSynchro",false).toBool());
     QFont f;
     f.fromString(s.value("Memory/Font").toString());
     ui->toolButtonFontMemory->setFont(f);
@@ -66,6 +67,7 @@ void FormMemoryInfo::Save()
     s.setValue("Memory/Volume",ui->horizontalSliderVolume->value());
     s.setValue("Memory/Click",ui->checkBoxClick->isChecked());
     s.setValue("Memory/MarkFirstClick",ui->checkBoxMarkFirst->isChecked());
+    s.setValue("Memory/JackSynchro",ui->checkBoxJackSynchronisation->isChecked());
 
 }
 
@@ -122,6 +124,17 @@ int FormMemoryInfo::getPosition()
 bool FormMemoryInfo::getShowTwoLines()
 {
      return ui->checkBoxTwoLines->isChecked();
+}
+
+bool FormMemoryInfo::getJackSyncrhro()
+{
+     return ui->checkBoxJackSynchronisation->isChecked();
+}
+
+
+void FormMemoryInfo::setJackSynchro(bool val)
+{
+    ui->checkBoxJackSynchronisation->setChecked(val);
 }
 
 double FormMemoryInfo::getAdvance()

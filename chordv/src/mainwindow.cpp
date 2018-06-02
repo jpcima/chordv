@@ -120,7 +120,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->actionLoad_demo_file,SIGNAL(triggered(bool)),this,SLOT(LoadDemoFile()));
     connect( ui->textEditCho3File,SIGNAL(Toc(QStringList)),this,SLOT(SetTocInMemoryMode(QStringList)));
     connect (ui->pushButtonLaunchMemory,SIGNAL(clicked(bool)),this,SLOT(LaunchMemory()));
-
+    connect (ui->widgetMemory,SIGNAL(SynchroMode(bool)),this,SLOT(SetSynchroDisplay(bool)));
     ui->tableWidgetToc->setColumnCount(1);
     ui->tableWidgetToc->setColumnWidth(0,65532);
     ui->tableWidgetToc->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -876,7 +876,7 @@ void MainWindow::LaunchMemory()
     }
     QString title= ui->tableWidgetToc->selectedItems().at(0)->text();
     this->hide();
-    DialogProcessMemory *memory = new DialogProcessMemory(this,
+    DialogProcessMemory memory(this,
                                                           ui->textEditCho3File->document()->toPlainText(),
                                                           ui->widgetMemory->getPosition(),
                                                           title,
@@ -890,9 +890,20 @@ void MainWindow::LaunchMemory()
                                                           ui->widgetMemory->getFullscreenMode(),
                                                           ui->widgetMemory->getShowTwoLines(),
                                                           ui->widgetMemory->getAdvance(),
-                                                          ui->widgetMemory->getDelay()
+                                                          ui->widgetMemory->getDelay(),
+                                                          ui->widgetMemory->getJackSyncrhro()
                                                           );
 
-    memory->exec();
+    memory.exec();
+    ui->widgetMemory->setJackSynchro(memory.getJackConnected());
     this->show();
+}
+
+
+void MainWindow::SetSynchroDisplay(bool val)
+{
+    if (val)
+        ui->labelESCAPEPAUSE->setText(tr("< ESCAPE >  to abort monitoring window"));
+    else
+        ui->labelESCAPEPAUSE->setText(tr("< ESCAPE >  to abort monitoring window\n< PAUSE> to pause unpause"));
 }
