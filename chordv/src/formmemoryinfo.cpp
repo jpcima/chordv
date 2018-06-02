@@ -44,6 +44,7 @@ void FormMemoryInfo::Init()
     ui->horizontalSliderVolume->setValue(s.value("Memory/Volume",50).toInt());
     ui->checkBoxClick->setChecked(s.value("Memory/Click",true).toBool());
     ui->checkBoxMarkFirst->setChecked(s.value("Memory/MarkFirstClick",true).toBool());
+    //ui->checkBoxJackSynchronisation
     QFont f;
     f.fromString(s.value("Memory/Font").toString());
     ui->toolButtonFontMemory->setFont(f);

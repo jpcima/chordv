@@ -90,41 +90,46 @@
         <translation>Version git</translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="83"/>
+        <location filename="../src/dialogabout.ui" line="79"/>
+        <source>Compilation date</source>
+        <translation>Date de compilation</translation>
+    </message>
+    <message>
+        <location filename="../src/dialogabout.ui" line="90"/>
         <source>Gilles Maire</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="93"/>
+        <location filename="../src/dialogabout.ui" line="100"/>
         <source>https://sourceforge.net/projects/chordv/</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="103"/>
+        <location filename="../src/dialogabout.ui" line="110"/>
         <source>http://www.gillesmaire.com</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="113"/>
+        <location filename="../src/dialogabout.ui" line="120"/>
         <source>http://www.lesjetesdelencre.com</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="123"/>
+        <location filename="../src/dialogabout.ui" line="130"/>
         <source>GPL 3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="171"/>
+        <location filename="../src/dialogabout.ui" line="188"/>
         <source>Credit</source>
         <translation>Outils</translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="178"/>
+        <location filename="../src/dialogabout.ui" line="195"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Noto Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;&amp;gt; Qt5 and Qt5Creator from &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.qt-project.org&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.qt-project.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;&amp;gt; developped on Ubuntu OS &lt;/span&gt;&lt;/p&gt;
@@ -180,7 +185,7 @@ Source code sur SourceForge project ChordV
 Site : http://www.gillesmaire.com</translation>
     </message>
     <message>
-        <location filename="../src/dialogabout.ui" line="217"/>
+        <location filename="../src/dialogabout.ui" line="234"/>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
@@ -1840,28 +1845,33 @@ en boîte</translation>
         <translation>Formulaire</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="34"/>
+        <location filename="../src/formmemoryinfo.ui" line="37"/>
         <source>Memory font</source>
         <translation>Police de caractères du mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="41"/>
+        <location filename="../src/formmemoryinfo.ui" line="44"/>
         <source>Position</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="178"/>
+        <location filename="../src/formmemoryinfo.ui" line="144"/>
+        <source>Set on  to listen a click on each beat</source>
+        <translation>Permet d&apos;entendre le métronome</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="196"/>
         <source>Time adjustment</source>
         <translation>Décalage pour permettre la lecture</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="188"/>
+        <location filename="../src/formmemoryinfo.ui" line="211"/>
         <source>Advance lyrics </source>
         <translatorcomment>Avance de l&apos;affichage des paroles</translatorcomment>
         <translation>Avance de l&apos;affichage sur le tempo</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="52"/>
+        <location filename="../src/formmemoryinfo.ui" line="55"/>
         <source>Allow to choose font and font color to display on the monitoring screen</source>
         <translation>Perùet de choisir une police ainsi que sa couleur pour l&apos;affichage dans l&apos;écran de monitoring des paroles</translation>
     </message>
@@ -1871,76 +1881,126 @@ en boîte</translation>
         <translation>Aspect des paroles</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="55"/>
+        <location filename="../src/formmemoryinfo.ui" line="34"/>
+        <source>The lyrics will be displayed in a colorized font. Click on the button to choose the font, the font color and the background color of the lyrics</source>
+        <translation>Les paroles seront affichées avec une police colorisée. Cliquez sur le bouton pour choisir la police, sa couleur et la couleur de fond des paroles.</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="58"/>
         <source>...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="62"/>
+        <location filename="../src/formmemoryinfo.ui" line="65"/>
         <source>If not fullScreen mode is selected, allows to choose if window will be in top, bottom or in middle o the screen</source>
         <translation>Si le mode plein écran n&apos;est pas sélectionné, permet de choisir si la fenêtre de monitoring des paroles sera en haut, au milieu ou en bas de l&apos;écran</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="66"/>
+        <location filename="../src/formmemoryinfo.ui" line="69"/>
         <source>Top</source>
         <translation>En haut</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="71"/>
+        <location filename="../src/formmemoryinfo.ui" line="74"/>
         <source>Middle</source>
         <translation>Au milieu</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="76"/>
+        <location filename="../src/formmemoryinfo.ui" line="79"/>
         <source>Bottom</source>
         <translation>En bas</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="120"/>
+        <location filename="../src/formmemoryinfo.ui" line="111"/>
+        <source>This show the font effect</source>
+        <translation>Montre le rendu de la police de caractères choisie</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="126"/>
         <source>Rythm render</source>
         <translation>Rendu du rythme</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="131"/>
+        <location filename="../src/formmemoryinfo.ui" line="137"/>
         <source>Show rythm with bullet</source>
         <translation>Afficher des bullets sur chaque temps</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="138"/>
+        <location filename="../src/formmemoryinfo.ui" line="147"/>
         <source>Click</source>
         <translation>Métronome</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="147"/>
+        <location filename="../src/formmemoryinfo.ui" line="156"/>
+        <location filename="../src/formmemoryinfo.ui" line="166"/>
+        <source>Set the volume of the click</source>
+        <translation>Règle le volume du métronome</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="159"/>
         <source>Volume</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="166"/>
+        <location filename="../src/formmemoryinfo.ui" line="181"/>
+        <source>You can mark the first beat of the bar</source>
+        <translation>Le premier temps de chaque mesure est marqué</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="184"/>
         <source>Mark fist</source>
         <translation>Marquer le premier temps</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="195"/>
+        <location filename="../src/formmemoryinfo.ui" line="208"/>
+        <source>Allows to show the lyrics before they are placed, to be usefull for the singer</source>
+        <translation>Permet de montrer les paroles légèrement avant leur emplacement, ce qui peut être utile pour le chanteur</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="218"/>
+        <source>Number of beat before to start the first lyric</source>
+        <translation>Nombre de temps avant de commencer à afficher la première parole</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="221"/>
+        <source>Number of beats before to start</source>
+        <translation>Nombre de temps avant de commencer à afficher les paroles</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="232"/>
+        <source>Allows to choose second and 1/100 of second</source>
+        <translation>Permet de choisir le nombre de secondes et les centièmes de seconde</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="246"/>
+        <source>This option allow to synchronize the lyrics with the Jack complient program. It is useful with Ardour for example.</source>
+        <translation>Cette option parmet de synchroniser les paroles avec un programme compatible avec Jack. C&apos;est utile avec Ardour par exemple.</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="249"/>
+        <source>Synchronized with Jack</source>
+        <translation>Synchronisation via Jack</translation>
+    </message>
+    <message>
         <source>Number of bars before to start</source>
-        <translation>Nombre de mesures avant le départ</translation>
+        <translation type="vanished">Nombre de mesures avant le départ</translation>
     </message>
     <message>
         <source>Time added before start</source>
         <translation type="vanished">Délai ajouté avant de commencer</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="88"/>
+        <location filename="../src/formmemoryinfo.ui" line="91"/>
         <source>Show monitoring window in fullscreen mode</source>
         <translation>Affiche la fenêtre aide mémoire des paroles en mode plein écran</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="91"/>
+        <location filename="../src/formmemoryinfo.ui" line="94"/>
         <source>Full screen</source>
         <translation>Plein écran</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="128"/>
+        <location filename="../src/formmemoryinfo.ui" line="134"/>
         <source>Show bullet changing with rythm</source>
         <translation>Affiche des pastilles de suivi du rythme</translation>
     </message>
@@ -1949,17 +2009,17 @@ en boîte</translation>
         <translation type="vanished">Affiche le rythtme</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="98"/>
+        <location filename="../src/formmemoryinfo.ui" line="101"/>
         <source>Show one line or two lines</source>
         <translation>Affiche une ligne ou deux lignes</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="101"/>
+        <location filename="../src/formmemoryinfo.ui" line="104"/>
         <source>Two lines displayed</source>
         <translation>Deux lignes sont affichées</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="108"/>
+        <location filename="../src/formmemoryinfo.ui" line="114"/>
         <source>Example </source>
         <translation>Exemple </translation>
     </message>

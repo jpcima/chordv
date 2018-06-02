@@ -1,4 +1,11 @@
-chordv (0.4) UNRELEASED; urgency=medium
+chordv (0.5) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * bug correction 
+
+ -- gilles <gilles@gillesmaire.com>  Sat, 02 Jun 2018 03:31:22 +0200
+
+chordv (0.4ubuntu1) UNRELEASED; urgency=medium
 
   [ Gilles Maire ]
   * bug corrections ( see git log ) 
@@ -12,7 +19,7 @@ chordv (0.4) UNRELEASED; urgency=medium
   * Test Memory mode 
   * save bug corrected 
 
- -- gilles <gilles@gillesmaire.com>  Wed, 30 May 2018 10:36:31 +0200
+ -- gilles <gilles@gillesmaire.com>  Sat, 02 Jun 2018 03:29:02 +0200
 
 chordv (0.1) unstable; urgency=medium
 

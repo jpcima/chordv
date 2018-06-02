@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>338</width>
-    <height>492</height>
+    <width>365</width>
+    <height>540</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,6 +30,9 @@
              <layout class="QVBoxLayout" name="verticalLayout_2">
               <item>
                <widget class="QLabel" name="labelFontMemory">
+                <property name="toolTip">
+                 <string>The lyrics will be displayed in a colorized font. Click on the button to choose the font, the font color and the background color of the lyrics</string>
+                </property>
                 <property name="text">
                  <string>Memory font</string>
                 </property>
@@ -104,6 +107,9 @@
           </item>
           <item>
            <widget class="QLabel" name="labelExample">
+            <property name="toolTip">
+             <string>This show the font effect</string>
+            </property>
             <property name="text">
              <string>Example </string>
             </property>
@@ -134,6 +140,9 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBoxClick">
+            <property name="toolTip">
+             <string>Set on  to listen a click on each beat</string>
+            </property>
             <property name="text">
              <string>Click</string>
             </property>
@@ -143,6 +152,9 @@
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <item>
              <widget class="QLabel" name="labelVolume">
+              <property name="toolTip">
+               <string>Set the volume of the click</string>
+              </property>
               <property name="text">
                <string>Volume</string>
               </property>
@@ -150,6 +162,9 @@
             </item>
             <item>
              <widget class="QSlider" name="horizontalSliderVolume">
+              <property name="toolTip">
+               <string>Set the volume of the click</string>
+              </property>
               <property name="maximum">
                <number>100</number>
               </property>
@@ -162,6 +177,9 @@
           </item>
           <item>
            <widget class="QCheckBox" name="checkBoxMarkFirst">
+            <property name="toolTip">
+             <string>You can mark the first beat of the bar</string>
+            </property>
             <property name="text">
              <string>Mark fist</string>
             </property>
@@ -177,40 +195,60 @@
        <property name="title">
         <string>Time adjustment</string>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_8">
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_7">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QLabel" name="labelAdvance">
-              <property name="text">
-               <string>Advance lyrics </string>
-              </property>
-             </widget>
+             <layout class="QVBoxLayout" name="verticalLayout_7">
+              <item>
+               <widget class="QLabel" name="labelAdvance">
+                <property name="toolTip">
+                 <string>Allows to show the lyrics before they are placed, to be usefull for the singer</string>
+                </property>
+                <property name="text">
+                 <string>Advance lyrics </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="labelTimeAddedBeforeStart">
+                <property name="toolTip">
+                 <string>Number of beat before to start the first lyric</string>
+                </property>
+                <property name="text">
+                 <string>Number of beats before to start</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
             <item>
-             <widget class="QLabel" name="labelTimeAddedBeforeStart">
-              <property name="text">
-               <string>Number of beats before to start</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_5">
-            <item>
-             <widget class="QDoubleSpinBox" name="doubleSpinBoxAdvance"/>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <layout class="QVBoxLayout" name="verticalLayout_5">
+              <item>
+               <widget class="QDoubleSpinBox" name="doubleSpinBoxAdvance">
+                <property name="toolTip">
+                 <string>Allows to choose second and 1/100 of second</string>
+                </property>
+               </widget>
+              </item>
               <item>
                <widget class="QSpinBox" name="spinBoxTimeBeforeStart"/>
               </item>
              </layout>
             </item>
            </layout>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="checkBoxJackSynchronisation">
+            <property name="toolTip">
+             <string>This option allow to synchronize the lyrics with the Jack complient program. It is useful with Ardour for example.</string>
+            </property>
+            <property name="text">
+             <string>Synchronized with Jack</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>

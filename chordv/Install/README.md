@@ -18,7 +18,7 @@ apt-get install debhelper dh-make
 apt install qtdeclarative-dev qt5-default qtdevtool5-dev-tools
 ~~~
 
-- LibPodof must be installed
+- LibPodofo must be installed
 
 ~~~bash
 apt install libpodofo-0.9 libpodofo-dev
@@ -42,17 +42,6 @@ dh_make -p chordv-0.2 -e gilles@gillesmaire.com -c gpl3 -s -y -n
 ~~~bash
 dch -v 3.0
 ~~~
-
-- after
-
-~~~
-apt install pandoc texlive-xetex
-cd Docs
-make
-cd ../translations
-lrelease fr.ts
-~~~
-
 
 ~~~bash
 cd ..
