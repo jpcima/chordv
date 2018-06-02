@@ -34,7 +34,7 @@ public:
     void process();
     void setCompress(bool compress);
     virtual void setColNumber(int columber);
-    virtual void setBpm(int bpm);
+    virtual void setBpm(double bpm);
     virtual void setRytm(QString rythm);
     virtual bool isChorus(QString text);
     void setCoverMade(bool status){m_covermade=status;}
@@ -351,7 +351,7 @@ protected:
     ///
     virtual void AllocatePage();
 
-    int m_tempo;
+    double m_tempo;
     QString m_time;
     QString m_composer;
     QString m_lyricist;

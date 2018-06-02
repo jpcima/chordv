@@ -165,7 +165,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
     QRegExp EocREX("^ *\\{(?:eoc|end_of_chorus)\\}",Qt::CaseInsensitive);
     QRegExp SorREX("^ *\\{(?:sor|start_of_refrain)\\}",Qt::CaseInsensitive);
     QRegExp EorREX("^ *\\{(?:eor|end_of_refrain)\\}",Qt::CaseInsensitive);
-    QRegExp TempoREX("^ *\\{(?:tempo): *([0-9]*)\\}",Qt::CaseInsensitive);
+    QRegExp TempoREX("^ *\\{(?:tempo): *([0-9.]*)\\}",Qt::CaseInsensitive);
     QRegExp TimeREX("^ *\\{(?:time): *([1-5])/(1|2|4|8|16|32|64)\\}",Qt::CaseInsensitive);
     QRegExp OtherREX("^ *\\{");
     QStringList buf=songs.split("\n");
@@ -195,7 +195,9 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
         {
             if ( line.contains(TempoREX))
             {
-                m_tempo=TempoREX.cap(1).toInt();
+                m_tempo=TempoREX.cap(1).toDouble();
+                if ( m_tempo<1) m_tempo=120;
+                qDebug()<<"tempo"<<m_tempo;
                 m_millisecondperbeat=60000/m_tempo;
             }
             else if ( line.contains(TimeREX))

@@ -150,7 +150,7 @@ private slots:
     /// \param time2 : time2 for time1/time2
     /// \param tempp : beat per minute
     ///
-    void InsertSong(QString title, QString subtitle, bool compressed, int column, int time1, int time2,int tempo);
+    void InsertSong(QString title, QString subtitle, bool compressed, int column,double tempo, int time1, int time2);
     void TransposeChord(int numberofchroma,  int range);
 signals:
     void Toc(QStringList);

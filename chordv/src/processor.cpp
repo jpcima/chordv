@@ -94,7 +94,7 @@ void Processor::run()
         }
         else if ( line.contains(TempoREX))
         {
-            setBpm(TempoREX.cap(1).toInt());
+            setBpm(TempoREX.cap(1).toDouble());
         }
         else if ( line.contains(TimeREX))
         {
@@ -292,7 +292,7 @@ void Processor::setColNumber(int colnumber)
     m_colnumber=colnumber;
 }
 
-void Processor::setBpm(int bpm)
+void Processor::setBpm(double bpm)
 {
     m_tempo=bpm;
 }

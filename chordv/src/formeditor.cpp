@@ -52,7 +52,7 @@ FormEditor::FormEditor(QWidget *parent) :
     connect(ui->checkBoxLongShort,SIGNAL(clicked(bool)),this,SLOT(ToogleLongShort()));
     connect(ui->textEdit,SIGNAL(textChanged()),this,SLOT(TocUpdate()));
     connect(ui->tableWidgetToc,SIGNAL(clicked(QModelIndex)),this,SLOT(TocToText(QModelIndex)));
-    connect (m_dialognewsong,SIGNAL(InsertSong(QString,QString,bool,int,int,int,int)),this,SLOT(InsertSong(QString,QString,bool,int,int,int,int)));
+    connect (m_dialognewsong,SIGNAL(InsertSong(QString,QString,bool,int,double,int,int)),this,SLOT(InsertSong(QString,QString,bool,int,double,int,int)));
 }
 
 
@@ -323,7 +323,7 @@ void FormEditor::InsertCompress()
 
     void FormEditor::InsertTempo()
     {
-        int i=QInputDialog::getInt(ui->toolButtonTempo,tr("Enter tempo"),tr("Beats per minute"),120,20,250);
+        double i=QInputDialog::getDouble(ui->toolButtonTempo,tr("Enter tempo"),tr("Beats per minute"),120,20,250);
         ui->textEdit->insertPlainText(QString("{tempo:%1}").arg(QString("%1").arg(i)));
     }
 
@@ -408,7 +408,7 @@ void FormEditor::InsertCompress()
         m_dialognewsong->show();
     }
 
-    void FormEditor::InsertSong(QString title,QString subtitle,bool compressed,int column,int time1, int time2, int tempo)
+    void FormEditor::InsertSong(QString title,QString subtitle,bool compressed,int column, double tempo,int time1, int time2)
     {
         QRegExp text;
         if ( ui->checkBoxLongShort->isChecked() )

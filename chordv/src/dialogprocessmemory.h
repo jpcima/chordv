@@ -36,7 +36,7 @@ private:
     bool m_stop;
     bool m_firststart;
     bool m_pause;
-    int m_tempo;
+    double m_tempo;
     int m_timeup;
     bool m_click;
     bool m_accentuedfirst;
