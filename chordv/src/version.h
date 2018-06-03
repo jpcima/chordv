@@ -1,3 +1,0 @@
-#define VERSIONWORK "v0.6"
-#define DATEBUILD "2018/06/03"
-#define GIT "bd9943043df402e3315bf72e856af8795baf1535"
