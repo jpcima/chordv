@@ -9,27 +9,35 @@
 ## Présentation 
 
 
-- ChordV permet de produire différents types de fichiers PDF pour une 
-liste de  chansons
+- ChordV permet de produire différents types de fichiers PDF représentant une
+collection de  chansons
 - ChordV fournit :
     - un éditeur de texte avec colorisation syntaxique et insertion des 
-    balises au format cho
+	balises au format chord pro étendu
     - un gestionnaire d'accords et d'une base d'accords guitare 
     permettant d'ajouter ou d'insérer les accords
-    - quatre processeurs permettant de générer un livre contenant les 
-    paroles sans les accords, un livre avec
-    accords et paroles, un livre avec les grilles d'accords
-- Pour chacun des modes la gestion des options permet de faire les 
-réglages idoines
+	- quatre processeurs permettant de générer
+	    1. un livre contenant les paroles sans les accords,
+		2. un livre contenant  accords et paroles ;
+		3. un livre contenant uniquement les grilles d'accords
+		4. un mode défilement des paroles avec possibilité de synchronisation
+		avec tout logiciel de lecture ou d'écriture compatible jack
+- Pour chacun de ces modes la gestion des écran de configuration permet de faire les
+réglages précis des différentes options de sortie :
    - **Texte :** dans ce mode, les paroles seules apparaissent, sans 
-   aucune représentation d'accord
-   - **Lyrics :** dans ce mode, le texte et les accords sont affichés.
+   aucune représentation d'accord. Ceci engendre des choix de police
+   de caractères, de marges, de taille de page etc..
+   - **Lyrics :** dans ce mode, le texte et les accords sont affichés, avec
+   les même choix que ceux précédemment évoqués.
    - **Accords :** dans ce mode, les accords ne sont affichés. Il est 
-   utile pour les musiciens d'accompagnement.
+   utile pour les musiciens d'accompagnement, avec
+   les même choix que ceux précédemment évoqués.
    - **Mémoire :** dans ce mode, un monitoring des paroles est proposé
-   pour permettre le suivi des paroles
+   pour permettre le suivi des paroles. Des options de position de fenêtre de
+   monitoring jusqu'au temps mort avant début du morceau sont proposées.
 
-- ChordV utilise un langage de balises très efficace et simple:
+- ChordV utilise un langage de balises très efficace et simple de Chord Pro dont
+certaines balises sont étendues :
 
 ~~~
 {title:Let it be}
@@ -71,7 +79,7 @@ les différentes types de sortie que vous souhaitez et définir à votre
 guise chaque sortie, mais vous pouvez vouloir définir les mêmes 
 formats pour chacun d'eux, ou au moins quelques options communes dans 
 les polices de caractères ou autre. C'est dans les préférences que vous 
-pourrez  régler ces options globales, quitte à pouvoir les adpater à 
+pourrez  régler ces options globales, quitte à pouvoir les adapter à
 chacun des artistes par la suite.
 - Il faut noter qu'il existe des raccourcis de préférences appelés 
 gadgets de préférence.
@@ -98,8 +106,8 @@ pas dans la liste, vous pouvez fabriquer un fichier de traduction
 2. Sélectionner le système de mesure qui vous convient le mieux entre 
 cm, mm et pouce
 3. ChordV lance un lecteur PDF quand vous voulez visualiser 
-le livré généré par l'application. Il faut renseigner dans cette zone 
-le nom du programme 
+le livret généré par l'application. Il faut renseigner dans cette zone
+le nom du programme de visualisation en PDF.
 4. Le nom de l'auteur du livret peut-être entré ici. Il sera utilisé
 dans la production des documents.
 
@@ -121,26 +129,21 @@ chacune des
 ![Options générales](./img/preferencetext.png)
 
 1. Zone de sélection de la largeur. Si vous mettez ici des valeurs 
-correspondants à un format existant, ce format sera affiché dans la zone
-3. 
+correspondants à un format existant, ce format sera affiché dans la zone 3.
 2. Zone de sélection de la hauteur. Si vous mettez ici des valeurs 
 correspondants à un format existant, ce format sera affiché dans la zone
-3. Cette zone permet de choisir un format de PDF par un nom IS0. Si 
+3. Cette zone permet de choisir un format de page par un nom IS0. Si
 vous sélectionnez un format par ce menu, vous verrez les tailles
 correspondantes s'afficher dans les zones 1 et 2
 4. A l'italienne inverse les hauteurs et les largeurs
 5. Permet de sélectionner la police par défaut du document. Se référer
 à la documentation relative à la 
-[Sélection des police](#sélection-des-polices)
+[Sélection des polices](#sélection-des-polices)
 6. Permet de sélectionner la police relative aux titres de chaque page.
-Si vous sélectionnez une couleur de fond (Se référer
-à la documentation relative à la 
-[Sélection des police](#sélection-des-polices), un cadre de la couleur
+Si vous sélectionnez une couleur de fond, un cadre de la couleur
 sélectionnée encadrera le titre sur toute la largeur de la page.
 7. Permet de sélectionner la police relative aux sous titres de chaque 
-page. Si vous sélectionnez une couleur de fond (Se référer
-à la documentation relative à la 
-[Sélection des police](#sélection-des-polices), un cadre de la couleur
+page. Si vous sélectionnez une couleur de fond , un cadre de la couleur
 sélectionnée encadrera le titre sur toute la largeur de la page.
 8. Sélectionne le mode recto ou recto verso. Si vous sélectionnez le
 mode recto verso, les numéros de pages s'ils sont excentrés à droite
@@ -183,6 +186,7 @@ pas de table des matières
 
 Le mode aide mémoire ou monitoring des paroles permet d'afficher 
 les paroles en suivant les informations du fichier de chanson, notamment
+
 - les balises {tempo:xx} qui donnent le tempo de chaque chanson. Si 
 la balise tempo est absente d'un morceau, elle sera arbritrairement
 forcée à la valeur 120
@@ -191,6 +195,8 @@ chaque mesure. Si cette balise est absente, elle sera arbitrairement
 forcée à la valeur 4/4
 
 ![Options générales mode mémoire](./img/ConfigurationMemory.png)
+
+Voici la liste des options numérotées :
 
 1. Permet de sélectionner la police de caractères ainsi que sa couleur 
 et la couleur du fond telle qu'elle apparait dans la zone 5
@@ -202,7 +208,7 @@ sur son logiciel d'enregistrement
 3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse projeter
 une vidéo et ou des images pendant que la musique est activée avec le mode 
 image en bas de l'écran.
-4. Deux lignes sont affichée, la ligne plus brillante sur les paroles en 
+4. Deux lignes sont affichées, la ligne plus brillante sur les paroles en
 cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
 n'est pas sélectionné, une seule ligne est affichée.
 5. Rendu de la police de caractères
@@ -227,9 +233,11 @@ sur les paroles pour permettre au chanteur de lire légèrement à l'avance
 
 La sélection des polices permet de sélectionner la famille police 
 souhaitée, sa taille, son style et toutes les options traditionnelles
-aux quelles sont ajoutés : 
-    - la couleur du fond
-    - la couleur de la police
+aux quelles sont ajoutés:
+
+- la couleur du fond
+- la couleur de la police
+
 La sélection d'une couleur changera la couleur du bouton afin de 
 vous montrer la couleur qu'il recèle
 Une explication sur la couleur de fond est nécessaire.
@@ -248,7 +256,7 @@ et de zoomer la police de caractères. En regard les items du menu vous
 disposez de raccourcis clavier. 
 2. Les icones permettent d'insérer les Titres de couverture, les mesures
 et toutes les informations qui sont surlignées en violet sur la figure.
-3. La zone de texte vous permet de rentrer les chansons au format 
+3. La zone de texte vous permet d'éditer texte et accords les chansons au format
 chord pro 
 4. La partie log affiche des messages d'erreur étiquetés en rouge
 et des messages de succès étiquetés en vert.
@@ -256,7 +264,7 @@ et des messages de succès étiquetés en vert.
 souris vers le haut ou le bas vous montez ou descendez la durée d'un 
 accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant 
 la molette vers soi.
-6. Un navigateur table des matière permettant de se rendre directement à
+6. Un navigateur table des matières permet de se rendre directement à
 la chanson désirée
 
 ### Le langage à balise de chord pro 
@@ -777,50 +785,74 @@ le défilement des parole comme montré sous l'image ci dessous
 
 ![Jack Ardour](./img/ArdourChordV2.png)
 
-On remarquera que si on stoppe Ardour, le défilement des parole est arrêté et il reprendra quand Ardour reprendra.
+On remarquera que si on stoppe Ardour, le défilement des parole est arrêté
+et qu'il reprendra quand Ardour reprendra.
+
+
 
 # Partie technique
 
+## Avant propos
+
+Cette partie est destinée aux personnes voulant faire évoluer le
+logiciel.
+
+Les sources du logiciel sont disponible sur le site sourceforge pour le projet chordV
+
 ## Raccourcis claviers - Actions souris 
+
 
 ### Raccourcis clavier 
 
--------------------------------------------------------------
- Raccourcis        Action       Raccourcis     Action         
------------- ---------------  ------------  -----------------
-  CTRL + F    Rechercher        F1          Documentation   
+-----------------------------------------------------------------
+ Raccourcis        Action             Raccourcis     Action
+--------------  ---------------       ------------  -----------------
+  CTRL + F      Rechercher              F1          Documentation
+
+  CTRL + O      Préférences             F2          Mode éditeur de texte
   
-  CTRL + O    Préférences       F2          Mode éditeur de texte
+  CTRL + R      Remplacer               F3          Déf. accords
   
-  CTRL + R    Remplacer         F3          Déf. accords    
+  CTRL + S      Sauvegarder             F4          Insert. accords
   
-  CTRL + S    Sauvegarder       F4          Insert. accords 
+  CTRL + +      Zoomer +                F5          PDF texte
   
-  CTRL + +    Zoomer +          F5          PDF texte
-  
-  CTRL + -    Zommer -          F6          PDF accord+text
+  CTRL + -      Zoommer -               F6          PDF accord+text
     
-  CTRL + -    Zommer -          F7          PDF grille
+  CTRL + -      Zoommer -               F7          PDF grille
 
-                                F8          Mode aide mémoire paroles
+  CTRL Z        Annuler l'édition       F8          Mode aide mémoire paroles
 
-                                F10         Lancement de l'affichage des paroles
+  CTRL SHIFT Z  Annuler l'annulation    F10         Lancement de l'affichage des paroles
 -------------------------------------------------------------
-: Les raccourcis clavier
+:Les raccourcis clavier
 
 
-## Traduction du logiciel dans une langue
+
+
+### Actions souris
+
+En cours
+
+
+
+
+
+
+## Traduction du logiciel dans une nouvelle langue
+
 
 ### Présentation
 
- Vous n'avez pas besoin des codes sources pour traduire le logiciel.
- Si vous vous rendez dans le menu système de l'application via 
+Vous n'avez pas besoin des codes sources pour traduire le logiciel.
+Si vous vous rendez dans le menu système de l'application via
 Aide/Informations Systèmes, vous
 trouverez le chemin des fichiers langues par exemple :
 
 ~~~bash
 /home/gilles/.config/ChordV/ChordV.conf
 ~~~
+
 - Dans le répertoire /home/gilles/.config/ChordV/ se trouvent les fichiers
 de langue organisés dans le répertoire Languages contenant les langues
 écrites avec le nom dans la langue traduite. Pour le français on trouvera
@@ -885,7 +917,8 @@ via la commande (après avoir récupéré la feuille de style css sur
 le net)
 
 ~~~bash
-pandoc --toc --ascii --smart -N --css=pandoc.css  --from=markdown --to=html --output=es.html es.md
+pandoc --toc --ascii --smart -N --css=pandoc.css  --from=markdown \
+--to=html --output=es.html es.md
 ~~~
 
 
@@ -967,5 +1000,5 @@ ChordPro 2ii                                Chord V
 {pagesize:type}  {papersize:type}	     InterfaCe graphique
 
 ------------------------------------------------------------------------
-::Liste des commandes chordpro 2ii
+:Liste des commandes chordpro 2ii
 

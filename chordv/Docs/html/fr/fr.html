@@ -114,21 +114,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li><a href="#partie-technique"><span class="toc-section-number">5</span> Partie technique</a><ul>
-<li><a href="#raccourcis-claviers---actions-souris"><span class="toc-section-number">5.1</span> Raccourcis claviers - Actions souris</a><ul>
-<li><a href="#raccourcis-clavier"><span class="toc-section-number">5.1.1</span> Raccourcis clavier</a></li>
+<li><a href="#avant-propos"><span class="toc-section-number">5.1</span> Avant propos</a></li>
+<li><a href="#raccourcis-claviers---actions-souris"><span class="toc-section-number">5.2</span> Raccourcis claviers - Actions souris</a><ul>
+<li><a href="#raccourcis-clavier"><span class="toc-section-number">5.2.1</span> Raccourcis clavier</a></li>
+<li><a href="#actions-souris"><span class="toc-section-number">5.2.2</span> Actions souris</a></li>
 </ul></li>
-<li><a href="#traduction-du-logiciel-dans-une-langue"><span class="toc-section-number">5.2</span> Traduction du logiciel dans une langue</a><ul>
-<li><a href="#pr&#233;sentation-4"><span class="toc-section-number">5.2.1</span> Pr&#233;sentation</a></li>
-<li><a href="#traduction-du-fichier-fr.ts"><span class="toc-section-number">5.2.2</span> Traduction du fichier fr.ts</a></li>
+<li><a href="#traduction-du-logiciel-dans-une-nouvelle-langue"><span class="toc-section-number">5.3</span> Traduction du logiciel dans une nouvelle langue</a><ul>
+<li><a href="#pr&#233;sentation-4"><span class="toc-section-number">5.3.1</span> Pr&#233;sentation</a></li>
+<li><a href="#traduction-du-fichier-fr.ts"><span class="toc-section-number">5.3.2</span> Traduction du fichier fr.ts</a></li>
 </ul></li>
-<li><a href="#la-documentation-utilisateur-de-chord-v"><span class="toc-section-number">5.3</span> La documentation utilisateur de Chord V</a><ul>
-<li><a href="#pr&#233;sentation-5"><span class="toc-section-number">5.3.1</span> Pr&#233;sentation</a></li>
-<li><a href="#processus-de-traduction"><span class="toc-section-number">5.3.2</span> Processus de traduction</a></li>
-<li><a href="#les-images"><span class="toc-section-number">5.3.3</span> Les images</a></li>
+<li><a href="#la-documentation-utilisateur-de-chord-v"><span class="toc-section-number">5.4</span> La documentation utilisateur de Chord V</a><ul>
+<li><a href="#pr&#233;sentation-5"><span class="toc-section-number">5.4.1</span> Pr&#233;sentation</a></li>
+<li><a href="#processus-de-traduction"><span class="toc-section-number">5.4.2</span> Processus de traduction</a></li>
+<li><a href="#les-images"><span class="toc-section-number">5.4.3</span> Les images</a></li>
 </ul></li>
-<li><a href="#compatibilit&#233;-chordpro"><span class="toc-section-number">5.4</span> Compatibilit&#233; Chordpro</a><ul>
-<li><a href="#introduction-1"><span class="toc-section-number">5.4.1</span> Introduction</a></li>
-<li><a href="#compatibilit&#233;-chordpro-2ii"><span class="toc-section-number">5.4.2</span> Compatibilit&#233; ChordPro 2ii</a></li>
+<li><a href="#compatibilit&#233;-chordpro"><span class="toc-section-number">5.5</span> Compatibilit&#233; Chordpro</a><ul>
+<li><a href="#introduction-1"><span class="toc-section-number">5.5.1</span> Introduction</a></li>
+<li><a href="#compatibilit&#233;-chordpro-2ii"><span class="toc-section-number">5.5.2</span> Compatibilit&#233; ChordPro 2ii</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -136,19 +138,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
 <h2 id="pr&#233;sentation"><span class="header-section-number">1.1</span> Pr&#233;sentation</h2>
 <ul>
-<li>ChordV permet de produire diff&#233;rents types de fichiers PDF pour une liste de chansons</li>
+<li>ChordV permet de produire diff&#233;rents types de fichiers PDF repr&#233;sentant une collection de chansons</li>
 <li>ChordV fournit :
 <ul>
-<li>un &#233;diteur de texte avec colorisation syntaxique et insertion des balises au format cho</li>
+<li>un &#233;diteur de texte avec colorisation syntaxique et insertion des balises au format chord pro &#233;tendu</li>
 <li>un gestionnaire d&#8217;accords et d&#8217;une base d&#8217;accords guitare permettant d&#8217;ajouter ou d&#8217;ins&#233;rer les accords</li>
-<li>quatre processeurs permettant de g&#233;n&#233;rer un livre contenant les paroles sans les accords, un livre avec accords et paroles, un livre avec les grilles d&#8217;accords</li>
+<li>quatre processeurs permettant de g&#233;n&#233;rer
+<ol style="list-style-type: decimal">
+<li>un livre contenant les paroles sans les accords,</li>
+<li>un livre contenant accords et paroles ;</li>
+<li>un livre contenant uniquement les grilles d&#8217;accords</li>
+<li>un mode d&#233;filement des paroles avec possibilit&#233; de synchronisation avec tout logiciel de lecture ou d&#8217;&#233;criture compatible jack</li>
+</ol></li>
 </ul></li>
-<li>Pour chacun des modes la gestion des options permet de faire les r&#233;glages idoines</li>
-<li><strong>Texte :</strong> dans ce mode, les paroles seules apparaissent, sans aucune repr&#233;sentation d&#8217;accord</li>
-<li><strong>Lyrics :</strong> dans ce mode, le texte et les accords sont affich&#233;s.</li>
-<li><strong>Accords :</strong> dans ce mode, les accords ne sont affich&#233;s. Il est utile pour les musiciens d&#8217;accompagnement.</li>
-<li><p><strong>M&#233;moire :</strong> dans ce mode, un monitoring des paroles est propos&#233; pour permettre le suivi des paroles</p></li>
-<li><p>ChordV utilise un langage de balises tr&#232;s efficace et simple:</p></li>
+<li>Pour chacun de ces modes la gestion des &#233;cran de configuration permet de faire les r&#233;glages pr&#233;cis des diff&#233;rentes options de sortie :</li>
+<li><strong>Texte :</strong> dans ce mode, les paroles seules apparaissent, sans aucune repr&#233;sentation d&#8217;accord. Ceci engendre des choix de police de caract&#232;res, de marges, de taille de page etc..</li>
+<li><strong>Lyrics :</strong> dans ce mode, le texte et les accords sont affich&#233;s, avec les m&#234;me choix que ceux pr&#233;c&#233;demment &#233;voqu&#233;s.</li>
+<li><strong>Accords :</strong> dans ce mode, les accords ne sont affich&#233;s. Il est utile pour les musiciens d&#8217;accompagnement, avec les m&#234;me choix que ceux pr&#233;c&#233;demment &#233;voqu&#233;s.</li>
+<li><p><strong>M&#233;moire :</strong> dans ce mode, un monitoring des paroles est propos&#233; pour permettre le suivi des paroles. Des options de position de fen&#234;tre de monitoring jusqu&#8217;au temps mort avant d&#233;but du morceau sont propos&#233;es.</p></li>
+<li><p>ChordV utilise un langage de balises tr&#232;s efficace et simple de Chord Pro dont certaines balises sont &#233;tendues :</p></li>
 </ul>
 <pre><code>{title:Let it be}
 
@@ -172,7 +180,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <h2 id="de-lutilit&#233;-des-pr&#233;f&#233;rences"><span class="header-section-number">2.1</span> De l&#8217;utilit&#233; des pr&#233;f&#233;rences</h2>
 <ul>
 <li>Les pr&#233;f&#233;rences permettent de d&#233;finir les options pour tous les recueils de chanson afin de rendre homog&#232;ne une collection de recueils.</li>
-<li>Imaginons que vous souhaitiez construire un recueil des chansons de Brassens, un recueil des chansons de Renaud et un recueil des chansons de Jeanne Ch&#233;ral. Pour chacun de ces recueils, vous pourrez choisir les diff&#233;rentes types de sortie que vous souhaitez et d&#233;finir &#224; votre guise chaque sortie, mais vous pouvez vouloir d&#233;finir les m&#234;mes formats pour chacun d&#8217;eux, ou au moins quelques options communes dans les polices de caract&#232;res ou autre. C&#8217;est dans les pr&#233;f&#233;rences que vous pourrez r&#233;gler ces options globales, quitte &#224; pouvoir les adpater &#224; chacun des artistes par la suite.</li>
+<li>Imaginons que vous souhaitiez construire un recueil des chansons de Brassens, un recueil des chansons de Renaud et un recueil des chansons de Jeanne Ch&#233;ral. Pour chacun de ces recueils, vous pourrez choisir les diff&#233;rentes types de sortie que vous souhaitez et d&#233;finir &#224; votre guise chaque sortie, mais vous pouvez vouloir d&#233;finir les m&#234;mes formats pour chacun d&#8217;eux, ou au moins quelques options communes dans les polices de caract&#232;res ou autre. C&#8217;est dans les pr&#233;f&#233;rences que vous pourrez r&#233;gler ces options globales, quitte &#224; pouvoir les adapter &#224; chacun des artistes par la suite.</li>
 <li>Il faut noter qu&#8217;il existe des raccourcis de pr&#233;f&#233;rences appel&#233;s gadgets de pr&#233;f&#233;rence.</li>
 <li>L&#8217;un vous permet de revenir aux choix initiaux du logiciels au cas o&#249; vos essais ne seraient pas satisfaisants</li>
 <li>L&#8217;un vous permet de d&#233;finir un r&#233;glage pour un artiste comme le r&#233;glage par d&#233;faut dans l&#8217;avenir.</li>
@@ -193,7 +201,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <ol style="list-style-type: decimal">
 <li>Vous pouvez choisir la langue du logiciel. Si votre langue de figure pas dans la liste, vous pouvez fabriquer un fichier de traduction (voir la partie <a href="#traduction-du-logiciel-dans-une-langue">traduction</a> )</li>
 <li>S&#233;lectionner le syst&#232;me de mesure qui vous convient le mieux entre cm, mm et pouce</li>
-<li>ChordV lance un lecteur PDF quand vous voulez visualiser le livr&#233; g&#233;n&#233;r&#233; par l&#8217;application. Il faut renseigner dans cette zone le nom du programme</li>
+<li>ChordV lance un lecteur PDF quand vous voulez visualiser le livret g&#233;n&#233;r&#233; par l&#8217;application. Il faut renseigner dans cette zone le nom du programme de visualisation en PDF.</li>
 <li>Le nom de l&#8217;auteur du livret peut-&#234;tre entr&#233; ici. Il sera utilis&#233; dans la production des documents.</li>
 </ol>
 <h2 id="les-options-de-chaque-mode-de-livret"><span class="header-section-number">2.4</span> Les options de chaque mode de livret</h2>
@@ -205,14 +213,13 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <p class="caption">Options g&#233;n&#233;rales</p>
 </div>
 <ol style="list-style-type: decimal">
-<li>Zone de s&#233;lection de la largeur. Si vous mettez ici des valeurs correspondants &#224; un format existant, ce format sera affich&#233; dans la zone</li>
-<li></li>
+<li>Zone de s&#233;lection de la largeur. Si vous mettez ici des valeurs correspondants &#224; un format existant, ce format sera affich&#233; dans la zone 3.</li>
 <li>Zone de s&#233;lection de la hauteur. Si vous mettez ici des valeurs correspondants &#224; un format existant, ce format sera affich&#233; dans la zone</li>
-<li>Cette zone permet de choisir un format de PDF par un nom IS0. Si vous s&#233;lectionnez un format par ce menu, vous verrez les tailles correspondantes s&#8217;afficher dans les zones 1 et 2</li>
+<li>Cette zone permet de choisir un format de page par un nom IS0. Si vous s&#233;lectionnez un format par ce menu, vous verrez les tailles correspondantes s&#8217;afficher dans les zones 1 et 2</li>
 <li>A l&#8217;italienne inverse les hauteurs et les largeurs</li>
-<li>Permet de s&#233;lectionner la police par d&#233;faut du document. Se r&#233;f&#233;rer &#224; la documentation relative &#224; la <a href="#s&#233;lection-des-polices">S&#233;lection des police</a></li>
-<li>Permet de s&#233;lectionner la police relative aux titres de chaque page. Si vous s&#233;lectionnez une couleur de fond (Se r&#233;f&#233;rer &#224; la documentation relative &#224; la <a href="#s&#233;lection-des-polices">S&#233;lection des police</a>, un cadre de la couleur s&#233;lectionn&#233;e encadrera le titre sur toute la largeur de la page.</li>
-<li>Permet de s&#233;lectionner la police relative aux sous titres de chaque page. Si vous s&#233;lectionnez une couleur de fond (Se r&#233;f&#233;rer &#224; la documentation relative &#224; la <a href="#s&#233;lection-des-polices">S&#233;lection des police</a>, un cadre de la couleur s&#233;lectionn&#233;e encadrera le titre sur toute la largeur de la page.</li>
+<li>Permet de s&#233;lectionner la police par d&#233;faut du document. Se r&#233;f&#233;rer &#224; la documentation relative &#224; la <a href="#s&#233;lection-des-polices">S&#233;lection des polices</a></li>
+<li>Permet de s&#233;lectionner la police relative aux titres de chaque page. Si vous s&#233;lectionnez une couleur de fond, un cadre de la couleur s&#233;lectionn&#233;e encadrera le titre sur toute la largeur de la page.</li>
+<li>Permet de s&#233;lectionner la police relative aux sous titres de chaque page. Si vous s&#233;lectionnez une couleur de fond , un cadre de la couleur s&#233;lectionn&#233;e encadrera le titre sur toute la largeur de la page.</li>
 <li>S&#233;lectionne le mode recto ou recto verso. Si vous s&#233;lectionnez le mode recto verso, les num&#233;ros de pages s&#8217;ils sont excentr&#233;s &#224; droite seront excentr&#233;s &#224; gauche une page sur deux.</li>
 <li>En indiquant la couleur du papier, les couleurs de cadre des titres et des sous titres s&#8217;ils sont de cette couleur ne seront pas dessin&#233;s. Cela &#233;vite un effacement des caract&#232;res qui pourraient setrouver sous le cadre.</li>
 <li>Cette zone permet de num&#233;roter les pages avec le num&#233;ro &#224; droite, au centre ou &#224; gauche</li>
@@ -242,16 +249,21 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>Forcer les titres en majuscule</li>
 </ol>
 <h3 id="les-pr&#233;f&#233;rences-du-mode-m&#233;moire"><span class="header-section-number">2.4.3</span> Les pr&#233;f&#233;rences du mode m&#233;moire</h3>
-<p>Le mode aide m&#233;moire ou monitoring des paroles permet d&#8217;afficher les paroles en suivant les informations du fichier de chanson, notamment - les balises {tempo:xx} qui donnent le tempo de chaque chanson. Si la balise tempo est absente d&#8217;un morceau, elle sera arbritrairement forc&#233;e &#224; la valeur 120 - &#224; la balise time de la forme x/y qui indique le nombre de temps de chaque mesure. Si cette balise est absente, elle sera arbitrairement forc&#233;e &#224; la valeur 4/4</p>
+<p>Le mode aide m&#233;moire ou monitoring des paroles permet d&#8217;afficher les paroles en suivant les informations du fichier de chanson, notamment</p>
+<ul>
+<li>les balises {tempo:xx} qui donnent le tempo de chaque chanson. Si la balise tempo est absente d&#8217;un morceau, elle sera arbritrairement forc&#233;e &#224; la valeur 120</li>
+<li>&#224; la balise time de la forme x/y qui indique le nombre de temps de chaque mesure. Si cette balise est absente, elle sera arbitrairement forc&#233;e &#224; la valeur 4/4</li>
+</ul>
 <div class="figure">
 <img src="./img/ConfigurationMemory.png" alt="Options g&#233;n&#233;rales mode m&#233;moire" />
 <p class="caption">Options g&#233;n&#233;rales mode m&#233;moire</p>
 </div>
+<p>Voici la liste des options num&#233;rot&#233;es :</p>
 <ol style="list-style-type: decimal">
 <li>Permet de s&#233;lectionner la police de caract&#232;res ainsi que sa couleur et la couleur du fond telle qu&#8217;elle apparait dans la zone 5</li>
 <li>Permet d&#8217;indiquer si la fen&#234;tre de monitoring sera en haut de l&#8217;&#233;cran, au milieu ou &#224; droite. Si le mode plein &#233;cran est s&#233;lectionn&#233; ce mode ne sera plus accessible. Ce mode est destin&#233; au mode enregistrement d&#8217;une chanson quand le chanteur veut suivre la progresssion de son enregistrement sur son logiciel d&#8217;enregistrement</li>
 <li>Mode plein &#233;cran plut&#244;t destin&#233; au karaok&#233;, bien qu&#8217;on puisse projeter une vid&#233;o et ou des images pendant que la musique est activ&#233;e avec le mode image en bas de l&#8217;&#233;cran.</li>
-<li>Deux lignes sont affich&#233;e, la ligne plus brillante sur les paroles en cours et la ligne plus fonc&#233;e sur les paroles suivantes. Si ce mode n&#8217;est pas s&#233;lectionn&#233;, une seule ligne est affich&#233;e.</li>
+<li>Deux lignes sont affich&#233;es, la ligne plus brillante sur les paroles en cours et la ligne plus fonc&#233;e sur les paroles suivantes. Si ce mode n&#8217;est pas s&#233;lectionn&#233;, une seule ligne est affich&#233;e.</li>
 <li>Rendu de la police de caract&#232;res</li>
 <li>Chaque temps est mat&#233;rialis&#233; par l&#8217;affichage d&#8217;une bulle rouge pour le premier temps et d&#8217;une bulle verte pour les autres temps.</li>
 <li>Un click sonore est activ&#233; sur chaque temps</li>
@@ -267,7 +279,12 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <img src="./img/fontselection.png" alt="S&#233;lection des polices" />
 <p class="caption">S&#233;lection des polices</p>
 </div>
-<p>La s&#233;lection des polices permet de s&#233;lectionner la famille police souhait&#233;e, sa taille, son style et toutes les options traditionnelles aux quelles sont ajout&#233;s : - la couleur du fond - la couleur de la police La s&#233;lection d&#8217;une couleur changera la couleur du bouton afin de vous montrer la couleur qu&#8217;il rec&#232;le Une explication sur la couleur de fond est n&#233;cessaire.</p>
+<p>La s&#233;lection des polices permet de s&#233;lectionner la famille police souhait&#233;e, sa taille, son style et toutes les options traditionnelles aux quelles sont ajout&#233;s:</p>
+<ul>
+<li>la couleur du fond</li>
+<li>la couleur de la police</li>
+</ul>
+<p>La s&#233;lection d&#8217;une couleur changera la couleur du bouton afin de vous montrer la couleur qu&#8217;il rec&#232;le Une explication sur la couleur de fond est n&#233;cessaire.</p>
 <h1 id="la-fen&#234;tre-d&#233;dition"><span class="header-section-number">3</span> La fen&#234;tre d&#8217;&#233;dition</h1>
 <h2 id="pr&#233;sentation-1"><span class="header-section-number">3.1</span> Pr&#233;sentation</h2>
 <h3 id="la-fen&#234;tre-d&#233;dition-1"><span class="header-section-number">3.1.1</span> La fen&#234;tre d&#8217;&#233;dition</h3>
@@ -278,10 +295,10 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <ol style="list-style-type: decimal">
 <li>Le menu &#233;dition permet d&#8217;acc&#233;der aux fonctions rechercher remplacer et de zoomer la police de caract&#232;res. En regard les items du menu vous disposez de raccourcis clavier.</li>
 <li>Les icones permettent d&#8217;ins&#233;rer les Titres de couverture, les mesures et toutes les informations qui sont surlign&#233;es en violet sur la figure.</li>
-<li>La zone de texte vous permet de rentrer les chansons au format chord pro</li>
+<li>La zone de texte vous permet d&#8217;&#233;diter texte et accords les chansons au format chord pro</li>
 <li>La partie log affiche des messages d&#8217;erreur &#233;tiquet&#233;s en rouge et des messages de succ&#232;s &#233;tiquet&#233;s en vert.</li>
 <li>Quand vous s&#233;lectionner un accord, en actionnant la molette de la souris vers le haut ou le bas vous montez ou descendez la dur&#233;e d&#8217;un accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant la molette vers soi.</li>
-<li>Un navigateur table des mati&#232;re permettant de se rendre directement &#224; la chanson d&#233;sir&#233;e</li>
+<li>Un navigateur table des mati&#232;res permet de se rendre directement &#224; la chanson d&#233;sir&#233;e</li>
 </ol>
 <h3 id="le-langage-&#224;-balise-de-chord-pro"><span class="header-section-number">3.1.2</span> Le langage &#224; balise de chord pro</h3>
 <p>On peut trouver &#233;trange qu&#8217;un logiciel moderne ne pr&#233;sente pas une interface Wysiwyg, c&#8217;est &#224; dire dont l&#8217;aspect ressemble &#224; la sortie papier. En fait ChordV prend un seul format d&#8217;entr&#233;e et il est capable de g&#233;n&#233;rer un livret de texte, un livret de texte et accords, un livret de grille d&#8217;accords et des aide m&#233;moires. Dans quel mode fallait il choisir de travailler ? Nous avons choisi le mode &#224; balise qui nous sembl&#233; un format pivot.</p>
@@ -557,15 +574,18 @@ Elle est &#224; toi cette chanson </code></pre>
 <img src="./img/ArdourChordV2.png" alt="Jack Ardour" />
 <p class="caption">Jack Ardour</p>
 </div>
-<p>On remarquera que si on stoppe Ardour, le d&#233;filement des parole est arr&#234;t&#233; et il reprendra quand Ardour reprendra.</p>
+<p>On remarquera que si on stoppe Ardour, le d&#233;filement des parole est arr&#234;t&#233; et qu&#8217;il reprendra quand Ardour reprendra.</p>
 <h1 id="partie-technique"><span class="header-section-number">5</span> Partie technique</h1>
-<h2 id="raccourcis-claviers---actions-souris"><span class="header-section-number">5.1</span> Raccourcis claviers - Actions souris</h2>
-<h3 id="raccourcis-clavier"><span class="header-section-number">5.1.1</span> Raccourcis clavier</h3>
-<table style="width:85%;">
+<h2 id="avant-propos"><span class="header-section-number">5.1</span> Avant propos</h2>
+<p>Cette partie est destin&#233;e aux personnes voulant faire &#233;voluer le logiciel.</p>
+<p>Les sources du logiciel sont disponible sur le site sourceforge pour le projet chordV</p>
+<h2 id="raccourcis-claviers---actions-souris"><span class="header-section-number">5.2</span> Raccourcis claviers - Actions souris</h2>
+<h3 id="raccourcis-clavier"><span class="header-section-number">5.2.1</span> Raccourcis clavier</h3>
+<table style="width:96%;">
 <caption>Les raccourcis clavier</caption>
 <colgroup>
-<col width="18%" />
-<col width="23%" />
+<col width="22%" />
+<col width="30%" />
 <col width="19%" />
 <col width="23%" />
 </colgroup>
@@ -573,7 +593,7 @@ Elle est &#224; toi cette chanson </code></pre>
 <tr class="header">
 <th align="center">Raccourcis</th>
 <th align="center">Action</th>
-<th align="right">Raccourcis</th>
+<th align="left">Raccourcis</th>
 <th align="center">Action</th>
 </tr>
 </thead>
@@ -581,61 +601,63 @@ Elle est &#224; toi cette chanson </code></pre>
 <tr class="odd">
 <td align="center">CTRL + F</td>
 <td align="center">Rechercher</td>
-<td align="right">F1</td>
+<td align="left">F1</td>
 <td align="center">Documentation</td>
 </tr>
 <tr class="even">
 <td align="center">CTRL + O</td>
 <td align="center">Pr&#233;f&#233;rences</td>
-<td align="right">F2</td>
+<td align="left">F2</td>
 <td align="center">Mode &#233;diteur de texte</td>
 </tr>
 <tr class="odd">
 <td align="center">CTRL + R</td>
 <td align="center">Remplacer</td>
-<td align="right">F3</td>
+<td align="left">F3</td>
 <td align="center">D&#233;f. accords</td>
 </tr>
 <tr class="even">
 <td align="center">CTRL + S</td>
 <td align="center">Sauvegarder</td>
-<td align="right">F4</td>
+<td align="left">F4</td>
 <td align="center">Insert. accords</td>
 </tr>
 <tr class="odd">
 <td align="center">CTRL + +</td>
 <td align="center">Zoomer +</td>
-<td align="right">F5</td>
+<td align="left">F5</td>
 <td align="center">PDF texte</td>
 </tr>
 <tr class="even">
 <td align="center">CTRL + -</td>
-<td align="center">Zommer -</td>
-<td align="right">F6</td>
+<td align="center">Zoommer -</td>
+<td align="left">F6</td>
 <td align="center">PDF accord+text</td>
 </tr>
 <tr class="odd">
 <td align="center">CTRL + -</td>
-<td align="center">Zommer -</td>
-<td align="right">F7</td>
+<td align="center">Zoommer -</td>
+<td align="left">F7</td>
 <td align="center">PDF grille</td>
 </tr>
 <tr class="even">
-<td align="center"></td>
-<td align="center"></td>
-<td align="right">F8</td>
+<td align="center">CTRL Z</td>
+<td align="center">Annuler l&#8217;&#233;dition</td>
+<td align="left">F8</td>
 <td align="center">Mode aide m&#233;moire paroles</td>
 </tr>
 <tr class="odd">
-<td align="center"></td>
-<td align="center"></td>
-<td align="right">F10</td>
+<td align="center">CTRL SHIFT Z</td>
+<td align="center">Annuler l&#8217;annulation</td>
+<td align="left">F10</td>
 <td align="center">Lancement de l&#8217;affichage des paroles</td>
 </tr>
 </tbody>
 </table>
-<h2 id="traduction-du-logiciel-dans-une-langue"><span class="header-section-number">5.2</span> Traduction du logiciel dans une langue</h2>
-<h3 id="pr&#233;sentation-4"><span class="header-section-number">5.2.1</span> Pr&#233;sentation</h3>
+<h3 id="actions-souris"><span class="header-section-number">5.2.2</span> Actions souris</h3>
+<p>En cours</p>
+<h2 id="traduction-du-logiciel-dans-une-nouvelle-langue"><span class="header-section-number">5.3</span> Traduction du logiciel dans une nouvelle langue</h2>
+<h3 id="pr&#233;sentation-4"><span class="header-section-number">5.3.1</span> Pr&#233;sentation</h3>
 <p>Vous n&#8217;avez pas besoin des codes sources pour traduire le logiciel. Si vous vous rendez dans le menu syst&#232;me de l&#8217;application via Aide/Informations Syst&#232;mes, vous trouverez le chemin des fichiers langues par exemple :</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">/home/gilles/.config/ChordV/ChordV.conf</span></code></pre></div>
 <ul>
@@ -650,7 +672,7 @@ Elle est &#224; toi cette chanson </code></pre>
 <li>fr.chords : contient la liste noms de note dans la langue, avec une note pour chaque ligne. La derni&#232;re ligne contient la liste des symboles utilis&#233;s dans la langue pour le mode mineur s&#233;par&#233;s par des , En fran&#231;ais : m,-</li>
 </ul></li>
 </ul>
-<h3 id="traduction-du-fichier-fr.ts"><span class="header-section-number">5.2.2</span> Traduction du fichier fr.ts</h3>
+<h3 id="traduction-du-fichier-fr.ts"><span class="header-section-number">5.3.2</span> Traduction du fichier fr.ts</h3>
 <ul>
 <li>Cr&#233;er un r&#233;pertoire de langue avec le nom par exemple Espa&#241;ol</li>
 <li>Copier le fichier fr.png en es.pgn</li>
@@ -658,30 +680,31 @@ Elle est &#224; toi cette chanson </code></pre>
 <li>Dans linguiste sauvegarder le fichier es.ts et actionner le menu Fichier/Publier le fichier ts.qm sera cr&#233;&#233;</li>
 <li>N&#8217;oubliez pas d&#8217;&#233;crire &#224; l&#8217;auteur du logiciel pour lui communiquer le fichier es.ts afin qu&#8217;il soit inclu dans la prochaine distribution du logiciel</li>
 </ul>
-<h2 id="la-documentation-utilisateur-de-chord-v"><span class="header-section-number">5.3</span> La documentation utilisateur de Chord V</h2>
-<h3 id="pr&#233;sentation-5"><span class="header-section-number">5.3.1</span> Pr&#233;sentation</h3>
+<h2 id="la-documentation-utilisateur-de-chord-v"><span class="header-section-number">5.4</span> La documentation utilisateur de Chord V</h2>
+<h3 id="pr&#233;sentation-5"><span class="header-section-number">5.4.1</span> Pr&#233;sentation</h3>
 <p>La documentation est accessible dans le logiciel via le menu aide &#224; l&#8217;item Documentation.</p>
 <p>Cette documentation a &#233;t&#233; transform&#233;e automatiquement &#224; partir du format Markdown vers le HTML via le programme Pandoc.</p>
 <p>Le fichier documentation se trouve dans le r&#233;pertoire cit&#233; la partie <a href="#traduction-du-logiciel-dans-une-langue">Traduction du logiciel dans une langue</a></p>
-<h3 id="processus-de-traduction"><span class="header-section-number">5.3.2</span> Processus de traduction</h3>
+<h3 id="processus-de-traduction"><span class="header-section-number">5.4.2</span> Processus de traduction</h3>
 <p>Si vous d&#233;sirez traduire la documentation du logiciel, il faut r&#233;cup&#233;rer le fichier md dans la langue d&#233;sir&#233;e, le convertir via un traducteur automatique et le corriger.</p>
 <p>Prendre garde car les traducteur on tendance &#224; transformer les codes md du style</p>
 <div class="sourceCode"><pre class="sourceCode md"><code class="sourceCode markdown"><span class="al">![La fen&#234;tre d&#39;&#233;dition](./img/editor.png)</span></code></pre></div>
 <p>en</p>
 <div class="sourceCode"><pre class="sourceCode md"><code class="sourceCode markdown">! <span class="ot">[La fen&#234;tre d&#39;&#233;dition] (./img/editor.png)</span></code></pre></div>
 <p>Une fois le fichier traduit, vous pouvez le convertir en format html via la commande (apr&#232;s avoir r&#233;cup&#233;r&#233; la feuille de style css sur le net)</p>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pandoc</span> --toc --ascii --smart -N --css=pandoc.css  --from=markdown --to=html --output=es.html es.md</code></pre></div>
-<h3 id="les-images"><span class="header-section-number">5.3.3</span> Les images</h3>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pandoc</span> --toc --ascii --smart -N --css=pandoc.css  --from=markdown \
+--to=html --output=es.html es.md</code></pre></div>
+<h3 id="les-images"><span class="header-section-number">5.4.3</span> Les images</h3>
 <p>Les images sont &#224; inclure dans le r&#233;pertoire img du r&#233;pertoire Langage/es, elles sont issues de copies d&#8217;&#233;cran. Si vous utilisez gimp vous pouvez utiliser le plugin drawnumbers qui permet de produire les pastilles rouges.</p>
 <p>Il est disponible &#224; l&#8217;adresse <a href="xhttp://www.gillesmaire.com/tiki-index.php?page=draw-numbers">Draw-number</a></p>
-<h2 id="compatibilit&#233;-chordpro"><span class="header-section-number">5.4</span> Compatibilit&#233; Chordpro</h2>
-<h3 id="introduction-1"><span class="header-section-number">5.4.1</span> Introduction</h3>
+<h2 id="compatibilit&#233;-chordpro"><span class="header-section-number">5.5</span> Compatibilit&#233; Chordpro</h2>
+<h3 id="introduction-1"><span class="header-section-number">5.5.1</span> Introduction</h3>
 <p>Chord V est con&#231;u pour produire 4 types de documents en m&#234;me temps et certaines balises chord pro sont &#224; vocation unique. Ainsi nous ne voulons peut &#234;tre pas sortir le m&#234;me format pour chacun des documents, sachant que les livrets de paroles sont peut-&#234;tre destin&#233; &#224; un fichier imprim&#233; et les fichiers de grilles d&#8217;accord sont peut &#234;tre destin&#233;s &#224; des fichiers PDF pour une liseuse ou une tablette.</p>
 <p>Chord lit les fichiers Chordpro et sait extraire de son format un fichier compatible chordPro.</p>
 <p>Mais certaines balises ne sont pas utilis&#233;es car remplac&#233;es par l&#8217;interface graphique.</p>
-<h3 id="compatibilit&#233;-chordpro-2ii"><span class="header-section-number">5.4.2</span> Compatibilit&#233; ChordPro 2ii</h3>
+<h3 id="compatibilit&#233;-chordpro-2ii"><span class="header-section-number">5.5.2</span> Compatibilit&#233; ChordPro 2ii</h3>
 <table>
-<caption>:Liste des commandes chordpro 2ii</caption>
+<caption>Liste des commandes chordpro 2ii</caption>
 <colgroup>
 <col width="47%" />
 <col width="52%" />

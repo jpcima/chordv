@@ -1707,7 +1707,7 @@ de page</translation>
     <message>
         <location filename="../src/formeditor.ui" line="439"/>
         <source>Album</source>
-        <translation></translation>
+        <translation>Album</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="446"/>
@@ -1717,7 +1717,7 @@ de page</translation>
     <message>
         <location filename="../src/formeditor.ui" line="449"/>
         <source>Copyright</source>
-        <translation></translation>
+        <translation>Copyright</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="456"/>

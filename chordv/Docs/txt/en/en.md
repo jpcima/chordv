@@ -22,12 +22,12 @@ list of songs
     Chords and lyrics, a book with chord grids
 - For each of the modes, the options management makes it possible to
 Appropriate settings
-   - ** Text: ** in this mode, the lyrics alone appear, without
+   - **Text:** in this mode, the lyrics alone appear, without
    No chord representation
-   - ** Lyrics: ** In this mode, text and chords are displayed.
-   - ** Chords: ** in this mode, chords are not displayed. It is
+   - **Lyrics:** In this mode, text and chords are displayed.
+   - **Chords:** in this mode, chords are not displayed. It is
    Useful for accompanying musicians.
-   - ** Memory: ** in this mode, only the beginning of the text are displayed
+   - **Memory:** in this mode, only the beginning of the text are displayed
 
 - ChordV uses a very efficient and simple tag language:
    
@@ -608,9 +608,9 @@ ChordPro 2ii                           Chord V
 
 {End_of_chorus} {eoc} 						X
 
-{Start_of_tab} {sot} 						nOn
+{Start_of_tab} {sot} 						nO
 
-{End_of_tab} {eot} 						nOn
+{End_of_tab} {eot} 						nO
 
 {Define ...} biEntot
 
@@ -622,15 +622,15 @@ ChordPro 2ii                           Chord V
 
 {Chordsize: fontsize} {cs: fontsize} 	graphic interface
 
-{No_grid} {ng}							 nOn
+{No_grid} {ng}							 nO
 
-{Grid} {g} 								 nOn
+{Grid} {g} 								 nO
 
-{Titles: flush} 						nOn
+{Titles: flush} 						nO
 
 {New_page} {np} 					   ASAP
 
-{New_physical_page} {npp} 				nOn
+{New_physical_page} {npp} 				nO
 
 {Columns: number} {col: number} 	    X
 

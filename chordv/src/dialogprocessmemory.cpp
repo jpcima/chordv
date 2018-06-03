@@ -114,7 +114,6 @@ ui(new Ui::DialogProcessMemory)
 }
 
 
-
 void DialogProcessMemory::JackMessages()
 {
     jack_position_t current;
