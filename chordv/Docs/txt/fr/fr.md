@@ -274,6 +274,235 @@ extensions utiles au programme. Ainsi vous pourrez charger dans ChordV
 l'ensemble des fichiers chord pro disponibles dans les resources 
 musicales libres du net.
 
+## Les balises ChordV
+
+### Les titres
+
+#### Titre du document
+
+~~~chord
+{covertitle: titre }
+~~~
+
+Fournit le titre du document
+Un seul titre par document est admis
+
+La notation abrégée est {ct: titre }
+
+
+#### Sous titre du document
+
+~~~chordpro
+{coversubtitle: sous titre}
+~~~
+
+Fournit le sous titre du document, c'est à dire un texte accompagnant le titre
+Un seul sous titre par document
+
+
+La notation abrégée est {cs: titre }
+
+#### Titre d'une chanson
+
+~~~
+{title: titre de la chanson}
+~~~
+
+
+C'est le titre d'une chanson. On trouve autant de rubriques title que de chansons
+dans le document. On ne peut avoir qu'un seul titre par chanson. Si on définit deux
+titres consécutif on provoque un saut de page avec une chanson vide pour la première.
+
+
+La notation abrégée est {t: titre }
+
+#### Sous titre d'une chanson
+
+~~~
+{subtitle: sous titre d'une chanson }
+~~~
+
+C'est un sous titre, accompagnant la chanson. On peut fournir plusieurs sous titres
+qui seront séparés par des sauts de ligne.
+
+On peut trouver les noms des auteurs, des compositeurs ou des interprètes dans cette
+catégorie.
+
+La notation abrégée est {st: titre }
+
+
+### Ordre de pagination
+
+#### Sauts
+
+~~~
+-----
+~~~
+
+#### Nombre de colonnes pour la chanson
+
+
+
+~~~
+{columns:2}
+~~~
+
+
+Permet de définir le nombre de colonnes d'impression de la chanson
+
+#### Saut de colonnes
+
+~~~
+{column_break}
+~~~
+
+Provoque la génération d'une nouvelle colonne.
+
+La notation abrégée est {colb}
+
+
+#### Nouvelle chanson
+
+~~~
+{new_song}
+~~~
+
+
+Reconnu mais pas utilisé, cette balise sert pour la compatibilité avec
+d'autres implémentations du forma cho
+
+La notation abrégée est {ns}
+
+#### Diminution de l'interlignage
+
+~~~
+{compress}
+~~~
+
+
+Si une chanson ne rentre pas tout à fait dans une page, on peut activer le mode
+compress qui réduira l'interlignage de la chanson à partir du moment ou l'argument
+est rencontré
+
+### Sections
+
+#### Début de chorus
+
+
+~~~
+{start_of_chorus}
+~~~
+
+Indique le début d'un chorus.
+
+La notation abrégée est {soc}
+
+#### Fin du chorus
+
+~~~
+{end_of_chorus}
+~~~
+
+Indique la fin du chorus
+
+Lanotation abrégée est {eoc}
+
+#### Refrain
+
+~~~
+{Refrain}
+~~~
+
+Indique le refrain
+
+### Signature rytmique et tempo
+
+#### Remarques
+
+Ces valeurs seront reportées dans le mode grille d'accord et largement utilisées dans le mode aide mémoire.
+
+#### Tempo
+
+- Le tempo sera représenté par la balise
+
+~~~
+{tempo:12O}
+{tempo:112.5}
+~~~
+
+Si le tempo est ommis, la valeur 120 sera assignée.
+
+Le tempo inidique le nombre de temps par minute. Il peut comprendre une ou plusieurs décimales, le séparateur de décimale est le point
+quelle que soit la langue choisie.
+
+L'introduction d'une décimale est peu usuelle dans la notation musicale conventionnelle, mais certains logiciels permettent
+cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morceau
+
+#### Signature rythmique
+
+- La signature rythmique d'un morceau est représenté par la balise {time:4/4}
+
+- Si aucune signature rythmique n'est mentionné pour un morceau, la value 4/4 sera assignée
+
+
+### Les accords
+
+
+#### Notation de base
+
+
+- En format anglais (si le format est configuré en anglais) on suit la notation ABCDEFG
+
+~~~
+[A]
+~~~
+
+- En format français (s'il est configuré comme tel), on suit la notation La Si Do Ré Mi Fa Sol
+
+~~~
+[La]
+~~~
+
+- Le mode mineur est noté - si les accords sont en anglais et m s'ils sont en français et configuré comme tel
+- Les mode 7 6 5 13 etc sont noté en chiffre
+
+### Notation étendue
+
+- Les barrés son notés en chiffre romain avec la case du barré  :
+
+
+~~~
+[La(V)]
+~~~
+
+
+### Extention du temps
+
+#### Remarques
+
+Ces extensions ont été introduites par chord V et sont en cours de discution avec les auteurs de la définition du format ChordPro
+
+#### Plusieurs mesures
+
+x numéro indique le nombre de mesures de l'accord
+
+~~~
+[La(V)x3]
+~~~
+
+Par défaut un accord sans adjonction mesure sera considéré comme un accord d'une mesure
+
+Ainsi [La] sera un accord d'une mesure
+
+### Plusieurs temps
+
+: indique une division de la mesure
+
+Ainsi pour une mesure de signature 4/4 les notations :
+
+- [La:2] signifiera une mesure divisée par 2 c'est à dire 2 temps
+- [La:4] signifiera une mesure divisée par 4 c'est à dire 1 temps
+
 
 ## Insertion des accords dans l'éditeur
 
@@ -473,19 +702,82 @@ Ce mode construit un fichier PDF et lance son affichage.
 
 Cette option est disponible dans le menu outils
 
-## Mode mémo
+## Mode mémoire ou monitoring des paroles
+
+### Présentation
+
+Ce mode permet d'afficher les paroles qui s'affichent en défilant en suivant
+la vitesse de la chanson. Les refrains son réinsérés entre chaque couplet.
+Il faut pour que ce monde fonctionne précisément que :
+1. Les accords soient entrés avec des notations [Dox2] par exemple explicitant
+bien que l'accord se fait sur deux mesures
+2. Le tempo soit convenablement défini en regard de la chanson via la balise
+{tempo:xxx}, s'il n'est pas défini, la valeur de 120 battements par seconde sera affectée au tempo
+La balise tempo accepte les valeur décimale le point étant le séparateur de valeur
+décimale quelle que soit la langue.
+3. La signature temporelle soit renseigné via la balise {time:xxx}. Si la signature n'est pas
+définie la valeur 4/4 est initialisée.
+
+Enfin il faut garder présent à l'esprit que le mode aide mémoire, peut être cadencé
+via le transport jack. Ainsi si vous enregistrez avec Ardour, en déclenchant la lecture
+ou l'enregisstrement dans Ardour, le défilement commencera automatiquement.
+
+### Définition du Mode mémoire
 
 Pour entrer dans le mode mémo actionner le menu Fenêtres/Mode Aide mémoire
 
-![Transposer les accords](./img/LyricsMonitoring.png)
+![Mode mémoire](./img/LyricsMonitoring.png)
 
-1. On sélectionne la chanson, ce qui présuppose qu'une chanson soit
-ouverte
-2. On peut modifier les valeurs qui sont par défaut positionnées aux
-valeurs par défaut définie dans le menu Outils/Préférence
-3. On lance le monitoring par le bouton 3
-4. La touche ESCAPE permet de quitter le monitoring, la barre d'espace 
-d'activer la pause ou de quitter la pause.
+1. Permet de sélectionner la police de caractères ainsi que sa couleur
+et la couleur du fond telle qu'elle apparait dans la zone 5
+2. Permet d'indiquer si la fenêtre de monitoring sera en haut de l'écran,
+au milieu ou à droite. Si le mode plein écran est sélectionné ce mode
+ne sera plus accessible. Ce mode est destiné au mode enregistrement d'une
+chanson quand le chanteur veut suivre la progresssion de son enregistrement
+sur son logiciel d'enregistrement
+3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse projeter
+une vidéo et ou des images pendant que la musique est activée avec le mode
+image en bas de l'écran.
+4. Deux lignes sont affichée, la ligne plus brillante sur les paroles en
+cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
+n'est pas sélectionné, une seule ligne est affichée.
+5. Rendu de la police de caractères
+6. Chaque temps est matérialisé par l'affichage d'une bulle rouge pour
+le premier temps et d'une bulle verte pour les autres temps.
+7. Un click sonore est activé sur chaque temps
+8. Réglage du volume du click
+9. Le premier temps sonore est plus marqué que les autres temps
+10. Avance de l'affichage, réglage de l'avance de l'affichage du temps
+sur les paroles pour permettre au chanteur de lire légèrement à l'avance
+11. Nombre de mesures avant de démarrer l'enregistrement.
+12. Demande à ChordV d'être déclenché via un autre logiciel compatible avec
+le mode Jack (voir la partie connexion Jack)
+13. En mode jack on ne peut pas faire de pause car ChordV agit en mode esclave. Par c
+contre on peut quitter le mode affichage par la touche ECHAPPEMENT parfois notée ESCAPE ou ESC
+15. Lancer le défilement effectif des paroles. Ce lancement peut être fait par la touche F10
+
+### Connexion jack
+
+Ce mode permet à l'utilisateur de pas avoir à entrer une touche pour lancer le défilement
+des paroles dans le mode mémoire. Le défilement sera lancé par un logiciel maître au moment
+ou celui-ci lancera la lecture ou l'enregistrement.
+
+Non seulement on gagne le bénéfice de n'entrer qu'une seule touche, mais on gagne aussi
+le bénéfice de voir le défilement des paroles et l'enregistrement ou la lecture du morceau
+totalement synchronisé.
+
+Ce paragraphe montre un exemple d'utilisation de ChordV avec Ardour.
+
+![Jack Ardour](./img/ardourchordV.png)
+
+1. On indique que Ardour est piloté par Jack
+2. On lance le mode lecture que ce soit en mode lecture pure ou enregistrement
+3 Chord doit avoir été lancé dans le mode mémoire par F10 ou par le bouton lancé et vous verrez démarrer
+le défilement des parole comme montré sous l'image ci dessous
+
+![Jack Ardour](./img/ArdourChordV2.png)
+
+On remarquera que si on stoppe Ardour, le défilement des parole est arrêté et il reprendra quand Ardour reprendra.
 
 # Partie technique
 
@@ -498,18 +790,21 @@ d'activer la pause ou de quitter la pause.
 ------------ ---------------  ------------  -----------------
   CTRL + F    Rechercher        F1          Documentation   
   
-  CTRL + O    Préférences       F2                          
+  CTRL + O    Préférences       F2          Mode éditeur de texte
   
   CTRL + R    Remplacer         F3          Déf. accords    
   
   CTRL + S    Sauvegarder       F4          Insert. accords 
   
-  CTRL + +    Zoomer +          F5          PDF texte       
+  CTRL + +    Zoomer +          F5          PDF texte
   
-  CTRL + -    Zommer -          F6          PDF accord+text 
+  CTRL + -    Zommer -          F6          PDF accord+text
     
-  CTRL + -    Zommer -          F7          PDF grille      
-  
+  CTRL + -    Zommer -          F7          PDF grille
+
+                                F8          Mode aide mémoire paroles
+
+                                F10         Lancement de l'affichage des paroles
 -------------------------------------------------------------
 : Les raccourcis clavier
 

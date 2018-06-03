@@ -101,14 +101,18 @@ ui(new Ui::DialogProcessMemory)
         else m_pause=true;
     }
     connect (this,SIGNAL(rejected()),this,SLOT(Close()));
-    if ( ! m_jacksynchro ) Start();
+    m_lyrics[0]="";
+    m_seconds[0]=m_timebefore*m_millisecondperbeat-1000*m_advance;
+    if ( ! m_jacksynchro) displaySong();
+    foreach ( int i , m_lyrics.keys())
+    {
+        qDebug()<<i;
+        qDebug()<<m_lyrics[i];
+        qDebug()<<m_seconds[i];
+    }
 
 }
 
-void DialogProcessMemory::Start()
-{
-    QTimer::singleShot(m_timebefore*m_millisecondperbeat*m_timeup-1000*m_advance, this, SLOT(WaitBeforeStart()));
-}
 
 
 void DialogProcessMemory::JackMessages()
@@ -118,6 +122,7 @@ void DialogProcessMemory::JackMessages()
     jack_nframes_t frame_time;
     transport_state = jack_transport_query (m_jackclient, &current);
     frame_time = jack_frame_time (m_jackclient);
+    Q_UNUSED(frame_time);
     switch (transport_state) {
         case JackTransportStopped:
             if (m_status==Running)
@@ -128,7 +133,7 @@ void DialogProcessMemory::JackMessages()
             }
             break;
         case JackTransportRolling:
-            if (m_firststart) Start();
+            if (m_firststart) displaySong();
             m_firststart=false;
             if (m_status!=Running)
             {
@@ -145,15 +150,13 @@ void DialogProcessMemory::JackMessages()
         }
 }
 
-void DialogProcessMemory::WaitBeforeStart()
-{
-    displaySong();
-}
+
+
 
 DialogProcessMemory::~DialogProcessMemory()
 {
     delete m_player;
-    if (m_jackclient) delete m_jackclient;
+    if (m_jackclient) delete (m_jackclient);
     delete ui;
 
 }
@@ -337,7 +340,7 @@ int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
             bool ok;
             int nb=chord2.cap(1).toInt(&ok);
             if ( ok )
-               number+=nb;
+               number+=timeup/nb;
             else number+=timeup;
         }
         else number+=timeup;
@@ -348,7 +351,6 @@ int DialogProcessMemory::getNumberOfBeat(QString &line,int timeup)
 
 void DialogProcessMemory::displaySong()
 {
-    m_indice++;
     if (m_timerlyrics!=0) m_timerlyrics->stop();
     if ( ! m_stop )
         displayLine();
@@ -360,15 +362,16 @@ void DialogProcessMemory::displaySong()
         connect(m_timerend, SIGNAL(timeout()), this, SLOT(close()));
         m_timerend->start(1000);
     }
+    m_indice++;
 }
 
 void DialogProcessMemory::displayLine()
 {
     ui->labelText1->setText(m_lyrics[m_indice]);
-    if ( m_indice+1 <= m_nblyrics) ui->labelText2->setText(m_lyrics[m_indice+1]);
+    if ( m_indice+2 <= m_nblyrics) ui->labelText2->setText(m_lyrics[m_indice+1]);
     else
       ui->labelText2->setText("");
-    if ( m_indice <= m_nblyrics)
+    if ( m_indice+1 <= m_nblyrics)
     {
       m_timerlyrics = new QTimer;
       connect(m_timerlyrics, SIGNAL(timeout()), this, SLOT(displaySong()));
@@ -393,7 +396,7 @@ void DialogProcessMemory::showRythm()
     }
     if ( m_showrythm )
     {
-        if ( m_countrythm % m_timeup == 1 ) ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/redbull.png"));
+        if ( m_countrythm % m_timeup == 0 ) ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/redbull.png"));
         else ui->labelTimeBullet->setPixmap(QPixmap(":/Image/Images/greenbull.png"));
     }
     m_countrythm++;

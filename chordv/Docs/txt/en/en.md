@@ -176,6 +176,32 @@ No table of contents
 12. Opening the PDF in full screen mode
 13. Force titles in uppercase
 
+### Memory mode preferences
+
+![Memory mode](./img/LyricsMonitoring.png)
+
+1. Allows you to select the font and its color
+and the background color as it appears in zone 5
+2. Indicates whether the monitoring window will be at the top of the screen,
+in the middle or on the right. If the full screen mode is selected this mode
+will no longer be accessible. This mode is for the recording mode of a
+song when the singer wants to follow the progress of his recording
+on his recording software
+3. Full-screen mode rather intended for karaoke, although we can project
+a video and or images while the music is activated with the mode
+picture at the bottom of the screen.
+4. Two lines are displayed, the brighter line on lyrics in
+course and the darker line on the following lyrics. If this mode
+is not selected, only one line is displayed.
+5. Rendering of the font
+6. Each time is materialized by the display of a red bubble for
+the first time and a green bubble for other times.
+7. An audible click is activated on each beat
+8. Click Volume Adjustment
+9. The first sound time is more marked than the other times
+10. Advance Display, Set Time Display Advance
+on the lyrics to allow the singer to read slightly in advance
+11. Number of measurements before starting the recording.
 
 ## Conventions
 
@@ -363,6 +389,73 @@ d'origine est mineur
 est mineur
 5. Cliquer sur convertir
 
+## Display PDF
+
+ChordV launches the PDF viewer that you have positioned in the preferences
+
+This option is available in the tools menu
+
+## Build PDF
+
+The construction of a PDF file is almost instantaneous. She is
+integrated into the software.
+
+This option is available in the tools menu
+
+## Build and display PDF
+
+This mode builds a PDF file and starts its display.
+
+This option is available in the tools menu
+
+## Mémory mode or lyrics monitoring
+
+### Presentation
+
+This mode allows you to display the lyrics that appear by scrolling following
+the speed of the song. The refrains are reinserted between each verse.
+It is necessary for this world to work precisely that:
+1. Chords are entered with notation [Dox2] for example explaining
+although the chord is done on two measures
+2. The tempo is suitably defined for the song via the tag
+{tempo: xxx}, if not set, the value of 120 beats per second will be assigned to the tempo
+The tempo tag accepts the decimal value where the point is the value separator
+decimal regardless of the language.
+3. The time signature is entered via the tag {time: xxx}. If the signature is not
+set the value 4/4 is initialized.
+
+Finally we must keep in mind that the memory help mode can be clocked
+via the transport jack. So if you record with Ardour, triggering playback
+or recording in Ardour, scrolling will begin automatically.
+
+### Memory mode définition
+
+![Memory mode](./img/LyricsMonitoring.png)
+
+1. Allows you to select the font and its color
+and the background color as it appears in zone 5
+2. Indicates whether the monitoring window will be at the top of the screen,
+in the middle or on the right. If the full screen mode is selected this mode
+will no longer be accessible. This mode is for the recording mode of a
+song when the singer wants to follow the progress of his recording
+on his recording software
+3. Full-screen mode rather intended for karaoke, although we can project
+a video and or images while the music is activated with the mode
+picture at the bottom of the screen.
+4. Two lines are displayed, the brighter line on lyrics in
+course and the darker line on the following lyrics. If this mode
+is not selected, only one line is displayed.
+5. Rendering of the font
+6. Each time is materialized by the display of a red bubble for
+the first time and a green bubble for other times.
+7. An audible click is activated on each beat
+8. Click Volume Adjustment
+9. The first sound time is more marked than the other times
+10. Advance Display, Set Time Display Advance
+on the lyrics to allow the singer to read slightly in advance
+11. Number of measurements before starting the recording.
+
+
 # Technical part
 
 ## Keyboard shortcuts - Mouse actions
@@ -374,17 +467,21 @@ est mineur
 ------------ --------------- ------------ ------------------ 
   CTRL + F    Search              F1          Documentation
   
-  CTRL + O    Preferences         F2
+  CTRL + O    Preferences         F2          Text Edition mode
   
   CTRL + R     Replace            F3          Define chords
   
-  CTRL + S     Save               F4         Insert chord
+  CTRL + S     Save               F4          Insert chord
   
-  CTRL + +     Zoom +             F5         Produce PDF  in text mode
+  CTRL + +     Zoom +             F5          Produce PDF  in text mode
   
-  CTRL + -     Zomr -             F6         Produce PDF in text and lyrics mode
+  CTRL + -     Zomr -             F6          Produce PDF in text and lyrics mode
   
-					              F7         Produce PDF in grid mode
+                                  F7          Produce PDF in grid mode
+
+                                  F8          Memory Mode
+
+                                  F10         Launch memory mode action
   
 -------------------------------------------------- -----------
 : Keyboard shortcuts

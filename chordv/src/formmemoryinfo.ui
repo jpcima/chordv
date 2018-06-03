@@ -246,7 +246,7 @@
              <string>This option allow to synchronize the lyrics with the Jack complient program. It is useful with Ardour for example.</string>
             </property>
             <property name="text">
-             <string>Synchronized with Jack</string>
+             <string>Jack synchronized</string>
             </property>
            </widget>
           </item>

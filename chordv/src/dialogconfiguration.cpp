@@ -78,6 +78,10 @@ void DialogConfiguration::Retranslate(QString)
 {
     ui->comboBoxInterfaceLanguage->disconnect();
     ui->retranslateUi(this);
+    ui->widgetMemory->Retranslate();
+    ui->chordConfig->Retranslate();
+    ui->lyricsConfig->Retranslate();
+    ui->textConfig->Retranslate();
     //ui->comboBoxInterfaceLanguage->setCurrent;
     connect(ui->comboBoxInterfaceLanguage,SIGNAL(currentTextChanged(QString)),this,SLOT(SelectLanguage(QString)));
 

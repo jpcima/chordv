@@ -73,6 +73,7 @@ public:
     int getDelay();
     bool getJackSyncrhro();
     void setJackSynchro(bool val);
+    void Retranslate();
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
     void SetUnsetPosition();

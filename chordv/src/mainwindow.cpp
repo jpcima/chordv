@@ -650,6 +650,7 @@ void MainWindow::ChangeLanguage(QString )
     ui->widgetLyricsMode->Retranslate();
     ui->widgetTextMode->Retranslate();
     ui->textEditCho3File->retranslate();
+    ui->widgetMemory->Retranslate();
 }
 
 

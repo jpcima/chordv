@@ -175,7 +175,10 @@
         Docs/img/fr/preferencestextcontent.png \
         Docs/img/fr/editor.png \
     Install/README.md \
-    Docs/txt/Compilation.md
+    Docs/txt/Compilation.md \
+    Docs/txt/Index.md \
+    Docs/txt/fr/fr.md \
+    Docs/txt/en/en.md
 
     RESOURCES += \
         Resources/resources.qrc

@@ -137,6 +137,11 @@ void FormMemoryInfo::setJackSynchro(bool val)
     ui->checkBoxJackSynchronisation->setChecked(val);
 }
 
+void FormMemoryInfo::Retranslate()
+{
+    ui->retranslateUi(this);
+}
+
 double FormMemoryInfo::getAdvance()
 {
      return ui->doubleSpinBoxAdvance->value();

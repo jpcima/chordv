@@ -9,6 +9,7 @@
 #include <jack/transport.h>
 
 
+
 namespace Ui {
 class DialogProcessMemory;
 }
@@ -28,7 +29,6 @@ private slots:
     void showRythm();
     void eraseBull();
     void Close();
-    void WaitBeforeStart();
     void JackMessages();
 private:
     enum State{NotStarted,Running,Paused,Finished};
@@ -90,7 +90,6 @@ private:
     void DeleteAllTimers();
     void keyPressEvent(QKeyEvent *);
     void PauseFlipFlop();
-    void Start();
 };
 
 #endif // DIALOGPROCESSMEMORY_H
