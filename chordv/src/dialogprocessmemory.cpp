@@ -47,77 +47,73 @@ ui(new Ui::DialogProcessMemory)
     m_timerlyrics = new QTimer;
     connect ( m_timerlyrics,SIGNAL(timeout()),this,SLOT(displaySong()));
     m_timeline = new QTimer;
-    connect ( m_timeline,SIGNAL(timeout()),this,SLOT(showRythm()));
     m_time=0;
     m_jackclient=0;
     if (  m_showrythm || m_click )  m_timeline->start(m_millisecondperbeat);
-    displaySong();
 
-//    if ( m_jacksynchro)
-//    {
-//        jack_status_t  status;
-//        if ((m_jackclient = jack_client_open ("chordVJack", JackNoStartServer,&status)) == 0) {
-//             QMessageBox::warning(0,tr("Jack not found"),tr("Jack seems to not be launched ! \n(Try to launch Jack manually without QJackCtl)"));
-//             m_jacksynchro=false;
-//            }
-//        else
-//        {
-//            if (jack_activate (m_jackclient) ){
-//                QMessageBox::warning(0,tr("Jack problem"),tr("Jack cannot be activated !"));
-//                m_jacksynchro=false;
-//                }
-//            else
-//            {
-//                m_timeline = new QTimer;
-//                connect(m_timeline, SIGNAL(timeout()), this, SLOT(JackMessages()));
-//                m_timeline->setInterval(m_period);
-//                m_timeline->start();
-//            }
-//        }
-//    }
+    if ( m_jacksynchro)
+        StartJack();
+    else
+    {
+        connect ( m_timeline,SIGNAL(timeout()),this,SLOT(showRythm()));
+        displaySong();
+    }
+}
 
-
-
-
-
-
-//    if ( ! m_jacksynchro) displaySong();
-
+void DialogProcessMemory::StartJack()
+{
+    jack_status_t  status;
+    if ((m_jackclient = jack_client_open ("chordVJack", JackNoStartServer,&status)) == 0)
+    {
+         QMessageBox::warning(0,tr("Jack not found"),tr("Jack seems to not be launched ! \n(Try to launch Jack manually without QJackCtl)"));
+         m_jacksynchro=false;
+    }
+    else
+    {
+        if (jack_activate (m_jackclient) )
+        {
+            QMessageBox::warning(0,tr("Jack problem"),tr("Jack cannot be activated !"));
+            m_jacksynchro=false;
+        }
+        else
+        {
+            connect(m_timeline, SIGNAL(timeout()), this, SLOT(JackMessages()));
+            m_timeline->start(m_period);
+        }
+    }
 }
 
 void DialogProcessMemory::JackMessages()
 {
-//    jack_position_t current;
-//    jack_transport_state_t transport_state;
-//    jack_nframes_t frame_time;
-//    transport_state = jack_transport_query (m_jackclient, &current);
-//    frame_time = jack_frame_time (m_jackclient);
-//    Q_UNUSED(frame_time);
-//    switch (transport_state) {
-//        case JackTransportStopped:
-//            if (m_status==Running)
-//            {
-//                m_status=Paused;
-//                if ( m_timerrythm ) m_timerrythm->stop();
-//                if ( m_timerlyrics) m_timerlyrics->stop();
-//            }
-//            break;
-//        case JackTransportRolling:
-//            if (m_firststart) displaySong();
-//            m_firststart=false;
-//            if (m_status!=Running)
-//            {
-//                m_status=Running;
-//                if ( m_timerrythm ) m_timerrythm->start();
-//                if ( m_timerlyrics) m_timerlyrics->start();
-//            }
-//            break;
-//        case JackTransportStarting:
-//            qWarning()<<"state: Starting";
-//            break;
-//        default:
-//            qWarning()<<"state: [unknown]";
-//        }
+    jack_position_t current;
+    jack_transport_state_t transport_state;
+    jack_nframes_t frame_time;
+    transport_state = jack_transport_query (m_jackclient, &current);
+    frame_time = jack_frame_time (m_jackclient);
+    Q_UNUSED(frame_time);
+    switch (transport_state) {
+        case JackTransportStopped:
+            if (m_status==Running)
+            {
+                m_status=Paused;
+                if ( m_timerlyrics) m_timerlyrics->stop();
+            }
+            break;
+        case JackTransportRolling:
+            if (m_firststart) displaySong();
+            m_firststart=false;
+            if (m_status!=Running)
+            {
+                m_status=Running;
+                if ( m_timerlyrics) m_timerlyrics->start();
+            }
+            break;
+        case JackTransportStarting:
+            qWarning()<<"state: Starting";
+            break;
+        default:
+            qWarning()<<"state: [unknown]";
+        }
 }
 
 DialogProcessMemory::~DialogProcessMemory()
@@ -239,7 +235,7 @@ int DialogProcessMemory::getTimeBefore( int timebefore,int unit, double tempo, i
 {
     if ( unit == 1 ) return timebefore*60000/tempo; //beat
     else if ( unit == 0 )  return timebefore*1000;//second
-    else if ( unit == 2 ) return timebefore*timeup*60000/tempo;
+     return timebefore*timeup*60000/tempo;
 }
 
 void DialogProcessMemory::SetCurrentWindow(bool fullscreen, bool twoline, int position, QFont font, QColor backgroundcolor, QColor textcolor)

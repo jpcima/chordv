@@ -141,6 +141,7 @@ private:
     /// \param advance
     ///
     void AddTimeBefore(int timebefore, int timebeforeunit, int tempo, int timeup, double advance);
+    void StartJack();
 };
 
 #endif // DIALOGPROCESSMEMORY_H
