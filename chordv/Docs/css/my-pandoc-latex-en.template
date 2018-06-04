@@ -13,7 +13,6 @@
 
 \pagestyle{fancy}
 \fancyhead[LE,RO]{ChordV Documentation}
-\fancyfoot[L]{Version 0.1}
 \fancyfoot[R]{\thepage/\pageref{LastPage}}
 \fancyfoot[C]{}
 
@@ -218,7 +217,7 @@ $endfor$
 \textbf{\textsf{Gilles Maire }} \textcolor{namecolor}{\textsf{<gilles@gillesmaire.com>}}
 \vfill
 \noindent
-{\huge \textsf{English versio}}
+{\huge \textsf{English version}}
 \vskip\baselineskip
 
 

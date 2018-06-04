@@ -1,28 +1,86 @@
-% Documentation utilisateur de chord V
+% Documentation utilisateur de Chord V
 % Gilles Maire 
-% Mai 2018 
-% Version 0.7
+% Juin 2018 Version 0.7
 
 
 # Introduction 
 
 
-## Présentation 
+## Une petite histoire
+
+Il n'est pas courant de commencer la documentation d'utilisation d'un
+logiciel par une petite histoire.
+
+Mais ChordV est destiné aux personnes qui aiment la chanson et dans
+toutes les chansons il y a une histoire.
+
+Je vais ainsi vous raconter pourquoi j'ai créé ChordV.
+
+Je me suis rendu compte que mes amis guitaristes et chanteurs avaient la nostalgie
+des carnets de chant qui présentaient sur la même page les paroles et les accords.
+C'est le mode classique qui convient bien à tous les amateurs.
+
+Par contre, si j'ai connu beaucoup de chansons que j'aurais voulu rassembler dans
+ce type de  livrets, il se trouve qu'il y a un peu plus de dix ans, je me suis
+produit sur de petites scènes parisiennes avec mes propres chansons. On m'a peu à
+peu demandé d'aller chanter ici ou là en France et un peu partout mes petites
+rengaines. J'ai rencontré assez rapidement des musiciens qui me demandaient
+non plus des carnets de chant, mais des grilles d'accord.
+
+En troisième lieu, il se trouve que lorsque que je chante devant des amis, ils
+me demandent les paroles pour pouvoir chanter avec moi. Ces amis ne sont ni
+guitaristes amateurs ni guitaristes professionnels et ils n'aiment pas lire
+textes bariolés de schéma de guitare.
+
+Enfin pour finir, j'enregistre mes disques avec Ardour sous machine Linux.
+J'enregistre, j'écoute le résultat, je réenregistre et parfois plusieurs fois de suite.
+
+Lors des journées d'enregistrement j'essaie plusieurs interprétations et au bout
+de deux ou trois fois je ne sais plus si j'ai chanté un couplet ou si c'était
+dans la chanson précédente que je l'avais chanté. Alors j'hésite et cela s'entend
+sur les enregistrements. Il me fallait donc un mode aide mémoire.
+
+Une fois que j'ai développé l'aide mémoire j'ai enregistré,  mais une fois que je
+reprenais l'enregistrement je devais faire plein de manipulations à la souris. 
+
+C'est ainsi que j'ai pensé lier Ardour à ChordV pour que les paroles reviennent au début
+lorsque je demande à l'enregistreur de revenir au début.
+
+Il me manque un dernier point pour être complet, j'aime l'Open Source, c'est mon métier,
+j'aime développer. Mes chansons sont toutes open sources en Creative Common, elles sont livrées
+en démonstration de Chord V.
+
+Pour finir, je ne pouvais pas développer un logiciel qui ne fonctionne pas sous Linux et qui ne soit pas Open Source.
+
+J'ai développé ChordV en C++ avec la librairie Qt5. Il est donc portable sour MacOsx, Windows ou sur tablette
+Android ou Apple, mais je n'ai pas le temps de fabriquer l'installeur pour ces environnements.
+
+Il se fait tard, j'ai des concerts à honorer, ils m'apportent beaucoup de bonheur. J'ai aussi
+une activité d'informaticien et d'enseignant à continuer. J'ai une famille qui me voit trop souvent de
+dos en train d'écire des programmes ou des chansons.
+
+Il se fait tard, il faut que je vous laisse découvrir Chord V.
+##
 
 
-- ChordV permet de produire différents types de fichiers PDF représentant une
+
+
+## Présentation du logiciel
+
+
+ChordV permet de produire différents types de fichiers PDF représentant une
 collection de  chansons
-- ChordV fournit :
+ChordV fournit ainsi :
     - un éditeur de texte avec colorisation syntaxique et insertion des 
 	balises au format chord pro étendu
     - un gestionnaire d'accords et d'une base d'accords guitare 
     permettant d'ajouter ou d'insérer les accords
 	- quatre processeurs permettant de générer
-	    1. un livre contenant les paroles sans les accords,
+	    1. un livre contenant les paroles sans les accords ;
 		2. un livre contenant  accords et paroles ;
-		3. un livre contenant uniquement les grilles d'accords
+		3. un livre contenant uniquement les grilles d'accords ;
 		4. un mode défilement des paroles avec possibilité de synchronisation
-		avec tout logiciel de lecture ou d'écriture compatible jack
+		avec tout logiciel de lecture ou d'écriture compatible jack.
 - Pour chacun de ces modes la gestion des écran de configuration permet de faire les
 réglages précis des différentes options de sortie :
    - **Texte :** dans ce mode, les paroles seules apparaissent, sans 
@@ -37,8 +95,11 @@ réglages précis des différentes options de sortie :
    pour permettre le suivi des paroles. Des options de position de fenêtre de
    monitoring jusqu'au temps mort avant début du morceau sont proposées.
 
-- ChordV utilise un langage de balises très efficace et simple de Chord Pro dont
+- ChordV utilise le langage de balises très efficace et simple de Chord Pro dont
 certaines balises sont étendues :
+
+
+Voici pour mémoire un exemple de fichier chord pro :
 
 ~~~
 {title:Let it be}
@@ -54,7 +115,7 @@ She is  [Am] standing  [G] right in   [F]  front of me
 [C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]
 ~~~~
 
-L'exemple ci-dessus est celui de chord pro, il peut être utilisé tel quel mais
+Chord V peut utiliser le fichier chord pro tel quel mais
 en perdant le bénéfice du suivi rythmique des paroles du mode mémorisation.
 
 En ChordV on aura plutôt tendance à indiquer si les accords s'appliquent à une mesure
@@ -74,230 +135,44 @@ La notation [C:2] indique que l'accord de Do est joué sur une demi mesure.
 Se reporter au chapitre [Signature rythmique et tempo](#SignatureRytmique) pour
 les détails des temps sur les accords.
 
-## Le mode batch et le mode graphique
 
+# La fenêtre d'édition
 
-- Sans aucun argument chordV est lancé avec une interface graphique
-- Avec l'argument -t chordV ne lance pas l'interface graphique et 
-produira les  PDF pour la configuration par défaut
-- Vous pouvez également lancer chordV avec un argument fichier.chop  
-pour l'ouvrir automatiquement au démarrage.
+## Présentation
 
-
-# Les préférences du logiciel
-
-
-## De l'utilité des préférences
-
-
-- Les préférences permettent de définir les options pour tous les 
-recueils de chanson afin de rendre homogène une collection de recueils.
-- Imaginons que vous souhaitiez construire un recueil des chansons de 
-Brassens, un recueil des chansons de Renaud et un recueil des chansons
-de Jeanne Chéral. Pour chacun de ces recueils, vous pourrez choisir 
-les différentes types de sortie que vous souhaitez et définir à votre
-guise chaque sortie, mais vous pouvez vouloir définir les mêmes 
-formats pour chacun d'eux, ou au moins quelques options communes dans 
-les polices de caractères ou autre. C'est dans les préférences que vous 
-pourrez  régler ces options globales, quitte à pouvoir les adapter à
-chacun des artistes par la suite.
-- Il faut noter qu'il existe des raccourcis de préférences appelés 
-gadgets de préférence.
-   - L'un vous permet de revenir aux choix initiaux du logiciels au 
-   cas où vos essais ne seraient pas satisfaisants
-   - L'un vous permet de définir un réglage pour un artiste comme le 
-   réglage par défaut dans l'avenir.
-
-## Le menu des préférences
-
-- On accède aux préférences par le menu Préférence ou par le racourci 
-clavier CTRL + O comme le montre la figure suivante
-
-![Le menu des préférences ](./img/menupreferences.png)
-
-
-## Les options générales des préférences
-
-![Options générales](./img/preferencegeneral.png)
-
-1. Vous pouvez choisir la langue du logiciel. Si votre langue de figure
-pas dans la liste, vous pouvez fabriquer un fichier de traduction
-(voir la partie [traduction](#Traduction) )
-2. Sélectionner le système de mesure qui vous convient le mieux entre 
-cm, mm et pouce
-3. ChordV lance un lecteur PDF quand vous voulez visualiser 
-le livret généré par l'application. Il faut renseigner dans cette zone
-le nom du programme de visualisation en PDF.
-4. Le nom de l'auteur du livret peut-être entré ici. Il sera utilisé
-dans la production des documents.
-
-
-## Les options de chaque mode de livret
-
-Ces options ne sont pas forcéments exactement les mêmes pour chaque 
-livret, en effet en mode texte la police des accords n'existe pas 
-puisque dans ce mode les accords n'existent pas. Nous allons 
-séparer la présentation des options communes et celles spécifiques 
-à chaque mode.
-
-On trouve deux onglets l'un appelé *Document* et l'autre *Contenu* pour
-chacun des modes de sortie. Certaines des options de ces modes sont communs à plusieurs
-modes d'autre sont spécifiques.
-
-### Les options communes de l'onglet Document
-
-
-![Options générales](./img/preferencetext.png)
-
-1. Zone de sélection de la largeur. Si vous mettez ici des valeurs 
-correspondants à un format existant, ce format sera affiché dans la zone 3.
-2. Zone de sélection de la hauteur. Si vous mettez ici des valeurs 
-correspondants à un format existant, ce format sera affiché dans la zone
-3. Cette zone permet de choisir un format de page par un nom IS0. Si
-vous sélectionnez un format par ce menu, vous verrez les tailles
-correspondantes s'afficher dans les zones 1 et 2
-4. A l'italienne inverse les hauteurs et les largeurs
-5. Permet de sélectionner la police par défaut du document. Se référer
-à la documentation relative à la 
-[Sélection des polices](#SelectionPolice)
-6. Permet de sélectionner la police relative aux titres de chaque page.
-Si vous sélectionnez une couleur de fond, un cadre de la couleur
-sélectionnée encadrera le titre sur toute la largeur de la page.
-7. Permet de sélectionner la police relative aux sous titres de chaque 
-page. Si vous sélectionnez une couleur de fond , un cadre de la couleur
-sélectionnée encadrera le titre sur toute la largeur de la page.
-8. Sélectionne le mode recto ou recto verso. Si vous sélectionnez le
-mode recto verso, les numéros de pages s'ils sont excentrés à droite
-seront excentrés à gauche une page sur deux.
-9. En indiquant la couleur du papier, les couleurs de cadre des titres
-et des sous titres s'ils sont de cette couleur ne seront pas dessinés.
-Cela évite un effacement des caractères qui pourraient setrouver sous 
-le cadre.
-10. Cette zone permet de numéroter les pages avec le numéro à droite, 
-au centre ou à gauche
-11. Permet de choisir le style de numérotation de page 1, - 1 - ou 1/n
-12. Cette zone vous permet de choisir la police de caractères des 
-numéros de page. Si la la couleur de font de page n'est pas identique 
-à la couleur du papier un cadre sera dessiné autour du numéro de page.
-13. Permet de définir la marge horizontale
-14. Permet de définir la marge verticale
-
-### Les options communes de l'onglet Contenu 
-
-![Options générales partie contenue](./img/preferencestextcontent.png)
-
-1. Le fichier PDF comporte une couverture
-2. La police de caractères de la couverture est positionnée 
-3. Le titre peut être au tiers de la hauteur, à la moitié ou au 2/3
-4. Sélection d'une image optionnelle pour la couverture
-5. Mode compression de la table des matières activé
-6. Nombre de colonnes de la table des matières
-7. Police de caractères uitilisée pour la table des matières
-8. Caratères utilisés entre le nom du titre et la page dans la table
-des matières
-9. Position de la table des matières, au début, à la fin du document ou 
-pas de table des matières
-10. Extension ajoutée au fichier de sortie
-11. Espacement vertical 
-12. Ouverture du PDF en mode plein écran
-13. Forcer les titres en majuscule
-
-
-### Les préférences du mode mémoire
-
-Le mode aide mémoire ou monitoring des paroles permet d'afficher 
-les paroles en suivant les informations du fichier de chanson, notamment
-
-- les balises {tempo:xx} qui donnent le tempo de chaque chanson. Si 
-la balise tempo est absente d'un morceau, elle sera arbritrairement
-forcée à la valeur 120
-- à la balise time de la forme x/y qui indique le nombre de temps de
-chaque mesure. Si cette balise est absente, elle sera arbitrairement 
-forcée à la valeur 4/4
-
-![Options générales mode mémoire](./img/ConfigurationMemory.png)
-
-Voici la liste des options numérotées :
-
-1. Permet de sélectionner la police de caractères ainsi que sa couleur 
-et la couleur du fond telle qu'elle apparait dans la zone 5
-2. Permet d'indiquer si la fenêtre de monitoring sera en haut de l'écran,
-au milieu ou à droite. Si le mode plein écran est sélectionné ce mode
-ne sera plus accessible. Ce mode est destiné au mode enregistrement d'une
-chanson quand le chanteur veut suivre la progresssion de son enregistrement
-sur son logiciel d'enregistrement
-3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse projeter
-une vidéo et ou des images pendant que la musique est activée avec le mode 
-image en bas de l'écran.
-4. Deux lignes sont affichées, la ligne plus brillante sur les paroles en
-cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
-n'est pas sélectionné, une seule ligne est affichée.
-5. Rendu de la police de caractères
-6. Chaque temps est matérialisé par l'affichage d'une bulle rouge pour
-le premier temps et d'une bulle verte pour les autres temps.
-7. Un click sonore est activé sur chaque temps
-8. Réglage du volume du click
-9. Le premier temps sonore est plus marqué que les autres temps
-10. Avance de l'affichage, réglage de l'avance de l'affichage du temps
-sur les paroles pour permettre au chanteur de lire légèrement à l'avance
-11. Nombre de mesures avant de démarrer l'enregistrement.
-
-
-## Les conventions 
-
-### Sélection des polices  {#SelectionPolice}
-
-![Sélection des polices](./img/fontselection.png)
-
-La sélection des polices permet de sélectionner la famille police 
-souhaitée, sa taille, son style et toutes les options traditionnelles
-aux quelles sont ajoutés:
-
-- la couleur du fond
-- la couleur de la police
-
-La sélection d'une couleur changera la couleur du bouton afin de 
-vous montrer la couleur qu'il recèle
-Une explication sur la couleur de fond est nécessaire.
-
-
-# La fenêtre d'édition 
-
-## Présentation 
-
-### La fenêtre d'édition 
+### La fenêtre d'édition
 
 ![La fenêtre d'édition](./img/editor.png)
 
 1. Le menu édition permet d'accéder aux fonctions rechercher remplacer
 et de zoomer la police de caractères. En regard les items du menu vous
-disposez de raccourcis clavier. 
+disposez de raccourcis clavier.
 2. Les icones permettent d'insérer les Titres de couverture, les mesures
 et toutes les informations qui sont surlignées en violet sur la figure.
 3. La zone de texte vous permet d'éditer texte et accords les chansons au format
-chord pro 
+chord pro
 4. La partie log affiche des messages d'erreur étiquetés en rouge
 et des messages de succès étiquetés en vert.
 5. Quand vous sélectionner un accord, en actionnant la molette de la
-souris vers le haut ou le bas vous montez ou descendez la durée d'un 
-accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant 
+souris vers le haut ou le bas vous montez ou descendez la durée d'un
+accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant
 la molette vers soi.
 6. Un navigateur table des matières permet de se rendre directement à
 la chanson désirée
 
-### Le langage à balise de chord pro 
+### Le langage à balise de chord pro
 
 On peut trouver étrange qu'un logiciel moderne ne présente pas une
 interface Wysiwyg, c'est à dire dont l'aspect ressemble à la sortie
 papier. En fait ChordV prend un seul format d'entrée et il est capable
-de générer un livret de texte, un livret de texte et accords, un livret 
-de grille d'accords et des aide mémoires. Dans quel mode fallait 
-il choisir de travailler ? Nous avons choisi le mode à balise qui nous 
-semblé un format pivot. 
+de générer un livret de texte, un livret de texte et accords, un livret
+de grille d'accords et  un mode aide mémoire. Dans quel mode fallait
+il choisir de travailler ? Nous avons choisi le mode à balise qui nous
+semblé un format pivot.
 
-En plus ce format pivot est écrit dans le langage chord pro plus des 
-extensions utiles au programme. Ainsi vous pourrez charger dans ChordV 
-l'ensemble des fichiers chord pro disponibles dans les resources 
+En plus ce format pivot est écrit dans le langage chord pro plus des
+extensions utiles au programme. Ainsi vous pourrez charger dans ChordV
+l'ensemble des fichiers chord pro disponibles dans les resources
 musicales libres du net.
 
 ## Les balises ChordV
@@ -532,14 +407,204 @@ Ainsi pour une mesure de signature 4/4 les notations :
 
 ## Insertion des accords dans l'éditeur
 
-En double cliquant sur le texte la fenêtre d'inclusion d'accord vous 
+En double cliquant sur le texte la fenêtre d'inclusion d'accord vous
 permet de sélectionner un accord par l'appui sur le bouton Inserer
 l'accord. Cette action peut également être optenue par l'appui de
 la touche F4 (alors que la touche F3 permet d'entrer dans le mode
 de gestion des accords)
 
-Vous pouvez modifier le tempo par l'emploi de la molette de la souris 
+Vous pouvez modifier le tempo par l'emploi de la molette de la souris
 en maintenant la touche SHIFT appuyée dans l'éditeur.
+
+
+
+
+
+## Le mode batch et le mode graphique
+
+
+- Sans aucun argument chordV est lancé avec une interface graphique
+- Avec l'argument -t chordV ne lance pas l'interface graphique et 
+produira les  PDF pour la configuration par défaut
+- Vous pouvez également lancer chordV avec un argument fichier.chop  
+pour l'ouvrir automatiquement au démarrage.
+
+
+# Les préférences du logiciel
+
+
+## De l'utilité des préférences
+
+
+- Les préférences permettent de définir les options pour tous les 
+recueils de chanson afin de rendre homogène une collection de recueils.
+- Imaginons que vous souhaitiez construire un recueil des chansons de 
+Brassens, un recueil des chansons de Renaud et un recueil des chansons
+de Jeanne Chéral. Pour chacun de ces recueils, vous pourrez choisir 
+les différentes types de sortie que vous souhaitez et définir à votre
+guise chaque sortie, mais vous pouvez vouloir définir les mêmes 
+formats pour chacun d'eux, ou au moins quelques options communes dans 
+les polices de caractères ou autre. C'est dans les préférences que vous 
+pourrez  régler ces options globales, quitte à pouvoir les adapter à
+chacun des artistes par la suite.
+- Il faut noter qu'il existe des raccourcis de préférences appelés 
+gadgets de préférence.
+   - L'un vous permet de revenir aux choix initiaux du logiciels au 
+   cas où vos essais ne seraient pas satisfaisants
+   - L'un vous permet de définir un réglage pour un artiste comme le 
+   réglage par défaut dans l'avenir.
+
+## Le menu des préférences
+
+- On accède aux préférences par le menu Préférence ou par le racourci 
+clavier CTRL + O comme le montre la figure suivante
+
+![Le menu des préférences ](./img/menupreferences.png)
+
+
+## Les options générales des préférences
+
+![Options générales](./img/preferencegeneral.png)
+
+1. Vous pouvez choisir la langue du logiciel. Si votre langue de figure
+pas dans la liste, vous pouvez fabriquer un fichier de traduction
+(voir la partie [traduction](#Traduction) )
+2. Sélectionner le système de mesure qui vous convient le mieux entre 
+cm, mm et pouce
+3. ChordV lance un lecteur PDF quand vous voulez visualiser 
+le livret généré par l'application. Il faut renseigner dans cette zone
+le nom du programme de visualisation en PDF.
+4. Le nom de l'auteur du livret peut-être entré ici. Il sera utilisé
+dans la production des documents.
+
+
+## Les options de chaque mode de livret
+
+Ces options ne sont pas forcéments exactement les mêmes pour chaque 
+livret, en effet en mode texte la police des accords n'existe pas 
+puisque dans ce mode les accords n'existent pas. Nous allons 
+séparer la présentation des options communes et celles spécifiques 
+à chaque mode.
+
+On trouve deux onglets l'un appelé *Document* et l'autre *Contenu* pour
+chacun des modes de sortie. Certaines des options de ces modes sont communs à plusieurs
+modes d'autre sont spécifiques.
+
+### Les options communes de l'onglet Document
+
+
+![Options générales](./img/preferencetext.png)
+
+1. Zone de sélection de la largeur. Si vous mettez ici des valeurs 
+correspondants à un format existant, ce format sera affiché dans la zone 3.
+2. Zone de sélection de la hauteur. Si vous mettez ici des valeurs 
+correspondants à un format existant, ce format sera affiché dans la zone
+3. Cette zone permet de choisir un format de page par un nom IS0. Si
+vous sélectionnez un format par ce menu, vous verrez les tailles
+correspondantes s'afficher dans les zones 1 et 2
+4. A l'italienne inverse les hauteurs et les largeurs
+5. Permet de sélectionner la police par défaut du document. Se référer
+à la documentation relative à la 
+[Sélection des polices](#SelectionPolice)
+6. Permet de sélectionner la police relative aux titres de chaque page.
+Si vous sélectionnez une couleur de fond, un cadre de la couleur
+sélectionnée encadrera le titre sur toute la largeur de la page.
+7. Permet de sélectionner la police relative aux sous titres de chaque 
+page. Si vous sélectionnez une couleur de fond , un cadre de la couleur
+sélectionnée encadrera le titre sur toute la largeur de la page.
+8. Sélectionne le mode recto ou recto verso. Si vous sélectionnez le
+mode recto verso, les numéros de pages s'ils sont excentrés à droite
+seront excentrés à gauche une page sur deux.
+9. En indiquant la couleur du papier, les couleurs de cadre des titres
+et des sous titres s'ils sont de cette couleur ne seront pas dessinés.
+Cela évite un effacement des caractères qui pourraient setrouver sous 
+le cadre.
+10. Cette zone permet de numéroter les pages avec le numéro à droite, 
+au centre ou à gauche
+11. Permet de choisir le style de numérotation de page 1, - 1 - ou 1/n
+12. Cette zone vous permet de choisir la police de caractères des 
+numéros de page. Si la la couleur de font de page n'est pas identique 
+à la couleur du papier un cadre sera dessiné autour du numéro de page.
+13. Permet de définir la marge horizontale
+14. Permet de définir la marge verticale
+
+### Les options communes de l'onglet Contenu 
+
+![Options générales partie contenue](./img/preferencestextcontent.png)
+
+1. Le fichier PDF comporte une couverture
+2. La police de caractères de la couverture est positionnée 
+3. Le titre peut être au tiers de la hauteur, à la moitié ou au 2/3
+4. Sélection d'une image optionnelle pour la couverture
+5. Mode compression de la table des matières activé
+6. Nombre de colonnes de la table des matières
+7. Police de caractères uitilisée pour la table des matières
+8. Caratères utilisés entre le nom du titre et la page dans la table
+des matières
+9. Position de la table des matières, au début, à la fin du document ou 
+pas de table des matières
+10. Extension ajoutée au fichier de sortie
+11. Espacement vertical 
+12. Ouverture du PDF en mode plein écran
+13. Forcer les titres en majuscule
+
+
+### Les préférences du mode mémoire
+
+Le mode aide mémoire ou monitoring des paroles permet d'afficher 
+les paroles en suivant les informations du fichier de chanson, notamment
+
+- les balises {tempo:xx} qui donnent le tempo de chaque chanson. Si 
+la balise tempo est absente d'un morceau, elle sera arbritrairement
+forcée à la valeur 120
+- à la balise time de la forme x/y qui indique le nombre de temps de
+chaque mesure. Si cette balise est absente, elle sera arbitrairement 
+forcée à la valeur 4/4
+
+![Options générales mode mémoire](./img/ConfigurationMemory.png)
+
+Voici la liste des options numérotées :
+
+1. Permet de sélectionner la police de caractères ainsi que sa couleur 
+et la couleur du fond telle qu'elle apparait dans la zone 5
+2. Permet d'indiquer si la fenêtre de monitoring sera en haut de l'écran,
+au milieu ou à droite. Si le mode plein écran est sélectionné ce mode
+ne sera plus accessible. Ce mode est destiné au mode enregistrement d'une
+chanson quand le chanteur veut suivre la progresssion de son enregistrement
+sur son logiciel d'enregistrement
+3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse projeter
+une vidéo et ou des images pendant que la musique est activée avec le mode 
+image en bas de l'écran.
+4. Deux lignes sont affichées, la ligne plus brillante sur les paroles en
+cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
+n'est pas sélectionné, une seule ligne est affichée.
+5. Rendu de la police de caractères
+6. Chaque temps est matérialisé par l'affichage d'une bulle rouge pour
+le premier temps et d'une bulle verte pour les autres temps.
+7. Un click sonore est activé sur chaque temps
+8. Réglage du volume du click
+9. Le premier temps sonore est plus marqué que les autres temps
+10. Avance de l'affichage, réglage de l'avance de l'affichage du temps
+sur les paroles pour permettre au chanteur de lire légèrement à l'avance
+11. Nombre de mesures avant de démarrer l'enregistrement.
+
+
+## Les conventions 
+
+### Sélection des polices  {#SelectionPolice}
+
+![Sélection des polices](./img/fontselection.png)
+
+La sélection des polices permet de sélectionner la famille police 
+souhaitée, sa taille, son style et toutes les options traditionnelles
+aux quelles sont ajoutés:
+
+- la couleur du fond
+- la couleur de la police
+
+La sélection d'une couleur changera la couleur du bouton afin de 
+vous montrer la couleur qu'il recèle
+Une explication sur la couleur de fond est nécessaire.
 
 
 

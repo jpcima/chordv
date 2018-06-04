@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="author" content="Gilles Maire" />
-  <title>Documentation utilisateur de chord V</title>
+  <title>Documentation utilisateur de Chord V</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
 div.sourceCode { overflow-x: auto; }
@@ -48,51 +48,52 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <div id="header">
-<h1 class="title">Documentation utilisateur de chord V</h1>
+<h1 class="title">Documentation utilisateur de Chord V</h1>
 <h2 class="author">Gilles Maire</h2>
-<h3 class="date">Mai 2018</h3>
+<h3 class="date">Juin 2018 Version 0.7</h3>
 </div>
 <div id="TOC">
 <ul>
 <li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
-<li><a href="#pr&#233;sentation"><span class="toc-section-number">1.1</span> Pr&#233;sentation</a></li>
-<li><a href="#le-mode-batch-et-le-mode-graphique"><span class="toc-section-number">1.2</span> Le mode batch et le mode graphique</a></li>
+<li><a href="#une-petite-histoire"><span class="toc-section-number">1.1</span> Une petite histoire</a></li>
+<li><a href="#pr&#233;sentation-du-logiciel"><span class="toc-section-number">1.2</span> Pr&#233;sentation du logiciel</a></li>
 </ul></li>
-<li><a href="#les-pr&#233;f&#233;rences-du-logiciel"><span class="toc-section-number">2</span> Les pr&#233;f&#233;rences du logiciel</a><ul>
-<li><a href="#de-lutilit&#233;-des-pr&#233;f&#233;rences"><span class="toc-section-number">2.1</span> De l&#8217;utilit&#233; des pr&#233;f&#233;rences</a></li>
-<li><a href="#le-menu-des-pr&#233;f&#233;rences"><span class="toc-section-number">2.2</span> Le menu des pr&#233;f&#233;rences</a></li>
-<li><a href="#les-options-g&#233;n&#233;rales-des-pr&#233;f&#233;rences"><span class="toc-section-number">2.3</span> Les options g&#233;n&#233;rales des pr&#233;f&#233;rences</a></li>
-<li><a href="#les-options-de-chaque-mode-de-livret"><span class="toc-section-number">2.4</span> Les options de chaque mode de livret</a><ul>
-<li><a href="#les-options-communes-de-longlet-document"><span class="toc-section-number">2.4.1</span> Les options communes de l&#8217;onglet Document</a></li>
-<li><a href="#les-options-communes-de-longlet-contenu"><span class="toc-section-number">2.4.2</span> Les options communes de l&#8217;onglet Contenu</a></li>
-<li><a href="#les-pr&#233;f&#233;rences-du-mode-m&#233;moire"><span class="toc-section-number">2.4.3</span> Les pr&#233;f&#233;rences du mode m&#233;moire</a></li>
+<li><a href="#la-fen&#234;tre-d&#233;dition"><span class="toc-section-number">2</span> La fen&#234;tre d&#8217;&#233;dition</a><ul>
+<li><a href="#pr&#233;sentation"><span class="toc-section-number">2.1</span> Pr&#233;sentation</a><ul>
+<li><a href="#la-fen&#234;tre-d&#233;dition-1"><span class="toc-section-number">2.1.1</span> La fen&#234;tre d&#8217;&#233;dition</a></li>
+<li><a href="#le-langage-&#224;-balise-de-chord-pro"><span class="toc-section-number">2.1.2</span> Le langage &#224; balise de chord pro</a></li>
 </ul></li>
-<li><a href="#les-conventions"><span class="toc-section-number">2.5</span> Les conventions</a><ul>
-<li><a href="#SelectionPolice"><span class="toc-section-number">2.5.1</span> S&#233;lection des polices</a></li>
+<li><a href="#les-balises-chordv"><span class="toc-section-number">2.2</span> Les balises ChordV</a><ul>
+<li><a href="#les-titres"><span class="toc-section-number">2.2.1</span> Les titres</a></li>
+<li><a href="#ordre-de-pagination"><span class="toc-section-number">2.2.2</span> Ordre de pagination</a></li>
+<li><a href="#sections"><span class="toc-section-number">2.2.3</span> Sections</a></li>
+<li><a href="#SignatureRytmique"><span class="toc-section-number">2.2.4</span> Signature rytmique et tempo</a></li>
+<li><a href="#les-accords"><span class="toc-section-number">2.2.5</span> Les accords</a></li>
+<li><a href="#notation-&#233;tendue"><span class="toc-section-number">2.2.6</span> Notation &#233;tendue</a></li>
+<li><a href="#extention-du-temps"><span class="toc-section-number">2.2.7</span> Extention du temps</a></li>
+<li><a href="#plusieurs-temps"><span class="toc-section-number">2.2.8</span> Plusieurs temps</a></li>
 </ul></li>
+<li><a href="#insertion-des-accords-dans-l&#233;diteur"><span class="toc-section-number">2.3</span> Insertion des accords dans l&#8217;&#233;diteur</a></li>
+<li><a href="#le-mode-batch-et-le-mode-graphique"><span class="toc-section-number">2.4</span> Le mode batch et le mode graphique</a></li>
 </ul></li>
-<li><a href="#la-fen&#234;tre-d&#233;dition"><span class="toc-section-number">3</span> La fen&#234;tre d&#8217;&#233;dition</a><ul>
-<li><a href="#pr&#233;sentation-1"><span class="toc-section-number">3.1</span> Pr&#233;sentation</a><ul>
-<li><a href="#la-fen&#234;tre-d&#233;dition-1"><span class="toc-section-number">3.1.1</span> La fen&#234;tre d&#8217;&#233;dition</a></li>
-<li><a href="#le-langage-&#224;-balise-de-chord-pro"><span class="toc-section-number">3.1.2</span> Le langage &#224; balise de chord pro</a></li>
+<li><a href="#les-pr&#233;f&#233;rences-du-logiciel"><span class="toc-section-number">3</span> Les pr&#233;f&#233;rences du logiciel</a><ul>
+<li><a href="#de-lutilit&#233;-des-pr&#233;f&#233;rences"><span class="toc-section-number">3.1</span> De l&#8217;utilit&#233; des pr&#233;f&#233;rences</a></li>
+<li><a href="#le-menu-des-pr&#233;f&#233;rences"><span class="toc-section-number">3.2</span> Le menu des pr&#233;f&#233;rences</a></li>
+<li><a href="#les-options-g&#233;n&#233;rales-des-pr&#233;f&#233;rences"><span class="toc-section-number">3.3</span> Les options g&#233;n&#233;rales des pr&#233;f&#233;rences</a></li>
+<li><a href="#les-options-de-chaque-mode-de-livret"><span class="toc-section-number">3.4</span> Les options de chaque mode de livret</a><ul>
+<li><a href="#les-options-communes-de-longlet-document"><span class="toc-section-number">3.4.1</span> Les options communes de l&#8217;onglet Document</a></li>
+<li><a href="#les-options-communes-de-longlet-contenu"><span class="toc-section-number">3.4.2</span> Les options communes de l&#8217;onglet Contenu</a></li>
+<li><a href="#les-pr&#233;f&#233;rences-du-mode-m&#233;moire"><span class="toc-section-number">3.4.3</span> Les pr&#233;f&#233;rences du mode m&#233;moire</a></li>
 </ul></li>
-<li><a href="#les-balises-chordv"><span class="toc-section-number">3.2</span> Les balises ChordV</a><ul>
-<li><a href="#les-titres"><span class="toc-section-number">3.2.1</span> Les titres</a></li>
-<li><a href="#ordre-de-pagination"><span class="toc-section-number">3.2.2</span> Ordre de pagination</a></li>
-<li><a href="#sections"><span class="toc-section-number">3.2.3</span> Sections</a></li>
-<li><a href="#SignatureRytmique"><span class="toc-section-number">3.2.4</span> Signature rytmique et tempo</a></li>
-<li><a href="#les-accords"><span class="toc-section-number">3.2.5</span> Les accords</a></li>
-<li><a href="#notation-&#233;tendue"><span class="toc-section-number">3.2.6</span> Notation &#233;tendue</a></li>
-<li><a href="#extention-du-temps"><span class="toc-section-number">3.2.7</span> Extention du temps</a></li>
-<li><a href="#plusieurs-temps"><span class="toc-section-number">3.2.8</span> Plusieurs temps</a></li>
+<li><a href="#les-conventions"><span class="toc-section-number">3.5</span> Les conventions</a><ul>
+<li><a href="#SelectionPolice"><span class="toc-section-number">3.5.1</span> S&#233;lection des polices</a></li>
 </ul></li>
-<li><a href="#insertion-des-accords-dans-l&#233;diteur"><span class="toc-section-number">3.3</span> Insertion des accords dans l&#8217;&#233;diteur</a></li>
 </ul></li>
 <li><a href="#le-menu-des-outils"><span class="toc-section-number">4</span> Le menu des outils</a><ul>
 <li><a href="#le-menu-des-pr&#233;f&#233;rences-1"><span class="toc-section-number">4.1</span> Le menu des pr&#233;f&#233;rences</a></li>
 <li><a href="#gadget-des-pr&#233;f&#233;rences"><span class="toc-section-number">4.2</span> Gadget des pr&#233;f&#233;rences</a></li>
 <li><a href="#d&#233;finition-des-accords"><span class="toc-section-number">4.3</span> D&#233;finition des accords</a><ul>
-<li><a href="#pr&#233;sentation-2"><span class="toc-section-number">4.3.1</span> Pr&#233;sentation</a></li>
+<li><a href="#pr&#233;sentation-1"><span class="toc-section-number">4.3.1</span> Pr&#233;sentation</a></li>
 <li><a href="#la-d&#233;finition-dun-accord"><span class="toc-section-number">4.3.2</span> La d&#233;finition d&#8217;un accord</a></li>
 <li><a href="#utilisation-de-la-souris"><span class="toc-section-number">4.3.3</span> Utilisation de la souris</a></li>
 <li><a href="#gestion-des-accords"><span class="toc-section-number">4.3.4</span> Gestion des accords</a></li>
@@ -108,7 +109,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#construire-les-fichiers-pdf"><span class="toc-section-number">4.6</span> Construire les fichiers PDF</a></li>
 <li><a href="#construire-et-afficher-les-fichiers-pdf"><span class="toc-section-number">4.7</span> Construire et afficher les fichiers PDF</a></li>
 <li><a href="#mode-m&#233;moire-ou-monitoring-des-paroles"><span class="toc-section-number">4.8</span> Mode m&#233;moire ou monitoring des paroles</a><ul>
-<li><a href="#pr&#233;sentation-3"><span class="toc-section-number">4.8.1</span> Pr&#233;sentation</a></li>
+<li><a href="#pr&#233;sentation-2"><span class="toc-section-number">4.8.1</span> Pr&#233;sentation</a></li>
 <li><a href="#d&#233;finition-du-mode-m&#233;moire"><span class="toc-section-number">4.8.2</span> D&#233;finition du Mode m&#233;moire</a></li>
 <li><a href="#connexion-jack"><span class="toc-section-number">4.8.3</span> Connexion jack</a></li>
 </ul></li>
@@ -121,11 +122,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#actions-souris"><span class="toc-section-number">5.2.2</span> Actions souris</a></li>
 </ul></li>
 <li><a href="#Traduction"><span class="toc-section-number">5.3</span> Traduction du logiciel dans une nouvelle langue</a><ul>
-<li><a href="#pr&#233;sentation-4"><span class="toc-section-number">5.3.1</span> Pr&#233;sentation</a></li>
+<li><a href="#pr&#233;sentation-3"><span class="toc-section-number">5.3.1</span> Pr&#233;sentation</a></li>
 <li><a href="#traduction-du-fichier-fr.ts"><span class="toc-section-number">5.3.2</span> Traduction du fichier fr.ts</a></li>
 </ul></li>
 <li><a href="#la-documentation-utilisateur-de-chord-v"><span class="toc-section-number">5.4</span> La documentation utilisateur de Chord V</a><ul>
-<li><a href="#pr&#233;sentation-5"><span class="toc-section-number">5.4.1</span> Pr&#233;sentation</a></li>
+<li><a href="#pr&#233;sentation-4"><span class="toc-section-number">5.4.1</span> Pr&#233;sentation</a></li>
 <li><a href="#processus-de-traduction"><span class="toc-section-number">5.4.2</span> Processus de traduction</a></li>
 <li><a href="#les-images"><span class="toc-section-number">5.4.3</span> Les images</a></li>
 </ul></li>
@@ -136,30 +137,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 </div>
-<p>% Version 0.7</p>
 <h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
-<h2 id="pr&#233;sentation"><span class="header-section-number">1.1</span> Pr&#233;sentation</h2>
+<h2 id="une-petite-histoire"><span class="header-section-number">1.1</span> Une petite histoire</h2>
+<p>Il n&#8217;est pas courant de commencer la documentation d&#8217;utilisation d&#8217;un logiciel par une petite histoire.</p>
+<p>Mais ChordV est destin&#233; aux personnes qui aiment la chanson et dans toutes les chansons il y a une histoire.</p>
+<p>Je vais ainsi vous raconter pourquoi j&#8217;ai cr&#233;&#233; ChordV.</p>
+<p>Je me suis rendu compte que mes amis guitaristes et chanteurs avaient la nostalgie des carnets de chant qui pr&#233;sentaient sur la m&#234;me page les paroles et les accords. C&#8217;est le mode classique qui convient bien &#224; tous les amateurs.</p>
+<p>Par contre, si j&#8217;ai connu beaucoup de chansons que j&#8217;aurais voulu rassembler dans ce type de livrets, il se trouve qu&#8217;il y a un peu plus de dix ans, je me suis produit sur de petites sc&#232;nes parisiennes avec mes propres chansons. On m&#8217;a peu &#224; peu demand&#233; d&#8217;aller chanter ici ou l&#224; en France et un peu partout mes petites rengaines. J&#8217;ai rencontr&#233; assez rapidement des musiciens qui me demandaient non plus des carnets de chant, mais des grilles d&#8217;accord.</p>
+<p>En troisi&#232;me lieu, il se trouve que lorsque que je chante devant des amis, ils me demandent les paroles pour pouvoir chanter avec moi. Ces amis ne sont ni guitaristes amateurs ni guitaristes professionnels et ils n&#8217;aiment pas lire textes bariol&#233;s de sch&#233;ma de guitare.</p>
+<p>Enfin pour finir, j&#8217;enregistre mes disques avec Ardour sous machine Linux. J&#8217;enregistre, j&#8217;&#233;coute le r&#233;sultat, je r&#233;enregistre et parfois plusieurs fois de suite.</p>
+<p>Lors des journ&#233;es d&#8217;enregistrement j&#8217;essaie plusieurs interpr&#233;tations et au bout de deux ou trois fois je ne sais plus si j&#8217;ai chant&#233; un couplet ou si c&#8217;&#233;tait dans la chanson pr&#233;c&#233;dente que je l&#8217;avais chant&#233;. Alors j&#8217;h&#233;site et cela s&#8217;entend sur les enregistrements. Il me fallait donc un mode aide m&#233;moire.</p>
+<p>Une fois que j&#8217;ai d&#233;velopp&#233; l&#8217;aide m&#233;moire j&#8217;ai enregistr&#233;, mais une fois que je reprenais l&#8217;enregistrement je devais faire plein de manipulations &#224; la souris.</p>
+<p>C&#8217;est ainsi que j&#8217;ai pens&#233; lier Ardour &#224; ChordV pour que les paroles reviennent au d&#233;but lorsque je demande &#224; l&#8217;enregistreur de revenir au d&#233;but.</p>
+<p>Il me manque un dernier point pour &#234;tre complet, j&#8217;aime l&#8217;Open Source, c&#8217;est mon m&#233;tier, j&#8217;aime d&#233;velopper. Mes chansons sont toutes open sources en Creative Common, elles sont livr&#233;es en d&#233;monstration de Chord V.</p>
+<p>Pour finir, je ne pouvais pas d&#233;velopper un logiciel qui ne fonctionne pas sous Linux et qui ne soit pas Open Source.</p>
+<p>J&#8217;ai d&#233;velopp&#233; ChordV en C++ avec la librairie Qt5. Il est donc portable sour MacOsx, Windows ou sur tablette Android ou Apple, mais je n&#8217;ai pas le temps de fabriquer l&#8217;installeur pour ces environnements.</p>
+<p>Il se fait tard, j&#8217;ai des concerts &#224; honorer, ils m&#8217;apportent beaucoup de bonheur. J&#8217;ai aussi une activit&#233; d&#8217;informaticien et d&#8217;enseignant &#224; continuer. J&#8217;ai une famille qui me voit trop souvent de dos en train d&#8217;&#233;cire des programmes ou des chansons.</p>
+<p>Il se fait tard, il faut que je vous laisse d&#233;couvrir Chord V. ##</p>
+<h2 id="pr&#233;sentation-du-logiciel"><span class="header-section-number">1.2</span> Pr&#233;sentation du logiciel</h2>
+<p>ChordV permet de produire diff&#233;rents types de fichiers PDF repr&#233;sentant une collection de chansons ChordV fournit ainsi : - un &#233;diteur de texte avec colorisation syntaxique et insertion des balises au format chord pro &#233;tendu - un gestionnaire d&#8217;accords et d&#8217;une base d&#8217;accords guitare permettant d&#8217;ajouter ou d&#8217;ins&#233;rer les accords - quatre processeurs permettant de g&#233;n&#233;rer 1. un livre contenant les paroles sans les accords ; 2. un livre contenant accords et paroles ; 3. un livre contenant uniquement les grilles d&#8217;accords ; 4. un mode d&#233;filement des paroles avec possibilit&#233; de synchronisation avec tout logiciel de lecture ou d&#8217;&#233;criture compatible jack. - Pour chacun de ces modes la gestion des &#233;cran de configuration permet de faire les r&#233;glages pr&#233;cis des diff&#233;rentes options de sortie : - <strong>Texte :</strong> dans ce mode, les paroles seules apparaissent, sans aucune repr&#233;sentation d&#8217;accord. Ceci engendre des choix de police de caract&#232;res, de marges, de taille de page etc.. - <strong>Lyrics :</strong> dans ce mode, le texte et les accords sont affich&#233;s, avec les m&#234;me choix que ceux pr&#233;c&#233;demment &#233;voqu&#233;s. - <strong>Accords :</strong> dans ce mode, les accords ne sont affich&#233;s. Il est utile pour les musiciens d&#8217;accompagnement, avec les m&#234;me choix que ceux pr&#233;c&#233;demment &#233;voqu&#233;s. - <strong>M&#233;moire :</strong> dans ce mode, un monitoring des paroles est propos&#233; pour permettre le suivi des paroles. Des options de position de fen&#234;tre de monitoring jusqu&#8217;au temps mort avant d&#233;but du morceau sont propos&#233;es.</p>
 <ul>
-<li>ChordV permet de produire diff&#233;rents types de fichiers PDF repr&#233;sentant une collection de chansons</li>
-<li>ChordV fournit :
-<ul>
-<li>un &#233;diteur de texte avec colorisation syntaxique et insertion des balises au format chord pro &#233;tendu</li>
-<li>un gestionnaire d&#8217;accords et d&#8217;une base d&#8217;accords guitare permettant d&#8217;ajouter ou d&#8217;ins&#233;rer les accords</li>
-<li>quatre processeurs permettant de g&#233;n&#233;rer
-<ol style="list-style-type: decimal">
-<li>un livre contenant les paroles sans les accords,</li>
-<li>un livre contenant accords et paroles ;</li>
-<li>un livre contenant uniquement les grilles d&#8217;accords</li>
-<li>un mode d&#233;filement des paroles avec possibilit&#233; de synchronisation avec tout logiciel de lecture ou d&#8217;&#233;criture compatible jack</li>
-</ol></li>
-</ul></li>
-<li>Pour chacun de ces modes la gestion des &#233;cran de configuration permet de faire les r&#233;glages pr&#233;cis des diff&#233;rentes options de sortie :</li>
-<li><strong>Texte :</strong> dans ce mode, les paroles seules apparaissent, sans aucune repr&#233;sentation d&#8217;accord. Ceci engendre des choix de police de caract&#232;res, de marges, de taille de page etc..</li>
-<li><strong>Lyrics :</strong> dans ce mode, le texte et les accords sont affich&#233;s, avec les m&#234;me choix que ceux pr&#233;c&#233;demment &#233;voqu&#233;s.</li>
-<li><strong>Accords :</strong> dans ce mode, les accords ne sont affich&#233;s. Il est utile pour les musiciens d&#8217;accompagnement, avec les m&#234;me choix que ceux pr&#233;c&#233;demment &#233;voqu&#233;s.</li>
-<li><p><strong>M&#233;moire :</strong> dans ce mode, un monitoring des paroles est propos&#233; pour permettre le suivi des paroles. Des options de position de fen&#234;tre de monitoring jusqu&#8217;au temps mort avant d&#233;but du morceau sont propos&#233;es.</p></li>
-<li><p>ChordV utilise un langage de balises tr&#232;s efficace et simple de Chord Pro dont certaines balises sont &#233;tendues :</p></li>
+<li>ChordV utilise le langage de balises tr&#232;s efficace et simple de Chord Pro dont certaines balises sont &#233;tendues :</li>
 </ul>
+<p>Voici pour m&#233;moire un exemple de fichier chord pro :</p>
 <pre><code>{title:Let it be}
 
 {subtitle: Lyrics ansd music :  Paul McCartney, John Lennon}
@@ -171,7 +171,7 @@ Am Mother  [G] Mary  [F]  comes to me
 And  [C] in my hour of  [G]  darkness
 She is  [Am] standing  [G] right in   [F]  front of me
 [C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]</code></pre>
-<p>L&#8217;exemple ci-dessus est celui de chord pro, il peut &#234;tre utilis&#233; tel quel mais en perdant le b&#233;n&#233;fice du suivi rythmique des paroles du mode m&#233;morisation.</p>
+<p>Chord V peut utiliser le fichier chord pro tel quel mais en perdant le b&#233;n&#233;fice du suivi rythmique des paroles du mode m&#233;morisation.</p>
 <p>En ChordV on aura plut&#244;t tendance &#224; indiquer si les accords s&#8217;appliquent &#224; une mesure ou un rythme ainsi :</p>
 <pre><code>{title:Let it be}
 
@@ -181,15 +181,135 @@ She is  [Am] standing  [G] right in   [F]  front of me
 When I  [C:2] find myself in  [G:2]  times of trouble
 Am Mother  [G:2] Mary  [F:2]  comes to me</code></pre>
 <p>La notation [C:2] indique que l&#8217;accord de Do est jou&#233; sur une demi mesure. Se reporter au chapitre <a href="#SignatureRytmique">Signature rythmique et tempo</a> pour les d&#233;tails des temps sur les accords.</p>
-<h2 id="le-mode-batch-et-le-mode-graphique"><span class="header-section-number">1.2</span> Le mode batch et le mode graphique</h2>
+<h1 id="la-fen&#234;tre-d&#233;dition"><span class="header-section-number">2</span> La fen&#234;tre d&#8217;&#233;dition</h1>
+<h2 id="pr&#233;sentation"><span class="header-section-number">2.1</span> Pr&#233;sentation</h2>
+<h3 id="la-fen&#234;tre-d&#233;dition-1"><span class="header-section-number">2.1.1</span> La fen&#234;tre d&#8217;&#233;dition</h3>
+<div class="figure">
+<img src="./img/editor.png" alt="La fen&#234;tre d&#8217;&#233;dition" />
+<p class="caption">La fen&#234;tre d&#8217;&#233;dition</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Le menu &#233;dition permet d&#8217;acc&#233;der aux fonctions rechercher remplacer et de zoomer la police de caract&#232;res. En regard les items du menu vous disposez de raccourcis clavier.</li>
+<li>Les icones permettent d&#8217;ins&#233;rer les Titres de couverture, les mesures et toutes les informations qui sont surlign&#233;es en violet sur la figure.</li>
+<li>La zone de texte vous permet d&#8217;&#233;diter texte et accords les chansons au format chord pro</li>
+<li>La partie log affiche des messages d&#8217;erreur &#233;tiquet&#233;s en rouge et des messages de succ&#232;s &#233;tiquet&#233;s en vert.</li>
+<li>Quand vous s&#233;lectionner un accord, en actionnant la molette de la souris vers le haut ou le bas vous montez ou descendez la dur&#233;e d&#8217;un accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant la molette vers soi.</li>
+<li>Un navigateur table des mati&#232;res permet de se rendre directement &#224; la chanson d&#233;sir&#233;e</li>
+</ol>
+<h3 id="le-langage-&#224;-balise-de-chord-pro"><span class="header-section-number">2.1.2</span> Le langage &#224; balise de chord pro</h3>
+<p>On peut trouver &#233;trange qu&#8217;un logiciel moderne ne pr&#233;sente pas une interface Wysiwyg, c&#8217;est &#224; dire dont l&#8217;aspect ressemble &#224; la sortie papier. En fait ChordV prend un seul format d&#8217;entr&#233;e et il est capable de g&#233;n&#233;rer un livret de texte, un livret de texte et accords, un livret de grille d&#8217;accords et un mode aide m&#233;moire. Dans quel mode fallait il choisir de travailler ? Nous avons choisi le mode &#224; balise qui nous sembl&#233; un format pivot.</p>
+<p>En plus ce format pivot est &#233;crit dans le langage chord pro plus des extensions utiles au programme. Ainsi vous pourrez charger dans ChordV l&#8217;ensemble des fichiers chord pro disponibles dans les resources musicales libres du net.</p>
+<h2 id="les-balises-chordv"><span class="header-section-number">2.2</span> Les balises ChordV</h2>
+<h3 id="les-titres"><span class="header-section-number">2.2.1</span> Les titres</h3>
+<h4 id="titre-du-document"><span class="header-section-number">2.2.1.1</span> Titre du document</h4>
+<pre class="chord"><code>{covertitle: titre }</code></pre>
+<p>Fournit le titre du document Un seul titre par document est admis</p>
+<p>La notation abr&#233;g&#233;e est {ct: titre }</p>
+<h4 id="sous-titre-du-document"><span class="header-section-number">2.2.1.2</span> Sous titre du document</h4>
+<pre class="chordpro"><code>{coversubtitle: sous titre}</code></pre>
+<p>Fournit le sous titre du document, c&#8217;est &#224; dire un texte accompagnant le titre Un seul sous titre par document</p>
+<p>La notation abr&#233;g&#233;e est {cs: titre }</p>
+<h4 id="titre-dune-chanson"><span class="header-section-number">2.2.1.3</span> Titre d&#8217;une chanson</h4>
+<pre><code>{title: titre de la chanson}</code></pre>
+<p>C&#8217;est le titre d&#8217;une chanson. On trouve autant de rubriques title que de chansons dans le document. On ne peut avoir qu&#8217;un seul titre par chanson. Si on d&#233;finit deux titres cons&#233;cutif on provoque un saut de page avec une chanson vide pour la premi&#232;re.</p>
+<p>La notation abr&#233;g&#233;e est {t: titre }</p>
+<h4 id="sous-titre-dune-chanson"><span class="header-section-number">2.2.1.4</span> Sous titre d&#8217;une chanson</h4>
+<pre><code>{subtitle: sous titre d&#39;une chanson }</code></pre>
+<p>C&#8217;est un sous titre, accompagnant la chanson. On peut fournir plusieurs sous titres qui seront s&#233;par&#233;s par des sauts de ligne.</p>
+<p>On peut trouver les noms des auteurs, des compositeurs ou des interpr&#232;tes dans cette cat&#233;gorie.</p>
+<p>La notation abr&#233;g&#233;e est {st: titre }</p>
+<h3 id="ordre-de-pagination"><span class="header-section-number">2.2.2</span> Ordre de pagination</h3>
+<h4 id="sauts"><span class="header-section-number">2.2.2.1</span> Sauts</h4>
+<pre><code>-----</code></pre>
+<h4 id="nombre-de-colonnes-pour-la-chanson"><span class="header-section-number">2.2.2.2</span> Nombre de colonnes pour la chanson</h4>
+<pre><code>{columns:2}</code></pre>
+<p>Permet de d&#233;finir le nombre de colonnes d&#8217;impression de la chanson</p>
+<h4 id="saut-de-colonnes"><span class="header-section-number">2.2.2.3</span> Saut de colonnes</h4>
+<pre><code>{column_break}</code></pre>
+<p>Provoque la g&#233;n&#233;ration d&#8217;une nouvelle colonne.</p>
+<p>La notation abr&#233;g&#233;e est {colb}</p>
+<h4 id="nouvelle-chanson"><span class="header-section-number">2.2.2.4</span> Nouvelle chanson</h4>
+<pre><code>{new_song}</code></pre>
+<p>Reconnu mais pas utilis&#233;, cette balise sert pour la compatibilit&#233; avec d&#8217;autres impl&#233;mentations du forma cho</p>
+<p>La notation abr&#233;g&#233;e est {ns}</p>
+<h4 id="diminution-de-linterlignage"><span class="header-section-number">2.2.2.5</span> Diminution de l&#8217;interlignage</h4>
+<pre><code>{compress}</code></pre>
+<p>Si une chanson ne rentre pas tout &#224; fait dans une page, on peut activer le mode compress qui r&#233;duira l&#8217;interlignage de la chanson &#224; partir du moment ou l&#8217;argument est rencontr&#233;</p>
+<h3 id="sections"><span class="header-section-number">2.2.3</span> Sections</h3>
+<h4 id="d&#233;but-de-chorus"><span class="header-section-number">2.2.3.1</span> D&#233;but de chorus</h4>
+<pre><code>{start_of_chorus}</code></pre>
+<p>Indique le d&#233;but d&#8217;un chorus.</p>
+<p>La notation abr&#233;g&#233;e est {soc}</p>
+<h4 id="fin-du-chorus"><span class="header-section-number">2.2.3.2</span> Fin du chorus</h4>
+<pre><code>{end_of_chorus}</code></pre>
+<p>Indique la fin du chorus</p>
+<p>Lanotation abr&#233;g&#233;e est {eoc}</p>
+<h4 id="refrain"><span class="header-section-number">2.2.3.3</span> Refrain</h4>
+<pre><code>{Refrain}</code></pre>
+<p>Indique le refrain</p>
+<h3 id="SignatureRytmique"><span class="header-section-number">2.2.4</span> Signature rytmique et tempo</h3>
+<h4 id="remarques"><span class="header-section-number">2.2.4.1</span> Remarques</h4>
+<p>Ces valeurs seront report&#233;es dans le mode grille d&#8217;accord et largement utilis&#233;es dans le mode aide m&#233;moire.</p>
+<h4 id="tempo"><span class="header-section-number">2.2.4.2</span> Tempo</h4>
+<ul>
+<li>Le tempo sera repr&#233;sent&#233; par la balise</li>
+</ul>
+<pre><code>{tempo:12O}
+{tempo:112.5}</code></pre>
+<p>Si le tempo est ommis, la valeur 120 sera assign&#233;e.</p>
+<p>Le tempo inidique le nombre de temps par minute. Il peut comprendre une ou plusieurs d&#233;cimales, le s&#233;parateur de d&#233;cimale est le point quelle que soit la langue choisie.</p>
+<p>L&#8217;introduction d&#8217;une d&#233;cimale est peu usuelle dans la notation musicale conventionnelle, mais certains logiciels permettent cette extension par exemple lorsqu&#8217;ils d&#233;duisent la valeur du tempo d&#8217;un morceau</p>
+<h4 id="signature-rythmique"><span class="header-section-number">2.2.4.3</span> Signature rythmique</h4>
+<ul>
+<li><p>La signature rythmique d&#8217;un morceau est repr&#233;sent&#233; par la balise {time:4/4}</p></li>
+<li><p>Si aucune signature rythmique n&#8217;est mentionn&#233; pour un morceau, la value 4/4 sera assign&#233;e</p></li>
+</ul>
+<h3 id="les-accords"><span class="header-section-number">2.2.5</span> Les accords</h3>
+<h4 id="notation-de-base"><span class="header-section-number">2.2.5.1</span> Notation de base</h4>
+<ul>
+<li>En format anglais (si le format est configur&#233; en anglais) on suit la notation ABCDEFG</li>
+</ul>
+<pre><code>[A]</code></pre>
+<ul>
+<li>En format fran&#231;ais (s&#8217;il est configur&#233; comme tel), on suit la notation La Si Do R&#233; Mi Fa Sol</li>
+</ul>
+<pre><code>[La]</code></pre>
+<ul>
+<li>Le mode mineur est not&#233; - si les accords sont en anglais et m s&#8217;ils sont en fran&#231;ais et configur&#233; comme tel</li>
+<li>Les mode 7 6 5 13 etc sont not&#233; en chiffre</li>
+</ul>
+<h3 id="notation-&#233;tendue"><span class="header-section-number">2.2.6</span> Notation &#233;tendue</h3>
+<ul>
+<li>Les barr&#233;s son not&#233;s en chiffre romain avec la case du barr&#233; :</li>
+</ul>
+<pre><code>[La(V)]</code></pre>
+<h3 id="extention-du-temps"><span class="header-section-number">2.2.7</span> Extention du temps</h3>
+<h4 id="remarques-1"><span class="header-section-number">2.2.7.1</span> Remarques</h4>
+<p>Ces extensions ont &#233;t&#233; introduites par chord V et sont en cours de discution avec les auteurs de la d&#233;finition du format ChordPro</p>
+<h4 id="plusieurs-mesures"><span class="header-section-number">2.2.7.2</span> Plusieurs mesures</h4>
+<p>x num&#233;ro indique le nombre de mesures de l&#8217;accord</p>
+<pre><code>[La(V)x3]</code></pre>
+<p>Par d&#233;faut un accord sans adjonction mesure sera consid&#233;r&#233; comme un accord d&#8217;une mesure</p>
+<p>Ainsi [La] sera un accord d&#8217;une mesure</p>
+<h3 id="plusieurs-temps"><span class="header-section-number">2.2.8</span> Plusieurs temps</h3>
+<p>: indique une division de la mesure</p>
+<p>Ainsi pour une mesure de signature 4/4 les notations :</p>
+<ul>
+<li>[La:2] signifiera une mesure divis&#233;e par 2 c&#8217;est &#224; dire 2 temps</li>
+<li>[La:4] signifiera une mesure divis&#233;e par 4 c&#8217;est &#224; dire 1 temps</li>
+</ul>
+<h2 id="insertion-des-accords-dans-l&#233;diteur"><span class="header-section-number">2.3</span> Insertion des accords dans l&#8217;&#233;diteur</h2>
+<p>En double cliquant sur le texte la fen&#234;tre d&#8217;inclusion d&#8217;accord vous permet de s&#233;lectionner un accord par l&#8217;appui sur le bouton Inserer l&#8217;accord. Cette action peut &#233;galement &#234;tre optenue par l&#8217;appui de la touche F4 (alors que la touche F3 permet d&#8217;entrer dans le mode de gestion des accords)</p>
+<p>Vous pouvez modifier le tempo par l&#8217;emploi de la molette de la souris en maintenant la touche SHIFT appuy&#233;e dans l&#8217;&#233;diteur.</p>
+<h2 id="le-mode-batch-et-le-mode-graphique"><span class="header-section-number">2.4</span> Le mode batch et le mode graphique</h2>
 <ul>
 <li>Sans aucun argument chordV est lanc&#233; avec une interface graphique</li>
 <li>Avec l&#8217;argument -t chordV ne lance pas l&#8217;interface graphique et produira les PDF pour la configuration par d&#233;faut</li>
 <li>Vous pouvez &#233;galement lancer chordV avec un argument fichier.chop<br />
 pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 </ul>
-<h1 id="les-pr&#233;f&#233;rences-du-logiciel"><span class="header-section-number">2</span> Les pr&#233;f&#233;rences du logiciel</h1>
-<h2 id="de-lutilit&#233;-des-pr&#233;f&#233;rences"><span class="header-section-number">2.1</span> De l&#8217;utilit&#233; des pr&#233;f&#233;rences</h2>
+<h1 id="les-pr&#233;f&#233;rences-du-logiciel"><span class="header-section-number">3</span> Les pr&#233;f&#233;rences du logiciel</h1>
+<h2 id="de-lutilit&#233;-des-pr&#233;f&#233;rences"><span class="header-section-number">3.1</span> De l&#8217;utilit&#233; des pr&#233;f&#233;rences</h2>
 <ul>
 <li>Les pr&#233;f&#233;rences permettent de d&#233;finir les options pour tous les recueils de chanson afin de rendre homog&#232;ne une collection de recueils.</li>
 <li>Imaginons que vous souhaitiez construire un recueil des chansons de Brassens, un recueil des chansons de Renaud et un recueil des chansons de Jeanne Ch&#233;ral. Pour chacun de ces recueils, vous pourrez choisir les diff&#233;rentes types de sortie que vous souhaitez et d&#233;finir &#224; votre guise chaque sortie, mais vous pouvez vouloir d&#233;finir les m&#234;mes formats pour chacun d&#8217;eux, ou au moins quelques options communes dans les polices de caract&#232;res ou autre. C&#8217;est dans les pr&#233;f&#233;rences que vous pourrez r&#233;gler ces options globales, quitte &#224; pouvoir les adapter &#224; chacun des artistes par la suite.</li>
@@ -197,7 +317,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>L&#8217;un vous permet de revenir aux choix initiaux du logiciels au cas o&#249; vos essais ne seraient pas satisfaisants</li>
 <li>L&#8217;un vous permet de d&#233;finir un r&#233;glage pour un artiste comme le r&#233;glage par d&#233;faut dans l&#8217;avenir.</li>
 </ul>
-<h2 id="le-menu-des-pr&#233;f&#233;rences"><span class="header-section-number">2.2</span> Le menu des pr&#233;f&#233;rences</h2>
+<h2 id="le-menu-des-pr&#233;f&#233;rences"><span class="header-section-number">3.2</span> Le menu des pr&#233;f&#233;rences</h2>
 <ul>
 <li>On acc&#232;de aux pr&#233;f&#233;rences par le menu Pr&#233;f&#233;rence ou par le racourci clavier CTRL + O comme le montre la figure suivante</li>
 </ul>
@@ -205,7 +325,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <img src="./img/menupreferences.png" alt="Le menu des pr&#233;f&#233;rences" />
 <p class="caption">Le menu des pr&#233;f&#233;rences</p>
 </div>
-<h2 id="les-options-g&#233;n&#233;rales-des-pr&#233;f&#233;rences"><span class="header-section-number">2.3</span> Les options g&#233;n&#233;rales des pr&#233;f&#233;rences</h2>
+<h2 id="les-options-g&#233;n&#233;rales-des-pr&#233;f&#233;rences"><span class="header-section-number">3.3</span> Les options g&#233;n&#233;rales des pr&#233;f&#233;rences</h2>
 <div class="figure">
 <img src="./img/preferencegeneral.png" alt="Options g&#233;n&#233;rales" />
 <p class="caption">Options g&#233;n&#233;rales</p>
@@ -216,10 +336,10 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>ChordV lance un lecteur PDF quand vous voulez visualiser le livret g&#233;n&#233;r&#233; par l&#8217;application. Il faut renseigner dans cette zone le nom du programme de visualisation en PDF.</li>
 <li>Le nom de l&#8217;auteur du livret peut-&#234;tre entr&#233; ici. Il sera utilis&#233; dans la production des documents.</li>
 </ol>
-<h2 id="les-options-de-chaque-mode-de-livret"><span class="header-section-number">2.4</span> Les options de chaque mode de livret</h2>
+<h2 id="les-options-de-chaque-mode-de-livret"><span class="header-section-number">3.4</span> Les options de chaque mode de livret</h2>
 <p>Ces options ne sont pas forc&#233;ments exactement les m&#234;mes pour chaque livret, en effet en mode texte la police des accords n&#8217;existe pas puisque dans ce mode les accords n&#8217;existent pas. Nous allons s&#233;parer la pr&#233;sentation des options communes et celles sp&#233;cifiques &#224; chaque mode.</p>
 <p>On trouve deux onglets l&#8217;un appel&#233; <em>Document</em> et l&#8217;autre <em>Contenu</em> pour chacun des modes de sortie. Certaines des options de ces modes sont communs &#224; plusieurs modes d&#8217;autre sont sp&#233;cifiques.</p>
-<h3 id="les-options-communes-de-longlet-document"><span class="header-section-number">2.4.1</span> Les options communes de l&#8217;onglet Document</h3>
+<h3 id="les-options-communes-de-longlet-document"><span class="header-section-number">3.4.1</span> Les options communes de l&#8217;onglet Document</h3>
 <div class="figure">
 <img src="./img/preferencetext.png" alt="Options g&#233;n&#233;rales" />
 <p class="caption">Options g&#233;n&#233;rales</p>
@@ -240,7 +360,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>Permet de d&#233;finir la marge horizontale</li>
 <li>Permet de d&#233;finir la marge verticale</li>
 </ol>
-<h3 id="les-options-communes-de-longlet-contenu"><span class="header-section-number">2.4.2</span> Les options communes de l&#8217;onglet Contenu</h3>
+<h3 id="les-options-communes-de-longlet-contenu"><span class="header-section-number">3.4.2</span> Les options communes de l&#8217;onglet Contenu</h3>
 <div class="figure">
 <img src="./img/preferencestextcontent.png" alt="Options g&#233;n&#233;rales partie contenue" />
 <p class="caption">Options g&#233;n&#233;rales partie contenue</p>
@@ -260,7 +380,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>Ouverture du PDF en mode plein &#233;cran</li>
 <li>Forcer les titres en majuscule</li>
 </ol>
-<h3 id="les-pr&#233;f&#233;rences-du-mode-m&#233;moire"><span class="header-section-number">2.4.3</span> Les pr&#233;f&#233;rences du mode m&#233;moire</h3>
+<h3 id="les-pr&#233;f&#233;rences-du-mode-m&#233;moire"><span class="header-section-number">3.4.3</span> Les pr&#233;f&#233;rences du mode m&#233;moire</h3>
 <p>Le mode aide m&#233;moire ou monitoring des paroles permet d&#8217;afficher les paroles en suivant les informations du fichier de chanson, notamment</p>
 <ul>
 <li>les balises {tempo:xx} qui donnent le tempo de chaque chanson. Si la balise tempo est absente d&#8217;un morceau, elle sera arbritrairement forc&#233;e &#224; la valeur 120</li>
@@ -284,8 +404,8 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>Avance de l&#8217;affichage, r&#233;glage de l&#8217;avance de l&#8217;affichage du temps sur les paroles pour permettre au chanteur de lire l&#233;g&#232;rement &#224; l&#8217;avance</li>
 <li>Nombre de mesures avant de d&#233;marrer l&#8217;enregistrement.</li>
 </ol>
-<h2 id="les-conventions"><span class="header-section-number">2.5</span> Les conventions</h2>
-<h3 id="SelectionPolice"><span class="header-section-number">2.5.1</span> S&#233;lection des polices</h3>
+<h2 id="les-conventions"><span class="header-section-number">3.5</span> Les conventions</h2>
+<h3 id="SelectionPolice"><span class="header-section-number">3.5.1</span> S&#233;lection des polices</h3>
 <div class="figure">
 <img src="./img/fontselection.png" alt="S&#233;lection des polices" />
 <p class="caption">S&#233;lection des polices</p>
@@ -296,131 +416,11 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>la couleur de la police</li>
 </ul>
 <p>La s&#233;lection d&#8217;une couleur changera la couleur du bouton afin de vous montrer la couleur qu&#8217;il rec&#232;le Une explication sur la couleur de fond est n&#233;cessaire.</p>
-<h1 id="la-fen&#234;tre-d&#233;dition"><span class="header-section-number">3</span> La fen&#234;tre d&#8217;&#233;dition</h1>
-<h2 id="pr&#233;sentation-1"><span class="header-section-number">3.1</span> Pr&#233;sentation</h2>
-<h3 id="la-fen&#234;tre-d&#233;dition-1"><span class="header-section-number">3.1.1</span> La fen&#234;tre d&#8217;&#233;dition</h3>
-<div class="figure">
-<img src="./img/editor.png" alt="La fen&#234;tre d&#8217;&#233;dition" />
-<p class="caption">La fen&#234;tre d&#8217;&#233;dition</p>
-</div>
-<ol style="list-style-type: decimal">
-<li>Le menu &#233;dition permet d&#8217;acc&#233;der aux fonctions rechercher remplacer et de zoomer la police de caract&#232;res. En regard les items du menu vous disposez de raccourcis clavier.</li>
-<li>Les icones permettent d&#8217;ins&#233;rer les Titres de couverture, les mesures et toutes les informations qui sont surlign&#233;es en violet sur la figure.</li>
-<li>La zone de texte vous permet d&#8217;&#233;diter texte et accords les chansons au format chord pro</li>
-<li>La partie log affiche des messages d&#8217;erreur &#233;tiquet&#233;s en rouge et des messages de succ&#232;s &#233;tiquet&#233;s en vert.</li>
-<li>Quand vous s&#233;lectionner un accord, en actionnant la molette de la souris vers le haut ou le bas vous montez ou descendez la dur&#233;e d&#8217;un accord. Ainsi on passe du [Do#x2] au [Do#] puis au [Do:2] en tournant la molette vers soi.</li>
-<li>Un navigateur table des mati&#232;res permet de se rendre directement &#224; la chanson d&#233;sir&#233;e</li>
-</ol>
-<h3 id="le-langage-&#224;-balise-de-chord-pro"><span class="header-section-number">3.1.2</span> Le langage &#224; balise de chord pro</h3>
-<p>On peut trouver &#233;trange qu&#8217;un logiciel moderne ne pr&#233;sente pas une interface Wysiwyg, c&#8217;est &#224; dire dont l&#8217;aspect ressemble &#224; la sortie papier. En fait ChordV prend un seul format d&#8217;entr&#233;e et il est capable de g&#233;n&#233;rer un livret de texte, un livret de texte et accords, un livret de grille d&#8217;accords et des aide m&#233;moires. Dans quel mode fallait il choisir de travailler ? Nous avons choisi le mode &#224; balise qui nous sembl&#233; un format pivot.</p>
-<p>En plus ce format pivot est &#233;crit dans le langage chord pro plus des extensions utiles au programme. Ainsi vous pourrez charger dans ChordV l&#8217;ensemble des fichiers chord pro disponibles dans les resources musicales libres du net.</p>
-<h2 id="les-balises-chordv"><span class="header-section-number">3.2</span> Les balises ChordV</h2>
-<h3 id="les-titres"><span class="header-section-number">3.2.1</span> Les titres</h3>
-<h4 id="titre-du-document"><span class="header-section-number">3.2.1.1</span> Titre du document</h4>
-<pre class="chord"><code>{covertitle: titre }</code></pre>
-<p>Fournit le titre du document Un seul titre par document est admis</p>
-<p>La notation abr&#233;g&#233;e est {ct: titre }</p>
-<h4 id="sous-titre-du-document"><span class="header-section-number">3.2.1.2</span> Sous titre du document</h4>
-<pre class="chordpro"><code>{coversubtitle: sous titre}</code></pre>
-<p>Fournit le sous titre du document, c&#8217;est &#224; dire un texte accompagnant le titre Un seul sous titre par document</p>
-<p>La notation abr&#233;g&#233;e est {cs: titre }</p>
-<h4 id="titre-dune-chanson"><span class="header-section-number">3.2.1.3</span> Titre d&#8217;une chanson</h4>
-<pre><code>{title: titre de la chanson}</code></pre>
-<p>C&#8217;est le titre d&#8217;une chanson. On trouve autant de rubriques title que de chansons dans le document. On ne peut avoir qu&#8217;un seul titre par chanson. Si on d&#233;finit deux titres cons&#233;cutif on provoque un saut de page avec une chanson vide pour la premi&#232;re.</p>
-<p>La notation abr&#233;g&#233;e est {t: titre }</p>
-<h4 id="sous-titre-dune-chanson"><span class="header-section-number">3.2.1.4</span> Sous titre d&#8217;une chanson</h4>
-<pre><code>{subtitle: sous titre d&#39;une chanson }</code></pre>
-<p>C&#8217;est un sous titre, accompagnant la chanson. On peut fournir plusieurs sous titres qui seront s&#233;par&#233;s par des sauts de ligne.</p>
-<p>On peut trouver les noms des auteurs, des compositeurs ou des interpr&#232;tes dans cette cat&#233;gorie.</p>
-<p>La notation abr&#233;g&#233;e est {st: titre }</p>
-<h3 id="ordre-de-pagination"><span class="header-section-number">3.2.2</span> Ordre de pagination</h3>
-<h4 id="sauts"><span class="header-section-number">3.2.2.1</span> Sauts</h4>
-<pre><code>-----</code></pre>
-<h4 id="nombre-de-colonnes-pour-la-chanson"><span class="header-section-number">3.2.2.2</span> Nombre de colonnes pour la chanson</h4>
-<pre><code>{columns:2}</code></pre>
-<p>Permet de d&#233;finir le nombre de colonnes d&#8217;impression de la chanson</p>
-<h4 id="saut-de-colonnes"><span class="header-section-number">3.2.2.3</span> Saut de colonnes</h4>
-<pre><code>{column_break}</code></pre>
-<p>Provoque la g&#233;n&#233;ration d&#8217;une nouvelle colonne.</p>
-<p>La notation abr&#233;g&#233;e est {colb}</p>
-<h4 id="nouvelle-chanson"><span class="header-section-number">3.2.2.4</span> Nouvelle chanson</h4>
-<pre><code>{new_song}</code></pre>
-<p>Reconnu mais pas utilis&#233;, cette balise sert pour la compatibilit&#233; avec d&#8217;autres impl&#233;mentations du forma cho</p>
-<p>La notation abr&#233;g&#233;e est {ns}</p>
-<h4 id="diminution-de-linterlignage"><span class="header-section-number">3.2.2.5</span> Diminution de l&#8217;interlignage</h4>
-<pre><code>{compress}</code></pre>
-<p>Si une chanson ne rentre pas tout &#224; fait dans une page, on peut activer le mode compress qui r&#233;duira l&#8217;interlignage de la chanson &#224; partir du moment ou l&#8217;argument est rencontr&#233;</p>
-<h3 id="sections"><span class="header-section-number">3.2.3</span> Sections</h3>
-<h4 id="d&#233;but-de-chorus"><span class="header-section-number">3.2.3.1</span> D&#233;but de chorus</h4>
-<pre><code>{start_of_chorus}</code></pre>
-<p>Indique le d&#233;but d&#8217;un chorus.</p>
-<p>La notation abr&#233;g&#233;e est {soc}</p>
-<h4 id="fin-du-chorus"><span class="header-section-number">3.2.3.2</span> Fin du chorus</h4>
-<pre><code>{end_of_chorus}</code></pre>
-<p>Indique la fin du chorus</p>
-<p>Lanotation abr&#233;g&#233;e est {eoc}</p>
-<h4 id="refrain"><span class="header-section-number">3.2.3.3</span> Refrain</h4>
-<pre><code>{Refrain}</code></pre>
-<p>Indique le refrain</p>
-<h3 id="SignatureRytmique"><span class="header-section-number">3.2.4</span> Signature rytmique et tempo</h3>
-<h4 id="remarques"><span class="header-section-number">3.2.4.1</span> Remarques</h4>
-<p>Ces valeurs seront report&#233;es dans le mode grille d&#8217;accord et largement utilis&#233;es dans le mode aide m&#233;moire.</p>
-<h4 id="tempo"><span class="header-section-number">3.2.4.2</span> Tempo</h4>
-<ul>
-<li>Le tempo sera repr&#233;sent&#233; par la balise</li>
-</ul>
-<pre><code>{tempo:12O}
-{tempo:112.5}</code></pre>
-<p>Si le tempo est ommis, la valeur 120 sera assign&#233;e.</p>
-<p>Le tempo inidique le nombre de temps par minute. Il peut comprendre une ou plusieurs d&#233;cimales, le s&#233;parateur de d&#233;cimale est le point quelle que soit la langue choisie.</p>
-<p>L&#8217;introduction d&#8217;une d&#233;cimale est peu usuelle dans la notation musicale conventionnelle, mais certains logiciels permettent cette extension par exemple lorsqu&#8217;ils d&#233;duisent la valeur du tempo d&#8217;un morceau</p>
-<h4 id="signature-rythmique"><span class="header-section-number">3.2.4.3</span> Signature rythmique</h4>
-<ul>
-<li><p>La signature rythmique d&#8217;un morceau est repr&#233;sent&#233; par la balise {time:4/4}</p></li>
-<li><p>Si aucune signature rythmique n&#8217;est mentionn&#233; pour un morceau, la value 4/4 sera assign&#233;e</p></li>
-</ul>
-<h3 id="les-accords"><span class="header-section-number">3.2.5</span> Les accords</h3>
-<h4 id="notation-de-base"><span class="header-section-number">3.2.5.1</span> Notation de base</h4>
-<ul>
-<li>En format anglais (si le format est configur&#233; en anglais) on suit la notation ABCDEFG</li>
-</ul>
-<pre><code>[A]</code></pre>
-<ul>
-<li>En format fran&#231;ais (s&#8217;il est configur&#233; comme tel), on suit la notation La Si Do R&#233; Mi Fa Sol</li>
-</ul>
-<pre><code>[La]</code></pre>
-<ul>
-<li>Le mode mineur est not&#233; - si les accords sont en anglais et m s&#8217;ils sont en fran&#231;ais et configur&#233; comme tel</li>
-<li>Les mode 7 6 5 13 etc sont not&#233; en chiffre</li>
-</ul>
-<h3 id="notation-&#233;tendue"><span class="header-section-number">3.2.6</span> Notation &#233;tendue</h3>
-<ul>
-<li>Les barr&#233;s son not&#233;s en chiffre romain avec la case du barr&#233; :</li>
-</ul>
-<pre><code>[La(V)]</code></pre>
-<h3 id="extention-du-temps"><span class="header-section-number">3.2.7</span> Extention du temps</h3>
-<h4 id="remarques-1"><span class="header-section-number">3.2.7.1</span> Remarques</h4>
-<p>Ces extensions ont &#233;t&#233; introduites par chord V et sont en cours de discution avec les auteurs de la d&#233;finition du format ChordPro</p>
-<h4 id="plusieurs-mesures"><span class="header-section-number">3.2.7.2</span> Plusieurs mesures</h4>
-<p>x num&#233;ro indique le nombre de mesures de l&#8217;accord</p>
-<pre><code>[La(V)x3]</code></pre>
-<p>Par d&#233;faut un accord sans adjonction mesure sera consid&#233;r&#233; comme un accord d&#8217;une mesure</p>
-<p>Ainsi [La] sera un accord d&#8217;une mesure</p>
-<h3 id="plusieurs-temps"><span class="header-section-number">3.2.8</span> Plusieurs temps</h3>
-<p>: indique une division de la mesure</p>
-<p>Ainsi pour une mesure de signature 4/4 les notations :</p>
-<ul>
-<li>[La:2] signifiera une mesure divis&#233;e par 2 c&#8217;est &#224; dire 2 temps</li>
-<li>[La:4] signifiera une mesure divis&#233;e par 4 c&#8217;est &#224; dire 1 temps</li>
-</ul>
-<h2 id="insertion-des-accords-dans-l&#233;diteur"><span class="header-section-number">3.3</span> Insertion des accords dans l&#8217;&#233;diteur</h2>
-<p>En double cliquant sur le texte la fen&#234;tre d&#8217;inclusion d&#8217;accord vous permet de s&#233;lectionner un accord par l&#8217;appui sur le bouton Inserer l&#8217;accord. Cette action peut &#233;galement &#234;tre optenue par l&#8217;appui de la touche F4 (alors que la touche F3 permet d&#8217;entrer dans le mode de gestion des accords)</p>
-<p>Vous pouvez modifier le tempo par l&#8217;emploi de la molette de la souris en maintenant la touche SHIFT appuy&#233;e dans l&#8217;&#233;diteur.</p>
 <h1 id="le-menu-des-outils"><span class="header-section-number">4</span> Le menu des outils</h1>
 <h2 id="le-menu-des-pr&#233;f&#233;rences-1"><span class="header-section-number">4.1</span> Le menu des pr&#233;f&#233;rences</h2>
 <h2 id="gadget-des-pr&#233;f&#233;rences"><span class="header-section-number">4.2</span> Gadget des pr&#233;f&#233;rences</h2>
 <h2 id="d&#233;finition-des-accords"><span class="header-section-number">4.3</span> D&#233;finition des accords</h2>
-<h3 id="pr&#233;sentation-2"><span class="header-section-number">4.3.1</span> Pr&#233;sentation</h3>
+<h3 id="pr&#233;sentation-1"><span class="header-section-number">4.3.1</span> Pr&#233;sentation</h3>
 <p>La fen&#234;tre de d&#233;finition des accords se d&#233;compose en quatre onglets : - La d&#233;finition de l&#8217;accord qui permet de trouver un accord &#224; partir des position des doigts sur le manche - Un module de gestion des accords permettant la visualisation, la modification ou la suppression de chaque accord - Un module permettant d&#8217;approuver chaque accords non approuv&#233; - Un module permettant d&#8217;importer une liste d&#8217;accods contenus dans un fichier texte</p>
 <h3 id="la-d&#233;finition-dun-accord"><span class="header-section-number">4.3.2</span> La d&#233;finition d&#8217;un accord</h3>
 <div class="figure">
@@ -544,7 +544,7 @@ Elle est &#224; toi cette chanson </code></pre>
 <p>Ce mode construit un fichier PDF et lance son affichage.</p>
 <p>Cette option est disponible dans le menu outils</p>
 <h2 id="mode-m&#233;moire-ou-monitoring-des-paroles"><span class="header-section-number">4.8</span> Mode m&#233;moire ou monitoring des paroles</h2>
-<h3 id="pr&#233;sentation-3"><span class="header-section-number">4.8.1</span> Pr&#233;sentation</h3>
+<h3 id="pr&#233;sentation-2"><span class="header-section-number">4.8.1</span> Pr&#233;sentation</h3>
 <p>Ce mode permet d&#8217;afficher les paroles qui s&#8217;affichent en d&#233;filant en suivant la vitesse de la chanson. Les refrains son r&#233;ins&#233;r&#233;s entre chaque couplet. Il faut pour que ce monde fonctionne pr&#233;cis&#233;ment que : 1. Les accords soient entr&#233;s avec des notations [Dox2] par exemple explicitant bien que l&#8217;accord se fait sur deux mesures 2. Le tempo soit convenablement d&#233;fini en regard de la chanson via la balise {tempo:xxx}, s&#8217;il n&#8217;est pas d&#233;fini, la valeur de 120 battements par seconde sera affect&#233;e au tempo La balise tempo accepte les valeur d&#233;cimale le point &#233;tant le s&#233;parateur de valeur d&#233;cimale quelle que soit la langue. 3. La signature temporelle soit renseign&#233; via la balise {time:xxx}. Si la signature n&#8217;est pas d&#233;finie la valeur 4/4 est initialis&#233;e.</p>
 <p>Enfin il faut garder pr&#233;sent &#224; l&#8217;esprit que le mode aide m&#233;moire, peut &#234;tre cadenc&#233; via le transport jack. Ainsi si vous enregistrez avec Ardour, en d&#233;clenchant la lecture ou l&#8217;enregisstrement dans Ardour, le d&#233;filement commencera automatiquement.</p>
 <h3 id="d&#233;finition-du-mode-m&#233;moire"><span class="header-section-number">4.8.2</span> D&#233;finition du Mode m&#233;moire</h3>
@@ -683,7 +683,7 @@ Elle est &#224; toi cette chanson </code></pre>
 <h3 id="actions-souris"><span class="header-section-number">5.2.2</span> Actions souris</h3>
 <p>En cours</p>
 <h2 id="Traduction"><span class="header-section-number">5.3</span> Traduction du logiciel dans une nouvelle langue</h2>
-<h3 id="pr&#233;sentation-4"><span class="header-section-number">5.3.1</span> Pr&#233;sentation</h3>
+<h3 id="pr&#233;sentation-3"><span class="header-section-number">5.3.1</span> Pr&#233;sentation</h3>
 <p>Vous n&#8217;avez pas besoin des codes sources pour traduire le logiciel. Si vous vous rendez dans le menu syst&#232;me de l&#8217;application via Aide/Informations Syst&#232;mes, vous trouverez le chemin des fichiers langues par exemple :</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">/home/gilles/.config/ChordV/ChordV.conf</span></code></pre></div>
 <ul>
@@ -707,7 +707,7 @@ Elle est &#224; toi cette chanson </code></pre>
 <li>N&#8217;oubliez pas d&#8217;&#233;crire &#224; l&#8217;auteur du logiciel pour lui communiquer le fichier es.ts afin qu&#8217;il soit inclu dans la prochaine distribution du logiciel</li>
 </ul>
 <h2 id="la-documentation-utilisateur-de-chord-v"><span class="header-section-number">5.4</span> La documentation utilisateur de Chord V</h2>
-<h3 id="pr&#233;sentation-5"><span class="header-section-number">5.4.1</span> Pr&#233;sentation</h3>
+<h3 id="pr&#233;sentation-4"><span class="header-section-number">5.4.1</span> Pr&#233;sentation</h3>
 <p>La documentation est accessible dans le logiciel via le menu aide &#224; l&#8217;item Documentation.</p>
 <p>Cette documentation a &#233;t&#233; transform&#233;e automatiquement &#224; partir du format Markdown vers le HTML via le programme Pandoc.</p>
 <p>Le fichier documentation se trouve dans le r&#233;pertoire cit&#233; la partie <a href="#traduction-du-logiciel-dans-une-langue">Traduction du logiciel dans une langue</a></p>

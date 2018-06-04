@@ -1,13 +1,68 @@
 % Chord V user documentation 
 % Gilles Maire 
-% juin 2017
+% juin 2018 - Version 0.7
 
 
 
 # Introduction
 
 
-## Presentation
+##  A little big story
+
+It is not common to start the documentation of using a
+software by a little story.
+
+But ChordV is for people who love the song and in
+all the songs there is a story.
+
+I will tell you why I created ChordV.
+
+I realized that my friends guitarists and singers had nostalgia
+notebooks that featured on the same page lyrics and chords.
+This is the classic mode that suits all fans.
+
+On the other hand, if I have known many songs that I would have liked to gather in
+this type of booklets, it turns out that a little over ten years ago I am
+produced on small Parisian scenes with my own songs. I have little to
+little asked to sing here and there in France and everywhere my little ones
+catchphrases. I met quite quickly musicians who asked me
+no longer singing books, but chord boxes.
+
+Thirdly, it turns out that when I sing in front of friends, they
+I care about the lyrics so I can sing with me. These friends are neither
+amateur guitarists or professional guitarists and they do not read
+colorful guitar pattern texts.
+
+Finally to finish, I record my discs with Ardor under Linux machine.
+I record, I listen to the result, I re-record and sometimes several times.
+
+During the recording days I try several interpretations and at the end
+two or three times I do not know if I sang a verse or if it was
+in the previous song that I had sung. So I hesitate and that means
+on the recordings. So I needed a memory aid mode.
+
+Once I developed the memory aid I recorded, but once I
+resumed the recording I had to do a lot of manipulations with the mouse.
+
+That's how I thought of linking Ardor to ChordV so that the lyrics would come back in the beginning
+when I ask the recorder to go back to the beginning.
+
+I miss one last point to be complete, I like Open Source, it's my job,
+I like to develop. My songs are all open sources in Creative Common, they are delivered
+in demonstration of Chord V.
+
+Finally, I could not develop software that does not run on Linux and that is not open source.
+
+I developed ChordV in C ++ with the Qt5 library. It is portable MacOsx, Windows or tablet
+Android or Apple, but I do not have time to make the installer for these environments.
+
+It's getting late, I have concerts to honor, they bring me a lot of happiness. I also have
+an activity of computer scientist and teacher to continue. I have a family that sees me too often
+back writing programs or songs.
+
+It's getting late, I have to let you discover Chord V.
+
+## Chord V presentation
 
 
 - ChordV allows you to produce different types of PDF files for
@@ -19,7 +74,8 @@ list of songs
     To add or insert chords
     - four processors to generate a book containing the
     Lyrics without the chords, a book with
-    Chords and lyrics, a book with chord grids
+	Chords and lyrics, a book with chord grids and a lyric monitoring
+	solution.
 - For each of the modes, the options management makes it possible to
 Appropriate settings
    - **Text:** in this mode, the lyrics alone appear, without
@@ -29,7 +85,7 @@ Appropriate settings
    Useful for accompanying musicians.
    - **Memory:** in this mode, only the beginning of the text are displayed
 
-- ChordV uses a very efficient and simple tag language:
+- ChordV uses a very efficient and simple tag language Chord Pro:
    
    
 ~~~
@@ -45,6 +101,324 @@ And  [C] in my hour of  [G]  darkness
 She is  [Am] standing  [G] right in   [F]  front of me
 [C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]
 ~~~~
+
+Chord V can use the chord pro file as is, but
+by losing the benefit of the rhythmic tracking of the lyrics of the memorization mode.
+
+In ChordV we will tend to indicate whether the chord apply to a measurement
+or a rhythm as well:
+
+~~~
+{title:Let it be}
+
+{subtitle: Lyrics ansd music :  Paul McCartney, John Lennon}
+{Subtitle: Apple Label}
+{columns:1 }
+When I  [C:2] find myself in  [G:2]  times of trouble
+Am Mother  [G:2] Mary  [F:2]  comes to me
+~~~~
+
+The notation [C: 2] indicates that the chord of Do is played on half a measure.
+See chapter [Time Signature and Tempo](#TimeSignature) for
+the details of the times on the chords.
+
+
+# The edit window
+
+## Presentation
+
+### The Edit Window
+
+![The editing window](./img/editor.png)
+
+1. The edit menu allows you to access the replace functions
+and zoom the font. Next to the menu items
+keyboard shortcuts.
+2. The icons are used to insert the Hedging Notes, the
+and all the information that is highlighted in purple in the figure.
+3. The text box allows you to enter the songs in
+chord pro
+4. The log section displays error messages labeled in red
+and success messages labeled green.
+5. When you select a chord, by pressing the
+Mouse up or down you go up or down the duration of a
+chord. Thus we pass from [Do#x2] to [Do#] and then to [Do:2] by turning
+the wheel to yourself.
+6. A table of content browser to go directly on choosen title
+
+
+### The chord pro tag language
+
+It may be strange that modern software does not
+WysiWyg interface, that looks like the output
+paper. Actually ChordV takes only one input format and is capable of
+to generate a text booklet, a booklet of text and chords, a booklet
+with chords grids and memory aid. In what mode
+He choose to work? We chose the tag mode that
+a pivot format.
+
+In addition this pivot format is written in the chord pro language of the
+extensions useful to the program. So you can load in ChordV
+all chord pro files available in the resources
+music of the net.
+
+## ChordV tags
+
+### The titles
+
+#### Document title
+
+~~~ chord
+{covertitle: title}
+~~~
+
+Provides the title of the document
+Only one title per document is allowed
+
+The abbreviated notation is {ct: title}
+
+
+#### Subtitle of the document
+
+~~~ ChordPro
+{coversubtitle: under title}
+~~~
+
+Provides the subtitle of the document, ie a text accompanying the title
+One subtitle per document
+
+
+The abbreviated notation is {cs: title}
+
+#### Title of a song
+
+~~~
+{title: title of the song}
+~~~
+
+
+It's the title of a song. There are as many title headings as songs
+in the document. You can only have one title per song. If we define two
+consecutive titles one provokes a page break with an empty song for the first.
+
+
+The abbreviated notation is {t: title}
+
+#### Subtitle of a song
+
+~~~
+{subtitle: subtitle of a song}
+~~~
+
+It's a subtitle, accompanying the song. Several subtitles can be provided
+which will be separated by line breaks.
+
+The names of authors, composers or performers can be found in this
+category.
+
+The abbreviated notation is {st: title}
+
+
+### Paging order
+
+#### Jumps
+
+~~~
+-----
+~~~
+
+#### Number of columns for the song
+
+
+
+~~~
+{Columns: 2}
+~~~
+
+
+Sets the number of print columns for the song
+
+#### Skip columns
+
+~~~
+{Column_break}
+~~~
+
+Causes the generation of a new column.
+
+The abbreviated notation is {colb}
+
+
+#### New song
+
+~~~
+{New_song}
+~~~
+
+
+Recognized but not used, this tag is for compatibility with
+other implementations of forma cho
+
+The abbreviated notation is {ns}
+
+#### Decrease in line spacing
+
+~~~
+{Compress}
+~~~
+
+
+If a song does not fit properly in a page, you can activate the mode
+compress that will reduce the leading of the song from the moment the argument
+is met
+
+### Sections
+
+#### Chorus start
+
+
+~~~
+{Start_of_chorus}
+~~~
+
+Indicates the beginning of a chorus.
+
+The abbreviated notation is {soc}
+
+#### End of the chorus
+
+~~~
+{End_of_chorus}
+~~~
+
+Indicates the end of the chorus
+
+Abbreviated lantern is {eoc}
+
+#### Chorus
+
+~~~
+{Refrain}
+~~~
+
+Indicates the chorus
+
+### Rhythmic signature and tempo {#SignatureRytmique}
+
+#### Notes
+
+These values ​​will be reported in the chord grid mode and widely used in the memory aid mode.
+
+#### Tempo
+
+- The tempo will be represented by the beacon
+
+~~~
+{Tempo: 12O}
+{Tempo: 112.5}
+~~~
+
+If the tempo is omitted, the value 120 will be assigned.
+
+The tempo is the number of times per minute. It can include one or more decimals, the decimal separator is the point
+whatever the language chosen.
+
+The introduction of a decimal is unusual in conventional musical notation, but some software allows
+this extension for example when they deduce the value of the tempo of a piece
+
+#### Rhythmic signature
+
+- The rhythmic signature of a song is represented by the tag {time: 4/4}
+
+- If no rhythmic signature is mentioned for a song, the value 4/4 will be assigned
+
+
+### Chord
+
+
+#### Basic notation
+
+
+- In English format (if the format is configured in English) we follow the notation ABCDEFG
+
+~~~
+[A]
+~~~
+
+- In French format (if configured as such), we follow the notation La Si Do Ré Mi Fa Sol
+
+~~~
+[La]
+~~~
+
+- The minor mode is noted - if the chords are in English and m if they are in French and configured as such
+- The mode 7 6 5 13 etc are noted in numbers
+
+### Extended notation
+
+- The bars are noted in Roman numerals with the box of the bar:
+
+
+~~~
+[A(V)]
+~~~
+
+
+### Extention of time
+
+#### Notes
+
+These extensions were introduced by chord V and are being discussed with the authors of the ChordPro format definition
+
+#### Several measures
+
+x number indicates the number of measurements of the chord
+
+~~~
+[A(V)x3]
+~~~
+
+By default an chord without added measure will be considered as an chord of a measure
+
+So [A] will be an chord of a measure
+
+### Several times
+
+: indicates a division of the measure
+
+So for a 4/4 signature measure the ratings:
+
+- [A:2] will mean a measure divided by 2 ie 2 beats
+- [A:4] will mean a measure divided by 4 ie 1 time
+
+
+## Inserting chords into the editor
+
+By double clicking on the text the chord include window you
+to select a chord by pressing the Insert button
+the chord. This action can also be taken by the support of
+the F4 key (while the F3 key is used to enter the
+management chord)
+
+You can change the tempo by using the mouse wheel
+holding down the SHIFT key in the editor.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Batch mode and graphic mode
 
@@ -220,45 +594,6 @@ Show you the color it contains
 An explanation of background color is required.
 
 
-# The edit window
-
-## Presentation
-
-### The Edit Window
-
-![The editing window](./img/editor.png)
-
-1. The edit menu allows you to access the replace functions
-and zoom the font. Next to the menu items
-keyboard shortcuts.
-2. The icons are used to insert the Hedging Notes, the
-and all the information that is highlighted in purple in the figure.
-3. The text box allows you to enter the songs in
-chord pro
-4. The log section displays error messages labeled in red
-and success messages labeled green.
-5. When you select a chord, by pressing the
-Mouse up or down you go up or down the duration of a
-chord. Thus we pass from [Do#x2] to [Do#] and then to [Do:2] by turning
-the wheel to yourself.
-6. A table of content browser to go directly on choosen title
-
-
-### The chord pro tag language
-
-It may be strange that modern software does not
-WysiWyg interface, that looks like the output
-paper. Actually ChordV takes only one input format and is capable of
-to generate a text booklet, a booklet of text and chords, a booklet
-with chords grids and memory aid. In what mode
-He choose to work? We chose the tag mode that
-a pivot format.
-
-In addition this pivot format is written in the chord pro language of the
-extensions useful to the program. So you can load in ChordV
-all chord pro files available in the resources
-music of the net.
-
 
 ## Inserting chords in the editor
 
@@ -372,7 +707,7 @@ Be in the form Name = freight
 the number of positive or negative semitones you want to transpose the chord.
 2. The input area allows you to define the number of positive or negative semitones 
 you want to transpose the chord.
-3. You can transpose the agreement on the chord under the mouse, 
+3. You can transpose the chord onto the chord under the mouse,
 all of the current line, the current song or the whole file
 4. Close the dialog box
 5. Transpose the chord

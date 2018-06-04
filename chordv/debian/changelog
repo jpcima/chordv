@@ -1,3 +1,40 @@
+chordv (0.7) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+
+  * Status bar
+
+  * Memorization mode well initialized
+
+  * Follow ardour or other QJack sotware if head position in changed during playing 
+  
+  * No beat click nor tempo displaying it mode tempo is jack
+ 
+  * Jack in new time line ok to be tested and need to deplace head in ardour and follow on chordV
+
+  * Clean code for dialogprocessmemory 
+
+  * Now clock has no delay 
+
+  * Full Screen is true full Screen 
+
+  * Screen are open on a one screen even several screen are virtual
+
+  * Minor modification in english docs
+
+  * suppression of version.h automatically generated
+
+  * Documentation and translation bugs corrected
+ 
+  * Selected song on Editor keep selected in Mempry mode list
+
+  * Don't allow to modifify title of song in memory management
+
+  * Tempo was integer and become double : 120.2 is ok  now
+
+
+ -- gilles <gilles@gillesmaire.com>  Mon, 04 Jun 2018 18:51:20 +0200
+
 chordv (0.6) UNRELEASED; urgency=medium
 
   * Transport jack for lyrics monitoring

@@ -13,7 +13,6 @@
 
 \pagestyle{fancy}
 \fancyhead[LE,RO]{Documentation ChordV}
-\fancyfoot[L]{Version 0.1}
 \fancyfoot[R]{\thepage/\pageref{LastPage}}
 \fancyfoot[C]{}
 
