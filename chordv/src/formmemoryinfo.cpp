@@ -12,12 +12,13 @@ FormMemoryInfo::FormMemoryInfo(QWidget *parent) :
     SetUnsetPosition();
     SetUnsetAdvance(ui->spinBoxTimeBeforeStart->value());
     SetUnsetClick();
+    SetSynchronisation(ui->checkBoxJackSynchronisation->isChecked());
     connect (ui->toolButtonFontMemory,SIGNAL(sendSelectedFont(QFont,QColor,QColor)),
              this,SLOT(ShowSelectedFont(QFont,QColor,QColor)));
     connect (ui->checkBoxFullScreenMemory,SIGNAL(clicked(bool)),this,SLOT(SetUnsetPosition()));
     connect (ui->spinBoxTimeBeforeStart,SIGNAL(valueChanged(int)),this,SLOT(SetUnsetAdvance(int)));
     connect (ui->checkBoxClick,SIGNAL(clicked(bool)),this,SLOT(SetUnsetClick()));
-    connect (ui->checkBoxJackSynchronisation,SIGNAL(clicked(bool)),this,SIGNAL(SynchroMode(bool)));
+    connect (ui->checkBoxJackSynchronisation,SIGNAL(clicked(bool)),this,SLOT(SetSynchronisation(bool)));
 }
 
 void FormMemoryInfo::SetUnsetAdvance(int time)
@@ -31,6 +32,16 @@ void FormMemoryInfo::SetUnsetClick()
     ui->horizontalSliderVolume->setEnabled((ui->checkBoxClick->isChecked()));
 }
 
+void FormMemoryInfo::SetSynchronisation(bool val)
+{
+    ui->checkBoxClick->setDisabled(val);
+    ui->checkBoxMarkFirst->setDisabled(val);
+    ui->checkBoxShowRythmTextMemory->setDisabled(val);
+    ui->horizontalSliderVolume->setDisabled(val);
+    ui->labelVolume->setDisabled(val);
+    emit SynchroMode(val);
+}
+
 void FormMemoryInfo::Init()
 {
     QSettings s;
@@ -40,7 +51,7 @@ void FormMemoryInfo::Init()
     ui->comboBoxPositionMemory->setCurrentIndex(s.value("Memory/Position",2).toInt());
     ui->toolButtonFontMemory->setColor(QColor(s.value("Memory/FontColor","#F8F3C9").toString()));
     ui->toolButtonFontMemory->setBackgroundColor(QColor(s.value("Memory/BackgroundColor","#757575").toString()));
-    ui->doubleSpinBoxAdvance->setValue(s.value("Memory/Advance",1).toDouble());
+    ui->doubleSpinBoxAdvance->setValue(s.value("Memory/Advance",3).toDouble());
     ui->spinBoxTimeBeforeStart->setValue(s.value("Memory/TimeBeforeStart",2).toInt());
     ui->comboBoxTimeBeforeUnit->setCurrentIndex(s.value("Memory/TimeBeforeUnit",0).toInt());
     ui->horizontalSliderVolume->setValue(s.value("Memory/Volume",50).toInt());

@@ -37,6 +37,9 @@ private slots:
     /// \brief eraseBull this slot erase the rythm bullet after a short timer
     ///
     void eraseBull();
+    ///
+    /// \brief JackMessages is the call back
+    ///
     void JackMessages();
     ///
     /// \brief Stop just set m_stop to true
@@ -46,13 +49,14 @@ private:
     enum State{NotStarted,Running,Paused,Finished};
     Ui::DialogProcessMemory *ui;
     bool m_stop;
-    bool m_firststart;
+    bool   m_firststart;
     bool m_timebeforeunit;
     bool m_pause;
     double m_tempo;
     int m_timeup;
     bool m_click;
     bool m_accentuedfirst;
+    qint32 m_lasttime;
     State m_status;
     int m_timebefore;
     double m_advance;
@@ -141,7 +145,31 @@ private:
     /// \param advance
     ///
     void AddTimeBefore(int timebefore, int timebeforeunit, int tempo, int timeup, double advance);
+    ///
+    /// \brief StartJack start jack client if need
+    ///
     void StartJack();
+    ///
+    /// \brief SetTime set Time answer to the situation where the position is changed on master jack sofware.
+    /// In this case we need to :
+    /// - stop the current timer showing lyrics
+    /// - calculate the lyrics and time to set on the timer
+    /// \param mesecond is the new position
+    ///
+    void SetTime(qint32 msecond);
+    ///
+    /// \brief getMilliSeconds get milliseconds from start on song from bar, beat and tick from
+    /// given bar, beat and tick
+    /// \param bar : the bar
+    /// \param beat
+    /// \param tick
+    /// \return millisecond number
+    qint32 getMilliSeconds (qint32 bar, qint32 beat, qint32 tick, double sst);
+    ///
+    /// \brief Debug show m_lyrics and m_msecond qmap
+    ///
+    void Debug();
+
 };
 
 #endif // DIALOGPROCESSMEMORY_H

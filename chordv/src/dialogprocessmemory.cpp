@@ -21,6 +21,7 @@ ui(new Ui::DialogProcessMemory)
     ui->setupUi(this);
     m_player= new QMediaPlayer;
      m_player->setVolume(volume);
+     m_lasttime=0;
     m_stop=false;
     m_pause=false;
     m_jacksynchro=jacksynchro;
@@ -50,7 +51,7 @@ ui(new Ui::DialogProcessMemory)
     m_time=0;
     m_jackclient=0;
     if (  m_showrythm || m_click )  m_timeline->start(m_millisecondperbeat);
-
+    Debug();
     if ( m_jacksynchro)
         StartJack();
     else
@@ -83,14 +84,58 @@ void DialogProcessMemory::StartJack()
     }
 }
 
+void DialogProcessMemory::SetTime(qint32 msec)
+{
+    int i=0;
+    int total=0;
+    while ( total+m_mseconds[i]<msec )
+    {
+        if ( i == m_mseconds.count() ) break;
+        total+=m_mseconds[i];
+        i++;
+    }
+    m_indice=i;
+    ui->labelText1->setText(m_lyrics[m_indice-1]);
+    if ( m_indice < m_indicemax) ui->labelText2->setText(m_lyrics[m_indice]);
+    else ui->labelText2->setText("");
+
+    m_timerlyrics->start(msec-total);
+
+}
+
+qint32 DialogProcessMemory::getMilliSeconds(qint32 bar, qint32 beat, qint32 tick, double bst)
+{
+    if ( bst != 1920 ) return -1 ;
+    qint32 ret=((double)tick/1920+bar*m_timeup+beat)*m_millisecondperbeat;
+    return ret;
+}
+
+void DialogProcessMemory::Debug()
+{
+    foreach ( int i, m_lyrics.keys())
+    {
+        qDebug()<<i<<"=> "<<m_lyrics[i]<<":"<<m_mseconds[i];
+    }
+}
+
 void DialogProcessMemory::JackMessages()
 {
     jack_position_t current;
+    //double jackTempo=current.beats_per_minute;
+    qint32 msecond=getMilliSeconds(current.bar,current.beat,current.tick,current.bar_start_tick);
+    if (  msecond != -1  )
+    {
+        if ( msecond != 0 && m_lasttime!=0)
+            if (std::abs(msecond-m_lasttime) > 700 ) SetTime(msecond) ;
+        m_lasttime=msecond;
+    }
+
     jack_transport_state_t transport_state;
     jack_nframes_t frame_time;
     transport_state = jack_transport_query (m_jackclient, &current);
     frame_time = jack_frame_time (m_jackclient);
     Q_UNUSED(frame_time);
+
     switch (transport_state) {
         case JackTransportStopped:
             if (m_status==Running)
@@ -304,7 +349,6 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
             {
                 m_tempo=TempoREX.cap(1).toDouble();
                 if ( m_tempo<1) m_tempo=120;
-                qDebug()<<"tempo"<<m_tempo;
                 m_millisecondperbeat=60000/m_tempo;
             }
             else if ( line.contains(TimeREX))

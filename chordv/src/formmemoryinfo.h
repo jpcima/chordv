@@ -80,6 +80,7 @@ private slots:
     void SetUnsetPosition();
     void SetUnsetAdvance(int time);
     void SetUnsetClick();
+    void SetSynchronisation(bool);
 signals:
     void SynchroMode(bool);
 };
