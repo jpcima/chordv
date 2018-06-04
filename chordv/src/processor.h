@@ -331,6 +331,7 @@ protected:
     void memorizeChords(QString line);
 signals:
     void PDFMade( QString file);
+    void Error(QString message);
 protected:
     ///
     /// \brief addToc add toc
@@ -362,6 +363,7 @@ protected:
     int m_year;
     QString m_duration;
     QString m_key;
+    bool m_fatalerror;
 
 
     virtual void setDuration(QString duration);

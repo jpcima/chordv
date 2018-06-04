@@ -664,24 +664,24 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">&lt;Fin&gt;</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="76"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="77"/>
         <source>Jack not found</source>
         <translation>Serveur Jack non trouvé</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="76"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="77"/>
         <source>Jack seems to not be launched ! 
 (Try to launch Jack manually without QJackCtl)</source>
         <translation>Jack semble ne pas être lancé
 (Essayer de lancer Jack en ligne de commandes sans QJackCtl)</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="82"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="83"/>
         <source>Jack problem</source>
         <translation>Problème Jack</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="82"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="83"/>
         <source>Jack cannot be activated !</source>
         <translation>Jack ne peut pas être activé !</translation>
     </message>
@@ -1985,8 +1985,12 @@ en boîte</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="221"/>
+        <source>Delay before starting</source>
+        <translation>Délai avant de démarrer les paroles</translation>
+    </message>
+    <message>
         <source>Number of beats before to start</source>
-        <translation>Nombre de temps avant de commencer à afficher les paroles</translation>
+        <translation type="vanished">Nombre de temps avant de commencer à afficher les paroles</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="232"/>
@@ -1995,11 +1999,27 @@ en boîte</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="246"/>
+        <location filename="../src/formmemoryinfo.ui" line="254"/>
+        <source>seconds</source>
+        <translation>secondes</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="259"/>
+        <source>beats</source>
+        <translation>temps</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="264"/>
+        <source>bars</source>
+        <translation>mesures</translation>
+    </message>
+    <message>
+        <location filename="../src/formmemoryinfo.ui" line="276"/>
         <source>This option allow to synchronize the lyrics with the Jack complient program. It is useful with Ardour for example.</source>
         <translation>Cette option parmet de synchroniser les paroles avec un programme compatible avec Jack. C&apos;est utile avec Ardour par exemple.</translation>
     </message>
     <message>
-        <location filename="../src/formmemoryinfo.ui" line="249"/>
+        <location filename="../src/formmemoryinfo.ui" line="279"/>
         <source>Jack synchronized</source>
         <translation>Synchronisé via Jack</translation>
     </message>
@@ -2542,7 +2562,7 @@ chorus</translation>
         <translation type="vanished">Texte défilant</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="907"/>
+        <location filename="../src/mainwindow.cpp" line="909"/>
         <source>&lt; ESCAPE &gt;  to abort monitoring window</source>
         <translation>&lt; ECHAPPEMENT &gt; pour sortir du mode aide mémoire</translation>
     </message>
@@ -2592,7 +2612,7 @@ chorus</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="298"/>
-        <location filename="../src/mainwindow.cpp" line="909"/>
+        <location filename="../src/mainwindow.cpp" line="911"/>
         <source>&lt; ESCAPE &gt;  to abort monitoring window
 &lt; PAUSE&gt; to pause unpause</source>
         <translation>&lt; ECHAPPEMENT &gt; pour avorter la fenêtre de monitoring
@@ -2898,12 +2918,12 @@ chorus</translation>
         <translation>(*.chop)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="875"/>
+        <location filename="../src/mainwindow.cpp" line="876"/>
         <source>No title selected</source>
         <translation>Pas de titre sélectionné</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="875"/>
+        <location filename="../src/mainwindow.cpp" line="876"/>
         <source>You must select a title</source>
         <translation>Vous devez sélectionner un titre</translation>
     </message>
@@ -2945,12 +2965,12 @@ chorus</translation>
         <translation>Conversion effectuée pour : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="664"/>
+        <location filename="../src/mainwindow.cpp" line="665"/>
         <source>Cannot write file : %1</source>
         <translation>Ne peut pas écrire dans le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="670"/>
+        <location filename="../src/mainwindow.cpp" line="671"/>
         <source>%1 file exported</source>
         <translation>fichier %1 exporté</translation>
     </message>

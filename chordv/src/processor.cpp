@@ -12,7 +12,7 @@
 #include <QDir>
 #include <QStringList>
 #include <QSqlQuery>
-
+#include <QMessageBox>
 
 using namespace PoDoFo;
 
@@ -21,6 +21,7 @@ using namespace PoDoFo;
 Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
 {
     m_uiconfig=ui2;
+    m_fatalerror=true;
     m_uimainwindow=ui1;
     m_projectpath=ui1->labelNameDirProject->text();
     m_documentAllocation=false;
@@ -28,10 +29,13 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
             .arg(m_uimainwindow->labelNameDirProject->text())
             .arg(m_uimainwindow->labelNameProjectName->text())
             .arg(m_uiconfig->lineEditOutFile->text());
+
     m_pageAllocation=false;
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
     if (m_file.isEmpty()) return;
+    QFileInfo fi(m_file);
+    if ( !fi.isWritable() )  return;
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
     m_dimension = new PdfRect(PageSize(0,0,m_uiconfig->spuPageWidth->getPdfU(),m_uiconfig->spuPageHeight->getPdfU()));
     m_documentAllocation=true;
@@ -46,12 +50,18 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_time="4/4";
     m_tempo=120;
     m_subtitle.clear();
+    m_fatalerror=false;
 }
 
 
 void Processor::run()
 {
 
+    if (m_fatalerror)
+       {
+        emit Error(tr("File %1 is not writable. Save as origin file in a writable place before to make a pdf").arg(m_file));
+        return;
+       }
     QRegExp NewSongREX("^ *\\{(new_song|ns) *\\} *$",Qt::CaseInsensitive);
     QRegExp CompressREX("^ *\\{compress\\} * *$",Qt::CaseInsensitive);
     QRegExp ColumnsREX("^ *\\{(?:col|columns): *([^}]*) *\\}",Qt::CaseInsensitive);

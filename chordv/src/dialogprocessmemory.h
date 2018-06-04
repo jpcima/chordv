@@ -20,37 +20,45 @@ class DialogProcessMemory : public QDialog
 
 public:
     explicit DialogProcessMemory(QWidget *parent ,QString allsongs,int position, QString title,  bool showrythm, bool click, int volume, bool firstaccentued,
-                                 QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance, int nbbarsbefore, bool jacksynchro);
+                                 QFont font, QColor text, QColor background,bool fullscreen, bool twolines,double advance, int timebefore, bool jacksynchro,int timebeforeunit);
     ~DialogProcessMemory();
     bool getJackConnected() { return m_jacksynchro ;}
 
 private slots:
+    ///
+    /// \brief displaySong display all line of song
+    ///
     void displaySong();
+    ///
+    /// \brief showRythm display and play the rythm
+    ///
     void showRythm();
+    ///
+    /// \brief eraseBull this slot erase the rythm bullet after a short timer
+    ///
     void eraseBull();
-    void Close();
     void JackMessages();
+    ///
+    /// \brief Stop just set m_stop to true
+    ///
+    void Stop();
 private:
     enum State{NotStarted,Running,Paused,Finished};
     Ui::DialogProcessMemory *ui;
     bool m_stop;
     bool m_firststart;
+    bool m_timebeforeunit;
     bool m_pause;
     double m_tempo;
     int m_timeup;
     bool m_click;
     bool m_accentuedfirst;
     State m_status;
-    int m_volume;
     int m_timebefore;
     double m_advance;
-    QTimer *m_timerend;
-    QTimer *m_timerrythm;
-    QTimer *m_timerclearrythm;
     QTimer *m_timerlyrics;
-    QTimer *m_timerbefore;
     QTimer *m_timeline;
-    QMap <int,int> m_seconds;
+    QMap <int,int> m_mseconds;
     QMap <int,QString> m_lyrics;
     QStringList m_refrain;
     QMap <int,int>m_refrainnbbeat;
@@ -64,32 +72,75 @@ private:
     QColor m_textcolor;
     QColor m_backgroundcolor;
     int m_indice;
+    int m_indicemax;
     int m_countrythm;
     int m_period;
     int m_millisecondperbeat;
     int m_time;
+    qint64 m_counttheorical;
+    qint64 m_countreal;
     QMediaPlayer *m_player;
     jack_client_t *m_jackclient;
 
     ///
     /// \brief getInfo get all the information in song file, about the song named title
+    /// the two QMap m_lyrics and m_mseconds are set
     /// \param songs : the whole songs buffer
     /// \param title : the title of song searched
     ///
     void getInfo(QString songs,QString title);
     ///
-    /// \brief MillisecondPerBar find number of milliseconds to play from a tempo and with a timeup/timedown time signature
-    /// \param tempo : int for tempo. For example 120 fot 120 quarter note per minute
-    /// \param timeup : int for timeup. For example 3 for walz. 3/4 timeup is 3
-    /// \param timedown : int for timedown : 3/4 timedown is 4
-    /// \return : the number of second for a bar
+    /// \brief getNumberOfBeat return the number on beat from a line reading the chord of the line and knowing the timeup
+    /// \param line : line with chords with x : notation [Dx2] for 2 bars [D:2] for two beat if timeup is 2
+    /// \param timeup : is the 3 if signature is 3/4
+    /// \return number of beat of the song line
     ///
     int getNumberOfBeat(QString &line, int timeup);
-    void displayLine();
+    ///
+    /// \brief getColorBetween return the color between color1 and color2.
+    /// This color is calculated for the secon line
+    /// \param color1
+    /// \param color2
+    /// \return
+    ///
     QColor getColorBetween(QColor color1, QColor color2);
-    void DeleteAllTimers();
-    void keyPressEvent(QKeyEvent *);
-    void PauseFlipFlop();
+    ///
+    /// \brief keyPressEvent read if ESCAPE is typed and call pause pause on un pause
+    /// \brief keyPressEvent
+    /// \param event keyboard event
+    void keyPressEvent(QKeyEvent *event);
+    ///
+    /// \brief PauseUnPause pause if the lyrics are running unpause if they are in pause
+    ///
+    void PauseUnPause();
+    ///
+    /// \brief getTimeBefore convert timebefore value and unit to
+    /// \param timebefore :the time in unit
+    /// \param unit 0 for second, 1 for beat, 1 for bar
+    /// \param tempo in double
+    /// \param timeup is number of beat per bar
+    /// \return  the time in millisecond
+    ///
+    int getTimeBefore(int timebefore, int unit, double tempo, int timeup);
+    ///
+    /// \brief SetCurrentWindow construct the window to display the lyrics, the windows is on top without decoration
+    /// \param fullscreen : true isf fullscreen false else
+    /// \param twoline : true if two lines are used false if only one line is displayed.
+    /// \param position : 0 (top) 1 (middle) 2 (bottom)
+    /// \param font : the font for the lyrics
+    /// \param backgroundcolor : the background color of the window
+    /// \param textcolor : the text color of the window
+    ///
+    void SetCurrentWindow(bool fullscreen, bool twoline, int position, QFont font, QColor backgroundcolor, QColor textcolor);
+    ///
+    /// \brief AddTimeBefore add in m_lyrics and m_mseconds qmap the before time
+    /// \param timebefore
+    /// \param timebeforeunit
+    /// \param tempo
+    /// \param timeup
+    /// \param advance
+    ///
+    void AddTimeBefore(int timebefore, int timebeforeunit, int tempo, int timeup, double advance);
 };
 
 #endif // DIALOGPROCESSMEMORY_H

@@ -508,6 +508,7 @@ void MainWindow::BuildTextPdf()
     ProcessorText *p;
     p= new ProcessorText(ui,ui->widgetTextMode->getUi());
     connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
+    connect(p,SIGNAL(Error(QString)),this,SLOT(DisplayError(QString)));
     p->run() ;
     p->deleteLater();
 }
@@ -517,6 +518,7 @@ void MainWindow::BuildLyricsPdf()
     ProcessorLyrics *p;
     p= new ProcessorLyrics(ui,ui->widgetLyricsMode->getUi());
     connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
+    connect(p,SIGNAL(Error(QString)),this,SLOT(DisplayError(QString)));
     p->run() ;
     p->deleteLater();
 }
@@ -526,6 +528,7 @@ void MainWindow::BuildChordPdf()
     ProcessorChord *p;
     p = new ProcessorChord(ui,ui->widgetChordMode->getUi());
     connect(p,SIGNAL(PDFMade(QString)),this, SLOT(ConversionDone(QString)));
+    connect(p,SIGNAL(Error(QString)),this,SLOT(DisplayError(QString)));
     p->run();
     p->deleteLater();
 }
@@ -608,7 +611,10 @@ void MainWindow::ConversionDone( QString filename)
 }
 
 
-
+void MainWindow::DisplayError(QString message)
+{
+    QMessageBox::warning(this,tr("Problem !"),message);
+}
 
 void MainWindow::About()
 {
@@ -893,7 +899,8 @@ void MainWindow::LaunchMemory()
                                                           ui->widgetMemory->getShowTwoLines(),
                                                           ui->widgetMemory->getAdvance(),
                                                           ui->widgetMemory->getDelay(),
-                                                          ui->widgetMemory->getJackSyncrhro()
+                                                          ui->widgetMemory->getJackSynchro(),
+                                                          ui->widgetMemory->getTimeBeforeUnit()
                                                           );
 
     memory.exec();

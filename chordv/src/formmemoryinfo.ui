@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>365</width>
+    <width>366</width>
     <height>540</height>
    </rect>
   </property>
@@ -197,7 +197,7 @@
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_8">
+         <layout class="QVBoxLayout" name="verticalLayout_9">
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
@@ -218,7 +218,7 @@
                  <string>Number of beat before to start the first lyric</string>
                 </property>
                 <property name="text">
-                 <string>Number of beats before to start</string>
+                 <string>Delay before starting</string>
                 </property>
                </widget>
               </item>
@@ -235,6 +235,36 @@
               </item>
               <item>
                <widget class="QSpinBox" name="spinBoxTimeBeforeStart"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <item>
+               <widget class="QLabel" name="labelSeconds">
+                <property name="text">
+                 <string>seconds</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBoxTimeBeforeUnit">
+                <item>
+                 <property name="text">
+                  <string>seconds</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>beats</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>bars</string>
+                 </property>
+                </item>
+               </widget>
               </item>
              </layout>
             </item>

@@ -71,9 +71,10 @@ public:
     bool getAccentuedFirst();
     int getVolume();
     int getDelay();
-    bool getJackSyncrhro();
+    bool getJackSynchro();
     void setJackSynchro(bool val);
     void Retranslate();
+    int getTimeBeforeUnit();
 private slots:
     void ShowSelectedFont(QFont, QColor, QColor);
     void SetUnsetPosition();

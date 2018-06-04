@@ -170,6 +170,7 @@ private slots:
     void LaunchMemory();
     void SetSynchroDisplay(bool val);
     void SelectSongInMemory(QString song);
+    void DisplayError(QString message);
 };
 
 #endif // MAINWINDOW_H

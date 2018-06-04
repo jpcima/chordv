@@ -42,10 +42,12 @@ void FormMemoryInfo::Init()
     ui->toolButtonFontMemory->setBackgroundColor(QColor(s.value("Memory/BackgroundColor","#757575").toString()));
     ui->doubleSpinBoxAdvance->setValue(s.value("Memory/Advance",1).toDouble());
     ui->spinBoxTimeBeforeStart->setValue(s.value("Memory/TimeBeforeStart",2).toInt());
+    ui->comboBoxTimeBeforeUnit->setCurrentIndex(s.value("Memory/TimeBeforeUnit",0).toInt());
     ui->horizontalSliderVolume->setValue(s.value("Memory/Volume",50).toInt());
     ui->checkBoxClick->setChecked(s.value("Memory/Click",true).toBool());
     ui->checkBoxMarkFirst->setChecked(s.value("Memory/MarkFirstClick",true).toBool());
     ui->checkBoxJackSynchronisation->setChecked(s.value("Memory/JackSynchro",false).toBool());
+
     QFont f;
     f.fromString(s.value("Memory/Font").toString());
     ui->toolButtonFontMemory->setFont(f);
@@ -64,6 +66,7 @@ void FormMemoryInfo::Save()
     s.setValue("Memory/BackgroundColor",ui->toolButtonFontMemory->getBackgroundColor().name());
     s.setValue("Memory/Advance",ui->doubleSpinBoxAdvance->value());
     s.setValue("Memory/TimeBeforeStart",ui->spinBoxTimeBeforeStart->value());
+    s.setValue("Memory/TimeBeforeUnit",ui->comboBoxTimeBeforeUnit->currentIndex());
     s.setValue("Memory/Volume",ui->horizontalSliderVolume->value());
     s.setValue("Memory/Click",ui->checkBoxClick->isChecked());
     s.setValue("Memory/MarkFirstClick",ui->checkBoxMarkFirst->isChecked());
@@ -126,7 +129,7 @@ bool FormMemoryInfo::getShowTwoLines()
      return ui->checkBoxTwoLines->isChecked();
 }
 
-bool FormMemoryInfo::getJackSyncrhro()
+bool FormMemoryInfo::getJackSynchro()
 {
      return ui->checkBoxJackSynchronisation->isChecked();
 }
@@ -147,6 +150,10 @@ double FormMemoryInfo::getAdvance()
      return ui->doubleSpinBoxAdvance->value();
 }
 
+int  FormMemoryInfo::getTimeBeforeUnit()
+{
+    return ui->comboBoxTimeBeforeUnit->currentIndex();
+}
 
 FormMemoryInfo::~FormMemoryInfo()
 {
