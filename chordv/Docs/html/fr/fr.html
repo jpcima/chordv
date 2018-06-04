@@ -68,7 +68,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#les-pr&#233;f&#233;rences-du-mode-m&#233;moire"><span class="toc-section-number">2.4.3</span> Les pr&#233;f&#233;rences du mode m&#233;moire</a></li>
 </ul></li>
 <li><a href="#les-conventions"><span class="toc-section-number">2.5</span> Les conventions</a><ul>
-<li><a href="#s&#233;lection-des-polices"><span class="toc-section-number">2.5.1</span> S&#233;lection des polices</a></li>
+<li><a href="#SelectionPolice"><span class="toc-section-number">2.5.1</span> S&#233;lection des polices</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#la-fen&#234;tre-d&#233;dition"><span class="toc-section-number">3</span> La fen&#234;tre d&#8217;&#233;dition</a><ul>
@@ -112,6 +112,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="#d&#233;finition-du-mode-m&#233;moire"><span class="toc-section-number">4.8.2</span> D&#233;finition du Mode m&#233;moire</a></li>
 <li><a href="#connexion-jack"><span class="toc-section-number">4.8.3</span> Connexion jack</a></li>
 </ul></li>
+<li><a href="#la-barre-des-status"><span class="toc-section-number">4.9</span> La barre des status</a></li>
 </ul></li>
 <li><a href="#partie-technique"><span class="toc-section-number">5</span> Partie technique</a><ul>
 <li><a href="#avant-propos"><span class="toc-section-number">5.1</span> Avant propos</a></li>
@@ -135,6 +136,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 </div>
+<p>% Version 0.7</p>
 <h1 id="introduction"><span class="header-section-number">1</span> Introduction</h1>
 <h2 id="pr&#233;sentation"><span class="header-section-number">1.1</span> Pr&#233;sentation</h2>
 <ul>
@@ -209,7 +211,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <p class="caption">Options g&#233;n&#233;rales</p>
 </div>
 <ol style="list-style-type: decimal">
-<li>Vous pouvez choisir la langue du logiciel. Si votre langue de figure pas dans la liste, vous pouvez fabriquer un fichier de traduction (voir la partie <a href="#traduction">traduction</a> )</li>
+<li>Vous pouvez choisir la langue du logiciel. Si votre langue de figure pas dans la liste, vous pouvez fabriquer un fichier de traduction (voir la partie <a href="#Traduction">traduction</a> )</li>
 <li>S&#233;lectionner le syst&#232;me de mesure qui vous convient le mieux entre cm, mm et pouce</li>
 <li>ChordV lance un lecteur PDF quand vous voulez visualiser le livret g&#233;n&#233;r&#233; par l&#8217;application. Il faut renseigner dans cette zone le nom du programme de visualisation en PDF.</li>
 <li>Le nom de l&#8217;auteur du livret peut-&#234;tre entr&#233; ici. Il sera utilis&#233; dans la production des documents.</li>
@@ -227,7 +229,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>Zone de s&#233;lection de la hauteur. Si vous mettez ici des valeurs correspondants &#224; un format existant, ce format sera affich&#233; dans la zone</li>
 <li>Cette zone permet de choisir un format de page par un nom IS0. Si vous s&#233;lectionnez un format par ce menu, vous verrez les tailles correspondantes s&#8217;afficher dans les zones 1 et 2</li>
 <li>A l&#8217;italienne inverse les hauteurs et les largeurs</li>
-<li>Permet de s&#233;lectionner la police par d&#233;faut du document. Se r&#233;f&#233;rer &#224; la documentation relative &#224; la <a href="#s&#233;lection-des-polices">S&#233;lection des polices</a></li>
+<li>Permet de s&#233;lectionner la police par d&#233;faut du document. Se r&#233;f&#233;rer &#224; la documentation relative &#224; la <a href="#SelectionPolice">S&#233;lection des polices</a></li>
 <li>Permet de s&#233;lectionner la police relative aux titres de chaque page. Si vous s&#233;lectionnez une couleur de fond, un cadre de la couleur s&#233;lectionn&#233;e encadrera le titre sur toute la largeur de la page.</li>
 <li>Permet de s&#233;lectionner la police relative aux sous titres de chaque page. Si vous s&#233;lectionnez une couleur de fond , un cadre de la couleur s&#233;lectionn&#233;e encadrera le titre sur toute la largeur de la page.</li>
 <li>S&#233;lectionne le mode recto ou recto verso. Si vous s&#233;lectionnez le mode recto verso, les num&#233;ros de pages s&#8217;ils sont excentr&#233;s &#224; droite seront excentr&#233;s &#224; gauche une page sur deux.</li>
@@ -283,7 +285,7 @@ pour l&#8217;ouvrir automatiquement au d&#233;marrage.</li>
 <li>Nombre de mesures avant de d&#233;marrer l&#8217;enregistrement.</li>
 </ol>
 <h2 id="les-conventions"><span class="header-section-number">2.5</span> Les conventions</h2>
-<h3 id="s&#233;lection-des-polices"><span class="header-section-number">2.5.1</span> S&#233;lection des polices</h3>
+<h3 id="SelectionPolice"><span class="header-section-number">2.5.1</span> S&#233;lection des polices</h3>
 <div class="figure">
 <img src="./img/fontselection.png" alt="S&#233;lection des polices" />
 <p class="caption">S&#233;lection des polices</p>
@@ -585,6 +587,20 @@ Elle est &#224; toi cette chanson </code></pre>
 </div>
 <p>On remarquera que si on stoppe Ardour, le d&#233;filement des parole est arr&#234;t&#233; et qu&#8217;il reprendra quand Ardour reprendra.</p>
 <p>De m&#234;me si vous d&#233;placez la t&#234;te de lecture dand ardour, les paroles se repositionneront automatiquement, &#224; l&#8217;endroit demand&#233;.</p>
+<h2 id="la-barre-des-status"><span class="header-section-number">4.9</span> La barre des status</h2>
+<p>La barre des status pr&#233;sente les informations suivantes :</p>
+<div class="figure">
+<img src="./img/statusbar.png" alt="Barre de status" />
+<p class="caption">Barre de status</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>La fen&#234;tre dans laquelle on se trouve peut &#234;tre l&#8217;&#233;diteur de texte, les d&#233;finitions globales, les r&#233;glages du mode texte, les r&#233;glages du mode accord, les r&#233;glages du mode accord et texte et la gestion du monde monitoring des paroles</li>
+<li>Le nom du fichier qui apparait en vert si le fichier peut &#234;tre modifi&#233; et en rouge dans le cas contraire</li>
+<li>Le nom du r&#233;pertoire qui apparait en vert si le r&#233;pertoire peut &#234;tre accessible en &#233;criture modifi&#233; et en rouge dans le cas contraire</li>
+<li>Le nombre de chansons contenues du fichier courant</li>
+<li>Le nom de la chanson s&#233;lectionn&#233;e ou la chanson dont la s&#233;lection est conserv&#233;e.</li>
+<li>Un mode de blocage permettant de garder la chanson s&#233;lectionn&#233;e sauvegard&#233;e, ce qui peut s&#8217;av&#233;rer utile si on travaille en mode monitoring des paroles notamment dans le cas d&#8217;une s&#233;ance d&#8217;enregistrements o&#249; la chanson sera enregistr&#233;e plusieurs fois.</li>
+</ol>
 <h1 id="partie-technique"><span class="header-section-number">5</span> Partie technique</h1>
 <h2 id="avant-propos"><span class="header-section-number">5.1</span> Avant propos</h2>
 <p>Cette partie est destin&#233;e aux personnes voulant faire &#233;voluer le logiciel.</p>

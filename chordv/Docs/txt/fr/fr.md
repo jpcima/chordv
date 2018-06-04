@@ -541,6 +541,9 @@ de gestion des accords)
 Vous pouvez modifier le tempo par l'emploi de la molette de la souris 
 en maintenant la touche SHIFT appuyée dans l'éditeur.
 
+
+
+
 # Le menu des outils
 
 ## Le menu des préférences 
@@ -813,6 +816,20 @@ et qu'il reprendra quand Ardour reprendra.
 De même si vous déplacez la tête de lecture dand ardour, les paroles se repositionneront automatiquement,
 à l'endroit demandé.
 
+## La barre des status
+
+La barre des status présente les informations suivantes :
+
+![Barre de status](./img/statusbar.png)
+
+1. La fenêtre dans laquelle on se trouve peut être l'éditeur de texte, les définitions globales, les réglages du mode texte,
+les réglages du mode accord, les réglages du mode accord et texte et la gestion du monde monitoring des paroles
+2. Le nom du fichier qui apparait en vert si le fichier peut être modifié et en rouge dans le cas contraire
+3. Le nom du répertoire qui apparait en vert si le répertoire  peut être accessible en écriture modifié et en rouge dans le cas contraire
+4. Le nombre de chansons contenues du fichier courant
+5. Le nom de la chanson sélectionnée ou la chanson dont la sélection est conservée.
+6. Un mode de blocage permettant de garder la chanson sélectionnée sauvegardée, ce qui peut s'avérer utile si on travaille en mode monitoring des paroles
+notamment dans le cas d'une séance d'enregistrements où la chanson sera enregistrée plusieurs fois.
 
 
 # Partie technique
