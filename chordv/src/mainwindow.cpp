@@ -44,6 +44,7 @@
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QFontMetrics>
+#include <QModelIndex>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -51,12 +52,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setSongNumberStatusbar(0);
     QSettings s;
     QList <int> size;
     size<<700<<100;
     m_demofile=false;
     m_labelactivestacked= new QLabel(this);
     ui->statusBar->addWidget(m_labelactivestacked);
+    m_labelactivestacked->setStyleSheet("Background-color:#d5e6ef;Color:#5d5555;font: bold 12px; ");
     m_liststacked<<tr("Editor")<<tr("Global definitions")<<tr("Text and chord Mode")<<tr("Chord Mode")<<tr("Text mode")<<tr("Memory Mode");
     ShowStacked(0);
     ui->splitter->setSizes(size);
@@ -122,6 +125,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->pushButtonLaunchMemory,SIGNAL(clicked(bool)),this,SLOT(LaunchMemory()));
     connect (ui->widgetMemory,SIGNAL(SynchroMode(bool)),this,SLOT(SetSynchroDisplay(bool)));
     connect (ui->textEditCho3File,SIGNAL(SongSelected(QString)),this,SLOT(SelectSongInMemory(QString)));
+    connect (&m_protectStatusBar,SIGNAL(clicked(bool)),&m_selectedsongStatusBar,SLOT(setDisabled(bool)));
+    connect (ui->tableWidgetToc,SIGNAL(clicked(QModelIndex)),this,SLOT(SetSelected(QModelIndex)));
     ui->tableWidgetToc->setColumnCount(1);
     ui->tableWidgetToc->setColumnWidth(0,65532);
     ui->tableWidgetToc->setSelectionMode(QAbstractItemView::SingleSelection);
@@ -151,7 +156,51 @@ MainWindow::MainWindow(QWidget *parent) :
     }
     Chord A("La7b","fr");
     ui->widgetMemory->SynchroMode(s.value("Memory/JackSynchro",false).toBool());
+    ui->statusBar->addWidget(&m_filenameStatusBar);
+    ui->statusBar->addWidget(&m_dirnameStatusBar);
+    ui->statusBar->addWidget(&m_songnumberStatusBar);
+    m_selectedsongStatusBar.setStyleSheet("QLineEdit:disabled{background-color:#e8e99c;Color:#5d5555};QLineEdit{font: bold 12px;}");
+    m_songnumberStatusBar.setStyleSheet("Background-color:#d5e6ef;Color:#5d5555;font: bold 12px;");
+    ui->statusBar->addWidget(&m_selectedsongStatusBar);
+    ui->statusBar->addWidget(&m_protectStatusBar);
+    m_protectStatusBar.setStyleSheet("Background-color:#d5e6ef;Color:#5d5555;font: bold 12px;");
+    m_protectStatusBar.setText(tr("Keep selected Song"));
 }
+
+void MainWindow::setFilenameStatusbar(QString filename)
+{
+    QFileInfo fi(filename);
+    if ( fi.isWritable() )
+         m_filenameStatusBar.setStyleSheet("Background-color:#95ce7e;Color:#5d5555;font: bold 12px;");
+    else
+         m_filenameStatusBar.setStyleSheet("Background-color:#dd8585;Color:#5d5555;font: bold 12px;");
+    m_filenameStatusBar.setText(fi.fileName());
+}
+
+void MainWindow::setDirNameStatusbar(QString filename)
+{
+
+    QFileInfo fi(filename);
+    if ( fi.isWritable() )
+         m_dirnameStatusBar.setStyleSheet("Background-color:#95ce7e;Color:#5d5555;font: bold 12px;");
+    else
+         m_dirnameStatusBar.setStyleSheet("Background-color:#dd8585;Color:#5d5555;font: bold 12px;");
+   m_dirnameStatusBar.setText(fi.absolutePath());
+}
+void MainWindow::setSongNumberStatusbar(int number)
+{
+    m_songnumberStatusBar.setText(tr("%1 song(s)").arg(number));
+}
+
+void MainWindow::setSelectedSongStatusBar(QString songname)
+{
+
+    if ( ! m_protectStatusBar.isChecked())   m_selectedsongStatusBar.setText(songname);
+}
+
+
+
+
 
 void MainWindow::AskSaveOnQuit()
 {
@@ -171,6 +220,7 @@ void MainWindow::Close()
     ui->textEditCho3File->clear();
     m_initialbuffer.clear();
     InitDefault();
+    ClearInfoFile();
 
 }
 
@@ -344,12 +394,22 @@ void MainWindow::openChoFile( QString filename)
         QTextCursor textCursor = ui->textEditCho3File->textCursor();
         textCursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
         ui->textEditCho3File->setTextCursor(textCursor);
-        //m_editorhighlight = new EditorHighlighter(ui->textEditCho3File->document());
-        //
-
+        DisplayInfoFile(filename);
     }
 }
 
+
+void MainWindow::DisplayInfoFile( QString filename)
+{
+ setDirNameStatusbar(filename);
+ setFilenameStatusbar(filename);
+}
+
+void MainWindow::ClearInfoFile()
+{
+  m_filenameStatusBar.clear();
+  m_dirnameStatusBar.clear();
+}
 void MainWindow::openProject(QString filename)
 {
     QSettings s;
@@ -384,7 +444,7 @@ void MainWindow::openProject(QString filename)
     m_initialbuffer=p.value("Content").toString();
     ui->textEditCho3File->setText(m_initialbuffer);
     //ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
-
+    DisplayInfoFile(filename);
 }
 
 void MainWindow::openProject ( bool)
@@ -872,18 +932,23 @@ void MainWindow::SetTocInMemoryMode(QStringList toc)
         ui->tableWidgetToc->setItem(i,0, new QTableWidgetItem(elem));
         i++;
     }
+    setSongNumberStatusbar(i);
 }
 
 
 void MainWindow::LaunchMemory()
 {
 
-    if ( ui->tableWidgetToc->selectedItems().count()==0)
+    if ( m_selectedsongStatusBar.text().isEmpty() &&  ui->tableWidgetToc->selectedItems().count()==0)
     {
         QMessageBox::warning(this,tr("No title selected"),tr("You must select a title"));
         return;
     }
-    QString title= ui->tableWidgetToc->selectedItems().at(0)->text();
+    QString title;
+    if ( ! m_selectedsongStatusBar.text().isEmpty())
+      title=m_selectedsongStatusBar.text();
+    else
+      title = ui->tableWidgetToc->selectedItems().at(0)->text();
     this->hide();
     DialogProcessMemory memory(this,
                                                           ui->textEditCho3File->document()->toPlainText(),
@@ -926,5 +991,11 @@ void MainWindow::SelectSongInMemory(QString song)
      if ( !list.empty() )
      {
          list.at(0)->setSelected(true);
-      }
+     }
+     setSelectedSongStatusBar(song);
+}
+
+void MainWindow::SetSelected(QModelIndex index)
+{
+    setSelectedSongStatusBar(index.data().toString());
 }

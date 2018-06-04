@@ -10,6 +10,10 @@
 #include <QMainWindow>
 #include <QMenu>
 #include <QLabel>
+#include <QLineEdit>
+#include <QCheckBox>
+#include <QModelIndex>
+
 namespace Ui {
 class MainWindow;
 }
@@ -100,6 +104,26 @@ private:
     void InitDefault();
     void ProducePDF();
     bool m_demofile;
+    QLabel m_filenameStatusBar;
+    QLabel m_dirnameStatusBar;
+    QLabel m_songnumberStatusBar;
+    QLineEdit m_selectedsongStatusBar;
+    QCheckBox m_protectStatusBar;
+
+
+    ///
+    /// \brief DisplayInfoFile display info files in status bar
+    /// \param filename filename
+    ///
+    void DisplayInfoFile(QString filename);
+    ///
+    /// \brief RemoveInfoFile clear InfoFile in status bar
+    ///
+    void ClearInfoFile();
+    void setFilenameStatusbar(QString filename);
+    void setSongNumberStatusbar(int number);
+    void setDirNameStatusbar(QString dirname);
+    void setSelectedSongStatusBar(QString songname);
 public slots:
     ///
     /// \brief ChangeLanguage retranslate all the child window and tha main window
@@ -170,6 +194,7 @@ private slots:
     void LaunchMemory();
     void SelectSongInMemory(QString song);
     void DisplayError(QString message);
+    void SetSelected(QModelIndex index);
 public slots:
     void SetSynchroDisplay(bool val);
 };

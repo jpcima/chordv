@@ -664,24 +664,24 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">&lt;Fin&gt;</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="77"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="68"/>
         <source>Jack not found</source>
         <translation>Serveur Jack non trouvé</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="77"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="68"/>
         <source>Jack seems to not be launched ! 
 (Try to launch Jack manually without QJackCtl)</source>
         <translation>Jack semble ne pas être lancé
 (Essayer de lancer Jack en ligne de commandes sans QJackCtl)</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="83"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="75"/>
         <source>Jack problem</source>
         <translation>Problème Jack</translation>
     </message>
     <message>
-        <location filename="../src/dialogprocessmemory.cpp" line="83"/>
+        <location filename="../src/dialogprocessmemory.cpp" line="75"/>
         <source>Jack cannot be activated !</source>
         <translation>Jack ne peut pas être activé !</translation>
     </message>
@@ -2206,7 +2206,7 @@ en boîte</translation>
         <translation type="vanished">Mode accords</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="60"/>
+        <location filename="../src/mainwindow.cpp" line="61"/>
         <source>Text mode</source>
         <translation>Mode texte</translation>
     </message>
@@ -2215,7 +2215,7 @@ en boîte</translation>
         <translation type="vanished">Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="60"/>
+        <location filename="../src/mainwindow.cpp" line="61"/>
         <source>Editor</source>
         <translation>Éditeur</translation>
     </message>
@@ -2319,7 +2319,7 @@ en boîte</translation>
         <translation>&amp;Remplacer</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="60"/>
+        <location filename="../src/mainwindow.cpp" line="61"/>
         <source>Global definitions</source>
         <translation>Définitions globales</translation>
     </message>
@@ -2562,7 +2562,7 @@ chorus</translation>
         <translation type="vanished">Texte défilant</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="909"/>
+        <location filename="../src/mainwindow.cpp" line="969"/>
         <source>&lt; ESCAPE &gt;  to abort monitoring window</source>
         <translation>&lt; ECHAPPEMENT &gt; pour sortir du mode aide mémoire</translation>
     </message>
@@ -2612,7 +2612,7 @@ chorus</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="298"/>
-        <location filename="../src/mainwindow.cpp" line="911"/>
+        <location filename="../src/mainwindow.cpp" line="971"/>
         <source>&lt; ESCAPE &gt;  to abort monitoring window
 &lt; PAUSE&gt; to pause unpause</source>
         <translation>&lt; ECHAPPEMENT &gt; pour avorter la fenêtre de monitoring
@@ -2868,62 +2868,77 @@ chorus</translation>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="67"/>
+        <location filename="../src/mainwindow.cpp" line="68"/>
         <source>Last Projects</source>
         <translation>Derniers projets</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="129"/>
+        <location filename="../src/mainwindow.cpp" line="131"/>
         <source>Songs list</source>
         <translation>Liste des chansons</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="137"/>
+        <location filename="../src/mainwindow.cpp" line="139"/>
         <source>%1 does&apos;nt exit. Bye !</source>
         <translation>%1 n&apos;existe pas. Au revoir !</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="159"/>
+        <location filename="../src/mainwindow.cpp" line="166"/>
+        <source>Keep selected Song</source>
+        <translation>Garder la chanson sélectionnée</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="180"/>
+        <source>%1 song(s)</source>
+        <translation>%1 chanson(s)</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="196"/>
         <source>Buffer as changed</source>
         <translation>Le contenu édité à changé</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="159"/>
+        <location filename="../src/mainwindow.cpp" line="196"/>
         <source>Do you want to save ? </source>
         <translation>Voulez vous sauvegarder ?.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="223"/>
+        <location filename="../src/mainwindow.cpp" line="261"/>
         <source>Open text file</source>
         <translation>Ouvrir un fichier texte</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="223"/>
+        <location filename="../src/mainwindow.cpp" line="261"/>
         <source>cho3 file(*.cho3)</source>
         <translation>Fichier cho3 (*.cho3)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="338"/>
+        <location filename="../src/mainwindow.cpp" line="376"/>
         <source>Cannot open file : %1</source>
         <translation>Ne peut ouvrir le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="393"/>
+        <location filename="../src/mainwindow.cpp" line="442"/>
         <source>Open conf file</source>
         <translation>Ouvrir un fichier conf</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="463"/>
+        <location filename="../src/mainwindow.cpp" line="512"/>
         <source>(*.chop)</source>
         <translation>(*.chop)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="876"/>
+        <location filename="../src/mainwindow.cpp" line="665"/>
+        <source>Problem !</source>
+        <translation>Problème !</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="932"/>
         <source>No title selected</source>
         <translation>Pas de titre sélectionné</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="876"/>
+        <location filename="../src/mainwindow.cpp" line="932"/>
         <source>You must select a title</source>
         <translation>Vous devez sélectionner un titre</translation>
     </message>
@@ -2936,22 +2951,22 @@ chorus</translation>
         <translation type="vanished">Fichier non sauvegardé : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="60"/>
+        <location filename="../src/mainwindow.cpp" line="61"/>
         <source>Text and chord Mode</source>
         <translation>Mode texte et accord</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="60"/>
+        <location filename="../src/mainwindow.cpp" line="61"/>
         <source>Chord Mode</source>
         <translation>Mode accords</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="60"/>
+        <location filename="../src/mainwindow.cpp" line="61"/>
         <source>Memory Mode</source>
         <translation>Mode aide mémoire</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="463"/>
+        <location filename="../src/mainwindow.cpp" line="512"/>
         <source>Save project as</source>
         <translation>Suvegarder le projet</translation>
     </message>
@@ -2960,17 +2975,17 @@ chorus</translation>
         <translation type="vanished">Sauvegarder comme (*.chop)</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="607"/>
+        <location filename="../src/mainwindow.cpp" line="659"/>
         <source>Conversion done for : %1</source>
         <translation>Conversion effectuée pour : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="665"/>
+        <location filename="../src/mainwindow.cpp" line="720"/>
         <source>Cannot write file : %1</source>
         <translation>Ne peut pas écrire dans le fichier : %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="671"/>
+        <location filename="../src/mainwindow.cpp" line="726"/>
         <source>%1 file exported</source>
         <translation>fichier %1 exporté</translation>
     </message>
@@ -3015,32 +3030,37 @@ chorus</translation>
         <translation type="vanished">Aller à la page %1</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="346"/>
+        <location filename="../src/processor.cpp" line="62"/>
+        <source>File %1 is not writable. Save as origin file in a writable place before to make a pdf</source>
+        <translation>Le fichier %1 n&apos;est pas accessible en écriture. Sauvegardez votre fichier courant dans répertoire accessible en écriture avant de  demander la fabrication d&apos;un fichier PDF</translation>
+    </message>
+    <message>
+        <location filename="../src/processor.cpp" line="356"/>
         <source>Chorus :</source>
         <translation>Chorus :</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="351"/>
+        <location filename="../src/processor.cpp" line="361"/>
         <source>End of chorus</source>
         <translation>Fin du chorus</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="357"/>
+        <location filename="../src/processor.cpp" line="367"/>
         <source>Refrain :</source>
         <translation>Refrain :</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="362"/>
+        <location filename="../src/processor.cpp" line="372"/>
         <source>End of refrain</source>
         <translation>Fin du refrain</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="919"/>
+        <location filename="../src/processor.cpp" line="929"/>
         <source>Go to last page</source>
         <translation>Aller à la page précédente</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="934"/>
+        <location filename="../src/processor.cpp" line="944"/>
         <source>Go to next page</source>
         <translation>Aller à la page suivante</translation>
     </message>
@@ -3053,7 +3073,7 @@ chorus</translation>
         <translation type="vanished">Aller à la chanson suivante </translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="950"/>
+        <location filename="../src/processor.cpp" line="960"/>
         <source>Go to table of content</source>
         <translation>Aller à la table des matières</translation>
     </message>
@@ -3137,8 +3157,8 @@ chorus</translation>
         <translation type="vanished">Fin du chorus</translation>
     </message>
     <message>
-        <location filename="../src/processor.cpp" line="728"/>
-        <location filename="../src/processor.cpp" line="793"/>
+        <location filename="../src/processor.cpp" line="738"/>
+        <location filename="../src/processor.cpp" line="803"/>
         <source>Table of content</source>
         <translation>Table des matières</translation>
     </message>

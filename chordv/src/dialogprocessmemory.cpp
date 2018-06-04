@@ -51,7 +51,6 @@ ui(new Ui::DialogProcessMemory)
     m_time=0;
     m_jackclient=0;
     if (  m_showrythm || m_click )  m_timeline->start(m_millisecondperbeat);
-    Debug();
     if ( m_jacksynchro)
         StartJack();
     else

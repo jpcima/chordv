@@ -34,7 +34,6 @@ QString Language::getTranslationQmFileName(QString language)
     if (language=="English") return QString();
     QString datadir(DATADIR);
     QString ret=QString("%1/Languages/%2/%3.qm").arg(datadir,language,Language::getCodeLang(language));
-    qDebug()<<ret;
     return ret;
 }
 
