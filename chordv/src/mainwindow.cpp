@@ -150,6 +150,7 @@ MainWindow::MainWindow(QWidget *parent) :
         exit(0);
     }
     Chord A("La7b","fr");
+    ui->widgetMemory->SynchroMode(s.value("Memory/JackSynchro",false).toBool());
 }
 
 void MainWindow::AskSaveOnQuit()

@@ -1,6 +1,7 @@
 % Documentation utilisateur de chord V
 % Gilles Maire 
 % Mai 2018 
+% Version 0.7
 
 
 # Introduction 
@@ -53,6 +54,25 @@ She is  [Am] standing  [G] right in   [F]  front of me
 [C] Speaking words of  [G] wisdom, let it  [F | C/E] be.       [Dm7][C]
 ~~~~
 
+L'exemple ci-dessus est celui de chord pro, il peut être utilisé tel quel mais
+en perdant le bénéfice du suivi rythmique des paroles du mode mémorisation.
+
+En ChordV on aura plutôt tendance à indiquer si les accords s'appliquent à une mesure
+ou un rythme ainsi :
+
+~~~
+{title:Let it be}
+
+{subtitle: Lyrics ansd music :  Paul McCartney, John Lennon}
+{Subtitle: Apple Label}
+{columns:1 }
+When I  [C:2] find myself in  [G:2]  times of trouble
+Am Mother  [G:2] Mary  [F:2]  comes to me
+~~~~
+
+La notation [C:2] indique que l'accord de Do est joué sur une demi mesure.
+Se reporter au chapitre [Signature rythmique et tempo](#SignatureRytmique) pour
+les détails des temps sur les accords.
 
 ## Le mode batch et le mode graphique
 
@@ -102,7 +122,7 @@ clavier CTRL + O comme le montre la figure suivante
 
 1. Vous pouvez choisir la langue du logiciel. Si votre langue de figure
 pas dans la liste, vous pouvez fabriquer un fichier de traduction
-(voir la partie [traduction](#traduction-du-logiciel-dans-une-langue) )
+(voir la partie [traduction](#Traduction) )
 2. Sélectionner le système de mesure qui vous convient le mieux entre 
 cm, mm et pouce
 3. ChordV lance un lecteur PDF quand vous voulez visualiser 
@@ -120,8 +140,9 @@ puisque dans ce mode les accords n'existent pas. Nous allons
 séparer la présentation des options communes et celles spécifiques 
 à chaque mode.
 
-On trouve deux onglets l'un appelé Document et l'autre contenu pour
-chacune des 
+On trouve deux onglets l'un appelé *Document* et l'autre *Contenu* pour
+chacun des modes de sortie. Certaines des options de ces modes sont communs à plusieurs
+modes d'autre sont spécifiques.
 
 ### Les options communes de l'onglet Document
 
@@ -138,7 +159,7 @@ correspondantes s'afficher dans les zones 1 et 2
 4. A l'italienne inverse les hauteurs et les largeurs
 5. Permet de sélectionner la police par défaut du document. Se référer
 à la documentation relative à la 
-[Sélection des polices](#sélection-des-polices)
+[Sélection des polices](#SelectionPolice)
 6. Permet de sélectionner la police relative aux titres de chaque page.
 Si vous sélectionnez une couleur de fond, un cadre de la couleur
 sélectionnée encadrera le titre sur toute la largeur de la page.
@@ -222,12 +243,9 @@ sur les paroles pour permettre au chanteur de lire légèrement à l'avance
 11. Nombre de mesures avant de démarrer l'enregistrement.
 
 
-3. Mode plein écran 
-
-
 ## Les conventions 
 
-### Sélection des polices 
+### Sélection des polices  {#SelectionPolice}
 
 ![Sélection des polices](./img/fontselection.png)
 
@@ -423,7 +441,7 @@ Lanotation abrégée est {eoc}
 
 Indique le refrain
 
-### Signature rytmique et tempo
+### Signature rytmique et tempo {#SignatureRytmique}
 
 #### Remarques
 
@@ -751,8 +769,11 @@ cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
 n'est pas sélectionné, une seule ligne est affichée.
 5. Rendu de la police de caractères
 6. Chaque temps est matérialisé par l'affichage d'une bulle rouge pour
-le premier temps et d'une bulle verte pour les autres temps.
-7. Un click sonore est activé sur chaque temps
+le premier temps et d'une bulle verte pour les autres temps. Cette option comme
+les autres options de rythme n'est activable
+que si la temporisation n'est pas prise en compte par jack, car dans ce cas, vous bénéficiez
+des outils et métronomes Jack pour vous aidez.
+7. Un click sonore est activé sur chaque temps.
 8. Réglage du volume du click
 9. Le premier temps sonore est plus marqué que les autres temps
 10. Avance de l'affichage, réglage de l'avance de l'affichage du temps
@@ -760,7 +781,7 @@ sur les paroles pour permettre au chanteur de lire légèrement à l'avance
 11. Nombre de mesures avant de démarrer l'enregistrement.
 12. Demande à ChordV d'être déclenché via un autre logiciel compatible avec
 le mode Jack (voir la partie connexion Jack)
-13. En mode jack on ne peut pas faire de pause car ChordV agit en mode esclave. Par c
+13. En mode jack on ne peut pas faire de pause car ChordV agit en mode esclave. Par
 contre on peut quitter le mode affichage par la touche ECHAPPEMENT parfois notée ESCAPE ou ESC
 15. Lancer le défilement effectif des paroles. Ce lancement peut être fait par la touche F10
 
@@ -770,9 +791,9 @@ Ce mode permet à l'utilisateur de pas avoir à entrer une touche pour lancer le
 des paroles dans le mode mémoire. Le défilement sera lancé par un logiciel maître au moment
 ou celui-ci lancera la lecture ou l'enregistrement.
 
-Non seulement on gagne le bénéfice de n'entrer qu'une seule touche, mais on gagne aussi
+Non seulement on gagne le bénéfice de n'avoir qu'à appuyer une seule touche, mais on gagne aussi
 le bénéfice de voir le défilement des paroles et l'enregistrement ou la lecture du morceau
-totalement synchronisé.
+totalement synchronisés.
 
 Ce paragraphe montre un exemple d'utilisation de ChordV avec Ardour.
 
@@ -785,8 +806,12 @@ le défilement des parole comme montré sous l'image ci dessous
 
 ![Jack Ardour](./img/ArdourChordV2.png)
 
+
 On remarquera que si on stoppe Ardour, le défilement des parole est arrêté
 et qu'il reprendra quand Ardour reprendra.
+
+De même si vous déplacez la tête de lecture dand ardour, les paroles se repositionneront automatiquement,
+à l'endroit demandé.
 
 
 
@@ -839,7 +864,7 @@ En cours
 
 
 
-## Traduction du logiciel dans une nouvelle langue
+## Traduction du logiciel dans une nouvelle langue {#Traduction}
 
 
 ### Présentation
@@ -929,7 +954,7 @@ elles sont issues de copies d'écran. Si vous utilisez gimp vous pouvez utiliser
 le plugin drawnumbers qui permet de produire les pastilles rouges.
 
 Il est disponible à l'adresse 
-[Draw-number](xhttp://www.gillesmaire.com/tiki-index.php?page=draw-numbers)
+[Draw-number](http://www.gillesmaire.com/tiki-index.php?page=draw-numbers)
 
 ## Compatibilité Chordpro
 
