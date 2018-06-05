@@ -147,6 +147,92 @@ the wheel to yourself.
 6. A table of content browser to go directly on choosen title
 
 
+### The list of songs 
+
+
+![List of songs](./img/toc.png)
+
+The list of songs is automatically built, in other words
+when you enter a tag '{title: Accroche}' this list is
+automatically generated.
+
+By clicking on one of the song titles, you will be directed to the
+title of the song in the text.
+
+Two things are noteworthy:
+
+- if you enter the memory help mode via the F8 key you
+find this list but we will return to its use (attention
+to return to editor mode you will have to go back to editor mode
+by the F2 key).
+- Note that if you clicked on a title, that title is automatically
+selected in the help window.
+- The second thing to notice is that the title of the song appears
+in the status area at the bottom of the screen. We will come back to it.
+
+### Le menu général 
+
+#### Présentation 
+
+![The menu](./img/menu.png)
+
+The general menu allows you to manage
+    - the File menu
+    - the Editing submenu
+    - the Window submenu
+    - the Tools submenu
+    - the Help submenu
+
+
+#### The File submenu
+
+By starting to manipulate the different menu items, which are
+at least very classical, we can notice that we can open
+cho3 files or project files.
+
+Cho3 files are classic chord files, with tags
+extended chordV.
+
+Chop files are project files containing
+    - an cho3 file included in the file and not a linked file.
+    This means that you can copy only the chop file that
+    is completely autonomous.
+    - Ini format attributes that allow you to save everything
+    what you are interested in the layout: color of
+    cover, front and back, margins etc ...
+    
+Currently the standard cho evolves to allow the addition of these
+attributes but on the one hand the files quickly become unreadable
+the opportunities offered are much more limited than those offered
+that offers you chordV.
+
+It is therefore advisable to work with chop files and if you
+must give someone who uses chordpro ​​a file that he can
+read, just export the file.
+
+Similarly if you find a chorpro file you can import it by
+the file menu.
+
+Finally note that at the end of the list of items you can recover
+the list of the last 10 open chop files.
+
+
+### The status bar shows the following information:
+
+![Status bar](./img/statusbar.png)
+
+1. The window in which you are can be the text editor, the global definitions, the text mode settings,
+the chord mode settings, the chord mode and text settings, and the word monitoring world management
+2. The name of the file which appears in green if the file can be modified and in red otherwise
+3. The name of the directory which appears in green if the directory can be accessible in writing modified and in red in the opposite case
+4. The number of songs contained in the current file
+5. The name of the selected song or the song whose selection is retained.
+6. A blocking mode to keep the selected song saved, which can be useful if you are working in the lyrics monitoring mode
+especially in the case of a recording session where the song will be recorded several times.
+
+
+## ChordV tags
+
 ### The chord pro tag language
 
 It may be strange that modern software does not
@@ -162,7 +248,7 @@ extensions useful to the program. So you can load in ChordV
 all chord pro files available in the resources
 music of the net.
 
-## ChordV tags
+
 
 ### The titles
 
@@ -354,7 +440,7 @@ this extension for example when they deduce the value of the tempo of a piece
 - The minor mode is noted - if the chords are in English and m if they are in French and configured as such
 - The mode 7 6 5 13 etc are noted in numbers
 
-### Extended notation
+#### Extended notation
 
 - The bars are noted in Roman numerals with the box of the bar:
 
@@ -364,13 +450,11 @@ this extension for example when they deduce the value of the tempo of a piece
 ~~~
 
 
-### Extention of time
+- Extention of time
 
-#### Notes
 
 These extensions were introduced by chord V and are being discussed with the authors of the ChordPro format definition
 
-#### Several measures
 
 x number indicates the number of measurements of the chord
 
@@ -382,9 +466,9 @@ By default an chord without added measure will be considered as an chord of a me
 
 So [A] will be an chord of a measure
 
-### Several times
+- division of time
 
-: indicates a division of the measure
+: indicates a division of the measure {#TimeSignature}
 
 So for a 4/4 signature measure the ratings:
 
@@ -392,7 +476,7 @@ So for a 4/4 signature measure the ratings:
 - [A:4] will mean a measure divided by 4 ie 1 time
 
 
-## Inserting chords into the editor
+#### Inserting chords into the editor
 
 By double clicking on the text the chord include window you
 to select a chord by pressing the Insert button
@@ -420,14 +504,6 @@ holding down the SHIFT key in the editor.
 
 
 
-## Batch mode and graphic mode
-
-
-- Without any argument chordV is launched with a GUI
-- With the -t chordV argument does not start the GUI and
-will produce the PDFs for the default configuration
-- You can also run chordV with a file.chop argument
-to open it automatically at startup.
 
 
 # Software preferences
@@ -852,6 +928,17 @@ whe name with the cedille exactly as a French could read it.
 File / Publish ts.qm will be created
 - Do not forget to write to the author of the software to
 Es.ts file so that it is included in the next software distribution
+
+
+
+## Batch mode and graphic mode
+
+
+- Without any argument chordV is launched with a GUI
+- With the -t chordV argument does not start the GUI and
+will produce the PDFs for the default configuration
+- You can also run chordV with a file.chop argument
+to open it automatically at startup.
 
 
 ## Documentation of Chord V

@@ -30,7 +30,7 @@ non plus des carnets de chant, mais des grilles d'accord.
 En troisième lieu, il se trouve que lorsque que je chante devant des amis, ils
 me demandent les paroles pour pouvoir chanter avec moi. Ces amis ne sont ni
 guitaristes amateurs ni guitaristes professionnels et ils n'aiment pas lire
-textes bariolés de schéma de guitare.
+des textes bariolés de schéma de guitare.
 
 Enfin pour finir, j'enregistre mes disques avec Ardour sous machine Linux.
 J'enregistre, j'écoute le résultat, je réenregistre et parfois plusieurs fois de suite.
@@ -60,9 +60,6 @@ une activité d'informaticien et d'enseignant à continuer. J'ai une famille qui
 dos en train d'écire des programmes ou des chansons.
 
 Il se fait tard, il faut que je vous laisse découvrir Chord V.
-##
-
-
 
 
 ## Présentation du logiciel
@@ -160,6 +157,104 @@ la molette vers soi.
 6. Un navigateur table des matières permet de se rendre directement à
 la chanson désirée
 
+### La liste des chansons automatique
+
+![Liste des chansons](./img/toc.png)
+
+La liste des chansons est automatiquement construite, autrement dit 
+lorsque vous entrez une balise '{title:Accroche}' cette liste est 
+automatiquement générée. 
+
+En cliquant sur l'un des titres de chanson, vous serez dirigé sur le 
+titre de la chanson dans le texte.
+
+Deux choses sont à remarquer : 
+
+- si vous entrez dans le mode aide mémoire via la touche F8 vous 
+retrouverez cette liste mais nous reviendrons à son utilisation (attention
+pour revenir au mode éditeur vous devrez revenir dans le mode éditeur 
+par la touche F2).
+- Notez que si vous avez cliqué sur un titre, ce titre est automatiquement
+sélectionné dans la fenêtre aide mémoire. 
+- La deuxième chose à remarquer c'est que le titre de la chanson apparaît
+dans la zone de status en bas de l'écran. Nous y reviendrons. 
+
+
+### Le menu général 
+
+#### Présentation 
+
+![Le menu](./img/menu.png)
+
+Le menu général permet de gérer 
+    - le sous menu Fichier
+    - le sous menu Édition 
+    - le sous menu fenêtre
+    - le sous menu Outils
+    - le sous menu Aide
+    
+#### Le sous menu Fichier
+
+En commençant à manipuler les différents item du menu, qui sont  
+pour le moins très classique, on remarquer qu'on peut ouvrir des
+fichiers cho3 ou des fichiers projet.
+
+Les fichiers cho3 sont des fichiers chord classiques, avec les balises
+étendues chordV. 
+
+Les fichiers chop sont des fichiers projet contenant 
+    - un fichier cho3 inclu dans le fichier et on pas un fichier lié. 
+    Cela veut dire que vous pouvez copier uniquement le fichier chop qui
+    est tout à fait autonome.
+    - des attributs au format ini qui permettent de sauvegarder tout
+    ce qui vous intéresse quant à la mise en page : couleur des 
+    couverture, recto verso, marges etc ...
+    
+Actuellement la norme cho évolue pour permettre l'adjonction de ces
+attributs mais d'une part les fichiers deviennent vite illisibles d'autre
+part les possibilités offertes sont beaucoup plus limitée que celles
+que vous offre chordV.
+
+Il est donc conseillé de travailler avec des fichiers chop et si vous 
+devez donner à quelqu'un qui utilise chordpro un fichier qu'il pourra
+lire, il vous suffit d'exporter le fichier. 
+
+De même si vous trouvez un fichier chorpro vous pouvez l'importer par 
+le menu fichier. 
+
+Enfin notez qu'à la fin des la liste des items vous pouvez récupérer
+la liste des 10 derniers fichiers chop ouverts.
+
+
+#### Le sous menu Édition 
+
+#### Le sous menu fenêtre
+
+#### Le sous menu Outils
+
+#### Le sous menu Aide
+
+
+### La barre des status
+
+La barre des status présente les informations suivantes :
+
+![Barre de status](./img/statusbar.png)
+
+1. La fenêtre dans laquelle on se trouve peut être l'éditeur de texte, les définitions globales, les réglages du mode texte,
+les réglages du mode accord, les réglages du mode accord et texte et la gestion du monde monitoring des paroles
+2. Le nom du fichier qui apparait en vert si le fichier peut être modifié et en rouge dans le cas contraire
+3. Le nom du répertoire qui apparait en vert si le répertoire  peut être accessible en écriture modifié et en rouge dans le cas contraire
+4. Le nombre de chansons contenues du fichier courant
+5. Le nom de la chanson sélectionnée ou la chanson dont la sélection est conservée.
+6. Un mode de blocage permettant de garder la chanson sélectionnée sauvegardée, ce qui peut s'avérer utile si on travaille en mode monitoring des paroles
+notamment dans le cas d'une séance d'enregistrements où la chanson sera enregistrée plusieurs fois.
+
+
+
+## Les balises de ChordV
+
+
 ### Le langage à balise de chord pro
 
 On peut trouver étrange qu'un logiciel moderne ne présente pas une
@@ -174,8 +269,6 @@ En plus ce format pivot est écrit dans le langage chord pro plus des
 extensions utiles au programme. Ainsi vous pourrez charger dans ChordV
 l'ensemble des fichiers chord pro disponibles dans les resources
 musicales libres du net.
-
-## Les balises ChordV
 
 ### Les titres
 
@@ -367,7 +460,7 @@ cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morcea
 - Le mode mineur est noté - si les accords sont en anglais et m s'ils sont en français et configuré comme tel
 - Les mode 7 6 5 13 etc sont noté en chiffre
 
-### Notation étendue
+#### Notation étendue
 
 - Les barrés son notés en chiffre romain avec la case du barré  :
 
@@ -377,13 +470,11 @@ cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morcea
 ~~~
 
 
-### Extention du temps
-
-#### Remarques
-
 Ces extensions ont été introduites par chord V et sont en cours de discution avec les auteurs de la définition du format ChordPro
 
-#### Plusieurs mesures
+
+- les extentions de temps
+
 
 x numéro indique le nombre de mesures de l'accord
 
@@ -395,7 +486,7 @@ Par défaut un accord sans adjonction mesure sera considéré comme un accord d'
 
 Ainsi [La] sera un accord d'une mesure
 
-### Plusieurs temps
+- division de temps
 
 : indique une division de la mesure
 
@@ -405,7 +496,7 @@ Ainsi pour une mesure de signature 4/4 les notations :
 - [La:4] signifiera une mesure divisée par 4 c'est à dire 1 temps
 
 
-## Insertion des accords dans l'éditeur
+#### Insertion des accords dans l'éditeur
 
 En double cliquant sur le texte la fenêtre d'inclusion d'accord vous
 permet de sélectionner un accord par l'appui sur le bouton Inserer
@@ -420,14 +511,12 @@ en maintenant la touche SHIFT appuyée dans l'éditeur.
 
 
 
-## Le mode batch et le mode graphique
 
 
-- Sans aucun argument chordV est lancé avec une interface graphique
-- Avec l'argument -t chordV ne lance pas l'interface graphique et 
-produira les  PDF pour la configuration par défaut
-- Vous pouvez également lancer chordV avec un argument fichier.chop  
-pour l'ouvrir automatiquement au démarrage.
+
+
+
+
 
 
 # Les préférences du logiciel
@@ -881,30 +970,15 @@ et qu'il reprendra quand Ardour reprendra.
 De même si vous déplacez la tête de lecture dand ardour, les paroles se repositionneront automatiquement,
 à l'endroit demandé.
 
-## La barre des status
-
-La barre des status présente les informations suivantes :
-
-![Barre de status](./img/statusbar.png)
-
-1. La fenêtre dans laquelle on se trouve peut être l'éditeur de texte, les définitions globales, les réglages du mode texte,
-les réglages du mode accord, les réglages du mode accord et texte et la gestion du monde monitoring des paroles
-2. Le nom du fichier qui apparait en vert si le fichier peut être modifié et en rouge dans le cas contraire
-3. Le nom du répertoire qui apparait en vert si le répertoire  peut être accessible en écriture modifié et en rouge dans le cas contraire
-4. Le nombre de chansons contenues du fichier courant
-5. Le nom de la chanson sélectionnée ou la chanson dont la sélection est conservée.
-6. Un mode de blocage permettant de garder la chanson sélectionnée sauvegardée, ce qui peut s'avérer utile si on travaille en mode monitoring des paroles
-notamment dans le cas d'une séance d'enregistrements où la chanson sera enregistrée plusieurs fois.
+## Le mode batch et le mode graphique
 
 
-# Partie technique
+- Sans aucun argument chordV est lancé avec une interface graphique
+- Avec l'argument -t chordV ne lance pas l'interface graphique et
+produira les  PDF pour la configuration par défaut
+- Vous pouvez également lancer chordV avec un argument fichier.chop
+pour l'ouvrir automatiquement au démarrage.
 
-## Avant propos
-
-Cette partie est destinée aux personnes voulant faire évoluer le
-logiciel.
-
-Les sources du logiciel sont disponible sur le site sourceforge pour le projet chordV
 
 ## Raccourcis claviers - Actions souris 
 
@@ -943,8 +1017,137 @@ En cours
 
 
 
+# Partie technique
+
+## Avant propos
 
 
+### Le projet sur SourceForge
+
+Cette partie est destinée aux personnes voulant faire évoluer le
+logiciel.
+
+Les sources du logiciel sont disponible sur le site sourceforge 
+sous le projet chordV
+
+Voici l'adresse de la page 
+
+https://sourceforge.net/projects/chordv/
+
+La récupération des sources se fait au moyen de la commande git
+
+~~~bash
+git git clone https://git.code.sf.net/p/chordv/code chordv-code
+~~~
+
+### Organisation de la documentation 
+
+#### Présentation
+
+La documentation est accessible dans le logiciel via le menu aide
+à l'item Documentation.
+
+Cette documentation a été transformée automatiquement à partir 
+du format Markdown vers le HTML via le programme Pandoc.
+
+Le fichier documentation se trouve dans le répertoire cité la partie
+[Traduction du logiciel dans une langue](#Traduction)
+
+Dans le répertoire du projet la Documentation est située dans le 
+répertoire Docs
+
+L'arborescence de la documentation est la suivante : 
+
+- **css :** fichiers commun css mai aussi fichier latex de base
+- **html :** fichiers de documentation au format HTML générés
+ automatiquement par le Makefile
+- **pdf :** fichiers de documentation au format PDF générés
+ automatiquement par le Makefile
+- **txt :** fichiers sources en format texte suivant le format markdown
+
+#### Processus de traduction 
+
+Si vous désirez traduire la documentation du logiciel, il faut récupérer
+le fichier md dans la langue désirée, le convertir via un traducteur
+automatique et le corriger.
+
+Prendre garde car les traducteur on tendance à transformer les codes 
+md du style 
+
+~~~md
+![La fenêtre d'édition](./img/editor.png)
+~~~
+
+en 
+
+~~~md
+! [La fenêtre d'édition] (./img/editor.png)
+~~~
+
+Une fois le fichier traduit, vous pouvez le convertir en format html
+via la commande (après avoir récupéré la feuille de style css sur 
+le net)
+
+~~~bash
+pandoc --toc --ascii --smart -N --css=pandoc.css  --from=markdown \
+--to=html --output=es.html es.md
+~~~
+
+
+#### Les images
+
+Les images sont à inclure dans le répertoire img du répertoire Langage/es,
+elles sont issues de copies d'écran. Si vous utilisez gimp vous pouvez utiliser 
+le plugin drawnumbers qui permet de produire les pastilles rouges.
+
+Il est disponible à l'adresse 
+[Draw-number](http://www.gillesmaire.com/tiki-index.php?page=draw-numbers)
+
+#### Génération de la documentations 
+
+~~~bash
+cd Docs
+make
+~~~
+
+Le fichier Make a été conçu manuellement, on peut facilement ajouter 
+une autre langue en respectant l'architecture actuelle.
+
+## Compilation des souces 
+
+### Installation des paquets supplémentaires Qt5 
+
+#### Sous Ubuntu/Debian
+
+~~~bash
+sudo apt-get install qtmultimedia5-dev libqt5multimediawidgets5 \
+	   libqt5multimedia5-plugins libqt5multimedia5
+~~~
+
+
+### Compilation de la librairie pododofo
+
+#### Sous Ubuntu/Debian
+
+~~~bash
+  sudo apt-get install -y subversion cmake libz-dev libfreetype6-dev \
+        libfontconfig1-dev libjpeg-dev libssl-dev libcrypto++9v5-dev \
+        libtiff5-dev libcppunit-dev liblua50-dev libidn11-dev \
+        lua5.1-dev
+~~~
+
+### Procédure post compilation 
+
+#### Sous Ubuntu 
+
+Le fichier install est un exécutable, il permet de copier les fichiers 
+qui doivent l'être dans le répertoire /usr/share
+
+Pour l'exécuter 
+
+~~~bash
+sudo ./install
+~~~
 
 ## Traduction du logiciel dans une nouvelle langue {#Traduction}
 
@@ -988,55 +1191,7 @@ fichier es.ts afin qu'il soit inclu dans la prochaine distribution du logiciel
 
 ## La documentation utilisateur de Chord V
 
-### Présentation 
 
-La documentation est accessible dans le logiciel via le menu aide
-à l'item Documentation.
-
-Cette documentation a été transformée automatiquement à partir 
-du format Markdown vers le HTML via le programme Pandoc.
-
-Le fichier documentation se trouve dans le répertoire cité la partie
-[Traduction du logiciel dans une langue](#traduction-du-logiciel-dans-une-langue)
-
-
-### Processus de traduction 
-
-Si vous désirez traduire la documentation du logiciel, il faut récupérer
-le fichier md dans la langue désirée, le convertir via un traducteur
-automatique et le corriger.
-
-Prendre garde car les traducteur on tendance à transformer les codes 
-md du style 
-
-~~~md
-![La fenêtre d'édition](./img/editor.png)
-~~~
-
-en 
-
-~~~md
-! [La fenêtre d'édition] (./img/editor.png)
-~~~
-
-Une fois le fichier traduit, vous pouvez le convertir en format html
-via la commande (après avoir récupéré la feuille de style css sur 
-le net)
-
-~~~bash
-pandoc --toc --ascii --smart -N --css=pandoc.css  --from=markdown \
---to=html --output=es.html es.md
-~~~
-
-
-### Les images
-
-Les images sont à inclure dans le répertoire img du répertoire Langage/es,
-elles sont issues de copies d'écran. Si vous utilisez gimp vous pouvez utiliser 
-le plugin drawnumbers qui permet de produire les pastilles rouges.
-
-Il est disponible à l'adresse 
-[Draw-number](http://www.gillesmaire.com/tiki-index.php?page=draw-numbers)
 
 ## Compatibilité Chordpro
 
@@ -1108,4 +1263,8 @@ ChordPro 2ii                                Chord V
 
 ------------------------------------------------------------------------
 :Liste des commandes chordpro 2ii
+
+## Compilation du programme
+
+### Sous Linux
 
