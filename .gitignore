@@ -1,8 +1,13 @@
 *.pro.user
 *.pdf
 Makefile
-build
-bin
-code
+build/
+bin/
+code/
+Doxygen/
+podofo/
+Docs/html/
+Docs/pdf
+*.qm
 
 

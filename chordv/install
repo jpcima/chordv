@@ -1,0 +1,35 @@
+#!/bin/sh
+# for developpers only 
+# copy database and language files in .config/ChordV directory
+
+if [ `whoami` != "root" ]
+then
+	echo "you must be root to install"
+	exit 0
+fi
+CONF=~/.config/ChordV
+ENGFILE=/usr/share/chordV/Languages/English
+LANGFILE=/usr/share/chordV/Languages/Français
+mkdir -p $LANGFILE 
+mkdir -p $ENGFILE
+mkdir -p ~/.config/ChordV
+
+lrelease translations/fr.qm
+cp translations/fr.qm $LANGFILE
+cp translations/fr.ts $LANGFILE
+cp Images/fr.png $LANGFILE
+cp Images/en.png $ENGFILE
+cp Docs/html/fr/fr.html $LANGFILE/fr.html
+cp Docs/html/en/en.html $ENGFILE/en.html
+cp Docs/txt/fr/fr.md $LANGFILE/fr.md
+cp Docs/txt/en/en.md  $ENGFILE/en.md
+cp Example/fr.chop $LANGFILE/demo.chop
+cp Example/en.chop $ENGFILE/demo.chop
+cp -r Docs/html/fr/img $LANGFILE
+cp -r Docs/html/en/img $ENGFILE
+echo "Do,Ré,Mi,Fa,Sol,La,Si\n-,m\n" >$LANGFILE/fr.chords
+echo "C,D,E,F,G,A,B\n-,m\n" >$ENGFILE/en.chords
+
+
+
+
