@@ -34,6 +34,10 @@ Processor::Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2)
     m_line=m_uiconfig->spuPageHeight->getPdfU()- m_uiconfig->spuVerticalMargin->getPdfU();
     m_column=m_uiconfig->spuHorizontalMargin->getPdfU();
     if (m_file.isEmpty()) return;
+
+    QFile file(m_file);
+    file.open(QIODevice::ReadWrite);
+    file.close();
     QFileInfo fi(m_file);
     if ( !fi.isWritable() )  return;
     m_document = new PdfStreamedDocument(m_file.toStdString().c_str());
