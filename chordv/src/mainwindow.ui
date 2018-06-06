@@ -408,7 +408,6 @@
      <addaction name="actionChangeChordLang"/>
      <addaction name="actionTranspose_chords"/>
     </widget>
-    <addaction name="actionProduce_PDF_files"/>
     <addaction name="separator"/>
     <addaction name="actionPreferences"/>
     <addaction name="menuPreferences_hints"/>

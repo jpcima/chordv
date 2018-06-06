@@ -254,7 +254,7 @@ Site : http://www.gillesmaire.com</translation>
     <message>
         <location filename="../src/dialogchoosegoodchord.ui" line="14"/>
         <source>You defined the same name for two Chord !</source>
-        <translation>Your aveé défini le même nom pour deux accords !</translation>
+        <translation>Your avez défini le même nom pour deux accords !</translation>
     </message>
     <message>
         <location filename="../src/dialogchoosegoodchord.ui" line="36"/>
@@ -1075,7 +1075,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/formconfig.ui" line="680"/>
         <location filename="../src/formconfig.ui" line="776"/>
         <source>...</source>
-        <translation></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="179"/>
@@ -1134,22 +1134,22 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/formconfig.ui" line="359"/>
         <location filename="../src/formconfig.ui" line="662"/>
         <source>1</source>
-        <translation></translation>
+        <translation>1</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="364"/>
         <source>- 1 - </source>
-        <translation></translation>
+        <translation>- 1 - </translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="369"/>
         <source>1/50</source>
-        <translation></translation>
+        <translation>1/50</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="374"/>
         <source>&lt;&lt; 1 &gt;&gt;</source>
-        <translation></translation>
+        <translation>&lt;&lt; 1 &gt;&gt;</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="386"/>
@@ -1215,22 +1215,22 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="523"/>
         <source>Title position from top</source>
-        <translation>Titre positionné à </translation>
+        <translation>Titre positionné à</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="531"/>
         <source>1/3</source>
-        <translation></translation>
+        <translation>1/3</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="536"/>
         <source>1/2</source>
-        <translation></translation>
+        <translation>1/2</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="541"/>
         <source>2/3</source>
-        <translation></translation>
+        <translation>2/3</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="553"/>
@@ -1240,7 +1240,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="567"/>
         <source> - </source>
-        <translation></translation>
+        <translation> - </translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="605"/>
@@ -1294,12 +1294,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="667"/>
         <source>2</source>
-        <translation></translation>
+        <translation>2</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="672"/>
         <source>3</source>
-        <translation></translation>
+        <translation>3</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="612"/>
@@ -1334,12 +1334,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="688"/>
         <source>. . . .</source>
-        <translation></translation>
+        <translation>. . . .</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="693"/>
         <source>- - - -</source>
-        <translation></translation>
+        <translation>- - - -</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="644"/>
@@ -1865,7 +1865,7 @@ en boîte</translation>
     <message>
         <location filename="../src/forminputoutputchord.ui" line="63"/>
         <source>Destination</source>
-        <translation></translation>
+        <translation type="unfinished">Destination</translation>
     </message>
     <message>
         <source>Output file</source>
@@ -2818,7 +2818,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="809"/>
         <source>Copy</source>
-        <translation type="unfinished">Copier</translation>
+        <translation>Copier</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="812"/>

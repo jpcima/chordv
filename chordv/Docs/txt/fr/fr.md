@@ -323,6 +323,7 @@ Les gadgets de préférence permettent
 ## Le sous menu Aide
 
 Le sous menu Aide présente quatre options :
+
 - une rubrique Documentation
 - une rubrique A Propos
 - une rubrique Informations systèmes
@@ -355,10 +356,10 @@ de problème de fonctionnement de chordV :
 - les arguments avec lesquels le programme a été appelé
 - l'emplacement du programme sur votre disque
 - le répertoire où sont chargés les fichiers de traductions vous 
-permettant de l'utilise dans votre langue
+permettant de l'utiliser dans votre langue
 - la version du programme
-- le numéro de version git qui permet de retrouver le jour et l'heure
-de la conception de votre version du programme
+- le numéro de version git qui permet de retrouver les codes sources 
+de la version de votre programme
 - la date de compilation du programme
 - le nom et l'emplacement du fichier de configuration du programme
 chordV
@@ -366,16 +367,21 @@ chordV
 
 ### Charger le fichier de démonstration
 
-Ce fichier de démonstration est inclus dans le programme, il contient 
-des chansons du groupe des Jetés de l'Encre.
+Ce fichier de démonstration est inclus dans le programme au format
+chordV afin de vous montrer un fichier en cas réel d'utilisation
+il contient des chansons du groupe des Jetés de l'Encre.
 
 Ces chansons en langue françaises ont été écrites par Gilles Maire
 le concepteur du programme chordV.
 
 Si vous voulez entendre les Jetés de l'Encre en concert, vous pouvez
-vous rendre sur le site http://www.lesjetesdelencre.com
+vous rendre sur le site http://www.lesjetesdelencre.com pour : 
+- connaître les dates des concerts
+- sur le site vous retrouverez les différents livrets de chansons
+produits par chordV.
 
 
+	
 # Les balises de ChordV
 
 
