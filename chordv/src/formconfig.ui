@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>686</width>
+    <width>798</width>
     <height>497</height>
    </rect>
   </property>
@@ -413,47 +413,88 @@
              <property name="title">
               <string>Page topology</string>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_16">
+             <layout class="QHBoxLayout" name="horizontalLayout_36">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_27">
+               <layout class="QVBoxLayout" name="verticalLayout_16">
                 <item>
-                 <widget class="QLabel" name="labelDuplex">
-                  <property name="text">
-                   <string>Duplex</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxDuplex">
+                 <layout class="QHBoxLayout" name="horizontalLayout_27">
                   <item>
-                   <property name="text">
-                    <string>Simplex</string>
-                   </property>
+                   <widget class="QLabel" name="labelDuplex">
+                    <property name="text">
+                     <string>Duplex</string>
+                    </property>
+                   </widget>
                   </item>
                   <item>
-                   <property name="text">
-                    <string>Duplex</string>
-                   </property>
+                   <widget class="QComboBox" name="comboBoxDuplex">
+                    <item>
+                     <property name="text">
+                      <string>Simplex</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Duplex</string>
+                     </property>
+                    </item>
+                   </widget>
                   </item>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_13">
-                <item>
-                 <widget class="QLabel" name="labelPageColor">
-                  <property name="text">
-                   <string>Paper color</string>
-                  </property>
-                 </widget>
+                 </layout>
                 </item>
                 <item>
-                 <widget class="ColorButton" name="colorButtonPaperColor">
-                  <property name="text">
-                   <string>...</string>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout_32">
+                  <item>
+                   <widget class="QLabel" name="labelPageColor">
+                    <property name="text">
+                     <string>Paper color</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="ColorButton" name="colorButtonPaperColor">
+                    <property name="text">
+                     <string>...</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_13">
+                  <item>
+                   <spacer name="horizontalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonSetAsDefault1">
+                    <property name="toolTip">
+                     <string>Save this as default</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../Resources/resources.qrc">
+                      <normaloff>:/Image/Images/settings.png</normaloff>:/Image/Images/settings.png</iconset>
+                    </property>
+                    <property name="shortcut">
+                     <string>Shift+S, Esc</string>
+                    </property>
+                    <property name="flat">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </item>
@@ -835,7 +876,7 @@
              <property name="title">
               <string>Miscellaneous</string>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <layout class="QHBoxLayout" name="horizontalLayout_31">
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_8">
                 <item>
@@ -874,11 +915,45 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="checkBoxTitleInUppercase">
-                  <property name="text">
-                   <string>Title in uppercase</string>
-                  </property>
-                 </widget>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QCheckBox" name="checkBoxTitleInUppercase">
+                    <property name="text">
+                     <string>Title in uppercase</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonSetAsDefault2">
+                    <property name="toolTip">
+                     <string>Save this as default</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../Resources/resources.qrc">
+                      <normaloff>:/Image/Images/settings.png</normaloff>:/Image/Images/settings.png</iconset>
+                    </property>
+                    <property name="flat">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </item>
                </layout>
               </item>
@@ -933,6 +1008,8 @@
    <header>colorbutton.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../Resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

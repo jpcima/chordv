@@ -12,6 +12,7 @@
         <file>../Images/logo.svg</file>
         <file>../Images/greenbull.png</file>
         <file>../Images/redbull.png</file>
+        <file>../Images/settings.png</file>
     </qresource>
     <qresource prefix="/Base">
         <file>../Bd/Chord.db</file>
