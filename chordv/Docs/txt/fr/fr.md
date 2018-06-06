@@ -16,47 +16,60 @@ toutes les chansons il y a une histoire.
 
 Je vais ainsi vous raconter pourquoi j'ai créé ChordV.
 
-Je me suis rendu compte que mes amis guitaristes et chanteurs avaient la nostalgie
-des carnets de chant qui présentaient sur la même page les paroles et les accords.
+Je me suis rendu compte que mes amis guitaristes et chanteurs avaient
+la nostalgie des carnets de chant qui présentaient sur la même page les
+paroles et les accords.
+
 C'est le mode classique qui convient bien à tous les amateurs.
 
-Par contre, si j'ai connu beaucoup de chansons que j'aurais voulu rassembler dans
-ce type de  livrets, il se trouve qu'il y a un peu plus de dix ans, je me suis
-produit sur de petites scènes parisiennes avec mes propres chansons. On m'a peu à
-peu demandé d'aller chanter ici ou là en France et un peu partout mes petites
-rengaines. J'ai rencontré assez rapidement des musiciens qui me demandaient
-non plus des carnets de chant, mais des grilles d'accord.
+Par contre, si j'ai connu beaucoup de chansons que j'aurais voulu
+rassembler dans ce type de  livrets, il se trouve qu'il y a un peu plus
+de dix ans, je me suis produit sur de petites scènes parisiennes avec
+des propres chansons. On m'a peu à peu demandé d'aller chanter ici ou
+là en France et un peu partout mes petites rengaines. J'ai rencontré
+assez rapidement des musiciens qui ont eu la gentillesse de 
+m'accompgner qui me demandaient non plus des carnets de chant, 
+mais des grilles d'accord.
 
-En troisième lieu, il se trouve que lorsque que je chante devant des amis, ils
-me demandent les paroles pour pouvoir chanter avec moi. Ces amis ne sont ni
-guitaristes amateurs ni guitaristes professionnels et ils n'aiment pas lire
-des textes bariolés de schéma de guitare.
+En troisième lieu, il se trouve que lorsque que je chante devant des
+amis, ils me demandent les paroles pour pouvoir chanter avec moi. 
+Ces amis ne sont ni guitaristes amateurs ni guitaristes professionnels
+et ils n'aiment pas lire des textes bariolés de schéma de guitare.
 
-Enfin pour finir, j'enregistre mes disques avec Ardour sous machine Linux.
-J'enregistre, j'écoute le résultat, je réenregistre et parfois plusieurs fois de suite.
+Enfin pour finir, j'enregistre mes disques avec Ardour sous machine
+Linux. J'enregistre, j'écoute le résultat, je réenregistre et parfois
+plusieurs fois de suite.
 
-Lors des journées d'enregistrement j'essaie plusieurs interprétations et au bout
-de deux ou trois fois je ne sais plus si j'ai chanté un couplet ou si c'était
-dans la chanson précédente que je l'avais chanté. Alors j'hésite et cela s'entend
-sur les enregistrements. Il me fallait donc un mode aide mémoire.
+Lors des journées d'enregistrement j'essaie plusieurs interprétations
+et au bout de deux ou trois fois je ne sais plus si j'ai chanté un
+couplet ou si c'était dans la chanson précédente que je l'avais chanté. 
+Alors j'hésite et cela s'entend sur les enregistrements. Il me fallait
+donc un mode aide mémoire.
 
-Une fois que j'ai développé l'aide mémoire j'ai enregistré,  mais une fois que je
-reprenais l'enregistrement je devais faire plein de manipulations à la souris. 
+Une fois que j'ai développé l'aide mémoire et que  j'ai enregistré,
+j'ai remarqué qu'une fois que je reprenais l'enregistrement je devais
+faire beaucoup de manipulations à la souris. 
 
-C'est ainsi que j'ai pensé lier Ardour à ChordV pour que les paroles reviennent au début
-lorsque je demande à l'enregistreur de revenir au début.
+C'est ainsi que j'ai pensé lier Ardour à ChordV pour que les paroles 
+reviennent au début lorsque je demande à l'enregistreur de revenir au
+début.
 
-Il me manque un dernier point pour être complet, j'aime l'Open Source, c'est mon métier,
-j'aime développer. Mes chansons sont toutes open sources en Creative Common, elles sont livrées
-en démonstration de Chord V.
+Il me manque un dernier point pour être complet, j'aime l'Open Source, 
+c'est ma philosophie de vie et mon métier, j'aime développer. 
+Mes chansons sont toutes Open Sources en Creative Common, elles sont
+livrées en démonstration de Chord V.
 
-Pour finir, je ne pouvais pas développer un logiciel qui ne fonctionne pas sous Linux et qui ne soit pas Open Source.
+Pour finir, je ne pouvais pas développer un logiciel qui ne fonctionne 
+pas sous Linux et qui ne soit pas Open Source.
 
-J'ai développé ChordV en C++ avec la librairie Qt5. Il est donc portable sour MacOsx, Windows ou sur tablette
-Android ou Apple, mais je n'ai pas le temps de fabriquer l'installeur pour ces environnements.
+J'ai développé ChordV en C++ avec la librairie Qt5. Il est donc
+portable sour MacOsx, Windows ou sur tablette
+Android ou Apple, mais je n'ai pas le temps de fabriquer l'installeur
+pour ces environnements.
 
-Il se fait tard, j'ai des concerts à honorer, ils m'apportent beaucoup de bonheur. J'ai aussi
-une activité d'informaticien et d'enseignant à continuer. J'ai une famille qui me voit trop souvent de
+Il se fait tard, j'ai des concerts à honorer, ils m'apportent beaucoup
+de bonheur. J'ai aussi une activité d'informaticien et d'enseignant
+à continuer. J'ai une famille qui me voit trop souvent de
 dos en train d'écire des programmes ou des chansons.
 
 Il se fait tard, il faut que je vous laisse découvrir Chord V.
@@ -65,36 +78,40 @@ Il se fait tard, il faut que je vous laisse découvrir Chord V.
 ## Présentation du logiciel
 
 
-ChordV permet de produire différents types de fichiers PDF représentant une
-collection de  chansons
+ChordV permet de produire différents types de fichiers PDF représentant
+une collection de  chansons
 ChordV fournit ainsi :
-    - un éditeur de texte avec colorisation syntaxique et insertion des 
+
+- un éditeur de texte avec colorisation syntaxique et insertion des 
 	balises au format chord pro étendu
-    - un gestionnaire d'accords et d'une base d'accords guitare 
+- un gestionnaire d'accords et d'une base d'accords guitare 
     permettant d'ajouter ou d'insérer les accords
-	- quatre processeurs permettant de générer
+- quatre processeurs permettant de générer
 	    1. un livre contenant les paroles sans les accords ;
 		2. un livre contenant  accords et paroles ;
 		3. un livre contenant uniquement les grilles d'accords ;
-		4. un mode défilement des paroles avec possibilité de synchronisation
-		avec tout logiciel de lecture ou d'écriture compatible jack.
-- Pour chacun de ces modes la gestion des écran de configuration permet de faire les
-réglages précis des différentes options de sortie :
-   - **Texte :** dans ce mode, les paroles seules apparaissent, sans 
+		4. un mode défilement des paroles avec possibilité de
+		synchronisation avec tout logiciel de lecture ou d'écriture
+		compatible jack.
+
+Pour chacun de ces modes la gestion des écran de configuration permet
+de faire les réglages précis des différentes options de sortie :
+
+- **Texte :** dans ce mode, les paroles seules apparaissent, sans 
    aucune représentation d'accord. Ceci engendre des choix de police
    de caractères, de marges, de taille de page etc..
-   - **Lyrics :** dans ce mode, le texte et les accords sont affichés, avec
+- **Lyrics :** dans ce mode, le texte et les accords sont affichés, avec
    les même choix que ceux précédemment évoqués.
-   - **Accords :** dans ce mode, les accords ne sont affichés. Il est 
+- **Accords :** dans ce mode, les accords ne sont affichés. Il est 
    utile pour les musiciens d'accompagnement, avec
    les même choix que ceux précédemment évoqués.
-   - **Mémoire :** dans ce mode, un monitoring des paroles est proposé
-   pour permettre le suivi des paroles. Des options de position de fenêtre de
-   monitoring jusqu'au temps mort avant début du morceau sont proposées.
+- **Mémoire :** dans ce mode, un monitoring des paroles est proposé
+   pour permettre le suivi des paroles. Des options de position de
+   fenêtre de monitoring jusqu'au temps mort avant début du morceau
+   sont proposées.
 
-- ChordV utilise le langage de balises très efficace et simple de Chord Pro dont
-certaines balises sont étendues :
-
+ChordV utilise le langage de balises très efficace et simple de Chord
+Pro dont certaines balises sont étendues.
 
 Voici pour mémoire un exemple de fichier chord pro :
 
@@ -113,10 +130,11 @@ She is  [Am] standing  [G] right in   [F]  front of me
 ~~~~
 
 Chord V peut utiliser le fichier chord pro tel quel mais
-en perdant le bénéfice du suivi rythmique des paroles du mode mémorisation.
+en perdant le bénéfice du suivi rythmique des paroles du mode
+mémorisation.
 
-En ChordV on aura plutôt tendance à indiquer si les accords s'appliquent à une mesure
-ou un rythme ainsi :
+En ChordV on aura plutôt tendance à indiquer si les accords s'appliquent
+à une mesure ou un rythme ainsi :
 
 ~~~
 {title:Let it be}
@@ -128,16 +146,17 @@ When I  [C:2] find myself in  [G:2]  times of trouble
 Am Mother  [G:2] Mary  [F:2]  comes to me
 ~~~~
 
-La notation [C:2] indique que l'accord de Do est joué sur une demi mesure.
-Se reporter au chapitre [Signature rythmique et tempo](#SignatureRytmique) pour
-les détails des temps sur les accords.
+La notation [C:2] indique que l'accord de Do est joué sur une demi
+mesure.
+Se reporter au chapitre
+[Signature rythmique et tempo](#SignatureRytmique) pour les détails des
+temps sur les accords.
 
 
 # La fenêtre d'édition
 
-## Présentation
 
-### La fenêtre d'édition
+## L'éditeur
 
 ![La fenêtre d'édition](./img/editor.png)
 
@@ -146,8 +165,8 @@ et de zoomer la police de caractères. En regard les items du menu vous
 disposez de raccourcis clavier.
 2. Les icones permettent d'insérer les Titres de couverture, les mesures
 et toutes les informations qui sont surlignées en violet sur la figure.
-3. La zone de texte vous permet d'éditer texte et accords les chansons au format
-chord pro
+3. La zone de texte vous permet d'éditer texte et accords les chansons
+au format chord pro
 4. La partie log affiche des messages d'erreur étiquetés en rouge
 et des messages de succès étiquetés en vert.
 5. Quand vous sélectionner un accord, en actionnant la molette de la
@@ -157,7 +176,7 @@ la molette vers soi.
 6. Un navigateur table des matières permet de se rendre directement à
 la chanson désirée
 
-### La liste des chansons automatique
+## La liste des chansons automatique
 
 ![Liste des chansons](./img/toc.png)
 
@@ -171,29 +190,52 @@ titre de la chanson dans le texte.
 Deux choses sont à remarquer : 
 
 - si vous entrez dans le mode aide mémoire via la touche F8 vous 
-retrouverez cette liste mais nous reviendrons à son utilisation (attention
-pour revenir au mode éditeur vous devrez revenir dans le mode éditeur 
-par la touche F2).
-- Notez que si vous avez cliqué sur un titre, ce titre est automatiquement
-sélectionné dans la fenêtre aide mémoire. 
-- La deuxième chose à remarquer c'est que le titre de la chanson apparaît
-dans la zone de status en bas de l'écran. Nous y reviendrons. 
+retrouverez cette liste mais nous reviendrons à son utilisation
+(attention pour revenir au mode éditeur vous devrez revenir dans le mode
+éditeur  par la touche F2).
+- Notez que si vous avez cliqué sur un titre, ce titre est
+automatiquement sélectionné dans la fenêtre aide mémoire. 
+- La deuxième chose à remarquer c'est que le titre de la chanson
+apparaît dans la zone de status en bas de l'écran. Nous y reviendrons. 
+
+## La barre des status
+
+La barre des status présente les informations suivantes :
+
+![Barre de status](./img/statusbar.png)
+
+1. La fenêtre dans laquelle on se trouve peut être l'éditeur de texte,
+les définitions globales, les réglages du mode texte, les réglages du
+mode accord, les réglages du mode accord et texte et la gestion du
+monde monitoring des paroles
+2. Le nom du fichier qui apparait en vert si le fichier peut être
+modifié et en rouge dans le cas contraire
+3. Le nom du répertoire qui apparait en vert si le répertoire peut être
+accessible en écriture modifié et en rouge dans le cas contraire
+4. Le nombre de chansons contenues du fichier courant
+5. Le nom de la chanson sélectionnée ou la chanson dont la sélection
+est conservée.
+6. Un mode de blocage permettant de garder la chanson sélectionnée
+sauvegardée, ce qui peut s'avérer utile si on travaille en mode
+monitoring des paroles notamment dans le cas d'une séance
+d'enregistrements où la chanson sera enregistrée plusieurs fois.
 
 
-### Le menu général 
+# Le menu général 
 
-#### Présentation 
+## Présentation 
 
 ![Le menu](./img/menu.png)
 
 Le menu général permet de gérer 
-    - le sous menu Fichier
-    - le sous menu Édition 
-    - le sous menu fenêtre
-    - le sous menu Outils
-    - le sous menu Aide
+
+- le sous menu Fichier
+- le sous menu Édition 
+- le sous menu fenêtre
+- le sous menu Outils
+- le sous menu Aide
     
-#### Le sous menu Fichier
+## Le sous menu Fichier
 
 En commençant à manipuler les différents item du menu, qui sont  
 pour le moins très classique, on remarquer qu'on peut ouvrir des
@@ -203,17 +245,18 @@ Les fichiers cho3 sont des fichiers chord classiques, avec les balises
 étendues chordV. 
 
 Les fichiers chop sont des fichiers projet contenant 
-    - un fichier cho3 inclu dans le fichier et on pas un fichier lié. 
-    Cela veut dire que vous pouvez copier uniquement le fichier chop qui
-    est tout à fait autonome.
-    - des attributs au format ini qui permettent de sauvegarder tout
-    ce qui vous intéresse quant à la mise en page : couleur des 
-    couverture, recto verso, marges etc ...
+
+- un fichier cho3 inclu dans le fichier et on pas un fichier lié. 
+Cela veut dire que vous pouvez copier uniquement le fichier chop qui
+est tout à fait autonome.
+- des attributs au format ini qui permettent de sauvegarder tout
+ce qui vous intéresse quant à la mise en page : couleur des 
+couverture, recto verso, marges etc ...
     
 Actuellement la norme cho évolue pour permettre l'adjonction de ces
-attributs mais d'une part les fichiers deviennent vite illisibles d'autre
-part les possibilités offertes sont beaucoup plus limitée que celles
-que vous offre chordV.
+attributs mais d'une part les fichiers deviennent vite illisibles 
+d'autre part les possibilités offertes sont beaucoup plus limitée que
+celles que vous offre chordV.
 
 Il est donc conseillé de travailler avec des fichiers chop et si vous 
 devez donner à quelqu'un qui utilise chordpro un fichier qu'il pourra
@@ -226,36 +269,117 @@ Enfin notez qu'à la fin des la liste des items vous pouvez récupérer
 la liste des 10 derniers fichiers chop ouverts.
 
 
-#### Le sous menu Édition 
+## Le sous menu Édition
 
-#### Le sous menu fenêtre
+Le sous menu d'édition est classiquement équipé d'un menu de recherche,
+recherche remplace et changement de la taille des polices.
 
-#### Le sous menu Outils
+Les traditionnelles opton Copier, Couper et Coller sont naturellement
+disponibles pour copier, couper et coller du texte.
 
-#### Le sous menu Aide
+## Le sous menu fenêtre
+
+Le sous menu fenêtre présente les différentes fenêtres accessibles :
+
+- La fenêtre d'édition permet d'entrer le texte des chansons ainsi que 
+les accords et les différentes balises de réglage
+- La fenêtre des définitions globales qui permet de régler différentes 
+options comme un texte en filigrane qui vient s'afficher en travers des 
+pages de chaque carnet.
+- La fenêtre de définition du carnet de chanson textes
+- La fenêtre de définition du carnet de chanson textes et accords
+- La fenêtre de définition du carnet de grilles d'accords
+- La fenêtre permettant de lancer le mode aide mémoire 
+
+Les fenêtres de définition des carnet de chanson textes, textes et
+accords et grilles se ressemblent et sont en tout point identiques
+à leur définition par défaut accessible dans le menu des préférences.
+
+Ainsi vous pouvez choisir les options par défaut qui vous seront
+présentées pour chacun de vos carnets de chanson dans les préférences
+et les affiner dans l'une des fenêtres.
+
+La fenêtre de définition de l'aide mémoire est la même que la fenêtre 
+définie dans les préférences mais ses fonctionalités sont différentes
+le mode aide mémoire présente les textes à l'écran et non plus dans 
+des documents PDF. Ainsi les problématiques adressées sont davantage
+plein écran, fenêtre en bas ou en haut que le mode recto verso.
+
+Le détail de chacunes de ces feneêtres est explicité dans la partie 
+[Préférences et réglages](#PreferencesReglages)  !
 
 
-### La barre des status
+## Le sous menu Outils
 
-La barre des status présente les informations suivantes :
+Le sous menu Outils comprends un certain nombres d'actions que l'on
+peut effectuer sur ChordV.
 
-![Barre de status](./img/statusbar.png)
+Le premier item concerne les Préférences que sont présentées dans le
+chapitre [Préférences et réglages](#PreferencesReglages)
 
-1. La fenêtre dans laquelle on se trouve peut être l'éditeur de texte, les définitions globales, les réglages du mode texte,
-les réglages du mode accord, les réglages du mode accord et texte et la gestion du monde monitoring des paroles
-2. Le nom du fichier qui apparait en vert si le fichier peut être modifié et en rouge dans le cas contraire
-3. Le nom du répertoire qui apparait en vert si le répertoire  peut être accessible en écriture modifié et en rouge dans le cas contraire
-4. Le nombre de chansons contenues du fichier courant
-5. Le nom de la chanson sélectionnée ou la chanson dont la sélection est conservée.
-6. Un mode de blocage permettant de garder la chanson sélectionnée sauvegardée, ce qui peut s'avérer utile si on travaille en mode monitoring des paroles
-notamment dans le cas d'une séance d'enregistrements où la chanson sera enregistrée plusieurs fois.
+Les gadgets de préférence permettent 
 
 
+## Le sous menu Aide
 
-## Les balises de ChordV
+Le sous menu Aide présente quatre options :
+- une rubrique Documentation
+- une rubrique A Propos
+- une rubrique Informations systèmes
+- une rubrique Charger le fichier de démonstration
+
+### La Documentation
+
+La documentation au format HTML est présentée dans une fenêtre de 
+dialogue. Peut être que vous lisez la présente documentation via cette
+rubrique dans le logiciel ChordV ou peut être la lisez vous via un 
+navigateur Web car le documention est également disponible sur Internet,
+enfin peut être lisez vous encore la documentation au format PDF.
+
+En effet la documentation originelle a été conçue dans un format texte
+qui permet sa génération en Word, en Libre Office, en PDF, en 
+PostScript, en HTML, en Epub et bien d'autres formats.
+
+### A propos
+
+Cette rubrique fournit un certain nombre d'informations sur le
+concepteur et les divers outils de conception. Ce produit étant libre,
+il a été conçu avec des outils libres qui sont mentionés ici.
+
+### Informations systèmes
+
+On trouve ici les informations systèmes utiles aux développeurs en cas
+de problème de fonctionnement de chordV :
+
+- le nom du programme tel qu'il existe sur votre disque
+- les arguments avec lesquels le programme a été appelé
+- l'emplacement du programme sur votre disque
+- le répertoire où sont chargés les fichiers de traductions vous 
+permettant de l'utilise dans votre langue
+- la version du programme
+- le numéro de version git qui permet de retrouver le jour et l'heure
+de la conception de votre version du programme
+- la date de compilation du programme
+- le nom et l'emplacement du fichier de configuration du programme
+chordV
+- le nom de la base de données Sqlite3 où sont rangés les accords
+
+### Charger le fichier de démonstration
+
+Ce fichier de démonstration est inclus dans le programme, il contient 
+des chansons du groupe des Jetés de l'Encre.
+
+Ces chansons en langue françaises ont été écrites par Gilles Maire
+le concepteur du programme chordV.
+
+Si vous voulez entendre les Jetés de l'Encre en concert, vous pouvez
+vous rendre sur le site http://www.lesjetesdelencre.com
 
 
-### Le langage à balise de chord pro
+# Les balises de ChordV
+
+
+## Le langage à balise de chord pro
 
 On peut trouver étrange qu'un logiciel moderne ne présente pas une
 interface Wysiwyg, c'est à dire dont l'aspect ressemble à la sortie
@@ -270,9 +394,9 @@ extensions utiles au programme. Ainsi vous pourrez charger dans ChordV
 l'ensemble des fichiers chord pro disponibles dans les resources
 musicales libres du net.
 
-### Les titres
+## Les titres
 
-#### Titre du document
+### Titre du document
 
 ~~~chord
 {covertitle: titre }
@@ -284,7 +408,7 @@ Un seul titre par document est admis
 La notation abrégée est {ct: titre }
 
 
-#### Sous titre du document
+### Sous titre du document
 
 ~~~chordpro
 {coversubtitle: sous titre}
@@ -296,7 +420,7 @@ Un seul sous titre par document
 
 La notation abrégée est {cs: titre }
 
-#### Titre d'une chanson
+### Titre d'une chanson
 
 ~~~
 {title: titre de la chanson}
@@ -310,7 +434,7 @@ titres consécutif on provoque un saut de page avec une chanson vide pour la pre
 
 La notation abrégée est {t: titre }
 
-#### Sous titre d'une chanson
+### Sous titre d'une chanson
 
 ~~~
 {subtitle: sous titre d'une chanson }
@@ -325,16 +449,15 @@ catégorie.
 La notation abrégée est {st: titre }
 
 
-### Ordre de pagination
+## Ordre de pagination
 
-#### Sauts
+### Sauts
 
 ~~~
 -----
 ~~~
 
-#### Nombre de colonnes pour la chanson
-
+### Nombre de colonnes pour la chanson
 
 
 ~~~
@@ -355,7 +478,7 @@ Provoque la génération d'une nouvelle colonne.
 La notation abrégée est {colb}
 
 
-#### Nouvelle chanson
+### Nouvelle chanson
 
 ~~~
 {new_song}
@@ -367,7 +490,7 @@ d'autres implémentations du forma cho
 
 La notation abrégée est {ns}
 
-#### Diminution de l'interlignage
+### Diminution de l'interlignage
 
 ~~~
 {compress}
@@ -378,9 +501,9 @@ Si une chanson ne rentre pas tout à fait dans une page, on peut activer le mode
 compress qui réduira l'interlignage de la chanson à partir du moment ou l'argument
 est rencontré
 
-### Sections
+## Sections
 
-#### Début de chorus
+### Début de chorus
 
 
 ~~~
@@ -391,7 +514,7 @@ Indique le début d'un chorus.
 
 La notation abrégée est {soc}
 
-#### Fin du chorus
+### Fin du chorus
 
 ~~~
 {end_of_chorus}
@@ -401,7 +524,7 @@ Indique la fin du chorus
 
 Lanotation abrégée est {eoc}
 
-#### Refrain
+### Refrain
 
 ~~~
 {Refrain}
@@ -409,13 +532,13 @@ Lanotation abrégée est {eoc}
 
 Indique le refrain
 
-### Signature rytmique et tempo {#SignatureRytmique}
+## Signature rytmique et tempo {#SignatureRytmique}
 
-#### Remarques
+### Remarques
 
 Ces valeurs seront reportées dans le mode grille d'accord et largement utilisées dans le mode aide mémoire.
 
-#### Tempo
+### Tempo
 
 - Le tempo sera représenté par la balise
 
@@ -432,17 +555,17 @@ quelle que soit la langue choisie.
 L'introduction d'une décimale est peu usuelle dans la notation musicale conventionnelle, mais certains logiciels permettent
 cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morceau
 
-#### Signature rythmique
+### Signature rythmique
 
 - La signature rythmique d'un morceau est représenté par la balise {time:4/4}
 
 - Si aucune signature rythmique n'est mentionné pour un morceau, la value 4/4 sera assignée
 
 
-### Les accords
+## Les accords
 
 
-#### Notation de base
+### Notation de base
 
 
 - En format anglais (si le format est configuré en anglais) on suit la notation ABCDEFG
@@ -460,7 +583,7 @@ cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morcea
 - Le mode mineur est noté - si les accords sont en anglais et m s'ils sont en français et configuré comme tel
 - Les mode 7 6 5 13 etc sont noté en chiffre
 
-#### Notation étendue
+### Notation étendue
 
 - Les barrés son notés en chiffre romain avec la case du barré  :
 
@@ -496,7 +619,7 @@ Ainsi pour une mesure de signature 4/4 les notations :
 - [La:4] signifiera une mesure divisée par 4 c'est à dire 1 temps
 
 
-#### Insertion des accords dans l'éditeur
+### Insertion des accords dans l'éditeur
 
 En double cliquant sur le texte la fenêtre d'inclusion d'accord vous
 permet de sélectionner un accord par l'appui sur le bouton Inserer
@@ -519,7 +642,7 @@ en maintenant la touche SHIFT appuyée dans l'éditeur.
 
 
 
-# Les préférences du logiciel
+# Préférences et réglages du logiciel {#PreferencesReglages}
 
 
 ## De l'utilité des préférences

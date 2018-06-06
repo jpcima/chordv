@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>951</width>
-    <height>703</height>
+    <height>766</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -344,7 +344,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>22</height>
+     <height>39</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -435,11 +435,16 @@
     <property name="title">
      <string>&amp;Edition</string>
     </property>
+    <addaction name="actionCopy"/>
+    <addaction name="actionCut"/>
+    <addaction name="actionPaste"/>
+    <addaction name="separator"/>
     <addaction name="actionSearch"/>
     <addaction name="actionReplace"/>
     <addaction name="separator"/>
     <addaction name="actionZoomIn"/>
     <addaction name="actionZoomOut"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuOutput">
     <property name="title">
@@ -797,6 +802,30 @@
   <action name="actionLoad_demo_file">
    <property name="text">
     <string>&amp;Load demo file</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
    </property>
   </action>
  </widget>

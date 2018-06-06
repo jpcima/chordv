@@ -127,6 +127,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect (ui->textEditCho3File,SIGNAL(SongSelected(QString)),this,SLOT(SelectSongInMemory(QString)));
     connect (&m_protectStatusBar,SIGNAL(clicked(bool)),&m_selectedsongStatusBar,SLOT(setDisabled(bool)));
     connect (ui->tableWidgetToc,SIGNAL(clicked(QModelIndex)),this,SLOT(SetSelected(QModelIndex)));
+    connect (ui->actionCopy,SIGNAL(triggered(bool)),ui->textEditCho3File,SIGNAL(Copy()));
+    connect (ui->actionCut,SIGNAL(triggered(bool)),ui->textEditCho3File,SIGNAL(Cut()));
+    connect (ui->actionPaste,SIGNAL(triggered(bool)),ui->textEditCho3File,SIGNAL(Paste()));
+
     ui->tableWidgetToc->setColumnCount(1);
     ui->tableWidgetToc->setColumnWidth(0,65532);
     ui->tableWidgetToc->setSelectionMode(QAbstractItemView::SingleSelection);

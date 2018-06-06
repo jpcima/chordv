@@ -53,6 +53,10 @@ FormEditor::FormEditor(QWidget *parent) :
     connect(ui->textEdit,SIGNAL(textChanged()),this,SLOT(TocUpdate()));
     connect(ui->tableWidgetToc,SIGNAL(clicked(QModelIndex)),this,SLOT(TocToText(QModelIndex)));
     connect (m_dialognewsong,SIGNAL(InsertSong(QString,QString,bool,int,double,int,int)),this,SLOT(InsertSong(QString,QString,bool,int,double,int,int)));
+    connect (this,SIGNAL(Copy()),ui->textEdit,SLOT(copy()));
+    connect (this,SIGNAL(Cut()),ui->textEdit,SLOT(cut()));
+    connect (this,SIGNAL(Paste()),ui->textEdit,SLOT(paste()));
+
 }
 
 

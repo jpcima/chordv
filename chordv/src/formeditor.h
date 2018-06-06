@@ -155,6 +155,9 @@ private slots:
 signals:
     void Toc(QStringList);
     void SongSelected(QString);
+    void Copy();
+    void Cut();
+    void Paste();
 };
 
 #endif // FORMEDITOR_H
