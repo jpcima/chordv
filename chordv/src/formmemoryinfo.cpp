@@ -19,6 +19,16 @@ FormMemoryInfo::FormMemoryInfo(QWidget *parent) :
     connect (ui->spinBoxTimeBeforeStart,SIGNAL(valueChanged(int)),this,SLOT(SetUnsetAdvance(int)));
     connect (ui->checkBoxClick,SIGNAL(clicked(bool)),this,SLOT(SetUnsetClick()));
     connect (ui->checkBoxJackSynchronisation,SIGNAL(clicked(bool)),this,SLOT(SetSynchronisation(bool)));
+    connect (ui->pushButtonSetAsDefault,SIGNAL(clicked(bool)),this,SLOT(SaveAsDefault()));
+}
+
+void FormMemoryInfo::SaveAsDefault()
+{
+    Save();
+}
+void FormMemoryInfo::setOffSetAsDefault()
+{
+    ui->pushButtonSetAsDefault->setVisible(false);
 }
 
 void FormMemoryInfo::SetUnsetAdvance(int time)
@@ -65,23 +75,33 @@ void FormMemoryInfo::Init()
     ShowSelectedFont(ui->toolButtonFontMemory->getFont(),ui->toolButtonFontMemory->getTextColor(),ui->toolButtonFontMemory->getBackgroundColor());
 }
 
-void FormMemoryInfo::Save()
+void FormMemoryInfo::Save(QString filename)
 {
-    QSettings s;
-    s.setValue("Memory/FullScreenBox", ui->checkBoxFullScreenMemory->isChecked());
-    s.setValue("Memory/ShowRythm", ui->checkBoxShowRythmTextMemory->isChecked());
-    s.setValue("Memory/Position",ui->comboBoxPositionMemory->currentIndex());
-    s.setValue("Memory/ShowTwoLines",ui->checkBoxTwoLines->isChecked());
-    s.setValue("Memory/Font",ui->toolButtonFontMemory->getFont().toString());
-    s.setValue("Memory/FontColor",ui->toolButtonFontMemory->getTextColor().name());
-    s.setValue("Memory/BackgroundColor",ui->toolButtonFontMemory->getBackgroundColor().name());
-    s.setValue("Memory/Advance",ui->doubleSpinBoxAdvance->value());
-    s.setValue("Memory/TimeBeforeStart",ui->spinBoxTimeBeforeStart->value());
-    s.setValue("Memory/TimeBeforeUnit",ui->comboBoxTimeBeforeUnit->currentIndex());
-    s.setValue("Memory/Volume",ui->horizontalSliderVolume->value());
-    s.setValue("Memory/Click",ui->checkBoxClick->isChecked());
-    s.setValue("Memory/MarkFirstClick",ui->checkBoxMarkFirst->isChecked());
-    s.setValue("Memory/JackSynchro",ui->checkBoxJackSynchronisation->isChecked());
+    QSettings *s,*s1,*s2;
+    if (filename.isEmpty())
+    {
+        s1=new QSettings;
+        s=s1;
+    }
+    else
+    {
+        s2=new QSettings(filename);
+        s=s2;
+    }
+    s->setValue("Memory/FullScreenBox", ui->checkBoxFullScreenMemory->isChecked());
+    s->setValue("Memory/ShowRythm", ui->checkBoxShowRythmTextMemory->isChecked());
+    s->setValue("Memory/Position",ui->comboBoxPositionMemory->currentIndex());
+    s->setValue("Memory/ShowTwoLines",ui->checkBoxTwoLines->isChecked());
+    s->setValue("Memory/Font",ui->toolButtonFontMemory->getFont().toString());
+    s->setValue("Memory/FontColor",ui->toolButtonFontMemory->getTextColor().name());
+    s->setValue("Memory/BackgroundColor",ui->toolButtonFontMemory->getBackgroundColor().name());
+    s->setValue("Memory/Advance",ui->doubleSpinBoxAdvance->value());
+    s->setValue("Memory/TimeBeforeStart",ui->spinBoxTimeBeforeStart->value());
+    s->setValue("Memory/TimeBeforeUnit",ui->comboBoxTimeBeforeUnit->currentIndex());
+    s->setValue("Memory/Volume",ui->horizontalSliderVolume->value());
+    s->setValue("Memory/Click",ui->checkBoxClick->isChecked());
+    s->setValue("Memory/MarkFirstClick",ui->checkBoxMarkFirst->isChecked());
+    s->setValue("Memory/JackSynchro",ui->checkBoxJackSynchronisation->isChecked());
 
 }
 

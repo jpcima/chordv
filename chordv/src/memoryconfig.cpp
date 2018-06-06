@@ -3,5 +3,5 @@
 
 MemoryConfig::MemoryConfig(QWidget *parent) : FormConfig(parent)
 {
-    InitDefault(FormConfig::Memory);
+    InitDefault("Memory");
 }

@@ -24,6 +24,11 @@ DialogConfiguration::DialogConfiguration(QWidget *parent) :
     connect(ui->toolButtonPDFReaderName,SIGNAL(clicked(bool)),this,SLOT(SetPDFReader()));
     Connect();
     InitSettings();
+    ui->tabWidget->setCurrentIndex(0);
+    ui->widgetMemory->setOffSetAsDefault();
+    ui->lyricsConfig->setOffButtonSetAsDefault();
+    ui->textConfig->setOffButtonSetAsDefault();
+    ui->chordConfig->setOffButtonSetAsDefault();
 }
 
 void DialogConfiguration::setTranslator(QTranslator *translator)
@@ -106,9 +111,9 @@ void DialogConfiguration::Save()
    s.setValue("PDFReader",ui->lineEditPDFReaderName->text());
    s.setValue("OpenLastFileOnStart",ui->checkBoxOpenLastFileOnStart->isChecked());
 
-   ui->chordConfig->Save(s.fileName(),FormConfig::Chord);
-   ui->textConfig->Save(s.fileName(),FormConfig::Text);
-   ui->lyricsConfig->Save(s.fileName(),FormConfig::Lyrics);
+   ui->chordConfig->Save(s.fileName(),"Chord");
+   ui->textConfig->Save(s.fileName(),"Text");
+   ui->lyricsConfig->Save(s.fileName(),"Lyrics");
    ui->widgetMemory->Save();
 
    close();

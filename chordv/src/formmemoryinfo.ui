@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>366</width>
+    <width>402</width>
     <height>540</height>
    </rect>
   </property>
@@ -296,6 +296,9 @@
             <property name="icon">
              <iconset resource="../Resources/resources.qrc">
               <normaloff>:/Image/Images/settings.png</normaloff>:/Image/Images/settings.png</iconset>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

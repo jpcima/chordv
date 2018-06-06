@@ -13,6 +13,12 @@
 #include <QLineEdit>
 #include <QSettings>
 
+void FormConfig::setOffButtonSetAsDefault()
+{
+    ui->pushButtonSetAsDefault1->setVisible(false);
+    ui->pushButtonSetAsDefault2->setVisible(false);
+}
+
 FormConfig::FormConfig(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FormConfig)
@@ -31,6 +37,8 @@ FormConfig::FormConfig(QWidget *parent) :
     connect(ui->spuPageWidth,SIGNAL(valueChanged(double)),this,SLOT(FindSize(double)));
     connect(ui->toolButtonSuppressCoverImage,SIGNAL(clicked(bool)),this,SLOT(deleteCoverImage(bool)));
     connect (ui->comboBoxPageNumberStyle,SIGNAL(currentIndexChanged(int)),this,SLOT(CheckArrow(int)));
+    connect (ui->pushButtonSetAsDefault1,SIGNAL(clicked(bool)),this,SLOT(SaveAsConfig()));
+    connect (ui->pushButtonSetAsDefault2,SIGNAL(clicked(bool)),this,SLOT(SaveAsConfig()));
 }
 
 void FormConfig::SizeChanged(bool)
@@ -198,10 +206,9 @@ void FormConfig::setValue(QString var, QVariant value)
 }
 
 
-void FormConfig::InitDefault(Classes c)
+void FormConfig::InitDefault(QString classe)
 {
 
-    QString classe=classe2String(c);
     Settings *s;
     if( m_configFileName.isEmpty()) s = new Settings() ;
     else s= new Settings(m_configFileName);
@@ -288,11 +295,15 @@ void FormConfig::SetConfigFromInit()
 {
     m_configFileName="";
 }
-
-
-void FormConfig::Save(QString filename, Classes classe)
+void FormConfig::SaveAsConfig()
 {
-    QString section=classe2String(classe);
+    QString mode=this->parent()->objectName().replace(QRegExp("^page"),"").replace(QRegExp("Mode$"),"");
+    QSettings s;
+    Save( s.fileName(),mode);
+}
+
+void FormConfig::Save(QString filename, QString section)
+{
     QSettings sf(filename,QSettings::IniFormat);
 
     foreach (FontButton *w ,m_parent->findChildren<FontButton*>())
@@ -386,14 +397,6 @@ void FormConfig::deleteCoverImage(bool)
 {
     ui->labelCoverViewImage->setPixmap(QPixmap());
     ui->toolButtonCoverImage->setImage("");
-}
-
-QString FormConfig::classe2String(Classes name)
-{
-    if ( name == Memory ) return "Memory";
-    if ( name == Text ) return "Text";
-    if ( name == Lyrics) return "Lyrics";
-    else  return "Chord";
 }
 
 

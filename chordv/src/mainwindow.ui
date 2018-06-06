@@ -26,7 +26,7 @@
       </property>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="currentIndex">
-        <number>5</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="pageEditor">
         <layout class="QHBoxLayout" name="horizontalLayout_14">
@@ -84,46 +84,6 @@
                   </layout>
                  </item>
                 </layout>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBoxLyricsMode">
-                 <property name="text">
-                  <string>Lyrics and chords mode book</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBoxChordMode">
-                 <property name="text">
-                  <string>Chords only mode book</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBoxTextMode">
-                 <property name="text">
-                  <string>Text only mode book</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QCheckBox" name="checkBoxMemoryMode">
-                 <property name="text">
-                  <string>Memory mode book</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
                </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -217,14 +177,14 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="pageLyricsAndChordMode">
+       <widget class="QWidget" name="pageLyricsMode">
         <layout class="QVBoxLayout" name="verticalLayout_13">
          <item>
           <widget class="LyricsConfig" name="widgetLyricsMode" native="true"/>
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="pageChordMpde">
+       <widget class="QWidget" name="pageChordMode">
         <layout class="QVBoxLayout" name="verticalLayout_14">
          <item>
           <widget class="ChordConfig" name="widgetChordMode" native="true"/>
@@ -344,7 +304,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>39</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -805,7 +765,7 @@
   </action>
   <action name="actionCopy">
    <property name="text">
-    <string>Copy</string>
+    <string>&amp;Copy</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+C</string>
@@ -813,7 +773,7 @@
   </action>
   <action name="actionCut">
    <property name="text">
-    <string>Cut</string>
+    <string>C&amp;ut</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+X</string>
@@ -821,7 +781,7 @@
   </action>
   <action name="actionPaste">
    <property name="text">
-    <string>Paste</string>
+    <string>&amp;Paste</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+P</string>

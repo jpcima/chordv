@@ -21,6 +21,7 @@ public:
     /// \param parent
     ///
     explicit FormMemoryInfo(QWidget *parent = 0);
+    void setOffSetAsDefault();
     ~FormMemoryInfo();
 
 private:
@@ -34,7 +35,7 @@ public:
     ///
     /// \brief Save save all the records in setting file
     ///
-    void Save();
+    void Save(QString filename=QString());
     ///
     /// \brief getFont return selected Font
     /// \return
@@ -81,6 +82,7 @@ private slots:
     void SetUnsetAdvance(int time);
     void SetUnsetClick();
     void SetSynchronisation(bool);
+    void SaveAsDefault();
 signals:
     void SynchroMode(bool);
 };

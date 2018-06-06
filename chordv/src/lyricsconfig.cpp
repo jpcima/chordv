@@ -2,5 +2,5 @@
 
 LyricsConfig::LyricsConfig(QWidget *parent):FormConfig(parent)
 {
-    InitDefault(FormConfig::Lyrics);
+    InitDefault("Lyrics");
 }
