@@ -1,6 +1,6 @@
 % Documentation utilisateur de Chord V
 % Gilles Maire 
-% Juin 2018 Version 0.7
+% Juin 2018 Version 0.8
 
 
 # Introduction 
@@ -420,7 +420,9 @@ La notation abrégée est {ct: titre }
 {coversubtitle: sous titre}
 ~~~
 
-Fournit le sous titre du document, c'est à dire un texte accompagnant le titre
+Fournit le sous titre du document, c'est à dire un texte accompagnant
+le titre.
+
 Un seul sous titre par document
 
 
@@ -433,9 +435,10 @@ La notation abrégée est {cs: titre }
 ~~~
 
 
-C'est le titre d'une chanson. On trouve autant de rubriques title que de chansons
-dans le document. On ne peut avoir qu'un seul titre par chanson. Si on définit deux
-titres consécutif on provoque un saut de page avec une chanson vide pour la première.
+C'est le titre d'une chanson. On trouve autant de rubriques title que
+de chansons dans le document. On ne peut avoir qu'un seul titre par 
+chanson. Si on définit deux titres consécutif on provoque un saut de 
+page avec une chanson vide pour la première.
 
 
 La notation abrégée est {t: titre }
@@ -446,11 +449,11 @@ La notation abrégée est {t: titre }
 {subtitle: sous titre d'une chanson }
 ~~~
 
-C'est un sous titre, accompagnant la chanson. On peut fournir plusieurs sous titres
-qui seront séparés par des sauts de ligne.
+C'est un sous titre, accompagnant la chanson. On peut fournir plusieurs
+sous titres qui seront séparés par des sauts de ligne.
 
-On peut trouver les noms des auteurs, des compositeurs ou des interprètes dans cette
-catégorie.
+On peut trouver les noms des auteurs, des compositeurs ou des 
+interprètes dans cette catégorie.
 
 La notation abrégée est {st: titre }
 
@@ -503,9 +506,9 @@ La notation abrégée est {ns}
 ~~~
 
 
-Si une chanson ne rentre pas tout à fait dans une page, on peut activer le mode
-compress qui réduira l'interlignage de la chanson à partir du moment ou l'argument
-est rencontré
+Si une chanson ne rentre pas tout à fait dans une page, on peut 
+activer le mode compress qui réduira l'interlignage de la chanson 
+à partir du moment ou l'argument est rencontré
 
 ## Sections
 
@@ -542,7 +545,8 @@ Indique le refrain
 
 ### Remarques
 
-Ces valeurs seront reportées dans le mode grille d'accord et largement utilisées dans le mode aide mémoire.
+Ces valeurs seront reportées dans le mode grille d'accord et largement
+ utilisées dans le mode aide mémoire.
 
 ### Tempo
 
@@ -555,17 +559,22 @@ Ces valeurs seront reportées dans le mode grille d'accord et largement utilisé
 
 Si le tempo est ommis, la valeur 120 sera assignée.
 
-Le tempo inidique le nombre de temps par minute. Il peut comprendre une ou plusieurs décimales, le séparateur de décimale est le point
-quelle que soit la langue choisie.
+Le tempo inidique le nombre de temps par minute. Il peut comprendre une
+ou plusieurs décimales, le séparateur de décimale est le point quelle
+que soit la langue choisie.
 
-L'introduction d'une décimale est peu usuelle dans la notation musicale conventionnelle, mais certains logiciels permettent
-cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morceau
+L'introduction d'une décimale est peu usuelle dans la notation musicale
+conventionnelle, mais certains logiciels permettent
+cette extension par exemple lorsqu'ils déduisent la valeur du tempo
+d'un morceau
 
 ### Signature rythmique
 
-- La signature rythmique d'un morceau est représenté par la balise {time:4/4}
+- La signature rythmique d'un morceau est représenté par la balise 
+{time:4/4}
 
-- Si aucune signature rythmique n'est mentionné pour un morceau, la value 4/4 sera assignée
+- Si aucune signature rythmique n'est mentionné pour un morceau, la 
+valeur 4/4 sera assignée
 
 
 ## Les accords
@@ -574,19 +583,22 @@ cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morcea
 ### Notation de base
 
 
-- En format anglais (si le format est configuré en anglais) on suit la notation ABCDEFG
+- En format anglais (si le format est configuré en anglais) on suit la
+notation ABCDEFG
 
 ~~~
 [A]
 ~~~
 
-- En format français (s'il est configuré comme tel), on suit la notation La Si Do Ré Mi Fa Sol
+- En format français (s'il est configuré comme tel), on suit la notation
+La Si Do Ré Mi Fa Sol
 
 ~~~
 [La]
 ~~~
 
-- Le mode mineur est noté - si les accords sont en anglais et m s'ils sont en français et configuré comme tel
+- Le mode mineur est noté - si les accords sont en anglais et m s'ils
+sont en français et configuré comme tel
 - Les mode 7 6 5 13 etc sont noté en chiffre
 
 ### Notation étendue
@@ -599,7 +611,8 @@ cette extension par exemple lorsqu'ils déduisent la valeur du tempo d'un morcea
 ~~~
 
 
-Ces extensions ont été introduites par chord V et sont en cours de discution avec les auteurs de la définition du format ChordPro
+Ces extensions ont été introduites par chord V et sont en cours de 
+discution avec les auteurs de la définition du format ChordPro
 
 
 - les extentions de temps
@@ -611,7 +624,8 @@ x numéro indique le nombre de mesures de l'accord
 [La(V)x3]
 ~~~
 
-Par défaut un accord sans adjonction mesure sera considéré comme un accord d'une mesure
+Par défaut un accord sans adjonction mesure sera considéré comme un
+accord d'une mesure
 
 Ainsi [La] sera un accord d'une mesure
 
@@ -635,17 +649,6 @@ de gestion des accords)
 
 Vous pouvez modifier le tempo par l'emploi de la molette de la souris
 en maintenant la touche SHIFT appuyée dans l'éditeur.
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Préférences et réglages du logiciel {#PreferencesReglages}
@@ -705,16 +708,17 @@ séparer la présentation des options communes et celles spécifiques
 à chaque mode.
 
 On trouve deux onglets l'un appelé *Document* et l'autre *Contenu* pour
-chacun des modes de sortie. Certaines des options de ces modes sont communs à plusieurs
-modes d'autre sont spécifiques.
+chacun des modes de sortie. Certaines des options de ces modes sont
+communs à plusieurs modes d'autre sont spécifiques.
 
 ### Les options communes de l'onglet Document
 
 
-![Options générales](./img/preferencetext.png)
+![Options générales](./img/preferencetext.png) 
 
 1. Zone de sélection de la largeur. Si vous mettez ici des valeurs 
-correspondants à un format existant, ce format sera affiché dans la zone 3.
+correspondants à un format existant, ce format sera affiché dans la
+zone 3.
 2. Zone de sélection de la hauteur. Si vous mettez ici des valeurs 
 correspondants à un format existant, ce format sera affiché dans la zone
 3. Cette zone permet de choisir un format de page par un nom IS0. Si
@@ -785,16 +789,16 @@ Voici la liste des options numérotées :
 
 1. Permet de sélectionner la police de caractères ainsi que sa couleur 
 et la couleur du fond telle qu'elle apparait dans la zone 5
-2. Permet d'indiquer si la fenêtre de monitoring sera en haut de l'écran,
-au milieu ou à droite. Si le mode plein écran est sélectionné ce mode
-ne sera plus accessible. Ce mode est destiné au mode enregistrement d'une
-chanson quand le chanteur veut suivre la progresssion de son enregistrement
-sur son logiciel d'enregistrement
-3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse projeter
-une vidéo et ou des images pendant que la musique est activée avec le mode 
-image en bas de l'écran.
-4. Deux lignes sont affichées, la ligne plus brillante sur les paroles en
-cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
+2. Permet d'indiquer si la fenêtre de monitoring sera en haut de
+l'écran,au milieu ou à droite. Si le mode plein écran est sélectionné ce
+mode ne sera plus accessible. Ce mode est destiné au mode enregistrement
+d'une chanson quand le chanteur veut suivre la progresssion de son
+enregistrement sur son logiciel d'enregistrement
+3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse
+projeter une vidéo et ou des images pendant que la musique est activée
+avec le mode image en bas de l'écran.
+4. Deux lignes sont affichées, la ligne plus brillante sur les paroles
+en cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
 n'est pas sélectionné, une seule ligne est affichée.
 5. Rendu de la police de caractères
 6. Chaque temps est matérialisé par l'affichage d'une bulle rouge pour
@@ -811,7 +815,7 @@ sur les paroles pour permettre au chanteur de lire légèrement à l'avance
 
 ### Sélection des polices  {#SelectionPolice}
 
-![Sélection des polices](./img/fontselection.png)
+![Sélection des polices](./img/fontselection.png) 
 
 La sélection des polices permet de sélectionner la famille police 
 souhaitée, sa taille, son style et toutes les options traditionnelles
@@ -977,8 +981,10 @@ des donnés converties.
 automatiquement)
 2. Choisir la lettre pour signifier que l'accord dans la langue 
 d'origine est mineur
-3. Choisir la langue vers laquelle on souhaite convertir les noms d'accord
-4. Choisir la lettre pour signifier que l'accord dans la langue à convertir
+3. Choisir la langue vers laquelle on souhaite convertir les noms
+d'accord
+4. Choisir la lettre pour signifier que l'accord dans la langue
+à convertir
 est mineur
 5. Cliquer sur convertir
 
@@ -986,18 +992,21 @@ est mineur
 
 ![Transposer les accords](./img/transpose.png)
 
-1. La molette a la même action que la zone d'entrée 2, elle permet de définir
-le nombre de demi-tons positif ou négatif dont on veut transposer l'accord.
+1. La molette a la même action que la zone d'entrée 2, elle permet de
+définir le nombre de demi-tons positif ou négatif dont on veut
+transposer l'accord.
 2. La zone d'entrée permet de définir
-le nombre de demi-tons positif ou négatif dont on veut transposer l'accord.
-3. On peut transposer l'accord sur l'accord sous la souris, sur toute la ligne
-courante, sur la chanson courante ou sur tout le fichier
+le nombre de demi-tons positif ou négatif dont on veut transposer
+l'accord.
+3. On peut transposer l'accord sur l'accord sous la souris, sur toute 
+la ligne courante, sur la chanson courante ou sur tout le fichier
 4. Ferme la boite de dialogue
 5. Transpose l'accord
 
 ## Lancer l'afficheur PDF 
 
-ChordV lance l'afficheur PDF que vous avez positionné dans les préférences
+ChordV lance l'afficheur PDF que vous avez positionné dans les
+préférences
 
 Cette option est disponible dans le menu outils
 
@@ -1014,90 +1023,105 @@ Ce mode construit un fichier PDF et lance son affichage.
 
 Cette option est disponible dans le menu outils
 
-## Mode mémoire ou monitoring des paroles
+# Mode mémoire ou monitoring des paroles
 
-### Présentation
+## Présentation
 
-Ce mode permet d'afficher les paroles qui s'affichent en défilant en suivant
-la vitesse de la chanson. Les refrains son réinsérés entre chaque couplet.
+Ce mode permet d'afficher les paroles qui s'affichent en défilant en
+suivant la vitesse de la chanson. Les refrains son réinsérés entre
+chaque couplet.
+
 Il faut pour que ce monde fonctionne précisément que :
-1. Les accords soient entrés avec des notations [Dox2] par exemple explicitant
-bien que l'accord se fait sur deux mesures
-2. Le tempo soit convenablement défini en regard de la chanson via la balise
-{tempo:xxx}, s'il n'est pas défini, la valeur de 120 battements par seconde sera affectée au tempo
-La balise tempo accepte les valeur décimale le point étant le séparateur de valeur
-décimale quelle que soit la langue.
-3. La signature temporelle soit renseigné via la balise {time:xxx}. Si la signature n'est pas
-définie la valeur 4/4 est initialisée.
 
-Enfin il faut garder présent à l'esprit que le mode aide mémoire, peut être cadencé
-via le transport jack. Ainsi si vous enregistrez avec Ardour, en déclenchant la lecture
-ou l'enregisstrement dans Ardour, le défilement commencera automatiquement.
+1. Les accords soient entrés avec des notations [Dox2] par exemple
+explicitant bien que l'accord se fait sur deux mesures
+2. Le tempo soit convenablement défini en regard de la chanson via la
+balise
+{tempo:xxx}, s'il n'est pas défini, la valeur de 120 battements par
+seconde sera affectée au tempo. La balise tempo accepte les valeurs
+décimales le point étant le séparateur de valeur décimale quelle que
+soit la langue.
+3. La signature temporelle soit renseigné via la balise {time:xxx}.
+Si la signature n'est pas définie la valeur 4/4 est initialisée.
 
-### Définition du Mode mémoire
+Enfin il faut garder présent à l'esprit que le mode aide mémoire, peut
+être cadencé via le transport jack. Ainsi si vous enregistrez avec
+Ardour, en déclenchant la lecture ou l'enregisstrement dans Ardour, le
+défilement commencera automatiquement.
 
-Pour entrer dans le mode mémo actionner le menu Fenêtres/Mode Aide mémoire
+## Définition du Mode mémoire
+
+Pour entrer dans le mode mémo actionner le menu Fenêtres/Mode Aide
+mémoire
 
 ![Mode mémoire](./img/LyricsMonitoring.png)
 
 1. Permet de sélectionner la police de caractères ainsi que sa couleur
 et la couleur du fond telle qu'elle apparait dans la zone 5
-2. Permet d'indiquer si la fenêtre de monitoring sera en haut de l'écran,
-au milieu ou à droite. Si le mode plein écran est sélectionné ce mode
-ne sera plus accessible. Ce mode est destiné au mode enregistrement d'une
-chanson quand le chanteur veut suivre la progresssion de son enregistrement
-sur son logiciel d'enregistrement
-3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse projeter
-une vidéo et ou des images pendant que la musique est activée avec le mode
-image en bas de l'écran.
+2. Permet d'indiquer si la fenêtre de monitoring sera en haut de
+l'écran, au milieu ou à droite. Si le mode plein écran est sélectionné
+ce mode ne sera plus accessible. Ce mode est destiné au mode
+enregistrement d'une chanson quand le chanteur veut suivre la
+progresssion de son enregistrement sur son logiciel
+3. Mode plein écran plutôt destiné au karaoké, bien qu'on puisse
+projeter une vidéo et ou des images pendant que la musique est activée
+avec le mode image en bas de l'écran.
 4. Deux lignes sont affichée, la ligne plus brillante sur les paroles en
 cours et la ligne plus foncée sur les paroles suivantes. Si ce mode
 n'est pas sélectionné, une seule ligne est affichée.
 5. Rendu de la police de caractères
 6. Chaque temps est matérialisé par l'affichage d'une bulle rouge pour
-le premier temps et d'une bulle verte pour les autres temps. Cette option comme
-les autres options de rythme n'est activable
-que si la temporisation n'est pas prise en compte par jack, car dans ce cas, vous bénéficiez
-des outils et métronomes Jack pour vous aidez.
+le premier temps et d'une bulle verte pour les autres temps. Cette 
+option comme les autres options de rythme n'est activable que si la
+temporisation n'est pas prise en compte par jack, car dans ce cas, vous
+bénéficiez des outils et métronomes Jack pour vous aidez.
 7. Un click sonore est activé sur chaque temps.
 8. Réglage du volume du click
 9. Le premier temps sonore est plus marqué que les autres temps
 10. Avance de l'affichage, réglage de l'avance de l'affichage du temps
 sur les paroles pour permettre au chanteur de lire légèrement à l'avance
 11. Nombre de mesures avant de démarrer l'enregistrement.
-12. Demande à ChordV d'être déclenché via un autre logiciel compatible avec
-le mode Jack (voir la partie connexion Jack)
-13. En mode jack on ne peut pas faire de pause car ChordV agit en mode esclave. Par
-contre on peut quitter le mode affichage par la touche ECHAPPEMENT parfois notée ESCAPE ou ESC
-15. Lancer le défilement effectif des paroles. Ce lancement peut être fait par la touche F10
+12. Demande à ChordV d'être déclenché via un autre logiciel compatible
+avec le mode Jack (voir la partie connexion Jack)
+13. En mode jack on ne peut pas faire de pause car ChordV agit en mode
+esclave. Par contre on peut quitter le mode affichage par la touche
+ECHAPPEMENT parfois notée ESCAPE ou ESC
+15. Lancer le défilement effectif des paroles. Ce lancement peut être
+fait par la touche F10
 
-### Connexion jack
+## Connexion jack
 
-Ce mode permet à l'utilisateur de pas avoir à entrer une touche pour lancer le défilement
-des paroles dans le mode mémoire. Le défilement sera lancé par un logiciel maître au moment
-ou celui-ci lancera la lecture ou l'enregistrement.
+Ce mode permet à l'utilisateur de pas avoir à entrer une touche pour
+lancer le défilement des paroles dans le mode mémoire. Le défilement
+sera lancé par un logiciel maître au moment ou celui-ci lancera la
+lecture ou l'enregistrement.
 
-Non seulement on gagne le bénéfice de n'avoir qu'à appuyer une seule touche, mais on gagne aussi
-le bénéfice de voir le défilement des paroles et l'enregistrement ou la lecture du morceau
-totalement synchronisés.
+Non seulement on gagne le bénéfice de n'avoir qu'à appuyer une seule
+touche, mais on gagne aussi le bénéfice de voir le défilement
+des paroles et l'enregistrement ou la lecture du morceau totalement
+synchronisés.
 
 Ce paragraphe montre un exemple d'utilisation de ChordV avec Ardour.
 
 ![Jack Ardour](./img/ardourchordV.png)
 
 1. On indique que Ardour est piloté par Jack
-2. On lance le mode lecture que ce soit en mode lecture pure ou enregistrement
-3 Chord doit avoir été lancé dans le mode mémoire par F10 ou par le bouton lancé et vous verrez démarrer
-le défilement des parole comme montré sous l'image ci dessous
+2. On lance le mode lecture que ce soit en mode lecture pure ou
+enregistrement
+3 Chord doit avoir été lancé dans le mode mémoire par F10 ou par le
+bouton lancé et vous verrez démarrer le défilement des parole comme
+montré sous l'image ci dessous
 
 ![Jack Ardour](./img/ArdourChordV2.png)
 
 
-On remarquera que si on stoppe Ardour, le défilement des parole est arrêté
-et qu'il reprendra quand Ardour reprendra.
+On remarquera que si on stoppe Ardour, le défilement des parole est
+arrêté et qu'il reprendra quand Ardour reprendra.
 
-De même si vous déplacez la tête de lecture dand ardour, les paroles se repositionneront automatiquement,
-à l'endroit demandé.
+De même si vous déplacez la tête de lecture dand ardour, les paroles
+se repositionneront automatiquement, à l'endroit demandé.
+
+# Divers 
 
 ## Le mode batch et le mode graphique
 
@@ -1225,9 +1249,10 @@ pandoc --toc --ascii --smart -N --css=pandoc.css  --from=markdown \
 
 #### Les images
 
-Les images sont à inclure dans le répertoire img du répertoire Langage/es,
-elles sont issues de copies d'écran. Si vous utilisez gimp vous pouvez utiliser 
-le plugin drawnumbers qui permet de produire les pastilles rouges.
+Les images sont à inclure dans le répertoire img du répertoire 
+Langage/es, elles sont issues de copies d'écran. Si vous utilisez gimp
+vous pouvez utiliser le plugin drawnumbers qui permet de produire les
+pastilles rouges.
 
 Il est disponible à l'adresse 
 [Draw-number](http://www.gillesmaire.com/tiki-index.php?page=draw-numbers)
@@ -1292,20 +1317,22 @@ trouverez le chemin des fichiers langues par exemple :
 /home/gilles/.config/ChordV/ChordV.conf
 ~~~
 
-- Dans le répertoire /home/gilles/.config/ChordV/ se trouvent les fichiers
-de langue organisés dans le répertoire Languages contenant les langues
-écrites avec le nom dans la langue traduite. Pour le français on trouvera
-le nom avec la cédille exactement comme un français pourrait le lire.
+- Dans le répertoire /home/gilles/.config/ChordV/ se trouvent les
+fichiers de langue organisés dans le répertoire Languages contenant les
+langues écrites avec le nom dans la langue traduite. Pour le français
+on trouvera le nom avec la cédille exactement comme un français pourrait
+le lire.
 - À l'intérieur du répertore Français on retrouve trois fichiers
     - fr.png : ce fichier est un drapeau de la langue au format png
-    - fr.ts : ce fichier est le ficher contenant les paires de traduction
+    - fr.ts : ce fichier est le ficher contenant les paires de
+      traduction
     - fr.qm  : ce fichier contient le fichier ts compilé
     - fr.html : la documentation en langue française dans le format HTML
     - fr.md : la documentation en langue en française dans le format md
-    - fr.chords : contient la liste noms de note dans la langue, avec une note
-    pour chaque ligne. La dernière ligne contient la liste des
-    symboles utilisés dans la langue pour le mode mineur séparés par des ,
-    En français : m,-
+    - fr.chords : contient la liste noms de note dans la langue, avec une
+    note pour chaque ligne. La dernière ligne contient la liste des
+    symboles utilisés dans la langue pour le mode mineur séparés par 
+    des , En français : m,-
 
 ### Traduction du fichier fr.ts
 

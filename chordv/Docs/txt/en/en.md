@@ -170,9 +170,22 @@ selected in the help window.
 - The second thing to notice is that the title of the song appears
 in the status area at the bottom of the screen. We will come back to it.
 
-### Le menu général 
+## The status bar 
 
-#### Présentation 
+![Status bar](./img/statusbar.png)
+
+1. The window in which you are can be the text editor, the global definitions, the text mode settings,
+the chord mode settings, the chord mode and text settings, and the word monitoring world management
+2. The name of the file which appears in green if the file can be modified and in red otherwise
+3. The name of the directory which appears in green if the directory can be accessible in writing modified and in red in the opposite case
+4. The number of songs contained in the current file
+5. The name of the selected song or the song whose selection is retained.
+6. A blocking mode to keep the selected song saved, which can be useful if you are working in the lyrics monitoring mode
+especially in the case of a recording session where the song will be recorded several times.
+
+# Le menu général 
+
+## Présentation 
 
 ![The menu](./img/menu.png)
 
@@ -184,7 +197,7 @@ The general menu allows you to manage
     - the Help submenu
 
 
-#### The File submenu
+## The File submenu
 
 By starting to manipulate the different menu items, which are
 at least very classical, we can notice that we can open
@@ -217,23 +230,19 @@ Finally note that at the end of the list of items you can recover
 the list of the last 10 open chop files.
 
 
-### The status bar shows the following information:
+## The Edition sub menu
 
-![Status bar](./img/statusbar.png)
+## The View sub menu 
 
-1. The window in which you are can be the text editor, the global definitions, the text mode settings,
-the chord mode settings, the chord mode and text settings, and the word monitoring world management
-2. The name of the file which appears in green if the file can be modified and in red otherwise
-3. The name of the directory which appears in green if the directory can be accessible in writing modified and in red in the opposite case
-4. The number of songs contained in the current file
-5. The name of the selected song or the song whose selection is retained.
-6. A blocking mode to keep the selected song saved, which can be useful if you are working in the lyrics monitoring mode
-especially in the case of a recording session where the song will be recorded several times.
+## The tools sub menu 
+
+## The help sub menu
 
 
-## ChordV tags
 
-### The chord pro tag language
+# ChordV tags
+
+## The chord pro tag language
 
 It may be strange that modern software does not
 WysiWyg interface, that looks like the output
@@ -250,9 +259,9 @@ music of the net.
 
 
 
-### The titles
+## The titles
 
-#### Document title
+### Document title
 
 ~~~ chord
 {covertitle: title}
@@ -264,7 +273,7 @@ Only one title per document is allowed
 The abbreviated notation is {ct: title}
 
 
-#### Subtitle of the document
+### Subtitle of the document
 
 ~~~ ChordPro
 {coversubtitle: under title}
@@ -276,7 +285,7 @@ One subtitle per document
 
 The abbreviated notation is {cs: title}
 
-#### Title of a song
+### Title of a song
 
 ~~~
 {title: title of the song}
@@ -290,7 +299,7 @@ consecutive titles one provokes a page break with an empty song for the first.
 
 The abbreviated notation is {t: title}
 
-#### Subtitle of a song
+### Subtitle of a song
 
 ~~~
 {subtitle: subtitle of a song}
@@ -305,15 +314,15 @@ category.
 The abbreviated notation is {st: title}
 
 
-### Paging order
+## Paging order
 
-#### Jumps
+### Jumps
 
 ~~~
 -----
 ~~~
 
-#### Number of columns for the song
+### Number of columns for the song
 
 
 
@@ -324,7 +333,7 @@ The abbreviated notation is {st: title}
 
 Sets the number of print columns for the song
 
-#### Skip columns
+### Skip columns
 
 ~~~
 {Column_break}
@@ -335,7 +344,7 @@ Causes the generation of a new column.
 The abbreviated notation is {colb}
 
 
-#### New song
+### New song
 
 ~~~
 {New_song}
@@ -358,9 +367,9 @@ If a song does not fit properly in a page, you can activate the mode
 compress that will reduce the leading of the song from the moment the argument
 is met
 
-### Sections
+## Sections
 
-#### Chorus start
+### Chorus start
 
 
 ~~~
@@ -371,7 +380,7 @@ Indicates the beginning of a chorus.
 
 The abbreviated notation is {soc}
 
-#### End of the chorus
+### End of the chorus
 
 ~~~
 {End_of_chorus}
@@ -381,7 +390,7 @@ Indicates the end of the chorus
 
 Abbreviated lantern is {eoc}
 
-#### Chorus
+### Chorus
 
 ~~~
 {Refrain}
@@ -389,13 +398,13 @@ Abbreviated lantern is {eoc}
 
 Indicates the chorus
 
-### Rhythmic signature and tempo {#SignatureRytmique}
+## Rhythmic signature and tempo {#SignatureRytmique}
 
-#### Notes
+### Notes
 
 These values ​​will be reported in the chord grid mode and widely used in the memory aid mode.
 
-#### Tempo
+### Tempo
 
 - The tempo will be represented by the beacon
 
@@ -412,17 +421,17 @@ whatever the language chosen.
 The introduction of a decimal is unusual in conventional musical notation, but some software allows
 this extension for example when they deduce the value of the tempo of a piece
 
-#### Rhythmic signature
+### Rhythmic signature
 
 - The rhythmic signature of a song is represented by the tag {time: 4/4}
 
 - If no rhythmic signature is mentioned for a song, the value 4/4 will be assigned
 
 
-### Chord
+## Chord
 
 
-#### Basic notation
+### Basic notation
 
 
 - In English format (if the format is configured in English) we follow the notation ABCDEFG
@@ -440,7 +449,7 @@ this extension for example when they deduce the value of the tempo of a piece
 - The minor mode is noted - if the chords are in English and m if they are in French and configured as such
 - The mode 7 6 5 13 etc are noted in numbers
 
-#### Extended notation
+### Extended notation
 
 - The bars are noted in Roman numerals with the box of the bar:
 
@@ -476,7 +485,7 @@ So for a 4/4 signature measure the ratings:
 - [A:4] will mean a measure divided by 4 ie 1 time
 
 
-#### Inserting chords into the editor
+### Inserting chords into the editor
 
 By double clicking on the text the chord include window you
 to select a chord by pressing the Insert button
@@ -486,21 +495,6 @@ management chord)
 
 You can change the tempo by using the mouse wheel
 holding down the SHIFT key in the editor.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -819,9 +813,9 @@ This mode builds a PDF file and starts its display.
 
 This option is available in the tools menu
 
-## Mémory mode or lyrics monitoring
+# Memory mode or lyrics monitoring
 
-### Presentation
+## Presentation
 
 This mode allows you to display the lyrics that appear by scrolling following
 the speed of the song. The refrains are reinserted between each verse.
@@ -839,7 +833,7 @@ Finally we must keep in mind that the memory help mode can be clocked
 via the transport jack. So if you record with Ardour, triggering playback
 or recording in Ardour, scrolling will begin automatically.
 
-### Memory mode définition
+## Memory mode définition
 
 ![Memory mode](./img/LyricsMonitoring.png)
 
