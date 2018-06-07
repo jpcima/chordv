@@ -54,6 +54,7 @@ private:
     bool m_timebeforeunit;
     bool m_pause;
     double m_tempo;
+    bool m_tocomplete; // first line don't start with a chord and we need to add a line with lyrircs before chord
     int m_timeup;
     bool m_click;
     bool m_accentuedfirst;

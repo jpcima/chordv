@@ -22,6 +22,7 @@ ui(new Ui::DialogProcessMemory)
     m_player= new QMediaPlayer;
     m_player->setVolume(volume);
     m_lasttime=0;
+    m_tocomplete=false;
     m_stop=false;
     m_pause=false;
     m_jacksynchro=jacksynchro;
@@ -179,6 +180,7 @@ void DialogProcessMemory::displaySong()
         if ( m_indice < m_indicemax) ui->labelText2->setText(m_lyrics[m_indice]);
         else ui->labelText2->setText("");
         m_timerlyrics->start(m_mseconds[m_indice-1]);
+        qDebug()<<m_lyrics[m_indice-1];
     }
    else
         QTimer::singleShot(3000,this,SLOT(Stop()));
@@ -336,7 +338,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
     m_nblyrics=0;
     ui->labelText1->setFont(m_font);
     bool firstline=true;
-    bool tocomplete=false;
+
     foreach ( QString line, buf)
     {
         if ( line.contains(TitleREX))
@@ -406,7 +408,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                        m_nblyrics++;
                        m_lyrics[m_nblyrics]=splitREX.cap(1);
                        line=splitREX.cap(2);
-                       tocomplete=true;
+                       m_tocomplete=true;
                     }
                 }
                 firstline=false;
@@ -433,7 +435,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                            m_nblyrics++;
                            m_lyrics[m_nblyrics]=splitREX.cap(1);
                            line=splitREX.cap(2);
-                           tocomplete=true;
+                           m_tocomplete=true;
                         }
                     }
                     firstline=false;
@@ -475,7 +477,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
 
 
     }
-    if ( tocomplete )
+    if ( m_tocomplete )
     {
         QFontMetrics fm(m_font);
 
@@ -489,6 +491,7 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
 void DialogProcessMemory::AddTimeBefore(int timebefore, int timebeforeunit , int tempo, int timeup, double advance)
 {
     timebefore=getTimeBefore(timebefore,timebeforeunit,tempo,timeup);
+    if (m_tocomplete ) timebefore-=m_mseconds[1];
     m_lyrics[0]="";
     m_mseconds[0]=timebefore-1000*advance;
 }
