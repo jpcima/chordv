@@ -141,10 +141,6 @@ public slots:
 private slots:
     void newProject(bool);
     void openProject(bool);
-    void setChordMode(int i);
-    void setLyricsMode(int i);
-    void setTextMode(int i);
-    void setMemoryMode(int i);
     void Log(QString message);
     void Save(bool);
     void SaveAs(bool);

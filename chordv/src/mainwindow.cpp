@@ -296,39 +296,6 @@ void MainWindow::LastProjectOpen(QAction *action )
     openProject(action->text());
 }
 
-void MainWindow::setChordMode( int i)
-{
-//    ui->actionSelectChord->setEnabled(i!=0);
-//    ui->actionBuildChord->setEnabled(i!=0);
-//    ui->actionViewChord->setEnabled(i!=0);
-//    ui->actionBuildAndViewChord->setEnabled(i!=0);
-}
-
-void MainWindow::setTextMode(int i)
-{
-//    ui->actionSelectText->setEnabled(i!=0);
-//    ui->actionBuildText->setEnabled(i!=0);
-//    ui->actionViewText->setEnabled(i!=0);
-//    ui->actionBuildAndViewText->setEnabled(i!=0);
-
-}
-
-void MainWindow::setMemoryMode(int i)
-{
-//    ui->actionSelectMemory->setEnabled(i!=0);
-//    ui->actionBuildMemory->setEnabled(i!=0);
-//    ui->actionViewMemory->setEnabled(i!=0);
-//    ui->actionBuildAndViewMemory->setEnabled(i!=0);
-}
-
-void MainWindow::setLyricsMode(int i)
-{
-//    ui->actionSelectLyrics->setEnabled(i!=0);
-//    ui->actionBuildLyrics->setEnabled(i!=0);
-//    ui->actionViewLyrics->setEnabled(i!=0);
-//    ui->actionBuildAndViewLyrics->setEnabled(i!=0);
-
-}
 
 void MainWindow::Log(QString message)
 {
@@ -356,10 +323,6 @@ void MainWindow::InitProject()
     Settings s;
     ui->lineEditCreatorName->setText(s.value("Creator","").toString());
     ui->lineEditWatermark->setText(s.value("Watermark","").toString());
-//    ui->checkBoxChordMode->setChecked(s.value("ChordMode",true).toBool());
-//    ui->checkBoxLyricsMode->setChecked(s.value("LyricsMode",true).toBool());
-//    ui->checkBoxTextMode->setChecked(s.value("TextMode",true).toBool());
-//    ui->checkBoxMemoryMode->setChecked(s.value("MemoryMode",true).toBool());
     QString file=getFileInArg();
     if ( file.isEmpty())
     {
@@ -432,10 +395,6 @@ void MainWindow::openProject(QString filename)
     ui->comboBoxChordLanguage->setCurrentIndex(p.value("ChordLang").toInt());
     ui->comboBoxMinorNotation->setCurrentText(p.value("ChordMinor").toString());
     ui->lineEditWatermark->setText(p.value("Watermark").toString());
-//    ui->checkBoxChordMode->setChecked(p.value("ChordMode").toBool());
-//    ui->checkBoxLyricsMode->setChecked(p.value("LyricsMode").toBool());
-//    ui->checkBoxMemoryMode->setChecked(p.value("MemoryMode").toBool());
-//    ui->checkBoxTextMode->setChecked(p.value("TextMode").toBool());
     ui->widgetChordMode->SetConfigFromFile(filename);
     ui->widgetChordMode->InitDefault("Chord");
     ui->widgetChordMode->setProjectPath(m_currentprojectdir);
@@ -445,6 +404,7 @@ void MainWindow::openProject(QString filename)
     ui->widgetTextMode->SetConfigFromFile(filename);
     ui->widgetTextMode->InitDefault("Text");
     ui->widgetTextMode->setProjectPath(m_currentprojectdir);
+    ui->widgetMemory->Init(filename);
     m_initialbuffer=p.value("Content").toString();
     ui->textEditCho3File->setText(m_initialbuffer);
     //ui->checkBoxLongShort->setChecked(ui->textEditCho3File->document()->toPlainText().contains("{covertitle:",Qt::CaseInsensitive));
@@ -480,11 +440,6 @@ void MainWindow::Save(QString filename)
     sf.setValue("Creator",ui->lineEditCreatorName->text());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.setValue("ChordMinor",ui->comboBoxMinorNotation->currentText());
-//    sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
-//    sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
-//    sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
-//    sf.setValue("ChordMode",ui->checkBoxChordMode->isChecked());
-//    sf.sync();
     ui->widgetChordMode->Save(filename,"Chord");
     ui->widgetLyricsMode->Save(filename,"Lyrics");
     ui->widgetTextMode->Save(filename,"Text");
@@ -509,10 +464,6 @@ void MainWindow::Save(bool)
     QSettings sf(m_currentprojectfile,QSettings::IniFormat);
     sf.clear();
     sf.setValue("Creator",ui->lineEditCreatorName->text());
-//    sf.setValue("ChordMode",ui->checkBoxChordMode->isChecked());
-//    sf.setValue("LyricsMode",ui->checkBoxLyricsMode->isChecked());
-//    sf.setValue("TextMode",ui->checkBoxTextMode->isChecked());
-//    sf.setValue("MemoryMode",ui->checkBoxMemoryMode->isChecked());
     sf.setValue("ChordLang",ui->comboBoxChordLanguage->currentIndex());
     sf.setValue("ChordMinor",ui->comboBoxMinorNotation->currentText());
     sf.setValue("Content",ui->textEditCho3File->document()->toPlainText());
@@ -520,6 +471,7 @@ void MainWindow::Save(bool)
     ui->widgetChordMode->Save(m_currentprojectfile,"Chord");
     ui->widgetLyricsMode->Save(m_currentprojectfile,"Lyrics");
     ui->widgetTextMode->Save(m_currentprojectfile,"Text");
+    ui->widgetMemory->Save(m_currentprojectfile);
     m_initialbuffer=ui->textEditCho3File->document()->toPlainText();
 }
 

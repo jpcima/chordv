@@ -29,9 +29,10 @@ private:
     ///
     /// \brief Init init all the records from setting file
     ///
-    void Init();
+
 
 public:
+    void Init(QString filenamae = QString());
     ///
     /// \brief Save save all the records in setting file
     ///
@@ -40,6 +41,7 @@ public:
     /// \brief getFont return selected Font
     /// \return
     ///
+
     QFont getFont();
     ///
     /// \brief getBackgroundColor return selected background color
