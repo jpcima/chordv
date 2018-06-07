@@ -45,6 +45,7 @@ private slots:
     /// \brief Stop just set m_stop to true
     ///
     void Stop();
+
 private:
     enum State{NotStarted,Running,Paused,Finished};
     Ui::DialogProcessMemory *ui;

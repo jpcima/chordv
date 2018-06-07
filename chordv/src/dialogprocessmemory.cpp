@@ -20,8 +20,8 @@ ui(new Ui::DialogProcessMemory)
 {
     ui->setupUi(this);
     m_player= new QMediaPlayer;
-     m_player->setVolume(volume);
-     m_lasttime=0;
+    m_player->setVolume(volume);
+    m_lasttime=0;
     m_stop=false;
     m_pause=false;
     m_jacksynchro=jacksynchro;
@@ -58,6 +58,8 @@ ui(new Ui::DialogProcessMemory)
         connect ( m_timeline,SIGNAL(timeout()),this,SLOT(showRythm()));
         displaySong();
     }
+    Debug();
+
 }
 
 void DialogProcessMemory::StartJack()
@@ -203,6 +205,7 @@ void DialogProcessMemory::Stop()
 {
     m_timeline->stop();
 }
+
 
 void DialogProcessMemory::PauseUnPause()
 {
@@ -451,6 +454,22 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
                  }
            }
         }
+    }
+     int count=0;
+     if ( ! refrain )
+     {
+        for  ( int line=0; line<m_mseconds.count(); line++ )
+        {
+
+          if ( m_mseconds[line]==0 && ! m_lyrics[line].isEmpty())
+          {
+              m_mseconds[line]=m_mseconds[count];
+          }
+          if ( m_lyrics[line].isEmpty()) count=0;
+          else count ++;
+        }
+
+
     }
     if ( tocomplete )
     {

@@ -22,6 +22,7 @@ FormMemoryInfo::FormMemoryInfo(QWidget *parent) :
     connect (ui->pushButtonSetAsDefault,SIGNAL(clicked(bool)),this,SLOT(SaveAsDefault()));
 }
 
+
 void FormMemoryInfo::SaveAsDefault()
 {
     Save();
