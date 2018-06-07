@@ -461,12 +461,16 @@ void DialogProcessMemory::getInfo( QString songs,QString title)
         for  ( int line=0; line<m_mseconds.count(); line++ )
         {
 
-          if ( m_mseconds[line]==0 && ! m_lyrics[line].isEmpty())
+          if ( m_lyrics[line].isEmpty() || m_lyrics[line].contains(QRegExp("^ *$")))
+              count=0;
+          else
+              count ++;
+          if ( m_mseconds[line]==0 && ! m_lyrics[line].isEmpty() || m_lyrics[line].contains(QRegExp("^ *$")))
           {
+              qDebug()<<"_"<<line<<count;
               m_mseconds[line]=m_mseconds[count];
           }
-          if ( m_lyrics[line].isEmpty()) count=0;
-          else count ++;
+
         }
 
 
