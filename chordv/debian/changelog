@@ -1,3 +1,12 @@
+chordv (0.8) UNRELEASED; urgency=medium
+
+  * add a button change option as default
+  
+  * correct bug of default button
+ 
+  * correct bug in Example generation with \U000 value crashed the
+    application
+
 chordv (0.7) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
