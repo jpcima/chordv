@@ -1,3 +1,10 @@
+chordv (0.8.1) UNRELEASED; urgency=medium
+
+  * Non-maintainer upload.
+  * Bug of kacj synchro fixed
+
+ -- gilles <gilles@gillesmaire.com>  Thu, 07 Jun 2018 17:33:32 +0200
+
 chordv (0.8) UNRELEASED; urgency=medium
 
   * add a button change option as default
