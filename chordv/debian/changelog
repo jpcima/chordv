@@ -1,7 +1,13 @@
+chordv (0.8.2) UNRELEASED; urgency=medium
+
+  * compiled on Debian and not on ubuntu to keep libpodofo 0.94
+  * save current as config
+  * little bugs
+
 chordv (0.8.1) UNRELEASED; urgency=medium
 
   * Non-maintainer upload.
-  * Bug of kacj synchro fixed
+  * Bug of jack synchro fixed
 
  -- gilles <gilles@gillesmaire.com>  Thu, 07 Jun 2018 17:33:32 +0200
 
