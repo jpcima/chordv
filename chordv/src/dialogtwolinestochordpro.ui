@@ -23,7 +23,7 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string>Copy paste song in 2 line format </string>
+            <string>Copy paste song in 2 lines format </string>
            </property>
           </widget>
          </item>

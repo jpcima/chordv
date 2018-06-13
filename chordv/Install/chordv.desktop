@@ -1,12 +1,13 @@
 [Desktop Entry]
-Version=0.2
+Version=0.8.3
 Encoding=UTF-8
 Name=chordV
-GenericName=chordv
-Comment=chord generator for song
+GenericName=Chord generator
+GenericName[fr]=Générateur d'accords
+Comment=Chord generator for song
+Comment[fr]=Générateur d'accords pour chansons
 Exec=chordV
 Icon=/usr/share/chordv/chordv.svg
 Terminal=false
 Type=Application
-Categories=Application;Audio;
-Name[fr_FR]=chordV
+Categories=Audio;AudioVideo

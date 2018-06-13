@@ -135,7 +135,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;&amp;gt; developped on Ubuntu OS &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.qt-project.org&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.ubuntu.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:600;&quot;&gt;Picture : &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt; Gottfried&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:600;&quot;&gt; Developper informations &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;on &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:600;&quot;&gt; Developper information &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;on &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.gillesmaire.com&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.gillesmaire.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;l&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt;&amp;gt; &lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; font-weight:600;&quot;&gt;Song&lt;/span&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt;&quot;&gt; are licenced in Creative Common. Song Web Site is : &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.qt-project.org&quot;&gt;&lt;span style=&quot; font-family:&apos;Ubuntu&apos;; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.lesjetesdelencre.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -165,7 +165,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;gt; developped on Ubuntu OS &lt;/p&gt;
 &lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.qt-project.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.ubuntu.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;gt; &lt;span style=&quot; font-weight:600;&quot;&gt;Picture : &lt;/span&gt; Gottfried&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Developper informations &lt;/span&gt;on &lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;gt;&lt;span style=&quot; font-weight:600;&quot;&gt; Developper information &lt;/span&gt;on &lt;/p&gt;
 &lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.gillesmaire.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.gillesmaire.com&lt;/span&gt;&lt;/a&gt;l&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&amp;gt; &lt;span style=&quot; font-weight:600;&quot;&gt;Song&lt;/span&gt; are licenced in Creative Common. Song Web Site is : &lt;/p&gt;
 &lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;http://www.qt-project.org&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.lesjetesdelencre.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
@@ -194,7 +194,7 @@ Site : http://www.gillesmaire.com</source>
         <translation type="vanished">Concepteur : Gilles Maire
 GPL V3
 Version 0.2
-Source code sur SourceForge project ChordV
+Code source sur SourceForge projet ChordV
 Site : http://www.gillesmaire.com</translation>
     </message>
     <message>
@@ -254,7 +254,7 @@ Site : http://www.gillesmaire.com</translation>
     <message>
         <location filename="../src/dialogchoosegoodchord.ui" line="14"/>
         <source>You defined the same name for two Chord !</source>
-        <translation>Your avez défini le même nom pour deux accords !</translation>
+        <translation>Vous avez défini le même nom pour deux accords !</translation>
     </message>
     <message>
         <location filename="../src/dialogchoosegoodchord.ui" line="36"/>
@@ -304,7 +304,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogchoosegoodchord.cpp" line="36"/>
         <source>Warning : Chord name exist in the database with the same name and same value</source>
-        <translation>Attention : l&apos;accord existe déjà dans la base avec le même nom et la même valeur</translation>
+        <translation>Attention : le nom d&apos;accord existe déjà dans la base avec le même nom et la même valeur</translation>
     </message>
 </context>
 <context>
@@ -323,7 +323,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogchorddefinition.ui" line="65"/>
         <source>Translated chord name</source>
-        <translation>Nom traduit</translation>
+        <translation>Nom traduit de l&apos;accord</translation>
     </message>
     <message>
         <location filename="../src/dialogchorddefinition.ui" line="117"/>
@@ -333,7 +333,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogchorddefinition.ui" line="126"/>
         <source>In database</source>
-        <translation>Dans la base de données </translation>
+        <translation>Dans la base de données</translation>
     </message>
     <message>
         <location filename="../src/dialogchorddefinition.ui" line="171"/>
@@ -397,7 +397,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/dialogchorddefinition.ui" line="439"/>
-        <source>Chord Inport</source>
+        <source>Chord Import</source>
         <translation>Importation d&apos;accords</translation>
     </message>
     <message>
@@ -450,7 +450,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/dialogchorddefinition.cpp" line="207"/>
-        <source>Undertermined</source>
+        <source>Undetermined</source>
         <translation>Indéterminé</translation>
     </message>
     <message>
@@ -488,11 +488,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>English</source>
-        <translation type="vanished">English</translation>
+        <translation type="vanished">Anglais</translation>
     </message>
     <message>
         <source>Français</source>
-        <translation type="vanished">French</translation>
+        <translation type="vanished">Français</translation>
     </message>
     <message>
         <location filename="../src/dialogconfiguration.ui" line="52"/>
@@ -547,11 +547,11 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogconfiguration.ui" line="178"/>
         <source>Memory mode</source>
-        <translation>Mode aide mémoire</translation>
+        <translation>Mode aide-mémoire</translation>
     </message>
     <message>
         <source>Memory font</source>
-        <translation type="vanished">Police de caractères du mode aide mémoire</translation>
+        <translation type="vanished">Police de caractères du mode aide-mémoire</translation>
     </message>
     <message>
         <source>Top</source>
@@ -591,7 +591,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogconfiguration.ui" line="267"/>
         <source>Save</source>
-        <translation>Sauver</translation>
+        <translation>Sauvegarder</translation>
     </message>
     <message>
         <location filename="../src/dialogconfiguration.cpp" line="44"/>
@@ -627,7 +627,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialognewsong.ui" line="35"/>
         <source>Subtitle</source>
-        <translation>Sous titre</translation>
+        <translation>Sous-titre</translation>
     </message>
     <message>
         <location filename="../src/dialognewsong.ui" line="42"/>
@@ -685,8 +685,8 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/dialogprocessmemory.cpp" line="71"/>
         <source>Jack seems to not be launched ! 
 (Try to launch Jack manually without QJackCtl)</source>
-        <translation>Jack semble ne pas être lancé
-(Essayer de lancer Jack en ligne de commandes sans QJackCtl)</translation>
+        <translation>Jack semble ne pas être lancé !
+(Essayez de lancer Jack en ligne de commandes sans QJackCtl)</translation>
     </message>
     <message>
         <location filename="../src/dialogprocessmemory.cpp" line="78"/>
@@ -704,7 +704,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogreplace.ui" line="14"/>
         <source>Search and replace</source>
-        <translation>Cherche et remplace</translation>
+        <translation>Chercher et remplacer</translation>
     </message>
     <message>
         <location filename="../src/dialogreplace.ui" line="30"/>
@@ -796,7 +796,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogsysteminfo.ui" line="14"/>
         <source>System informations</source>
-        <translation>Informations systèmes</translation>
+        <translation>Informations système</translation>
     </message>
     <message>
         <location filename="../src/dialogsysteminfo.ui" line="26"/>
@@ -837,7 +837,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogsysteminfo.ui" line="75"/>
         <source>Program Pid</source>
-        <translation>Numéro didentification du programme</translation>
+        <translation>Numéro d&apos;identification du programme</translation>
     </message>
     <message>
         <location filename="../src/dialogsysteminfo.ui" line="82"/>
@@ -847,7 +847,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogsysteminfo.ui" line="89"/>
         <source>Database name</source>
-        <translation>Nom de la base</translation>
+        <translation>Nom de la base de données</translation>
     </message>
     <message>
         <location filename="../src/dialogsysteminfo.ui" line="189"/>
@@ -912,12 +912,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/dialogtwolinestochordpro.ui" line="14"/>
         <source>Format 2 lines to chordpro converter</source>
-        <translation>Transformation format 2 lignes en format chordpro</translation>
+        <translation>Transformation format 2 lignes vers chordpro</translation>
     </message>
     <message>
         <location filename="../src/dialogtwolinestochordpro.ui" line="26"/>
         <source>Copy paste song in 2 line format </source>
-        <translation>Coller une chansons en format 2 lignes</translation>
+        <translation>Copier coller une chanson en format 2 lignes</translation>
     </message>
     <message>
         <location filename="../src/dialogtwolinestochordpro.ui" line="50"/>
@@ -941,7 +941,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Input file</source>
-        <translation type="vanished">Fichier  à convertir</translation>
+        <translation type="vanished">Fichier à convertir</translation>
     </message>
     <message>
         <source>Chord</source>
@@ -981,7 +981,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/fontchooser.ui" line="29"/>
         <source>Select Font and colors</source>
-        <translation>Sélectionner  les couleurs</translation>
+        <translation>Sélectionner les couleurs et polices</translation>
     </message>
     <message>
         <location filename="../src/fontchooser.ui" line="64"/>
@@ -1020,17 +1020,17 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="49"/>
         <source>Page width</source>
-        <translation>Largeur</translation>
+        <translation>Largeur de la page</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="63"/>
         <source>Page height</source>
-        <translation>Hauteur</translation>
+        <translation>Hauteur de la page</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="77"/>
         <source>Page</source>
-        <translation>Pages</translation>
+        <translation>Page</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="87"/>
@@ -1085,13 +1085,13 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="204"/>
         <source>Subtitle Font</source>
-        <translation>Police des sous titres</translation>
+        <translation>Police des sous-titres</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="424"/>
         <location filename="../src/formconfig.ui" line="437"/>
         <source>Duplex</source>
-        <translation>Recto verso</translation>
+        <translation>Recto-verso</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="432"/>
@@ -1189,7 +1189,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="279"/>
         <source>Comment Font in box</source>
-        <translation>Police des commentaires en boite</translation>
+        <translation>Police des commentaires en boîte</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="414"/>
@@ -1205,7 +1205,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="490"/>
         <source>Shift+S, Esc</source>
-        <translation>Shift+S, Esc</translation>
+        <translation>Maj+S, Esc</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="512"/>
@@ -1375,7 +1375,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="901"/>
         <source>Text vertical spacing</source>
-        <translation>Espacement vertical</translation>
+        <translation>Espacement vertical du texte</translation>
     </message>
     <message>
         <location filename="../src/formconfig.ui" line="913"/>
@@ -1385,7 +1385,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/formconfig.ui" line="922"/>
         <source>Title in uppercase</source>
-        <translation>Titres en majuscule</translation>
+        <translation>Titre en majuscule</translation>
     </message>
 </context>
 <context>
@@ -1402,7 +1402,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Cover Title</source>
-        <translation type="vanished">Titre couverture</translation>
+        <translation type="vanished">Titre de couverture</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="51"/>
@@ -1421,7 +1421,7 @@ couverture</translation>
     <message>
         <location filename="../src/formeditor.ui" line="96"/>
         <source>Long/Short notation in text</source>
-        <translation>Notation Longue/courte dans le texte</translation>
+        <translation>Notation longue/courte dans le texte</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="99"/>
@@ -1445,7 +1445,7 @@ title</source>
 chanson</translation>
     </message>
     <message>
-        <source>Song Sub Titile</source>
+        <source>Song Sub Title</source>
         <translation type="vanished">Sous-titre\nchanson</translation>
     </message>
     <message>
@@ -1483,7 +1483,7 @@ chanson</translation>
     <message>
         <location filename="../src/formeditor.ui" line="183"/>
         <source>Column:</source>
-        <translation>Colonne:</translation>
+        <translation>Colonne :</translation>
     </message>
     <message>
         <source>Column break</source>
@@ -1493,7 +1493,7 @@ chanson</translation>
         <location filename="../src/formeditor.ui" line="200"/>
         <source>Column
 break</source>
-        <translation>Changerment
+        <translation>Changement
 de colonne</translation>
     </message>
     <message>
@@ -1510,7 +1510,7 @@ de colonne</translation>
         <source>Start of
 chorus</source>
         <translation>Début de
- chorus</translation>
+chorus</translation>
     </message>
     <message>
         <source>End of chorus</source>
@@ -1529,7 +1529,7 @@ chorus</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="40"/>
-        <source>Document header informations</source>
+        <source>Document header information</source>
         <translation>Informations concernant l&apos;entête du document</translation>
     </message>
     <message>
@@ -1540,12 +1540,12 @@ chorus</translation>
     <message>
         <location filename="../src/formeditor.ui" line="59"/>
         <source>Define a subtitle for the booklet</source>
-        <translation>Définir un titre pour le livret</translation>
+        <translation>Définir un sous-titre pour le livret</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="112"/>
         <source>Song header informations</source>
-        <translation>Information concernant l&apos;entête d&apos;une chanson</translation>
+        <translation>Informations concernant l&apos;entête d&apos;une chanson</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="120"/>
@@ -1567,7 +1567,7 @@ nouvelle chanson</translation>
     <message>
         <location filename="../src/formeditor.ui" line="142"/>
         <source>Define a song subtitle</source>
-        <translation>Définir le sous titre d&apos;une chanson</translation>
+        <translation>Définir le sous-titre d&apos;une chanson</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="197"/>
@@ -1576,7 +1576,7 @@ nouvelle chanson</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="227"/>
-        <source>Song part informations</source>
+        <source>Song part information</source>
         <translation>Informations concernant une chanson</translation>
     </message>
     <message>
@@ -1599,7 +1599,7 @@ nouvelle chanson</translation>
         <source>Start of 
 refrain</source>
         <translation>Début du
- refrain</translation>
+refrain</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="275"/>
@@ -1611,7 +1611,7 @@ refrain</source>
         <source>End of 
 refrain</source>
         <translation>Fin du
- refrain</translation>
+refrain</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="293"/>
@@ -1659,7 +1659,7 @@ grille</translation>
         <source>End of 
 grid</source>
         <translation>Fin de 
-Grille</translation>
+grille</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="351"/>
@@ -1675,18 +1675,18 @@ de page</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="385"/>
-        <source>Infos</source>
+        <source>Info</source>
         <translation>Informations</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="388"/>
-        <source>Song other informations</source>
+        <source>Song other information</source>
         <translation>Autres informations concernant la chanson</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="396"/>
         <source>Insert the song composer</source>
-        <translation>Insérer le compositeur de la chanson</translation>
+        <translation>Insérer le compositeur de chanson</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="399"/>
@@ -1736,12 +1736,12 @@ de page</translation>
     <message>
         <location filename="../src/formeditor.ui" line="446"/>
         <source>Insert the copyright</source>
-        <translation>Insérer le copyright</translation>
+        <translation>Insérer le droit d&apos;auteur</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="449"/>
         <source>Copyright</source>
-        <translation>Copyright</translation>
+        <translation>Droit d&apos;auteur</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="456"/>
@@ -1781,7 +1781,7 @@ de page</translation>
     <message>
         <location filename="../src/formeditor.ui" line="505"/>
         <source>Other informations in comment style</source>
-        <translation>Autre informations sous la forme de commentaires</translation>
+        <translation>Autres informations sous la forme de commentaires</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="513"/>
@@ -1804,13 +1804,13 @@ de base</translation>
         <location filename="../src/formeditor.ui" line="527"/>
         <source>Comment
 Italic</source>
-        <translation>Commentaires
+        <translation>Commentaire
 en italique</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="535"/>
         <source>Insert a comment in a box</source>
-        <translation>Insérer un commentaire dans une boite</translation>
+        <translation>Insérer un commentaire dans une boîte</translation>
     </message>
     <message>
         <location filename="../src/formeditor.ui" line="538"/>
@@ -1854,7 +1854,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Input file</source>
-        <translation type="vanished">Fichier  à convertir</translation>
+        <translation type="vanished">Fichier à convertir</translation>
     </message>
     <message>
         <location filename="../src/forminputoutputchord.ui" line="22"/>
@@ -1893,7 +1893,7 @@ en boîte</translation>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="37"/>
         <source>Memory font</source>
-        <translation>Police de caractères du mode aide mémoire</translation>
+        <translation>Police de caractères du mode aide-mémoire</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="44"/>
@@ -1959,7 +1959,7 @@ en boîte</translation>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="111"/>
         <source>This show the font effect</source>
-        <translation>Montre le rendu de la police de caractères choisie</translation>
+        <translation>Montre le rendu de la police de caractère choisie</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="126"/>
@@ -1969,7 +1969,7 @@ en boîte</translation>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="137"/>
         <source>Show rythm with bullet</source>
-        <translation>Afficher des bullets sur chaque temps</translation>
+        <translation>Afficher des pastilles sur chaque temps</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="147"/>
@@ -2040,7 +2040,7 @@ en boîte</translation>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="280"/>
         <source>This option allow to synchronize the lyrics with the Jack complient program. It is useful with Ardour for example.</source>
-        <translation>Cette option parmet de synchroniser les paroles avec un programme compatible avec Jack. C&apos;est utile avec Ardour par exemple.</translation>
+        <translation>Cette option permet de synchroniser les paroles avec un programme compatible avec Jack. C&apos;est utile avec Ardour par exemple.</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="283"/>
@@ -2049,7 +2049,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Synchronized with Jack</source>
-        <translation type="vanished">Synchronisation via Jack</translation>
+        <translation type="vanished">Synchronisation avec Jack</translation>
     </message>
     <message>
         <source>Number of bars before to start</source>
@@ -2062,7 +2062,7 @@ en boîte</translation>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="91"/>
         <source>Show monitoring window in fullscreen mode</source>
-        <translation>Affiche la fenêtre aide mémoire des paroles en mode plein écran</translation>
+        <translation>Affiche la fenêtre aide-mémoire des paroles en mode plein écran</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="94"/>
@@ -2076,7 +2076,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Show rythm</source>
-        <translation type="vanished">Affiche le rythtme</translation>
+        <translation type="vanished">Affiche le rythme</translation>
     </message>
     <message>
         <location filename="../src/formmemoryinfo.ui" line="101"/>
@@ -2188,7 +2188,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Memory mode book</source>
-        <translation type="vanished">Mode aide mémoire</translation>
+        <translation type="vanished">Mode aide-mémoire</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="93"/>
@@ -2215,7 +2215,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Make  and show PDF </source>
-        <translation type="vanished">Fabricationet visualisation des PDF</translation>
+        <translation type="vanished">Fabrication et visualisation des PDF</translation>
     </message>
     <message>
         <source>Lyrics mode</source>
@@ -2232,7 +2232,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Memory mode</source>
-        <translation type="vanished">Mode aide mémoire</translation>
+        <translation type="vanished">Mode aide-mémoire</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="63"/>
@@ -2252,7 +2252,7 @@ en boîte</translation>
         <translation type="vanished">Titre \nchanson</translation>
     </message>
     <message>
-        <source>Song Sub Titile</source>
+        <source>Song Sub Title</source>
         <translation type="vanished">Sous-titre\nchanson</translation>
     </message>
     <message>
@@ -2261,7 +2261,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Compression until end of song</source>
-        <translation type="vanished">Compression jusqu&apos;à  la fin de la chanson</translation>
+        <translation type="vanished">Compression jusqu&apos;à la fin de la chanson</translation>
     </message>
     <message>
         <source>c</source>
@@ -2281,7 +2281,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Long/Short notation in text</source>
-        <translation type="vanished">Notation Longue/courte dans le texte</translation>
+        <translation type="vanished">Notation longue/courte dans le texte</translation>
     </message>
     <message>
         <source>Long syntax</source>
@@ -2322,7 +2322,7 @@ en boîte</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="410"/>
         <source>Window</source>
-        <translation>Fenêtres</translation>
+        <translation>Fenêtre</translation>
     </message>
     <message>
         <source>Import cho3 File</source>
@@ -2387,7 +2387,7 @@ en boîte</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="693"/>
         <source>Shift+F6</source>
-        <translation>MAJ+F6</translation>
+        <translation>Maj+F6</translation>
     </message>
     <message>
         <source>Lyrics</source>
@@ -2401,12 +2401,12 @@ en boîte</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="701"/>
         <source>Shift+F7</source>
-        <translation>MAJ+F7</translation>
+        <translation>Maj+F7</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="709"/>
         <source>Shift+F9</source>
-        <translation>MAJ+F9</translation>
+        <translation>Maj+F9</translation>
     </message>
     <message>
         <source>Chord</source>
@@ -2419,7 +2419,7 @@ en boîte</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="vanished">Aide mémoire</translation>
+        <translation type="vanished">Aide-mémoire</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="582"/>
@@ -2490,13 +2490,13 @@ chanson</translation>
         <source>Start of 
 refrain</source>
         <translation type="vanished">Début du
- refrain</translation>
+refrain</translation>
     </message>
     <message>
         <source>End of 
 refrain</source>
         <translation type="vanished">Fin du
- refrain</translation>
+refrain</translation>
     </message>
     <message>
         <source>Beat per minute</source>
@@ -2504,7 +2504,7 @@ refrain</source>
     </message>
     <message>
         <source>Column:</source>
-        <translation type="vanished">Colonne:</translation>
+        <translation type="vanished">Colonne :</translation>
     </message>
     <message>
         <source>Column
@@ -2516,7 +2516,7 @@ de colonne</translation>
         <source>Start of
 chorus</source>
         <translation type="vanished">Début de
- chorus</translation>
+chorus</translation>
     </message>
     <message>
         <source>End of
@@ -2541,7 +2541,7 @@ chorus</translation>
     </message>
     <message>
         <source>Build and Launch PDF</source>
-        <translation type="vanished">Construire et affichier le PDF</translation>
+        <translation type="vanished">Construire et afficher le PDF</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="357"/>
@@ -2559,7 +2559,7 @@ chorus</translation>
     </message>
     <message>
         <source>Memory font</source>
-        <translation type="vanished">Police de caractères du mode aide mémoire</translation>
+        <translation type="vanished">Police de caractères du mode aide-mémoire</translation>
     </message>
     <message>
         <source>Top</source>
@@ -2584,7 +2584,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.cpp" line="934"/>
         <source>&lt; ESCAPE &gt;  to abort monitoring window</source>
-        <translation>&lt; ECHAPPEMENT &gt; pour sortir du mode aide mémoire</translation>
+        <translation>&lt; ÉCHAPPEMENT &gt; pour sortir du mode aide-mémoire</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="282"/>
@@ -2623,7 +2623,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="466"/>
         <source>Sav&amp;e As</source>
-        <translation>Sau&amp;vegarder comme</translation>
+        <translation>Sau&amp;vegarder sous</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="365"/>
@@ -2635,7 +2635,7 @@ chorus</translation>
         <location filename="../src/mainwindow.cpp" line="936"/>
         <source>&lt; ESCAPE &gt;  to abort monitoring window
 &lt; PAUSE&gt; to pause unpause</source>
-        <translation>&lt; ECHAPPEMENT &gt; pour avorter la fenêtre de monitoring
+        <translation>&lt; ÉCHAPPEMENT &gt; pour avorter la fenêtre de monitoring
 &lt; PAUSE &gt; pour passer en pause et pour quitter la pause</translation>
     </message>
     <message>
@@ -2717,7 +2717,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="590"/>
         <source>&amp;Editor</source>
-        <translation>&amp;Editeur</translation>
+        <translation>Édit&amp;eur</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="593"/>
@@ -2755,12 +2755,12 @@ chorus</translation>
         <location filename="../src/mainwindow.ui" line="667"/>
         <location filename="../src/mainwindow.ui" line="706"/>
         <source>&amp;Memory</source>
-        <translation>Aide &amp;mémoire</translation>
+        <translation>Aide-&amp;mémoire</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="675"/>
         <source>&amp;Reset Preferences as Origin</source>
-        <translation>&amp;Remettre les préférences comme à l&apos;origine</translation>
+        <translation>&amp;Réinitialiser les préférences comme à l&apos;origine</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="680"/>
@@ -2775,7 +2775,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="722"/>
         <source>&amp;Zoom +</source>
-        <translation>&amp;Zomm +</translation>
+        <translation>&amp;Zoom +</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="725"/>
@@ -2795,7 +2795,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="738"/>
         <source>&amp;Force configuration files to currrent project</source>
-        <translation>&amp;Force les fichiers de configuration sur le projet courant</translation>
+        <translation>&amp;Forcer les fichiers de configuration sur le projet courant</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="743"/>
@@ -2862,19 +2862,19 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="787"/>
         <source>Ctrl+P</source>
-        <translation></translation>
+        <translation>Ctrl+P</translation>
     </message>
     <message>
         <source>Force configuration files to currrent project</source>
-        <translation type="vanished">Forcer la configuration générale sur le modèle du prohet courant</translation>
+        <translation type="vanished">Forcer la configuration générale sur le modèle du projet courant</translation>
     </message>
     <message>
         <source>Chords with chord on line above to chordpro format</source>
-        <translation type="vanished">Format avec accord sur la ligne au dessus vers format chordpro</translation>
+        <translation type="vanished">Format avec accords sur la ligne au dessus vers format chordpro</translation>
     </message>
     <message>
         <source>Change  the chords Language of the current song file</source>
-        <translation type="vanished">Changer le language des accords du fichier courant</translation>
+        <translation type="vanished">Changer le langage des accords du fichier courant</translation>
     </message>
     <message>
         <source>Close</source>
@@ -2902,7 +2902,7 @@ chorus</translation>
     </message>
     <message>
         <source>&amp;Reset Preference as origine</source>
-        <translation type="vanished">&amp;Remettre les options à l&apos;état usine</translation>
+        <translation type="vanished">&amp;Réinitialiser les options comme à l&apos;origine</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="515"/>
@@ -2917,7 +2917,7 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.ui" line="523"/>
         <source>&amp;System Info</source>
-        <translation>Informations &amp;systèmes</translation>
+        <translation>Informations &amp;système</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="531"/>
@@ -2957,12 +2957,12 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.cpp" line="209"/>
         <source>Buffer as changed</source>
-        <translation>Le contenu édité à changé</translation>
+        <translation>Le contenu édité a changé</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="209"/>
         <source>Do you want to save ? </source>
-        <translation>Voulez vous sauvegarder ?.</translation>
+        <translation>Voulez-vous sauvegarder ? </translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="274"/>
@@ -3010,7 +3010,7 @@ chorus</translation>
     </message>
     <message>
         <source>File not well saved : %1</source>
-        <translation type="vanished">Fichier non sauvegardé : %1</translation>
+        <translation type="vanished">Fichier non-sauvegardé : %1</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="63"/>
@@ -3025,12 +3025,12 @@ chorus</translation>
     <message>
         <location filename="../src/mainwindow.cpp" line="63"/>
         <source>Memory Mode</source>
-        <translation>Mode aide mémoire</translation>
+        <translation>Mode aide-mémoire</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="477"/>
         <source>Save project as</source>
-        <translation>Suvegarder le projet</translation>
+        <translation>Sauvegarder le projet</translation>
     </message>
     <message>
         <source>Save as (*.chop)</source>
@@ -3094,7 +3094,7 @@ chorus</translation>
     <message>
         <location filename="../src/processor.cpp" line="66"/>
         <source>File %1 is not writable. Save as origin file in a writable place before to make a pdf</source>
-        <translation>Le fichier %1 n&apos;est pas accessible en écriture. Sauvegardez votre fichier courant dans répertoire accessible en écriture avant de  demander la fabrication d&apos;un fichier PDF</translation>
+        <translation>Le fichier %1 n&apos;est pas accessible en écriture. Sauvegardez votre fichier courant dans répertoire accessible en écriture avant de demander la fabrication d&apos;un fichier PDF</translation>
     </message>
     <message>
         <location filename="../src/processor.cpp" line="360"/>
@@ -3196,7 +3196,7 @@ chorus</translation>
     <name>QObject</name>
     <message>
         <source>Memory</source>
-        <translation type="vanished">Aide mémoire</translation>
+        <translation type="vanished">Aide-mémoire</translation>
     </message>
     <message>
         <source>Text</source>
@@ -3257,7 +3257,7 @@ chorus</translation>
     <message>
         <location filename="../src/formeditor.cpp" line="173"/>
         <source>Enter sub title</source>
-        <translation>Entrez un sous titre</translation>
+        <translation>Entrez un sous-titre</translation>
     </message>
     <message>
         <location filename="../src/formeditor.cpp" line="173"/>
@@ -3340,12 +3340,12 @@ chorus</translation>
     <message>
         <location filename="../src/formeditor.cpp" line="204"/>
         <source>Enter copyright</source>
-        <translation>Entrer le Copyright</translation>
+        <translation>Entrer le droit d&apos;auteur</translation>
     </message>
     <message>
         <location filename="../src/formeditor.cpp" line="204"/>
         <source>Copyright</source>
-        <translation>Copyright</translation>
+        <translation>Droit d&apos;auteur</translation>
     </message>
     <message>
         <location filename="../src/formeditor.cpp" line="209"/>
@@ -3515,7 +3515,7 @@ chorus</translation>
     <message>
         <location filename="../src/pdfviewer.cpp" line="18"/>
         <source>File not found</source>
-        <translation>Fichier non trouvé</translation>
+        <translation>Fichier non-trouvé</translation>
     </message>
     <message>
         <location filename="../src/pdfviewer.cpp" line="19"/>
@@ -3531,12 +3531,12 @@ chorus</translation>
     <message>
         <location filename="../src/pdfviewer.cpp" line="22"/>
         <source>PdfReader: file %1 not found</source>
-        <translation>Lecteur PDF : fichier %1 non trouvé</translation>
+        <translation>Lecteur PDF : fichier %1 non-trouvé</translation>
     </message>
     <message>
         <location filename="../src/pdfviewer.cpp" line="28"/>
         <source>Variable PDFReader not set in Configuration</source>
-        <translation>La variable Lecteur PDF  n&apos;a pasa été positionnée dans la configuration</translation>
+        <translation>La variable Lecteur PDF n&apos;a pas été positionnée dans la configuration</translation>
     </message>
     <message>
         <location filename="../src/pdfviewer.cpp" line="29"/>

@@ -191,7 +191,7 @@ protected:
     ///
     Ui::FormConfig *m_uiconfig;
     ///
-    /// \brief m_uimainwindow a pointer on mainwindow to get all the common informations
+    /// \brief m_uimainwindow a pointer on mainwindow to get all the common information
     ///
     Ui::MainWindow *m_uimainwindow;
 
@@ -284,7 +284,7 @@ protected:
     /// \param text :
     /// \param x : if left it is the start of print, if center it is the center point, it left it is end of print
     /// \param y : the y point
-    /// \param fb : ButtonFont containing informations about Font, color etc...
+    /// \param fb : ButtonFont containing information about Font, color etc...
     /// \param align : Processor::left Processor::center or Processor::right
     /// \param scale : 1 no scale >1 will grow the default font <1 decrease the default font
     /// \return return the x position of the end of text

@@ -7,7 +7,7 @@ namespace Ui {
 class DialogSystemInfo;
 }
 ///
-/// \brief The DialogSystemInfo class this dialog show a set of system informations like
+/// \brief The DialogSystemInfo class this dialog show a set of system information like
 /// date of compilation, release version, Git SHA1 version, program arguments, configuration file,
 /// Database location, PID of process, location of language information
 ///

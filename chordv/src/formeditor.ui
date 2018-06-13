@@ -37,7 +37,7 @@
         <string>Doc head</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Document header informations</string>
+        <string>Document header information</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
@@ -109,7 +109,7 @@ subtitle</string>
         <string>Song head</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Song header informations</string>
+        <string>Song header information</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
@@ -224,7 +224,7 @@ break</string>
         <string>Song Part</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Song part informations</string>
+        <string>Song part information</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -380,12 +380,12 @@ Break</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="Infos">
+      <widget class="QWidget" name="Info">
        <attribute name="title">
-        <string>Infos</string>
+        <string>Info</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Song other informations</string>
+        <string>Song other information</string>
        </attribute>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
@@ -502,7 +502,7 @@ Break</string>
         <string>Miscellaneous</string>
        </attribute>
        <attribute name="toolTip">
-        <string>Other informations in comment style</string>
+        <string>Other information in comment style</string>
        </attribute>
        <layout class="QVBoxLayout" name="verticalLayout_3">
         <item>

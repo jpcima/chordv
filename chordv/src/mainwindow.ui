@@ -313,14 +313,16 @@
     </property>
     <addaction name="actionNew_Project"/>
     <addaction name="actionOpen_Project"/>
+    <addaction name="actionLast_Project"/>
     <addaction name="separator"/>
     <addaction name="actionOpen_Song_File"/>
     <addaction name="actionExport_tho_cho3_file"/>
     <addaction name="separator"/>
-    <addaction name="actionClose"/>
-    <addaction name="actionQuit"/>
     <addaction name="actionSave"/>
     <addaction name="actionSave_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
@@ -332,7 +334,7 @@
      </property>
      <addaction name="actionSave_Current_as_Defaut"/>
      <addaction name="actionReset_Preferences_as_Origin"/>
-     <addaction name="actionForce_configuration_files_to_currrent_project"/>
+     <addaction name="actionForce_configuration_files_to_current_project"/>
     </widget>
     <widget class="QMenu" name="menuBuild_PDF">
      <property name="title">
@@ -484,7 +486,7 @@
     <string>Last Project</string>
    </property>
   </action>
-  <action name="actionLast_Poject">
+  <action name="actionLast_Project">
    <property name="text">
     <string>&amp;Last Projects</string>
    </property>
@@ -733,9 +735,9 @@
     <string>Ctrl+-</string>
    </property>
   </action>
-  <action name="actionForce_configuration_files_to_currrent_project">
+  <action name="actionForce_configuration_files_to_current_project">
    <property name="text">
-    <string>&amp;Force configuration files to currrent project</string>
+    <string>&amp;Force configuration files to current project</string>
    </property>
   </action>
   <action name="action2Line2chordpro">

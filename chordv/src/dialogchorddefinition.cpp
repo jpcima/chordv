@@ -204,7 +204,7 @@ void DialogChordDefinition::SetChordLanguage(QString lang, QString minor)
 
 void DialogChordDefinition::ShowChords(QStringList chordnames,QString chordstring)
 {
-   QString chordmin=tr("Undertermined");
+   QString chordmin=tr("Undetermined");
    foreach ( QString chord, chordnames)
        if (chord.length()< chordmin.length() ) chordmin=chord;
    ui->lineEditChord->setText(chordmin);
