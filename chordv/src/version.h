@@ -1,3 +1,3 @@
-#define VERSIONWORK "v0.8.2"
-#define DATEBUILD "2018/06/13"
-#define GIT "a8bcd4e2452229a2a03aa2be0be2f5284126ff1d"
+#define VERSIONWORK "v0.8.3"
+#define DATEBUILD "2018/07/12"
+#define GIT "a789bd245664c6186a0d4cd4eb6df19d9e9a2dd0"

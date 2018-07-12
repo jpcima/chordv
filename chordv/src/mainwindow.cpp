@@ -454,7 +454,7 @@ QString MainWindow::getRelativeFilename( QString chofilename )
 void MainWindow::Save(bool)
 {
     ui->log->clear();
-    if ( m_currentprojectname.isEmpty() || m_demofile )
+    if ( m_currentprojectname.isEmpty() )
         SaveAs(true);
     else m_currentprojectfile=m_currentprojectdir+"/"+m_currentprojectname+".chop";
     QSettings sf(m_currentprojectfile,QSettings::IniFormat);
