@@ -1,4 +1,4 @@
-        #-------------------------------------------------
+    #-------------------------------------------------
     #
     # Project created by QtCreator 2016-03-02T18:06:45
     #
@@ -66,8 +66,8 @@
         src/normalizelist.cpp \
         src/dialogtranspose.cpp \
         src/dialognewsong.cpp \
-    src/formmemoryinfo.cpp \
-    src/dialogprocessmemory.cpp
+        src/formmemoryinfo.cpp \
+        src/dialogprocessmemory.cpp
 
     HEADERS  += src/mainwindow.h \
         src/formconfig.h \
