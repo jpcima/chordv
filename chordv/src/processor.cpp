@@ -91,6 +91,7 @@ void Processor::run()
     QRegExp YearRex("^ *\\{(?:year): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp KeyRex("^ *\\{(?:key): *([^}]*) *\\}",Qt::CaseInsensitive);
     QRegExp DurationRex("^ *\\{(?:key): *([^}]*) *\\}",Qt::CaseInsensitive);
+    QRegExp VersionRex("^ *\\{(?:version|v): *([^}]*) *\\}",Qt::CaseInsensitive);
     setCoverMade(false);
     m_lineindex=0;
     foreach ( QString line, m_text.split(QRegExp("\n")) )
@@ -159,6 +160,10 @@ void Processor::run()
         {
             setCoverTitle(CoverTitleREX.cap(1));
         }
+        else if (line.contains(VersionRex) )
+        {
+            setVersion(VersionRex.cap(1));
+        }
         else if ( line.contains(CoverSubTitleREX) )
         {
             setCoverSubtitle(CoverSubTitleREX.cap(1));
@@ -211,7 +216,7 @@ void Processor::run()
 
             if ( m_covertitleexist && ! getCoverMade()  && m_uiconfig->checkBoxCover->isChecked())
             {
-                 Cover(getCoverTitle(),getCoverSubtitle());
+                 Cover(getCoverTitle(),getCoverSubtitle(),getVersion());
                  setCoverMade(true);
                  m_nbrealpages=0;
             }
@@ -347,6 +352,13 @@ void Processor::setCoverSubtitle(QString coversubtitle)
 {
     m_covertsubtitleexist=true;
     m_coversubtitle=coversubtitle;
+}
+
+QString Processor::getVersion(){return m_version ;}
+
+void Processor::setVersion(QString version)
+{
+    m_version=version;
 }
 
 void Processor::includeRefrain(QString line)
@@ -577,7 +589,7 @@ int Processor::nextColumn( int colnumber)
     return ( m_uiconfig->spuPageWidth->getPdfU()*(colnumber)/m_colnumber +m_uiconfig->spuHorizontalMargin->getPdfU());
 }
 
-void Processor::Cover(QString title, QString subtitle)
+void Processor::Cover(QString title, QString subtitle, QString version)
 
 {
         AllocatePage();
@@ -615,6 +627,7 @@ void Processor::Cover(QString title, QString subtitle)
           pfont->SetStrikeOut(m_uiconfig->toolButtonCoverFont->getFont().strikeOut());
           double widthtext=pfont->GetFontMetrics()->StringWidth(subtitle.toLatin1());
           Text(m_document,subtitle,x2-widthtext/2,posy-m_uiconfig->toolButtonCoverFont->getFont().pointSize()*0.5,m_uiconfig->toolButtonCoverFont,right,0.5);
+          Text(m_document,version,x2-widthtext/2,posy-m_uiconfig->toolButtonCoverFont->getFont().pointSize()*3,m_uiconfig->toolButtonCoverFont,center,0.2);
 }
 
 

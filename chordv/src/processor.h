@@ -26,6 +26,7 @@ class Processor : public QObject
 {
     Q_OBJECT
 
+    void setVersion(QString version);
 public:
     enum Align {left,center,right};
     Processor(Ui::MainWindow *ui1, Ui::FormConfig *ui2  );
@@ -43,6 +44,7 @@ public:
     QString getCoverTitle(){return m_covertitle;}
     virtual void setCoverSubtitle(QString coversubtitle);
     QString getCoverSubtitle(){return m_coversubtitle;}
+    QString getVersion();
     void setSocMode(bool socmode);
     void setRefrain( bool refrain);
 
@@ -68,7 +70,7 @@ public:
     /// \param title : QString for title
     /// \param subtitle : QString for subtitle
     ///
-    virtual void Cover(QString title, QString subtitle);
+    virtual void Cover(QString title, QString subtitle,QString version);
     ///
     /// \brief doChords display chords
     ///
@@ -328,7 +330,9 @@ protected:
     /// \brief memorizeChords memorize Chord for the song in m_BufChords;
     /// \param line the line read
     ///
+    ///
     void memorizeChords(QString line);
+    QString m_version;
 signals:
     void PDFMade( QString file);
     void Error(QString message);

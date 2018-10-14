@@ -370,6 +370,7 @@ void FormEditor::InsertCompress()
         ReplaceLongShort("{ci:","{comment_italic:");
         ReplaceLongShort("{ci:","{comment_italic:");
         ReplaceLongShort("{cb:","{comment_box:");
+        ReplaceLongShort("{v:","{version:");
         ui->textEdit->setText(m_buffreplace);
     }
 
