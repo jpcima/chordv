@@ -1,10 +1,13 @@
 #include "logmessages.h"
 
 #include <QDebug>
+#include <QFontMetrics>
 
 LogMessages::LogMessages(QWidget *parent):QTextEdit(parent)
 {
-
+ QFont f;
+ QFontMetrics fm(f);
+ this->setMinimumHeight(fm.height()*1.2);
 }
 
 

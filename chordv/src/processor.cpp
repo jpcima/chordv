@@ -1052,7 +1052,7 @@ double Processor::TextInBox(PdfDocument *doc, QString text, double x, double y, 
 double  Processor::Text( PdfDocument *doc, QString text, double x, double y, FontButton *fb ,Align align, double scale)
 {
     qDebug()<<"text"<<text;
-    if (text.at(0) == 0 ) return 0;
+    if (text.length()==0 ) return 0;
     if ( !m_pageAllocation)
     {
        m_page = m_document->CreatePage(*m_dimension);

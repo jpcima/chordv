@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>798</width>
-    <height>497</height>
+    <width>646</width>
+    <height>496</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@
       <attribute name="title">
        <string>Document</string>
       </attribute>
-      <layout class="QHBoxLayout" name="horizontalLayout_35">
+      <layout class="QVBoxLayout" name="verticalLayout_24">
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_20">
          <item>
@@ -513,8 +513,11 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_23">
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_25">
-         <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="QWidget" name="">
           <layout class="QVBoxLayout" name="verticalLayout_21">
            <item>
             <widget class="QGroupBox" name="groupBoxCover">
@@ -768,8 +771,8 @@
             </widget>
            </item>
           </layout>
-         </item>
-         <item>
+         </widget>
+         <widget class="QWidget" name="">
           <layout class="QVBoxLayout" name="verticalLayout_22">
            <item>
             <widget class="QGroupBox" name="groupBoxChord">
@@ -849,17 +852,17 @@
                    <widget class="QComboBox" name="comboBoxChordInText">
                     <item>
                      <property name="text">
-                      <string>with diagram in text</string>
+                      <string>diagram in text</string>
                      </property>
                     </item>
                     <item>
                      <property name="text">
-                      <string>with name in text but all chords at begining</string>
+                      <string>chords at begining</string>
                      </property>
                     </item>
                     <item>
                      <property name="text">
-                      <string>with name in text and no chord at begining</string>
+                      <string>name in text only</string>
                      </property>
                     </item>
                    </widget>
@@ -961,8 +964,8 @@
             </widget>
            </item>
           </layout>
-         </item>
-        </layout>
+         </widget>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -971,6 +974,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>ColorButton</class>
+   <extends>QToolButton</extends>
+   <header>colorbutton.h</header>
+  </customwidget>
   <customwidget>
    <class>SpinBoxUnit</class>
    <extends>QWidget</extends>
@@ -1001,11 +1009,6 @@
    <class>VerticalSpacing</class>
    <extends>QComboBox</extends>
    <header location="global">verticalspacing.h</header>
-  </customwidget>
-  <customwidget>
-   <class>ColorButton</class>
-   <extends>QToolButton</extends>
-   <header>colorbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>
