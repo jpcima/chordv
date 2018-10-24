@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>646</width>
-    <height>496</height>
+    <width>639</width>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,6 +27,18 @@
        <string>Document</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_24">
+       <property name="leftMargin">
+        <number>1</number>
+       </property>
+       <property name="topMargin">
+        <number>1</number>
+       </property>
+       <property name="rightMargin">
+        <number>1</number>
+       </property>
+       <property name="bottomMargin">
+        <number>1</number>
+       </property>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_20">
          <item>
@@ -517,7 +529,7 @@
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <layout class="QVBoxLayout" name="verticalLayout_21">
            <item>
             <widget class="QGroupBox" name="groupBoxCover">
@@ -525,6 +537,18 @@
               <string>Cover</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_11">
+              <property name="leftMargin">
+               <number>1</number>
+              </property>
+              <property name="topMargin">
+               <number>1</number>
+              </property>
+              <property name="rightMargin">
+               <number>1</number>
+              </property>
+              <property name="bottomMargin">
+               <number>1</number>
+              </property>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout">
                 <item>
@@ -632,6 +656,18 @@
               <string>Toc</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_13">
+              <property name="leftMargin">
+               <number>1</number>
+              </property>
+              <property name="topMargin">
+               <number>1</number>
+              </property>
+              <property name="rightMargin">
+               <number>1</number>
+              </property>
+              <property name="bottomMargin">
+               <number>1</number>
+              </property>
               <item>
                <layout class="QHBoxLayout" name="horizontalLayout_24">
                 <item>
@@ -772,7 +808,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <layout class="QVBoxLayout" name="verticalLayout_22">
            <item>
             <widget class="QGroupBox" name="groupBoxChord">
@@ -780,6 +816,18 @@
               <string>Chord</string>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_14">
+              <property name="leftMargin">
+               <number>1</number>
+              </property>
+              <property name="topMargin">
+               <number>1</number>
+              </property>
+              <property name="rightMargin">
+               <number>1</number>
+              </property>
+              <property name="bottomMargin">
+               <number>1</number>
+              </property>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_3">
                 <item>
@@ -880,6 +928,18 @@
               <string>Miscellaneous</string>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_31">
+              <property name="leftMargin">
+               <number>1</number>
+              </property>
+              <property name="topMargin">
+               <number>1</number>
+              </property>
+              <property name="rightMargin">
+               <number>1</number>
+              </property>
+              <property name="bottomMargin">
+               <number>1</number>
+              </property>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_8">
                 <item>
